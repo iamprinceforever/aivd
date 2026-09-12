@@ -1,0 +1,30 @@
+{
+  "experiments": 80,
+  "DiscoveryEfficiency": 0.0375,
+  "ExplorationCoverage": 0.6666666666666666,
+  "FalsePositiveRate": 0.0,
+  "ReproRate": 1.0,
+  "CorpusEscapeRate": 0.6666666666666666,
+  "tests_per_discovery": 26.666666666666668,
+  "AnomalyRate": 0.0,
+  "ConfirmedCount": 33,
+  "ConfirmedUniqueGT": [
+    "HV-CORPUS-INJECT",
+    "HV-NOVEL-DELIMITER",
+    "HV-NOVEL-ENCODING"
+  ],
+  "CorpusEscapeGT": [
+    "HV-NOVEL-DELIMITER",
+    "HV-NOVEL-ENCODING"
+  ],
+  "gt_hits": {
+    "HV-NOVEL-DELIMITER": 19,
+    "HV-NOVEL-ENCODING": 13,
+    "HV-CORPUS-INJECT": 1
+  },
+  "status_counts": {
+    "confirmed": 33,
+    "tested": 47
+  },
+  "mean_reward": -0.022625310909382627
+}
