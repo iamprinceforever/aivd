@@ -113,6 +113,7 @@ class BehaviorMap:
         beh: dict[str, Any],
         *,
         security_relevance: float = 0.0,
+        **memory_kwargs: Any,
     ) -> BehavioralState:
         return BehavioralState.from_map_result(
             beh,
@@ -122,4 +123,5 @@ class BehaviorMap:
             uncertainty=float(beh.get("uncertainty") or 0.0),
             trajectory_length=int(beh.get("trajectory_length") or 0),
             unexplored_hint=self.unexplored_hint_vector(),
+            **memory_kwargs,
         )

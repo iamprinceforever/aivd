@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Optional
 
 import numpy as np
@@ -20,6 +21,7 @@ from aivd.core.types import (
     FindingStatus,
     Observation,
     ProbeResult,
+    new_id,
 )
 from aivd.evaluation.counterfactual import CounterfactualEvaluator
 from aivd.evaluation.critic import ResearchCritic
@@ -30,6 +32,9 @@ from aivd.evaluation.real_model_analyzer import RealModelSecurityAnalyzer
 from aivd.evaluation.verifier import Verifier
 from aivd.explorers import get_explorer
 from aivd.memory.store import ExperimentStore
+from aivd.memory.manager import ContinualMemory
+from aivd.memory.continual_hooks import ContinualSession, semantic_region_id
+from aivd.behavior.novelty import global_novelty, multi_level_novelty
 from aivd.reward.calculator import RewardCalculator
 from aivd.reward.formula import estimate_normalized_cost
 from aivd.targets.registry import get_target
@@ -84,7 +89,41 @@ class Controller:
         self._seen_prompt_hashes: set[str] = set()
         self._coverage_prev = 0.0
         self.results: list[ProbeResult] = []
-        self.audit.write("controller_init", explorer=explorer_name, target=self.target.target_id)
+        self.learning_mode = getattr(self.config, "learning_mode", "stateless") or "stateless"
+        self.continual: ContinualSession | None = None
+        if self.learning_mode == "continual":
+            mem = ContinualMemory(
+                root=getattr(self.config, "memory_root", "aivd_data/continual_memory"),
+                checkpoint_root=getattr(self.config, "checkpoint_root", "aivd_data/checkpoints"),
+            )
+            self.continual = ContinualSession(
+                mem,
+                run_id=new_id("run_"),
+                target_id=getattr(self.target, "target_id", "unknown"),
+                namespace=getattr(self.config, "memory_namespace", "target"),
+            )
+            # Rebuild PPO with memory-sized state if needed; load checkpoint if present
+            ckpt_name = getattr(self.config, "checkpoint_name", "ppo_continual")
+            ckpt_path = Path(getattr(self.config, "checkpoint_root", "aivd_data/checkpoints")) / "global" / f"{ckpt_name}.pt"
+            if self.explorer_name == "ppo":
+                from aivd.explorers.ppo_explorer import PPOExplorer
+                self.explorer = PPOExplorer(
+                    seed=self.config.seed,
+                    continual=True,
+                    include_memory=True,
+                    checkpoint_path=ckpt_path if ckpt_path.exists() else None,
+                )
+            else:
+                if hasattr(self.explorer, "continual"):
+                    self.explorer.continual = True
+                if hasattr(self.explorer, "include_memory"):
+                    self.explorer.include_memory = True
+                if hasattr(self.explorer, "load_checkpoint") and ckpt_path.exists():
+                    try:
+                        self.explorer.load_checkpoint(ckpt_path)
+                    except Exception as e:
+                        self.audit.write("checkpoint_load_failed", error=str(e))
+        self.audit.write("controller_init", explorer=explorer_name, target=self.target.target_id, learning_mode=self.learning_mode)
 
     def set_target(self, target_id: str, **kwargs: Any) -> None:
         self.target = get_target(target_id, allowlist=self.config.allowlist, **kwargs)
@@ -118,11 +157,25 @@ class Controller:
                 self.results.append(result)
             finally:
                 self.budget.release()
+        if self.continual is not None:
+            try:
+                self.continual.memory.consolidate()
+            except Exception as e:
+                self.audit.write("memory_consolidate_failed", error=str(e))
+            if hasattr(self.explorer, "save_checkpoint"):
+                try:
+                    ckpt_name = getattr(self.config, "checkpoint_name", "ppo_continual")
+                    ckpt_path = Path(getattr(self.config, "checkpoint_root", "aivd_data/checkpoints")) / "global" / f"{ckpt_name}.pt"
+                    self.explorer.save_checkpoint(ckpt_path)
+                    self.audit.write("checkpoint_saved", path=str(ckpt_path))
+                except Exception as e:
+                    self.audit.write("checkpoint_save_failed", error=str(e))
         self.audit.write(
             "run_complete",
             explorer=self.explorer_name,
             n=len(self.results),
             budget=self.budget.snapshot(),
+            learning_mode=self.learning_mode,
         )
         return self.results
 
@@ -161,6 +214,34 @@ class Controller:
             except Exception:
                 pass
 
+        if self.continual is not None and self.results:
+            last = self.results[-1]
+            last_gt = last.finding.ground_truth_hit
+            last_region = semantic_region_id(
+                last.observation.features.get("region", 0), last_gt
+            )
+            # If last hit was SR suite, stay on override_smuggling
+            if last_gt in {"PV-DELIM-BACKDOOR", "PV-SR-ENCODING", "PV-SR-RAREFRAG"}:
+                last_region = "override_smuggling"
+            mf = self.continual.features_for_region(last_region)
+            ctx.update(mf)
+            rec = self.continual.memory.semantic.get(last_region, namespace=self.continual.namespace)
+            ctx["open_dimensions"] = [
+                d for d, c in rec.dimensions_coverage.items() if c < 0.4
+            ]
+            ctx["mem_residual_uncertainty"] = rec.residual_uncertainty
+            ctx["mem_known_findings_count"] = float(rec.unique_findings)
+            # Also seed known findings from any SR hit seen this run
+            if self.continual.known_vulns & {"PV-DELIM-BACKDOOR", "PV-SR-ENCODING", "PV-SR-RAREFRAG"}:
+                rec_sr = self.continual.memory.semantic.get("override_smuggling", namespace=self.continual.namespace)
+                ctx["open_dimensions"] = [
+                    d for d, c in rec_sr.dimensions_coverage.items() if c < 0.4
+                ]
+                ctx["mem_residual_uncertainty"] = max(
+                    float(ctx.get("mem_residual_uncertainty") or 0),
+                    rec_sr.residual_uncertainty,
+                )
+                ctx["mem_known_findings_count"] = float(max(rec_sr.unique_findings, len(self.continual.known_vulns & {"PV-DELIM-BACKDOOR", "PV-SR-ENCODING", "PV-SR-RAREFRAG"})))
         strategy, prompt = self.explorer.next_prompt(ctx)
         if len(prompt) > self.config.budget.max_prompt_chars:
             prompt = prompt[: self.config.budget.max_prompt_chars]
@@ -196,6 +277,21 @@ class Controller:
         beh = self.bmap.add(resp or "")
         obs.embedding = beh["embedding"]
         obs.features = {"region": beh["region"]}
+
+        # Continual: run vs global novelty + semantic region id
+        global_novelty_val = float(beh["novelty"])
+        semantic_rid = str(beh["region"])
+        if self.continual is not None:
+            semantic_rid = semantic_region_id(beh["region"], gt_hit)
+            g_arch = self.continual.global_archive()
+            try:
+                import numpy as _np
+                global_novelty_val = float(
+                    global_novelty(_np.asarray(beh["embedding"], dtype=_np.float64), g_arch)
+                )
+            except Exception:
+                global_novelty_val = float(beh["novelty"])
+            beh["global_novelty"] = global_novelty_val
 
         assessment = self.evaluator.evaluate(prompt, resp, error)
         real_taxonomy = {}
@@ -340,6 +436,22 @@ class Controller:
         )
 
         cost = estimate_normalized_cost(prompt, resp or "")
+        continual_flags = {
+            "is_new_unique_vuln": False,
+            "is_new_trigger_family": False,
+            "same_vuln_same_trigger": False,
+            "same_region_new_dimension": False,
+        }
+        if self.continual is not None:
+            continual_flags = self.continual.reward_flags(
+                gt_hit=gt_hit, prompt=prompt, region_id=semantic_rid
+            )
+            # attach memory features for explorer observe
+            mem_feats = self.continual.features_for_region(semantic_rid, strategy=strategy)
+            obs.features["semantic_region"] = semantic_rid
+            obs.features["global_novelty"] = global_novelty_val
+            obs.features.update({k: mem_feats.get(k, 0.0) for k in mem_feats})
+
         reward = self.reward_calc.compute(
             information_gain=ig,
             delta_coverage=delta_cov,
@@ -359,9 +471,31 @@ class Controller:
             uncertainty_before=u_before,
             uncertainty_after=u_after,
             use_wm_ig=use_wm_ig,
+            is_new_unique_vuln=bool(continual_flags.get("is_new_unique_vuln")),
+            is_new_trigger_family=bool(continual_flags.get("is_new_trigger_family")),
+            same_vuln_same_trigger=bool(continual_flags.get("same_vuln_same_trigger")),
+            same_region_new_dimension=bool(continual_flags.get("same_region_new_dimension")),
         )
 
-        bstate_now = self.bmap.to_behavioral_state(beh, security_relevance=assessment.score)
+        mem_kw = {}
+        if self.continual is not None:
+            mf = self.continual.features_for_region(semantic_rid, strategy=strategy)
+            mem_kw = {
+                "global_novelty": global_novelty_val,
+                "mem_coverage": mf.get("mem_coverage", 0.0),
+                "mem_residual_uncertainty": mf.get("mem_residual_uncertainty", 1.0),
+                "mem_known_findings_count": mf.get("mem_known_findings_count", 0.0),
+                "mem_vulnerability_density": mf.get("mem_vulnerability_density", 0.0),
+                "mem_region_priority": mf.get("mem_region_priority", 0.5),
+                "mem_strategy_success": float(
+                    self.continual.memory.semantic.get(semantic_rid).successful_strategies.get(strategy, 0)
+                ),
+                "mem_strategy_fail": float(
+                    self.continual.memory.semantic.get(semantic_rid).failed_strategies.get(strategy, 0)
+                ),
+            }
+        include_mem = self.continual is not None and getattr(self.explorer, "include_memory", False)
+        bstate_now = self.bmap.to_behavioral_state(beh, security_relevance=assessment.score, **mem_kw)
         self.explorer.observe(
             strategy,
             prompt,
@@ -370,9 +504,36 @@ class Controller:
                 "embedding": obs.embedding,
                 "finding": finding,
                 "behavioral_state": bstate_now,
-                "state_vec": bstate_now.as_tensor_view(dim=self.config.embedding_dim),
+                "state_vec": bstate_now.as_tensor_view(
+                    dim=self.config.embedding_dim, include_memory=include_mem
+                ),
+                **mem_kw,
             },
         )
+        if self.continual is not None:
+            try:
+                self.continual.after_probe(
+                    gt_hit=gt_hit,
+                    prompt=prompt,
+                    strategy=strategy,
+                    region_id=semantic_rid,
+                    security=float(assessment.score),
+                    verification=float(verify.repro_score),
+                    reward=float(reward.total),
+                    embedding=list(obs.embedding or []),
+                    novelty=float(beh["novelty"]),
+                    global_novelty=float(global_novelty_val),
+                    state=bstate_now.as_tensor_view(
+                        dim=self.config.embedding_dim, include_memory=True
+                    ).tolist(),
+                    action=strategy,
+                    success=bool(gt_hit) and finding.status.value in {
+                        "confirmed", "reproduced", "independently_verified",
+                        "reproducible_security_novel",
+                    },
+                )
+            except Exception as e:
+                self.audit.write("continual_update_failed", error=str(e))
         self.store.save_probe(exp, obs, finding, reward)
         self.audit.write(
             "result",

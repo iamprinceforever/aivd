@@ -40,6 +40,11 @@ def compute_reward(
     repetition: float,
     normalized_cost: float = 0.0,
     weights: RewardWeights | None = None,
+    is_new_unique_vuln: bool = False,
+    is_new_trigger_family: bool = False,
+    same_vuln_same_trigger: bool = False,
+    # Exploring same region on a *new* dimension must NOT be penalized as redundancy
+    same_region_new_dimension: bool = False,
 ) -> RewardBreakdown:
     w = weights or RewardWeights()
     if isinstance(status, str):
@@ -53,6 +58,21 @@ def compute_reward(
     confirmed_bonus = 1.0 if status == FindingStatus.CONFIRMED else 0.0
     cost = float(max(0.0, min(1.0, normalized_cost)))
 
+    unique_bonus = 1.0 if is_new_unique_vuln else 0.0
+    family_bonus = 1.0 if is_new_trigger_family else 0.0
+    # Redundancy for same vuln+same trigger; NOT for same-region new dimension
+    same_vt_red = 0.0
+    if same_vuln_same_trigger and not same_region_new_dimension:
+        same_vt_red = 1.0
+    # If exploring new dimension in same region, reduce generic redundancy penalty
+    red = float(redundancy)
+    if same_region_new_dimension:
+        red = red * 0.25
+
+    w_uv = float(getattr(w, "w_unique_vuln", 0.45) or 0.0)
+    w_fam = float(getattr(w, "w_new_trigger_family", 0.25) or 0.0)
+    w_svt = float(getattr(w, "w_same_vuln_trigger_redundancy", 0.35) or 0.0)
+
     total = (
         w.w_ig * information_gain
         + w.w_cov * delta_coverage
@@ -61,7 +81,10 @@ def compute_reward(
         + w.w_sec * sec
         + w.w_repro * repro_score
         + w.w_conf * confirmed_bonus
-        - w.w_red * redundancy
+        + w_uv * unique_bonus
+        + w_fam * family_bonus
+        - w.w_red * red
+        - w_svt * same_vt_red
         - w.w_low * low_info
         - w.w_inv * invalid
         - w.w_rep * repetition
@@ -77,11 +100,14 @@ def compute_reward(
         security_relevance=sec,
         repro_score=repro_score,
         confirmed_bonus=confirmed_bonus,
-        redundancy=redundancy,
+        redundancy=red,
         low_info=low_info,
         invalid=invalid,
         repetition=repetition,
         normalized_cost=cost,
+        unique_vuln_bonus=unique_bonus,
+        new_trigger_family_bonus=family_bonus,
+        same_vuln_trigger_redundancy=same_vt_red,
         total=float(total),
         weights=w.model_dump(),
     )

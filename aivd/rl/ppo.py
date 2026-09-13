@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Optional
 
 import numpy as np
 import torch
@@ -39,6 +41,7 @@ class PPOAgent:
         self.opt = torch.optim.Adam(self.net.parameters(), lr=self.config.lr)
         self.buffer = TrajectoryBuffer()
         self._last: dict | None = None
+        self.update_count: int = 0
 
     def _state_t(self, state: np.ndarray) -> torch.Tensor:
         s = np.asarray(state, dtype=np.float64).reshape(-1)
@@ -126,4 +129,46 @@ class PPOAgent:
                 "n": len(self.buffer),
             }
         self.buffer.clear()
+        self.update_count += 1
         return last
+
+    def state_dict_bundle(self) -> dict[str, Any]:
+        return {
+            "policy_state": self.net.state_dict(),
+            "optimizer_state": self.opt.state_dict(),
+            "config": {
+                "state_dim": self.config.state_dim,
+                "action_dim": self.config.action_dim,
+                "hidden": self.config.hidden,
+                "lr": self.config.lr,
+                "seed": self.config.seed,
+            },
+            "update_count": self.update_count,
+        }
+
+    def load_state_dict_bundle(self, bundle: dict[str, Any]) -> None:
+        ps = bundle.get("policy_state") or bundle.get("state_dict")
+        if ps is None:
+            raise KeyError("No policy_state in checkpoint bundle")
+        self.net.load_state_dict(ps)
+        opt = bundle.get("optimizer_state")
+        if opt:
+            try:
+                self.opt.load_state_dict(opt)
+            except Exception:
+                pass
+        self.update_count = int(bundle.get("update_count") or 0)
+
+    def save_checkpoint(self, path: Path | str, meta: Optional[dict[str, Any]] = None) -> Path:
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        bundle = self.state_dict_bundle()
+        bundle["meta"] = meta or {}
+        torch.save(bundle, path)
+        return path
+
+    def load_checkpoint(self, path: Path | str) -> dict[str, Any]:
+        path = Path(path)
+        bundle = torch.load(path, map_location="cpu", weights_only=False)
+        self.load_state_dict_bundle(bundle)
+        return bundle

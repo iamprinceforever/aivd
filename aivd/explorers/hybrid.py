@@ -38,6 +38,22 @@ class HybridExplorer:
             vec = self.encoder.encode(prompt)
             nov = nearest_neighbor_distance(vec, archive)
             candidates.append((nov + 0.05, strategy, prompt))
+        # Continual: prefer unexplored dimensions in a fruitful region (never blacklist)
+        open_dims = context.get("open_dimensions") or []
+        residual_u = float(context.get("mem_residual_uncertainty") or 0.0)
+        known_n = float(context.get("mem_known_findings_count") or 0.0)
+        if residual_u > 0.2 and known_n >= 1:
+            dim_strats = []
+            if "encoding" in open_dims or not open_dims:
+                dim_strats.append("sr_encoding_probe")
+            if "rare_token" in open_dims or not open_dims:
+                dim_strats.append("sr_rarefrag_probe")
+            for s in dim_strats:
+                strategy, prompt = self.gen.from_strategy(s)
+                vec = self.encoder.encode(prompt)
+                nov = nearest_neighbor_distance(vec, archive)
+                # boost for residual uncertainty in known-vuln region
+                candidates.append((nov + 0.15 + 0.1 * residual_u, strategy, prompt))
         candidates.sort(key=lambda x: x[0], reverse=True)
         _, strategy, prompt = candidates[0]
         self._last = (strategy, prompt)

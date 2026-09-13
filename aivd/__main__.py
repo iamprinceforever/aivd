@@ -55,6 +55,26 @@ def main(argv: list[str] | None = None) -> int:
     p_report.add_argument("--path", type=str, required=True)
     p_report.add_argument("--out", type=str, default="reports/cli_report.md")
 
+    p_mem = sub.add_parser("memory", help="Inspect / stats / consolidate continual memory")
+    p_mem.add_argument("action", choices=["inspect", "stats", "consolidate"])
+    p_mem.add_argument("--region", type=str, default="")
+    p_mem.add_argument("--namespace", type=str, default="target")
+    p_mem.add_argument("--root", type=str, default="aivd_data/continual_memory")
+
+    p_ckpt = sub.add_parser("checkpoint", help="Save / load PPO checkpoint")
+    p_ckpt.add_argument("action", choices=["save", "load"])
+    p_ckpt.add_argument("--name", type=str, default="ppo_continual")
+    p_ckpt.add_argument("--namespace", type=str, default="global")
+    p_ckpt.add_argument("--root", type=str, default="aivd_data/checkpoints")
+    p_ckpt.add_argument("--path", type=str, default="", help="Explicit .pt path (optional)")
+
+    p_cont = sub.add_parser("continual", help="Short continual/stateless planted run")
+    p_cont.add_argument("--learning-mode", choices=["stateless", "continual"], default="continual")
+    p_cont.add_argument("--explorer", default="ppo")
+    p_cont.add_argument("--budget", type=int, default=16)
+    p_cont.add_argument("--seed", type=int, default=42)
+    p_cont.add_argument("--target", type=str, default="mock://planted-offline")
+
     args = parser.parse_args(argv)
 
     def _cfg(explorer_default: str = "random"):
@@ -164,6 +184,76 @@ def main(argv: list[str] | None = None) -> int:
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text("\n".join(lines))
         print("wrote", out)
+        return 0
+
+
+    if args.cmd == "memory":
+        from aivd.memory.manager import ContinualMemory
+        mem = ContinualMemory(root=args.root)
+        if args.action == "stats":
+            print(json.dumps(mem.stats(), indent=2, default=str))
+            return 0
+        if args.action == "consolidate":
+            print(json.dumps(mem.consolidate(), indent=2))
+            return 0
+        if args.action == "inspect":
+            if not args.region:
+                print(json.dumps({"regions": [r.region_id for r in mem.semantic.list_regions(args.namespace)]}, indent=2))
+                return 0
+            print(json.dumps(mem.semantic.inspect(args.region, namespace=args.namespace), indent=2))
+            return 0
+
+    if args.cmd == "checkpoint":
+        from aivd.memory.checkpoint import CheckpointStore
+        from aivd.rl.ppo import PPOAgent, PPOConfig
+        store = CheckpointStore(args.root)
+        path = Path(args.path) if args.path else store.path_for(args.name, namespace=args.namespace)
+        if args.action == "save":
+            agent = PPOAgent(PPOConfig())
+            # If existing, load first so save is a round-trip touch
+            if path.exists():
+                agent.load_checkpoint(path)
+            out = store.save(
+                args.name,
+                policy_state=agent.net.state_dict(),
+                optimizer_state=agent.opt.state_dict(),
+                meta={"source": "cli"},
+                namespace=args.namespace,
+                config={"state_dim": agent.config.state_dim},
+            )
+            print(json.dumps({"saved": str(out)}))
+            return 0
+        if args.action == "load":
+            data = store.load(args.name, namespace=args.namespace)
+            print(json.dumps({
+                "loaded": True,
+                "name": data.get("name"),
+                "namespace": data.get("namespace"),
+                "config_fingerprint": data.get("config_fingerprint"),
+                "meta": data.get("meta"),
+                "has_policy": data.get("policy_state") is not None,
+            }, indent=2))
+            return 0
+
+    if args.cmd == "continual":
+        from aivd.agents.controller import Controller
+        from aivd.core.config import AIVDConfig
+        from aivd.metrics.discovery import compute_metrics
+        cfg = AIVDConfig(seed=args.seed, learning_mode=args.learning_mode)
+        cfg.budget.max_experiments = args.budget
+        ctrl = Controller(config=cfg, explorer_name=args.explorer)
+        ctrl.set_target(args.target, seed=args.seed)
+        results = ctrl.run(n=args.budget)
+        m = compute_metrics(results)
+        print(json.dumps({
+            "learning_mode": args.learning_mode,
+            "explorer": args.explorer,
+            "budget": args.budget,
+            "confirmation_events": m.get("confirmation_events"),
+            "unique_vulnerabilities": m.get("unique_vulnerabilities"),
+            "ConfirmedUniqueGT": m.get("ConfirmedUniqueGT"),
+            "gt_hits": m.get("gt_hits"),
+        }, indent=2))
         return 0
 
     parser.print_help()

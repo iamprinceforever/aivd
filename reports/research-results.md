@@ -177,3 +177,11 @@ python -m aivd compare --help
 ```
 
 Audit: `reports/architecture-audit.md`. Config: `configs/research_eval.yaml`.
+
+---
+
+## 22. Continual learning (v3.2.0)
+
+See **[`reports/continual-learning-results.md`](continual-learning-results.md)** and [`reports/continual-learning-audit.md`](continual-learning-audit.md).
+
+Summary (honest): region residual uncertainty keeps R eligible after finding A; same-region suite (DELIM + SR-ENCODING + SR-RAREFRAG) fully discoverable; continual reached all three by run 1 vs stateless by run 3 at 3×24 hybrid budget; final cumulative unique equal (3). Rare canary / policy-only ablation: Not demonstrated.

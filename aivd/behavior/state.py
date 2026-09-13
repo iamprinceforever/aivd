@@ -12,6 +12,9 @@ class BehavioralState(BaseModel):
 
     Embedding ``z`` is the primary continuous representation. Other fields
     summarize map statistics so policies need not re-query the archive.
+
+    v3.2 memory-derived fields (optional, default 0 / 1) extend the tensor view
+    without breaking older consumers that only read the classic extras.
     """
 
     model_config = {"arbitrary_types_allowed": True}
@@ -28,10 +31,24 @@ class BehavioralState(BaseModel):
     security_relevance: float = 0.0
     trajectory_length: int = 0
     unexplored_hint: list[float] = Field(default_factory=list)
+    # --- continual / memory-derived (v3.2) ---
+    global_novelty: float = 0.0
+    mem_coverage: float = 0.0
+    mem_residual_uncertainty: float = 1.0
+    mem_known_findings_count: float = 0.0
+    mem_vulnerability_density: float = 0.0
+    mem_region_priority: float = 0.5
+    mem_strategy_success: float = 0.0
+    mem_strategy_fail: float = 0.0
     meta: dict[str, Any] = Field(default_factory=dict)
 
-    def as_tensor_view(self, dim: int | None = None) -> np.ndarray:
-        """Fixed-length float vector for MLP policies (CPU numpy)."""
+    def as_tensor_view(self, dim: int | None = None, *, include_memory: bool = False) -> np.ndarray:
+        """Fixed-length float vector for MLP policies (CPU numpy).
+
+        Layout: z[dim] + classic extras(10) + hint(8) [+ memory extras(8) if include_memory].
+        Default include_memory=False → classic 64+10+8 = 82 (baselines preserved).
+        Continual PPO passes include_memory=True → +8 memory extras (90-d).
+        """
         z = list(self.z)
         if dim is not None:
             if len(z) < dim:
@@ -53,7 +70,20 @@ class BehavioralState(BaseModel):
         hint = list(self.unexplored_hint[:8])
         if len(hint) < 8:
             hint = hint + [0.0] * (8 - len(hint))
-        return np.asarray(z + extras + hint, dtype=np.float64)
+        vec = z + extras + hint
+        if include_memory:
+            mem = [
+                float(self.global_novelty),
+                float(self.mem_coverage),
+                float(self.mem_residual_uncertainty),
+                float(self.mem_known_findings_count),
+                float(self.mem_vulnerability_density),
+                float(self.mem_region_priority),
+                float(self.mem_strategy_success),
+                float(self.mem_strategy_fail),
+            ]
+            vec = vec + mem
+        return np.asarray(vec, dtype=np.float64)
 
     @classmethod
     def from_map_result(
@@ -67,13 +97,25 @@ class BehavioralState(BaseModel):
         trajectory_length: int = 0,
         unexplored_hint: Sequence[float] | None = None,
         meta: Optional[dict[str, Any]] = None,
+        **memory_kwargs: Any,
     ) -> "BehavioralState":
+        allowed = {
+            "global_novelty",
+            "mem_coverage",
+            "mem_residual_uncertainty",
+            "mem_known_findings_count",
+            "mem_vulnerability_density",
+            "mem_region_priority",
+            "mem_strategy_success",
+            "mem_strategy_fail",
+        }
+        mem = {k: v for k, v in memory_kwargs.items() if k in allowed}
         return cls(
             z=list(beh.get("embedding") or []),
             region_id=int(beh.get("region") or 0),
             novelty=float(beh.get("novelty") or 0.0),
             redundancy=float(beh.get("redundancy") or 0.0),
-            density=float(density),
+            density=float(density if density else beh.get("density") or 0.0),
             visit_count_region=int(visit_count_region),
             coverage=float(beh.get("coverage") or 0.0),
             uncertainty=float(uncertainty),
@@ -82,6 +124,7 @@ class BehavioralState(BaseModel):
             trajectory_length=int(trajectory_length),
             unexplored_hint=list(unexplored_hint or []),
             meta=dict(meta or {}),
+            **mem,
         )
 
     @classmethod

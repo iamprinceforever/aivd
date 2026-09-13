@@ -31,6 +31,10 @@ class RewardWeights(BaseModel):
     w_impact: float = 0.0  # optional; RewardCalculator also applies small extra
     w_dup: float = 0.0  # duplicate behavior (falls back to redundancy)
     novelty_gate_eps: float = 0.05
+    # v3.2 continual: prefer new unique vulns / trigger families over reconfirmations
+    w_unique_vuln: float = 0.45
+    w_new_trigger_family: float = 0.25
+    w_same_vuln_trigger_redundancy: float = 0.35
 
 
 class AIVDConfig(BaseModel):
@@ -69,6 +73,12 @@ class AIVDConfig(BaseModel):
     use_critic: bool = False
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
+    # v3.2 continual learning
+    learning_mode: Literal["stateless", "continual"] = "stateless"
+    memory_root: Path = Field(default_factory=lambda: Path("aivd_data/continual_memory"))
+    checkpoint_root: Path = Field(default_factory=lambda: Path("aivd_data/checkpoints"))
+    checkpoint_name: str = "ppo_continual"
+    memory_namespace: str = "target"
     encoder_lambdas: dict[str, float] = Field(
         default_factory=lambda: {
             "contrastive": 1.0,

@@ -11,3 +11,6 @@ aivd_data/
 .mypy_cache/
 .ruff_cache/
 aivd.egg-info/
+reports/continual/memory_*/
+reports/continual/checkpoints/
+*.pt

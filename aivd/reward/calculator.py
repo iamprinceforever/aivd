@@ -36,6 +36,10 @@ class RewardCalculator:
         uncertainty_before: float | None = None,
         uncertainty_after: float | None = None,
         use_wm_ig: bool = False,
+        is_new_unique_vuln: bool = False,
+        is_new_trigger_family: bool = False,
+        same_vuln_same_trigger: bool = False,
+        same_region_new_dimension: bool = False,
     ) -> RewardBreakdown:
         w = self.weights
         # Prefer world-model IG when available
@@ -60,6 +64,10 @@ class RewardCalculator:
             repetition=repetition,
             normalized_cost=normalized_cost,
             weights=w,
+            is_new_unique_vuln=is_new_unique_vuln,
+            is_new_trigger_family=is_new_trigger_family,
+            same_vuln_same_trigger=same_vuln_same_trigger,
+            same_region_new_dimension=same_region_new_dimension,
         )
         # Optional impact term only when w_impact > 0 (keeps v2 totals by default)
         impact_term = float(getattr(w, "w_impact", 0.0) or 0.0) * float(max(0.0, min(1.0, impact)))

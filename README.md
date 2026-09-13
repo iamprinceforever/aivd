@@ -12,6 +12,21 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.2.0
+
+**Core principle:** a known vulnerability is a *point* in behavioral space — finding A must **not** exhaust region R (residual uncertainty + unexplored dimensions keep R eligible for B/C).
+
+- **Persistent 3-layer memory** (`aivd/memory/`): policy checkpoints, prioritized experience replay (SQLite), behavioral semantic `RegionRecord`s (namespaces `run` / `target` / `global`).
+- **Region priority** never forced to 0 after one finding; saturation only when coverage high ∧ uncertainty low ∧ diminishing IG.
+- **Novelty:** `run_novelty` vs `global_novelty`; multi-level probe/strategy/region.
+- **Continual PPO:** checkpoint save/load; memory-augmented state (opt-in 90-d); `--learning-mode stateless|continual`.
+- **Reward:** stronger for new unique vuln / new trigger family; redundancy for same-vuln+same-trigger — not for same-region new dimension.
+- **Same-region multi-vuln:** `PV-DELIM` + `PV-SR-ENCODING` + `PV-SR-RAREFRAG` on `mock://planted-offline`.
+- CLI: `aivd memory inspect|stats|consolidate`, `aivd checkpoint save|load`, `aivd continual`.
+- Results: [`reports/continual-learning-results.md`](reports/continual-learning-results.md) · audit: [`reports/continual-learning-audit.md`](reports/continual-learning-audit.md).
+
+---
+
 ## What's new in v3.1.0
 
 - Metrics: `confirmation_events` vs `unique_vulnerabilities` vs `unique_trigger_variants`; coverage/NDE helpers; documented `CorpusEscapeRate` — see `aivd/metrics/` + `docs/metrics.md`.
