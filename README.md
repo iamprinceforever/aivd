@@ -230,6 +230,151 @@ docker compose up -d   # optional Postgres/Redis; app still defaults to SQLite u
 
 ---
 
+## Modules and code — what each part does
+
+This section maps **code you can open** to the architecture above ([`docs/architecture.md`](docs/architecture.md)). Purpose first, then the main files.
+
+### End-to-end: how a run works
+
+1. **CLI / experiment runner** (`aivd/__main__.py`, `aivd/experiments/run_*.py`) builds an `AIVDConfig` and a `Controller` with a named explorer.
+2. **Controller** (`aivd/agents/controller.py`) loops until the budget is exhausted:
+   - asks the **explorer** for the next `(strategy, prompt)`
+   - sends the probe through a **TargetAdapter** from the allowlist registry
+   - **encodes** the observation into a behavioral vector and updates the **BehaviorMap**
+   - runs **SecurityEvaluator** → optional **Verifier** → **ImpactAssessor**
+   - computes **reward** (novelty gated by security relevance)
+   - persists experiment / finding / audit events in **Memory**
+   - feeds reward + archive stats back so RL / evolutionary / hybrid explorers can update
+3. **Metrics + viz** summarize confirmed vs unresolved findings; comparison writes `reports/research-results.md`.
+
+That is the same scientific loop described in the Architecture section: hypothesis → experiment → observation → novelty/relevance → reward → update.
+
+### `aivd/core` — shared contracts and safety rails
+
+| File | Purpose |
+|------|---------|
+| `types.py` | Pydantic/dataclass models: `Experiment`, `Observation`, `Finding`, `FindingStatus`, `RewardBreakdown`, probe results |
+| `config.py` | Seeds, paths, embedding dim, cluster counts, reward weights |
+| `budgets.py` | Experiment count, concurrency, timeouts, wall-clock limits |
+| `audit.py` | Append-only JSONL audit trail for every probe and status change |
+
+**Why it exists:** one vocabulary for statuses and safety so explorers cannot bypass budgets or invent finding labels.
+
+### `aivd/targets` — pluggable authorized targets
+
+| File | Purpose |
+|------|---------|
+| `protocol.py` | `TargetAdapter` interface |
+| `registry.py` | **Allowlist** — unknown targets are rejected |
+| `mock.py` | Local mock model with **5 hidden vulns** (2 in-corpus, 3 novel); ground truth for offline metrics only |
+| `local_stub.py` / `openai_compat.py` | Stubs/adapters for future local / API models (still allowlisted + budgeted) |
+
+**Why it exists:** keep destructive/external power out of the core loop; science runs on mocks by default.
+
+### `aivd/agents` — hierarchical control
+
+| File | Purpose |
+|------|---------|
+| `controller.py` | High-level loop: budget, allowlist, probe, evaluate, verify, reward, memory |
+| `planner.py` | Mid-level: pick strategies / regions given coverage gaps |
+| `generators.py` | Low-level: turn a strategy into a concrete prompt (`STRATEGY_TEMPLATES`) |
+
+**Why it exists:** separates *where to look* (controller/planner) from *what string to send* (generator).
+
+### `aivd/explorers` — six search policies
+
+| File | Purpose |
+|------|---------|
+| `base.py` | Common explorer interface (`next_prompt`, optional `update`) |
+| `random_explorer.py` | Uniform random strategies/templates |
+| `corpus_explorer.py` + `corpus_data.py` | Fixed vulnerability corpus (regression baseline; low CorpusEscapeRate by design) |
+| `novelty_explorer.py` | Prefer probes far from the behavioral archive (NN distance) |
+| `evolutionary.py` | Population mutate/crossover; fitness = AIVD reward |
+| `rl_explorer.py` | Softmax REINFORCE over discrete strategies |
+| `hybrid.py` | Sample RL candidates + inject novel-family probes; pick by novelty; then RL update |
+
+**Why it exists:** make the research question *experimentally comparable* under identical reward, verifier, and metrics.
+
+### `aivd/behavior` — behavioral map
+
+| File | Purpose |
+|------|---------|
+| `encoder.py` | Feature-hashing embeddings of responses (+ security signal overlays) |
+| `torch_encoder.py` | Optional small torch encoder path |
+| `novelty.py` | Nearest-neighbor distance in embedding space |
+| `uncertainty.py` | Simple uncertainty / under-visited region signals |
+| `clustering.py` + `map.py` | Cluster regions, track coverage vs estimated reachable set |
+
+**Why it exists:** “explored vs unexplored” becomes a measurable map, not a gut feeling.
+
+### `aivd/evaluation` — evidence, not vibes
+
+| File | Purpose |
+|------|---------|
+| `security.py` | Score security relevance (policy / injection / secret-signal heuristics on mocks) |
+| `verifier.py` | Independent reproduction + shallow variation testing |
+| `impact.py` | Impact / confidence helpers before `confirmed` |
+
+**Why it exists:** enforce *Novel → Relevant → Reproduced → Confirmed*, else *Unresolved anomaly*.
+
+### `aivd/reward` — multi-term objective
+
+| File | Purpose |
+|------|---------|
+| `formula.py` | `compute_reward(...)`: IG + coverage + gated novelty + uncertainty + security + repro + confirmed bonus − redundancy/low-info/invalid/repetition |
+
+**Why it exists:** prevent reward hacking where “weird but harmless” or “same known vuln forever” wins. Details: [`docs/reward.md`](docs/reward.md).
+
+### `aivd/memory`, `metrics`, `experiments`, `api`, `viz`
+
+| Area | Files | Purpose |
+|------|-------|---------|
+| Memory | `memory/store.py` | SQLite experiments, observations, findings |
+| Metrics | `metrics/discovery.py` | DiscoveryEfficiency, ExplorationCoverage, CorpusEscapeRate, FPR, ReproRate, … |
+| Experiments | `experiments/run_baseline.py`, `run_comparison.py` | Single-explorer and six-way comparison runners |
+| API | `api/app.py` | FastAPI dashboard over stored runs |
+| Viz | `viz/report.py` | HTML/JSON report helpers |
+
+### `tests/` — what quality gates exist today
+
+- Core loop / statuses, reward gating, novelty behavior, verifier + budgets, mock adapters, torch encoder smoke tests (`pytest -q`).
+
+---
+
+## What can be improved (quality roadmap)
+
+Honest gaps from the current mock results and design — prioritized for “even better / higher quality”:
+
+### High impact
+
+1. **Stronger embeddings** — replace / augment feature hashing with sentence-transformer or contrastive encoders trained on (prompt, response, policy-label) triples so behavioral clusters better match human threat categories.
+2. **Stricter confirmation** — deeper variation testing (paraphrase, encoding transforms, multi-turn), statistical reproducibility under target stochasticity, and calibrated confidence intervals (mock vulns are currently easy to re-trigger → raw ConfirmedCount inflates).
+3. **Richer mock & held-out suites** — more hidden vuln families, multi-turn / tool-use / RAG mocks, and a locked held-out set so explorers cannot overfit the published benchmark.
+4. **Judge quality** — LLM-as-judge or ensemble evaluators with disagreement tracking to cut evaluator bias; keep heuristics as a cheap baseline.
+
+### Medium impact
+
+5. **Deeper RL / hierarchical RL** — contextual policies over continuous strategy embeddings, proper value baselines, off-policy evaluation; hierarchical options for “region then probe.”
+6. **Active learning / Bayesian optimization** over regions using uncertainty estimates (not only NN novelty).
+7. **Cost-aware search** — explicit API/compute cost in the reward and early-stopping when IG plateaus.
+8. **Postgres + Redis production path** — move beyond SQLite for concurrent workers, shared archive, and dashboard scale (Compose stubs already exist).
+9. **Dashboard UX** — live behavioral map (2D projection), finding timelines, explorer ablations, downloadable experiment packs.
+
+### Robustness & science hygiene
+
+10. **Blinded ground truth packaging** — stronger guarantees that explorers never import mock GT (lint/CI import rules).
+11. **Seeded multi-seed reporting** — tables with mean±std across seeds; pre-registered budgets.
+12. **False-positive stress tests** — inject bizarre-but-benign responses and assert they stay *unresolved* / low reward.
+13. **Distribution-shift protocols** — train explorers on one mock family, evaluate transfer to another.
+14. **Human-in-the-loop review** — optional confirmation gate before `confirmed` on non-mock targets.
+15. **Packaging / CI** — GitHub Actions for pytest + a short comparison smoke job; pin lighter CPU torch wheels to shrink installs.
+
+### Explicit non-goals (keep out unless threat model expands)
+
+- Traditional cyber exploit generation, network scanning, malware, or unauthorized production probing — remain **out of scope** ([`docs/threat-model.md`](docs/threat-model.md)).
+
+---
+
 ## Documentation index
 
 | Doc | Contents |
