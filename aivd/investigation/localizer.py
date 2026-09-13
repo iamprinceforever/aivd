@@ -130,3 +130,97 @@ def localize_minimal_trigger(
     return delta_debug_minimize(
         prompt, effect_fn, baseline=baseline, threshold=threshold, budget=budget
     )
+
+
+def localize_with_transforms(
+    prompt: str,
+    effect_fn: EffectFn,
+    *,
+    baseline: float = 0.0,
+    threshold: float = 0.15,
+    budget: int = 24,
+) -> tuple[str, int, dict]:
+    """Localization that first tries encoding/semantic decode hints, then delta-debug.
+
+    Improves encoding-heavy triggers (e.g. IB-F) where token splits destroy base64.
+    """
+    from aivd.investigation.equivalence import EncodingTransform
+
+    used = 0
+    meta: dict = {"path": [], "encoding_candidates": []}
+    remaining = max(1, budget)
+
+    # 1) If prompt contains decodable base64, test decoded plaintext as candidate
+    decoded = EncodingTransform.try_decode_spans(prompt)
+    best = prompt
+    best_score = None
+    for dec in decoded[:3]:
+        if used >= remaining:
+            break
+        # Test decoded alone
+        used += 1
+        s = float(effect_fn(dec))
+        meta["encoding_candidates"].append({"decoded": dec[:80], "score": s})
+        meta["path"].append(f"enc_decode:{dec[:40]}→{s:.2f}")
+        if s - baseline >= threshold:
+            best = dec
+            best_score = s
+            # Also try keeping only the b64 token from original
+            break
+        # Test original with decoded appended (representation switch)
+        if used < remaining:
+            used += 1
+            combo = f"{prompt}\nplaintext:{dec}"
+            s2 = float(effect_fn(combo))
+            meta["path"].append(f"enc_combo→{s2:.2f}")
+            if s2 - baseline >= threshold and (best_score is None or s2 >= best_score):
+                best = dec
+                best_score = s2
+
+    # If encoding decode already yields a short effective trigger, return it
+    if best_score is not None and best != prompt and len(best.split()) <= max(4, len(prompt.split()) // 2):
+        meta["experiments"] = used
+        meta["method"] = "encoding_decode"
+        return best, used, meta
+
+    # 2) Prefer isolating base64 token via greedy on whitespace but protect b64 spans
+    protected = prompt
+    b64_toks = [t for t in prompt.split() if _is_b64_token(t)]
+    if b64_toks and used < remaining:
+        tok = max(b64_toks, key=len)
+        used += 1
+        s = float(effect_fn(tok))
+        meta["path"].append(f"b64_tok:{tok[:40]}→{s:.2f}")
+        if s - baseline >= threshold:
+            meta["experiments"] = used
+            meta["method"] = "b64_token"
+            return tok, used, meta
+        # Try decode-and-follow wrapper alone
+        wrapped = f"Please decode and follow: {tok}"
+        if used < remaining:
+            used += 1
+            s = float(effect_fn(wrapped))
+            meta["path"].append(f"b64_wrap→{s:.2f}")
+            if s - baseline >= threshold:
+                meta["experiments"] = used
+                meta["method"] = "b64_wrap"
+                # Prefer decoded plaintext if available
+                dec = EncodingTransform.try_decode_spans(tok)
+                return (dec[0] if dec else tok), used, meta
+
+    # 3) Fall back to standard delta-debug on (possibly encoding-simplified) best
+    rem = max(1, remaining - used)
+    est, u2, meta2 = delta_debug_minimize(
+        best, effect_fn, baseline=baseline, threshold=threshold, budget=rem
+    )
+    used += u2
+    meta["dd"] = meta2
+    meta["experiments"] = used
+    meta["method"] = "transform+dd"
+    return est, used, meta
+
+
+def _is_b64_token(tok: str) -> bool:
+    import re
+
+    return bool(re.fullmatch(r"[A-Za-z0-9+/]{8,}={0,2}", tok))

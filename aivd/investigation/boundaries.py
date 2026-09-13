@@ -98,3 +98,144 @@ def detect_token_boundary(
 def prioritize_boundaries(records: Sequence[BoundaryRecord]) -> list[BoundaryRecord]:
     """High-gradient first."""
     return sorted(records, key=lambda r: r.boundary_score, reverse=True)
+
+
+def adaptive_boundary_search(
+    seed_prompt: str,
+    effect_fn: EffectFn,
+    *,
+    budget: int = 8,
+    region_id: str = "",
+    dimension: str = "adaptive",
+) -> list[BoundaryRecord]:
+    """Coarse → detect → binary refine → local confirm.
+
+    Budget-capped. Returns zero or more BoundaryRecords (high-gradient first).
+    """
+    if budget < 2 or not seed_prompt:
+        return []
+    toks = seed_prompt.split()
+    records: list[BoundaryRecord] = []
+    used = 0
+
+    # Coarse: compare full vs empty-ish control
+    control = "Hello."
+    if used + 2 > budget:
+        return []
+    e_full = float(effect_fn(seed_prompt))
+    used += 1
+    e_ctrl = float(effect_fn(control))
+    used += 1
+    if abs(e_full - e_ctrl) < 0.15:
+        return []
+
+    # Detect: try removing halves / critical tokens (coarse grid)
+    candidates: list[tuple[str, str, float]] = []  # below, above, pert
+    if len(toks) >= 2:
+        mid = len(toks) // 2
+        left, right = " ".join(toks[:mid]), " ".join(toks[mid:])
+        for below, above, pert in (
+            (left, seed_prompt, 0.5),
+            (right, seed_prompt, 0.5),
+            (control, seed_prompt, 1.0),
+        ):
+            if used >= budget:
+                break
+            e_b = float(effect_fn(below))
+            used += 1
+            # above already measured as e_full for seed
+            e_a = e_full if above == seed_prompt else float(effect_fn(above))
+            if above != seed_prompt:
+                used += 1
+            if abs(e_a - e_b) >= 0.15:
+                candidates.append((below, above, pert))
+
+    # Length-style: if prompt has lencliff prefix, binary search pad length
+    if "lencliff:" in seed_prompt and used + 2 <= budget:
+        lo, hi = 0, 16
+        best_pair = None
+        while hi - lo > 1 and used + 2 <= budget:
+            mid = (lo + hi) // 2
+            p_lo = f"lencliff:{'x' * lo}"
+            p_mid = f"lencliff:{'x' * mid}"
+            e_lo = float(effect_fn(p_lo))
+            used += 1
+            if used >= budget:
+                break
+            e_mid = float(effect_fn(p_mid))
+            used += 1
+            if abs(e_mid - e_lo) >= 0.15:
+                best_pair = (p_lo, p_mid, e_lo, e_mid, abs(mid - lo) / 16.0)
+                hi = mid
+            else:
+                lo = mid
+        if best_pair:
+            p0, p1, e0, e1, pert = best_pair
+            # Local confirm
+            if used < budget:
+                e1c = float(effect_fn(p1))
+                used += 1
+                e1 = e1c
+            rec = BoundaryRecord(
+                id=new_inv_id("bnd_"),
+                region_id=region_id,
+                dimension="length",
+                below_prompt=p0,
+                above_prompt=p1,
+                below_effect=float(e0),
+                above_effect=float(e1),
+                perturbation_size=float(max(0.05, pert)),
+                boundary_score=boundary_score(e1 - e0, max(0.05, pert)),
+                meta={"method": "adaptive_binary_length", "used": used},
+            )
+            records.append(rec)
+
+    # Binary refine on token presence: drop one token at a time near gradient
+    if not records and toks and used < budget:
+        # Find a token whose removal drops effect most
+        best_drop = None
+        best_eff = 0.0
+        for i, tok in enumerate(toks):
+            if used >= budget:
+                break
+            trial = " ".join(toks[:i] + toks[i + 1 :]) or control
+            e_t = float(effect_fn(trial))
+            used += 1
+            drop = e_full - e_t
+            if drop > best_eff and drop >= 0.15:
+                best_eff = drop
+                best_drop = (trial, seed_prompt, e_t, e_full, tok)
+        if best_drop:
+            below, above, e0, e1, tok = best_drop
+            pert = 1.0 / max(1, len(toks))
+            # Local confirm above
+            if used < budget:
+                e1 = float(effect_fn(above))
+                used += 1
+            records.append(
+                BoundaryRecord(
+                    id=new_inv_id("bnd_"),
+                    region_id=region_id,
+                    dimension=dimension or "token",
+                    below_prompt=below,
+                    above_prompt=above,
+                    below_effect=float(e0),
+                    above_effect=float(e1),
+                    perturbation_size=float(pert),
+                    boundary_score=boundary_score(e1 - e0, pert),
+                    meta={"method": "adaptive_token_drop", "token": tok, "used": used},
+                )
+            )
+
+    # From coarse candidates
+    for below, above, pert in candidates[:2]:
+        if used >= budget + 2:
+            break
+        rec = detect_token_boundary(
+            below, above, effect_fn, region_id=region_id, dimension=dimension, perturbation_size=pert
+        )
+        used += 2
+        if abs(rec.above_effect - rec.below_effect) >= 0.15:
+            records.append(rec)
+
+    return prioritize_boundaries(records)

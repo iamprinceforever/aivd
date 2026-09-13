@@ -66,6 +66,7 @@ class AIVDConfig(BaseModel):
             "mock://profile-f",
             "mock://planted-offline",
             "mock://investigation-bench",
+            "mock://no-fish-control",
         ]
     )
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
@@ -79,7 +80,13 @@ class AIVDConfig(BaseModel):
     world_model_ensemble: int = 3
     use_counterfactual: bool = False
     use_critic: bool = False
-    use_investigation: bool = False  # v3.3 ABI hook
+    use_investigation: bool = False  # v3.3 ABI hook (True enables single_shot unless investigation_mode set)
+    # v3.4: off | single_shot | multi_step (preferred). When set, overrides use_investigation.
+    investigation_mode: Literal["off", "single_shot", "multi_step"] | None = None
+    investigation_max_episode_probes: int = 16
+    investigation_budget_fraction: float = 0.25
+    investigation_enter_threshold: float = 0.35
+    investigation_policy: Literal["heuristic", "learned", "random"] = "heuristic"
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

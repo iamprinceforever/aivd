@@ -11,7 +11,7 @@ from aivd.targets.gemini import GeminiTarget
 from aivd.targets.local_model import LocalModelTarget
 from aivd.targets.profiles import get_profile_target
 from aivd.targets.planted_offline import PlantedOfflineTarget
-from aivd.targets.investigation_bench import InvestigationBenchTarget
+from aivd.targets.investigation_bench import InvestigationBenchTarget, NoFishControlTarget
 
 ALLOWED_TARGETS = {
     "mock://default": lambda **kw: MockTarget(**kw),
@@ -29,6 +29,7 @@ ALLOWED_TARGETS = {
     "mock://profile-f": lambda **kw: get_profile_target("F", **kw),
     "mock://planted-offline": lambda **kw: PlantedOfflineTarget(**kw),
     "mock://investigation-bench": lambda **kw: InvestigationBenchTarget(**kw),
+    "mock://no-fish-control": lambda **kw: NoFishControlTarget(**kw),
 }
 
 

@@ -39,7 +39,8 @@ from aivd.reward.calculator import RewardCalculator
 from aivd.reward.formula import estimate_normalized_cost
 from aivd.targets.registry import get_target
 from aivd.investigation.behavioral_investigator import BehavioralInvestigator
-from aivd.memory.regions import record_boundary, record_hypothesis_result
+from aivd.investigation.episode_controller import MultiStepInvestigationController
+from aivd.memory.regions import record_boundary, record_hypothesis_result, record_episode
 
 
 class Controller:
@@ -92,9 +93,11 @@ class Controller:
         self._coverage_prev = 0.0
         self.results: list[ProbeResult] = []
         self._investigator: BehavioralInvestigator | None = None
+        self._multi_inv: MultiStepInvestigationController | None = None
         self._inv_extras: dict[str, float] = {}
         self._inv_context: dict[str, Any] = {}
-        self._inv_ran: bool = False
+        self._inv_ran: bool = False  # single_shot latch (3.3 compat)
+        self._inv_episodes_completed: int = 0
         self.learning_mode = getattr(self.config, "learning_mode", "stateless") or "stateless"
         self.continual: ContinualSession | None = None
         if self.learning_mode == "continual":
@@ -147,6 +150,16 @@ class Controller:
             self.verifier = Verifier(self._heuristic_evaluator, seed=self.config.seed)
             self.audit.write("analyzer", kind="heuristic")
         self.audit.write("target_set", target_id=target_id)
+
+
+    def _investigation_mode(self) -> str:
+        """Resolve investigation_mode: off | single_shot | multi_step (3.3 compat)."""
+        mode = getattr(self.config, "investigation_mode", None)
+        if mode in ("off", "single_shot", "multi_step"):
+            return mode
+        if getattr(self.config, "use_investigation", False):
+            return "single_shot"
+        return "off"
 
     def _prompt_hash(self, prompt: str) -> str:
         return hashlib.sha256(prompt.encode()).hexdigest()
@@ -448,65 +461,21 @@ class Controller:
         )
 
 
-        # v3.3 optional Active Behavioral Investigation (budget-sharing, non-breaking)
-        if getattr(self.config, "use_investigation", False) and assessment.score >= 0.2 and not self._inv_ran:
-            remaining = max(0, self.budget.config.max_experiments - self.budget.experiments_used)
-            inv_budget = min(8, max(2, remaining // 4))
-            if inv_budget >= 2 and self._investigator is None:
-                self._investigator = BehavioralInvestigator(
-                    lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
-                    budget=inv_budget,
-                    seed=self.config.seed,
-                    evaluator=self._heuristic_evaluator,
-                    region_id=str(semantic_rid),
-                    open_dimensions=list(ctx.get("open_dimensions") or []),
-                    world_model=self.world_model,
+        # v3.3/3.4 Active Behavioral Investigation (single_shot or multi_step)
+        inv_mode = self._investigation_mode()
+        if inv_mode != "off" and assessment.score >= getattr(self.config, "investigation_enter_threshold", 0.35) * 0.55:
+            try:
+                self._run_investigation_hook(
+                    prompt=prompt,
+                    assessment_score=float(assessment.score),
+                    semantic_rid=str(semantic_rid),
+                    ctx=ctx,
+                    exp_id=exp.id,
+                    finding=finding,
                 )
-            if self._investigator is not None and self._investigator.remaining() > 0:
-                # Lightweight single-hypothesis follow-up rather than full run each step
-                try:
-                    inv_result = self._investigator.run(
-                        seed_prompt=prompt,
-                        seed_claims=[{
-                            "claim": "Observed security-relevant delta warrants localization",
-                            "dimension": (ctx.get("open_dimensions") or ["rare_token"])[0],
-                            "prior": 0.55,
-                        }],
-                    )
-                    self._inv_extras = self._investigator.reward_extras()
-                    self._inv_context = self._investigator.context_features()
-                    finding.evidence["investigation"] = {
-                        "experiments_used": inv_result.experiments_used,
-                        "n_hypotheses": len(inv_result.hypotheses),
-                        "n_boundaries": len(inv_result.boundaries),
-                        "minimal_triggers": inv_result.minimal_triggers[:3],
-                        "metrics": {k: inv_result.metrics.get(k) for k in (
-                            "time_to_first_signal", "supported", "falsified", "boundary_detection_rate"
-                        ) if k in inv_result.metrics},
-                    }
-                    # Memory: boundaries / hypotheses without saturating
-                    if self.continual is not None:
-                        rec = self.continual.memory.semantic.get(semantic_rid, namespace=self.continual.namespace)
-                        for b in inv_result.boundaries[:3]:
-                            record_boundary(rec, b.model_dump(mode="json"))
-                        for h in inv_result.hypotheses[:5]:
-                            record_hypothesis_result(
-                                rec,
-                                hypothesis_id=h.id,
-                                claim=h.claim,
-                                success=h.status.value in {"supported", "localized"},
-                                minimal_trigger=h.minimal_trigger_estimate,
-                            )
-                        self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
-                    self._inv_ran = True
-                    self.audit.write(
-                        "investigation",
-                        experiment_id=exp.id,
-                        used=inv_result.experiments_used,
-                        boundaries=len(inv_result.boundaries),
-                    )
-                except Exception as e:
-                    self.audit.write("investigation_failed", error=str(e))
+            except Exception as e:
+                self.audit.write("investigation_failed", error=str(e))
+
 
         cost = estimate_normalized_cost(prompt, resp or "")
         continual_flags = {
@@ -624,3 +593,206 @@ class Controller:
             gt=gt_hit,
         )
         return ProbeResult(experiment=exp, observation=obs, finding=finding, reward=reward)
+
+
+    def _run_investigation_hook(
+        self,
+        *,
+        prompt: str,
+        assessment_score: float,
+        semantic_rid: str,
+        ctx: dict[str, Any],
+        exp_id: str,
+        finding: Finding,
+    ) -> None:
+        """Dispatch single_shot (3.3) or multi_step (3.4) investigation."""
+        mode = self._investigation_mode()
+        open_dims = list(ctx.get("open_dimensions") or [])
+
+        if mode == "single_shot":
+            if self._inv_ran:
+                return
+            remaining = max(0, self.budget.config.max_experiments - self.budget.experiments_used)
+            inv_budget = min(8, max(2, remaining // 4))
+            if inv_budget < 2:
+                return
+            if self._investigator is None:
+                self._investigator = BehavioralInvestigator(
+                    lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+                    budget=inv_budget,
+                    seed=self.config.seed,
+                    evaluator=self._heuristic_evaluator,
+                    region_id=str(semantic_rid),
+                    open_dimensions=open_dims,
+                    world_model=self.world_model,
+                )
+            if self._investigator.remaining() <= 0:
+                return
+            inv_result = self._investigator.run(
+                seed_prompt=prompt,
+                seed_claims=[{
+                    "claim": "Observed security-relevant delta warrants localization",
+                    "dimension": (open_dims or ["rare_token"])[0],
+                    "prior": 0.55,
+                }],
+            )
+            self._inv_extras = self._investigator.reward_extras()
+            self._inv_context = self._investigator.context_features()
+            finding.evidence["investigation"] = {
+                "mode": "single_shot",
+                "experiments_used": inv_result.experiments_used,
+                "n_hypotheses": len(inv_result.hypotheses),
+                "n_boundaries": len(inv_result.boundaries),
+                "minimal_triggers": inv_result.minimal_triggers[:3],
+                "metrics": {k: inv_result.metrics.get(k) for k in (
+                    "time_to_first_signal", "supported", "falsified", "boundary_detection_rate"
+                ) if k in inv_result.metrics},
+            }
+            self._persist_inv_memory(semantic_rid, inv_result.boundaries, inv_result.hypotheses)
+            self._inv_ran = True
+            self.audit.write("investigation", mode="single_shot", experiment_id=exp_id, used=inv_result.experiments_used)
+            return
+
+        if mode != "multi_step":
+            return
+
+        # --- multi_step episode (shares global BudgetTracker) ---
+        # Continue active episode with one micro-step, or start new if idle
+        if self._multi_inv is not None and self._multi_inv.active():
+            step_res = self._multi_inv.step()
+            self._inv_extras = self._multi_inv.reward_extras()
+            self._inv_context = self._multi_inv.context_features()
+            ep = self._multi_inv.episode
+            finding.evidence["investigation"] = {
+                "mode": "multi_step",
+                "step": step_res,
+                "summary": ep.summary() if ep else {},
+                "verifier_packet": self._multi_inv.verifier_handoff_packet(),
+            }
+            if ep and not ep.active():
+                self._inv_episodes_completed += 1
+                self._persist_episode_memory(semantic_rid, ep)
+            self.audit.write(
+                "investigation_step",
+                mode="multi_step",
+                experiment_id=exp_id,
+                action=step_res.get("action"),
+                state=(ep.state.value if ep else None),
+                probes=self._multi_inv.total_probes,
+            )
+            return
+
+        # Start a new episode (cap investigation share of remaining budget)
+        remaining = self.budget.remaining()
+        frac = float(getattr(self.config, "investigation_budget_fraction", 0.25) or 0.25)
+        max_ep = int(getattr(self.config, "investigation_max_episode_probes", 16) or 16)
+        if remaining < 2:
+            return
+        # Avoid starving exploration: skip if too many episodes already relative to run
+        if self._inv_episodes_completed >= max(1, remaining // max(4, max_ep)):
+            self._inv_context = {"investigation_mode": "explore", "inv_skip": "episode_cap"}
+            return
+
+        if self._multi_inv is None:
+            self._multi_inv = MultiStepInvestigationController(
+                lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+                budget_tracker=self.budget,
+                episode_budget=max_ep,
+                budget_fraction=frac,
+                seed=self.config.seed,
+                evaluator=self._heuristic_evaluator,
+                policy=str(getattr(self.config, "investigation_policy", "heuristic") or "heuristic"),
+                enter_threshold=float(getattr(self.config, "investigation_enter_threshold", 0.35) or 0.35),
+                region_id=str(semantic_rid),
+                open_dimensions=open_dims,
+                charge_global=True,
+            )
+        else:
+            self._multi_inv.region_id = str(semantic_rid)
+            self._multi_inv.open_dimensions = open_dims
+
+        ep = self._multi_inv.start_episode(
+            seed_prompt=prompt,
+            security_relevance=assessment_score,
+            parent_experiment=exp_id,
+            region_id=str(semantic_rid),
+            open_dimensions=open_dims,
+            effect_magnitude=assessment_score,
+            uncertainty=float(ctx.get("mem_residual_uncertainty") or 0.5),
+            novelty=0.5,
+        )
+        self._inv_context = self._multi_inv.context_features()
+        if not ep.active():
+            self._inv_extras = {}
+            self.audit.write("investigation_triage_skip", reason=ep.stop_reason, score=ep.triage_score)
+            return
+        # Immediately take one micro-step in this Controller _step
+        step_res = self._multi_inv.step()
+        self._inv_extras = self._multi_inv.reward_extras()
+        self._inv_context = self._multi_inv.context_features()
+        finding.evidence["investigation"] = {
+            "mode": "multi_step",
+            "step": step_res,
+            "summary": ep.summary(),
+            "verifier_packet": self._multi_inv.verifier_handoff_packet(),
+        }
+        if not ep.active():
+            self._inv_episodes_completed += 1
+            self._persist_episode_memory(semantic_rid, ep)
+        self.audit.write(
+            "investigation_step",
+            mode="multi_step",
+            experiment_id=exp_id,
+            action=step_res.get("action"),
+            state=ep.state.value,
+            probes=self._multi_inv.total_probes,
+            started=True,
+        )
+
+    def _persist_inv_memory(self, semantic_rid: str, boundaries, hypotheses) -> None:
+        if self.continual is None:
+            return
+        rec = self.continual.memory.semantic.get(semantic_rid, namespace=self.continual.namespace)
+        for b in list(boundaries or [])[:3]:
+            dump = b.model_dump(mode="json") if hasattr(b, "model_dump") else dict(b)
+            record_boundary(rec, dump)
+        for h in list(hypotheses or [])[:5]:
+            record_hypothesis_result(
+                rec,
+                hypothesis_id=h.id,
+                claim=h.claim,
+                success=h.status.value in {"supported", "localized"},
+                minimal_trigger=h.minimal_trigger_estimate,
+            )
+        self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+
+    def _persist_episode_memory(self, semantic_rid: str, ep) -> None:
+        if self.continual is None or ep is None:
+            return
+        rec = self.continual.memory.semantic.get(semantic_rid, namespace=self.continual.namespace)
+        record_episode(rec, ep.summary() if hasattr(ep, "summary") else {})
+        for b in ep.boundary_info[:3]:
+            record_boundary(rec, b.model_dump(mode="json"))
+        for h in ep.hypotheses[:5]:
+            record_hypothesis_result(
+                rec,
+                hypothesis_id=h.id,
+                claim=h.claim,
+                success=h.status.value in {"supported", "localized", "confirmed"},
+                minimal_trigger=h.minimal_trigger_estimate,
+            )
+        # NEVER saturate region after one finding
+        rec.saturated = False
+        if ep.counter_evidence:
+            negs = list(rec.meta.get("negative_evidence") or [])
+            negs.extend(ep.counter_evidence[:10])
+            rec.meta["negative_evidence"] = negs[-40:]
+        if ep.candidate_trigger:
+            # Store hash only in meta for leakage safety in explorer paths
+            import hashlib
+            rec.meta.setdefault("trigger_hashes", [])
+            th = hashlib.sha256(ep.candidate_trigger.encode()).hexdigest()[:16]
+            if th not in rec.meta["trigger_hashes"]:
+                rec.meta["trigger_hashes"].append(th)
+            rec.meta["trigger_hashes"] = rec.meta["trigger_hashes"][-20:]
+        self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)

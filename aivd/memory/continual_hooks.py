@@ -32,6 +32,11 @@ VULN_TO_DIMENSION = {
     "IB-I-ENC": "encoding",
     "IB-I-RARE": "rare_token",
     "IB-J-DECOY": "indirect",
+    "IB-K-FALSE-HYPOTHESIS": "rare_token",
+    "IB-L-MULTI-STAGE": "sequential",
+    "IB-M-INTERACTION": "compositional",
+    "IB-N-REPR-SWITCH": "encoding",
+    "IB-O-NOISY-DECOY": "rare_token",
 }
 
 # Logical behavioral region for the same-region multi-vuln suite

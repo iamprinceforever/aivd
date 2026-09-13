@@ -37,10 +37,20 @@ class InvestigatorExplorer:
         inv_mode = context.get("investigation_mode") or context.get("inv_mode")
         preferred = list(context.get("preferred_dimensions") or [])
         open_dims = list(context.get("open_dimensions") or preferred)
-        signal = float(context.get("last_security_relevance") or context.get("inv_signal") or 0.0)
+        signal = float(
+            context.get("last_security_relevance")
+            or context.get("inv_security_relevance")
+            or context.get("inv_signal")
+            or 0.0
+        )
         residual = float(context.get("mem_residual_uncertainty") or 0.0)
+        inv_state = str(context.get("investigation_state") or "")
 
-        if inv_mode == "investigate" or signal >= 0.2 or (residual > 0.25 and open_dims):
+        # Prefer queued discriminating prompts from episode (dimension-only; never GT)
+        active_ep = inv_mode == "investigate" or (
+            inv_state and inv_state not in ("return_to_exploration", "explore", "unresolved", "rejected", "confirmed")
+        )
+        if active_ep or signal >= 0.2 or (residual > 0.25 and open_dims):
             self._mode = "investigate"
             dims = select_dimensions(open_dims, max_dims=3, force=preferred[:2])
             if dims:

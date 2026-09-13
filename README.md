@@ -12,6 +12,18 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.4.0
+
+Autonomous **multi-step behavioral investigation** (incremental on 3.3 ABI):
+
+- `investigation_mode`: `off` | `single_shot` | `multi_step` (default off / 3.3-compatible)
+- Episode state machine, EVI triage, action selection, heuristic/small-learned policies
+- Nested investigation probes charge the global `BudgetTracker`
+- Encoding transform-aware localization; adaptive boundary search; stochastic checks
+- Security gate (weird ≠ vulnerable) + verifier handoff packet
+- Investigation-bench **K–O** + `mock://no-fish-control`
+- See `reports/aivd-3.4-results.md` and `reports/aivd-3.4-audit.md`
+
 ## What's new in v3.3.0
 
 **Active Behavioral Investigation (ABI):** hypothesis → baseline → probe → compare → localize → counterfactual → update, under budget.

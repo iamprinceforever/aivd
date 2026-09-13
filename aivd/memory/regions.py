@@ -254,3 +254,20 @@ def record_unexplored_dims(record: RegionRecord, dims: list[str]) -> None:
     for d in dims:
         if d not in record.dimensions_coverage:
             record.dimensions_coverage[d] = 0.0
+
+
+def record_episode(record: RegionRecord, episode_summary: dict[str, Any]) -> None:
+    """Persist an investigation episode summary without saturating the region."""
+    eps = list(record.meta.get("investigation_episodes") or [])
+    eps.append(dict(episode_summary or {}))
+    record.meta["investigation_episodes"] = eps[-30:]
+    # Episode knowledge raises residual slightly (more structure known → more to map)
+    record.residual_uncertainty = min(1.0, record.residual_uncertainty + 0.02)
+    record.expected_ig = min(1.0, record.expected_ig + 0.03)
+    # NEVER saturate from a single episode
+    record.saturated = False
+    # Track hypotheses / equivalence classes lightly
+    if episode_summary.get("candidate_trigger"):
+        eqs = list(record.meta.get("equivalence_classes") or [])
+        eqs.append({"trigger_len": len(str(episode_summary.get("candidate_trigger", "")).split())})
+        record.meta["equivalence_classes"] = eqs[-20:]
