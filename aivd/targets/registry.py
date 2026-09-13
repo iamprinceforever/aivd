@@ -4,13 +4,20 @@ from __future__ import annotations
 from typing import Any
 
 from aivd.targets.mock import MockTarget
-from aivd.targets.openai_compat import OpenAICompatStub
+from aivd.targets.openai_compat import OpenAICompatStub, OpenAICompatTarget
 from aivd.targets.local_stub import LocalStubTarget
+from aivd.targets.anthropic import AnthropicTarget
+from aivd.targets.gemini import GeminiTarget
+from aivd.targets.local_model import LocalModelTarget
 
 ALLOWED_TARGETS = {
     "mock://default": lambda **kw: MockTarget(**kw),
     "local://stub": lambda **kw: LocalStubTarget(),
     "openai-compat://stub": lambda **kw: OpenAICompatStub(**kw),
+    "openai-compat://api": lambda **kw: OpenAICompatTarget(**kw),
+    "anthropic://api": lambda **kw: AnthropicTarget(**kw),
+    "gemini://api": lambda **kw: GeminiTarget(**kw),
+    "local://model": lambda **kw: LocalModelTarget(**kw),
 }
 
 

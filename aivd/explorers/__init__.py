@@ -3,6 +3,7 @@ from aivd.explorers.corpus_explorer import CorpusExplorer
 from aivd.explorers.novelty_explorer import NoveltyExplorer
 from aivd.explorers.evolutionary import EvolutionaryExplorer
 from aivd.explorers.rl_explorer import RLExplorer
+from aivd.explorers.rl_v2 import RLv2Explorer
 from aivd.explorers.hybrid import HybridExplorer
 
 EXPLORERS = {
@@ -11,6 +12,7 @@ EXPLORERS = {
     "novelty": NoveltyExplorer,
     "evolutionary": EvolutionaryExplorer,
     "rl": RLExplorer,
+    "rl_v2": RLv2Explorer,
     "hybrid": HybridExplorer,
 }
 
@@ -26,6 +28,7 @@ __all__ = [
     "NoveltyExplorer",
     "EvolutionaryExplorer",
     "RLExplorer",
+    "RLv2Explorer",
     "HybridExplorer",
     "EXPLORERS",
     "get_explorer",

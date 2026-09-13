@@ -1,14 +1,14 @@
 {
   "random": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.0625,
-    "ExplorationCoverage": 0.6666666666666666,
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.125,
+    "ExplorationCoverage": 0.4375,
     "FalsePositiveRate": 0.0,
     "ReproRate": 1.0,
     "CorpusEscapeRate": 0.6,
-    "tests_per_discovery": 16.0,
+    "tests_per_discovery": 8.0,
     "AnomalyRate": 0.0,
-    "ConfirmedCount": 50,
+    "ConfirmedCount": 24,
     "ConfirmedUniqueGT": [
       "HV-CORPUS-INJECT",
       "HV-CORPUS-ROLE",
@@ -22,118 +22,120 @@
       "HV-NOVEL-INDIRECT"
     ],
     "gt_hits": {
-      "HV-NOVEL-ENCODING": 8,
-      "HV-CORPUS-ROLE": 14,
-      "HV-NOVEL-DELIMITER": 8,
-      "HV-CORPUS-INJECT": 8,
-      "HV-NOVEL-INDIRECT": 12
+      "HV-NOVEL-ENCODING": 4,
+      "HV-CORPUS-ROLE": 8,
+      "HV-NOVEL-DELIMITER": 3,
+      "HV-CORPUS-INJECT": 2,
+      "HV-NOVEL-INDIRECT": 7
     },
     "status_counts": {
-      "tested": 30,
-      "confirmed": 50
+      "tested": 16,
+      "confirmed": 24
     },
-    "mean_reward": 0.13602684676786103
+    "mean_reward": 0.18882834719964706,
+    "seed": 42
   },
   "corpus": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.025,
-    "ExplorationCoverage": 0.4166666666666667,
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.05,
+    "ExplorationCoverage": 0.3125,
     "FalsePositiveRate": 0.0,
     "ReproRate": 1.0,
     "CorpusEscapeRate": 0.0,
-    "tests_per_discovery": 40.0,
+    "tests_per_discovery": 20.0,
     "AnomalyRate": 0.0,
-    "ConfirmedCount": 54,
+    "ConfirmedCount": 28,
     "ConfirmedUniqueGT": [
       "HV-CORPUS-INJECT",
       "HV-CORPUS-ROLE"
     ],
     "CorpusEscapeGT": [],
     "gt_hits": {
-      "HV-CORPUS-INJECT": 28,
-      "HV-CORPUS-ROLE": 26
+      "HV-CORPUS-INJECT": 14,
+      "HV-CORPUS-ROLE": 14
     },
     "status_counts": {
-      "confirmed": 54,
-      "tested": 26
+      "confirmed": 28,
+      "tested": 12
     },
-    "mean_reward": 0.08959641764786984
+    "mean_reward": 0.1367386540238267,
+    "seed": 42
   },
   "novelty": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.0375,
-    "ExplorationCoverage": 0.6666666666666666,
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.05,
+    "ExplorationCoverage": 0.5,
     "FalsePositiveRate": 0.0,
     "ReproRate": 1.0,
-    "CorpusEscapeRate": 0.6666666666666666,
-    "tests_per_discovery": 26.666666666666668,
+    "CorpusEscapeRate": 1.0,
+    "tests_per_discovery": 20.0,
+    "AnomalyRate": 0.0,
+    "ConfirmedCount": 17,
+    "ConfirmedUniqueGT": [
+      "HV-NOVEL-DELIMITER",
+      "HV-NOVEL-ENCODING"
+    ],
+    "CorpusEscapeGT": [
+      "HV-NOVEL-DELIMITER",
+      "HV-NOVEL-ENCODING"
+    ],
+    "gt_hits": {
+      "HV-NOVEL-DELIMITER": 8,
+      "HV-NOVEL-ENCODING": 9
+    },
+    "status_counts": {
+      "confirmed": 17,
+      "tested": 23
+    },
+    "mean_reward": 0.0019993579830678986,
+    "seed": 42
+  },
+  "evolutionary": {
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.125,
+    "ExplorationCoverage": 0.4375,
+    "FalsePositiveRate": 0.0,
+    "ReproRate": 1.0,
+    "CorpusEscapeRate": 0.6,
+    "tests_per_discovery": 8.0,
     "AnomalyRate": 0.0,
     "ConfirmedCount": 33,
     "ConfirmedUniqueGT": [
       "HV-CORPUS-INJECT",
+      "HV-CORPUS-ROLE",
       "HV-NOVEL-DELIMITER",
-      "HV-NOVEL-ENCODING"
+      "HV-NOVEL-ENCODING",
+      "HV-NOVEL-INDIRECT"
     ],
     "CorpusEscapeGT": [
       "HV-NOVEL-DELIMITER",
-      "HV-NOVEL-ENCODING"
+      "HV-NOVEL-ENCODING",
+      "HV-NOVEL-INDIRECT"
     ],
     "gt_hits": {
-      "HV-NOVEL-DELIMITER": 19,
-      "HV-NOVEL-ENCODING": 13,
-      "HV-CORPUS-INJECT": 1
+      "HV-NOVEL-INDIRECT": 8,
+      "HV-CORPUS-INJECT": 5,
+      "HV-CORPUS-ROLE": 5,
+      "HV-NOVEL-DELIMITER": 14,
+      "HV-NOVEL-ENCODING": 1
     },
     "status_counts": {
       "confirmed": 33,
-      "tested": 47
+      "tested": 7
     },
-    "mean_reward": -0.022625310909382627
-  },
-  "evolutionary": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.0625,
-    "ExplorationCoverage": 0.6666666666666666,
-    "FalsePositiveRate": 0.0,
-    "ReproRate": 1.0,
-    "CorpusEscapeRate": 0.6,
-    "tests_per_discovery": 16.0,
-    "AnomalyRate": 0.0,
-    "ConfirmedCount": 64,
-    "ConfirmedUniqueGT": [
-      "HV-CORPUS-INJECT",
-      "HV-CORPUS-ROLE",
-      "HV-NOVEL-DELIMITER",
-      "HV-NOVEL-ENCODING",
-      "HV-NOVEL-INDIRECT"
-    ],
-    "CorpusEscapeGT": [
-      "HV-NOVEL-DELIMITER",
-      "HV-NOVEL-ENCODING",
-      "HV-NOVEL-INDIRECT"
-    ],
-    "gt_hits": {
-      "HV-NOVEL-INDIRECT": 12,
-      "HV-CORPUS-INJECT": 10,
-      "HV-CORPUS-ROLE": 14,
-      "HV-NOVEL-DELIMITER": 24,
-      "HV-NOVEL-ENCODING": 4
-    },
-    "status_counts": {
-      "confirmed": 64,
-      "tested": 16
-    },
-    "mean_reward": 0.33829356513688946
+    "mean_reward": 0.4060340253623356,
+    "seed": 42
   },
   "rl": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.0625,
-    "ExplorationCoverage": 0.6666666666666666,
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.125,
+    "ExplorationCoverage": 0.5,
     "FalsePositiveRate": 0.0,
     "ReproRate": 1.0,
     "CorpusEscapeRate": 0.6,
-    "tests_per_discovery": 16.0,
+    "tests_per_discovery": 8.0,
     "AnomalyRate": 0.0,
-    "ConfirmedCount": 61,
+    "ConfirmedCount": 27,
     "ConfirmedUniqueGT": [
       "HV-CORPUS-INJECT",
       "HV-CORPUS-ROLE",
@@ -147,28 +149,62 @@
       "HV-NOVEL-INDIRECT"
     ],
     "gt_hits": {
-      "HV-NOVEL-DELIMITER": 15,
-      "HV-CORPUS-ROLE": 12,
-      "HV-NOVEL-INDIRECT": 14,
-      "HV-CORPUS-INJECT": 12,
-      "HV-NOVEL-ENCODING": 8
+      "HV-NOVEL-DELIMITER": 8,
+      "HV-CORPUS-ROLE": 7,
+      "HV-NOVEL-INDIRECT": 6,
+      "HV-CORPUS-INJECT": 4,
+      "HV-NOVEL-ENCODING": 2
     },
     "status_counts": {
-      "confirmed": 61,
-      "tested": 19
+      "confirmed": 27,
+      "tested": 13
     },
-    "mean_reward": 0.21010450913181283
+    "mean_reward": 0.2419350097188814,
+    "seed": 42
+  },
+  "rl_v2": {
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.1,
+    "ExplorationCoverage": 0.4375,
+    "FalsePositiveRate": 0.0,
+    "ReproRate": 1.0,
+    "CorpusEscapeRate": 0.5,
+    "tests_per_discovery": 10.0,
+    "AnomalyRate": 0.0,
+    "ConfirmedCount": 31,
+    "ConfirmedUniqueGT": [
+      "HV-CORPUS-INJECT",
+      "HV-CORPUS-ROLE",
+      "HV-NOVEL-ENCODING",
+      "HV-NOVEL-INDIRECT"
+    ],
+    "CorpusEscapeGT": [
+      "HV-NOVEL-ENCODING",
+      "HV-NOVEL-INDIRECT"
+    ],
+    "gt_hits": {
+      "HV-NOVEL-ENCODING": 16,
+      "HV-CORPUS-INJECT": 5,
+      "HV-CORPUS-ROLE": 9,
+      "HV-NOVEL-INDIRECT": 1
+    },
+    "status_counts": {
+      "confirmed": 31,
+      "tested": 9
+    },
+    "mean_reward": 0.3296018219658138,
+    "seed": 42
   },
   "hybrid": {
-    "experiments": 80,
-    "DiscoveryEfficiency": 0.0625,
-    "ExplorationCoverage": 0.5833333333333334,
+    "experiments": 40,
+    "DiscoveryEfficiency": 0.125,
+    "ExplorationCoverage": 0.3125,
     "FalsePositiveRate": 0.0,
     "ReproRate": 1.0,
     "CorpusEscapeRate": 0.6,
-    "tests_per_discovery": 16.0,
+    "tests_per_discovery": 8.0,
     "AnomalyRate": 0.0,
-    "ConfirmedCount": 66,
+    "ConfirmedCount": 34,
     "ConfirmedUniqueGT": [
       "HV-CORPUS-INJECT",
       "HV-CORPUS-ROLE",
@@ -182,16 +218,17 @@
       "HV-NOVEL-INDIRECT"
     ],
     "gt_hits": {
-      "HV-NOVEL-ENCODING": 44,
-      "HV-NOVEL-INDIRECT": 2,
+      "HV-NOVEL-ENCODING": 27,
+      "HV-NOVEL-INDIRECT": 1,
       "HV-CORPUS-ROLE": 1,
-      "HV-CORPUS-INJECT": 2,
-      "HV-NOVEL-DELIMITER": 17
+      "HV-CORPUS-INJECT": 1,
+      "HV-NOVEL-DELIMITER": 4
     },
     "status_counts": {
-      "confirmed": 66,
-      "tested": 14
+      "confirmed": 34,
+      "tested": 6
     },
-    "mean_reward": 0.1991573972150456
+    "mean_reward": 0.25493676114315705,
+    "seed": 42
   }
 }

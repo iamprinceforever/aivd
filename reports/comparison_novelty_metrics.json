@@ -1,15 +1,14 @@
 {
-  "experiments": 80,
-  "DiscoveryEfficiency": 0.0375,
-  "ExplorationCoverage": 0.6666666666666666,
+  "experiments": 40,
+  "DiscoveryEfficiency": 0.05,
+  "ExplorationCoverage": 0.5,
   "FalsePositiveRate": 0.0,
   "ReproRate": 1.0,
-  "CorpusEscapeRate": 0.6666666666666666,
-  "tests_per_discovery": 26.666666666666668,
+  "CorpusEscapeRate": 1.0,
+  "tests_per_discovery": 20.0,
   "AnomalyRate": 0.0,
-  "ConfirmedCount": 33,
+  "ConfirmedCount": 17,
   "ConfirmedUniqueGT": [
-    "HV-CORPUS-INJECT",
     "HV-NOVEL-DELIMITER",
     "HV-NOVEL-ENCODING"
   ],
@@ -18,13 +17,13 @@
     "HV-NOVEL-ENCODING"
   ],
   "gt_hits": {
-    "HV-NOVEL-DELIMITER": 19,
-    "HV-NOVEL-ENCODING": 13,
-    "HV-CORPUS-INJECT": 1
+    "HV-NOVEL-DELIMITER": 8,
+    "HV-NOVEL-ENCODING": 9
   },
   "status_counts": {
-    "confirmed": 33,
-    "tested": 47
+    "confirmed": 17,
+    "tested": 23
   },
-  "mean_reward": -0.022625310909382627
+  "mean_reward": 0.0019993579830678986,
+  "seed": 42
 }

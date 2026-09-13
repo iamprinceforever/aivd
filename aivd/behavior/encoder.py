@@ -1,4 +1,8 @@
-"""Behavioral embeddings via hashing + TF-IDF-like bag features (no large downloads)."""
+"""Behavioral embeddings via hashing + TF-IDF-like bag features (no large downloads).
+
+Default backend when config `embedding_backend: hashing`. For the optional torch
+projector see `torch_encoder.make_encoder`.
+"""
 from __future__ import annotations
 
 import hashlib

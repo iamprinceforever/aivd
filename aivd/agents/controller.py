@@ -9,7 +9,7 @@ from typing import Any, Optional
 import numpy as np
 
 from aivd.behavior.map import BehaviorMap
-from aivd.behavior.encoder import BehaviorEncoder
+from aivd.behavior.torch_encoder import make_encoder
 from aivd.core.audit import AuditLog
 from aivd.core.budgets import BudgetTracker
 from aivd.core.config import AIVDConfig
@@ -19,7 +19,7 @@ from aivd.evaluation.security import SecurityEvaluator
 from aivd.evaluation.verifier import Verifier
 from aivd.explorers import get_explorer
 from aivd.memory.store import ExperimentStore
-from aivd.reward.formula import compute_reward
+from aivd.reward.formula import compute_reward, estimate_normalized_cost
 from aivd.targets.registry import get_target
 
 
@@ -30,7 +30,11 @@ class Controller:
         self.audit = AuditLog(self.config.audit_path)
         self.budget = BudgetTracker(self.config.budget)
         self.store = ExperimentStore(self.config.db_path)
-        self.encoder = BehaviorEncoder(dim=self.config.embedding_dim, seed=self.config.seed)
+        self.encoder = make_encoder(
+            backend=getattr(self.config, "embedding_backend", "hashing"),
+            dim=self.config.embedding_dim,
+            seed=self.config.seed,
+        )
         self.bmap = BehaviorMap(
             encoder=self.encoder,
             n_clusters=self.config.n_behavioral_clusters,
@@ -163,6 +167,7 @@ class Controller:
             updated_at=datetime.now(timezone.utc),
         )
 
+        cost = estimate_normalized_cost(prompt, resp or "")
         reward = compute_reward(
             information_gain=ig,
             delta_coverage=delta_cov,
@@ -175,6 +180,7 @@ class Controller:
             low_info=low_info,
             invalid=invalid,
             repetition=repetition,
+            normalized_cost=cost,
             weights=self.config.reward,
         )
 

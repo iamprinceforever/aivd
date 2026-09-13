@@ -17,6 +17,7 @@ def main(argv: list[str] | None = None) -> int:
     p_cmp = sub.add_parser("compare", help="Run comparison across explorers")
     p_cmp.add_argument("--budget", type=int, default=80)
     p_cmp.add_argument("--seed", type=int, default=42)
+    p_cmp.add_argument("--seeds", type=str, default="", help="Comma-separated seeds e.g. 42,43,44")
 
     p_dash = sub.add_parser("dashboard", help="Print path to run uvicorn")
 
@@ -27,7 +28,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.cmd == "compare":
         from aivd.experiments.run_comparison import run_comparison
-        run_comparison(budget_per_method=args.budget, seed=args.seed)
+        seeds = None
+        if getattr(args, "seeds", "") and args.seeds.strip():
+            seeds = [int(x.strip()) for x in args.seeds.split(",") if x.strip()]
+        run_comparison(budget_per_method=args.budget, seed=args.seed, seeds=seeds)
         return 0
     if args.cmd == "dashboard":
         print("uvicorn aivd.api.app:app --reload --port 8000")

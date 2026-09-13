@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from typing import Any
 
 import numpy as np
 
@@ -13,7 +14,7 @@ from aivd.behavior.uncertainty import cluster_entropy
 
 @dataclass
 class BehaviorMap:
-    encoder: BehaviorEncoder
+    encoder: Any  # BehaviorEncoder | TorchBehaviorEncoder
     n_clusters: int = 8
     estimated_reachable: int = 12
     seed: int = 42

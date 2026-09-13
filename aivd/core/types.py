@@ -79,6 +79,7 @@ class RewardBreakdown(BaseModel):
     low_info: float = 0.0
     invalid: float = 0.0
     repetition: float = 0.0
+    normalized_cost: float = 0.0
     total: float = 0.0
     weights: dict[str, float] = Field(default_factory=dict)
 

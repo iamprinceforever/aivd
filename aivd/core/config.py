@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -27,6 +27,7 @@ class RewardWeights(BaseModel):
     w_low: float = 0.10
     w_inv: float = 0.50
     w_rep: float = 0.15
+    w_cost: float = 0.0  # optional cost penalty; 0 keeps v1 behavior
     novelty_gate_eps: float = 0.05
 
 
@@ -35,13 +36,24 @@ class AIVDConfig(BaseModel):
     db_path: Path = Field(default_factory=lambda: Path("aivd_data/aivd.db"))
     audit_path: Path = Field(default_factory=lambda: Path("aivd_data/audit.jsonl"))
     reports_dir: Path = Field(default_factory=lambda: Path("reports"))
-    allowlist: list[str] = Field(default_factory=lambda: ["mock://default", "local://stub", "openai-compat://stub"])
+    allowlist: list[str] = Field(
+        default_factory=lambda: [
+            "mock://default",
+            "local://stub",
+            "openai-compat://stub",
+            "openai-compat://api",
+            "anthropic://api",
+            "gemini://api",
+            "local://model",
+        ]
+    )
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
     reward: RewardWeights = Field(default_factory=RewardWeights)
     seed: int = 42
     n_behavioral_clusters: int = 8
     embedding_dim: int = 64
-    estimated_reachable_regions: int = 12
+    embedding_backend: Literal["hashing", "torch"] = "hashing"
+    estimated_reachable_regions: int = 16
     extra: dict[str, Any] = Field(default_factory=dict)
 
     def ensure_dirs(self) -> None:

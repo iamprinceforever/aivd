@@ -5,6 +5,26 @@ from aivd.core.config import RewardWeights
 from aivd.core.types import FindingStatus, RewardBreakdown
 
 
+def estimate_normalized_cost(
+    prompt: str = "",
+    response: str = "",
+    *,
+    tokens_estimate: float | None = None,
+    ref_tokens: float = 4000.0,
+) -> float:
+    """Normalize estimated token/compute cost to [0, 1].
+
+    Uses ``tokens_estimate`` when provided; otherwise a char/4 heuristic.
+    """
+    if tokens_estimate is not None:
+        tokens = float(tokens_estimate)
+    else:
+        tokens = (len(prompt or "") + len(response or "")) / 4.0
+    if ref_tokens <= 0:
+        return 0.0
+    return float(max(0.0, min(1.0, tokens / ref_tokens)))
+
+
 def compute_reward(
     *,
     information_gain: float,
@@ -18,6 +38,7 @@ def compute_reward(
     low_info: float,
     invalid: float,
     repetition: float,
+    normalized_cost: float = 0.0,
     weights: RewardWeights | None = None,
 ) -> RewardBreakdown:
     w = weights or RewardWeights()
@@ -30,6 +51,7 @@ def compute_reward(
     novelty_effective = nov * max(w.novelty_gate_eps, sec)
 
     confirmed_bonus = 1.0 if status == FindingStatus.CONFIRMED else 0.0
+    cost = float(max(0.0, min(1.0, normalized_cost)))
 
     total = (
         w.w_ig * information_gain
@@ -43,6 +65,7 @@ def compute_reward(
         - w.w_low * low_info
         - w.w_inv * invalid
         - w.w_rep * repetition
+        - w.w_cost * cost
     )
 
     return RewardBreakdown(
@@ -58,6 +81,7 @@ def compute_reward(
         low_info=low_info,
         invalid=invalid,
         repetition=repetition,
+        normalized_cost=cost,
         total=float(total),
         weights=w.model_dump(),
     )

@@ -9,6 +9,20 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 
 ---
 
+---
+
+## What's new in v2.0.0
+
+1. **Deeper RL (`rl_v2`)** — continuous / hybrid strategy-parameter space with a small PyTorch MLP policy, REINFORCE **with baseline**, behavioral-archive novelty bias. Uses the **same** multi-term `compute_reward` (not a success-only objective). Legacy `rl` kept for comparison.
+2. **Latent compositional mock vulns** — held-out `HV-LATENT-*` with `in_corpus: False`, `human_hard: True`; require obscure multi-part triggers. Framed as latent/compositional strategy search + confirmation — **not** “superhuman zero-days.”
+3. **Stronger confirmation** — paraphrase / encoding variants, multi-probe consistency, higher bar before `confirmed`; FP stress helpers for bizarre-but-benign outputs.
+4. **Model providers** — OpenAI-compatible (GPT / Astra), Anthropic Claude, Google Gemini via **API keys + allowlisted base URLs**; local open weights via **model path** or local vLLM/Ollama server. Never auto-scrape vendor sites for model files.
+5. **Optional cost term** — `w_cost * NormalizedCost` in the shared reward (default weight 0).
+6. **Multi-seed reporting + CI** — `--seeds 42,43,44` → mean±std; GitHub Actions pytest + short mock smoke.
+
+> **Recommendation:** Prefer **official API + API key** for closed models. Use **local file/path or local server** only for open weights you already possess. Do **not** auto-download or scrape vendor marketing sites for weights.
+
+
 ## Why this approach?
 
 Most AI red-team tooling falls into one of two traps:
@@ -47,7 +61,7 @@ Security hypothesis
         ↓
 Experiment generation  ←── Generators (prompt / strategy)
         ↓
-Experiment selection   ←── Explorer (random | corpus | novelty | evolutionary | rl | hybrid)
+Experiment selection   ←── Explorer (random | corpus | novelty | evolutionary | rl | rl_v2 | hybrid)
         ↓
 Authorized target      ←── TargetAdapter (allowlisted only)
         ↓
@@ -80,9 +94,9 @@ Finding Database (statuses) + Audit log → Report / Dashboard
 | Package | Responsibility |
 |---------|----------------|
 | `aivd.core` | Types, config, budgets, audit, finding status enums |
-| `aivd.targets` | Pluggable adapters: mock, local stub, OpenAI-compatible |
+| `aivd.targets` | Pluggable adapters: mock, OpenAI-compat, Anthropic, Gemini, local model/stub |
 | `aivd.agents` | Controller, planner, generators |
-| `aivd.explorers` | Six exploration methods |
+| `aivd.explorers` | Seven exploration methods (incl. `rl_v2`) |
 | `aivd.behavior` | Embeddings, novelty, uncertainty, clustering, behavioral map |
 | `aivd.evaluation` | Security evaluator, verifier, impact |
 | `aivd.reward` | Explicit multi-term reward (novelty gated from security) |
@@ -136,14 +150,15 @@ AIVD is **not** a single ML model. It is a **research control loop** that can ho
 ## Explorers (built-in comparison suite)
 
 1. **`random`** — random strategies / templates  
-2. **`corpus`** — fixed vulnerability corpus (designed to miss novel hidden vulns)  
+2. **`corpus`** — fixed vulnerability corpus (designed to miss novel / latent vulns)  
 3. **`novelty`** — maximize nearest-neighbor distance in behavioral embedding space  
 4. **`evolutionary`** — mutate / crossover; fitness = AIVD reward  
-5. **`rl`** — softmax REINFORCE over discrete strategies  
-6. **`hybrid`** — novelty-biased candidates + RL updates  
+5. **`rl`** — softmax REINFORCE over discrete strategies (v1)  
+6. **`rl_v2`** — continuous strategy space + MLP policy + baseline; **same** multi-term reward  
+7. **`hybrid`** — novelty-biased candidates + RL updates  
 
 Research question: **Can the system discover security-relevant behavior not explicitly represented in the original vulnerability corpus?**  
-On the default mock (budget 80, seed 42): corpus escape rate = **0** for `corpus`; **~0.6–0.67** for the others. See [`reports/research-results.md`](reports/research-results.md).
+Including latent compositional held-outs (`HV-LATENT-*`) that require obscure combinations. See [`reports/research-results.md`](reports/research-results.md) for actual-run numbers (re-run after changes).
 
 ### Key metrics
 
@@ -188,12 +203,14 @@ python -m aivd baseline --explorer corpus --budget 50
 python -m aivd baseline --explorer hybrid --budget 80 --seed 42
 ```
 
-### Compare all six explorers
+### Compare explorers (incl. `rl_v2`)
 
 Writes metrics JSON/HTML and updates `reports/research-results.md`:
 
 ```bash
-python -m aivd.experiments.run_comparison
+python -m aivd.experiments.run_comparison --budget 40 --seed 42
+# multi-seed mean±std
+python -m aivd.experiments.run_comparison --budget 40 --seeds 42,43,44
 # or
 python -m aivd compare --budget 80 --seed 42
 
@@ -223,10 +240,25 @@ docker compose up -d   # optional Postgres/Redis; app still defaults to SQLite u
 
 ---
 
+
+## Connecting models (API key vs local path)
+
+| Target | Env / config | Notes |
+|--------|--------------|-------|
+| OpenAI GPT / OpenAI-compatible (incl. “GPT Astra” if compatible) | `OPENAI_API_KEY` or `AIVD_API_KEY`; `openai-compat://api` | Allowlisted `base_url` + model id |
+| Anthropic Claude | `ANTHROPIC_API_KEY`; `anthropic://api` | Messages API via httpx |
+| Google Gemini | `GOOGLE_API_KEY` or `GEMINI_API_KEY`; `gemini://api` | generateContent |
+| Local open weights (path) | `AIVD_LOCAL_MODEL_PATH`; `local://model` | Path you already possess — no auto-download |
+| Local server (vLLM/Ollama) | `AIVD_LOCAL_BASE_URL`; `local://model` | OpenAI-compatible local endpoint |
+
+Example YAML: [`configs/targets.example.yaml`](configs/targets.example.yaml).
+
+**Safety:** budgets, timeouts, and allowlists remain mandatory. Default pytest uses **mock only** (no network).
+
 ## Storage & embeddings
 
 - **Storage:** SQLite under `aivd_data/` by default; Postgres/Redis optional via Compose  
-- **Embeddings:** TF-IDF-like **feature hashing** (+ security signal overlays). No large pretrained downloads (CI-friendly). Tradeoff: approximate behavioral geometry — see architecture docs  
+- **Embeddings:** default **feature hashing**; optional `embedding_backend: torch` small contrastive-capable projector. No large pretrained downloads (CI-friendly).  
 
 ---
 
@@ -266,8 +298,9 @@ That is the same scientific loop described in the Architecture section: hypothes
 |------|---------|
 | `protocol.py` | `TargetAdapter` interface |
 | `registry.py` | **Allowlist** — unknown targets are rejected |
-| `mock.py` | Local mock model with **5 hidden vulns** (2 in-corpus, 3 novel); ground truth for offline metrics only |
-| `local_stub.py` / `openai_compat.py` | Stubs/adapters for future local / API models (still allowlisted + budgeted) |
+| `mock.py` | Local mock with corpus, novel, and **latent compositional** vulns; GT offline-only |
+| `openai_compat.py` / `anthropic.py` / `gemini.py` | Closed-model APIs via keys + allowlisted base URLs |
+| `local_model.py` / `local_stub.py` | Open-weights path or local OpenAI-compat server; stub for tests |
 
 **Why it exists:** keep destructive/external power out of the core loop; science runs on mocks by default.
 
@@ -291,6 +324,7 @@ That is the same scientific loop described in the Architecture section: hypothes
 | `novelty_explorer.py` | Prefer probes far from the behavioral archive (NN distance) |
 | `evolutionary.py` | Population mutate/crossover; fitness = AIVD reward |
 | `rl_explorer.py` | Softmax REINFORCE over discrete strategies |
+| `rl_v2.py` | Continuous strategy MLP + baseline; shared `compute_reward` |
 | `hybrid.py` | Sample RL candidates + inject novel-family probes; pick by novelty; then RL update |
 
 **Why it exists:** make the research question *experimentally comparable* under identical reward, verifier, and metrics.
@@ -341,39 +375,28 @@ That is the same scientific loop described in the Architecture section: hypothes
 
 ---
 
-## What can be improved (quality roadmap)
+## Roadmap status (v2)
 
-Honest gaps from the current mock results and design — prioritized for “even better / higher quality”:
+### Shipped in v2
+- Deeper RL (`rl_v2`) with continuous strategy space + baseline; **same reward**
+- Latent / compositional held-out mock vulns (`human_hard`)
+- Stronger confirmation (paraphrase / encoding / consistency) + FP stress tests
+- Stronger optional torch encoder path (`embedding_backend: hashing|torch`)
+- Model providers: OpenAI-compat, Anthropic, Gemini, local path/server
+- Cost-aware reward term (`w_cost`)
+- Multi-seed comparison reporting + GitHub Actions CI
 
-### High impact
-
-1. **Stronger embeddings** — replace / augment feature hashing with sentence-transformer or contrastive encoders trained on (prompt, response, policy-label) triples so behavioral clusters better match human threat categories.
-2. **Stricter confirmation** — deeper variation testing (paraphrase, encoding transforms, multi-turn), statistical reproducibility under target stochasticity, and calibrated confidence intervals (mock vulns are currently easy to re-trigger → raw ConfirmedCount inflates).
-3. **Richer mock & held-out suites** — more hidden vuln families, multi-turn / tool-use / RAG mocks, and a locked held-out set so explorers cannot overfit the published benchmark.
-4. **Judge quality** — LLM-as-judge or ensemble evaluators with disagreement tracking to cut evaluator bias; keep heuristics as a cheap baseline.
-
-### Medium impact
-
-5. **Deeper RL / hierarchical RL** — contextual policies over continuous strategy embeddings, proper value baselines, off-policy evaluation; hierarchical options for “region then probe.”
-6. **Active learning / Bayesian optimization** over regions using uncertainty estimates (not only NN novelty).
-7. **Cost-aware search** — explicit API/compute cost in the reward and early-stopping when IG plateaus.
-8. **Postgres + Redis production path** — move beyond SQLite for concurrent workers, shared archive, and dashboard scale (Compose stubs already exist).
-9. **Dashboard UX** — live behavioral map (2D projection), finding timelines, explorer ablations, downloadable experiment packs.
-
-### Robustness & science hygiene
-
-10. **Blinded ground truth packaging** — stronger guarantees that explorers never import mock GT (lint/CI import rules).
-11. **Seeded multi-seed reporting** — tables with mean±std across seeds; pre-registered budgets.
-12. **False-positive stress tests** — inject bizarre-but-benign responses and assert they stay *unresolved* / low reward.
-13. **Distribution-shift protocols** — train explorers on one mock family, evaluate transfer to another.
-14. **Human-in-the-loop review** — optional confirmation gate before `confirmed` on non-mock targets.
-15. **Packaging / CI** — GitHub Actions for pytest + a short comparison smoke job; pin lighter CPU torch wheels to shrink installs.
+### Still future
+- Sentence-transformer / larger contrastive encoders trained on richer triples
+- Multi-turn / tool-use / RAG mocks and locked held-out suites beyond current latent pair
+- LLM-as-judge ensemble evaluators with disagreement tracking
+- Hierarchical options RL (“region then probe”) and Bayesian optimization over regions
+- Postgres + Redis production path; richer live dashboard UX
+- Blinded GT packaging lint in CI; distribution-shift transfer protocols; human-in-the-loop gate on non-mock targets
 
 ### Explicit non-goals (keep out unless threat model expands)
-
 - Traditional cyber exploit generation, network scanning, malware, or unauthorized production probing — remain **out of scope** ([`docs/threat-model.md`](docs/threat-model.md)).
 
----
 
 ## Documentation index
 

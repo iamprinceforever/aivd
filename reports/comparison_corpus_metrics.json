@@ -1,25 +1,26 @@
 {
-  "experiments": 80,
-  "DiscoveryEfficiency": 0.025,
-  "ExplorationCoverage": 0.4166666666666667,
+  "experiments": 40,
+  "DiscoveryEfficiency": 0.05,
+  "ExplorationCoverage": 0.3125,
   "FalsePositiveRate": 0.0,
   "ReproRate": 1.0,
   "CorpusEscapeRate": 0.0,
-  "tests_per_discovery": 40.0,
+  "tests_per_discovery": 20.0,
   "AnomalyRate": 0.0,
-  "ConfirmedCount": 54,
+  "ConfirmedCount": 28,
   "ConfirmedUniqueGT": [
     "HV-CORPUS-INJECT",
     "HV-CORPUS-ROLE"
   ],
   "CorpusEscapeGT": [],
   "gt_hits": {
-    "HV-CORPUS-INJECT": 28,
-    "HV-CORPUS-ROLE": 26
+    "HV-CORPUS-INJECT": 14,
+    "HV-CORPUS-ROLE": 14
   },
   "status_counts": {
-    "confirmed": 54,
-    "tested": 26
+    "confirmed": 28,
+    "tested": 12
   },
-  "mean_reward": 0.08959641764786984
+  "mean_reward": 0.1367386540238267,
+  "seed": 42
 }
