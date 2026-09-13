@@ -110,6 +110,7 @@ class OpenAICompatTarget:
             "model": self.model,
             "messages": [{"role": "user", "content": prompt}],
             "temperature": 0.0,
+            "max_tokens": 256,
         }
         try:
             with httpx.Client(timeout=timeout_s or self.timeout_s) as client:
