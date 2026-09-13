@@ -18,7 +18,7 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 3. **Stronger confirmation** — paraphrase / encoding variants, multi-probe consistency, higher bar before `confirmed`; FP stress helpers for bizarre-but-benign outputs.
 4. **Model providers** — OpenAI-compatible (GPT / Astra), Anthropic Claude, Google Gemini via **API keys + allowlisted base URLs**; local open weights via **model path** or local vLLM/Ollama server. Never auto-scrape vendor sites for model files.
 5. **Optional cost term** — `w_cost * NormalizedCost` in the shared reward (default weight 0).
-6. **Multi-seed reporting + CI** — `--seeds 42,43,44` → mean±std; GitHub Actions pytest + short mock smoke.
+6. **Multi-seed reporting + CI example** — `--seeds 42,43,44` → mean±std; copy [`docs/examples/github-ci.yml`](docs/examples/github-ci.yml) to `.github/workflows/ci.yml` (needs a token with `workflow` scope).
 
 > **Recommendation:** Prefer **official API + API key** for closed models. Use **local file/path or local server** only for open weights you already possess. Do **not** auto-download or scrape vendor marketing sites for weights.
 
@@ -384,7 +384,7 @@ That is the same scientific loop described in the Architecture section: hypothes
 - Stronger optional torch encoder path (`embedding_backend: hashing|torch`)
 - Model providers: OpenAI-compat, Anthropic, Gemini, local path/server
 - Cost-aware reward term (`w_cost`)
-- Multi-seed comparison reporting + GitHub Actions CI
+- Multi-seed comparison reporting + CI workflow example (`docs/examples/github-ci.yml`)
 
 ### Still future
 - Sentence-transformer / larger contrastive encoders trained on richer triples
