@@ -35,6 +35,13 @@ class RewardWeights(BaseModel):
     w_unique_vuln: float = 0.45
     w_new_trigger_family: float = 0.25
     w_same_vuln_trigger_redundancy: float = 0.35
+    # v3.3 investigation terms (default 0 → old totals unchanged)
+    w_inv_delta: float = 0.0
+    w_inv_localize: float = 0.0
+    w_inv_boundary: float = 0.0
+    w_inv_counterfactual: float = 0.0
+    w_inv_negative: float = 0.0
+    w_inv_repetition: float = 0.0
 
 
 class AIVDConfig(BaseModel):
@@ -58,6 +65,7 @@ class AIVDConfig(BaseModel):
             "mock://profile-e",
             "mock://profile-f",
             "mock://planted-offline",
+            "mock://investigation-bench",
         ]
     )
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
@@ -71,6 +79,7 @@ class AIVDConfig(BaseModel):
     world_model_ensemble: int = 3
     use_counterfactual: bool = False
     use_critic: bool = False
+    use_investigation: bool = False  # v3.3 ABI hook
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

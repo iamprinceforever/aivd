@@ -102,6 +102,13 @@ class RewardBreakdown(BaseModel):
     unique_vuln_bonus: float = 0.0
     new_trigger_family_bonus: float = 0.0
     same_vuln_trigger_redundancy: float = 0.0
+    # v3.3 investigation terms (optional; default 0)
+    inv_meaningful_delta: float = 0.0
+    inv_localization_shrink: float = 0.0
+    inv_boundary_discovery: float = 0.0
+    inv_counterfactual_discrimination: float = 0.0
+    inv_useful_negative: float = 0.0
+    inv_repetition_penalty: float = 0.0
     total: float = 0.0
     weights: dict[str, float] = Field(default_factory=dict)
 

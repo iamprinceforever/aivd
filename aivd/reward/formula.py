@@ -45,6 +45,13 @@ def compute_reward(
     same_vuln_same_trigger: bool = False,
     # Exploring same region on a *new* dimension must NOT be penalized as redundancy
     same_region_new_dimension: bool = False,
+    # v3.3 investigation extras (0 keeps old totals)
+    inv_meaningful_delta: float = 0.0,
+    inv_localization_shrink: float = 0.0,
+    inv_boundary_discovery: float = 0.0,
+    inv_counterfactual_discrimination: float = 0.0,
+    inv_useful_negative: float = 0.0,
+    inv_repetition_penalty: float = 0.0,
 ) -> RewardBreakdown:
     w = weights or RewardWeights()
     if isinstance(status, str):
@@ -89,6 +96,12 @@ def compute_reward(
         - w.w_inv * invalid
         - w.w_rep * repetition
         - w.w_cost * cost
+        + float(getattr(w, "w_inv_delta", 0.0) or 0.0) * float(inv_meaningful_delta)
+        + float(getattr(w, "w_inv_localize", 0.0) or 0.0) * float(inv_localization_shrink)
+        + float(getattr(w, "w_inv_boundary", 0.0) or 0.0) * float(inv_boundary_discovery)
+        + float(getattr(w, "w_inv_counterfactual", 0.0) or 0.0) * float(inv_counterfactual_discrimination)
+        + float(getattr(w, "w_inv_negative", 0.0) or 0.0) * float(inv_useful_negative)
+        - float(getattr(w, "w_inv_repetition", 0.0) or 0.0) * float(inv_repetition_penalty)
     )
 
     return RewardBreakdown(
@@ -108,6 +121,12 @@ def compute_reward(
         unique_vuln_bonus=unique_bonus,
         new_trigger_family_bonus=family_bonus,
         same_vuln_trigger_redundancy=same_vt_red,
+        inv_meaningful_delta=float(inv_meaningful_delta),
+        inv_localization_shrink=float(inv_localization_shrink),
+        inv_boundary_discovery=float(inv_boundary_discovery),
+        inv_counterfactual_discrimination=float(inv_counterfactual_discrimination),
+        inv_useful_negative=float(inv_useful_negative),
+        inv_repetition_penalty=float(inv_repetition_penalty),
         total=float(total),
         weights=w.model_dump(),
     )

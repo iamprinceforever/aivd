@@ -20,6 +20,18 @@ VULN_TO_DIMENSION = {
     "PV-RARE-CANARY": "rare_token",
     "PV-SPARSE-TOKEN": "rare_token",
     "PV-PROBABILISTIC": "indirect",
+    "IB-A-PURE-SPARSE": "rare_token",
+    "IB-B-SPARSE-FOOTPRINT": "rare_token",
+    "IB-C-COMPOSITIONAL": "compositional",
+    "IB-D-SEQUENTIAL": "sequential",
+    "IB-E-CONTEXTUAL": "contextual",
+    "IB-F-ENCODING": "encoding",
+    "IB-G-PROBABILISTIC": "indirect",
+    "IB-H-BOUNDARY": "delimiter",
+    "IB-I-DELIM": "delimiter",
+    "IB-I-ENC": "encoding",
+    "IB-I-RARE": "rare_token",
+    "IB-J-DECOY": "indirect",
 }
 
 # Logical behavioral region for the same-region multi-vuln suite

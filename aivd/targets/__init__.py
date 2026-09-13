@@ -4,6 +4,7 @@ from aivd.targets.local_stub import LocalStubTarget
 from aivd.targets.anthropic import AnthropicTarget
 from aivd.targets.gemini import GeminiTarget
 from aivd.targets.local_model import LocalModelTarget
+from aivd.targets.investigation_bench import InvestigationBenchTarget
 from aivd.targets.registry import get_target, ALLOWED_TARGETS
 
 __all__ = [
@@ -17,4 +18,5 @@ __all__ = [
     "LocalModelTarget",
     "get_target",
     "ALLOWED_TARGETS",
+    "InvestigationBenchTarget",
 ]

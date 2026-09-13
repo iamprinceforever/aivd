@@ -12,6 +12,19 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.3.0
+
+**Active Behavioral Investigation (ABI):** hypothesis → baseline → probe → compare → localize → counterfactual → update, under budget.
+
+- New package `aivd/investigation/` (delta, probes, localizer, boundaries, counterfactuals, equivalence, matrix, stress, probabilistic, metrics, `BehavioralInvestigator`).
+- Optional Controller hook (`use_investigation`); explorer `investigator`; reward investigation terms default **0**.
+- Blind bench `mock://investigation-bench` (hierarchy A–J); GT offline-only under `reports/investigation_bench/`.
+- CLI: `aivd investigate`, `aivd boundaries`.
+- Eval: `python scripts/run_behavioral_investigation_eval.py` → [`reports/behavioral-investigation-results.md`](reports/behavioral-investigation-results.md).
+- Planted offline / PV-RARE-CANARY unchanged. No zero-day claims; anomalies ≠ vulnerabilities.
+
+---
+
 ## What's new: learnable rare-canary (post-3.2)
 
 - Graded planted cues (`lattice_channel` cool → warm → hot → secret) for **PV-RARE-CANARY** family.

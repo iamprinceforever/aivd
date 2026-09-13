@@ -38,6 +38,8 @@ from aivd.behavior.novelty import global_novelty, multi_level_novelty
 from aivd.reward.calculator import RewardCalculator
 from aivd.reward.formula import estimate_normalized_cost
 from aivd.targets.registry import get_target
+from aivd.investigation.behavioral_investigator import BehavioralInvestigator
+from aivd.memory.regions import record_boundary, record_hypothesis_result
 
 
 class Controller:
@@ -89,6 +91,10 @@ class Controller:
         self._seen_prompt_hashes: set[str] = set()
         self._coverage_prev = 0.0
         self.results: list[ProbeResult] = []
+        self._investigator: BehavioralInvestigator | None = None
+        self._inv_extras: dict[str, float] = {}
+        self._inv_context: dict[str, Any] = {}
+        self._inv_ran: bool = False
         self.learning_mode = getattr(self.config, "learning_mode", "stateless") or "stateless"
         self.continual: ContinualSession | None = None
         if self.learning_mode == "continual":
@@ -242,6 +248,12 @@ class Controller:
                     rec_sr.residual_uncertainty,
                 )
                 ctx["mem_known_findings_count"] = float(max(rec_sr.unique_findings, len(self.continual.known_vulns & {"PV-DELIM-BACKDOOR", "PV-SR-ENCODING", "PV-SR-RAREFRAG"})))
+        if getattr(self.config, "use_investigation", False):
+            ctx.update(self._inv_context)
+            if self.results:
+                ctx["last_security_relevance"] = float(
+                    self.results[-1].finding.security_relevance
+                )
         strategy, prompt = self.explorer.next_prompt(ctx)
         if len(prompt) > self.config.budget.max_prompt_chars:
             prompt = prompt[: self.config.budget.max_prompt_chars]
@@ -435,6 +447,67 @@ class Controller:
             updated_at=datetime.now(timezone.utc),
         )
 
+
+        # v3.3 optional Active Behavioral Investigation (budget-sharing, non-breaking)
+        if getattr(self.config, "use_investigation", False) and assessment.score >= 0.2 and not self._inv_ran:
+            remaining = max(0, self.budget.config.max_experiments - self.budget.experiments_used)
+            inv_budget = min(8, max(2, remaining // 4))
+            if inv_budget >= 2 and self._investigator is None:
+                self._investigator = BehavioralInvestigator(
+                    lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+                    budget=inv_budget,
+                    seed=self.config.seed,
+                    evaluator=self._heuristic_evaluator,
+                    region_id=str(semantic_rid),
+                    open_dimensions=list(ctx.get("open_dimensions") or []),
+                    world_model=self.world_model,
+                )
+            if self._investigator is not None and self._investigator.remaining() > 0:
+                # Lightweight single-hypothesis follow-up rather than full run each step
+                try:
+                    inv_result = self._investigator.run(
+                        seed_prompt=prompt,
+                        seed_claims=[{
+                            "claim": "Observed security-relevant delta warrants localization",
+                            "dimension": (ctx.get("open_dimensions") or ["rare_token"])[0],
+                            "prior": 0.55,
+                        }],
+                    )
+                    self._inv_extras = self._investigator.reward_extras()
+                    self._inv_context = self._investigator.context_features()
+                    finding.evidence["investigation"] = {
+                        "experiments_used": inv_result.experiments_used,
+                        "n_hypotheses": len(inv_result.hypotheses),
+                        "n_boundaries": len(inv_result.boundaries),
+                        "minimal_triggers": inv_result.minimal_triggers[:3],
+                        "metrics": {k: inv_result.metrics.get(k) for k in (
+                            "time_to_first_signal", "supported", "falsified", "boundary_detection_rate"
+                        ) if k in inv_result.metrics},
+                    }
+                    # Memory: boundaries / hypotheses without saturating
+                    if self.continual is not None:
+                        rec = self.continual.memory.semantic.get(semantic_rid, namespace=self.continual.namespace)
+                        for b in inv_result.boundaries[:3]:
+                            record_boundary(rec, b.model_dump(mode="json"))
+                        for h in inv_result.hypotheses[:5]:
+                            record_hypothesis_result(
+                                rec,
+                                hypothesis_id=h.id,
+                                claim=h.claim,
+                                success=h.status.value in {"supported", "localized"},
+                                minimal_trigger=h.minimal_trigger_estimate,
+                            )
+                        self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+                    self._inv_ran = True
+                    self.audit.write(
+                        "investigation",
+                        experiment_id=exp.id,
+                        used=inv_result.experiments_used,
+                        boundaries=len(inv_result.boundaries),
+                    )
+                except Exception as e:
+                    self.audit.write("investigation_failed", error=str(e))
+
         cost = estimate_normalized_cost(prompt, resp or "")
         continual_flags = {
             "is_new_unique_vuln": False,
@@ -475,6 +548,12 @@ class Controller:
             is_new_trigger_family=bool(continual_flags.get("is_new_trigger_family")),
             same_vuln_same_trigger=bool(continual_flags.get("same_vuln_same_trigger")),
             same_region_new_dimension=bool(continual_flags.get("same_region_new_dimension")),
+            inv_meaningful_delta=float(self._inv_extras.get("inv_meaningful_delta", 0.0)),
+            inv_localization_shrink=float(self._inv_extras.get("inv_localization_shrink", 0.0)),
+            inv_boundary_discovery=float(self._inv_extras.get("inv_boundary_discovery", 0.0)),
+            inv_counterfactual_discrimination=float(self._inv_extras.get("inv_counterfactual_discrimination", 0.0)),
+            inv_useful_negative=float(self._inv_extras.get("inv_useful_negative", 0.0)),
+            inv_repetition_penalty=float(self._inv_extras.get("inv_repetition_penalty", 0.0)),
         )
 
         mem_kw = {}
@@ -509,6 +588,7 @@ class Controller:
                     dim=self.config.embedding_dim, include_memory=include_mem
                 ),
                 **mem_kw,
+                "investigation": dict(self._inv_context),
             },
         )
         if self.continual is not None:

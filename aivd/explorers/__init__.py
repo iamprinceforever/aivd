@@ -7,6 +7,7 @@ from aivd.explorers.rl_v2 import RLv2Explorer
 from aivd.explorers.hybrid import HybridExplorer
 from aivd.explorers.ppo_explorer import PPOExplorer, BaselineRLExplorer
 from aivd.explorers.cue_learner import CueLearnerExplorer
+from aivd.explorers.investigator_explorer import InvestigatorExplorer
 
 EXPLORERS = {
     "random": RandomExplorer,
@@ -18,6 +19,7 @@ EXPLORERS = {
     "hybrid": HybridExplorer,
     "ppo": PPOExplorer,
     "cue_learner": CueLearnerExplorer,
+    "investigator": InvestigatorExplorer,
 }
 
 
@@ -37,6 +39,7 @@ __all__ = [
     "PPOExplorer",
     "BaselineRLExplorer",
     "CueLearnerExplorer",
+    "InvestigatorExplorer",
     "EXPLORERS",
     "get_explorer",
 ]

@@ -121,6 +121,9 @@ class PPOExplorer:
         return self._decode(action, explore_p)
 
     def observe(self, strategy: str, prompt: str, reward: float, info: dict[str, Any]) -> None:
+        # v3.3 optional investigation features (dict only; does not alter PPO state dim)
+        self._last_inv_features = dict(info.get("investigation") or {})
+
         self.agent.observe(reward, done=False)
         self._steps += 1
         if self._steps % self._update_every == 0:

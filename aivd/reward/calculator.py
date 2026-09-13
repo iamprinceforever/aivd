@@ -40,6 +40,12 @@ class RewardCalculator:
         is_new_trigger_family: bool = False,
         same_vuln_same_trigger: bool = False,
         same_region_new_dimension: bool = False,
+        inv_meaningful_delta: float = 0.0,
+        inv_localization_shrink: float = 0.0,
+        inv_boundary_discovery: float = 0.0,
+        inv_counterfactual_discrimination: float = 0.0,
+        inv_useful_negative: float = 0.0,
+        inv_repetition_penalty: float = 0.0,
     ) -> RewardBreakdown:
         w = self.weights
         # Prefer world-model IG when available
@@ -68,6 +74,12 @@ class RewardCalculator:
             is_new_trigger_family=is_new_trigger_family,
             same_vuln_same_trigger=same_vuln_same_trigger,
             same_region_new_dimension=same_region_new_dimension,
+            inv_meaningful_delta=inv_meaningful_delta,
+            inv_localization_shrink=inv_localization_shrink,
+            inv_boundary_discovery=inv_boundary_discovery,
+            inv_counterfactual_discrimination=inv_counterfactual_discrimination,
+            inv_useful_negative=inv_useful_negative,
+            inv_repetition_penalty=inv_repetition_penalty,
         )
         # Optional impact term only when w_impact > 0 (keeps v2 totals by default)
         impact_term = float(getattr(w, "w_impact", 0.0) or 0.0) * float(max(0.0, min(1.0, impact)))

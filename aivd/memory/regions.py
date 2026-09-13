@@ -205,3 +205,52 @@ def region_priority(
         # Soft floor, not hard zero — rare reopen if new hypothesis arrives
         priority = min(priority, 0.08)
     return float(max(0.05, min(1.0, priority)))
+
+
+# --- v3.3 investigation helpers (store via meta; keep RegionRecord lean) ---
+
+def record_boundary(record: RegionRecord, boundary: dict[str, Any]) -> None:
+    """Persist a boundary discovery without saturating the region."""
+    bounds = list(record.meta.get("boundaries") or [])
+    bounds.append(boundary)
+    record.meta["boundaries"] = bounds[-50:]
+    # Boundary discovery raises residual uncertainty slightly (structure found → more to map)
+    record.residual_uncertainty = min(1.0, record.residual_uncertainty + 0.03)
+    record.expected_ig = min(1.0, record.expected_ig + 0.05)
+    record.saturated = record.is_saturated()
+
+
+def record_hypothesis_result(
+    record: RegionRecord,
+    *,
+    hypothesis_id: str,
+    claim: str = "",
+    success: bool,
+    minimal_trigger: str = "",
+) -> None:
+    """Store successful/failed hypotheses + negative evidence."""
+    key = "successful_hypotheses" if success else "failed_hypotheses"
+    bucket = list(record.meta.get(key) or [])
+    bucket.append({"id": hypothesis_id, "claim": claim, "minimal_trigger": minimal_trigger})
+    record.meta[key] = bucket[-40:]
+    if not success:
+        negs = list(record.meta.get("negative_evidence") or [])
+        negs.append(hypothesis_id)
+        record.meta["negative_evidence"] = negs[-40:]
+        # Useful negative: slight IG bump for clarifying what does not work
+        record.expected_ig = min(1.0, record.expected_ig + 0.02)
+    else:
+        if minimal_trigger:
+            mts = list(record.meta.get("minimal_triggers") or [])
+            if minimal_trigger not in mts:
+                mts.append(minimal_trigger)
+            record.meta["minimal_triggers"] = mts[-20:]
+    # Never force saturation from a single hypothesis outcome
+    record.saturated = record.is_saturated()
+
+
+def record_unexplored_dims(record: RegionRecord, dims: list[str]) -> None:
+    record.meta["unexplored_dims"] = list(dims)
+    for d in dims:
+        if d not in record.dimensions_coverage:
+            record.dimensions_coverage[d] = 0.0

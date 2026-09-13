@@ -68,6 +68,18 @@ def main(argv: list[str] | None = None) -> int:
     p_ckpt.add_argument("--root", type=str, default="aivd_data/checkpoints")
     p_ckpt.add_argument("--path", type=str, default="", help="Explicit .pt path (optional)")
 
+
+    p_inv = sub.add_parser("investigate", help="Run Active Behavioral Investigation (v3.3)")
+    p_inv.add_argument("--target", type=str, default="mock://investigation-bench")
+    p_inv.add_argument("--budget", type=int, default=32)
+    p_inv.add_argument("--seed", type=int, default=42)
+    p_inv.add_argument("--strategy", type=str, default="investigator", help="explorer or investigator strategy")
+    p_inv.add_argument("--dimension", type=str, default="", help="Optional focus dimension")
+
+    p_bnd = sub.add_parser("boundaries", help="List boundaries / hypotheses from memory root")
+    p_bnd.add_argument("--root", type=str, default="aivd_data/continual_memory")
+    p_bnd.add_argument("--namespace", type=str, default="target")
+    p_bnd.add_argument("--region", type=str, default="")
     p_cont = sub.add_parser("continual", help="Short continual/stateless planted run")
     p_cont.add_argument("--learning-mode", choices=["stateless", "continual"], default="continual")
     p_cont.add_argument("--explorer", default="ppo")
@@ -234,6 +246,60 @@ def main(argv: list[str] | None = None) -> int:
                 "has_policy": data.get("policy_state") is not None,
             }, indent=2))
             return 0
+
+
+    if args.cmd == "investigate":
+        from aivd.investigation.behavioral_investigator import BehavioralInvestigator
+        from aivd.investigation.metrics import summarize_investigation
+        from aivd.targets.registry import get_target
+        from aivd.core.config import AIVDConfig
+        from aivd.agents.controller import Controller
+
+        tgt = get_target(args.target, seed=args.seed, stochastic=True)
+        dims = [args.dimension] if args.dimension else ["rare_token", "encoding", "compositional", "boundary"]
+        inv = BehavioralInvestigator(
+            tgt.probe,
+            budget=args.budget,
+            seed=args.seed,
+            open_dimensions=dims,
+            region_id="cli_investigate",
+        )
+        result = inv.run(seed_claims=[{"claim": f"focus {d}", "dimension": d, "prior": 0.45} for d in dims[:3]])
+        summary = summarize_investigation(result)
+        # Optional controller pass with investigation explorer for comparison hook
+        if args.strategy and args.strategy != "investigator-only":
+            try:
+                cfg = AIVDConfig(seed=args.seed, use_investigation=True)
+                cfg.budget.max_experiments = min(16, args.budget)
+                ctrl = Controller(config=cfg, explorer_name=args.strategy if args.strategy != "investigator" else "investigator")
+                ctrl.set_target(args.target, seed=args.seed)
+                ctrl.run(n=cfg.budget.max_experiments)
+                summary["controller_probes"] = len(ctrl.results)
+            except Exception as e:
+                summary["controller_error"] = str(e)
+        print(json.dumps(summary, indent=2, default=str))
+        return 0
+
+    if args.cmd == "boundaries":
+        from aivd.memory.manager import ContinualMemory
+        mem = ContinualMemory(root=args.root)
+        regions = mem.semantic.list_regions(args.namespace)
+        out = []
+        for r in regions:
+            if args.region and r.region_id != args.region:
+                continue
+            out.append({
+                "region_id": r.region_id,
+                "boundaries": r.meta.get("boundaries") or [],
+                "successful_hypotheses": r.meta.get("successful_hypotheses") or [],
+                "failed_hypotheses": r.meta.get("failed_hypotheses") or [],
+                "minimal_triggers": r.meta.get("minimal_triggers") or [],
+                "negative_evidence": r.meta.get("negative_evidence") or [],
+                "residual_uncertainty": r.residual_uncertainty,
+                "saturated": r.saturated,
+            })
+        print(json.dumps({"namespace": args.namespace, "regions": out}, indent=2, default=str))
+        return 0
 
     if args.cmd == "continual":
         from aivd.agents.controller import Controller
