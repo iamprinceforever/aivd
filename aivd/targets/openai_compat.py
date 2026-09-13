@@ -20,6 +20,8 @@ DEFAULT_ALLOWLISTED_BASE_URLS = frozenset(
         "http://localhost:8000",
         "http://127.0.0.1:11434/v1",  # Ollama OpenAI-compat
         "http://localhost:11434/v1",
+        "http://127.0.0.1:18080/v1",  # planted-vuln eval proxy
+        "http://localhost:18080/v1",
     }
 )
 
