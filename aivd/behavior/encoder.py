@@ -57,3 +57,7 @@ class BehaviorEncoder:
 
     def encode_many(self, texts: Iterable[str]) -> np.ndarray:
         return np.vstack([self.encode(t) for t in texts])
+
+# Backward-compatible alias (v3): hashing encoder is the baseline.
+HashBehaviorEncoder = BehaviorEncoder
+

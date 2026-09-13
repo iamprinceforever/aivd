@@ -78,7 +78,10 @@ class TorchBehaviorEncoder:
 
 
 def make_encoder(backend: str = "hashing", dim: int = 64, seed: int = 42):
-    """Factory: hashing (default) or torch projector."""
+    """Factory: hashing (default), torch projector, or trainable learned encoder."""
     if backend == "torch":
         return TorchBehaviorEncoder(dim=dim, seed=seed)
+    if backend == "learned":
+        from aivd.behavior.learned_encoder import LearnedBehaviorEncoder
+        return LearnedBehaviorEncoder(dim=dim, seed=seed)
     return BehaviorEncoder(dim=dim, seed=seed)

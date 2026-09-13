@@ -11,6 +11,23 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 
 ---
 
+
+## What's new in v3.0.0 (research platform)
+
+Incremental upgrade of the v2 loop — **baselines kept**. See [`docs/architecture-v3.md`](docs/architecture-v3.md), [`docs/audit-current-system.md`](docs/audit-current-system.md), [`docs/migration-plan-v3.md`](docs/migration-plan-v3.md), [`docs/v3-deliverable.md`](docs/v3-deliverable.md).
+
+1. **BehavioralState** + richer BehaviorMap (density, trajectories, unexplored hints).
+2. **LearnedBehaviorEncoder** (trainable; default CLI still **hash**). Training: `aivd train`.
+3. **BehavioralWorldModel** (ensemble uncertainty) behind `world_model: true/false`.
+4. **PPO** explorer (`ppo`) beside `rl` / `rl_v2` baselines.
+5. **RewardCalculator**, counterfactual evaluator, research critic, finding lifecycle extensions.
+6. **Hidden suite** Target profiles A–F (`aivd benchmark`).
+7. CLI: `scan|train|benchmark|evaluate|verify|visualize|report` (old `baseline`/`compare` kept).
+
+**Honest limitations:** mock-first; keyword evaluator; untrained encoders must not be called learned; PPO/WM are small CPU prototypes; no zero-day claims. Results: [`reports/research-upgrade-results.md`](reports/research-upgrade-results.md).
+
+---
+
 ## What's new in v2.0.0
 
 1. **Deeper RL (`rl_v2`)** — continuous / hybrid strategy-parameter space with a small PyTorch MLP policy, REINFORCE **with baseline**, behavioral-archive novelty bias. Uses the **same** multi-term `compute_reward` (not a success-only objective). Legacy `rl` kept for comparison.
@@ -96,13 +113,15 @@ Finding Database (statuses) + Audit log → Report / Dashboard
 | `aivd.core` | Types, config, budgets, audit, finding status enums |
 | `aivd.targets` | Pluggable adapters: mock, OpenAI-compat, Anthropic, Gemini, local model/stub |
 | `aivd.agents` | Controller, planner, generators |
-| `aivd.explorers` | Seven exploration methods (incl. `rl_v2`) |
-| `aivd.behavior` | Embeddings, novelty, uncertainty, clustering, behavioral map |
+| `aivd.explorers` | Baselines + `ppo` (v3) |
+| `aivd.behavior` | Hash/learned encoders, BehavioralState, map, optional world model |
 | `aivd.evaluation` | Security evaluator, verifier, impact |
 | `aivd.reward` | Explicit multi-term reward (novelty gated from security) |
 | `aivd.memory` | SQLite experiment / finding store |
 | `aivd.metrics` | DiscoveryEfficiency, ExplorationCoverage, CorpusEscapeRate, … |
 | `aivd.experiments` | Baseline + comparison runners |
+| `aivd.rl` | PPO policy/value/buffer (v3)
+| `aivd.benchmarks` | Hidden Target A–F suite runner |
 | `aivd.api` / `aivd.viz` | FastAPI dashboard and HTML/JSON reports |
 
 ### Confirmation pipeline (mandatory)

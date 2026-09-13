@@ -5,6 +5,7 @@ from aivd.explorers.evolutionary import EvolutionaryExplorer
 from aivd.explorers.rl_explorer import RLExplorer
 from aivd.explorers.rl_v2 import RLv2Explorer
 from aivd.explorers.hybrid import HybridExplorer
+from aivd.explorers.ppo_explorer import PPOExplorer, BaselineRLExplorer
 
 EXPLORERS = {
     "random": RandomExplorer,
@@ -14,6 +15,7 @@ EXPLORERS = {
     "rl": RLExplorer,
     "rl_v2": RLv2Explorer,
     "hybrid": HybridExplorer,
+    "ppo": PPOExplorer,
 }
 
 
@@ -30,6 +32,8 @@ __all__ = [
     "RLExplorer",
     "RLv2Explorer",
     "HybridExplorer",
+    "PPOExplorer",
+    "BaselineRLExplorer",
     "EXPLORERS",
     "get_explorer",
 ]

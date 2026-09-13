@@ -28,6 +28,8 @@ class RewardWeights(BaseModel):
     w_inv: float = 0.50
     w_rep: float = 0.15
     w_cost: float = 0.0  # optional cost penalty; 0 keeps v1 behavior
+    w_impact: float = 0.0  # optional; RewardCalculator also applies small extra
+    w_dup: float = 0.0  # duplicate behavior (falls back to redundancy)
     novelty_gate_eps: float = 0.05
 
 
@@ -45,6 +47,12 @@ class AIVDConfig(BaseModel):
             "anthropic://api",
             "gemini://api",
             "local://model",
+            "mock://profile-a",
+            "mock://profile-b",
+            "mock://profile-c",
+            "mock://profile-d",
+            "mock://profile-e",
+            "mock://profile-f",
         ]
     )
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
@@ -52,8 +60,20 @@ class AIVDConfig(BaseModel):
     seed: int = 42
     n_behavioral_clusters: int = 8
     embedding_dim: int = 64
-    embedding_backend: Literal["hashing", "torch"] = "hashing"
+    embedding_backend: Literal["hashing", "torch", "learned"] = "hashing"
     estimated_reachable_regions: int = 16
+    world_model: bool = False
+    world_model_ensemble: int = 3
+    use_counterfactual: bool = False
+    use_critic: bool = False
+    encoder_lambdas: dict[str, float] = Field(
+        default_factory=lambda: {
+            "contrastive": 1.0,
+            "temporal": 0.25,
+            "reconstruction": 0.1,
+            "security": 0.5,
+        }
+    )
     extra: dict[str, Any] = Field(default_factory=dict)
 
     def ensure_dirs(self) -> None:

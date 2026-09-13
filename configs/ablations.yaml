@@ -1,0 +1,23 @@
+# Ablation toggles for v3 research platform
+ablations:
+  - name: hash_baseline
+    embedding_backend: hashing
+    world_model: false
+    use_counterfactual: false
+    use_critic: false
+    explorer: hybrid
+  - name: learned_encoder
+    embedding_backend: learned
+    world_model: false
+    explorer: hybrid
+  - name: world_model_on
+    embedding_backend: hashing
+    world_model: true
+    world_model_ensemble: 3
+    explorer: ppo
+  - name: full_stack
+    embedding_backend: learned
+    world_model: true
+    use_counterfactual: true
+    use_critic: true
+    explorer: ppo

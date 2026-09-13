@@ -9,6 +9,7 @@ from aivd.targets.local_stub import LocalStubTarget
 from aivd.targets.anthropic import AnthropicTarget
 from aivd.targets.gemini import GeminiTarget
 from aivd.targets.local_model import LocalModelTarget
+from aivd.targets.profiles import get_profile_target
 
 ALLOWED_TARGETS = {
     "mock://default": lambda **kw: MockTarget(**kw),
@@ -18,6 +19,12 @@ ALLOWED_TARGETS = {
     "anthropic://api": lambda **kw: AnthropicTarget(**kw),
     "gemini://api": lambda **kw: GeminiTarget(**kw),
     "local://model": lambda **kw: LocalModelTarget(**kw),
+    "mock://profile-a": lambda **kw: get_profile_target("A", **kw),
+    "mock://profile-b": lambda **kw: get_profile_target("B", **kw),
+    "mock://profile-c": lambda **kw: get_profile_target("C", **kw),
+    "mock://profile-d": lambda **kw: get_profile_target("D", **kw),
+    "mock://profile-e": lambda **kw: get_profile_target("E", **kw),
+    "mock://profile-f": lambda **kw: get_profile_target("F", **kw),
 }
 
 

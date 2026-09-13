@@ -17,6 +17,13 @@ class FindingStatus(str, Enum):
     REPRODUCED = "reproduced"
     CONFIRMED = "confirmed"
     UNRESOLVED = "unresolved"
+    # v3 lifecycle extensions (metrics still key on classic statuses)
+    KNOWN_VULN = "known_vuln"
+    KNOWN_BEHAVIOR = "known_behavior"
+    UNSEEN = "unseen"
+    SUSPICIOUS_NOVEL = "suspicious_novel"
+    REPRODUCIBLE_SECURITY_NOVEL = "reproducible_security_novel"
+    INDEPENDENTLY_VERIFIED = "independently_verified"
 
 
 def _now() -> datetime:
@@ -49,6 +56,16 @@ class Observation(BaseModel):
     created_at: datetime = Field(default_factory=_now)
 
 
+class FindingConfidence(BaseModel):
+    """Structured confidence for v3 verification / critic."""
+    score: float = 0.0
+    repro: float = 0.0
+    counterfactual: float = 0.0
+    critic_agreement: float = 1.0
+    independent: bool = False
+    notes: str = ""
+
+
 class Finding(BaseModel):
     id: str = Field(default_factory=lambda: new_id("find_"))
     experiment_id: str
@@ -58,6 +75,8 @@ class Finding(BaseModel):
     novelty: float = 0.0
     impact_score: float = 0.0
     confidence: float = 0.0
+    confidence_detail: Optional[FindingConfidence] = None
+    lifecycle: Optional[str] = None
     repro_score: float = 0.0
     summary: str = ""
     ground_truth_hit: Optional[str] = None  # offline only; not shown to explorers

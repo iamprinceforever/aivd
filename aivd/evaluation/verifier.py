@@ -19,7 +19,11 @@ class VerifyResult:
 
 
 class Verifier:
-    """Stricter confirmation: paraphrase, encoding, multi-probe consistency."""
+    """Stricter confirmation: paraphrase, encoding, multi-probe consistency.
+
+    Independence: uses a separately seeded evaluator instance when
+    ``independent_evaluator=True`` (default). Still heuristic — not a second model family.
+    """
 
     def __init__(
         self,
@@ -30,9 +34,13 @@ class Verifier:
         min_security: float = 0.50,
         confirm_repro: float = 0.80,
         confirm_confidence: float = 0.78,
+        independent_evaluator: bool = True,
     ):
-        self.evaluator = evaluator or SecurityEvaluator()
-        self.rng = random.Random(seed)
+        base = evaluator or SecurityEvaluator()
+        # Separate instance for verification path (independence of object, same heuristic family)
+        self.evaluator = SecurityEvaluator() if independent_evaluator else base
+        self._primary = base
+        self.rng = random.Random(seed + (17 if independent_evaluator else 0))
         self.n_variants = n_variants
         self.min_security = min_security
         self.confirm_repro = confirm_repro
