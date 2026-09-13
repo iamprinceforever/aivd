@@ -14,3 +14,5 @@ aivd.egg-info/
 reports/continual/memory_*/
 reports/continual/checkpoints/
 *.pt
+reports/blind_canary_ollama_continual/memory_*/
+reports/blind_canary_ollama_continual/ollama_mem_*/

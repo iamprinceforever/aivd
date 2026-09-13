@@ -32,7 +32,7 @@ class NoveltyExplorer:
         for _ in range(self.candidates_per_step):
             # overweight non-corpus strategies
             weights = [
-                3.0 if s in {"encoding_probe", "indirect_probe", "delimiter_probe", "mutation"} else 1.0
+                3.0 if s in {"encoding_probe", "indirect_probe", "delimiter_probe", "mutation", "sparse_token_hunt"} else 1.0
                 for s in strat_pool
             ]
             strategy = self.rng.choices(strat_pool, weights=weights, k=1)[0]

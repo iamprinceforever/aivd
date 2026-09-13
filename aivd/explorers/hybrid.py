@@ -33,7 +33,7 @@ class HybridExplorer:
             nov = nearest_neighbor_distance(vec, archive)
             candidates.append((nov, strategy, prompt))
         # Also inject one explicitly novel-family probe
-        for s in ("encoding_probe", "indirect_probe", "delimiter_probe"):
+        for s in ("encoding_probe", "indirect_probe", "delimiter_probe", "sparse_token_hunt"):
             strategy, prompt = self.gen.from_strategy(s)
             vec = self.encoder.encode(prompt)
             nov = nearest_neighbor_distance(vec, archive)
