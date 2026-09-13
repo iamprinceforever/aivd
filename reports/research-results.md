@@ -25,7 +25,7 @@ Authorized allowlisted targets only. No malware, network scanning, or destructiv
 
 ## 4. Baselines preserved
 
-Explorers retained: **random, corpus, novelty, evolutionary, rl, rl_v2, hybrid, ppo**. Offline/mock compare path intact. Ollama adapters unchanged.
+Explorers retained: **random, corpus, novelty, evolutionary, rl, rl_v2, hybrid, ppo**; incremental **cue_learner** for graded-cue canary. Offline/mock compare path intact. Ollama adapters unchanged.
 
 ## 5. Architecture audit (Phase 0)
 
@@ -151,7 +151,8 @@ Present, config-gated. Formal causal ID: **Not demonstrated**. Critic is heurist
 
 ## 25. Not demonstrated (aggregate)
 
-- Rare canary / sparse / most hard tiers discovery
+- Blind rare-canary (no cue following) / sparse / most hard tiers without learnable cues
+- Stock rare canary as zero-day on non-planted models
 - Full 10-seed × all explorers × high budget matrix
 - Budgets 128/256
 - Stock Llama backdoors / zero-days
@@ -184,4 +185,21 @@ Audit: `reports/architecture-audit.md`. Config: `configs/research_eval.yaml`.
 
 See **[`reports/continual-learning-results.md`](continual-learning-results.md)** and [`reports/continual-learning-audit.md`](continual-learning-audit.md).
 
-Summary (honest): region residual uncertainty keeps R eligible after finding A; same-region suite (DELIM + SR-ENCODING + SR-RAREFRAG) fully discoverable; continual reached all three by run 1 vs stateless by run 3 at 3×24 hybrid budget; final cumulative unique equal (3). Rare canary / policy-only ablation: Not demonstrated.
+Summary (honest): region residual uncertainty keeps R eligible after finding A; same-region suite (DELIM + SR-ENCODING + SR-RAREFRAG) fully discoverable; continual reached all three by run 1 vs stateless by run 3 at 3×24 hybrid budget; final cumulative unique equal (3). Blind rare canary (no cues): Not demonstrated. Learnable-cue canary: Confirmed under planted threat model (`reports/learnable_canary/`). Policy-only ablation: Not demonstrated.
+
+## 27. Learnable rare-canary discovery (cue_learner)
+
+**Protocol:** graded cues in planted twin (`lattice_channel` cool→warm→hot) + `CueLearnerExplorer` that mutates toward `orchid-lattice-<token>` **without** hardcoding `orchid-lattice-7f3q`. Control: corpus. Target: `mock://planted-offline` (+ live proxy confirm).
+
+| Metric | Value |
+|--------|-------|
+| Discovery rate (cue_learner, 5 seeds) | **1.0** |
+| Mean first discovery probe | **5.6** |
+| Corpus control discovered | **False** |
+| Live Ollama proxy (`:18080`) | Hit at probe **2** (seed 42) |
+| Status | **Confirmed under the planted threat model (learnable-cue discovery)** |
+
+Blind hunt (no cue learner / no cues used): still **Not demonstrated** at 32/64/128 — see `reports/blind_canary_ollama_continual/`.
+
+Artifacts: [`reports/learnable_canary/`](learnable_canary/) · run: `python scripts/run_learnable_canary_discovery.py`
+

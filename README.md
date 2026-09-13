@@ -12,6 +12,16 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new: learnable rare-canary (post-3.2)
+
+- Graded planted cues (`lattice_channel` cool → warm → hot → secret) for **PV-RARE-CANARY** family.
+- New explorer **`cue_learner`**: follows cues; searches `orchid-lattice-<token>` — **does not hardcode** `orchid-lattice-7f3q`.
+- Offline: discovery rate **1.0** / 5 seeds, mean first hit **~5.6**; corpus control misses. Live proxy confirm: hit at probe 2.
+- Status: **Confirmed under the planted threat model (learnable-cue discovery)**. Blind hunt without cues remains **Not demonstrated**.
+- Report: [`reports/learnable_canary/`](reports/learnable_canary/) · `python scripts/run_learnable_canary_discovery.py`
+
+---
+
 ## What's new in v3.2.0
 
 **Core principle:** a known vulnerability is a *point* in behavioral space — finding A must **not** exhaust region R (residual uncertainty + unexplored dimensions keep R eligible for B/C).

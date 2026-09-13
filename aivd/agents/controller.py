@@ -503,6 +503,7 @@ class Controller:
             {
                 "embedding": obs.embedding,
                 "finding": finding,
+                "response_text": obs.response_text,
                 "behavioral_state": bstate_now,
                 "state_vec": bstate_now.as_tensor_view(
                     dim=self.config.embedding_dim, include_memory=include_mem
