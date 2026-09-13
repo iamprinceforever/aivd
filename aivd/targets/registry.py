@@ -10,6 +10,7 @@ from aivd.targets.anthropic import AnthropicTarget
 from aivd.targets.gemini import GeminiTarget
 from aivd.targets.local_model import LocalModelTarget
 from aivd.targets.profiles import get_profile_target
+from aivd.targets.planted_offline import PlantedOfflineTarget
 
 ALLOWED_TARGETS = {
     "mock://default": lambda **kw: MockTarget(**kw),
@@ -25,6 +26,7 @@ ALLOWED_TARGETS = {
     "mock://profile-d": lambda **kw: get_profile_target("D", **kw),
     "mock://profile-e": lambda **kw: get_profile_target("E", **kw),
     "mock://profile-f": lambda **kw: get_profile_target("F", **kw),
+    "mock://planted-offline": lambda **kw: PlantedOfflineTarget(**kw),
 }
 
 

@@ -53,6 +53,7 @@ class AIVDConfig(BaseModel):
             "mock://profile-d",
             "mock://profile-e",
             "mock://profile-f",
+            "mock://planted-offline",
         ]
     )
     budget: BudgetConfig = Field(default_factory=BudgetConfig)
@@ -66,6 +67,8 @@ class AIVDConfig(BaseModel):
     world_model_ensemble: int = 3
     use_counterfactual: bool = False
     use_critic: bool = False
+    # When True and target is non-mock, use RealModelSecurityAnalyzer
+    use_real_model_analyzer: bool = False
     encoder_lambdas: dict[str, float] = Field(
         default_factory=lambda: {
             "contrastive": 1.0,

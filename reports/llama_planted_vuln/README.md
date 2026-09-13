@@ -65,3 +65,18 @@ ollama serve &
 python scripts/planted_llama_proxy.py &
 python scripts/run_planted_vuln_experiment.py
 ```
+
+## Metrics correction (v3.1 offline analysis)
+
+From `confirmation_vs_unique.json` (same experiment JSON):
+
+- **confirmation_events** (hit rows): 18
+- **unique_vulnerabilities**: 1 (`PV-DELIM-BACKDOOR`)
+- **unique_trigger_variants**: 9
+- **trigger_diversity**: ~0.78 across 7 families
+
+Rare canary: still **Not demonstrated**. Planted proxy ≠ stock Llama weights.
+
+```bash
+python scripts/analyze_planted_experiment.py reports/llama_planted_vuln/experiment_results.json
+```

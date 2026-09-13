@@ -24,8 +24,9 @@ from aivd.core.types import (
 from aivd.evaluation.counterfactual import CounterfactualEvaluator
 from aivd.evaluation.critic import ResearchCritic
 from aivd.evaluation.impact import assess_impact
-from aivd.evaluation.lifecycle import assign_lifecycle
+from aivd.evaluation.lifecycle import assign_lifecycle, advance_pipeline, status_to_stage
 from aivd.evaluation.security import SecurityEvaluator
+from aivd.evaluation.real_model_analyzer import RealModelSecurityAnalyzer
 from aivd.evaluation.verifier import Verifier
 from aivd.explorers import get_explorer
 from aivd.memory.store import ExperimentStore
@@ -52,8 +53,11 @@ class Controller:
             estimated_reachable=self.config.estimated_reachable_regions,
             seed=self.config.seed,
         )
-        self.evaluator = SecurityEvaluator()
+        self._heuristic_evaluator = SecurityEvaluator()
+        self._real_model_analyzer = RealModelSecurityAnalyzer()
+        self.evaluator = self._heuristic_evaluator
         self.verifier = Verifier(self.evaluator, seed=self.config.seed)
+        self._use_real_analyzer = bool(getattr(self.config, "use_real_model_analyzer", False))
         self.reward_calc = RewardCalculator(self.config.reward)
         self.critic = ResearchCritic(seed=self.config.seed) if self.config.use_critic else None
         self.counterfactual = (
@@ -84,6 +88,19 @@ class Controller:
 
     def set_target(self, target_id: str, **kwargs: Any) -> None:
         self.target = get_target(target_id, allowlist=self.config.allowlist, **kwargs)
+        # Optional real-model analyzer for non-mock targets (keep mock heuristic path)
+        is_mock = target_id.startswith("mock://")
+        if self._use_real_analyzer and not is_mock:
+            self.evaluator = self._real_model_analyzer
+            self.verifier = Verifier(self._heuristic_evaluator, seed=self.config.seed)
+            # Primary assessor is real-model; verifier stays heuristic-compatible duck type
+            # Prefer real analyzer for verify too when available
+            self.verifier = Verifier(self._real_model_analyzer, seed=self.config.seed)
+            self.audit.write("analyzer", kind="real_model")
+        else:
+            self.evaluator = self._heuristic_evaluator
+            self.verifier = Verifier(self._heuristic_evaluator, seed=self.config.seed)
+            self.audit.write("analyzer", kind="heuristic")
         self.audit.write("target_set", target_id=target_id)
 
     def _prompt_hash(self, prompt: str) -> str:
@@ -181,6 +198,18 @@ class Controller:
         obs.features = {"region": beh["region"]}
 
         assessment = self.evaluator.evaluate(prompt, resp, error)
+        real_taxonomy = {}
+        if hasattr(assessment, "taxonomy"):
+            real_taxonomy = dict(getattr(assessment, "taxonomy") or {})
+            real_taxonomy["evidence_state"] = getattr(
+                getattr(assessment, "evidence_state", None), "value", None
+            )
+            real_taxonomy["is_vulnerability_candidate"] = bool(
+                getattr(assessment, "is_vulnerability_candidate", False)
+            )
+            real_taxonomy["claim_effect_kinds"] = list(
+                getattr(assessment, "claim_effect_kinds", []) or []
+            )
         coverage_now = beh["coverage"]
         delta_cov = max(0.0, coverage_now - self._coverage_prev)
         self._coverage_prev = coverage_now
@@ -290,6 +319,22 @@ class Controller:
                 "verify": verify.details,
                 "counterfactual": cf_score,
                 "critic_agrees": critic_agrees,
+                "real_model_taxonomy": real_taxonomy,
+                "lifecycle_pipeline": [
+                    s.value
+                    for s in advance_pipeline(
+                        security_relevance=assessment.score,
+                        novelty=beh["novelty"],
+                        repro_score=verify.repro_score,
+                        verified=status
+                        in {
+                            FindingStatus.CONFIRMED,
+                            FindingStatus.INDEPENDENTLY_VERIFIED,
+                            FindingStatus.REPRODUCIBLE_SECURITY_NOVEL,
+                        },
+                    )
+                ],
+                "lifecycle_stage": status_to_stage(status).value,
             },
             updated_at=datetime.now(timezone.utc),
         )

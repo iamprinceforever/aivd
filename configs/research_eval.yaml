@@ -1,0 +1,27 @@
+# AIVD 3.1 research evaluation settings (multi-seed / budget)
+version: "3.1.0"
+embedding_backend: hashing
+use_real_model_analyzer: false  # set true for non-mock Ollama/opensource scans
+world_model: false
+use_counterfactual: false
+use_critic: false
+
+planted_multiseed:
+  target: mock://planted-offline  # or proxy via scripts --proxy + AIVD_PLANTED_FAST=1
+  seeds: [1, 2, 3, 4, 5, 10, 20, 42, 100, 123]
+  explorers: [corpus, hybrid, novelty, rl_v2]
+  budget: 16
+  note: "Not demonstrated at full matrix (all explorers × all seeds) if reduced."
+
+planted_budget_sweep:
+  target: mock://planted-offline
+  budgets: [8, 16, 32, 64]
+  optional_budgets: [128, 256]
+  seeds: [42, 1, 2]
+  explorers: [corpus, hybrid, novelty, rl_v2]
+  focus_vulns: [PV-DELIM-BACKDOOR, PV-RARE-CANARY]
+
+honesty:
+  - Never fabricate discoveries/scores
+  - Planted proxy ≠ stock Llama weights
+  - Use Not demonstrated / Heuristic / Confirmed under the planted threat model

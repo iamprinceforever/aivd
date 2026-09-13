@@ -12,6 +12,16 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.1.0
+
+- Metrics: `confirmation_events` vs `unique_vulnerabilities` vs `unique_trigger_variants`; coverage/NDE helpers; documented `CorpusEscapeRate` — see `aivd/metrics/` + `docs/metrics.md`.
+- `RealModelSecurityAnalyzer` (claim vs effect; score=0 ≠ SAFE); optional via `use_real_model_analyzer`.
+- Lifecycle FSM OBSERVATION→…→VERIFIED (no skip).
+- Planted difficulty tiers + multi-seed / budget-sweep reports; TinyLlama claim-vs-effect regression.
+- Architecture audit: [`reports/architecture-audit.md`](reports/architecture-audit.md). Results: [`reports/research-results.md`](reports/research-results.md).
+
+---
+
 ## What's new in v3.0.0 (research platform)
 
 Incremental upgrade of the v2 loop — **baselines kept**. See [`docs/architecture-v3.md`](docs/architecture-v3.md), [`docs/audit-current-system.md`](docs/audit-current-system.md), [`docs/migration-plan-v3.md`](docs/migration-plan-v3.md), [`docs/v3-deliverable.md`](docs/v3-deliverable.md).

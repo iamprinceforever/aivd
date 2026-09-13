@@ -2,13 +2,24 @@
 
 | Metric | Definition |
 |--------|------------|
-| DiscoveryEfficiency | confirmed novel findings / experiments executed |
-| ExplorationCoverage | unique behavioral regions / estimated reachable regions |
-| FalsePositiveRate | findings marked potentially_vulnerable that fail verification / all such candidates |
-| ReproRate | independently reproduced findings / candidates sent to verifier |
-| CorpusEscapeRate | confirmed findings whose ground-truth ID is outside corpus ∩ ground-truth / confirmed |
-| tests_per_discovery | experiments / max(1, confirmed novel findings) |
+| DiscoveryEfficiency | unique confirmed GT IDs / experiments (not raw confirmation events) |
+| confirmation_events | count of probes with status=`confirmed` |
+| unique_vulnerabilities | \|{ distinct confirmed ground-truth IDs }\| |
+| unique_trigger_variants | distinct normalized prompts among confirmed/hit probes |
+| trigger_diversity | \|trigger families\| / max(1, \|unique trigger variants\|) for planted hits |
+| ExplorationCoverage / overall_coverage | unique behavioral regions / estimated reachable regions |
+| novel_coverage | regions visited by high-novelty probes / estimated regions |
+| novel_discovery_efficiency | unique out-of-corpus confirmed GT IDs / experiments |
+| FalsePositiveRate | potentially_vulnerable/unresolved without GT / such candidates |
+| ReproRate | reproduced+confirmed / candidates sent toward verification |
+| **CorpusEscapeRate** | \|{ confirmed GT ids with `in_corpus=False` }\| / \|{ confirmed GT ids }\|; **0** if no confirmed GT. Separate from confirmation_events. |
+| tests_per_discovery | experiments / max(1, unique confirmed GT) |
 | AnomalyRate | anomalous observations / experiments |
-| ConfirmedCount | count of status=`confirmed` |
+| anomalies_detected | count of anomaly-class statuses |
+| candidate_findings | potentially_vulnerable / suspicious_novel |
+| reproduced_findings | reproduced (+ confirmed-class) |
+| verified_findings | confirmed / independently verified class |
+| unique_verified_findings | unique GT or finding ids among verified |
+| ConfirmedCount | alias of confirmation_events for classic `confirmed` |
 
-All metrics are computed from SQLite experiment/finding stores after runs.
+Helpers live in `aivd/metrics/` (`coverage.py`, `trigger_diversity.py`, `discovery.py`).

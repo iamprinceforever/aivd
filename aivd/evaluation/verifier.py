@@ -27,7 +27,7 @@ class Verifier:
 
     def __init__(
         self,
-        evaluator: SecurityEvaluator | None = None,
+        evaluator: Any | None = None,
         seed: int = 42,
         *,
         n_variants: int = 5,
