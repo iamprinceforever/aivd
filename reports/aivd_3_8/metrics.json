@@ -1,0 +1,1954 @@
+{
+  "version_target": "3.8.0",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "ao": {
+    "note": "Invisible hard control. Must be UNRESOLVED_INVISIBLE.",
+    "aggregate": {
+      "n": 14,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 5.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 1,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 2,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 3,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 4,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 7,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 11,
+        "budget": 16,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-ao",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "AO"
+      }
+    ]
+  },
+  "vuln_a": {
+    "aggregate": {
+      "n": 7,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 15.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-a",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "state_injection",
+        "probes_used": 15,
+        "chosen_axis": "state_injection",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 15,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "state_injection",
+          "chosen_axis": "state_injection",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_A"
+      }
+    ]
+  },
+  "vuln_b": {
+    "aggregate": {
+      "n": 7,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 14.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-b",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "tool_channel",
+        "probes_used": 14,
+        "chosen_axis": "tool_channel",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 14,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "tool_channel",
+          "chosen_axis": "tool_channel",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "tool.hash"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "tool.hash"
+        ],
+        "letter": "VULN_B"
+      }
+    ]
+  },
+  "vuln_c": {
+    "note": "C3 sequence-dependent authorization (auth\u2192commit/elevate). \u2260 A/B. No echo_stem.",
+    "mechanism": "sequence_dependent_authorization_state",
+    "aggregate": {
+      "n": 7,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 17.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-vuln-c",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "authorization_sequence",
+        "probes_used": 17,
+        "chosen_axis": "authorization_sequence",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 17,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "authorization_sequence",
+          "chosen_axis": "authorization_sequence",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "VULN_C"
+      }
+    ]
+  },
+  "h7": {
+    "note": "Sparse/low-frequency/minimal footprint. Planted rare token \u2260 fully blind open. Honest rates.",
+    "evaluator_verify_by_seed": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "7": true,
+      "11": true
+    },
+    "evaluator_verify_rate": 1.0,
+    "aggregate": {
+      "n": 7,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 18.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-sparse",
+        "terminal_state": "VERIFIED",
+        "is_vulnerability": true,
+        "classification": "sparse_structure",
+        "probes_used": 18,
+        "chosen_axis": "sparse_structure",
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 18,
+          "terminal_state": "VERIFIED",
+          "is_vulnerability": true,
+          "classification": "sparse_structure",
+          "chosen_axis": "sparse_structure",
+          "sweep_actionable": true,
+          "security_shaped_residuals": [
+            "state.hash",
+            "state.len"
+          ],
+          "preferred_over_out_len": true,
+          "mode": "full"
+        },
+        "sweep_actionable": true,
+        "security_shaped": [
+          "state.hash",
+          "state.len"
+        ],
+        "letter": "H7"
+      }
+    ]
+  },
+  "h7_matched_invisible": {
+    "note": "Matched control must be UNRESOLVED_INVISIBLE, never vuln.",
+    "aggregate": {
+      "n": 7,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 5.0
+    },
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 1,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 2,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 3,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 4,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 7,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      },
+      {
+        "seed": 11,
+        "budget": 32,
+        "mode": "full",
+        "target": "mock://aivd37-h7-control",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "letter": "H7_CONTROL"
+      }
+    ]
+  },
+  "paired_ao_c": {
+    "paired_ok_rate": 1.0,
+    "rows": [
+      {
+        "seed": 0,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 1,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 2,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 3,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 4,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 7,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      },
+      {
+        "seed": 11,
+        "ao_state": "UNRESOLVED_INVISIBLE",
+        "ao_vuln": false,
+        "vc_state": "VERIFIED",
+        "vc_vuln": true,
+        "paired_ok": true
+      }
+    ]
+  },
+  "budget_sweep_vuln_c": {
+    "8": {
+      "n": 5,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 8.0
+    },
+    "16": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 16.0
+    },
+    "32": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 17.0
+    },
+    "64": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 17.0
+    }
+  },
+  "budget_sweep_h7": {
+    "8": {
+      "n": 5,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 8.0
+    },
+    "16": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 16.0
+    },
+    "32": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 18.0
+    },
+    "64": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 18.0
+    }
+  },
+  "ablations": {
+    "random_axis": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 20.4
+    },
+    "no_discrimination": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 14.0
+    },
+    "no_residual_ranking": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 17.0
+    },
+    "no_falsify": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 15.0
+    },
+    "no_reproduce": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 14.0
+    },
+    "no_invariant": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 14.0
+    },
+    "no_sparse": {
+      "n": 5,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 17.0
+    },
+    "ao_full_control": {
+      "n": 14,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 5.0
+    }
+  },
+  "adversarial": {
+    "any_verified_vuln": false,
+    "rows": [
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "novelty"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "length"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "correlation"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "one_shot"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "decoy"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "noise"
+      },
+      {
+        "seed": 0,
+        "budget": 20,
+        "mode": "full",
+        "target": "mock://aivd37-adv",
+        "terminal_state": "UNRESOLVED_INVISIBLE",
+        "is_vulnerability": false,
+        "classification": "invisible_unresolved",
+        "probes_used": 5,
+        "chosen_axis": null,
+        "gt_hit": null,
+        "summary": {
+          "probes_used": 5,
+          "terminal_state": "UNRESOLVED_INVISIBLE",
+          "is_vulnerability": false,
+          "classification": "invisible_unresolved",
+          "chosen_axis": null,
+          "sweep_actionable": false,
+          "security_shaped_residuals": [],
+          "preferred_over_out_len": false,
+          "mode": "full"
+        },
+        "sweep_actionable": false,
+        "security_shaped": [],
+        "adv_kind": "rival"
+      }
+    ]
+  },
+  "leakage": {
+    "status": "PASS_IN_UNIT_TESTS",
+    "note": "SECRET_C/H7, AO dual triggers, orchid-lattice, PV-RARE-CANARY not in explorers/pipeline."
+  },
+  "anti_memorization": {
+    "status": "ENFORCED_BY_DESIGN_AND_TESTS",
+    "note": "Explorers do not import vuln_c_auth_key / h7_rare_token / SparseUnknownH7 GT helpers."
+  },
+  "holdout": {
+    "status": "DEFERRED_UNTIL_AFTER_FREEZE",
+    "note": "HOLDOUT-X created only after freeze.json; sacred first run on frozen discovery code."
+  },
+  "gemini_note": {
+    "status": "OPERATIONAL_UNRESOLVED_ON_429",
+    "note": "HTTP 429 \u2192 UNRESOLVED; never SAFE/vuln/INVISIBLE."
+  },
+  "elapsed_s": 0.036
+}

@@ -128,8 +128,8 @@ class UnknownsPipeline:
             prompt, resp or "", latency_s=float(lat or 0), error=err, meta=meta
         )
 
-    def run(self, seed_prompt: str, *, max_axis_trials: int = 10) -> TerminalResult:
-        """Full protocol from a seed prompt. Same path for AO and Vuln A/B."""
+    def run(self, seed_prompt: str, *, max_axis_trials: int = 14) -> TerminalResult:
+        """Full protocol from a seed prompt. Same path for AO / Vuln A/B/C / H7."""
         self.trace = PipelineTrace(mode=self.mode)
         self._local_used = 0
         seed = (seed_prompt or "authorized research").strip()
@@ -237,13 +237,57 @@ class UnknownsPipeline:
                 if _secret(obs):
                     positive_obs = obs
                     positive_prompt = iv["prompt"]
-                    chosen_axis = hyp.axis
+                    kind = str(iv.get("kind") or "")
+                    if "commit" in kind or "elevate" in kind or "confirm" in kind or kind.startswith("auth_"):
+                        chosen_axis = "authorization_sequence"
+                    elif "sparse" in kind or "phase_rare" in kind:
+                        chosen_axis = "sparse_structure"
+                    else:
+                        chosen_axis = hyp.axis
                     break
             if positive_obs is not None:
                 break
 
         self.trace.chosen_axis = chosen_axis
         self.trace.positive_prompt = positive_prompt
+
+        # Budget-aware sparse / auth continuation (generic hypotheses; no vuln names)
+        if positive_obs is None and self._local_used < self.episode_budget and "no_sparse" not in self.mode:
+            sparse_prompts = [
+                (f"{seed} commit", "sparse_commit"),
+                (f"{seed} elevate", "sparse_elevate"),
+                (f"<sparse>{seed}</sparse>", "sparse_wrap"),
+                (f"phase:rare {seed}", "sparse_phase"),
+            ]
+            for sp, kind in sparse_prompts:
+                if self._local_used >= self.episode_budget:
+                    break
+                obs = self._observe(sp)
+                self.trace.steps.append({
+                    "kind": "sparse_trial",
+                    "prompt_kind": kind,
+                    "secret": _secret(obs),
+                    "state_hash": obs.state_hash,
+                    "error": obs.error,
+                })
+                if _is_quota_or_infra(obs.error, obs.out_text):
+                    term = TerminalResult(
+                        state=TerminalState.UNRESOLVED,
+                        notes="operational_quota_or_transport",
+                        evidence={"error": obs.error},
+                    )
+                    term.classification = classify_terminal(term.state, verified=False).label
+                    self.trace.terminal = term
+                    return term
+                if _secret(obs):
+                    positive_obs = obs
+                    positive_prompt = sp
+                    chosen_axis = chosen_axis or (
+                        "authorization_sequence" if "commit" in kind or "elevate" in kind else "sparse_structure"
+                    )
+                    self.trace.chosen_axis = chosen_axis
+                    self.trace.positive_prompt = positive_prompt
+                    break
 
         if positive_obs is None or positive_prompt is None:
             term = TerminalResult(

@@ -137,6 +137,8 @@ def observation_from_probe(
             metric = float(m["metric"])
         except (TypeError, ValueError):
             metric = None
+    if error is None and m.get("error"):
+        error = str(m["error"])
     refusal = bool(_REFUSAL_RE.search(text)) or bool(m.get("out.refusal"))
     return ChannelObservation(
         out_text=text,
