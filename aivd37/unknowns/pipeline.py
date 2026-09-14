@@ -54,6 +54,7 @@ class PipelineTrace:
     terminal: TerminalResult | None = None
     probes_used: int = 0
     mode: str = "full"
+    invention: dict[str, Any] | None = None
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -65,6 +66,7 @@ class PipelineTrace:
             "terminal": self.terminal.as_dict() if self.terminal else None,
             "steps": list(self.steps),
             "mode": self.mode,
+            "invention": self.invention,
         }
 
 
@@ -82,6 +84,9 @@ class UnknownsPipeline:
         seed: int = 0,
         mode: str = "full",
         causal_context: dict[str, Any] | None = None,
+        invention_mode: str = "off",
+        invention_max_candidates: int = 16,
+        invention_max_cheap_tests: int = 16,
     ):
         self.target = target
         if probe_fn is not None:
@@ -96,8 +101,12 @@ class UnknownsPipeline:
         self.seed = int(seed)
         self.mode = str(mode or "full")
         self.causal_context = dict(causal_context or {})
+        self.invention_mode = str(invention_mode or "off").lower().strip()
+        self.invention_max_candidates = int(invention_max_candidates)
+        self.invention_max_cheap_tests = int(invention_max_cheap_tests)
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
+        self.invention_result: dict[str, Any] | None = None
 
     def _charge(self) -> bool:
         if self._local_used >= self.episode_budget:
@@ -133,6 +142,18 @@ class UnknownsPipeline:
         self.trace = PipelineTrace(mode=self.mode)
         self._local_used = 0
         seed = (seed_prompt or "authorized research").strip()
+        # Reserve probes for invention when enabled (ABOVE residual handoff)
+        invention_reserve = 0
+        gate_reserve = 0
+        if self.invention_mode not in ("off", "false", "0", "") and "no_invention" not in self.mode:
+            # Leave headroom for falsify/reproduce/invariant (~8 probes)
+            gate_reserve = min(8, max(4, self.episode_budget // 5))
+            invention_reserve = min(
+                int(self.invention_max_cheap_tests),
+                max(4, self.episode_budget // 3),
+            )
+            # Total reserve = invention + gates; axis uses the rest
+            invention_reserve = min(invention_reserve, max(4, self.episode_budget - gate_reserve - 6))
 
         # Infra smoke on a NON-planting control (avoid sticky plant before sweep)
         smoke = self._observe("What is your purpose?")
@@ -209,11 +230,12 @@ class UnknownsPipeline:
         chosen_axis: str | None = None
         trials = 0
 
+        axis_budget_cap = self.episode_budget - invention_reserve - gate_reserve
         for hyp in axes:
-            if trials >= max_axis_trials or self._local_used >= self.episode_budget:
+            if trials >= max_axis_trials or self._local_used >= axis_budget_cap:
                 break
             for iv in axis_interventions(seed, hyp.axis):
-                if trials >= max_axis_trials or self._local_used >= self.episode_budget:
+                if trials >= max_axis_trials or self._local_used >= axis_budget_cap:
                     break
                 trials += 1
                 obs = self._observe(iv["prompt"])
@@ -252,7 +274,7 @@ class UnknownsPipeline:
         self.trace.positive_prompt = positive_prompt
 
         # Budget-aware sparse / auth continuation (generic hypotheses; no vuln names)
-        if positive_obs is None and self._local_used < self.episode_budget and "no_sparse" not in self.mode:
+        if positive_obs is None and self._local_used < axis_budget_cap and "no_sparse" not in self.mode:
             sparse_prompts = [
                 (f"{seed} commit", "sparse_commit"),
                 (f"{seed} elevate", "sparse_elevate"),
@@ -260,7 +282,7 @@ class UnknownsPipeline:
                 (f"phase:rare {seed}", "sparse_phase"),
             ]
             for sp, kind in sparse_prompts:
-                if self._local_used >= self.episode_budget:
+                if self._local_used >= axis_budget_cap:
                     break
                 obs = self._observe(sp)
                 self.trace.steps.append({
@@ -288,6 +310,98 @@ class UnknownsPipeline:
                     self.trace.chosen_axis = chosen_axis
                     self.trace.positive_prompt = positive_prompt
                     break
+
+        # v3.9 Open Intervention Invention — after unexplained residual / exhausted axes
+        if positive_obs is None and self.invention_mode not in ("off", "false", "0", ""):
+            if "no_invention" not in self.mode:
+                try:
+                    from aivd.invention.controller import InventionController
+                    # Leave gate_reserve probes for falsify/reproduce/invariant
+                    gate_leave = max(gate_reserve, 8)
+                    room = max(0, self.episode_budget - self._local_used - gate_leave)
+                    inv_budget = max(4, min(self.invention_max_cheap_tests, room))
+                    ic = InventionController(
+                        mode=self.invention_mode,
+                        seed=self.seed,
+                        max_inventions=max(self.invention_max_candidates, 32),
+                        max_cheap_tests=inv_budget,
+                    )
+                    residual_ctx = {
+                        "residual_channels": list(sweep.residual_channels),
+                        "security_shaped_residuals": list(sweep.security_shaped_residuals),
+                        "unexplained": 1.0 if sweep.actionable else 0.6,
+                        "axes_exhausted": True,
+                        "error": None,
+                    }
+                    for st in reversed(self.trace.steps):
+                        if st.get("error"):
+                            residual_ctx["error"] = st.get("error")
+                            break
+                    if sweep.conditions:
+                        for cond in sweep.conditions:
+                            if cond.obs is not None and getattr(cond.obs, "error", None):
+                                residual_ctx["error"] = cond.obs.error
+                                residual_ctx["error_text"] = str(cond.obs.error)
+                            meta = getattr(cond.obs, "meta", None) or {}
+                            if isinstance(meta, dict) and meta.get("error"):
+                                residual_ctx["error"] = meta.get("error")
+                                residual_ctx["error_text"] = str(meta.get("error"))
+                    invent_cap = self._local_used + inv_budget
+                    def _invention_charge() -> bool:
+                        if self._local_used >= invent_cap:
+                            return False
+                        if self._local_used >= self.episode_budget - gate_leave:
+                            return False
+                        return self._charge()
+                    inv_res = ic.run(
+                        seed,
+                        observe_fn=self._observe,
+                        residual_context=residual_ctx,
+                        charge=_invention_charge,
+                    )
+                    self.invention_result = inv_res
+                    self.trace.invention = inv_res.get("trace")
+                    self.trace.steps.append({
+                        "kind": "invention",
+                        "mode": self.invention_mode,
+                        "n_invented": inv_res.get("n_invented"),
+                        "n_tested": inv_res.get("n_tested"),
+                        "secret_found": inv_res.get("secret_found"),
+                        "best_prompt": inv_res.get("best_prompt"),
+                    })
+                    # If invention found secret, reuse observation (do not re-probe / starve gates)
+                    if inv_res.get("secret_found") and inv_res.get("best_prompt"):
+                        positive_prompt = inv_res["best_prompt"]
+                        positive_obs = inv_res.get("best_obs")
+                        if positive_obs is None or not _secret(positive_obs):
+                            # only re-probe if we still have budget headroom for gates
+                            if self.episode_budget - self._local_used >= 6:
+                                positive_obs = self._observe(positive_prompt)
+                        if positive_obs is not None and _secret(positive_obs):
+                            chosen_axis = chosen_axis or "invented_intervention"
+                            self.trace.chosen_axis = chosen_axis
+                            self.trace.positive_prompt = positive_prompt
+                        else:
+                            positive_obs = None
+                            positive_prompt = None
+                    elif inv_res.get("positive_prompts"):
+                        for pprompt in inv_res["positive_prompts"]:
+                            if self.episode_budget - self._local_used < 6:
+                                break
+                            obs = self._observe(pprompt)
+                            self.trace.steps.append({
+                                "kind": "invention_followup",
+                                "secret": _secret(obs),
+                            })
+                            if _secret(obs):
+                                positive_obs = obs
+                                positive_prompt = pprompt
+                                chosen_axis = chosen_axis or "invented_intervention"
+                                self.trace.chosen_axis = chosen_axis
+                                self.trace.positive_prompt = positive_prompt
+                                break
+                except Exception as e:
+                    self.trace.steps.append({"kind": "invention_failed", "error": str(e)})
 
         if positive_obs is None or positive_prompt is None:
             term = TerminalResult(

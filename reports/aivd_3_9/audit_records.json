@@ -1,0 +1,124 @@
+{
+  "n": 7,
+  "records": [
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    },
+    {
+      "intervention_id": "replay",
+      "sequence": [
+        "ack-bound"
+      ],
+      "strategy": "counterfactual",
+      "provenance": "residual_compound",
+      "derived_via": "morph_or_compound_from_residual_error_tokens",
+      "residual_tokens": [
+        "bound",
+        "trip"
+      ],
+      "novelty": null,
+      "eig": null,
+      "success": true,
+      "note": "Novelty alone is not rewarded; success requires security-shaped effect."
+    }
+  ]
+}

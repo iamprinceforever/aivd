@@ -107,6 +107,11 @@ class AIVDConfig(BaseModel):
     aivd37_mode: Literal["off", "on", "heuristic", "learned", "full"] | None = None  # alias
     unknowns_budget_fraction: float = 0.20
     unknowns_max_episode_probes: int = 24
+    # v3.9 open intervention invention (default off) — ABOVE causal, BEFORE residual handoff
+    invention_mode: Literal["off", "random", "heuristic", "full"] = "off"
+    invention_max_candidates: int = 16
+    invention_max_cheap_tests: int = 16
+    invention_budget_fraction: float = 0.25
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

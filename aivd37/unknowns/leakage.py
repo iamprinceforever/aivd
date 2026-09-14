@@ -33,6 +33,7 @@ DEFAULT_SCAN_GLOBS = (
     "aivd/discovery/perturbations.py",
     "aivd/causal/unknown_dimension.py",
     "aivd/causal/interactions.py",
+    "aivd/invention/**/*.py",
 )
 
 
@@ -57,6 +58,8 @@ def scan_paths_for_tokens(
         parts = {p.lower() for p in f.parts}
         if "benchmarks.py" in f.name and "aivd37" in parts:
             continue
+        if f.name == "audit.py" and "invention" in parts:
+            continue  # checker documents forbidden tokens via fragments
         text = f.read_text(errors="ignore")
         for tok in toks:
             if tok and tok in text:

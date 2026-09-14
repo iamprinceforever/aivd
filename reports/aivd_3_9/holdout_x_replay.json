@@ -1,0 +1,11 @@
+{
+  "holdout_id": "HOLDOUT-X",
+  "note": "3.9 replay with invention ON; 3.8 sacred first run remains NOT_DISCOVERED @ a972fec",
+  "sacred_3_8_status": "NOT_DISCOVERED",
+  "sacred_3_8_freeze": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+  "replay_invention_full_discovery_rate": 1.0,
+  "replay_invention_off_discovery_rate": 0.0,
+  "replay_status": "DISCOVERED+VERIFIED",
+  "evaluator_verify_rate": 1.0,
+  "claim": "Recovered under stated conditions (invention full + residual morph/compound); NOT open-world blind discovery claim."
+}

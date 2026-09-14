@@ -198,6 +198,14 @@ class Controller:
             return mode
         return "off"
 
+    def _invention_mode(self) -> str:
+        """Resolve invention_mode: off|random|heuristic|full (default off)."""
+        mode = getattr(self.config, "invention_mode", "off") or "off"
+        mode = str(mode).lower().strip()
+        if mode in ("off", "random", "heuristic", "full"):
+            return mode
+        return "off"
+
 
     def _prompt_hash(self, prompt: str) -> str:
         return hashlib.sha256(prompt.encode()).hexdigest()
@@ -1150,6 +1158,7 @@ class Controller:
                 "dimension_id": self._causal.state.dimension_id,
                 "unexplained": self._causal.state.unexplained,
             }
+        inv_mode = self._invention_mode()
         pipe = UnknownsPipeline(
             probe_fn=lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
             target=self.target,
@@ -1159,6 +1168,9 @@ class Controller:
             seed=self.config.seed,
             mode="full" if mode == "on" else mode,
             causal_context=causal_ctx,
+            invention_mode=inv_mode,
+            invention_max_candidates=int(getattr(self.config, "invention_max_candidates", 16) or 16),
+            invention_max_cheap_tests=int(getattr(self.config, "invention_max_cheap_tests", 16) or 16),
         )
         term = pipe.run(prompt)
         self.audit.write(
