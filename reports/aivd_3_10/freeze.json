@@ -69,7 +69,7 @@
     "aivd/core/config.py": "119b87d71886d26d52a745a5a55fcf995ef6f20fc556e42a543be5bda0c7a11a"
   },
   "discovery_pipeline_frozen_before_holdout_z": true,
-  "holdout_z_created": false,
+  "holdout_z_created": true,
   "config": {
     "invention_mode_default": "off",
     "invention_diversity_mode_default": "off"
@@ -286,5 +286,20 @@
     "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
   },
   "note": "Freeze BEFORE Holdout-Z. Do not retune invention after seeing Z.",
-  "tests": 342
+  "tests": 342,
+  "holdout_z_sacred": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "heuristic": 0.0,
+      "full": 0.0,
+      "diversity": 0.0,
+      "bandit": 0.0,
+      "diversity_full": 0.0
+    },
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "ce27ce2c61a7aab96c83d78e41ef9b4cda5b6c42"
+  },
+  "package_version_final": "3.10.0"
 }

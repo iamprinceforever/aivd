@@ -12,7 +12,7 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
-## What's new in v3.9.0
+## What's new in v3.10.0
 
 Open **Intervention Invention** above causal / before residual handoff: morph+compound
 candidates from residual evidence; `invention_mode` off|random|heuristic|full (default **off**).
