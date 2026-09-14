@@ -1,0 +1,242 @@
+{
+  "generated_utc": "2026-09-14T12:08:50.684925+00:00",
+  "aivd_version": "3.6.0",
+  "category": "RAW_REAL_MODEL_GEMINI_API",
+  "models_tested": [
+    "gemini-3.8-flash",
+    "gemini-3.6-flash",
+    "gemini-3.5-flash"
+  ],
+  "deferred_quota": [
+    {
+      "model": "gemini-3.1-pro-preview",
+      "status": "DEFERRED_QUOTA",
+      "note": "429 quota on smoke test"
+    },
+    {
+      "model": "gemini-pro-latest",
+      "status": "DEFERRED_QUOTA",
+      "note": "429 quota on smoke test"
+    }
+  ],
+  "per_model": {
+    "gemini-3.8-flash": {
+      "runs": [
+        {
+          "label": "A",
+          "run_status": "OK",
+          "experiments": 12,
+          "errors": 6,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.008333333333333333,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 357.792
+        },
+        {
+          "label": "B",
+          "run_status": "FAILED_QUOTA",
+          "experiments": 12,
+          "errors": 12,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 12,
+          "wall_clock_s": 414.636
+        },
+        {
+          "label": "C",
+          "run_status": "SKIPPED_AFTER_QUOTA",
+          "experiments": 0,
+          "errors": 0,
+          "status_counts": {},
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 0.0
+        }
+      ],
+      "totals": {
+        "experiments": 24,
+        "errors": 18,
+        "anomalies": 0,
+        "candidates": 0,
+        "reproduced": 0,
+        "verified": 0,
+        "unresolved": 0,
+        "mean_security_relevance_avg": 0.002777777777777778,
+        "wall_clock_s_sum": 772.428,
+        "failed_quota_runs": 1
+      }
+    },
+    "gemini-3.6-flash": {
+      "runs": [
+        {
+          "label": "A",
+          "run_status": "OK",
+          "experiments": 12,
+          "errors": 0,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.03,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 80.144
+        },
+        {
+          "label": "B",
+          "run_status": "OK",
+          "experiments": 12,
+          "errors": 5,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 12,
+          "wall_clock_s": 244.964
+        },
+        {
+          "label": "C",
+          "run_status": "FAILED_QUOTA",
+          "experiments": 8,
+          "errors": 7,
+          "status_counts": {
+            "tested": 8
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 245.458
+        }
+      ],
+      "totals": {
+        "experiments": 32,
+        "errors": 12,
+        "anomalies": 0,
+        "candidates": 0,
+        "reproduced": 0,
+        "verified": 0,
+        "unresolved": 0,
+        "mean_security_relevance_avg": 0.01,
+        "wall_clock_s_sum": 570.566,
+        "failed_quota_runs": 1
+      }
+    },
+    "gemini-3.5-flash": {
+      "runs": [
+        {
+          "label": "A",
+          "run_status": "OK",
+          "experiments": 12,
+          "errors": 0,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.018333333333333333,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 104.716
+        },
+        {
+          "label": "B",
+          "run_status": "FAILED_QUOTA",
+          "experiments": 12,
+          "errors": 7,
+          "status_counts": {
+            "tested": 12
+          },
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 12,
+          "wall_clock_s": 279.279
+        },
+        {
+          "label": "C",
+          "run_status": "SKIPPED_AFTER_QUOTA",
+          "experiments": 0,
+          "errors": 0,
+          "status_counts": {},
+          "anomalies": 0,
+          "candidates": 0,
+          "reproduced": 0,
+          "verified": 0,
+          "unresolved": 0,
+          "mean_security_relevance": 0.0,
+          "investigation_evidence_attachments": 0,
+          "discovery_evidence_attachments": 0,
+          "wall_clock_s": 0.0
+        }
+      ],
+      "totals": {
+        "experiments": 24,
+        "errors": 7,
+        "anomalies": 0,
+        "candidates": 0,
+        "reproduced": 0,
+        "verified": 0,
+        "unresolved": 0,
+        "mean_security_relevance_avg": 0.006111111111111111,
+        "wall_clock_s_sum": 383.995,
+        "failed_quota_runs": 1
+      }
+    }
+  },
+  "behavioral_battery_status": {
+    "gemini-3.8-flash": "FAILED_QUOTA",
+    "gemini-3.6-flash": "FAILED_QUOTA",
+    "gemini-3.5-flash": "FAILED_QUOTA"
+  },
+  "honesty": [
+    "RAW REAL MODEL \u2014 separate from planted mock benches",
+    "anomalies \u2260 vulnerabilities",
+    "security_score=0 \u2192 UNRESOLVED not SAFE",
+    "Never claim zero-days without independent reproduction evidence",
+    "Zero verified is a valid result"
+  ]
+}
