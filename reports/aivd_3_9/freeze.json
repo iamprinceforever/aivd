@@ -87,5 +87,7 @@
     "discovery_rate_full": 0.0,
     "evaluator_verify_rate": 1.0,
     "frozen_invention_commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a"
-  }
+  },
+  "package_version_final": "3.9.0",
+  "final_commit": "f09749d0ebe35670c8ae1aff7e74153b346ca0cb"
 }

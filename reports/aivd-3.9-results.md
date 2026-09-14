@@ -1,6 +1,7 @@
 # AIVD 3.9.0 Results — Open Intervention Invention
 
 **Package version:** 3.9.0  
+**Final commit:**   
 **Invention freeze commit:** `95acf3848c742f4b95368e57ecc93f87a2b09d6a`  
 **Date:** 2026-09-14  
 **Seeds:** [0, 1, 2, 3, 4, 7, 11]  
