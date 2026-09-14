@@ -1,7 +1,7 @@
 # AIVD 3.10.0 Results — Open Invention Diversity
 
 **Package version:** 3.10.0  
-**Freeze commit:** `ce27ce2c61a7aab96c83d78e41ef9b4cda5b6c42`  
+**Freeze commit:** `a174716783fd461804f8b14050fa6a48c4bdd984`  
 **Date:** 2026-09-14  
 **Tests:** 342+ (318 prior + diversity + Holdout-Z suite)  
 **Honesty:** Sacred Holdout-X @ a972fec and Holdout-Y @ 95acf38 untouched.

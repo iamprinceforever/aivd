@@ -1,7 +1,7 @@
 {
   "freeze_id": "aivd-3.10-invention-diversity",
   "frozen_at_utc": "2026-09-14T20:13:57Z",
-  "commit": "ce27ce2c61a7aab96c83d78e41ef9b4cda5b6c42",
+  "commit": "a174716783fd461804f8b14050fa6a48c4bdd984",
   "package_version_at_freeze": "3.10.0",
   "tests_note": "318 prior (3.9) + 24 aivd310 diversity suite",
   "seeds": [
@@ -285,7 +285,7 @@
     },
     "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
   },
-  "note": "Freeze BEFORE Holdout-Z. Do not retune invention after seeing Z.",
+  "note": "Freeze commit a174716 BEFORE Holdout-Z. Final release 7daf1f8 includes Z+reports. Do not retune invention after Z.",
   "tests": 342,
   "holdout_z_sacred": {
     "status": "NOT_DISCOVERED",
@@ -301,5 +301,6 @@
     "evaluator_verify_rate": 1.0,
     "frozen_invention_commit": "ce27ce2c61a7aab96c83d78e41ef9b4cda5b6c42"
   },
-  "package_version_final": "3.10.0"
+  "package_version_final": "3.10.0",
+  "final_commit": "7daf1f823b4c2e6f2e9ee1dd9127ab94dfbe6e0b"
 }
