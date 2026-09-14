@@ -21,7 +21,7 @@
 | Field | Value |
 |-------|-------|
 | **VERSION** | 3.7.0 |
-| **COMMIT** | (post-feat; parent `56936a1`) |
+| **COMMIT** | `94b4903` (parent `56936a1`) |
 | **TESTS** | 231 passed (189 prior + 42 aivd37) |
 | **PASS/FAIL** | PASS (unit + mock eval) |
 | **ARCHITECTURE** | 3.6 causal → **residual-channel sweep** (`aivd37/unknowns`) → terminal branch; config `unknowns_mode`/`aivd37_mode` default **off** |
