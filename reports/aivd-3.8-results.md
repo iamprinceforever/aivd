@@ -2,7 +2,7 @@
 
 **Package version:** 3.8.0  
 **C/H7 freeze commit:** `a972fecc28fe37b149fbe6724ddadf344ef6d70a`  
-**Final commit:** (see git after version bump)  
+**Final commit:** b376cc9d3fc17cb40bf8a676cd202ce8c73879d4  
 **Date:** 2026-09-14  
 **Seeds:** [0, 1, 2, 3, 4, 7, 11]  
 **Primary budget:** 32  
@@ -20,7 +20,7 @@
 | Field | Value |
 |-------|-------|
 | **VERSION** | 3.8.0 |
-| **COMMIT** | freeze `a972fec` (C/H7); holdout post-freeze |
+| **COMMIT** | freeze `a972fec` (C/H7); final `b376cc9d3fc17cb40bf8a676cd202ce8c73879d4` |
 | **TESTS** | 286 passed |
 | **PASS/FAIL** | PASS (unit + mock eval); holdout discovery **NOT_DISCOVERED** |
 | **VULNERABILITY C** | C3 sequence-auth; verified_rate **1.000**; class `authorization_sequence`; seeds [0, 1, 2, 3, 4, 7, 11]; mean_probes 17.0 |
