@@ -12,7 +12,12 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.5.0
+
+Active **Behavioral Discovery** above 3.4 investigation: cartography, weak-signal vs baseline, gradient follow / amplify, frontiers, hypothesis discrimination, `discovery_mode` (`off|random|heuristic|learned`, default off). Benches **P–Z** (Q weak-footprint headline; Z invisible hard negative). Nested probes use global `BudgetTracker`. See `reports/aivd-3.5-results.md`.
+
 ## What's new in v3.4.0
+
 
 Autonomous **multi-step behavioral investigation** (incremental on 3.3 ABI):
 

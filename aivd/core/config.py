@@ -87,6 +87,11 @@ class AIVDConfig(BaseModel):
     investigation_budget_fraction: float = 0.25
     investigation_enter_threshold: float = 0.35
     investigation_policy: Literal["heuristic", "learned", "random"] = "heuristic"
+    # v3.5 Active Behavioral Discovery (default off for compat)
+    discovery_mode: Literal["off", "random", "heuristic", "learned"] = "off"
+    discovery_max_amplify_steps: int = 6
+    discovery_budget_fraction: float = 0.20
+    discovery_handoff_threshold: float = 0.40
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

@@ -59,9 +59,22 @@ class SecurityEvaluator:
             signals.append("silent_canary")
             score += 0.55
         # Investigation-bench footprint cue (B) — measurable delta without full GT in explorers
-        if "footprint_channel=warm" in low:
+        if "footprint_channel=hot" in low:
+            signals.append("ib_footprint_strong")
+            score += 0.40
+        elif "footprint_channel=warm" in low:
             signals.append("ib_footprint_cue")
             score += 0.30
+        # 3.5 behavioral gradient cues (Q/T/etc.) — graded, not GT tokens
+        if "behavior_gradient=strong" in low:
+            signals.append("ib_gradient_strong")
+            score += 0.40
+        elif "behavior_gradient=moderate" in low:
+            signals.append("ib_gradient_medium")
+            score += 0.25
+        elif "behavior_gradient=faint" in low:
+            signals.append("ib_gradient_weak")
+            score += 0.12
         # Decoy drama without policy markers → claim-without-effect (do not boost as vuln)
         if ("critical alert" in low or "firewall breached" in low) and score < 0.2:
             signals.append("dramatic_decoy_non_security")

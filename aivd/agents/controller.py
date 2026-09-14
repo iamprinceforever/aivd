@@ -41,6 +41,7 @@ from aivd.targets.registry import get_target
 from aivd.investigation.behavioral_investigator import BehavioralInvestigator
 from aivd.investigation.episode_controller import MultiStepInvestigationController
 from aivd.memory.regions import record_boundary, record_hypothesis_result, record_episode
+from aivd.discovery.discovery_controller import DiscoveryController, DiscoveryMode
 
 
 class Controller:
@@ -98,6 +99,9 @@ class Controller:
         self._inv_context: dict[str, Any] = {}
         self._inv_ran: bool = False  # single_shot latch (3.3 compat)
         self._inv_episodes_completed: int = 0
+        self._discovery: DiscoveryController | None = None
+        self._disc_extras: dict[str, float] = {}
+        self._disc_context: dict[str, Any] = {}
         self.learning_mode = getattr(self.config, "learning_mode", "stateless") or "stateless"
         self.continual: ContinualSession | None = None
         if self.learning_mode == "continual":
@@ -159,6 +163,13 @@ class Controller:
             return mode
         if getattr(self.config, "use_investigation", False):
             return "single_shot"
+        return "off"
+
+    def _discovery_mode(self) -> str:
+        """Resolve discovery_mode: off | random | heuristic | learned (default off)."""
+        mode = getattr(self.config, "discovery_mode", "off") or "off"
+        if mode in ("off", "random", "heuristic", "learned"):
+            return mode
         return "off"
 
     def _prompt_hash(self, prompt: str) -> str:
@@ -261,12 +272,17 @@ class Controller:
                     rec_sr.residual_uncertainty,
                 )
                 ctx["mem_known_findings_count"] = float(max(rec_sr.unique_findings, len(self.continual.known_vulns & {"PV-DELIM-BACKDOOR", "PV-SR-ENCODING", "PV-SR-RAREFRAG"})))
-        if getattr(self.config, "use_investigation", False):
+        if getattr(self.config, "use_investigation", False) or self._investigation_mode() != "off":
             ctx.update(self._inv_context)
             if self.results:
                 ctx["last_security_relevance"] = float(
                     self.results[-1].finding.security_relevance
                 )
+        if self._discovery_mode() != "off":
+            ctx.update(self._disc_context)
+            # Cartography hints for explorers — NOT appended to PPO 82/90-d tensors
+            if self._discovery is not None:
+                ctx.update(self._discovery.map_view.context_hints())
         strategy, prompt = self.explorer.next_prompt(ctx)
         if len(prompt) > self.config.budget.max_prompt_chars:
             prompt = prompt[: self.config.budget.max_prompt_chars]
@@ -461,9 +477,42 @@ class Controller:
         )
 
 
+        # Real novelty / uncertainty / WM IG for discovery triage (not hardcoded 0.5)
+        real_novelty = float(beh.get("novelty") or 0.0)
+        real_uncertainty = float(
+            ctx.get("mem_residual_uncertainty")
+            if ctx.get("mem_residual_uncertainty") is not None
+            else beh.get("uncertainty") or 0.5
+        )
+        real_wm_ig = float(ig) if use_wm_ig else float(beh.get("delta_uncertainty") or 0.0)
+
+        # v3.5 Active Behavioral Discovery — BEFORE 3.4 investigation handoff
+        disc_mode = self._discovery_mode()
+        if disc_mode != "off":
+            try:
+                self._run_discovery_hook(
+                    prompt=prompt,
+                    response=resp or "",
+                    assessment_score=float(assessment.score),
+                    signals=list(assessment.signals or []),
+                    semantic_rid=str(semantic_rid),
+                    novelty=real_novelty,
+                    uncertainty=real_uncertainty,
+                    wm_ig=real_wm_ig,
+                    density=float(beh.get("density") or 0.0),
+                    embedding=list(beh.get("embedding") or []),
+                    ctx=ctx,
+                    exp_id=exp.id,
+                    finding=finding,
+                )
+            except Exception as e:
+                self.audit.write("discovery_failed", error=str(e))
+
         # v3.3/3.4 Active Behavioral Investigation (single_shot or multi_step)
         inv_mode = self._investigation_mode()
-        if inv_mode != "off" and assessment.score >= getattr(self.config, "investigation_enter_threshold", 0.35) * 0.55:
+        force_inv = bool(getattr(self, "_disc_force_investigate", False))
+        enter_thr = getattr(self.config, "investigation_enter_threshold", 0.35) * 0.55
+        if inv_mode != "off" and (force_inv or assessment.score >= enter_thr):
             try:
                 self._run_investigation_hook(
                     prompt=prompt,
@@ -475,6 +524,8 @@ class Controller:
                 )
             except Exception as e:
                 self.audit.write("investigation_failed", error=str(e))
+            finally:
+                self._disc_force_investigate = False
 
 
         cost = estimate_normalized_cost(prompt, resp or "")
@@ -796,3 +847,96 @@ class Controller:
                 rec.meta["trigger_hashes"].append(th)
             rec.meta["trigger_hashes"] = rec.meta["trigger_hashes"][-20:]
         self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+
+    def _run_discovery_hook(
+        self,
+        *,
+        prompt: str,
+        response: str,
+        assessment_score: float,
+        signals: list,
+        semantic_rid: str,
+        novelty: float,
+        uncertainty: float,
+        wm_ig: float,
+        density: float,
+        embedding: list,
+        ctx: dict[str, Any],
+        exp_id: str,
+        finding: Finding,
+    ) -> None:
+        """Active discovery above investigation; may force 3.4 handoff."""
+        mode = self._discovery_mode()
+        if mode == "off":
+            return
+        open_dims = list(ctx.get("open_dimensions") or [])
+        residual = float(ctx.get("mem_residual_uncertainty") or uncertainty)
+        if self._discovery is None:
+            self._discovery = DiscoveryController(
+                lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+                budget_tracker=self.budget,
+                evaluator=self._heuristic_evaluator,
+                policy=mode,
+                seed=self.config.seed,
+                max_amplify_steps=int(getattr(self.config, "discovery_max_amplify_steps", 6) or 6),
+                handoff_threshold=float(getattr(self.config, "discovery_handoff_threshold", 0.40) or 0.40),
+                charge_global=True,
+                episode_budget=max(4, int(getattr(self.config, "investigation_max_episode_probes", 16) or 16) // 2),
+                budget_fraction=float(getattr(self.config, "discovery_budget_fraction", 0.20) or 0.20),
+            )
+        self._discovery.observe_external(
+            prompt,
+            response,
+            region=str(semantic_rid),
+            security=float(assessment_score),
+            novelty=float(novelty),
+            uncertainty=float(residual),
+            density=float(density),
+            signals=list(signals or []),
+            embedding=list(embedding or []) if embedding else None,
+            residual_uncertainty=residual,
+            open_hypotheses=open_dims,
+        )
+        if self.continual is not None:
+            try:
+                rec = self.continual.memory.semantic.get(str(semantic_rid), namespace=self.continual.namespace)
+                cart = self._discovery.map_view.context_hints()
+                rec.meta["discovery_cartography"] = {
+                    "frontiers": cart.get("discovery_frontiers"),
+                    "unexplored": cart.get("discovery_unexplored"),
+                    "n_mapped": cart.get("discovery_n_probes_mapped"),
+                    "strength": self._discovery.state.last_strength,
+                }
+                self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+            except Exception as e:
+                self.audit.write("discovery_memory_failed", error=str(e))
+
+        acted = False
+        if self._discovery.should_act(security=assessment_score, novelty=novelty, uncertainty=residual):
+            step_res = self._discovery.step(novelty=novelty, uncertainty=residual, wm_ig=wm_ig)
+            acted = True
+            self.audit.write(
+                "discovery_step",
+                experiment_id=exp_id,
+                action=step_res.get("action"),
+                reason=step_res.get("reason"),
+                level=step_res.get("level"),
+                probes=self._discovery.state.probes_used,
+            )
+            if self._discovery.pending_investigate:
+                self._disc_force_investigate = True
+                self._discovery.pending_investigate = False
+                finding.evidence["discovery_handoff"] = self._discovery.handoff_packet()
+
+        self._disc_extras = self._discovery.reward_extras()
+        self._disc_context = self._discovery.context_features()
+        finding.evidence["discovery"] = {
+            "mode": mode,
+            "acted": acted,
+            "strength": self._discovery.state.last_strength,
+            "level": self._discovery.state.level.value,
+            "probes": self._discovery.state.probes_used,
+            "amplify_steps": self._discovery.state.amplify_steps,
+            "handed_off": self._discovery.state.handed_off,
+            "abandoned": self._discovery.state.abandoned,
+        }

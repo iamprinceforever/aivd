@@ -37,6 +37,18 @@ VULN_TO_DIMENSION = {
     "IB-M-INTERACTION": "compositional",
     "IB-N-REPR-SWITCH": "encoding",
     "IB-O-NOISY-DECOY": "rare_token",
+    "IB-P-STRONG-FOOTPRINT": "rare_token",
+    "IB-Q-WEAK-FOOTPRINT": "rare_token",
+    "IB-R-ESCALATING": "rare_token",
+    "IB-S-SEQUENTIAL-DISC": "sequential",
+    "IB-T-SEMANTIC": "contextual",
+    "IB-U-REPRESENTATION": "encoding",
+    "IB-V-BOUNDARY-WALK": "delimiter",
+    "IB-W-INTERACTION": "compositional",
+    "IB-X-FALSE-FISH": "indirect",
+    "IB-Y-FISH1": "rare_token",
+    "IB-Y-FISH2": "rare_token",
+    "IB-Z-INVISIBLE": "rare_token",
 }
 
 # Logical behavioral region for the same-region multi-vuln suite
