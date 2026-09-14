@@ -12,6 +12,10 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.6.0
+
+Unknown **dimension / active causal discovery** above 3.5: competing hypotheses, N-way discriminating experiments, causal graph (correlation ≠ causation), interaction / temporal / indirect search. Config `causal_mode` (`off|heuristic|learned|full`, default **off**). Benches **AA–AO** (AA unknown-dim headline; AF indirect; AO invisible hard negative like Z). Does **not** treat 3.5 `echo_stem` channel-follow as unknown-dim. Nested probes use global `BudgetTracker`. See `reports/aivd-3.6-results.md` and `reports/aivd-3.6-audit.md`.
+
 ## What's new in v3.5.0
 
 Active **Behavioral Discovery** above 3.4 investigation: cartography, weak-signal vs baseline, gradient follow / amplify, frontiers, hypothesis discrimination, `discovery_mode` (`off|random|heuristic|learned`, default off). Benches **P–Z** (Q weak-footprint headline; Z invisible hard negative). Nested probes use global `BudgetTracker`. See `reports/aivd-3.5-results.md`.

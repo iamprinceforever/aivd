@@ -210,6 +210,97 @@
       "kind": "INVISIBLE_SPARSE",
       "token": "zinvis-pure-n0cue-9k",
       "note": "If discovery magically solves Z, investigate GT leakage \u2014 do not celebrate"
+    },
+    "AA": {
+      "id": "IB-AA-UNKNOWN-DIM",
+      "kind": "UNKNOWN_DIMENSION",
+      "true_dims_rotate": [
+        "length",
+        "delimiter",
+        "encoding"
+      ],
+      "threshold": 8,
+      "note": "True dim NOT named in responses. Weak: unexplained_channel=open. No echo_stem."
+    },
+    "AB": {
+      "id": "IB-AB-UNKNOWN-INTERACTION",
+      "kind": "UNKNOWN_INTERACTION",
+      "modifier": "gate",
+      "note": "Observed factor + generic modifier; not told it is an interaction."
+    },
+    "AC": {
+      "id": "IB-AC-THREE-WAY",
+      "kind": "THREE_WAY",
+      "modifiers": [
+        "gate",
+        "channel"
+      ]
+    },
+    "AD": {
+      "id": "IB-AD-STATEFUL",
+      "kind": "STATEFUL",
+      "note": "Same input, different history."
+    },
+    "AE": {
+      "id": "IB-AE-TEMPORAL",
+      "kind": "TEMPORAL",
+      "delay": 2
+    },
+    "AF": {
+      "id": "IB-AF-INDIRECT",
+      "kind": "INDIRECT_EFFECT",
+      "note": "Earlier probe causes later effect on an unrelated prompt."
+    },
+    "AG": {
+      "id": "IB-AG-CAUSAL-CHAIN",
+      "kind": "CAUSAL_CHAIN",
+      "stage_mods": [
+        "frame",
+        "session"
+      ]
+    },
+    "AH": {
+      "id": "IB-AH-MISLEADING-CORR",
+      "kind": "MISLEADING_CORRELATION",
+      "threshold": 8,
+      "note": "correlate= in RESPONSE is a red herring; true cause is length."
+    },
+    "AI": {
+      "id": "IB-AI-COMPETING-HYPS",
+      "kind": "COMPETING_HYPOTHESES",
+      "note": "Token present unexplained; delimiter wrap is causal, length pad is not."
+    },
+    "AJ": {
+      "id": "IB-AJ-UNKNOWN-REPR",
+      "kind": "UNKNOWN_REPRESENTATION"
+    },
+    "AK": {
+      "id": "IB-AK-UNKNOWN-BOUNDARY",
+      "kind": "UNKNOWN_BOUNDARY",
+      "threshold": 10
+    },
+    "AL": {
+      "id": "IB-AL-SECURITY-SECONDARY",
+      "kind": "SECURITY_SECONDARY",
+      "note": "Unexplained behavioral delta is not a vuln; SECRET only with gate."
+    },
+    "AM": {
+      "id": "IB-AM-NOISY-UNKNOWN",
+      "kind": "NOISY_UNKNOWN"
+    },
+    "AN": {
+      "id": "IB-AN-MULTI-FISH",
+      "kind": "MULTI_FISH_UNKNOWN",
+      "ids": [
+        "IB-AN-FISH1",
+        "IB-AN-FISH2"
+      ]
+    },
+    "AO": {
+      "id": "IB-AO-INVISIBLE",
+      "kind": "INVISIBLE_CONTROL",
+      "token": "aoinvis-n0cue-k7w3x",
+      "note": "HARD NEGATIVE like Z. If causal magically solves AO, investigate leakage."
     }
   }
 }

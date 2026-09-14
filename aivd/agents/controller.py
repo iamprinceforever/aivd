@@ -42,6 +42,8 @@ from aivd.investigation.behavioral_investigator import BehavioralInvestigator
 from aivd.investigation.episode_controller import MultiStepInvestigationController
 from aivd.memory.regions import record_boundary, record_hypothesis_result, record_episode
 from aivd.discovery.discovery_controller import DiscoveryController, DiscoveryMode
+from aivd.causal.causal_controller import CausalController
+from aivd.memory.regions import record_causal_state
 
 
 class Controller:
@@ -102,6 +104,10 @@ class Controller:
         self._discovery: DiscoveryController | None = None
         self._disc_extras: dict[str, float] = {}
         self._disc_context: dict[str, Any] = {}
+        self._causal: CausalController | None = None
+        self._causal_extras: dict[str, float] = {}
+        self._causal_context: dict[str, Any] = {}
+        self._disc_force_investigate = False
         self.learning_mode = getattr(self.config, "learning_mode", "stateless") or "stateless"
         self.continual: ContinualSession | None = None
         if self.learning_mode == "continual":
@@ -169,6 +175,14 @@ class Controller:
         """Resolve discovery_mode: off | random | heuristic | learned (default off)."""
         mode = getattr(self.config, "discovery_mode", "off") or "off"
         if mode in ("off", "random", "heuristic", "learned"):
+            return mode
+        return "off"
+
+    def _causal_mode(self) -> str:
+        """Resolve causal_mode / causal_discovery_mode: off | heuristic | learned | full (default off)."""
+        alias = getattr(self.config, "causal_discovery_mode", None)
+        mode = alias or getattr(self.config, "causal_mode", "off") or "off"
+        if mode in ("off", "heuristic", "learned", "full"):
             return mode
         return "off"
 
@@ -283,6 +297,8 @@ class Controller:
             # Cartography hints for explorers — NOT appended to PPO 82/90-d tensors
             if self._discovery is not None:
                 ctx.update(self._discovery.map_view.context_hints())
+        if self._causal_mode() != "off":
+            ctx.update(self._causal_context)
         strategy, prompt = self.explorer.next_prompt(ctx)
         if len(prompt) > self.config.budget.max_prompt_chars:
             prompt = prompt[: self.config.budget.max_prompt_chars]
@@ -508,6 +524,26 @@ class Controller:
             except Exception as e:
                 self.audit.write("discovery_failed", error=str(e))
 
+        # v3.6 unknown-dimension / causal discovery — after 3.5, before 3.4
+        causal_mode = self._causal_mode()
+        if causal_mode != "off":
+            try:
+                self._run_causal_hook(
+                    prompt=prompt,
+                    response=resp or "",
+                    assessment_score=float(assessment.score),
+                    signals=list(assessment.signals or []),
+                    semantic_rid=str(semantic_rid),
+                    novelty=real_novelty,
+                    uncertainty=real_uncertainty,
+                    wm_ig=real_wm_ig,
+                    ctx=ctx,
+                    exp_id=exp.id,
+                    finding=finding,
+                )
+            except Exception as e:
+                self.audit.write("causal_failed", error=str(e))
+
         # v3.3/3.4 Active Behavioral Investigation (single_shot or multi_step)
         inv_mode = self._investigation_mode()
         force_inv = bool(getattr(self, "_disc_force_investigate", False))
@@ -521,6 +557,9 @@ class Controller:
                     ctx=ctx,
                     exp_id=exp.id,
                     finding=finding,
+                    novelty=real_novelty,
+                    uncertainty=real_uncertainty,
+                    wm_ig=real_wm_ig,
                 )
             except Exception as e:
                 self.audit.write("investigation_failed", error=str(e))
@@ -574,6 +613,10 @@ class Controller:
             inv_counterfactual_discrimination=float(self._inv_extras.get("inv_counterfactual_discrimination", 0.0)),
             inv_useful_negative=float(self._inv_extras.get("inv_useful_negative", 0.0)),
             inv_repetition_penalty=float(self._inv_extras.get("inv_repetition_penalty", 0.0)),
+            causal_hyp_discrimination=float(self._causal_extras.get("causal_hyp_discrimination", 0.0)),
+            causal_dimension_id=float(self._causal_extras.get("causal_dimension_id", 0.0)),
+            causal_useful_negative=float(self._causal_extras.get("causal_useful_negative", 0.0)),
+            causal_interaction=float(self._causal_extras.get("causal_interaction", 0.0)),
         )
 
         mem_kw = {}
@@ -609,6 +652,7 @@ class Controller:
                 ),
                 **mem_kw,
                 "investigation": dict(self._inv_context),
+                "causal": dict(self._causal_context),
             },
         )
         if self.continual is not None:
@@ -655,6 +699,9 @@ class Controller:
         ctx: dict[str, Any],
         exp_id: str,
         finding: Finding,
+        novelty: float | None = None,
+        uncertainty: float | None = None,
+        wm_ig: float | None = None,
     ) -> None:
         """Dispatch single_shot (3.3) or multi_step (3.4) investigation."""
         mode = self._investigation_mode()
@@ -769,8 +816,12 @@ class Controller:
             region_id=str(semantic_rid),
             open_dimensions=open_dims,
             effect_magnitude=assessment_score,
-            uncertainty=float(ctx.get("mem_residual_uncertainty") or 0.5),
-            novelty=0.5,
+            uncertainty=float(
+                uncertainty
+                if uncertainty is not None
+                else (ctx.get("mem_residual_uncertainty") or 0.5)
+            ),
+            novelty=float(novelty if novelty is not None else (ctx.get("last_novelty") or 0.0)),
         )
         self._inv_context = self._multi_inv.context_features()
         if not ep.active():
@@ -939,4 +990,110 @@ class Controller:
             "amplify_steps": self._discovery.state.amplify_steps,
             "handed_off": self._discovery.state.handed_off,
             "abandoned": self._discovery.state.abandoned,
+        }
+
+    def _run_causal_hook(
+        self,
+        *,
+        prompt: str,
+        response: str,
+        assessment_score: float,
+        signals: list,
+        semantic_rid: str,
+        novelty: float,
+        uncertainty: float,
+        wm_ig: float,
+        ctx: dict[str, Any],
+        exp_id: str,
+        finding: Finding,
+    ) -> None:
+        """UDD / causal discovery above 3.5; may force amplify or 3.4 handoff."""
+        mode = self._causal_mode()
+        if mode == "off":
+            return
+        open_dims = list(ctx.get("open_dimensions") or [])
+        mem_prior: dict[str, float] = {}
+        if self.continual is not None:
+            try:
+                rec = self.continual.memory.semantic.get(str(semantic_rid), namespace=self.continual.namespace)
+                # Priors from memory — NEVER skip discrimination
+                for d, c in (rec.dimensions_coverage or {}).items():
+                    mem_prior[str(d)] = 0.15 if float(c) < 0.3 else -0.05
+            except Exception:
+                mem_prior = {}
+        if self._causal is None:
+            self._causal = CausalController(
+                lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+                budget_tracker=self.budget,
+                evaluator=self._heuristic_evaluator,
+                policy=mode,
+                seed=self.config.seed,
+                charge_global=True,
+                episode_budget=int(getattr(self.config, "causal_max_episode_probes", 12) or 12),
+                budget_fraction=float(getattr(self.config, "causal_budget_fraction", 0.25) or 0.25),
+                open_dimensions=open_dims,
+                memory_prior=mem_prior,
+                use_world_model=bool(self.world_model is not None),
+                wm_uncertainty=float(uncertainty),
+            )
+        self._causal.observe_external(
+            prompt, response,
+            security=float(assessment_score),
+            novelty=float(novelty),
+            uncertainty=float(uncertainty),
+            signals=list(signals or []),
+            wm_ig=float(wm_ig),
+        )
+        acted = False
+        if self._causal.should_act(security=assessment_score, novelty=novelty, uncertainty=uncertainty):
+            step_res = self._causal.step(novelty=novelty, uncertainty=uncertainty, wm_ig=wm_ig)
+            acted = True
+            self.audit.write(
+                "causal_step",
+                experiment_id=exp_id,
+                action=step_res.get("action"),
+                reason=step_res.get("reason"),
+                dimension=self._causal.state.dimension_id,
+                probes=self._causal.state.probes_used,
+            )
+            if self._causal.pending_investigate:
+                self._disc_force_investigate = True
+                self._causal.pending_investigate = False
+                finding.evidence["causal_handoff"] = self._causal.handoff_packet()
+            # Optional: if dim found and discovery is on, let 3.5 amplify too
+            if self._causal.pending_amplify and self._discovery is not None and not self._discovery.state.handed_off:
+                self._discovery.state.last_prompt = self._causal.state.last_prompt
+                self._discovery.state.last_security = self._causal.state.last_security
+                self._discovery.state.last_strength = "medium" if self._causal.state.last_security >= 0.2 else "weak"
+        self._causal_extras = self._causal.reward_extras()
+        self._causal_context = self._causal.context_features()
+        if self._discovery is not None:
+            self._discovery.map_view.causal_meta = {
+                "hypotheses": [h.dimension for h in self._causal.space.all()[:12]],
+                "edges": self._causal.graph.as_dict().get("edges"),
+                "interactions": [{"arity": self._causal.state.interaction_arity}] if self._causal.state.interaction_discovered else [],
+                "temporal": self._causal.temporal.as_list()[:8],
+                "unknown_dims": [self._causal.state.dimension_id] if self._causal.state.dimension_id else [],
+            }
+        if self.continual is not None:
+            try:
+                rec = self.continual.memory.semantic.get(str(semantic_rid), namespace=self.continual.namespace)
+                record_causal_state(rec, {
+                    "identified_dimension": self._causal.state.dimension_id,
+                    "hypotheses": self._causal.space.as_list()[:12],
+                    "edges": self._causal.graph.as_dict(),
+                    "interactions": self._causal.state.interaction_discovered,
+                    "temporal": self._causal.temporal.as_list()[:8],
+                })
+                self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+            except Exception as e:
+                self.audit.write("causal_memory_failed", error=str(e))
+        finding.evidence["causal"] = {
+            "mode": mode,
+            "acted": acted,
+            "unexplained": self._causal.state.unexplained,
+            "dimension": self._causal.state.dimension_id,
+            "probes": self._causal.state.probes_used,
+            "discriminated": self._causal.state.discriminated,
+            "entropy_end": self._causal.state.entropy_end,
         }

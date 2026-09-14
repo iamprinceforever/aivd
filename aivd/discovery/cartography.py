@@ -32,6 +32,7 @@ class BehavioralMapView:
     probe_log: list[dict[str, Any]] = field(default_factory=list)
     frontiers: list[str] = field(default_factory=list)
     gradients: list[dict[str, Any]] = field(default_factory=list)
+    causal_meta: dict[str, Any] = field(default_factory=dict)
     _embedding_by_region: dict[str, list[np.ndarray]] = field(default_factory=dict)
 
     def observe(
@@ -121,6 +122,11 @@ class BehavioralMapView:
             "discovery_density": self.density_map(),
             "discovery_gradients": self.uncertainty_gradients()[:4],
             "discovery_n_probes_mapped": len(self.probe_log),
+            "causal_hypotheses": list(self.causal_meta.get("hypotheses") or []),
+            "causal_edges": list(self.causal_meta.get("edges") or []),
+            "causal_interactions": list(self.causal_meta.get("interactions") or []),
+            "causal_temporal": list(self.causal_meta.get("temporal") or []),
+            "unknown_dims": list(self.causal_meta.get("unknown_dims") or []),
         }
 
     def sync_from_behavior_map(self, bmap: Any, memory_semantic: Any = None, namespace: str = "target") -> None:

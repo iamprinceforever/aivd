@@ -1,0 +1,311 @@
+{
+  "aa_by_method": {
+    "random": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_experiments_to_dimension_id": 32.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 32.0,
+      "fp_hits": 0
+    },
+    "hybrid": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_experiments_to_dimension_id": 32.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 32.0,
+      "fp_hits": 0
+    },
+    "inv_3_4": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_experiments_to_dimension_id": 32.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 32.0,
+      "fp_hits": 0
+    },
+    "ad_3_5": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_experiments_to_dimension_id": 32.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 32.0,
+      "fp_hits": 0
+    },
+    "causal_heuristic": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 2.0,
+      "mean_experiments_to_dimension_id": 6.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.6561566025202294,
+      "dim_match_rate": 1.0,
+      "mean_probes": 6.0,
+      "fp_hits": 7
+    },
+    "causal_learned": {
+      "n": 7,
+      "discovery_probability": 0.7142857142857143,
+      "mean_experiments_to_localize": 12.857142857142858,
+      "mean_experiments_to_dimension_id": 15.714285714285714,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 1.8897827584051938,
+      "dim_match_rate": 0.7142857142857143,
+      "mean_probes": 15.714285714285714,
+      "fp_hits": 5
+    },
+    "causal_full": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 2.0,
+      "mean_experiments_to_dimension_id": 6.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.6561566025202294,
+      "dim_match_rate": 1.0,
+      "mean_probes": 6.0,
+      "fp_hits": 7
+    }
+  },
+  "ab_by_method": {
+    "causal_heuristic": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 4.0,
+      "mean_experiments_to_dimension_id": 8.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.7626224493148066,
+      "dim_match_rate": null,
+      "mean_probes": 8.0,
+      "fp_hits": 7
+    },
+    "ad_3_5": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    },
+    "random": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    }
+  },
+  "af_by_method": {
+    "causal_full": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 5.0,
+      "mean_experiments_to_dimension_id": 9.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.6645191315558074,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 7
+    },
+    "causal_heuristic": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 5.0,
+      "mean_experiments_to_dimension_id": 9.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.6645191315558074,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 7
+    },
+    "ad_3_5": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 13.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 7
+    }
+  },
+  "ao_by_method": {
+    "random": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    },
+    "ad_3_5": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": null,
+      "mean_entropy_end": null,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    },
+    "causal_heuristic": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 0.30758354346799616,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    },
+    "causal_learned": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 1.0868692239412137,
+      "dim_match_rate": null,
+      "mean_probes": 23.285714285714285,
+      "fp_hits": 0
+    },
+    "causal_full": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 24.0,
+      "mean_experiments_to_dimension_id": 24.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 0.30758354346799616,
+      "dim_match_rate": null,
+      "mean_probes": 24.0,
+      "fp_hits": 0
+    }
+  },
+  "budget_sweep": {
+    "8": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.8,
+      "mean_experiments_to_dimension_id": 5.8,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.5836847131980654,
+      "dim_match_rate": 1.0,
+      "mean_probes": 5.8,
+      "fp_hits": 5
+    },
+    "16": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.8,
+      "mean_experiments_to_dimension_id": 5.8,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.5836847131980654,
+      "dim_match_rate": 1.0,
+      "mean_probes": 5.8,
+      "fp_hits": 5
+    },
+    "32": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.8,
+      "mean_experiments_to_dimension_id": 5.8,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.5836847131980654,
+      "dim_match_rate": 1.0,
+      "mean_probes": 5.8,
+      "fp_hits": 5
+    },
+    "64": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.8,
+      "mean_experiments_to_dimension_id": 5.8,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.5836847131980654,
+      "dim_match_rate": 1.0,
+      "mean_probes": 5.8,
+      "fp_hits": 5
+    }
+  },
+  "extra": {
+    "AH": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.0,
+      "mean_experiments_to_dimension_id": 6.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.204287849560058,
+      "dim_match_rate": null,
+      "mean_probes": 6.0,
+      "fp_hits": 5
+    },
+    "AI": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 2.0,
+      "mean_experiments_to_dimension_id": 6.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.8351752152189325,
+      "dim_match_rate": null,
+      "mean_probes": 6.0,
+      "fp_hits": 5
+    },
+    "AJ": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 3.0,
+      "mean_experiments_to_dimension_id": 7.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.839497436432346,
+      "dim_match_rate": null,
+      "mean_probes": 7.0,
+      "fp_hits": 5
+    },
+    "AK": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.0,
+      "mean_experiments_to_dimension_id": 5.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.204287849560058,
+      "dim_match_rate": null,
+      "mean_probes": 5.0,
+      "fp_hits": 5
+    },
+    "AD": {
+      "n": 5,
+      "discovery_probability": 1.0,
+      "mean_experiments_to_localize": 1.0,
+      "mean_experiments_to_dimension_id": 5.0,
+      "mean_entropy_start": 2.811005765337886,
+      "mean_entropy_end": 2.204287849560058,
+      "dim_match_rate": null,
+      "mean_probes": 5.0,
+      "fp_hits": 5
+    }
+  }
+}

@@ -42,6 +42,11 @@ class RewardWeights(BaseModel):
     w_inv_counterfactual: float = 0.0
     w_inv_negative: float = 0.0
     w_inv_repetition: float = 0.0
+    # v3.6 causal extras (default 0 → no farming)
+    w_causal_disc: float = 0.0
+    w_causal_dim: float = 0.0
+    w_causal_negative: float = 0.0
+    w_causal_interaction: float = 0.0
 
 
 class AIVDConfig(BaseModel):
@@ -92,6 +97,11 @@ class AIVDConfig(BaseModel):
     discovery_max_amplify_steps: int = 6
     discovery_budget_fraction: float = 0.20
     discovery_handoff_threshold: float = 0.40
+    # v3.6 unknown-dimension / active causal discovery (default off)
+    causal_mode: Literal["off", "heuristic", "learned", "full"] = "off"
+    causal_discovery_mode: Literal["off", "heuristic", "learned", "full"] | None = None  # alias
+    causal_budget_fraction: float = 0.25
+    causal_max_episode_probes: int = 12
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

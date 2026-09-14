@@ -52,6 +52,10 @@ def compute_reward(
     inv_counterfactual_discrimination: float = 0.0,
     inv_useful_negative: float = 0.0,
     inv_repetition_penalty: float = 0.0,
+    causal_hyp_discrimination: float = 0.0,
+    causal_dimension_id: float = 0.0,
+    causal_useful_negative: float = 0.0,
+    causal_interaction: float = 0.0,
 ) -> RewardBreakdown:
     w = weights or RewardWeights()
     if isinstance(status, str):
@@ -102,6 +106,10 @@ def compute_reward(
         + float(getattr(w, "w_inv_counterfactual", 0.0) or 0.0) * float(inv_counterfactual_discrimination)
         + float(getattr(w, "w_inv_negative", 0.0) or 0.0) * float(inv_useful_negative)
         - float(getattr(w, "w_inv_repetition", 0.0) or 0.0) * float(inv_repetition_penalty)
+        + float(getattr(w, "w_causal_disc", 0.0) or 0.0) * float(causal_hyp_discrimination)
+        + float(getattr(w, "w_causal_dim", 0.0) or 0.0) * float(causal_dimension_id)
+        + float(getattr(w, "w_causal_negative", 0.0) or 0.0) * float(causal_useful_negative)
+        + float(getattr(w, "w_causal_interaction", 0.0) or 0.0) * float(causal_interaction)
     )
 
     return RewardBreakdown(
@@ -127,6 +135,10 @@ def compute_reward(
         inv_counterfactual_discrimination=float(inv_counterfactual_discrimination),
         inv_useful_negative=float(inv_useful_negative),
         inv_repetition_penalty=float(inv_repetition_penalty),
+        causal_hyp_discrimination=float(causal_hyp_discrimination),
+        causal_dimension_id=float(causal_dimension_id),
+        causal_useful_negative=float(causal_useful_negative),
+        causal_interaction=float(causal_interaction),
         total=float(total),
         weights=w.model_dump(),
     )

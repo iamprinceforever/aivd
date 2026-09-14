@@ -109,6 +109,10 @@ class RewardBreakdown(BaseModel):
     inv_counterfactual_discrimination: float = 0.0
     inv_useful_negative: float = 0.0
     inv_repetition_penalty: float = 0.0
+    causal_hyp_discrimination: float = 0.0
+    causal_dimension_id: float = 0.0
+    causal_useful_negative: float = 0.0
+    causal_interaction: float = 0.0
     total: float = 0.0
     weights: dict[str, float] = Field(default_factory=dict)
 

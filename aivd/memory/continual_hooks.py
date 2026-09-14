@@ -49,6 +49,22 @@ VULN_TO_DIMENSION = {
     "IB-Y-FISH1": "rare_token",
     "IB-Y-FISH2": "rare_token",
     "IB-Z-INVISIBLE": "rare_token",
+    "IB-AA-UNKNOWN-DIM": "unknown",
+    "IB-AB-UNKNOWN-INTERACTION": "interaction",
+    "IB-AC-THREE-WAY": "interaction",
+    "IB-AD-STATEFUL": "stateful",
+    "IB-AE-TEMPORAL": "temporal",
+    "IB-AF-INDIRECT": "indirect",
+    "IB-AG-CAUSAL-CHAIN": "causal_chain",
+    "IB-AH-MISLEADING-CORR": "length",
+    "IB-AI-COMPETING-HYPS": "delimiter",
+    "IB-AJ-UNKNOWN-REPR": "representation",
+    "IB-AK-UNKNOWN-BOUNDARY": "boundary",
+    "IB-AL-SECURITY-SECONDARY": "interaction",
+    "IB-AM-NOISY-UNKNOWN": "unknown",
+    "IB-AN-FISH1": "length",
+    "IB-AN-FISH2": "length",
+    "IB-AO-INVISIBLE": "rare_token",
 }
 
 # Logical behavioral region for the same-region multi-vuln suite

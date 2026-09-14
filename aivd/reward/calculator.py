@@ -46,6 +46,10 @@ class RewardCalculator:
         inv_counterfactual_discrimination: float = 0.0,
         inv_useful_negative: float = 0.0,
         inv_repetition_penalty: float = 0.0,
+        causal_hyp_discrimination: float = 0.0,
+        causal_dimension_id: float = 0.0,
+        causal_useful_negative: float = 0.0,
+        causal_interaction: float = 0.0,
     ) -> RewardBreakdown:
         w = self.weights
         # Prefer world-model IG when available
@@ -80,6 +84,10 @@ class RewardCalculator:
             inv_counterfactual_discrimination=inv_counterfactual_discrimination,
             inv_useful_negative=inv_useful_negative,
             inv_repetition_penalty=inv_repetition_penalty,
+            causal_hyp_discrimination=causal_hyp_discrimination,
+            causal_dimension_id=causal_dimension_id,
+            causal_useful_negative=causal_useful_negative,
+            causal_interaction=causal_interaction,
         )
         # Optional impact term only when w_impact > 0 (keeps v2 totals by default)
         impact_term = float(getattr(w, "w_impact", 0.0) or 0.0) * float(max(0.0, min(1.0, impact)))

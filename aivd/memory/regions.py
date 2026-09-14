@@ -83,7 +83,9 @@ class RegionRecord:
             # Slight uncertainty drop from confirming a point; leave residual for other dims
             self.residual_uncertainty = max(0.15, self.residual_uncertainty * 0.85)
             self.expected_ig = max(0.1, self.expected_ig * 0.9)
-            if dimension and dimension in self.dimensions_coverage:
+            if dimension:
+                if dimension not in self.dimensions_coverage:
+                    self.dimensions_coverage[dimension] = 0.0
                 self.dimensions_coverage[dimension] = min(
                     1.0, self.dimensions_coverage[dimension] + 0.5
                 )
@@ -119,7 +121,9 @@ class RegionRecord:
     ) -> None:
         self.visit_count += 1
         self.security_relevance_max = max(self.security_relevance_max, float(security_relevance))
-        if dimension and dimension in self.dimensions_coverage:
+        if dimension:
+            if dimension not in self.dimensions_coverage:
+                self.dimensions_coverage[dimension] = 0.0
             # Exploring a dimension without a hit still covers a bit
             self.dimensions_coverage[dimension] = min(
                 1.0, self.dimensions_coverage[dimension] + 0.1
@@ -271,3 +275,36 @@ def record_episode(record: RegionRecord, episode_summary: dict[str, Any]) -> Non
         eqs = list(record.meta.get("equivalence_classes") or [])
         eqs.append({"trigger_len": len(str(episode_summary.get("candidate_trigger", "")).split())})
         record.meta["equivalence_classes"] = eqs[-20:]
+
+
+def ensure_dimension(record: RegionRecord, dim: str) -> None:
+    """Dynamic dim — do not silently remap unknowns onto the closed 8-tuple."""
+    d = str(dim or "").strip()
+    if not d:
+        return
+    if d not in record.dimensions_coverage:
+        record.dimensions_coverage[d] = 0.0
+
+
+def record_causal_state(record: RegionRecord, payload: dict[str, Any]) -> None:
+    """Persist UDD/causal meta without saturating the region."""
+    recs = list(record.meta.get("causal_states") or [])
+    recs.append(dict(payload or {}))
+    record.meta["causal_states"] = recs[-20:]
+    record.meta["causal"] = dict(payload or {})
+    for h in list(payload.get("hypotheses") or [])[:16]:
+        dim = h if isinstance(h, str) else str((h or {}).get("dimension") or "")
+        ensure_dimension(record, dim)
+    ident = payload.get("identified_dimension")
+    if ident:
+        ensure_dimension(record, str(ident))
+        record.meta["unknown_dims"] = list({*(record.meta.get("unknown_dims") or []), str(ident)})[-16:]
+    if payload.get("edges"):
+        record.meta["causal_edges"] = payload.get("edges")
+    if payload.get("interactions"):
+        record.meta["interactions"] = payload.get("interactions")
+    if payload.get("temporal"):
+        record.meta["temporal_deps"] = payload.get("temporal")
+    record.residual_uncertainty = min(1.0, record.residual_uncertainty + 0.02)
+    record.expected_ig = min(1.0, record.expected_ig + 0.03)
+    record.saturated = False

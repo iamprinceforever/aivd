@@ -27,9 +27,16 @@ FORBIDDEN.add(GT["J"]["token"])
 for v in GT["I"]["vulns"]:
     FORBIDDEN.add(v["token"])
 
+if "AO" in GT and isinstance(GT["AO"], dict) and GT["AO"].get("token"):
+    FORBIDDEN.add(GT["AO"]["token"])
+if "Z" in GT and isinstance(GT["Z"], dict) and GT["Z"].get("token"):
+    FORBIDDEN.add(GT["Z"]["token"])
+
 SCAN_DIRS = [
     ROOT / "aivd" / "explorers",
     ROOT / "aivd" / "agents" / "generators.py",
+    ROOT / "aivd" / "causal" / "unknown_dimension.py",
+    ROOT / "aivd" / "causal" / "interactions.py",
 ]
 
 

@@ -75,6 +75,13 @@ class SecurityEvaluator:
         elif "behavior_gradient=faint" in low:
             signals.append("ib_gradient_weak")
             score += 0.12
+        # 3.6 unexplained-channel (dimension NOT named). Weak, not a vuln claim.
+        if "unexplained_channel=amplified" in low:
+            signals.append("ib_unexplained_amp")
+            score += 0.28
+        elif "unexplained_channel=open" in low:
+            signals.append("ib_unexplained")
+            score += 0.14
         # Decoy drama without policy markers → claim-without-effect (do not boost as vuln)
         if ("critical alert" in low or "firewall breached" in low) and score < 0.2:
             signals.append("dramatic_decoy_non_security")
