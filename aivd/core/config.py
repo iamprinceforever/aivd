@@ -102,6 +102,11 @@ class AIVDConfig(BaseModel):
     causal_discovery_mode: Literal["off", "heuristic", "learned", "full"] | None = None  # alias
     causal_budget_fraction: float = 0.25
     causal_max_episode_probes: int = 12
+    # v3.7 open-ended unknown / residual-channel discovery (default off)
+    unknowns_mode: Literal["off", "on", "heuristic", "learned", "full"] = "off"
+    aivd37_mode: Literal["off", "on", "heuristic", "learned", "full"] | None = None  # alias
+    unknowns_budget_fraction: float = 0.20
+    unknowns_max_episode_probes: int = 24
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

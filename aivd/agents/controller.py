@@ -43,6 +43,7 @@ from aivd.investigation.episode_controller import MultiStepInvestigationControll
 from aivd.memory.regions import record_boundary, record_hypothesis_result, record_episode
 from aivd.discovery.discovery_controller import DiscoveryController, DiscoveryMode
 from aivd.causal.causal_controller import CausalController
+# aivd37 unknowns imported lazily in hook to keep default-off light
 from aivd.memory.regions import record_causal_state
 
 
@@ -185,6 +186,18 @@ class Controller:
         if mode in ("off", "heuristic", "learned", "full"):
             return mode
         return "off"
+
+    def _unknowns_mode(self) -> str:
+        """Resolve unknowns_mode / aivd37_mode: off|on|heuristic|learned|full (default off)."""
+        alias = getattr(self.config, "aivd37_mode", None)
+        mode = alias or getattr(self.config, "unknowns_mode", "off") or "off"
+        mode = str(mode).lower().strip()
+        if mode in ("on", "true", "1"):
+            return "full"
+        if mode in ("off", "heuristic", "learned", "full"):
+            return mode
+        return "off"
+
 
     def _prompt_hash(self, prompt: str) -> str:
         return hashlib.sha256(prompt.encode()).hexdigest()
@@ -543,6 +556,23 @@ class Controller:
                 )
             except Exception as e:
                 self.audit.write("causal_failed", error=str(e))
+
+
+        # v3.7 open-ended unknown / residual-channel sweep — after 3.6 causal
+        unk_mode = self._unknowns_mode()
+        if unk_mode != "off":
+            try:
+                self._run_unknowns_hook(
+                    prompt=prompt,
+                    response=resp or "",
+                    assessment_score=float(assessment.score),
+                    semantic_rid=str(semantic_rid),
+                    ctx=ctx,
+                    exp_id=exp.id,
+                    finding=finding,
+                )
+            except Exception as e:
+                self.audit.write("unknowns_failed", error=str(e))
 
         # v3.3/3.4 Active Behavioral Investigation (single_shot or multi_step)
         inv_mode = self._investigation_mode()
@@ -1097,3 +1127,59 @@ class Controller:
             "discriminated": self._causal.state.discriminated,
             "entropy_end": self._causal.state.entropy_end,
         }
+
+    def _run_unknowns_hook(
+        self,
+        *,
+        prompt: str,
+        response: str,
+        assessment_score: float,
+        semantic_rid: str,
+        ctx: dict,
+        exp_id: str,
+        finding,
+    ) -> None:
+        """3.7 residual-channel sweep / terminal classification above causal."""
+        mode = self._unknowns_mode()
+        if mode == "off":
+            return
+        from aivd37.unknowns.pipeline import UnknownsPipeline, store_terminal_memory
+        causal_ctx = {}
+        if getattr(self, "_causal", None) is not None:
+            causal_ctx = {
+                "dimension_id": self._causal.state.dimension_id,
+                "unexplained": self._causal.state.unexplained,
+            }
+        pipe = UnknownsPipeline(
+            probe_fn=lambda p: self.target.probe(p, timeout_s=self.config.budget.request_timeout_s),
+            target=self.target,
+            budget_tracker=self.budget,
+            episode_budget=int(getattr(self.config, "unknowns_max_episode_probes", 24) or 24),
+            charge_global=True,
+            seed=self.config.seed,
+            mode="full" if mode == "on" else mode,
+            causal_context=causal_ctx,
+        )
+        term = pipe.run(prompt)
+        self.audit.write(
+            "unknowns_terminal",
+            experiment_id=exp_id,
+            state=term.state.value,
+            is_vulnerability=term.is_vulnerability,
+            classification=term.classification,
+            probes=pipe.trace.probes_used,
+        )
+        finding.evidence["aivd37_unknowns"] = term.as_dict()
+        finding.evidence["aivd37_trace"] = {
+            "probes_used": pipe.trace.probes_used,
+            "chosen_axis": pipe.trace.chosen_axis,
+            "mode": pipe.trace.mode,
+        }
+        if self.continual is not None:
+            try:
+                rec = self.continual.memory.semantic.get(str(semantic_rid), namespace=self.continual.namespace)
+                store_terminal_memory(rec, term)
+                self.continual.memory.semantic.put(rec, namespace=self.continual.namespace)
+            except Exception as e:
+                self.audit.write("unknowns_memory_failed", error=str(e))
+

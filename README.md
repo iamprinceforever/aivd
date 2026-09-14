@@ -16,6 +16,10 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 
 Unknown **dimension / active causal discovery** above 3.5: competing hypotheses, N-way discriminating experiments, causal graph (correlation ≠ causation), interaction / temporal / indirect search. Config `causal_mode` (`off|heuristic|learned|full`, default **off**). Benches **AA–AO** (AA unknown-dim headline; AF indirect; AO invisible hard negative like Z). Does **not** treat 3.5 `echo_stem` channel-follow as unknown-dim. Nested probes use global `BudgetTracker`. See `reports/aivd-3.6-results.md` and `reports/aivd-3.6-audit.md`.
 
+### 3.7 Open-ended unknown discovery
+
+Residual-channel sweep **above** 3.6 causal: terminal `UNRESOLVED_INVISIBLE` (AO hard control) vs `VERIFIED` (observable unknowns). Security-shaped channels (`state.*` / `tool.*` / `error` / `out.refusal`) beat `out.hash`/`out.len` novelty. Config `unknowns_mode` / `aivd37_mode` (default **off**). Package `aivd37/unknowns/`. H7 blind open sparse remains **Not demonstrated**. Gemini 429 → operational UNRESOLVED (never SAFE/vuln). See `reports/aivd-3.7-results.md`.
+
 ## What's new in v3.5.0
 
 Active **Behavioral Discovery** above 3.4 investigation: cartography, weak-signal vs baseline, gradient follow / amplify, frontiers, hypothesis discrimination, `discovery_mode` (`off|random|heuristic|learned`, default off). Benches **P–Z** (Q weak-footprint headline; Z invisible hard negative). Nested probes use global `BudgetTracker`. See `reports/aivd-3.5-results.md`.
