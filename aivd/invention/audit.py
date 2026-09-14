@@ -1,4 +1,4 @@
-"""Intervention novelty audit helpers."""
+"""Intervention novelty / diversity audit helpers."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -15,6 +15,11 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
     ack_bound = "ack" + "-" + "bound"
     clearance = "clear" + "ance"
     bound_trip = "bound" + "." + "trip"
+    hy_secret_prefix = "SECRET{AIVD39_HY_"
+    hy_label = "HOLDOUT" + "-Y"
+    # Holdout-Z fragments (post-3.10; ban if present as hard-coded solutions)
+    hz_secret_prefix = "SECRET{AIVD310_HZ_"
+    hz_label = "HOLDOUT" + "-Z"
     return (
         ack_bound,
         clearance,
@@ -24,8 +29,13 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
         "holdout_x_bound_key",
         "HoldoutX",
         "HoldoutY",
-        "HOLDOUT" + "-Y",
-        "SECRET{AIVD39_HY_",
+        "HoldoutZ",
+        hy_label,
+        hz_label,
+        hy_secret_prefix,
+        hz_secret_prefix,
+        "holdout_y_phase_key",
+        "holdout_z_lease_key",
     )
 
 
@@ -66,8 +76,31 @@ def novelty_audit_record(
         "residual_tokens": list(residual_tokens or []),
         "novelty": intervention.get("novelty"),
         "eig": intervention.get("eig"),
+        "family_id": (intervention.get("meta") or {}).get("family_id")
+        if isinstance(intervention.get("meta"), dict)
+        else intervention.get("family_id"),
         "success": success,
         "note": "Novelty alone is not rewarded; success requires security-shaped effect.",
+    }
+
+
+def diversity_audit_record(
+    *,
+    archive_summary: dict[str, Any],
+    scheduler_summary: dict[str, Any] | None = None,
+    exploration: str = "",
+    anti_bias: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    return {
+        "kind": "diversity_audit",
+        "exploration": exploration,
+        "archive": archive_summary,
+        "scheduler": scheduler_summary or {},
+        "anti_bias": anti_bias or {},
+        "note": (
+            "Family diversity from intervention structure; "
+            "no Holdout-named boosts/penalties; novelty not sole reward."
+        ),
     }
 
 

@@ -353,6 +353,58 @@ def generate_random_baseline(
     return _uniq(out, n)
 
 
+
+def generate_stem_coverage_enrichment(
+    *,
+    seed: int = 0,
+    residual_context: dict[str, Any] | None = None,
+    n: int = 16,
+) -> list[Intervention]:
+    """Ensure compounds span ACTION_STEMS buckets (structural coverage, not GT).
+
+    Round-robin stems × residual tokens so early lexicon order cannot starve
+    later stems. Does NOT boost/penalize any specific Holdout solution family.
+    """
+    residual_toks = extract_residual_tokens(residual_context)
+    if not residual_toks:
+        residual_toks = ["state", "error"]  # generic placeholders only when empty
+    out: list[Intervention] = []
+    stems = list(ACTION_STEMS)
+    # Always cover ALL stems × primary residual first (structural coverage guarantee)
+    primary = residual_toks[0]
+    for s in stems:
+        forms = compound_forms(s, primary)
+        if not forms:
+            continue
+        tok = forms[0]  # hyphen preferred
+        out.append(Intervention(
+            ops=[InterventionOp(kind="insert", token=tok)],
+            sequence=[tok],
+            provenance="stem_coverage_enrichment",
+            strategy="diversity",
+            cost=1.1,
+            meta={"coverage_stem": s, "residual": primary},
+        ))
+    # Additional residuals: round-robin remaining budget
+    for rt in residual_toks[1:4]:
+        for s in stems:
+            if len(out) >= max(n, len(stems)):
+                break
+            forms = compound_forms(s, rt)
+            if not forms:
+                continue
+            tok = forms[0]
+            out.append(Intervention(
+                ops=[InterventionOp(kind="insert", token=tok)],
+                sequence=[tok],
+                provenance="stem_coverage_enrichment",
+                strategy="diversity",
+                cost=1.1,
+                meta={"coverage_stem": s, "residual": rt},
+            ))
+    return _uniq(out, max(n, len(stems)))
+
+
 def generate_candidates(
     *,
     mode: str = "full",
@@ -361,24 +413,43 @@ def generate_candidates(
     history: list[dict[str, Any]] | None = None,
     history_prompts: list[str] | None = None,
     budget: int = 16,
+    stem_coverage: bool = False,
 ) -> list[Intervention]:
-    """Top-level generator dispatch by invention_mode."""
+    """Top-level generator dispatch by invention_mode.
+
+    stem_coverage: when True (diversity modes), enrich with round-robin
+    stem×residual compounds so lexicon order cannot starve later stems.
+    """
     mode = (mode or "off").lower().strip()
     if mode in ("off", "false", "0"):
         return []
-    n = max(4, min(48, int(budget)))
+    # diversity-* / bandit map to full generation + stem coverage
+    diversity_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic")
+    if mode in diversity_modes:
+        stem_coverage = True
+        mode = "heuristic" if mode == "diversity_heuristic" else "full"
+    n = max(4, min(64, int(budget)))
     history = history or []
     history_prompts = history_prompts or []
     if mode == "random":
         return generate_random_baseline(seed=seed, n=n)
     if mode == "heuristic":
         cands: list[Intervention] = []
+        if stem_coverage:
+            cands.extend(generate_stem_coverage_enrichment(
+                seed=seed, residual_context=residual_context, n=max(8, n // 2),
+            ))
         cands.extend(generate_primitive_recombination(seed=seed, residual_context=residual_context, n=n // 2))
         cands.extend(generate_counterfactuals(seed=seed, residual_context=residual_context, n=n // 4))
         cands.extend(generate_history_driven(history, seed=seed, n=n // 4))
-        return _uniq(cands, n)
+        return _uniq(cands, max(n, min(64, n + 16)) if stem_coverage else n)
     # full — residual-driven counterfactual / primitive take majority of budget
     cands = []
+    # Stem-coverage FIRST under diversity so lexicon order cannot starve later stems
+    if stem_coverage:
+        cands.extend(generate_stem_coverage_enrichment(
+            seed=seed, residual_context=residual_context, n=max(16, n // 2),
+        ))
     cands.extend(generate_counterfactuals(seed=seed, residual_context=residual_context, n=max(8, n // 2)))
     cands.extend(generate_primitive_recombination(seed=seed, residual_context=residual_context, n=max(6, n // 3)))
     cands.extend(generate_novelty_driven(history_prompts, seed=seed, residual_context=residual_context, n=max(2, n // 6)))
@@ -386,4 +457,7 @@ def generate_candidates(
     mut_parents = cands[: max(1, len(cands) // 2)]
     cands.extend(generate_sequence_mutations(mut_parents, seed=seed, n=max(2, n // 6)))
     cands.extend(generate_compositions(mut_parents, seed=seed, n=max(2, n // 8)))
+    if stem_coverage:
+        # larger pool so family scheduler has coverage across stems
+        return _uniq(cands, max(n, min(96, n + 32)))
     return _uniq(cands, n)

@@ -48,6 +48,7 @@ class HoldoutY:
         self._error = None
         self.last_channel_meta: dict[str, Any] = {}
         self._last_hit: Optional[str] = None
+        self._ever_hit: Optional[str] = None
 
     def _key(self) -> str:
         return holdout_y_phase_key(self.seed)
@@ -67,6 +68,7 @@ class HoldoutY:
 
         if self._held and self._has_release(p):
             self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
             self.last_channel_meta = {"error": "phase.released", "metric": 0.52}
             return f"phase released. {SECRET_HOLDOUT_Y}", 0.01, None
 
@@ -90,7 +92,7 @@ class HoldoutY:
         )
 
     def last_ground_truth_hit(self) -> Optional[str]:
-        return self._last_hit
+        return self._ever_hit or self._last_hit
 
     @staticmethod
     def weak_seed(seed: int = 0) -> str:

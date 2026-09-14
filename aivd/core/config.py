@@ -107,11 +107,22 @@ class AIVDConfig(BaseModel):
     aivd37_mode: Literal["off", "on", "heuristic", "learned", "full"] | None = None  # alias
     unknowns_budget_fraction: float = 0.20
     unknowns_max_episode_probes: int = 24
-    # v3.9 open intervention invention (default off) — ABOVE causal, BEFORE residual handoff
-    invention_mode: Literal["off", "random", "heuristic", "full"] = "off"
+    # v3.9/3.10 open intervention invention (+ diversity; default off) — ABOVE causal, BEFORE residual handoff
+    invention_mode: Literal[
+        "off", "random", "heuristic", "full",
+        "diversity", "bandit", "diversity_full", "diversity_heuristic",
+    ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
     invention_budget_fraction: float = 0.25
+    # v3.10 diversity layer (default off for compat)
+    invention_diversity_mode: Literal["off", "heuristic", "bandit", "full"] = "off"
+    invention_exploration: Literal[
+        "epsilon_greedy", "ucb", "thompson", "entropy", "novelty_bandit", "hierarchical",
+    ] = "thompson"
+    invention_saturation: bool = True
+    invention_revival: bool = True
+    invention_exploration_enabled: bool = True
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

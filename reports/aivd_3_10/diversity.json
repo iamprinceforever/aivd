@@ -1,0 +1,16 @@
+{
+  "mean_families": 62.857142857142854,
+  "mean_unique_families_tested": 4.0,
+  "mean_coverage": 0.06364293029039572,
+  "mean_invented": 102.0,
+  "controls_unique_families": {
+    "off": 0.0,
+    "random": 3.0,
+    "heuristic": 1.8571428571428572,
+    "full": 3.0,
+    "diversity": 4.0,
+    "bandit": 4.0,
+    "diversity_full": 4.0
+  },
+  "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
+}

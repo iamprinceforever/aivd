@@ -87,6 +87,11 @@ class UnknownsPipeline:
         invention_mode: str = "off",
         invention_max_candidates: int = 16,
         invention_max_cheap_tests: int = 16,
+        invention_diversity_mode: str = "off",
+        invention_exploration: str | None = None,
+        invention_saturation: bool = True,
+        invention_revival: bool = True,
+        invention_exploration_enabled: bool = True,
     ):
         self.target = target
         if probe_fn is not None:
@@ -104,6 +109,24 @@ class UnknownsPipeline:
         self.invention_mode = str(invention_mode or "off").lower().strip()
         self.invention_max_candidates = int(invention_max_candidates)
         self.invention_max_cheap_tests = int(invention_max_cheap_tests)
+        self.invention_diversity_mode = str(invention_diversity_mode or "off").lower().strip()
+        self.invention_exploration = invention_exploration
+        self.invention_saturation = bool(invention_saturation)
+        self.invention_revival = bool(invention_revival)
+        self.invention_exploration_enabled = bool(invention_exploration_enabled)
+        # Resolve effective invention mode when diversity_mode overlays base mode
+        if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
+            "full", "heuristic", "random",
+        ):
+            dm = self.invention_diversity_mode
+            if dm == "full":
+                self.invention_mode = "diversity_full"
+            elif dm == "bandit":
+                self.invention_mode = "bandit"
+            elif dm == "heuristic":
+                self.invention_mode = "diversity_heuristic"
+            else:
+                self.invention_mode = "diversity"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -148,9 +171,12 @@ class UnknownsPipeline:
         if self.invention_mode not in ("off", "false", "0", "") and "no_invention" not in self.mode:
             # Leave headroom for falsify/reproduce/invariant (~8 probes)
             gate_reserve = min(8, max(4, self.episode_budget // 5))
+            # Diversity modes need larger invention reserve for family coverage
+            _div_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic")
+            inv_frac_den = 2 if self.invention_mode in _div_modes else 3
             invention_reserve = min(
                 int(self.invention_max_cheap_tests),
-                max(4, self.episode_budget // 3),
+                max(4, self.episode_budget // inv_frac_den),
             )
             # Total reserve = invention + gates; axis uses the rest
             invention_reserve = min(invention_reserve, max(4, self.episode_budget - gate_reserve - 6))
@@ -325,6 +351,10 @@ class UnknownsPipeline:
                         seed=self.seed,
                         max_inventions=max(self.invention_max_candidates, 32),
                         max_cheap_tests=inv_budget,
+                        exploration=self.invention_exploration,
+                        saturation_enabled=self.invention_saturation,
+                        revival_enabled=self.invention_revival,
+                        exploration_enabled=self.invention_exploration_enabled,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

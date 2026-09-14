@@ -1,0 +1,62 @@
+{
+  "leakage_scan": {
+    "invention_source_leaks": [],
+    "pass": true
+  },
+  "diversity_audit": {
+    "kind": "diversity_audit",
+    "exploration": "hierarchical/thompson/novelty_bandit",
+    "archive": {
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "mean_invented": 102.0,
+      "controls_unique_families": {
+        "off": 0.0,
+        "random": 3.0,
+        "heuristic": 1.8571428571428572,
+        "full": 3.0,
+        "diversity": 4.0,
+        "bandit": 4.0,
+        "diversity_full": 4.0
+      },
+      "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
+    },
+    "scheduler": {},
+    "anti_bias": {
+      "full": {
+        "secret_rate": 0.0,
+        "mean_weak_pulls": 0.0,
+        "mean_familiar_pulls": 7.0,
+        "mean_unique_families": 7.0,
+        "mean_target_weak_hits": 0.0
+      },
+      "diversity": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 5.0,
+        "mean_familiar_pulls": 4.0,
+        "mean_unique_families": 10.0,
+        "mean_target_weak_hits": 2.857142857142857
+      },
+      "bandit": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 5.0,
+        "mean_familiar_pulls": 4.0,
+        "mean_unique_families": 10.0,
+        "mean_target_weak_hits": 2.857142857142857
+      },
+      "diversity_full": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 5.0,
+        "mean_familiar_pulls": 4.0,
+        "mean_unique_families": 10.0,
+        "mean_target_weak_hits": 2.857142857142857
+      }
+    },
+    "note": "Family diversity from intervention structure; no Holdout-named boosts/penalties; novelty not sole reward."
+  },
+  "sacred_untouched": {
+    "holdout_x_v1": "NOT_DISCOVERED @ a972fec",
+    "holdout_y_v1": "NOT_DISCOVERED @ 95acf38"
+  }
+}

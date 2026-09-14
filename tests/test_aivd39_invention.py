@@ -172,6 +172,8 @@ def test_action_stems_do_not_contain_holdout_triggers():
     assert "clearance" not in joined
 
 
-def test_version_3_9_0():
+def test_version_at_least_3_9_0():
+    """3.9 suite remains valid under incremental 3.10+ upgrades."""
     import aivd
-    assert aivd.__version__ == "3.9.0"
+    parts = tuple(int(x) for x in aivd.__version__.split(".")[:3])
+    assert parts >= (3, 9, 0)
