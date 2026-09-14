@@ -24,3 +24,7 @@ keep/mutate/compose/abandon → hand to falsify/reproduce/invariant gates.
 - No hard-coded Holdout-X trigger literals in invention source
 - No echo_stem / GT in reward
 - 3.8 sacred HOLDOUT-X record untouched (NOT_DISCOVERED @ a972fec)
+
+## Holdout-Y sacred first run
+Status: **NOT_DISCOVERED**. Mechanism phase.hold → release/resume-phase compound.
+Frozen invention did not surface release-phase under budget 32 (ack/clear ranking bias).

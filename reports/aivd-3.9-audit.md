@@ -19,3 +19,9 @@
 - Do not modify 3.8 sacred Holdout-X record
 - Do not hardcode clearance/ack-bound as special-case solutions
 - Do not claim open-world if only residual-conditioned recovery
+
+## Holdout-Y sacred outcome
+- Status: **NOT_DISCOVERED**
+- discovery_full: 0.000
+- evaluator_verify: 1.000
+- No post-hoc invention tuning after sacred run.

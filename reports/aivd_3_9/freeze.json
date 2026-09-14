@@ -56,7 +56,7 @@
     "aivd/agents/controller.py": "9dcc072563bccc8e2ef20acffaaa95129db55644982f544836335684bdb15f24"
   },
   "discovery_pipeline_frozen_before_holdout_y": true,
-  "holdout_y_created": false,
+  "holdout_y_created": true,
   "config": {
     "invention_mode_default": "off",
     "invention_max_candidates_default": 16,
@@ -81,5 +81,11 @@
     "evaluator_verify_rate": 1.0,
     "note": "NEVER modify historical 3.8 sacred record"
   },
-  "note": "Freeze BEFORE Holdout-Y. Do not retune invention after seeing Y."
+  "note": "Freeze BEFORE Holdout-Y. Do not retune invention after seeing Y.",
+  "holdout_y_sacred": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rate_full": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a"
+  }
 }

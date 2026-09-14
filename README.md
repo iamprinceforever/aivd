@@ -12,6 +12,13 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.9.0
+
+Open **Intervention Invention** above causal / before residual handoff: morph+compound
+candidates from residual evidence; `invention_mode` off|random|heuristic|full (default **off**).
+Holdout-X replay recoverable under stated conditions; HOLDOUT-Y sacred **NOT_DISCOVERED**.
+See `reports/aivd-3.9-results.md`, `reports/aivd-3.9-holdout.md`.
+
 ## What's new in v3.8.0 / v3.6.0
 
 Unknown **dimension / active causal discovery** above 3.5: competing hypotheses, N-way discriminating experiments, causal graph (correlation ≠ causation), interaction / temporal / indirect search. Config `causal_mode` (`off|heuristic|learned|full`, default **off**). Benches **AA–AO** (AA unknown-dim headline; AF indirect; AO invisible hard negative like Z). Does **not** treat 3.5 `echo_stem` channel-follow as unknown-dim. Nested probes use global `BudgetTracker`. See `reports/aivd-3.6-results.md` and `reports/aivd-3.6-audit.md`.
