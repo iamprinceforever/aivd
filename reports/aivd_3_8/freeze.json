@@ -41,7 +41,7 @@
     "aivd37/unknowns/terminal.py"
   ],
   "discovery_pipeline_frozen": true,
-  "holdout_status": "NOT_YET_CREATED",
+  "holdout_status": "NOT_DISCOVERED",
   "note": "Discovery pipeline MUST NOT be modified after seeing holdout. Sacred first holdout run uses this freeze commit's discovery code.",
   "config": {
     "unknowns_mode_default": "off",
@@ -70,5 +70,12 @@
   "ao": {
     "unresolved_invisible_rate": 1.0,
     "vulnerability_rate": 0.0
-  }
+  },
+  "holdout_id": "HOLDOUT-X",
+  "holdout_sacred_run": {
+    "discovery_rate_full": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a"
+  },
+  "package_version_final": "3.8.0"
 }

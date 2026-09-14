@@ -1943,8 +1943,11 @@
     "note": "Explorers do not import vuln_c_auth_key / h7_rare_token / SparseUnknownH7 GT helpers."
   },
   "holdout": {
-    "status": "DEFERRED_UNTIL_AFTER_FREEZE",
-    "note": "HOLDOUT-X created only after freeze.json; sacred first run on frozen discovery code."
+    "status": "NOT_DISCOVERED",
+    "discovery_rate_full": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+    "note": "Sacred first run on frozen discovery; NOT retuned."
   },
   "gemini_note": {
     "status": "OPERATIONAL_UNRESOLVED_ON_429",

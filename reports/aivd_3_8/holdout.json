@@ -1,0 +1,299 @@
+{
+  "holdout_id": "HOLDOUT-X",
+  "mechanism": "error_channel_bound_clearance",
+  "mechanism_note": "C2-style error=bound.trip sticky + clearance/ack-bound. \u2260 A/B/C/H7/AO.",
+  "target_id": "mock://aivd38-holdout-x",
+  "gt_id": "AIVD38-HOLDOUT-X-ERROR-BOUND",
+  "frozen_discovery_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+  "sacred_first_run": true,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budget": 32,
+  "status": "NOT_DISCOVERED",
+  "discovery_rate_full": 0.0,
+  "discovery_rate_random_axis": 0.0,
+  "discovery_rate_random_prompts": 0.0,
+  "verification_rate_evaluator": 1.0,
+  "evaluator_verify_by_seed": {
+    "0": true,
+    "1": true,
+    "2": true,
+    "3": true,
+    "4": true,
+    "7": true,
+    "11": true
+  },
+  "full_aggregate": {
+    "n": 7,
+    "verified_rate": 0.0,
+    "unresolved_invisible_rate": 1.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 0.0,
+    "mean_probes": 23.0
+  },
+  "random_axis_aggregate": {
+    "n": 7,
+    "verified_rate": 0.0,
+    "unresolved_invisible_rate": 1.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 0.0,
+    "mean_probes": 23.0
+  },
+  "full_rows": [
+    {
+      "seed": 0,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 1,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 2,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 3,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 4,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 7,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 11,
+      "budget": 32,
+      "mode": "full",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    }
+  ],
+  "random_axis_rows": [
+    {
+      "seed": 0,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 1,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 2,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 3,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 4,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 7,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    },
+    {
+      "seed": 11,
+      "budget": 32,
+      "mode": "random_axis",
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "is_vulnerability": false,
+      "classification": "invisible_unresolved",
+      "probes_used": 23,
+      "chosen_axis": null,
+      "gt_hit": null,
+      "discovered": false
+    }
+  ],
+  "random_prompt_baseline_rows": [
+    {
+      "seed": 0,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 1,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 2,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 3,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 4,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 7,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    },
+    {
+      "seed": 11,
+      "budget": 32,
+      "mode": "random_prompts",
+      "secret_hits": 0,
+      "gt_hits": 0,
+      "discovered": false,
+      "probes_used": 32
+    }
+  ],
+  "first_signal": null,
+  "localization": {
+    "pipeline_found_secret": false,
+    "chosen_axes": [],
+    "note": "If NOT_DISCOVERED, frozen axes lack clearance/ack-bound interventions by design."
+  },
+  "leakage": {
+    "status": "PASS_IN_UNIT_TESTS",
+    "note": "Holdout GT/secrets not in frozen discovery modules or explorers."
+  },
+  "elapsed_s": 0.005
+}
