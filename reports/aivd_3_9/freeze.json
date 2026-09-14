@@ -1,7 +1,7 @@
 {
   "freeze_id": "aivd-3.9-invention",
   "frozen_at_utc": "2026-09-14T15:40:11Z",
-  "commit": "PENDING_FREEZE_COMMIT",
+  "commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a",
   "package_version_at_freeze": "3.9.0",
   "tests": 304,
   "tests_note": "286 prior (3.8) + 18 aivd39 invention suite",
