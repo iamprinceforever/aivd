@@ -12,6 +12,14 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.17.0
+
+**Open-World Behavioral Representation & Generative Experimentation** over 3.16:
+observation-harvested primitives + compositional grammar (XOR/STATE/SEQUENCE first-class)
++ protected experiment floor so invent-loops cannot starve execution.
+Config `openworld_mode` (default **off** ≈ 3.16). Not another ACTION_STEMS dump.
+See `docs/3.17_open_world_behavioral_representation.md` and `reports/aivd-3.17-results.md`.
+
 ## What's new in v3.11.0
 
 **Adaptive Search Ordering** over 3.9/3.10 invention: after each cheap TEST,

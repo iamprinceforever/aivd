@@ -1,0 +1,4140 @@
+{
+  "A_off": {
+    "discovery_rate": 0.0,
+    "correct_rate": 0.0,
+    "mean_add": 0.0,
+    "mean_discovery_depth": 0.0,
+    "mean_activity_depth": 0.0,
+    "mean_tested": 0.0,
+    "mean_generated": 0.0,
+    "mean_ig": 0.0,
+    "starvation_rate": 1.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 0.0,
+    "experiment_starvation_rate": 1.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "off",
+    "ablation": null,
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "off",
+        "seed": 0,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 0,
+        "activity_depth": 0,
+        "discovery_depth": 0,
+        "tested_candidates": 0,
+        "generated_candidates": 0,
+        "probes": 0,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.0,
+        "first_broken": null,
+        "bottleneck": null,
+        "success_levels": null,
+        "efficiency": null
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "off",
+        "seed": 1,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 0,
+        "activity_depth": 0,
+        "discovery_depth": 0,
+        "tested_candidates": 0,
+        "generated_candidates": 0,
+        "probes": 0,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.0,
+        "first_broken": null,
+        "bottleneck": null,
+        "success_levels": null,
+        "efficiency": null
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "off",
+        "seed": 2,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 0,
+        "activity_depth": 0,
+        "discovery_depth": 0,
+        "tested_candidates": 0,
+        "generated_candidates": 0,
+        "probes": 0,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.0,
+        "first_broken": null,
+        "bottleneck": null,
+        "success_levels": null,
+        "efficiency": null
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "off",
+        "seed": 3,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 0,
+        "activity_depth": 0,
+        "discovery_depth": 0,
+        "tested_candidates": 0,
+        "generated_candidates": 0,
+        "probes": 0,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.0,
+        "first_broken": null,
+        "bottleneck": null,
+        "success_levels": null,
+        "efficiency": null
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "off",
+        "seed": 4,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 0,
+        "activity_depth": 0,
+        "discovery_depth": 0,
+        "tested_candidates": 0,
+        "generated_candidates": 0,
+        "probes": 0,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.0,
+        "first_broken": null,
+        "bottleneck": null,
+        "success_levels": null,
+        "efficiency": null
+      }
+    ]
+  },
+  "B_random": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 1.2,
+    "mean_generated": 22.0,
+    "mean_ig": 0.27388359999999995,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_random",
+    "ablation": null,
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_random",
+        "seed": 0,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.269875,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.1349375,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 1.6867187499999996,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_random",
+        "seed": 1,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_random",
+        "seed": 2,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.269875,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.1349375,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 1.6867187499999996,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_random",
+        "seed": 3,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_random",
+        "seed": 4,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 22,
+        "probes": 3,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.18366799999999997,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12244533333333331,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 1.6697090909090904,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "C_no_harvest": {
+    "discovery_rate": 0.0,
+    "correct_rate": 0.0,
+    "mean_add": 5.0,
+    "mean_discovery_depth": 5.0,
+    "mean_activity_depth": 5.0,
+    "mean_tested": 3.0,
+    "mean_generated": 64.0,
+    "mean_ig": 0.14594186415520835,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_full",
+    "ablation": "no_harvest",
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_harvest",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "tested_candidates": 3,
+        "generated_candidates": 64,
+        "probes": 4,
+        "n_primitives": 1,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.14594186415520835,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.10945639811640626,
+          "hypothesis_efficiency": 1.5,
+          "information_efficiency": 0.7681150745010964,
+          "search_reduction": 0.953125,
+          "activity_depth": 5,
+          "discovery_depth": 5,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_harvest",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "tested_candidates": 3,
+        "generated_candidates": 64,
+        "probes": 4,
+        "n_primitives": 1,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.14594186415520835,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.10945639811640626,
+          "hypothesis_efficiency": 1.5,
+          "information_efficiency": 0.7681150745010964,
+          "search_reduction": 0.953125,
+          "activity_depth": 5,
+          "discovery_depth": 5,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_harvest",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "tested_candidates": 3,
+        "generated_candidates": 64,
+        "probes": 4,
+        "n_primitives": 1,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.14594186415520835,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.10945639811640626,
+          "hypothesis_efficiency": 1.5,
+          "information_efficiency": 0.7681150745010964,
+          "search_reduction": 0.953125,
+          "activity_depth": 5,
+          "discovery_depth": 5,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_harvest",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "tested_candidates": 3,
+        "generated_candidates": 64,
+        "probes": 4,
+        "n_primitives": 1,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.14594186415520835,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.10945639811640626,
+          "hypothesis_efficiency": 1.5,
+          "information_efficiency": 0.7681150745010964,
+          "search_reduction": 0.953125,
+          "activity_depth": 5,
+          "discovery_depth": 5,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_harvest",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "tested_candidates": 3,
+        "generated_candidates": 64,
+        "probes": 4,
+        "n_primitives": 1,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.14594186415520835,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.10945639811640626,
+          "hypothesis_efficiency": 1.5,
+          "information_efficiency": 0.7681150745010964,
+          "search_reduction": 0.953125,
+          "activity_depth": 5,
+          "discovery_depth": 5,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "D_no_grammar": {
+    "discovery_rate": 0.0,
+    "correct_rate": 0.0,
+    "mean_add": 5.0,
+    "mean_discovery_depth": 4.0,
+    "mean_activity_depth": 5.0,
+    "mean_tested": 5.0,
+    "mean_generated": 192.0,
+    "mean_ig": 0.10222562008006653,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 1.0,
+    "target": "OW-3",
+    "mode": "openworld_full",
+    "ablation": "no_grammar",
+    "rows": [
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_grammar",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 5,
+        "generated_candidates": 192,
+        "probes": 6,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.10222562008006653,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.08518801673338877,
+          "hypothesis_efficiency": 0.2,
+          "information_efficiency": 0.17037603346677754,
+          "search_reduction": 0.9739583333333334,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_grammar",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 5,
+        "generated_candidates": 192,
+        "probes": 6,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.10222562008006653,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.08518801673338877,
+          "hypothesis_efficiency": 0.2,
+          "information_efficiency": 0.17037603346677754,
+          "search_reduction": 0.9739583333333334,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_grammar",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 5,
+        "generated_candidates": 192,
+        "probes": 6,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.10222562008006653,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.08518801673338877,
+          "hypothesis_efficiency": 0.2,
+          "information_efficiency": 0.17037603346677754,
+          "search_reduction": 0.9739583333333334,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_grammar",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 5,
+        "generated_candidates": 192,
+        "probes": 6,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.10222562008006653,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.08518801673338877,
+          "hypothesis_efficiency": 0.2,
+          "information_efficiency": 0.17037603346677754,
+          "search_reduction": 0.9739583333333334,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_grammar",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 5,
+        "generated_candidates": 192,
+        "probes": 6,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.10222562008006653,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.08518801673338877,
+          "hypothesis_efficiency": 0.2,
+          "information_efficiency": 0.17037603346677754,
+          "search_reduction": 0.9739583333333334,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "E_no_xor": {
+    "discovery_rate": 0.0,
+    "correct_rate": 0.0,
+    "mean_add": 5.0,
+    "mean_discovery_depth": 3.0,
+    "mean_activity_depth": 5.0,
+    "mean_tested": 12.0,
+    "mean_generated": 25.0,
+    "mean_ig": 0.06446341406716662,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 2.0,
+    "target": "OW-3",
+    "mode": "openworld_full",
+    "ablation": "no_xor",
+    "rows": [
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_xor",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 3,
+        "tested_candidates": 12,
+        "generated_candidates": 25,
+        "probes": 13,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.06446341406716662,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.059504689908153795,
+          "hypothesis_efficiency": 0.48,
+          "information_efficiency": 0.10743902344527771,
+          "search_reduction": 0.8125,
+          "activity_depth": 5,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_xor",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 3,
+        "tested_candidates": 12,
+        "generated_candidates": 25,
+        "probes": 13,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.06446341406716662,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.059504689908153795,
+          "hypothesis_efficiency": 0.48,
+          "information_efficiency": 0.10743902344527771,
+          "search_reduction": 0.8125,
+          "activity_depth": 5,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_xor",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 3,
+        "tested_candidates": 12,
+        "generated_candidates": 25,
+        "probes": 13,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.06446341406716662,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.059504689908153795,
+          "hypothesis_efficiency": 0.48,
+          "information_efficiency": 0.10743902344527771,
+          "search_reduction": 0.8125,
+          "activity_depth": 5,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_xor",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 3,
+        "tested_candidates": 12,
+        "generated_candidates": 25,
+        "probes": 13,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.06446341406716662,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.059504689908153795,
+          "hypothesis_efficiency": 0.48,
+          "information_efficiency": 0.10743902344527771,
+          "search_reduction": 0.8125,
+          "activity_depth": 5,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-3",
+        "name": "xor",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_xor",
+        "secret_found": false,
+        "correct": false,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 3,
+        "tested_candidates": 12,
+        "generated_candidates": 25,
+        "probes": 13,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.06446341406716662,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": false
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 5
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.059504689908153795,
+          "hypothesis_efficiency": 0.48,
+          "information_efficiency": 0.10743902344527771,
+          "search_reduction": 0.8125,
+          "activity_depth": 5,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "F_no_state": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 2.0,
+    "mean_generated": 20.0,
+    "mean_ig": 0.1996214375,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-4",
+    "mode": "openworld_full",
+    "ablation": "no_state",
+    "rows": [
+      {
+        "bench": "OW-4",
+        "name": "state",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_state",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 20,
+        "probes": 3,
+        "n_primitives": 3,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1996214375,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.13308095833333333,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 0.33270239583333333,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-4",
+        "name": "state",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_state",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 20,
+        "probes": 3,
+        "n_primitives": 3,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1996214375,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.13308095833333333,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 0.33270239583333333,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-4",
+        "name": "state",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_state",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 20,
+        "probes": 3,
+        "n_primitives": 3,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1996214375,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.13308095833333333,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 0.33270239583333333,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-4",
+        "name": "state",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_state",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 20,
+        "probes": 3,
+        "n_primitives": 3,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1996214375,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.13308095833333333,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 0.33270239583333333,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-4",
+        "name": "state",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_state",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 2,
+        "generated_candidates": 20,
+        "probes": 3,
+        "n_primitives": 3,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1996214375,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.13308095833333333,
+          "hypothesis_efficiency": 0.16666666666666666,
+          "information_efficiency": 0.33270239583333333,
+          "search_reduction": 0.96875,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "G_no_sequence": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 3.0,
+    "mean_generated": 25.0,
+    "mean_ig": 0.16779129766666667,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-5",
+    "mode": "openworld_full",
+    "ablation": "no_sequence",
+    "rows": [
+      {
+        "bench": "OW-5",
+        "name": "sequence",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_sequence",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 3,
+        "generated_candidates": 25,
+        "probes": 4,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.16779129766666667,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12584347325,
+          "hypothesis_efficiency": 0.15789473684210525,
+          "information_efficiency": 0.2796521627777778,
+          "search_reduction": 0.953125,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-5",
+        "name": "sequence",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_sequence",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 3,
+        "generated_candidates": 25,
+        "probes": 4,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.16779129766666667,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12584347325,
+          "hypothesis_efficiency": 0.15789473684210525,
+          "information_efficiency": 0.2796521627777778,
+          "search_reduction": 0.953125,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-5",
+        "name": "sequence",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_sequence",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 3,
+        "generated_candidates": 25,
+        "probes": 4,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.16779129766666667,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12584347325,
+          "hypothesis_efficiency": 0.15789473684210525,
+          "information_efficiency": 0.2796521627777778,
+          "search_reduction": 0.953125,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-5",
+        "name": "sequence",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_sequence",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 3,
+        "generated_candidates": 25,
+        "probes": 4,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.16779129766666667,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12584347325,
+          "hypothesis_efficiency": 0.15789473684210525,
+          "information_efficiency": 0.2796521627777778,
+          "search_reduction": 0.953125,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-5",
+        "name": "sequence",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_sequence",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 3,
+        "generated_candidates": 25,
+        "probes": 4,
+        "n_primitives": 5,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.16779129766666667,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.12584347325,
+          "hypothesis_efficiency": 0.15789473684210525,
+          "information_efficiency": 0.2796521627777778,
+          "search_reduction": 0.953125,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "H_no_floor": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 1.0,
+    "mean_generated": 22.0,
+    "mean_ig": 0.238,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_full",
+    "ablation": "no_floor",
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_floor",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_floor",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_floor",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_floor",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_floor",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "I_no_predict": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 1.0,
+    "mean_generated": 22.0,
+    "mean_ig": 0.32299999999999995,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_full",
+    "ablation": "no_predict",
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_predict",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_predict",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_predict",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_predict",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_predict",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.32299999999999995,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.16149999999999998,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 2.0,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "J_no_falsify": {
+    "discovery_rate": 0.0,
+    "correct_rate": 1.0,
+    "mean_add": 5.0,
+    "mean_discovery_depth": 4.0,
+    "mean_activity_depth": 5.0,
+    "mean_tested": 6.0,
+    "mean_generated": 22.0,
+    "mean_ig": 0.1034836174947988,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 1.0,
+    "target": "OW-7",
+    "mode": "openworld_full",
+    "ablation": "no_falsify",
+    "rows": [
+      {
+        "bench": "OW-7",
+        "name": "noncausal",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "no_falsify",
+        "secret_found": false,
+        "correct": true,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 6,
+        "generated_candidates": 22,
+        "probes": 7,
+        "n_primitives": 2,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1034836174947988,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 6
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.0887002435669704,
+          "hypothesis_efficiency": 0.5,
+          "information_efficiency": 0.184792174097855,
+          "search_reduction": 0.90625,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-7",
+        "name": "noncausal",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "no_falsify",
+        "secret_found": false,
+        "correct": true,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 6,
+        "generated_candidates": 22,
+        "probes": 7,
+        "n_primitives": 2,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1034836174947988,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 6
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.0887002435669704,
+          "hypothesis_efficiency": 0.5,
+          "information_efficiency": 0.184792174097855,
+          "search_reduction": 0.90625,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-7",
+        "name": "noncausal",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "no_falsify",
+        "secret_found": false,
+        "correct": true,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 6,
+        "generated_candidates": 22,
+        "probes": 7,
+        "n_primitives": 2,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1034836174947988,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 6
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.0887002435669704,
+          "hypothesis_efficiency": 0.5,
+          "information_efficiency": 0.184792174097855,
+          "search_reduction": 0.90625,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-7",
+        "name": "noncausal",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "no_falsify",
+        "secret_found": false,
+        "correct": true,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 6,
+        "generated_candidates": 22,
+        "probes": 7,
+        "n_primitives": 2,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1034836174947988,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 6
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.0887002435669704,
+          "hypothesis_efficiency": 0.5,
+          "information_efficiency": 0.184792174097855,
+          "search_reduction": 0.90625,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-7",
+        "name": "noncausal",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "no_falsify",
+        "secret_found": false,
+        "correct": true,
+        "add": 5,
+        "activity_depth": 5,
+        "discovery_depth": 4,
+        "tested_candidates": 6,
+        "generated_candidates": 22,
+        "probes": 7,
+        "n_primitives": 2,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.1034836174947988,
+        "first_broken": "VERIFY",
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": false
+            }
+          },
+          "highest_contiguous": 6
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.0887002435669704,
+          "hypothesis_efficiency": 0.5,
+          "information_efficiency": 0.184792174097855,
+          "search_reduction": 0.90625,
+          "activity_depth": 5,
+          "discovery_depth": 4,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "K_invent_spam": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 1.0,
+    "mean_generated": 25.0,
+    "mean_ig": 0.238,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_full",
+    "ablation": "invent_spam",
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": "invent_spam",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 25,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": "invent_spam",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 25,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": "invent_spam",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 25,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": "invent_spam",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 25,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": "invent_spam",
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 25,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "L_openworld_full": {
+    "discovery_rate": 1.0,
+    "correct_rate": 1.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 8.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 1.0,
+    "mean_generated": 22.0,
+    "mean_ig": 0.238,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 1.0,
+    "representation_to_experiment_success": 1.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 0.0,
+    "target": "OW-1",
+    "mode": "openworld_full",
+    "ablation": null,
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "openworld_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": true,
+        "correct": true,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 8,
+        "tested_candidates": 1,
+        "generated_candidates": 22,
+        "probes": 2,
+        "n_primitives": 4,
+        "representable": true,
+        "informative": true,
+        "starvation": false,
+        "mean_actual_ig": 0.238,
+        "first_broken": null,
+        "bottleneck": "UNKNOWN-LIMIT",
+        "success_levels": {
+          "levels": {
+            "1": {
+              "name": "represent_previously_unrepresentable",
+              "pass": true
+            },
+            "2": {
+              "name": "generate_experiment",
+              "pass": true
+            },
+            "3": {
+              "name": "execute",
+              "pass": true
+            },
+            "4": {
+              "name": "informative_evidence",
+              "pass": true
+            },
+            "5": {
+              "name": "hypothesis_discrimination",
+              "pass": true
+            },
+            "6": {
+              "name": "security_relevant_discovery",
+              "pass": true
+            },
+            "7": {
+              "name": "reproduce_causal_verify",
+              "pass": true
+            }
+          },
+          "highest_contiguous": 7
+        },
+        "efficiency": {
+          "discovery_efficiency": 0.119,
+          "hypothesis_efficiency": 0.08333333333333333,
+          "information_efficiency": 0.39666666666666667,
+          "search_reduction": 0.984375,
+          "activity_depth": 8,
+          "discovery_depth": 8,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  },
+  "M_reasoning_full": {
+    "discovery_rate": 0.0,
+    "correct_rate": 0.0,
+    "mean_add": 8.0,
+    "mean_discovery_depth": 3.0,
+    "mean_activity_depth": 8.0,
+    "mean_tested": 31.0,
+    "mean_generated": 124.0,
+    "mean_ig": 0.024452407518501144,
+    "starvation_rate": 0.0,
+    "n": 5,
+    "open_world_discovery_rate": 0.0,
+    "representation_to_experiment_success": 0.0,
+    "experiment_starvation_rate": 0.0,
+    "discovery_causality_gap": 5.0,
+    "target": "OW-1",
+    "mode": "reasoning_full",
+    "ablation": null,
+    "rows": [
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "reasoning_full",
+        "seed": 0,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 3,
+        "tested_candidates": 31,
+        "generated_candidates": 124,
+        "probes": 32,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.024452407518501144,
+        "first_broken": "VERIFY",
+        "bottleneck": "REPRESENTATION",
+        "success_levels": null,
+        "efficiency": {
+          "discovery_efficiency": 0.02368826978354798,
+          "hypothesis_efficiency": 0.4444444444444444,
+          "information_efficiency": 0.19583758747133195,
+          "search_reduction": 0.9697265625,
+          "activity_depth": 8,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "reasoning_full",
+        "seed": 1,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 3,
+        "tested_candidates": 31,
+        "generated_candidates": 124,
+        "probes": 32,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.024452407518501144,
+        "first_broken": "VERIFY",
+        "bottleneck": "REPRESENTATION",
+        "success_levels": null,
+        "efficiency": {
+          "discovery_efficiency": 0.02368826978354798,
+          "hypothesis_efficiency": 0.4444444444444444,
+          "information_efficiency": 0.19583758747133195,
+          "search_reduction": 0.9697265625,
+          "activity_depth": 8,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "reasoning_full",
+        "seed": 2,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 3,
+        "tested_candidates": 31,
+        "generated_candidates": 124,
+        "probes": 32,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.024452407518501144,
+        "first_broken": "VERIFY",
+        "bottleneck": "REPRESENTATION",
+        "success_levels": null,
+        "efficiency": {
+          "discovery_efficiency": 0.02368826978354798,
+          "hypothesis_efficiency": 0.4444444444444444,
+          "information_efficiency": 0.19583758747133195,
+          "search_reduction": 0.9697265625,
+          "activity_depth": 8,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "reasoning_full",
+        "seed": 3,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 3,
+        "tested_candidates": 31,
+        "generated_candidates": 124,
+        "probes": 32,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.024452407518501144,
+        "first_broken": "VERIFY",
+        "bottleneck": "REPRESENTATION",
+        "success_levels": null,
+        "efficiency": {
+          "discovery_efficiency": 0.02368826978354798,
+          "hypothesis_efficiency": 0.4444444444444444,
+          "information_efficiency": 0.19583758747133195,
+          "search_reduction": 0.9697265625,
+          "activity_depth": 8,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      },
+      {
+        "bench": "OW-1",
+        "name": "unknown_primitive",
+        "mode": "reasoning_full",
+        "seed": 4,
+        "budget": 32,
+        "ablation": null,
+        "secret_found": false,
+        "correct": false,
+        "add": 8,
+        "activity_depth": 8,
+        "discovery_depth": 3,
+        "tested_candidates": 31,
+        "generated_candidates": 124,
+        "probes": 32,
+        "n_primitives": null,
+        "representable": null,
+        "informative": null,
+        "starvation": null,
+        "mean_actual_ig": 0.024452407518501144,
+        "first_broken": "VERIFY",
+        "bottleneck": "REPRESENTATION",
+        "success_levels": null,
+        "efficiency": {
+          "discovery_efficiency": 0.02368826978354798,
+          "hypothesis_efficiency": 0.4444444444444444,
+          "information_efficiency": 0.19583758747133195,
+          "search_reduction": 0.9697265625,
+          "activity_depth": 8,
+          "discovery_depth": 3,
+          "activity_without_discovery": false
+        }
+      }
+    ]
+  }
+}

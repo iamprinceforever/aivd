@@ -1,3 +1,9 @@
+## 3.17.0 — Open-World Behavioral Representation & Generative Experimentation
+
+- Package `aivd/openworld/`: harvest primitives, grammar, generative experiments, protected floor
+- Default `openworld_mode=off` ≈ 3.16; skip invent-spam when on
+- OW-1..7 before Holdout-V; sacred X–U untouched
+
 ## 3.15.0 — Autonomous Signal-to-Intervention Discovery
 
 - Package `aivd/autonomy/` closed-loop OBSERVE→…→VERIFY

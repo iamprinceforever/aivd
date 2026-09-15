@@ -1,0 +1,50 @@
+{
+  "module_counts": {
+    "invention": 27,
+    "interaction": 13,
+    "joint": 12,
+    "cross_signal": 13,
+    "autonomy": 17,
+    "reasoning": 14,
+    "openworld": 18,
+    "discovery": 13,
+    "causal": 12,
+    "investigation": 19
+  },
+  "n_planners_schedulers_controllers": 18,
+  "n_generators": 5,
+  "n_scorers": 3,
+  "planners": [
+    "invention/search_scheduler.py",
+    "invention/scheduler.py",
+    "invention/controller.py",
+    "interaction/scheduler.py",
+    "interaction/controller.py",
+    "joint/scheduler.py",
+    "joint/controller.py",
+    "cross_signal/scheduler.py",
+    "cross_signal/controller.py",
+    "autonomy/scheduler.py",
+    "autonomy/experiment_planner.py",
+    "autonomy/controller.py",
+    "reasoning/controller.py",
+    "openworld/scheduler.py",
+    "openworld/controller.py",
+    "discovery/discovery_controller.py",
+    "causal/causal_controller.py",
+    "investigation/episode_controller.py"
+  ],
+  "generators": [
+    "invention/candidate_value.py",
+    "invention/candidate_generator.py",
+    "interaction/pair_generator.py",
+    "autonomy/candidate_generation.py",
+    "openworld/generator.py"
+  ],
+  "scorers": [
+    "invention/scoring.py",
+    "interaction/interaction_score.py",
+    "cross_signal/scoring.py"
+  ],
+  "consolidation_note": "3.17 does not add a new weighted planner. OpenWorldController replaces ACTION_STEMS invent-spam with observation-harvested generative experiments + protected floor. When openworld is on, InventionController skips duplicate autonomy/reasoning passes."
+}

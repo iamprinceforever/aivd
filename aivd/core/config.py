@@ -121,6 +121,8 @@ class AIVDConfig(BaseModel):
         "autonomy_cross", "full_3_15", "full_3_16",
         "reasoning", "reasoning_full", "reasoning_only",
         "experimental_reasoning",
+        "openworld", "openworld_full", "openworld_only", "openworld_random",
+        "full_3_17",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -173,6 +175,8 @@ class AIVDConfig(BaseModel):
         "autonomy_cross", "full_3_15", "full_3_16",
         "reasoning", "reasoning_full", "reasoning_only",
         "experimental_reasoning",
+        "openworld", "openworld_full", "openworld_only", "openworld_random",
+        "full_3_17",
     ] = "off"
     autonomy_max_steps: int = 32
     autonomy_max_candidates: int = 24
@@ -187,6 +191,15 @@ class AIVDConfig(BaseModel):
     reasoning_max_candidates: int = 24
     reasoning_reserve_fraction: float = 0.15
     invention_reasoning_ablation: str | None = None
+    # v3.17 open-world behavioral representation (default off)
+    openworld_mode: Literal[
+        "off", "openworld", "openworld_full", "openworld_only",
+        "openworld_random", "full_3_17",
+    ] = "off"
+    openworld_max_steps: int = 32
+    openworld_max_candidates: int = 24
+    openworld_floor_fraction: float = 0.40
+    invention_openworld_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

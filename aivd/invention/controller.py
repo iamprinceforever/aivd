@@ -83,6 +83,8 @@ def _base_gen_mode(mode: str) -> str:
         return "full"
     if m.startswith("reasoning") or m in ("experimental_reasoning", "full_3_16"):
         return "full"
+    if m.startswith("openworld") or m in ("full_3_17",):
+        return "full"
     if m in _CROSS_SIGNAL_MODES or m.startswith("cross_signal") or m.startswith("cross_") or m in ("full_3_14", "cross_joint"):
         return "full"
     if m in _JOINT_MODES or m.startswith("joint") or m in ("interaction_joint", "full_3_13"):
@@ -207,6 +209,11 @@ class InventionController:
         reasoning_max_steps: int = 32,
         reasoning_max_candidates: int = 24,
         reasoning_reserve_fraction: float = 0.15,
+        openworld: bool | None = None,
+        openworld_ablation: str | None = None,
+        openworld_max_steps: int = 32,
+        openworld_max_candidates: int = 24,
+        openworld_floor_fraction: float = 0.40,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -324,6 +331,22 @@ class InventionController:
             self.cross_signal_enabled = False
             self.joint_enabled = False
             self.interaction_enabled = False
+        self.openworld_ablation = openworld_ablation
+        self.openworld_max_steps = int(openworld_max_steps)
+        self.openworld_max_candidates = int(openworld_max_candidates)
+        self.openworld_floor_fraction = float(openworld_floor_fraction)
+        if openworld is None:
+            from aivd.openworld.scheduler import is_openworld_mode as _is_ow
+            self.openworld_enabled = _is_ow(self.mode)
+        else:
+            self.openworld_enabled = bool(openworld)
+        if self.openworld_enabled:
+            # Consolidate: skip invent-spam tower; openworld composes 3.16 primitives
+            self.reasoning_enabled = False
+            self.autonomy_enabled = False
+            self.cross_signal_enabled = False
+            self.joint_enabled = False
+            self.interaction_enabled = False
         if adaptive_ordering is None and self.joint_enabled:
             self.adaptive_enabled = True
         if diversity_enabled is None:
@@ -380,8 +403,9 @@ class InventionController:
         )
         self.adaptive_state = None
         # 3.16: reserve epistemic budget so reasoning experiments can run
+        # 3.17: openworld takes the protected floor instead — do not also reserve
         self._reasoning_budget_reserve = 0
-        if getattr(self, "reasoning_enabled", False):
+        if getattr(self, "reasoning_enabled", False) and not getattr(self, "openworld_enabled", False):
             share = max(4, int(self.budget.max_cheap_tests * 0.40))
             share = min(share, max(0, self.budget.max_cheap_tests - 4))
             if share > 0:
@@ -429,6 +453,102 @@ class InventionController:
                 "diversity": None,
                 "interaction": None,
                 "interaction_enabled": self.interaction_enabled,
+            }
+
+        # 3.17 open-world: skip ACTION_STEMS invent-spam; protect experiment floor
+        if getattr(self, "openworld_enabled", False):
+            from aivd.openworld.controller import OpenWorldController
+            ow = OpenWorldController(
+                mode=self.mode if self.mode.startswith("openworld") or self.mode == "full_3_17" else "openworld_full",
+                seed=self.seed,
+                max_steps=self.openworld_max_steps,
+                max_candidates=self.openworld_max_candidates,
+                floor_fraction=self.openworld_floor_fraction,
+                ablation=self.openworld_ablation,
+                total_budget=self.budget.remaining_tests() if self.budget.max_cheap_tests else self.openworld_max_steps,
+            )
+
+            def _charge_ow() -> bool:
+                if charge is not None and not charge():
+                    return False
+                if not self.budget.can_test():
+                    return False
+                self.budget.charge_test()
+                return True
+
+            ox = ow.run(
+                seed_prompt,
+                observe_fn=observe_fn,
+                residual_context=ctx,
+                charge=_charge_ow,
+                budget=self.budget.remaining_tests(),
+            )
+            self.trace.add(
+                "openworld",
+                secret=ox.get("secret_found"),
+                tested=ox.get("tested_candidates"),
+                generated=ox.get("generated_candidates"),
+                starvation=ox.get("starvation"),
+                n_primitives=ox.get("n_primitives"),
+            )
+            self.trace.probes_used += int(ox.get("probes_used") or 0)
+            self.trace.best_prompt = ox.get("best_prompt")
+            self.trace.best_effect = float(ox.get("best_effect") or 0)
+            self.trace.secret_found = bool(ox.get("secret_found"))
+            pos = []
+            pos_obs = []
+            if ox.get("secret_found") and ox.get("best_prompt"):
+                pos = [ox["best_prompt"]]
+                if ox.get("best_obs") is not None:
+                    pos_obs = [ox["best_obs"]]
+            return {
+                "enabled": True,
+                "best_prompt": ox.get("best_prompt"),
+                "best_obs": ox.get("best_obs"),
+                "best_effect": ox.get("best_effect"),
+                "secret_found": bool(ox.get("secret_found")),
+                "positive_prompts": pos,
+                "positive_observations": pos_obs,
+                "n_invented": int(ox.get("generated_candidates") or 0),
+                "n_tested": int(ox.get("tested_candidates") or 0),
+                "n_kept": int(ox.get("tested_candidates") or 0),
+                "probes_used": int(ox.get("probes_used") or 0),
+                "budget": self.budget.as_dict(),
+                "memory": self.memory.as_dict(),
+                "trace": self.trace.as_dict(),
+                "diversity": None,
+                "archive": self.archive.as_dict(),
+                "scheduler": self.scheduler.as_dict(),
+                "diversity_enabled": False,
+                "adaptive_enabled": False,
+                "adaptive": None,
+                "interaction_enabled": False,
+                "interaction": None,
+                "joint_enabled": False,
+                "joint": None,
+                "cross_signal_enabled": False,
+                "cross_signal": None,
+                "autonomy_enabled": False,
+                "autonomy": None,
+                "reasoning_enabled": False,
+                "reasoning": None,
+                "openworld_enabled": True,
+                "openworld": ox,
+                "exploration": self.exploration,
+                "tested_candidates": ox.get("tested_candidates"),
+                "generated_candidates": ox.get("generated_candidates"),
+                "add": ox.get("add"),
+                "activity_depth": ox.get("activity_depth"),
+                "discovery_depth": ox.get("discovery_depth"),
+                "n_hypotheses": ox.get("n_hypotheses"),
+                "first_broken_transition": ox.get("first_broken_transition"),
+                "bottleneck": ox.get("bottleneck"),
+                "mean_actual_ig": ox.get("mean_actual_ig"),
+                "efficiency": ox.get("efficiency"),
+                "mean_latency_s": ox.get("mean_latency_s"),
+                "brute_force": ox.get("brute_force"),
+                "success_levels": ox.get("success_levels"),
+                "starvation": ox.get("starvation"),
             }
 
         gen_mode = _base_gen_mode(self.mode)

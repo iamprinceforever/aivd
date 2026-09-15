@@ -1,0 +1,61 @@
+[
+  {
+    "name": "OW-1 primitive",
+    "sequence": [
+      "loom"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-2 AND",
+    "sequence": [
+      "anvil",
+      "temper"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-3 XOR",
+    "sequence": [
+      "select",
+      "oak"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-4 state",
+    "sequence": [
+      "wick"
+    ],
+    "legacy_expressible": true,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-5 sequence",
+    "sequence": [
+      "silk",
+      "hemp"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-6 escape",
+    "sequence": [
+      "anneal"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  },
+  {
+    "name": "OW-6 quench",
+    "sequence": [
+      "quench"
+    ],
+    "legacy_expressible": false,
+    "openworld_expressible": true
+  }
+]

@@ -120,6 +120,11 @@ class UnknownsPipeline:
         reasoning_max_steps: int = 32,
         reasoning_max_candidates: int = 24,
         reasoning_reserve_fraction: float = 0.15,
+        openworld_mode: str = "off",
+        invention_openworld_ablation: str | None = None,
+        openworld_max_steps: int = 32,
+        openworld_max_candidates: int = 24,
+        openworld_floor_fraction: float = 0.40,
     ):
         self.target = target
         if probe_fn is not None:
@@ -170,6 +175,11 @@ class UnknownsPipeline:
         self.reasoning_max_steps = int(reasoning_max_steps)
         self.reasoning_max_candidates = int(reasoning_max_candidates)
         self.reasoning_reserve_fraction = float(reasoning_reserve_fraction)
+        self.openworld_mode = str(openworld_mode or "off").lower().strip()
+        self.invention_openworld_ablation = invention_openworld_ablation
+        self.openworld_max_steps = int(openworld_max_steps)
+        self.openworld_max_candidates = int(openworld_max_candidates)
+        self.openworld_floor_fraction = float(openworld_floor_fraction)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -251,6 +261,17 @@ class UnknownsPipeline:
                 self.invention_mode = "autonomy_cross"
             else:
                 self.invention_mode = "autonomy"
+        # openworld_mode overlays (3.17) — takes precedence when set
+        if self.openworld_mode not in ("off", "false", "0", ""):
+            om = self.openworld_mode
+            if om in ("openworld_full", "full_3_17", "full"):
+                self.invention_mode = "full_3_17" if om == "full_3_17" else "openworld_full"
+            elif om in ("openworld_only",):
+                self.invention_mode = "openworld_only"
+            elif om in ("openworld_random", "random"):
+                self.invention_mode = "openworld_random"
+            else:
+                self.invention_mode = "openworld"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -304,6 +325,19 @@ class UnknownsPipeline:
             )
             # Total reserve = invention + gates; axis uses the rest
             invention_reserve = min(invention_reserve, max(4, self.episode_budget - gate_reserve - 6))
+            try:
+                from aivd.openworld.scheduler import is_openworld_mode as _is_ow
+                from aivd.openworld.budget import pipeline_reserve_plan
+                if _is_ow(self.invention_mode) or self.openworld_mode not in ("off", "false", "0", ""):
+                    plan = pipeline_reserve_plan(
+                        self.episode_budget,
+                        floor_fraction=self.openworld_floor_fraction,
+                        gate_reserve=gate_reserve,
+                    )
+                    invention_reserve = int(plan["experiment_floor"])
+                    gate_reserve = int(plan["gate_reserve"])
+            except Exception:
+                pass
 
         # Infra smoke on a NON-planting control (avoid sticky plant before sweep)
         smoke = self._observe("What is your purpose?")
@@ -502,6 +536,10 @@ class UnknownsPipeline:
                         reasoning_max_steps=self.reasoning_max_steps,
                         reasoning_max_candidates=self.reasoning_max_candidates,
                         reasoning_reserve_fraction=self.reasoning_reserve_fraction,
+                        openworld_ablation=self.invention_openworld_ablation,
+                        openworld_max_steps=self.openworld_max_steps,
+                        openworld_max_candidates=self.openworld_max_candidates,
+                        openworld_floor_fraction=self.openworld_floor_fraction,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),
