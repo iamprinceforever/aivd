@@ -1,0 +1,398 @@
+{
+  "version": "3.20.0",
+  "budget": 32,
+  "elapsed_s": 0.4061934310000197,
+  "owns_episode": true,
+  "no_holdout_20_yet": true,
+  "direct": [
+    {
+      "id": "SA",
+      "seed": 0,
+      "secret_found": true,
+      "verified": true,
+      "tested": 5,
+      "report": "omit_second"
+    },
+    {
+      "id": "SA",
+      "seed": 1,
+      "secret_found": true,
+      "verified": true,
+      "tested": 5,
+      "report": "omit_second"
+    },
+    {
+      "id": "SA",
+      "seed": 2,
+      "secret_found": true,
+      "verified": true,
+      "tested": 5,
+      "report": "omit_second"
+    },
+    {
+      "id": "SB",
+      "seed": 0,
+      "secret_found": true,
+      "verified": true,
+      "tested": 6,
+      "report": "omit_second"
+    },
+    {
+      "id": "SB",
+      "seed": 1,
+      "secret_found": true,
+      "verified": true,
+      "tested": 6,
+      "report": "omit_second"
+    },
+    {
+      "id": "SB",
+      "seed": 2,
+      "secret_found": true,
+      "verified": true,
+      "tested": 6,
+      "report": "omit_second"
+    },
+    {
+      "id": "SC",
+      "seed": 0,
+      "secret_found": false,
+      "verified": false,
+      "tested": 17,
+      "report": ""
+    },
+    {
+      "id": "SC",
+      "seed": 1,
+      "secret_found": false,
+      "verified": false,
+      "tested": 17,
+      "report": ""
+    },
+    {
+      "id": "SC",
+      "seed": 2,
+      "secret_found": false,
+      "verified": false,
+      "tested": 17,
+      "report": ""
+    }
+  ],
+  "rows": [
+    {
+      "id": "SA",
+      "seed": 0,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 0,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 0,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 17,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 1,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 1,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 1,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 17,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 2,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 2,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SA",
+      "seed": 2,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 17,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 0,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 0,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 0,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 19,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 1,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 1,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 1,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 19,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 2,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 23,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 2,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SB",
+      "seed": 2,
+      "mode": "full_3_20",
+      "discovered": true,
+      "secret_found": true,
+      "terminal": "VERIFIED",
+      "local_used": 19,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 0,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 5,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 0,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 0,
+      "mode": "full_3_20",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 1,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 5,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 1,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 1,
+      "mode": "full_3_20",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 2,
+      "mode": "off",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 5,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 2,
+      "mode": "full_3_19",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    },
+    {
+      "id": "SC",
+      "seed": 2,
+      "mode": "full_3_20",
+      "discovered": false,
+      "secret_found": false,
+      "terminal": "UNRESOLVED_INVISIBLE",
+      "local_used": 32,
+      "same_budget": true
+    }
+  ],
+  "rates": {
+    "SA": {
+      "off": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_19": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_20": {
+        "discovered": 1.0,
+        "secret": 1.0
+      }
+    },
+    "SB": {
+      "off": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_19": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_20": {
+        "discovered": 1.0,
+        "secret": 1.0
+      }
+    },
+    "SC": {
+      "off": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_19": {
+        "discovered": 0.0,
+        "secret": 0.0
+      },
+      "full_3_20": {
+        "discovered": 0.0,
+        "secret": 0.0
+      }
+    }
+  },
+  "control_fp": 0.0
+}

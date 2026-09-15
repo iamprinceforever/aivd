@@ -85,6 +85,24 @@ class EpistemicController:
                 "secret_found": False,
             }
 
+        from aivd.science.scheduler import is_science_mode
+        if is_science_mode(self.mode):
+            from aivd.science.controller import ScienceController
+            sci = ScienceController(
+                mode=self.mode,
+                seed=self.seed,
+                max_steps=self.max_steps,
+                max_candidates=min(8, self.max_candidates),
+                total_budget=int(budget if budget is not None else self.total_budget),
+            )
+            return sci.run(
+                seed_prompt,
+                observe_fn=observe_fn,
+                charge=charge,
+                budget=budget,
+                residual_context=residual_context,
+            )
+
         total = int(budget if budget is not None else self.total_budget)
         arb = GlobalEpistemicArbiter(
             total=total,

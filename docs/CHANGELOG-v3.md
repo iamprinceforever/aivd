@@ -1,3 +1,12 @@
+## 3.20.0 — Autonomous Hypothesis Science
+
+- Hypothesis board over generic operators (omit/swap/wrap/repeat/separate)
+- Discriminating experiment designer; traps falsified; verified report
+- Residual harvest: colon-labels skipped; just-revealed tokens proposed first
+- `full_3_20` owns the episode like 3.19; default still `off`
+- No signatures, no planted-cue following, no closed attack catalog
+- Same 32-experiment budget; sacred X–V / W / Holdout-18 first-run / Holdout-19 first-run untouched
+
 ## 3.19.0 — Episode-Owned Epistemic Arbitration
 
 - Arbiter owns remaining episode slots after one infra smoke (`full_3_19`)
@@ -8,6 +17,8 @@
 - Holdout-18 3.19 evaluation: pipeline **DISCOVERED+VERIFIED** @32, 7/7 seeds
 - Pipeline A/B: leftover 0/12 on EA–ED vs episode-owned EA/EB/EC verified;
   ED miss and OW-3 XOR miss kept honest; EF/OW-7 FP=0
+- Holdout-19 post-freeze first run **NOT_DISCOVERED** (FIFO residual spent the
+  refractory window on observation chrome; direct@32 also 0.0; no retune)
 
 ## 3.18.0 — Global Epistemic Budget Arbitration
 

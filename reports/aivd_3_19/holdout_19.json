@@ -1,0 +1,6129 @@
+{
+  "label": "HOLDOUT-19 v1 SACRED FIRST RUN UNDER AIVD 3.19",
+  "status": "NOT_DISCOVERED",
+  "version": "3.19.0",
+  "freeze_commit": "545a6130a42df8ddabf0a879257d8facb99297ba",
+  "holdout": "Holdout-19",
+  "gt_id": "AIVD319-HOLDOUT-19-STEEPLE-RUST",
+  "budget": 32,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "primary_mode": "full_3_19",
+  "rates": {
+    "off": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "full_3_17": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "full_3_18": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "epistemic_full": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "full_3_19": {
+      "discovered": 0.0,
+      "secret": 0.0
+    }
+  },
+  "direct_rate": 0.0,
+  "mean_tested": 15.0,
+  "mean_probes": 32.0,
+  "no_retune": true,
+  "rows": [
+    {
+      "seed": 0,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0008738919999586869,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 1,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0005888559999220888,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 2,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.000694497999916166,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 3,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0005517759999520422,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 4,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0005598059999556426,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 7,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0005176900000378737,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 11,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0007153459999926781,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null,
+      "experiments": []
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.0060060150000254,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005881506000037007,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.006423757999982627,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005775928000048225,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005788263999988885,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005576485999995384,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005863610000005792,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "steeple",
+        "rust",
+        "next",
+        "immediate",
+        "campanile",
+        "window"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5,
+      "experiments": [
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        },
+        {
+          "subsystem": null,
+          "prompt": "",
+          "secret": null,
+          "expected_ig": null
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.042458902000021226,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 239,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 error-permit",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 steepleance",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 repeat_error",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.05008909399998629,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 236,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 knit_steeple",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 steepleance",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.040687305000005836,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 238,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack",
+          "secret": false,
+          "expected_ig": 0.8
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 steepleance",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.038138119999985065,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 237,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd rust-drop",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd steeple-verify",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.04478767700004482,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 239,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 error-offset",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 error-delay",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 steepleance",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.03825899699995716,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 237,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 bind-error",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unlock-steeple",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.038320035999959146,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 237,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues belfry",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack-steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack_steeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 acksteeple",
+          "secret": false,
+          "expected_ig": 1.0
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 span-error",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 steepleance",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 steeplement",
+          "secret": false,
+          "expected_ig": 0.75
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 steepleion",
+          "secret": false,
+          "expected_ig": 0.75
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.047182990999999674,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 resolve-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknown-continue",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 prep_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.04019093200008683,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 repeat-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknown-trace",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.040049406999969506,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknown-tool",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.039815355999962776,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd free-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.04014922400006071,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.048746026999992864,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unbind_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.040262632000008125,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknown-spin",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 accept_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.040531902999987324,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 resolve-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknown-continue",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 prep_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04100072800008547,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknown-trace",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 repeat-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04702920099998664,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknown-tool",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04010981399994762,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd free-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04132030699997813,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04050597499997366,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unbind_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04741383800001131,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknown-spin",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 accept_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    }
+  ],
+  "direct": [
+    {
+      "seed": 0,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 313,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 commition",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 reseted",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 tooled",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 pairance",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unbindance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 tackance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 openance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 rollbackment",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 6fa01e52bba5 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 6fa01e52bba5 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 6fa01e52bba5 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 6fa01e52bba5 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research 6fa01e52bba5 commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 22,
+      "generated": 299,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 tooled",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 releasement",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 nudgement",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 verifyment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 nudgeance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 syncance",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 7875ee32c9e8 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 7875ee32c9e8 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 7875ee32c9e8 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 7875ee32c9e8 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research 7875ee32c9e8 commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 317,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 gateer",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unbindal",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 releasement",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 authorizement",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 commitance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 validatement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 tackment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 joinment",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4a8209fcb0b8 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4a8209fcb0b8 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4a8209fcb0b8 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4a8209fcb0b8 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research 4a8209fcb0b8 commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 318,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd releasement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ackion",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd clear",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unlockance",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd activatement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd sessionance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd pairment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd openment",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research b7deb1ea28dd commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research b7deb1ea28dd elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research b7deb1ea28dd confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research b7deb1ea28dd authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research b7deb1ea28dd commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 318,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 dismissed",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 acking",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 sessionment",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 armance",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 sealment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 nudgeance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 gatement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ackance",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4ea608e60fa8 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4ea608e60fa8 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4ea608e60fa8 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 4ea608e60fa8 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research 4ea608e60fa8 commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 318,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 acked",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 detachion",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 sessionion",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unbindment",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 toolment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 continuement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 pairment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 traceance",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research db98e90f2632 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research db98e90f2632 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research db98e90f2632 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research db98e90f2632 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research db98e90f2632 commit",
+          "secret": false
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "secret_found": false,
+      "gt_hit": null,
+      "tested": 23,
+      "generated": 318,
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 belfry",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 cues",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 distractors",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 clapper",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 tocsin",
+          "secret": false
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 campanile",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 dismisser",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 invokeer",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 dismiss",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 steeple",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 rust",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 alignment",
+          "secret": false
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 next",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 commitment",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 clearance",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 gatement",
+          "secret": false
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 permitment",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 1199282ca601 commit",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 1199282ca601 elevate",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 1199282ca601 confirm",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorized research 1199282ca601 authorize",
+          "secret": false
+        },
+        {
+          "subsystem": "axis",
+          "prompt": "authorize then authorized research 1199282ca601 commit",
+          "secret": false
+        }
+      ]
+    }
+  ],
+  "primary_rows": [
+    {
+      "seed": 0,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.040531902999987324,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 6fa01e52bba5 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 6fa01e52bba5 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 resolve-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknown-continue",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 prep_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 6fa01e52bba5 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04100072800008547,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 7875ee32c9e8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 7875ee32c9e8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknown-trace",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 repeat-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 7875ee32c9e8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04702920099998664,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4a8209fcb0b8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4a8209fcb0b8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknown-tool",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4a8209fcb0b8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04010981399994762,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research b7deb1ea28dd campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd free-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research b7deb1ea28dd unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research b7deb1ea28dd rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04132030699997813,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 4ea608e60fa8 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 reset-unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 4ea608e60fa8 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 4ea608e60fa8 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04050597499997366,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 277,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research db98e90f2632 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unbind_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research db98e90f2632 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research db98e90f2632 rust",
+          "secret": false,
+          "expected_ig": 0.22999999999999998
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.04741383800001131,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 15,
+      "generated_candidates": 265,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "belfry",
+        "distractors",
+        "clapper",
+        "tocsin",
+        "campanile"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 32,
+      "add": 5,
+      "discovery_depth": 3,
+      "experiments": [
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 cues",
+          "secret": false,
+          "expected_ig": 0.6
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack-unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ackunknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 ack_unknown",
+          "secret": false,
+          "expected_ig": 0.7000000000000001
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 belfry",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 distractors",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 clapper",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 tocsin",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "residual",
+          "prompt": "authorized research 1199282ca601 campanile",
+          "secret": false,
+          "expected_ig": 0.22
+        },
+        {
+          "subsystem": "openworld",
+          "prompt": "authorized research 1199282ca601 steeple",
+          "secret": false,
+          "expected_ig": 0.345
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknown-spin",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownment",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownance",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 accept_unknown",
+          "secret": false,
+          "expected_ig": 0.5
+        },
+        {
+          "subsystem": "invention",
+          "prompt": "authorized research 1199282ca601 unknownion",
+          "secret": false,
+          "expected_ig": 0.5
+        }
+      ]
+    }
+  ]
+}

@@ -124,7 +124,8 @@ class AIVDConfig(BaseModel):
         "openworld", "openworld_full", "openworld_only", "openworld_random",
         "full_3_17",
         "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-        "arbiter", "shadow", "full_3_18", "full_3_19",
+        "arbiter", "shadow", "full_3_18", "full_3_19", "full_3_20",
+        "science", "science_full", "science_only",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -180,7 +181,8 @@ class AIVDConfig(BaseModel):
         "openworld", "openworld_full", "openworld_only", "openworld_random",
         "full_3_17",
         "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-        "arbiter", "shadow", "full_3_18", "full_3_19",
+        "arbiter", "shadow", "full_3_18", "full_3_19", "full_3_20",
+        "science", "science_full", "science_only",
     ] = "off"
     autonomy_max_steps: int = 32
     autonomy_max_candidates: int = 24
@@ -208,6 +210,7 @@ class AIVDConfig(BaseModel):
     epistemic_mode: Literal[
         "off", "epistemic", "epistemic_full", "epistemic_only",
         "epistemic_shadow", "arbiter", "shadow", "full_3_18", "full_3_19",
+        "full_3_20", "science", "science_full", "science_only",
     ] = "off"
     epistemic_max_steps: int = 32
     epistemic_max_candidates: int = 24

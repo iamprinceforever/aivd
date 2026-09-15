@@ -7,12 +7,13 @@ from __future__ import annotations
 
 EPISTEMIC_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-    "arbiter", "shadow", "full_3_18", "full_3_19",
+    "arbiter", "shadow", "full_3_18", "full_3_19", "full_3_20",
+    "science", "science_full", "science_only",
 })
 
 AUTHORITATIVE_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "arbiter",
-    "full_3_18", "full_3_19",
+    "full_3_18", "full_3_19", "full_3_20", "science", "science_full", "science_only",
 })
 
 SHADOW_MODES = frozenset({
@@ -23,6 +24,7 @@ SHADOW_MODES = frozenset({
 # so the 3.18 first-run protocol remains reproducible.
 EPISODE_OWNED_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "arbiter", "full_3_19",
+    "full_3_20", "science", "science_full", "science_only",
 })
 
 
@@ -32,7 +34,9 @@ def is_epistemic_mode(mode: str | None) -> bool:
         return True
     if m.startswith("epistemic"):
         return True
-    if m in ("full_3_18", "full_3_19", "arbiter", "shadow"):
+    if m in ("full_3_18", "full_3_19", "full_3_20", "arbiter", "shadow"):
+        return True
+    if m.startswith("science"):
         return True
     return False
 

@@ -280,24 +280,43 @@ class AxisProposer:
 
 
 class ResidualProposer:
-    """Cheap residual follow-ups from harvested observation tokens."""
+    """Cheap residual follow-ups from harvested observation tokens.
+
+    Colon-labels (``cues:``) are not primitives. Newly observed content
+    tokens are proposed first and marked as unlocks. Generic function words
+    are skipped. No holdout names.
+    """
+
+    _STOP = frozenset({
+        "the", "and", "for", "with", "from", "this", "that", "then", "than",
+        "onto", "into", "also", "just", "only", "over", "under", "after",
+        "before", "about", "your", "their", "have", "been", "were", "will",
+        "not", "but", "are", "was", "next", "via", "per",
+    })
 
     def __init__(self, *, max_new: int = 4):
         self.max_new = int(max_new)
         self.tested: set[str] = set()
         self.seq = 0
         self.tokens: list[str] = []
+        self.recent: list[str] = []
 
     def harvest(self, obs: Any) -> None:
+        import re
         text = _text(obs)
-        toks: list[str] = []
-        for raw in text.replace(":", " ").replace(",", " ").split():
+        labels = {m.lower() for m in re.findall(r"\b([A-Za-z]{3,24})\s*:", text)}
+        recent: list[str] = []
+        for raw in text.replace(":", " ").replace(",", " ").replace("|", " ").split():
             t = raw.strip().lower()
-            if 3 <= len(t) <= 24 and t.isalpha():
-                toks.append(t)
-        for t in toks:
+            if not (3 <= len(t) <= 24 and t.isalpha()):
+                continue
+            if t in labels or t in self._STOP:
+                continue
             if t not in self.tokens:
                 self.tokens.append(t)
+            if t not in recent:
+                recent.append(t)
+        self.recent = recent
 
     def propose(
         self,
@@ -308,11 +327,14 @@ class ResidualProposer:
         evidence_strength: float = 0.35,
     ) -> list[ExperimentProposal]:
         out: list[ExperimentProposal] = []
-        for tok in self.tokens:
+        recent = set(self.recent)
+        ordered = list(self.recent) + [t for t in self.tokens if t not in recent]
+        for tok in ordered:
             prompt = f"{seed_prompt} {tok}".strip()
             if prompt in self.tested:
                 continue
             self.seq += 1
+            unlock = tok in recent
             out.append(ExperimentProposal(
                 proposal_id=f"res_{self.seq}",
                 branch_id=branch_id,
@@ -320,18 +342,18 @@ class ResidualProposer:
                 hypothesis_id=f"token:{tok}",
                 action=tok,
                 prompt=prompt,
-                expected_information_gain=0.22,
-                uncertainty_reduction=0.18,
-                security_relevance=0.2,
-                hypothesis_discrimination_value=0.18,
-                verification_value=0.1,
-                novelty_value=0.4,
+                expected_information_gain=0.28 if unlock else 0.18,
+                uncertainty_reduction=0.22 if unlock else 0.14,
+                security_relevance=0.28 if unlock else 0.16,
+                hypothesis_discrimination_value=0.28 if unlock else 0.12,
+                verification_value=0.2 if unlock else 0.08,
+                novelty_value=0.45 if unlock else 0.25,
                 experiment_cost=1.0,
-                estimated_remaining_steps=remaining_steps,
-                estimated_completion_probability=evidence_strength,
-                unlocks_hypothesis_class=True,
+                estimated_remaining_steps=1 if unlock else remaining_steps,
+                estimated_completion_probability=0.55 if unlock else evidence_strength,
+                unlocks_hypothesis_class=unlock,
                 provenance="residual.harvested_token",
-                meta={"token": tok},
+                meta={"token": tok, "recent": unlock},
             ))
             if len(out) >= self.max_new:
                 break

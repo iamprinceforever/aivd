@@ -1,0 +1,14 @@
+{
+  "label": "AIVD 3.19 pre-Holdout-19 freeze",
+  "version": "3.19.0",
+  "baseline": "3.18.0",
+  "freeze_commit": "545a6130a42df8ddabf0a879257d8facb99297ba",
+  "tests": 608,
+  "epistemic_mode_default": "off",
+  "same_budget": 32,
+  "owns_episode": true,
+  "full_3_18_leftover_preserved": true,
+  "sacred_untouched": ["X", "Y", "Z", "Q", "R", "S", "T", "U", "V", "W"],
+  "holdout_18_sacred": "NOT_DISCOVERED",
+  "no_holdout_19_yet": true
+}

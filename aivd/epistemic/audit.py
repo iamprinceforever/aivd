@@ -43,6 +43,14 @@ def _forbidden() -> list[str]:
         "AIVD318-HOLDOUT-18",
         "sluice",
         "spillway",
+        "SECRET{AIVD319_H19",
+        "steeple.rust",
+        "holdout_19_",
+        "AIVD319-HOLDOUT-19",
+        "belfry",
+        "campanile",
+        "clapper",
+        "tocsin",
     ]
 
 

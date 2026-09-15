@@ -1,2 +1,2 @@
 """AIVD — Autonomous AI Vulnerability Discovery research platform."""
-__version__ = "3.19.0"
+__version__ = "3.20.0"

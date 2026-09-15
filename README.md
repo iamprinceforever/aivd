@@ -12,6 +12,16 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.20.0
+
+**Autonomous Hypothesis Science** over 3.19:
+the agent forms competing hypotheses about *where* security-relevant behavior
+might live, designs experiments that discriminate them, falsifies traps,
+reproduces, and emits a verified report. No vulnerability signatures, no
+planted cue following, no closed attack taxonomy. Same 32-experiment budget.
+`full_3_19` is preserved. Default **off** ≈ 3.19.
+See `docs/3.20_autonomous_hypothesis_science.md`.
+
 ## What's new in v3.19.0
 
 **Episode-owned epistemic arbitration** over 3.18 leftover:
