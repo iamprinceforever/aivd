@@ -46,5 +46,10 @@ Yes (1–7 on OW-6). Holdout-V levels reported after freeze only.
 ## Q14. Remaining bottleneck?
 Open-world harvest requires the primitive (or a later cue) to **appear in observation**.
 Hidden stems that never surface (Holdout-T facet/beam/gleam) remain unrepresentable
-without a new information-acquisition *channel*, not more mutations. Holdout-V tests
-whether CONTEXT/DEPENDENCY set-accumulation generalizes beyond OW-1..7.
+without a new information-acquisition *channel*, not more mutations.
+
+Holdout-V (CONTEXT set-accumulation + delayed closer): representable/generatable/
+executable/informative under 3.17, but sacred pipeline@32 **NOT_DISCOVERED**.
+Direct controller verifies at tested=13; pipeline leaves tested=4 after outer
+sweep/axis. Remaining bottleneck: **pipeline experiment-slot allocation after
+3.7 residual sweep**, not the closed lexicon. Do not inflate budget to pass V.

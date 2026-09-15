@@ -2,7 +2,7 @@
   "label": "AIVD 3.17 pre-Holdout-V freeze",
   "version": "3.17.0",
   "baseline": "d000b96",
-  "freeze_commit": "PENDING_THIS_COMMIT",
+  "freeze_commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
   "baseline_head_at_start": "d000b963085ac1f7f999bd868548f0620cc3f282",
   "tests": 543,
   "openworld_mode_default": "off",
@@ -26,5 +26,6 @@
     "U",
     "W"
   ],
-  "holdout_v": "not_created_until_after_this_freeze"
+  "holdout_v": "NOT_DISCOVERED",
+  "no_holdout_v_yet": false
 }

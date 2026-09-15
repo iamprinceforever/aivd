@@ -11,7 +11,7 @@
 |---------|---------------|
 | X/Y/Z/Q/R/S/T/U | NOT_DISCOVERED |
 | W | DISCOVERED+VERIFIED |
-| V | *post-freeze only — not run at this freeze* |
+| V | **NOT_DISCOVERED** @ freeze `358d3374` |
 
 ## FIRST INFORMATION BOTTLENECK (3.16, unchanged diagnosis)
 **EXPERIMENT / BUDGET** (invent without probes) plus deeper **GENERATION** lexicon limit.
@@ -85,3 +85,13 @@ Leakage PASS; checkpoint 3.17.0 format 2 PASS; OW-7 FP 0.0; default openworld OF
 
 ## Conservative claim
 3.17 **represents and experimentally tests** structures outside ACTION_STEMS×residual (OW-1/2/3/5/6) and **eliminates the 3.16 invent-without-execute inner starvation** on the same pipeline. It does **not** claim Holdout-T/U/V, does not add ACTION_STEMS, and does not treat OW competence as general discovery competence.
+
+
+## Holdout-V (sacred first run)
+- Status: **NOT_DISCOVERED**
+- Freeze: `358d337468e3c8e3dd01ac98579d5b8e1a4ebbff`
+- Mean tested **4** (not starved); generated 25; first broken **VERIFY**
+- Direct OpenWorldController @32 (diagnostic only): discovery 1.0 / tested 13
+- Levels 1–6 instrument pass; level 7 FAIL (no VERIFIED)
+- No post-hoc tune.
+- See `reports/aivd-3.17-holdout.md` and `reports/aivd_3_17/holdout_v.json`.
