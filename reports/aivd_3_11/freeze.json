@@ -341,5 +341,8 @@
     },
     "evaluator_verify_rate": 1.0,
     "frozen_invention_commit": "b85fe0f405431149577c86499d3475240ed540b8"
-  }
+  },
+  "package_version_final": "3.11.0",
+  "final_commit": "69961cce8398af4ed078dfa6775dbe74f584ae16",
+  "tests": 374
 }
