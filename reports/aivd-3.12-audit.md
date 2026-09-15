@@ -22,3 +22,9 @@
 ## Freeze
 - See `reports/aivd_3_12/freeze.json`
 - Freeze precedes Holdout-Q creation
+
+## Holdout-Q sacred result
+- Status: **NOT_DISCOVERED**
+- Freeze commit: `dab0f490721948f43f5b2bea857ec3eb060d2d80`
+- Honest reporting: no post-hoc invention/interaction retune
+- Anti-Z: PASS; leakage: True

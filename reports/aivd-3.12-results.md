@@ -60,5 +60,30 @@ See `reports/aivd_3_12/ablations.json`.
 ## Leakage
 - Pass: True
 
-## Holdout-Q
-- Created only **after** freeze (see holdout report).
+## Holdout-Q (sacred first run)
+- Status: **NOT_DISCOVERED**
+- Freeze: `dab0f490721948f43f5b2bea857ec3eb060d2d80`
+- Evaluator verify: 1.0
+- Discovery rates: `{"off": 0.0, "random": 0.0, "full": 0.0, "diversity": 0.0, "diversity_full": 0.0, "adaptive": 0.0, "adaptive_full": 0.0, "interaction": 0.0, "interaction_full": 0.0, "interaction_random": 0.0}`
+- No post-hoc tune.
+
+## Supported claims
+1. Interaction layer implemented with screening + EIG counterfactuals + synergy vs additive.
+2. Hierarchical pair/triple generation is not Cartesian (pruning_ratio > 0.5).
+3. Anti-Z neutral interaction benchmark PASS.
+4. Additive false-interaction control PASS (does not classify additive as security).
+5. Leakage / anti-mem PASS; no Z/Q hardcoding in explorer paths.
+6. Sacred X/Y/Z/W untouched; Z replay labeled REPLAY.
+7. Freeze preceded Holdout-Q; Q sacred first run recorded honestly.
+
+## Unsupported claims
+1. Level-3 capability sufficient to discover Holdout-Q under budget 32 (NOT_DISCOVERED).
+2. Interaction modes dominate adaptive/diversity on all holdouts (X already solvable by 3.9+).
+
+## Key failure
+Holdout-Q cross-family conduit interaction not recovered under frozen pipeline.
+
+## Next research question
+How can residual-salience-guided interaction search allocate budget across *two*
+underexplored residual-linked families so that both components are tested *and*
+combined before budget exhaustion — without holdout-named priors?

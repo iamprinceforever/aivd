@@ -1,7 +1,7 @@
 {
   "freeze_id": "aivd-3.12-open-interaction-discovery",
   "frozen_at_utc": "2026-09-15T05:29:41Z",
-  "commit": "423296d9a9466db0ed294d53f61028d5c7aae759",
+  "commit": "dab0f490721948f43f5b2bea857ec3eb060d2d80",
   "package_version_at_freeze": "3.12.0",
   "tests_note": "392 tests (374 prior 3.11 + interaction suite; version assert relaxed)",
   "seeds": [
@@ -67,7 +67,7 @@
     "aivd/core/config.py": "ebd0b0ba77e9c491bd60f83d38f490809cc05fad90753d562271482c1f887a3d"
   },
   "discovery_pipeline_frozen_before_holdout_q": true,
-  "holdout_q_created": false,
+  "holdout_q_created": true,
   "config": {
     "invention_mode_default": "off",
     "adaptive_ordering_mode_default": "off",
@@ -397,5 +397,34 @@
     "brute_force": false,
     "pruning_ratio": 0.9474
   },
-  "note": "Freeze BEFORE Holdout-Q. Do not retune invention/interaction after seeing Q."
+  "note": "Freeze BEFORE Holdout-Q. Do not retune invention/interaction after seeing Q.",
+  "holdout_q_sacred": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity": 0.0,
+      "diversity_full": 0.0,
+      "adaptive": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0,
+      "interaction_random": 0.0
+    },
+    "secret_invention_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity": 0.0,
+      "diversity_full": 0.0,
+      "adaptive": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0,
+      "interaction_random": 0.0
+    },
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "dab0f490721948f43f5b2bea857ec3eb060d2d80"
+  }
 }
