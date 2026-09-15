@@ -106,6 +106,11 @@ class UnknownsPipeline:
         joint_max_combinations: int = 4,
         joint_alloc_policy: str = "joint_aware",
         joint_reserve_fraction: float = 0.25,
+        cross_signal_mode: str = "off",
+        invention_cross_signal_ablation: str | None = None,
+        cross_signal_max_hypotheses: int = 6,
+        cross_signal_max_combinations: int = 4,
+        cross_signal_reserve_fraction: float = 0.25,
     ):
         self.target = target
         if probe_fn is not None:
@@ -142,6 +147,11 @@ class UnknownsPipeline:
         self.joint_max_combinations = int(joint_max_combinations)
         self.joint_alloc_policy = str(joint_alloc_policy or "joint_aware")
         self.joint_reserve_fraction = float(joint_reserve_fraction)
+        self.cross_signal_mode = str(cross_signal_mode or "off").lower().strip()
+        self.invention_cross_signal_ablation = invention_cross_signal_ablation
+        self.cross_signal_max_hypotheses = int(cross_signal_max_hypotheses)
+        self.cross_signal_max_combinations = int(cross_signal_max_combinations)
+        self.cross_signal_reserve_fraction = float(cross_signal_reserve_fraction)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -197,6 +207,19 @@ class UnknownsPipeline:
                 self.invention_mode = "interaction_joint"
             else:
                 self.invention_mode = "joint"
+        # cross_signal_mode overlays (3.14) — takes precedence when set
+        if self.cross_signal_mode not in ("off", "false", "0", ""):
+            cm = self.cross_signal_mode
+            if cm in ("cross_signal_full", "full_3_14", "full"):
+                self.invention_mode = "full_3_14" if cm == "full_3_14" else "cross_signal_full"
+            elif cm in ("cross_signal_only",):
+                self.invention_mode = "cross_signal_only"
+            elif cm in ("cross_signal_random", "random"):
+                self.invention_mode = "cross_signal_random"
+            elif cm in ("cross_joint",):
+                self.invention_mode = "cross_joint"
+            else:
+                self.invention_mode = "cross_signal"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -436,6 +459,10 @@ class UnknownsPipeline:
                         joint_max_combinations=self.joint_max_combinations,
                         joint_alloc_policy=self.joint_alloc_policy,
                         joint_reserve_fraction=self.joint_reserve_fraction,
+                        cross_signal_ablation=self.invention_cross_signal_ablation,
+                        cross_signal_max_hypotheses=self.cross_signal_max_hypotheses,
+                        cross_signal_max_combinations=self.cross_signal_max_combinations,
+                        cross_signal_reserve_fraction=self.cross_signal_reserve_fraction,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

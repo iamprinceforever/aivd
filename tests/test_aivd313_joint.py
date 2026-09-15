@@ -423,6 +423,7 @@ def test_hierarchical_triples_only_in_full():
     assert len(trips) <= 2
 
 
-def test_version_is_313():
+def test_version_at_least_313():
     import aivd
-    assert aivd.__version__ == "3.13.0"
+    parts = tuple(int(x) for x in aivd.__version__.split(".")[:3])
+    assert parts >= (3, 13, 0)

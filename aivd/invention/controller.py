@@ -6,6 +6,7 @@ Preserves terminal semantics; does not claim VERIFIED without gates.
 3.11 adds Adaptive Search Ordering: TEST→observe→evidence→reorder (default off).
 3.12 adds Open Interaction Discovery after individual results (default off).
 3.13 adds Joint Residual Budget Allocation after interaction hypothesis (default off).
+3.14 adds Cross-Signal Co-Exploration after joint allocation (default off).
 """
 from __future__ import annotations
 
@@ -25,6 +26,12 @@ from aivd.joint.scheduler import (
     JOINT_MODES,
 )
 from aivd.joint.controller import JointResidualController
+from aivd.cross_signal.scheduler import (
+    is_cross_signal_mode,
+    cross_enables_joint,
+    cross_enables_interaction,
+    CROSS_SIGNAL_MODES,
+)
 from aivd.invention.archive import FamilyArchive
 from aivd.invention.budget import InventionBudget
 from aivd.invention.candidate_generator import generate_candidates
@@ -55,11 +62,15 @@ _ADAPTIVE_MODES = ADAPTIVE_MODES
 _INTERACTION_MODES = INTERACTION_MODES
 # 3.13 joint modes
 _JOINT_MODES = JOINT_MODES
+# 3.14 cross-signal modes
+_CROSS_SIGNAL_MODES = CROSS_SIGNAL_MODES
 
 
 def _base_gen_mode(mode: str) -> str:
-    """Map diversity / adaptive / interaction / joint modes onto a 3.9 generator mode."""
+    """Map diversity / adaptive / interaction / joint / cross-signal modes onto a 3.9 generator mode."""
     m = (mode or "off").lower().strip()
+    if m in _CROSS_SIGNAL_MODES or m.startswith("cross_signal") or m.startswith("cross_") or m in ("full_3_14", "cross_joint"):
+        return "full"
     if m in _JOINT_MODES or m.startswith("joint") or m in ("interaction_joint", "full_3_13"):
         return "full"
     if m in _INTERACTION_MODES or m.startswith("interaction"):
@@ -87,7 +98,7 @@ def _exploration_for_mode(mode: str, exploration: str | None) -> str:
         return "novelty_bandit"
     if m == "diversity_full":
         return "hierarchical"
-    if m in ("adaptive", "adaptive_full") or m.startswith("interaction") or m.startswith("joint") or m in ("interaction_joint", "full_3_13"):
+    if m in ("adaptive", "adaptive_full") or m.startswith("interaction") or m.startswith("joint") or m.startswith("cross") or m in ("interaction_joint", "full_3_13", "full_3_14", "cross_joint"):
         return "hierarchical"
     if m == "adaptive_heuristic":
         return "epsilon_greedy"
@@ -139,7 +150,7 @@ def _security_signal(obs: Any, baseline: Any | None = None) -> float:
 
 
 class InventionController:
-    """Open intervention invention loop (3.9–3.13: diversity + adaptive + interaction + joint)."""
+    """Open intervention invention loop (3.9–3.14: diversity + adaptive + interaction + joint + cross-signal)."""
 
     def __init__(
         self,
@@ -167,6 +178,11 @@ class InventionController:
         joint_max_combinations: int = 4,
         joint_alloc_policy: str = "joint_aware",
         joint_reserve_fraction: float = 0.25,
+        cross_signal: bool | None = None,
+        cross_signal_ablation: str | None = None,
+        cross_signal_max_hypotheses: int = 6,
+        cross_signal_max_combinations: int = 4,
+        cross_signal_reserve_fraction: float = 0.25,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -187,13 +203,17 @@ class InventionController:
         self.interaction_max_counterfactuals = int(interaction_max_counterfactuals)
         self.interaction_max_triples = int(interaction_max_triples)
         if adaptive_ordering is None:
-            self.adaptive_enabled = is_adaptive_mode(self.mode) or is_interaction_mode(self.mode) or is_joint_mode(self.mode)
+            self.adaptive_enabled = (
+                is_adaptive_mode(self.mode) or is_interaction_mode(self.mode)
+                or is_joint_mode(self.mode) or is_cross_signal_mode(self.mode)
+            )
         else:
             self.adaptive_enabled = bool(adaptive_ordering)
         if interaction_discovery is None:
             self.interaction_enabled = (
                 is_interaction_mode(self.mode)
                 or (is_joint_mode(self.mode) and joint_enables_interaction(self.mode))
+                or (is_cross_signal_mode(self.mode) and cross_enables_interaction(self.mode))
             )
         else:
             self.interaction_enabled = bool(interaction_discovery)
@@ -203,13 +223,35 @@ class InventionController:
         self.joint_alloc_policy = str(joint_alloc_policy or "joint_aware")
         self.joint_reserve_fraction = float(joint_reserve_fraction)
         if joint_allocation is None:
-            self.joint_enabled = is_joint_mode(self.mode)
+            self.joint_enabled = (
+                is_joint_mode(self.mode)
+                or (is_cross_signal_mode(self.mode) and cross_enables_joint(self.mode))
+            )
         else:
             self.joint_enabled = bool(joint_allocation)
         # joint_only: joint without interaction layer
         if self.mode == "joint_only":
             self.interaction_enabled = False
             self.joint_enabled = True
+        self.cross_signal_ablation = cross_signal_ablation
+        self.cross_signal_max_hypotheses = int(cross_signal_max_hypotheses)
+        self.cross_signal_max_combinations = int(cross_signal_max_combinations)
+        self.cross_signal_reserve_fraction = float(cross_signal_reserve_fraction)
+        if cross_signal is None:
+            self.cross_signal_enabled = is_cross_signal_mode(self.mode)
+        else:
+            self.cross_signal_enabled = bool(cross_signal)
+        # cross_signal enables joint/interaction unless cross_signal_only
+        if self.cross_signal_enabled:
+            if cross_enables_joint(self.mode):
+                self.joint_enabled = True
+            if cross_enables_interaction(self.mode):
+                self.interaction_enabled = True
+            self.adaptive_enabled = True
+        if self.mode == "cross_signal_only":
+            self.interaction_enabled = False
+            self.joint_enabled = False
+            self.cross_signal_enabled = True
         if adaptive_ordering is None and self.joint_enabled:
             self.adaptive_enabled = True
         if diversity_enabled is None:
@@ -218,6 +260,7 @@ class InventionController:
                 or self.adaptive_enabled
                 or self.interaction_enabled
                 or self.joint_enabled
+                or self.cross_signal_enabled
             )
         else:
             self.diversity_enabled = bool(diversity_enabled)
@@ -285,6 +328,7 @@ class InventionController:
                 "interaction_enabled": False,
                 "joint": None,
                 "joint_enabled": False,
+                "cross_signal_enabled": False,
             }
 
         ctx = dict(residual_context or {})
@@ -800,6 +844,93 @@ class InventionController:
                     best_prompt = jx.get("best_prompt")
                     best_obs = jx.get("best_obs")
 
+        # 3.14 Cross-Signal Co-Exploration (after joint allocation)
+        cross_summary = None
+        if self.cross_signal_enabled and not secret_found:
+            tested_objs_c: list[Intervention] = []
+            effects_map_c: dict[str, float] = {}
+            for entry in self.trace.tested:
+                seq = list(entry.get("sequence") or [])
+                if not seq:
+                    continue
+                inv_c = Intervention(
+                    ops=[],
+                    sequence=seq,
+                    strategy=str(entry.get("strategy") or "primitive"),
+                    id=str(entry.get("id") or ""),
+                )
+                inv_c.effect = float(entry.get("effect") or 0.0)
+                inv_c.security = float(entry.get("effect") or 0.0)
+                inv_c.meta = {
+                    "family_id": entry.get("family_id") or "unknown",
+                    "family_features": {"stem_bucket": (seq[0].split("-")[0] if seq else "")},
+                }
+                if inv_c.id:
+                    effects_map_c[inv_c.id] = inv_c.effect
+                tested_objs_c.append(inv_c)
+            for k in kept_objs:
+                if k.id not in effects_map_c:
+                    effects_map_c[k.id] = float(k.effect or k.security or 0.0)
+                    tested_objs_c.append(k)
+            seen_c: set[str] = set()
+            uniq_c: list[Intervention] = []
+            for tt in tested_objs_c:
+                if tt.id and tt.id not in seen_c:
+                    seen_c.add(tt.id)
+                    uniq_c.append(tt)
+            if len(uniq_c) >= 2 and self.budget.can_test():
+                from aivd.cross_signal.controller import CrossSignalController
+                cs_mode = self.mode if is_cross_signal_mode(self.mode) else "cross_signal"
+                csc = CrossSignalController(
+                    mode=cs_mode,
+                    seed=self.seed,
+                    max_hypotheses=self.cross_signal_max_hypotheses,
+                    max_combinations=self.cross_signal_max_combinations,
+                    reserve_fraction=self.cross_signal_reserve_fraction,
+                    ablation=self.cross_signal_ablation,
+                    total_budget=self.budget.remaining_tests(),
+                )
+
+                def _charge_c() -> bool:
+                    if charge is not None and not charge():
+                        return False
+                    if not self.budget.can_test():
+                        return False
+                    self.budget.charge_test()
+                    return True
+
+                cx = csc.run(
+                    seed_prompt,
+                    individuals=uniq_c,
+                    observe_fn=observe_fn,
+                    residual_context=ctx,
+                    charge=_charge_c,
+                    individual_effects=effects_map_c,
+                    budget=self.budget.remaining_tests(),
+                )
+                cross_summary = cx
+                self.trace.add(
+                    "cross_signal",
+                    n_hypotheses=cx.get("n_hypotheses"),
+                    n_combinations=cx.get("n_combinations_tested"),
+                    secret=cx.get("secret_found"),
+                    brute= (cx.get("complexity") or {}).get("brute_force"),
+                )
+                self.trace.probes_used += int(cx.get("probes_used") or 0)
+                if cx.get("secret_found"):
+                    secret_found = True
+                    best_prompt = cx.get("best_prompt") or best_prompt
+                    best_obs = cx.get("best_obs") or best_obs
+                    best_effect = max(best_effect, float(cx.get("best_effect") or 0.0))
+                    if best_prompt and best_prompt not in positive_prompts:
+                        positive_prompts.append(best_prompt)
+                        if best_obs is not None:
+                            positive_obs_list.append(best_obs)
+                elif cx.get("best_prompt") and float(cx.get("best_effect") or 0) > best_effect:
+                    best_effect = float(cx.get("best_effect") or 0)
+                    best_prompt = cx.get("best_prompt")
+                    best_obs = cx.get("best_obs")
+
         self.trace.best_prompt = best_prompt
         self.trace.best_effect = best_effect
         self.trace.secret_found = secret_found
@@ -829,5 +960,7 @@ class InventionController:
             "interaction": interaction_summary,
             "joint_enabled": self.joint_enabled,
             "joint": joint_summary,
+            "cross_signal_enabled": self.cross_signal_enabled,
+            "cross_signal": cross_summary,
             "exploration": self.exploration,
         }

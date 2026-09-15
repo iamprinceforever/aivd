@@ -144,6 +144,8 @@ class PPOAgent:
                 "seed": self.config.seed,
             },
             "update_count": self.update_count,
+            "aivd_version": "3.14.0",
+            "checkpoint_format": 2,
         }
 
     def load_state_dict_bundle(self, bundle: dict[str, Any]) -> None:

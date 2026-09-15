@@ -51,9 +51,11 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
         "holdout_w_latch_key",
         "holdout_q_conduit_key",
         "HoldoutR",
+        "HoldoutS",
         hr_label,
         hr_secret_prefix,
         "holdout_r_span_key",
+        "holdout_s_ridge_key",
         "prime-conduit",
         "seal-conduit",
         "flush-mirror",
@@ -71,7 +73,7 @@ def scan_invention_source(root: Path | None = None) -> list[tuple[str, str]]:
     root = root or Path(__file__).resolve().parents[2]
     leaks: list[tuple[str, str]] = []
     forbidden = _forbidden_holdout_literals()
-    for sub in ("invention", "interaction", "joint"):
+    for sub in ("invention", "interaction", "joint", "cross_signal"):
         inv = root / "aivd" / sub
         if not inv.is_dir():
             continue

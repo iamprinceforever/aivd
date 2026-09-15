@@ -1,0 +1,62 @@
+{
+  "pass_rate": 1.0,
+  "hardcoded_fail_rate": 1.0,
+  "rows": [
+    {
+      "seed": 0,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 1,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 2,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 3,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 4,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 7,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    },
+    {
+      "seed": 11,
+      "randomized_pass": true,
+      "randomized_strong": false,
+      "hardcoded_map_fails": true,
+      "pass": true,
+      "brute_force": false
+    }
+  ]
+}

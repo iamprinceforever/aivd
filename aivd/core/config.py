@@ -115,6 +115,8 @@ class AIVDConfig(BaseModel):
         "interaction", "interaction_full", "interaction_random",
         "joint", "joint_full", "joint_only", "joint_random",
         "interaction_joint", "full_3_13",
+        "cross_signal", "cross_signal_full", "cross_signal_only", "cross_signal_random",
+        "cross_joint", "full_3_14",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -152,6 +154,15 @@ class AIVDConfig(BaseModel):
     ] = "joint_aware"
     joint_reserve_fraction: float = 0.25
     invention_joint_ablation: str | None = None
+    # v3.14 cross-signal co-exploration (default off)
+    cross_signal_mode: Literal[
+        "off", "cross_signal", "cross_signal_full", "cross_signal_only",
+        "cross_signal_random", "cross_joint", "full_3_14",
+    ] = "off"
+    cross_signal_max_hypotheses: int = 6
+    cross_signal_max_combinations: int = 4
+    cross_signal_reserve_fraction: float = 0.25
+    invention_cross_signal_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

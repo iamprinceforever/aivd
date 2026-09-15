@@ -113,13 +113,27 @@ def advance_from_evidence(
     return ComponentState.CHARACTERIZED
 
 
-def pair_interaction_ready(state_a: ComponentState | str, state_b: ComponentState | str) -> bool:
-    """Both sides at least CHARACTERIZED; ideally INTERACTION_READY."""
+def pair_interaction_ready(
+    state_a: ComponentState | str,
+    state_b: ComponentState | str,
+    *,
+    relation_supported: bool | None = None,
+) -> bool:
+    """Both sides at least CHARACTERIZED; ideally INTERACTION_READY.
+
+    3.14: when relation_supported is False, visits/characterization alone are
+    insufficient for cross-signal readiness. When True/None, legacy 3.13 behavior.
+    """
     ok = {
         ComponentState.CHARACTERIZED,
         ComponentState.INTERACTION_READY,
     }
-    return _as_state(state_a) in ok and _as_state(state_b) in ok
+    base = _as_state(state_a) in ok and _as_state(state_b) in ok
+    if relation_supported is False:
+        return False
+    if relation_supported is True:
+        return base
+    return base
 
 
 def readiness_score(state: ComponentState | str) -> float:

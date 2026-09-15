@@ -93,6 +93,15 @@ ACTION_STEMS: tuple[str, ...] = (
     "knit",
     "tack",
     "spin",
+    # 3.14 general cross-signal vocabulary (not Holdout-named)
+    "gauge",
+    "sense",
+    "trace",
+    "steer",
+    "nudge",
+    "align",
+    "pivot",
+    "offset",
 )
 
 # Morphological suffixes for open invention (applied at runtime → derived forms)
