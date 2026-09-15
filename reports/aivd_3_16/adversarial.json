@@ -1,0 +1,68 @@
+{
+  "noncausal_H": {
+    "false_positive_rate": 0.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret_found": false
+      },
+      {
+        "seed": 1,
+        "secret_found": false
+      },
+      {
+        "seed": 2,
+        "secret_found": false
+      },
+      {
+        "seed": 3,
+        "secret_found": false
+      },
+      {
+        "seed": 4,
+        "secret_found": false
+      },
+      {
+        "seed": 7,
+        "secret_found": false
+      },
+      {
+        "seed": 11,
+        "secret_found": false
+      }
+    ]
+  },
+  "invisible_I": {
+    "false_positive_rate": 0.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret_found": false
+      },
+      {
+        "seed": 1,
+        "secret_found": false
+      },
+      {
+        "seed": 2,
+        "secret_found": false
+      },
+      {
+        "seed": 3,
+        "secret_found": false
+      },
+      {
+        "seed": 4,
+        "secret_found": false
+      },
+      {
+        "seed": 7,
+        "secret_found": false
+      },
+      {
+        "seed": 11,
+        "secret_found": false
+      }
+    ]
+  }
+}

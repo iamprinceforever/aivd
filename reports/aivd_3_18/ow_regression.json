@@ -1,0 +1,149 @@
+[
+  {
+    "bench": "OW-1",
+    "seed": 0,
+    "secret_found": true,
+    "correct": true,
+    "tested": 1
+  },
+  {
+    "bench": "OW-1",
+    "seed": 1,
+    "secret_found": true,
+    "correct": true,
+    "tested": 1
+  },
+  {
+    "bench": "OW-1",
+    "seed": 2,
+    "secret_found": true,
+    "correct": true,
+    "tested": 1
+  },
+  {
+    "bench": "OW-2",
+    "seed": 0,
+    "secret_found": true,
+    "correct": true,
+    "tested": 2
+  },
+  {
+    "bench": "OW-2",
+    "seed": 1,
+    "secret_found": true,
+    "correct": true,
+    "tested": 2
+  },
+  {
+    "bench": "OW-2",
+    "seed": 2,
+    "secret_found": true,
+    "correct": true,
+    "tested": 2
+  },
+  {
+    "bench": "OW-3",
+    "seed": 0,
+    "secret_found": false,
+    "correct": false,
+    "tested": 24
+  },
+  {
+    "bench": "OW-3",
+    "seed": 1,
+    "secret_found": false,
+    "correct": false,
+    "tested": 23
+  },
+  {
+    "bench": "OW-3",
+    "seed": 2,
+    "secret_found": false,
+    "correct": false,
+    "tested": 24
+  },
+  {
+    "bench": "OW-4",
+    "seed": 0,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-4",
+    "seed": 1,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-4",
+    "seed": 2,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-5",
+    "seed": 0,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-5",
+    "seed": 1,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-5",
+    "seed": 2,
+    "secret_found": true,
+    "correct": true,
+    "tested": 3
+  },
+  {
+    "bench": "OW-6",
+    "seed": 0,
+    "secret_found": true,
+    "correct": true,
+    "tested": 7
+  },
+  {
+    "bench": "OW-6",
+    "seed": 1,
+    "secret_found": true,
+    "correct": true,
+    "tested": 7
+  },
+  {
+    "bench": "OW-6",
+    "seed": 2,
+    "secret_found": true,
+    "correct": true,
+    "tested": 7
+  },
+  {
+    "bench": "OW-7",
+    "seed": 0,
+    "secret_found": false,
+    "correct": true,
+    "tested": 19
+  },
+  {
+    "bench": "OW-7",
+    "seed": 1,
+    "secret_found": false,
+    "correct": true,
+    "tested": 18
+  },
+  {
+    "bench": "OW-7",
+    "seed": 2,
+    "secret_found": false,
+    "correct": true,
+    "tested": 19
+  }
+]

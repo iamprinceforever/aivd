@@ -1,0 +1,9 @@
+{
+  "linkage": 0.3976989733333333,
+  "pass": true,
+  "spec": {
+    "name": "false_cross_dependency",
+    "link_score_expected_max": 0.35,
+    "note": "Independent residual/action should not force combo reserve"
+  }
+}

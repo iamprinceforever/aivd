@@ -1,0 +1,4 @@
+{
+  "name": "autonomy_correlated_noncausal",
+  "note": "Correlated residual/action must not auto-verify without CF + relation support"
+}

@@ -1,0 +1,306 @@
+{
+  "freeze_id": "aivd-3.10-invention-diversity",
+  "frozen_at_utc": "2026-09-14T20:13:57Z",
+  "commit": "a174716783fd461804f8b14050fa6a48c4bdd984",
+  "package_version_at_freeze": "3.10.0",
+  "tests_note": "318 prior (3.9) + 24 aivd310 diversity suite",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "primary_budget": 32,
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "modules_frozen": [
+    "aivd/invention/__init__.py",
+    "aivd/invention/intervention_space.py",
+    "aivd/invention/candidate_generator.py",
+    "aivd/invention/intervention_composer.py",
+    "aivd/invention/intervention_mutator.py",
+    "aivd/invention/novelty.py",
+    "aivd/invention/scoring.py",
+    "aivd/invention/budget.py",
+    "aivd/invention/controller.py",
+    "aivd/invention/traces.py",
+    "aivd/invention/memory.py",
+    "aivd/invention/audit.py",
+    "aivd/invention/family.py",
+    "aivd/invention/diversity.py",
+    "aivd/invention/archive.py",
+    "aivd/invention/scheduler.py",
+    "aivd/invention/exploration.py",
+    "aivd/invention/bandit.py",
+    "aivd/invention/uncertainty.py",
+    "aivd/invention/selection.py",
+    "aivd37/unknowns/pipeline.py",
+    "aivd/core/config.py"
+  ],
+  "module_sha256": {
+    "aivd/invention/__init__.py": "69a2336477329c17a2a31f9d353eb500043791d54b283a93ff396df76a02d0a1",
+    "aivd/invention/intervention_space.py": "94ea0b80348b87c42c999a3789745b1d3577d9306c72b6c49d36a5be29f4ddc4",
+    "aivd/invention/candidate_generator.py": "4a82e0c5d32299c22cf40b6b28d7557056354409c20b506bf2d00b5212f1727e",
+    "aivd/invention/intervention_composer.py": "87759e7331ea16a5413f432807aba4b346a34659ce8720e28be5340073be5071",
+    "aivd/invention/intervention_mutator.py": "183f74a07ebaaaf42a852c75b4cdff443cb75a12090fa4e4deb2d2d814429628",
+    "aivd/invention/novelty.py": "39fda92c2d5957cf39287df20f9ee67cc17459595f161670427242fccd35e46c",
+    "aivd/invention/scoring.py": "fc54d1a450d239358a2c086eae58804969394706f95233ff4dd61bc88131f5a5",
+    "aivd/invention/budget.py": "9725f6f53303d4aa4692a2befdd240dc0a02f4c401732d760ffd9c3e521f61e5",
+    "aivd/invention/controller.py": "45b81be602f1d0ebad7179279aa84af0d23eea04a45471ae7ceb5ae916fe47b8",
+    "aivd/invention/traces.py": "f9f73bf57248436843b03d0ed4fafd6fb6749d6671ebdbacb2d23c5d458559dc",
+    "aivd/invention/memory.py": "8fc71876d2097abd4733c64687b5e77c3ef15d2b2c5e60ead82ca1e15a24b2d0",
+    "aivd/invention/audit.py": "9d2b24cc04556386517921d62dd56b502e79a244b29c216c7bc66c08814561f8",
+    "aivd/invention/family.py": "9569e94ce56226cbf5ec6649a12e1df1c43b291a13f70b0e90b2bb5e8781a7ab",
+    "aivd/invention/diversity.py": "8114ff673a475504b10369f811c3772ff2f42ff9d1270dcddbe93a7a5607110b",
+    "aivd/invention/archive.py": "46cd14dd5e744d9ddb6247411e1630bbe35aee2c86fcea38572ba1e92b996309",
+    "aivd/invention/scheduler.py": "b2b6f745fbeef8004236f0b6a7dd910452a723d91851500ac4dba28b99009348",
+    "aivd/invention/exploration.py": "ad211cf55cc8f054be0ef61ca3fd309eac36a527cfc682cc1aaef99abd83f76c",
+    "aivd/invention/bandit.py": "55316fd6d962748c9e25ef929914fb82bdfe69a4339228f06a22eb519fe98f40",
+    "aivd/invention/uncertainty.py": "24cdc87df6be10305eb88985376e9c51dee8e3b584e9682b875b05e600148885",
+    "aivd/invention/selection.py": "c87c45a0e13e004365dc1c19f486658af7882dbc614df06da06b05cc9b0e86cd",
+    "aivd37/unknowns/pipeline.py": "b04aa8162b11a962d07d6933ef5cac41c903efa768741f1bb8d906692cc53925",
+    "aivd/core/config.py": "119b87d71886d26d52a745a5a55fcf995ef6f20fc556e42a543be5bda0c7a11a"
+  },
+  "discovery_pipeline_frozen_before_holdout_z": true,
+  "holdout_z_created": true,
+  "config": {
+    "invention_mode_default": "off",
+    "invention_diversity_mode_default": "off"
+  },
+  "holdout_x_sacred_3_8": {
+    "status": "NOT_DISCOVERED",
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+    "note": "NEVER modify historical 3.8 sacred record"
+  },
+  "holdout_y_sacred_3_9": {
+    "status": "NOT_DISCOVERED",
+    "frozen_invention_commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a",
+    "note": "NEVER modify historical 3.9 sacred record"
+  },
+  "holdout_y_replay_under_3_10": {
+    "label": "HOLDOUT-Y v1 REPLAY UNDER AIVD 3.10",
+    "status": "DISCOVERED+VERIFIED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "heuristic": 0.0,
+      "full": 0.0,
+      "diversity": 1.0,
+      "bandit": 1.0,
+      "diversity_full": 1.0
+    }
+  },
+  "controls_summary": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 33.285714285714285,
+      "mean_tested": 3.0,
+      "mean_families": 33.285714285714285,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.09041253459456224,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "heuristic": {
+      "n": 7,
+      "discovery_rate": 0.5714285714285714,
+      "verified_rate": 0.5714285714285714,
+      "mean_probes": 29.857142857142858,
+      "mean_invented": 43.0,
+      "mean_tested": 3.0,
+      "mean_families": 33.0,
+      "mean_unique_families_tested": 1.8571428571428572,
+      "mean_coverage": 0.05627705627705627,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.5714285714285714,
+        "unresolved_invisible_rate": 0.42857142857142855,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.5714285714285714,
+        "mean_probes": 29.857142857142858
+      }
+    },
+    "full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.42857142857143,
+      "mean_tested": 3.0,
+      "mean_families": 43.0,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.06976744186046512,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    },
+    "diversity": {
+      "n": 7,
+      "discovery_rate": 0.8571428571428571,
+      "verified_rate": 0.8571428571428571,
+      "mean_probes": 31.285714285714285,
+      "mean_invented": 102.42857142857143,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.8571428571428571,
+        "unresolved_invisible_rate": 0.14285714285714285,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.8571428571428571,
+        "mean_probes": 31.285714285714285
+      }
+    },
+    "bandit": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      }
+    },
+    "diversity_full": {
+      "n": 7,
+      "discovery_rate": 0.5714285714285714,
+      "verified_rate": 0.5714285714285714,
+      "mean_probes": 29.857142857142858,
+      "mean_invented": 103.28571428571429,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.5714285714285714,
+        "unresolved_invisible_rate": 0.42857142857142855,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.5714285714285714,
+        "mean_probes": 29.857142857142858
+      }
+    }
+  },
+  "anti_bias_summary": {
+    "full": {
+      "secret_rate": 0.0,
+      "mean_weak_pulls": 0.0,
+      "mean_familiar_pulls": 7.0,
+      "mean_unique_families": 7.0,
+      "mean_target_weak_hits": 0.0
+    },
+    "diversity": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    },
+    "bandit": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    },
+    "diversity_full": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    }
+  },
+  "diversity_summary": {
+    "mean_families": 62.857142857142854,
+    "mean_unique_families_tested": 4.0,
+    "mean_coverage": 0.06364293029039572,
+    "mean_invented": 102.0,
+    "controls_unique_families": {
+      "off": 0.0,
+      "random": 3.0,
+      "heuristic": 1.8571428571428572,
+      "full": 3.0,
+      "diversity": 4.0,
+      "bandit": 4.0,
+      "diversity_full": 4.0
+    },
+    "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
+  },
+  "note": "Freeze commit a174716 BEFORE Holdout-Z. Final release 7daf1f8 includes Z+reports. Do not retune invention after Z.",
+  "tests": 342,
+  "holdout_z_sacred": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "heuristic": 0.0,
+      "full": 0.0,
+      "diversity": 0.0,
+      "bandit": 0.0,
+      "diversity_full": 0.0
+    },
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "ce27ce2c61a7aab96c83d78e41ef9b4cda5b6c42"
+  },
+  "package_version_final": "3.10.0",
+  "final_commit": "7daf1f823b4c2e6f2e9ee1dd9127ab94dfbe6e0b"
+}

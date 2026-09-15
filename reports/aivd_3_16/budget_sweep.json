@@ -1,0 +1,22 @@
+{
+  "8": {
+    "discovery_rate": 0.0,
+    "mean_ig": 0.08883974503018947,
+    "mean_discovery_depth": 4.0
+  },
+  "16": {
+    "discovery_rate": 1.0,
+    "mean_ig": 0.058309587159502727,
+    "mean_discovery_depth": 9.0
+  },
+  "32": {
+    "discovery_rate": 1.0,
+    "mean_ig": 0.058309587159502727,
+    "mean_discovery_depth": 9.0
+  },
+  "64": {
+    "discovery_rate": 1.0,
+    "mean_ig": 0.058309587159502727,
+    "mean_discovery_depth": 9.0
+  }
+}

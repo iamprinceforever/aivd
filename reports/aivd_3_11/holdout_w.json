@@ -1,0 +1,165 @@
+{
+  "holdout_id": "HOLDOUT-W",
+  "label": "HOLDOUT-W v1 SACRED FIRST RUN UNDER AIVD 3.11",
+  "sacred_first_run": true,
+  "status": "DISCOVERED+VERIFIED",
+  "mechanism": "latch.stuck + resolve/recover/reset/unbind-latch",
+  "\u2260": [
+    "A",
+    "B",
+    "C",
+    "H7",
+    "AO",
+    "X",
+    "Y",
+    "Z"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budget": 32,
+  "discovery_rates": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 0.0,
+    "diversity": 0.42857142857142855,
+    "diversity_full": 0.42857142857142855,
+    "adaptive": 1.0,
+    "adaptive_full": 1.0
+  },
+  "aggregates": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_tested": 0.0,
+      "mean_search_steps": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_tested": 3.0,
+      "mean_search_steps": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "full": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_tested": 3.0,
+      "mean_search_steps": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "diversity": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_tested": 6.0,
+      "mean_search_steps": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      }
+    },
+    "diversity_full": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_tested": 6.0,
+      "mean_search_steps": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      }
+    },
+    "adaptive": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 26.571428571428573,
+      "mean_tested": 3.2857142857142856,
+      "mean_search_steps": 6.571428571428571,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 26.571428571428573
+      }
+    },
+    "adaptive_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 26.571428571428573,
+      "mean_tested": 3.2857142857142856,
+      "mean_search_steps": 6.571428571428571,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 26.571428571428573
+      }
+    }
+  },
+  "evaluator_verify_rate": 1.0,
+  "secret_prefix": "SECRET{AIVD311_H...",
+  "gt_id": "AIVD311-HOLDOUT-W-LATCH-STUCK",
+  "leakage_pass": true,
+  "leaks": [],
+  "frozen_invention_commit": "b85fe0f405431149577c86499d3475240ed540b8",
+  "elapsed_s": 1.65,
+  "note": "Sacred first run. Do not retune invention after this result."
+}

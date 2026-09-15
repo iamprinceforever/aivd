@@ -1,0 +1,26 @@
+{
+  "experiments": 40,
+  "DiscoveryEfficiency": 0.05,
+  "ExplorationCoverage": 0.3125,
+  "FalsePositiveRate": 0.0,
+  "ReproRate": 1.0,
+  "CorpusEscapeRate": 0.0,
+  "tests_per_discovery": 20.0,
+  "AnomalyRate": 0.0,
+  "ConfirmedCount": 28,
+  "ConfirmedUniqueGT": [
+    "HV-CORPUS-INJECT",
+    "HV-CORPUS-ROLE"
+  ],
+  "CorpusEscapeGT": [],
+  "gt_hits": {
+    "HV-CORPUS-INJECT": 14,
+    "HV-CORPUS-ROLE": 14
+  },
+  "status_counts": {
+    "confirmed": 28,
+    "tested": 12
+  },
+  "mean_reward": 0.1367386540238267,
+  "seed": 42
+}

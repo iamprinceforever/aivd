@@ -1,0 +1,20 @@
+# SQLite is the default store. Postgres/Redis are optional for future scaling.
+services:
+  aivd:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./reports:/app/reports
+      - ./aivd_data:/app/aivd_data
+    environment:
+      - AIVD_DATA_DIR=/app/aivd_data
+
+  # Optional:
+  # postgres:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_PASSWORD: aivd
+  #     POSTGRES_DB: aivd
+  # redis:
+  #   image: redis:7

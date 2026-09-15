@@ -1,0 +1,414 @@
+{
+  "A_invention_off": {
+    "mode": "full",
+    "invention_mode": "off",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    }
+  },
+  "B_invention_random": {
+    "mode": "full",
+    "invention_mode": "random",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 60.142857142857146,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 3.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    }
+  },
+  "C_invention_full_3_9": {
+    "mode": "full",
+    "invention_mode": "full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.0,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "D_diversity_3_10": {
+    "mode": "full",
+    "invention_mode": "diversity",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_invented": 103.71428571428571,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      }
+    }
+  },
+  "E_diversity_full_3_10": {
+    "mode": "full",
+    "invention_mode": "diversity_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      }
+    }
+  },
+  "F_adaptive_only_3_11": {
+    "mode": "full",
+    "invention_mode": "adaptive_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "G_interaction": {
+    "mode": "full",
+    "invention_mode": "interaction",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "H_interaction_full": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "I_interaction_random": {
+    "mode": "full",
+    "invention_mode": "interaction_random",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "J_no_invention_flag": {
+    "mode": "full,no_invention",
+    "invention_mode": "interaction_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    }
+  },
+  "ablate_novelty_only": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "novelty_only"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "ablate_no_eig": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "no_eig"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "ablate_no_residual": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "no_residual"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "ablate_no_cross_family": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "no_cross_family"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "ablate_static": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "static"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "ablate_random_only": {
+    "mode": "full",
+    "invention_mode": "interaction_full",
+    "kwargs": {
+      "interaction_ablation": "random_only"
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  }
+}

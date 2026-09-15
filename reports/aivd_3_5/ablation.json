@@ -1,0 +1,226 @@
+{
+  "policies": {
+    "rows": [
+      {
+        "policy": "random",
+        "seed": 0,
+        "handed_off": true,
+        "probes": 5,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "random",
+        "seed": 1,
+        "handed_off": false,
+        "probes": 4,
+        "strength": "none",
+        "gt": null
+      },
+      {
+        "policy": "random",
+        "seed": 2,
+        "handed_off": false,
+        "probes": 5,
+        "strength": "none",
+        "gt": null
+      },
+      {
+        "policy": "random",
+        "seed": 3,
+        "handed_off": false,
+        "probes": 2,
+        "strength": "medium",
+        "gt": null
+      },
+      {
+        "policy": "random",
+        "seed": 4,
+        "handed_off": true,
+        "probes": 4,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "heuristic",
+        "seed": 0,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "heuristic",
+        "seed": 1,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "heuristic",
+        "seed": 2,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "heuristic",
+        "seed": 3,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "heuristic",
+        "seed": 4,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "learned",
+        "seed": 0,
+        "handed_off": true,
+        "probes": 4,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "learned",
+        "seed": 1,
+        "handed_off": true,
+        "probes": 0,
+        "strength": "medium",
+        "gt": null
+      },
+      {
+        "policy": "learned",
+        "seed": 2,
+        "handed_off": false,
+        "probes": 4,
+        "strength": "none",
+        "gt": null
+      },
+      {
+        "policy": "learned",
+        "seed": 3,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      },
+      {
+        "policy": "learned",
+        "seed": 4,
+        "handed_off": true,
+        "probes": 2,
+        "strength": "strong",
+        "gt": "IB-Q-WEAK-FOOTPRINT"
+      }
+    ],
+    "by_policy": {
+      "random": {
+        "handoff_rate": 0.4,
+        "mean_probes": 4.0
+      },
+      "heuristic": {
+        "handoff_rate": 1.0,
+        "mean_probes": 2.0
+      },
+      "learned": {
+        "handoff_rate": 0.8,
+        "mean_probes": 2.4
+      }
+    }
+  },
+  "budget_sweep": {
+    "8": {
+      "discovery_probability": 1.0,
+      "mean_probes": 8.0,
+      "mean_ttfs": 0.0
+    },
+    "16": {
+      "discovery_probability": 1.0,
+      "mean_probes": 16.0,
+      "mean_ttfs": 0.0
+    },
+    "32": {
+      "discovery_probability": 1.0,
+      "mean_probes": 32.0,
+      "mean_ttfs": 0.0
+    },
+    "64": {
+      "discovery_probability": 1.0,
+      "mean_probes": 64.0,
+      "mean_ttfs": 0.0
+    }
+  },
+  "methods_q": {
+    "random": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_time_to_first_signal": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_ig_per_probe": 0.03225806451612903,
+      "mean_probes": 32.0,
+      "hit_rate_raw": 0.0
+    },
+    "hybrid": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_time_to_first_signal": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_ig_per_probe": 0.03225806451612903,
+      "mean_probes": 32.0,
+      "hit_rate_raw": 0.0
+    },
+    "inv_3_4": {
+      "n": 7,
+      "discovery_probability": 0.0,
+      "mean_time_to_first_signal": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "mean_ig_per_probe": 0.04347826086956522,
+      "mean_probes": 32.0,
+      "hit_rate_raw": 0.0
+    },
+    "ad_3_5": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_time_to_first_signal": 0.0,
+      "mean_experiments_to_localize": 4.0,
+      "mean_ig_per_probe": 0.034482758620689655,
+      "mean_probes": 32.0,
+      "hit_rate_raw": 1.0
+    },
+    "ad_inv": {
+      "n": 7,
+      "discovery_probability": 1.0,
+      "mean_time_to_first_signal": 0.0,
+      "mean_experiments_to_localize": 4.0,
+      "mean_ig_per_probe": 0.034482758620689655,
+      "mean_probes": 32.0,
+      "hit_rate_raw": 1.0
+    }
+  },
+  "methods_z": {
+    "random": {
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "hit_rate_raw": 0.0
+    },
+    "ad_3_5": {
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "hit_rate_raw": 0.0
+    },
+    "ad_inv": {
+      "discovery_probability": 0.0,
+      "mean_experiments_to_localize": 32.0,
+      "hit_rate_raw": 0.0
+    }
+  }
+}

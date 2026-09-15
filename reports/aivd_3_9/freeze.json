@@ -1,0 +1,93 @@
+{
+  "freeze_id": "aivd-3.9-invention",
+  "frozen_at_utc": "2026-09-14T15:40:11Z",
+  "commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a",
+  "package_version_at_freeze": "3.9.0",
+  "tests": 304,
+  "tests_note": "286 prior (3.8) + 18 aivd39 invention suite",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "primary_budget": 32,
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "modules_frozen": [
+    "aivd/invention/__init__.py",
+    "aivd/invention/intervention_space.py",
+    "aivd/invention/candidate_generator.py",
+    "aivd/invention/intervention_composer.py",
+    "aivd/invention/intervention_mutator.py",
+    "aivd/invention/novelty.py",
+    "aivd/invention/scoring.py",
+    "aivd/invention/budget.py",
+    "aivd/invention/controller.py",
+    "aivd/invention/traces.py",
+    "aivd/invention/memory.py",
+    "aivd/invention/audit.py",
+    "aivd37/unknowns/pipeline.py",
+    "aivd/core/config.py",
+    "aivd/agents/controller.py"
+  ],
+  "module_sha256": {
+    "aivd/invention/__init__.py": "ddfe0caaf9f201252ec1a877fa16ba8e0a64fea0901cbe640f2df4d1c257505c",
+    "aivd/invention/intervention_space.py": "94ea0b80348b87c42c999a3789745b1d3577d9306c72b6c49d36a5be29f4ddc4",
+    "aivd/invention/candidate_generator.py": "dee51923647e0258b9427774d158d48e6e5eb8efad3e445cd880898c96f6bfe8",
+    "aivd/invention/intervention_composer.py": "87759e7331ea16a5413f432807aba4b346a34659ce8720e28be5340073be5071",
+    "aivd/invention/intervention_mutator.py": "183f74a07ebaaaf42a852c75b4cdff443cb75a12090fa4e4deb2d2d814429628",
+    "aivd/invention/novelty.py": "39fda92c2d5957cf39287df20f9ee67cc17459595f161670427242fccd35e46c",
+    "aivd/invention/scoring.py": "fc54d1a450d239358a2c086eae58804969394706f95233ff4dd61bc88131f5a5",
+    "aivd/invention/budget.py": "9725f6f53303d4aa4692a2befdd240dc0a02f4c401732d760ffd9c3e521f61e5",
+    "aivd/invention/controller.py": "59c8c63158720328e8343854307980c71d93f3647d3e57156f2cf822607440d1",
+    "aivd/invention/traces.py": "f9f73bf57248436843b03d0ed4fafd6fb6749d6671ebdbacb2d23c5d458559dc",
+    "aivd/invention/memory.py": "8fc71876d2097abd4733c64687b5e77c3ef15d2b2c5e60ead82ca1e15a24b2d0",
+    "aivd/invention/audit.py": "7f62eeb410bbf98ee2d26d2e5a91ba1e9909dac6d3da0d3f8d3b7c0d3086b860",
+    "aivd37/unknowns/pipeline.py": "cc6c82b8c037ae527e3e9431b8635fba07c686e4f5666722cb0e6804ae78a4f0",
+    "aivd/core/config.py": "10a3d6584f048492d8046e812d56abd273803e0eb472b837c8ae6321bcc5450d",
+    "aivd/agents/controller.py": "9dcc072563bccc8e2ef20acffaaa95129db55644982f544836335684bdb15f24"
+  },
+  "discovery_pipeline_frozen_before_holdout_y": true,
+  "holdout_y_created": true,
+  "config": {
+    "invention_mode_default": "off",
+    "invention_max_candidates_default": 16,
+    "invention_max_cheap_tests_default": 16,
+    "unknowns_mode_default": "off"
+  },
+  "holdout_x_replay": {
+    "holdout_id": "HOLDOUT-X",
+    "note": "3.9 replay with invention ON; 3.8 sacred first run remains NOT_DISCOVERED @ a972fec",
+    "sacred_3_8_status": "NOT_DISCOVERED",
+    "sacred_3_8_freeze": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+    "replay_invention_full_discovery_rate": 1.0,
+    "replay_invention_off_discovery_rate": 0.0,
+    "replay_status": "DISCOVERED+VERIFIED",
+    "evaluator_verify_rate": 1.0,
+    "claim": "Recovered under stated conditions (invention full + residual morph/compound); NOT open-world blind discovery claim."
+  },
+  "holdout_x_sacred_3_8": {
+    "status": "NOT_DISCOVERED",
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+    "discovery_rate": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "note": "NEVER modify historical 3.8 sacred record"
+  },
+  "note": "Freeze BEFORE Holdout-Y. Do not retune invention after seeing Y.",
+  "holdout_y_sacred": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rate_full": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a"
+  },
+  "package_version_final": "3.9.0",
+  "final_commit": "f09749d0ebe35670c8ae1aff7e74153b346ca0cb"
+}

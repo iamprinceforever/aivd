@@ -1,0 +1,65 @@
+{
+  "random_axis": {
+    "n": 5,
+    "verified_rate": 0.8,
+    "unresolved_invisible_rate": 0.2,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 0.8,
+    "mean_probes": 16.4
+  },
+  "no_discrimination": {
+    "n": 5,
+    "verified_rate": 1.0,
+    "unresolved_invisible_rate": 0.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 1.0,
+    "mean_probes": 18.0
+  },
+  "no_residual_ranking": {
+    "n": 5,
+    "verified_rate": 1.0,
+    "unresolved_invisible_rate": 0.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 1.0,
+    "mean_probes": 15.0
+  },
+  "no_falsify": {
+    "n": 5,
+    "verified_rate": 1.0,
+    "unresolved_invisible_rate": 0.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 1.0,
+    "mean_probes": 13.0
+  },
+  "no_reproduce": {
+    "n": 5,
+    "verified_rate": 1.0,
+    "unresolved_invisible_rate": 0.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 1.0,
+    "mean_probes": 12.0
+  },
+  "no_invariant": {
+    "n": 5,
+    "verified_rate": 1.0,
+    "unresolved_invisible_rate": 0.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 1.0,
+    "mean_probes": 12.0
+  },
+  "ao_full_control": {
+    "n": 14,
+    "verified_rate": 0.0,
+    "unresolved_invisible_rate": 1.0,
+    "rejected_rate": 0.0,
+    "unresolved_rate": 0.0,
+    "vulnerability_rate": 0.0,
+    "mean_probes": 5.0
+  }
+}

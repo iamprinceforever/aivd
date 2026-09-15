@@ -1,0 +1,1078 @@
+{
+  "version_target": "3.14.0",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "note": "Cross-Signal Co-Exploration. Sacred X/Y/Z/W/Q/R untouched. Z/Q/R replay secondary. S post-freeze only.",
+  "config_defaults": {
+    "invention_mode": "off",
+    "joint_mode": "off",
+    "cross_signal_mode": "off",
+    "cross_signal_defaults_off": true
+  },
+  "ao": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 5.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 5.0
+      }
+    }
+  },
+  "controls_holdout_x": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 62.142857142857146,
+      "mean_tested": 3.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "adaptive": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "joint": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "cross_signal": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "cross_joint": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "cross_signal_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "full_3_14": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    }
+  },
+  "budget_sweep_cross_full": {
+    "8": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 5.0,
+      "mean_invented": 96.0,
+      "mean_tested": 0.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 5.0
+      }
+    },
+    "16": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 9.0,
+      "mean_invented": 96.0,
+      "mean_tested": 0.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 9.0
+      }
+    },
+    "32": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "64": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 35.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 35.0
+      }
+    }
+  },
+  "ablations": {
+    "A_no_relation": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "B_no_reserve": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "C_no_combo": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "D_combo_only": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "E_random_only": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "F_no_cross_evi": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "G_correlation_only": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "H_force_combo": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "I_all_orders": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    },
+    "J_no_cf": {
+      "n": 3,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 28.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_cross_hypotheses": 0.0,
+      "mean_cross_combinations": 0.0,
+      "brute_force_rate": 0.0,
+      "secret_invention_rate": 1.0,
+      "aggregate_pipeline": {
+        "n": 3,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 28.0
+      }
+    }
+  },
+  "synthetic_cross": {
+    "pass_rate": 1.0,
+    "strong_rate": 0.0,
+    "brute_force_rate": 0.0,
+    "mean_pruning_ratio": 0.3333,
+    "rows": [
+      {
+        "seed": 0,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 1,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 2,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 3,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 4,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 7,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      },
+      {
+        "seed": 11,
+        "secret_found": false,
+        "n_hypotheses": 6,
+        "n_combinations": 13,
+        "pairs_considered": 15,
+        "pairs_tested": 13,
+        "pairs_pruned": 0,
+        "pruning_ratio": 0.3333,
+        "brute_force": false,
+        "pass": true,
+        "strong_pass": false
+      }
+    ]
+  },
+  "anti_mapping": {
+    "pass_rate": 1.0,
+    "hardcoded_fail_rate": 1.0,
+    "rows": [
+      {
+        "seed": 0,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 1,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 2,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 3,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 4,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 7,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      },
+      {
+        "seed": 11,
+        "randomized_pass": true,
+        "randomized_strong": false,
+        "hardcoded_map_fails": true,
+        "pass": true,
+        "brute_force": false
+      }
+    ]
+  },
+  "correlated_noncausal": {
+    "pass_rate": 1.0,
+    "rows": [
+      {
+        "seed": 0,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 1,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 2,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 3,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 4,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 7,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      },
+      {
+        "seed": 11,
+        "link_score": 0.30515955384615384,
+        "cf_consistency": 0.1,
+        "pass": true,
+        "spec": "correlated_noncausal"
+      }
+    ]
+  },
+  "false_dependency": {
+    "linkage": 0.3976989733333333,
+    "pass": true,
+    "spec": {
+      "name": "false_cross_dependency",
+      "link_score_expected_max": 0.35,
+      "note": "Independent residual/action should not force combo reserve"
+    }
+  },
+  "complexity": {
+    "seed": 0,
+    "secret_found": false,
+    "n_hypotheses": 6,
+    "n_combinations": 13,
+    "pairs_considered": 15,
+    "pairs_tested": 13,
+    "pairs_pruned": 0,
+    "pruning_ratio": 0.3333,
+    "brute_force": false,
+    "pass": true,
+    "strong_pass": false
+  },
+  "leakage": {
+    "cross_signal_leaks": [],
+    "invention_scan_cs_leaks": [],
+    "pass": true
+  },
+  "checkpoint": {
+    "aivd_version": "3.14.0",
+    "checkpoint_format": 2,
+    "pass": true
+  },
+  "holdout_z_replay": {
+    "label": "HOLDOUT-Z v1 REPLAY UNDER AIVD 3.14",
+    "replay_status": "NOT_DISCOVERED",
+    "sacred_untouched": true,
+    "rates": {
+      "off": 0.0,
+      "joint": 0.0,
+      "cross_signal": 0.0,
+      "full_3_14": 0.0
+    },
+    "by_mode": {
+      "off": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 23.0,
+        "mean_invented": 0.0,
+        "mean_tested": 0.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 23.0
+        }
+      },
+      "joint": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "cross_signal": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "full_3_14": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      }
+    }
+  },
+  "holdout_q_replay": {
+    "label": "HOLDOUT-Q v1 REPLAY UNDER AIVD 3.14",
+    "replay_status": "NOT_DISCOVERED",
+    "sacred_untouched": true,
+    "rates": {
+      "off": 0.0,
+      "interaction": 0.0,
+      "cross_signal": 0.0,
+      "full_3_14": 0.0
+    },
+    "by_mode": {
+      "off": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 23.0,
+        "mean_invented": 0.0,
+        "mean_tested": 0.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 23.0
+        }
+      },
+      "interaction": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 137.0,
+        "mean_tested": 6.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "cross_signal": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "full_3_14": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      }
+    }
+  },
+  "holdout_r_replay": {
+    "label": "HOLDOUT-R v1 REPLAY UNDER AIVD 3.14",
+    "replay_status": "NOT_DISCOVERED",
+    "sacred_untouched": true,
+    "rates": {
+      "off": 0.0,
+      "joint": 0.0,
+      "cross_signal": 0.0,
+      "full_3_14": 0.0
+    },
+    "by_mode": {
+      "off": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 23.0,
+        "mean_invented": 0.0,
+        "mean_tested": 0.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 23.0
+        }
+      },
+      "joint": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 0.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "cross_signal": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "full_3_14": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 119.0,
+        "mean_tested": 3.0,
+        "mean_cross_hypotheses": 6.0,
+        "mean_cross_combinations": 0.0,
+        "brute_force_rate": 0.0,
+        "secret_invention_rate": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      }
+    }
+  },
+  "elapsed_s": 12.015
+}

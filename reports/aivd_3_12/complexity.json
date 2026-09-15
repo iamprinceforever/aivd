@@ -1,0 +1,27 @@
+{
+  "n_individuals": 20,
+  "possible_unordered_pairs": 190,
+  "possible_ordered_pairs": 380,
+  "generated_pairs": 10,
+  "pruned": 0,
+  "strategy_counts": {
+    "cross_family": 2,
+    "sequential": 2,
+    "context_aware": 2,
+    "novel_cross_family": 2,
+    "random": 2
+  },
+  "strategies_used": [
+    "residual_linked",
+    "cross_family",
+    "counterfactual",
+    "sequential",
+    "state_aware",
+    "context_aware",
+    "random",
+    "novel_cross_family"
+  ],
+  "max_pairs_budget": 16,
+  "brute_force": false,
+  "pruning_ratio": 0.9474
+}

@@ -1,0 +1,12 @@
+{
+  "n_families": 5,
+  "possible_unordered_pairs": 10,
+  "hypotheses_possible": 10,
+  "hypotheses_generated": 6,
+  "orders_possible": 24,
+  "orders_tested": 5,
+  "triples_possible": 10,
+  "triples_tested": 2,
+  "pruning_ratio": 0.4,
+  "brute_force": false
+}

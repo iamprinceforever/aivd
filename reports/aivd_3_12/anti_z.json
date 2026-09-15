@@ -1,0 +1,340 @@
+{
+  "spec": {
+    "name": "anti_z_neutral_interaction",
+    "residual": "loom.gap",
+    "group_a": [
+      "prime",
+      "arm",
+      "prep",
+      "spin"
+    ],
+    "group_b": [
+      "seal",
+      "bind",
+      "knit",
+      "tack"
+    ],
+    "forbidden_overlap": [
+      "flush",
+      "mirror",
+      "sync",
+      "drop",
+      "free"
+    ],
+    "note": "PASS if interaction layer discovers A\u00d7B synergy without Z stems"
+  },
+  "rows": [
+    {
+      "seed": 0,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 1,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 9,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 1,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 1,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 5,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 2,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 2,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 0,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 3,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 2,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 3,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 4,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 1,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 2,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 7,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 2,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 1,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    },
+    {
+      "seed": 11,
+      "secret_found": true,
+      "n_security_interactions": 1,
+      "n_generated": 16,
+      "n_tested": 2,
+      "complexity": {
+        "n_individuals": 7,
+        "possible_unordered_pairs": 21,
+        "possible_ordered_pairs": 42,
+        "generated_pairs": 14,
+        "pruned": 2,
+        "strategy_counts": {
+          "residual_linked": 2,
+          "cross_family": 2,
+          "sequential": 2,
+          "state_aware": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 20,
+        "brute_force": false,
+        "pruning_ratio": 0.3333,
+        "triples": {
+          "possible_triples": 35,
+          "generated_triples": 2,
+          "hierarchical": true,
+          "brute_force": false
+        }
+      },
+      "z_vocabulary_in_best": false,
+      "pass": true
+    }
+  ],
+  "pass_rate": 1.0,
+  "secret_rate": 1.0,
+  "z_contam_rate": 0.0,
+  "status": "PASS"
+}

@@ -1,0 +1,114 @@
+{
+  "pass_rate": 1.0,
+  "strong_pass_rate": 1.0,
+  "secret_rate": 1.0,
+  "q_contam_rate": 0.0,
+  "status": "PASS",
+  "rows": [
+    {
+      "seed": 0,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 1,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 2,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 3,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 4,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 7,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    },
+    {
+      "seed": 11,
+      "secret_found": true,
+      "n_hypotheses": 1,
+      "n_combinations": 1,
+      "allocation_policy": "joint_aware",
+      "asymmetric": true,
+      "q_vocabulary_in_hypotheses": false,
+      "pass": true,
+      "strong_pass": true
+    }
+  ],
+  "spec": {
+    "name": "anti_q_neutral_joint",
+    "residual": "loom.gap",
+    "group_a": [
+      "tilt",
+      "skew",
+      "warp",
+      "lean"
+    ],
+    "group_b": [
+      "moor",
+      "clamp",
+      "dock",
+      "pin"
+    ],
+    "forbidden_overlap": [
+      "conduit",
+      "prime",
+      "arm",
+      "prep",
+      "seal",
+      "bind",
+      "couple",
+      "join"
+    ],
+    "mechanism": "Characterize A then B under joint residual; combination only after both PARTIALLY_CHARACTERIZED; unrelated to Q conduit co-presence.",
+    "note": "PASS if joint layer allocates + reaches readiness without Q stems"
+  }
+}

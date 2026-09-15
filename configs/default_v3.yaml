@@ -1,0 +1,7 @@
+seed: 42
+embedding_backend: hashing
+world_model: false
+use_counterfactual: false
+use_critic: false
+budget:
+  max_experiments: 50

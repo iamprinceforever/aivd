@@ -1,0 +1,79 @@
+{
+  "version": "3.13.0",
+  "label": "AIVD 3.13.0 Joint Residual Budget Allocation pre-Holdout-R freeze",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "module_toggles": {
+    "invention_mode_default": "off",
+    "interaction_mode_default": "off",
+    "joint_mode_default": "off",
+    "joint_alloc_policy_default": "joint_aware",
+    "joint_reserve_fraction_default": 0.25,
+    "joint_max_hypotheses": 6,
+    "joint_max_combinations": 4
+  },
+  "control_modes": [
+    "off",
+    "random",
+    "diversity",
+    "adaptive",
+    "interaction",
+    "joint_only",
+    "interaction_joint",
+    "joint_full",
+    "full_3_13",
+    "joint"
+  ],
+  "ablations": {
+    "A_no_dependency": "no_dependency",
+    "B_no_reserve": "no_reserve",
+    "C_no_combo": "no_combo",
+    "D_combo_only": "combo_only",
+    "E_random_only": "random_only",
+    "F_no_joint_evi": "no_joint_evi",
+    "G_orders_ab_only": "orders_ab_only",
+    "H_force_combo": "force_combo",
+    "I_all_orders": "all_orders",
+    "J_force_triples": "force_triples"
+  },
+  "allocation_policies": [
+    "static",
+    "equal",
+    "greedy",
+    "joint_aware"
+  ],
+  "config_hash": "7263adcaa1a978b2a51f3490ba3cc7b16c7f2cd4bea427df9edbfc71667503cf",
+  "joint_module_hashes": {
+    "aivd/joint/__init__.py": "751075b0679d1ab46efb521e496b342693bacfaa60d3bf048db55af8ecd4c579",
+    "aivd/joint/audit.py": "cd1ded2154cd460e21fbc9c362f709bc3bcf7686b1457180159321333812b347",
+    "aivd/joint/budget_allocator.py": "3f71ca129c4366024c30699e0b7a4ec39e268d9a3b5a4bd8c4d4353035599863",
+    "aivd/joint/coexploration.py": "64424e7d6e0597c92fe45200b9afb5649e0c7935c24fffd771d74bf895ce999b",
+    "aivd/joint/controller.py": "d0a2ad2431df93ccac43762ce262049b36e2f463364b18ee82c4c1d265fe6720",
+    "aivd/joint/dependency.py": "5e4ca80e9a33b584b1f8e500ae452ebfc00033a8ad77eb119e11b87d7d801b60",
+    "aivd/joint/joint_uncertainty.py": "0525e228bfb387ba7a1b33a627f75d50e8d4fbe0249df07d2e1f0dfbc8deaf9e",
+    "aivd/joint/readiness.py": "aab0d27ce378634318463a17e94dc18b44318fa00d8bde5da819380edabef7e7",
+    "aivd/joint/reserve.py": "73018ae257cd7fdae7350acea9968b93f3c89d000f9d36437055cce409932196",
+    "aivd/joint/residual_graph.py": "950a9fae088ee023b6b252352f8fc32d2420940fa95a4f204a99614fba4e326d",
+    "aivd/joint/scheduler.py": "8e32754708864d66f5c7be887f6206080096c48d990ceaa99d16f21e5aa02afd",
+    "aivd/joint/traces.py": "c27a60290b7da7e6f2aa5621354ddf34a209735e8c7975e0f7027684098e81ad"
+  },
+  "anti_q_status": "PASS",
+  "leakage_pass": true,
+  "note": "FREEZE precedes Holdout-R creation. No post-hoc retune against R.",
+  "freeze_commit": "a2165695cd3e8b8efd389894d0ab571492db89ef",
+  "freeze_commit_short": "a216569"
+}

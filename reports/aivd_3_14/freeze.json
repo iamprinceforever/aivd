@@ -1,0 +1,99 @@
+{
+  "version": "3.14.0",
+  "label": "AIVD 3.14.0 Cross-Signal Co-Exploration pre-Holdout-S freeze",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "module_toggles": {
+    "invention_mode_default": "off",
+    "joint_mode_default": "off",
+    "cross_signal_mode_default": "off",
+    "cross_signal_reserve_fraction_default": 0.25,
+    "cross_signal_max_hypotheses": 6,
+    "cross_signal_max_combinations": 4
+  },
+  "control_modes": [
+    "off",
+    "random",
+    "adaptive",
+    "interaction",
+    "joint",
+    "cross_signal",
+    "cross_joint",
+    "cross_signal_full",
+    "full_3_14"
+  ],
+  "ablations": {
+    "A_no_relation": "no_relation",
+    "B_no_reserve": "no_reserve",
+    "C_no_combo": "no_combo",
+    "D_combo_only": "combo_only",
+    "E_random_only": "random_only",
+    "F_no_cross_evi": "no_cross_evi",
+    "G_correlation_only": "correlation_only",
+    "H_force_combo": "force_combo",
+    "I_all_orders": "all_orders",
+    "J_no_cf": "no_cf"
+  },
+  "cross_signal_config": {
+    "default_off": true,
+    "modes": [
+      "off",
+      "random",
+      "adaptive",
+      "interaction",
+      "joint",
+      "cross_signal",
+      "cross_joint",
+      "cross_signal_full",
+      "full_3_14"
+    ],
+    "scoring": [
+      "temporal_assoc",
+      "conditional_assoc",
+      "delta_similarity",
+      "information_gain",
+      "uncertainty_reduction",
+      "reproducibility",
+      "cf_consistency",
+      "causal_support"
+    ],
+    "readiness_requires_relation_support": true,
+    "no_cartesian_brute_force": true
+  },
+  "file_hashes": {
+    "aivd/cross_signal/__init__.py": "dde9a1aa2498657ab4f201771ac18c30e913e86912b059d0847d7bc27d9ef53a",
+    "aivd/cross_signal/audit.py": "681156f28f39c028afd010358d1caee24f57a6d3f23351bc63292f40bd7d039b",
+    "aivd/cross_signal/coexplore.py": "1668cf73abd8b6561025606a792aecd05cefa222890d7e8c479dbaac74d934b4",
+    "aivd/cross_signal/controller.py": "58093c5b69a49ca813edfe30a82d66e7d1abbe0d4c1d1b41671a1483d24c5d80",
+    "aivd/cross_signal/graph.py": "ed42d65ff276f05541006a0f2ca67f7b8f2e95470ef58fb8d3b628ceaf610952",
+    "aivd/cross_signal/memory.py": "b69f3328c707bfaba34640401b3bc8b32eda4c54ecf7631c265479d969e7b7aa",
+    "aivd/cross_signal/relation.py": "ec87547aadafbddaead29934005e74b8e15a6d04d7ee5f1537235d4a1e250300",
+    "aivd/cross_signal/reserve.py": "e9e11db40c9c024cd653387cb4e1641252ddbeb7c72b3b7ae2fffdf4511bc1e7",
+    "aivd/cross_signal/scheduler.py": "b48f2f8d02ef78a8387b26a899dbd0c162d334e0976cb8739ba6926cfceaf411",
+    "aivd/cross_signal/scoring.py": "dd037d0a209c13a4aa0185a2b5b45a78db43c9ac242ec819dfe204dbfa72a499",
+    "aivd/cross_signal/signals.py": "dcaf385cc5d251432231b8a09b6aba603428ca639528776785ce096f6f62ebb0",
+    "aivd/cross_signal/traces.py": "30a3f284949f9e421f6339e746a5d6f9dbb376e4dda7e25b2d72d4231d2e7c0e",
+    "aivd/cross_signal/validation.py": "d55fad09869aae74592ea4d11295f56f80f63b442210ea8d375fad059fe03f71"
+  },
+  "leakage_pass": true,
+  "anti_mapping_pass_rate": 1.0,
+  "noncausal_pass_rate": 1.0,
+  "brute_force_rate_synthetic": 0.0,
+  "elapsed_s_pre_freeze_body": 12.015,
+  "freeze_commit": "631d2e5abe8f1d9d6e019eb877b78aca19a1add8",
+  "freeze_commit_short": "631d2e5"
+}

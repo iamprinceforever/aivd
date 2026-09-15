@@ -1,0 +1,5 @@
+{
+  "default_off": true,
+  "same_budget": true,
+  "greedy_eig_only": false
+}

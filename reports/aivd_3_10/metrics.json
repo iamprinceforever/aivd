@@ -1,0 +1,1015 @@
+{
+  "version_target": "3.10.0",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "note": "Open Invention Diversity. Sacred Holdout-X @ a972fec and Holdout-Y @ 95acf38 untouched. Holdout-Y runs here are REPLAY UNDER AIVD 3.10 (secondary).",
+  "ao": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 5.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 5.0
+      }
+    }
+  },
+  "vuln_a": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 15.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 15.0
+      }
+    }
+  },
+  "vuln_b": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 14.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 14.0
+      }
+    }
+  },
+  "vuln_c": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 17.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 17.0
+      }
+    }
+  },
+  "h7": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 18.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 18.0
+      }
+    }
+  },
+  "controls_holdout_x": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 33.285714285714285,
+      "mean_tested": 3.0,
+      "mean_families": 33.285714285714285,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.09041253459456224,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "heuristic": {
+      "n": 7,
+      "discovery_rate": 0.5714285714285714,
+      "verified_rate": 0.5714285714285714,
+      "mean_probes": 29.857142857142858,
+      "mean_invented": 43.0,
+      "mean_tested": 3.0,
+      "mean_families": 33.0,
+      "mean_unique_families_tested": 1.8571428571428572,
+      "mean_coverage": 0.05627705627705627,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.5714285714285714,
+        "unresolved_invisible_rate": 0.42857142857142855,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.5714285714285714,
+        "mean_probes": 29.857142857142858
+      }
+    },
+    "full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.42857142857143,
+      "mean_tested": 3.0,
+      "mean_families": 43.0,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.06976744186046512,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    },
+    "diversity": {
+      "n": 7,
+      "discovery_rate": 0.8571428571428571,
+      "verified_rate": 0.8571428571428571,
+      "mean_probes": 31.285714285714285,
+      "mean_invented": 102.42857142857143,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.8571428571428571,
+        "unresolved_invisible_rate": 0.14285714285714285,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.8571428571428571,
+        "mean_probes": 31.285714285714285
+      }
+    },
+    "bandit": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      }
+    },
+    "diversity_full": {
+      "n": 7,
+      "discovery_rate": 0.5714285714285714,
+      "verified_rate": 0.5714285714285714,
+      "mean_probes": 29.857142857142858,
+      "mean_invented": 103.28571428571429,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.5714285714285714,
+        "unresolved_invisible_rate": 0.42857142857142855,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.5714285714285714,
+        "mean_probes": 29.857142857142858
+      }
+    }
+  },
+  "holdout_y_replay": {
+    "holdout_id": "HOLDOUT-Y",
+    "label": "HOLDOUT-Y v1 REPLAY UNDER AIVD 3.10",
+    "sacred_first_run": false,
+    "sacred_3_9_status": "NOT_DISCOVERED",
+    "sacred_3_9_freeze": "95acf3848c742f4b95368e57ecc93f87a2b09d6a",
+    "replay_status": "DISCOVERED+VERIFIED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "heuristic": 0.0,
+      "full": 0.0,
+      "diversity": 1.0,
+      "bandit": 1.0,
+      "diversity_full": 1.0
+    },
+    "mean_unique_families": {
+      "off": 0.0,
+      "random": 3.0,
+      "heuristic": 1.7142857142857142,
+      "full": 3.0,
+      "diversity": 4.0,
+      "bandit": 4.0,
+      "diversity_full": 4.0
+    },
+    "mean_invented": {
+      "off": 0.0,
+      "random": 33.285714285714285,
+      "heuristic": 43.0,
+      "full": 73.0,
+      "diversity": 102.0,
+      "bandit": 102.0,
+      "diversity_full": 102.0
+    },
+    "evaluator_verify_rate": 1.0,
+    "aggregates": {
+      "off": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 23.0,
+        "mean_invented": 0.0,
+        "mean_tested": 0.0,
+        "mean_families": 0.0,
+        "mean_unique_families_tested": 0.0,
+        "mean_coverage": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 23.0
+        }
+      },
+      "random": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 33.285714285714285,
+        "mean_tested": 3.0,
+        "mean_families": 33.285714285714285,
+        "mean_unique_families_tested": 3.0,
+        "mean_coverage": 0.09041253459456224,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "heuristic": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 43.0,
+        "mean_tested": 3.0,
+        "mean_families": 33.0,
+        "mean_unique_families_tested": 1.7142857142857142,
+        "mean_coverage": 0.05194805194805195,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "full": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 73.0,
+        "mean_tested": 3.0,
+        "mean_families": 43.0,
+        "mean_unique_families_tested": 3.0,
+        "mean_coverage": 0.06976744186046512,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "diversity": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 32.0,
+        "mean_invented": 102.0,
+        "mean_tested": 6.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 32.0
+        }
+      },
+      "bandit": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 32.0,
+        "mean_invented": 102.0,
+        "mean_tested": 6.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 32.0
+        }
+      },
+      "diversity_full": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 32.0,
+        "mean_invented": 102.0,
+        "mean_tested": 6.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 32.0
+        }
+      }
+    },
+    "note": "Secondary replay only. Does not replace or alter sacred 3.9 NOT_DISCOVERED record."
+  },
+  "budget_sweep": {
+    "holdout_x": {
+      "8": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 5.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 0.0,
+        "mean_coverage": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 5.0
+        }
+      },
+      "16": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 8.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 0.0,
+        "mean_coverage": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 8.0
+        }
+      },
+      "32": {
+        "n": 7,
+        "discovery_rate": 0.5714285714285714,
+        "verified_rate": 0.5714285714285714,
+        "mean_probes": 29.857142857142858,
+        "mean_invented": 103.28571428571429,
+        "mean_tested": 6.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.5714285714285714,
+          "unresolved_invisible_rate": 0.42857142857142855,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.5714285714285714,
+          "mean_probes": 29.857142857142858
+        }
+      },
+      "64": {
+        "n": 7,
+        "discovery_rate": 0.7142857142857143,
+        "verified_rate": 0.7142857142857143,
+        "mean_probes": 53.57142857142857,
+        "mean_invented": 102.85714285714286,
+        "mean_tested": 10.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 7.714285714285714,
+        "mean_coverage": 0.12271413941920853,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.7142857142857143,
+          "unresolved_invisible_rate": 0.2857142857142857,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.7142857142857143,
+          "mean_probes": 53.57142857142857
+        }
+      }
+    },
+    "holdout_y_replay": {
+      "8": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 5.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 0.0,
+        "mean_coverage": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 5.0
+        }
+      },
+      "16": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 8.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 0.0,
+        "mean_coverage": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 8.0
+        }
+      },
+      "32": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 32.0,
+        "mean_invented": 102.0,
+        "mean_tested": 6.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 32.0
+        }
+      },
+      "64": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 53.0,
+        "mean_invented": 102.0,
+        "mean_tested": 10.0,
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 7.571428571428571,
+        "mean_coverage": 0.12044656572306342,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 53.0
+        }
+      }
+    }
+  },
+  "ablations": {
+    "A_invention_off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      },
+      "mode": "full",
+      "invention_mode": "off",
+      "kwargs": {}
+    },
+    "B_invention_random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 33.285714285714285,
+      "mean_tested": 3.0,
+      "mean_families": 33.285714285714285,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.09041253459456224,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      },
+      "mode": "full",
+      "invention_mode": "random",
+      "kwargs": {}
+    },
+    "C_invention_heuristic": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 43.0,
+      "mean_tested": 3.0,
+      "mean_families": 33.0,
+      "mean_unique_families_tested": 1.7142857142857142,
+      "mean_coverage": 0.05194805194805195,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      },
+      "mode": "full",
+      "invention_mode": "heuristic",
+      "kwargs": {}
+    },
+    "D_invention_full_3_9": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 73.0,
+      "mean_tested": 3.0,
+      "mean_families": 43.0,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.06976744186046512,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      },
+      "mode": "full",
+      "invention_mode": "full",
+      "kwargs": {}
+    },
+    "E_diversity": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity",
+      "kwargs": {}
+    },
+    "F_bandit": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "bandit",
+      "kwargs": {}
+    },
+    "G_diversity_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity_full",
+      "kwargs": {}
+    },
+    "H_diversity_heuristic": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 64.0,
+      "mean_tested": 6.0,
+      "mean_families": 49.285714285714285,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.08117589893100097,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity_heuristic",
+      "kwargs": {}
+    },
+    "I_no_invention_flag": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      },
+      "mode": "full,no_invention",
+      "invention_mode": "diversity_full",
+      "kwargs": {}
+    },
+    "sat_OFF": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity_full",
+      "kwargs": {
+        "saturation": false
+      }
+    },
+    "revival_OFF": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity_full",
+      "kwargs": {
+        "revival": false
+      }
+    },
+    "exploration_OFF": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 105.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 6.0,
+      "mean_coverage": 0.0954643954355936,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      },
+      "mode": "full",
+      "invention_mode": "diversity_full",
+      "kwargs": {
+        "exploration_enabled": false
+      }
+    }
+  },
+  "anti_bias": {
+    "full": {
+      "secret_rate": 0.0,
+      "mean_weak_pulls": 0.0,
+      "mean_familiar_pulls": 7.0,
+      "mean_unique_families": 7.0,
+      "mean_target_weak_hits": 0.0
+    },
+    "diversity": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    },
+    "bandit": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    },
+    "diversity_full": {
+      "secret_rate": 1.0,
+      "mean_weak_pulls": 5.0,
+      "mean_familiar_pulls": 4.0,
+      "mean_unique_families": 10.0,
+      "mean_target_weak_hits": 2.857142857142857
+    }
+  },
+  "diversity_summary": {
+    "mean_families": 62.857142857142854,
+    "mean_unique_families_tested": 4.0,
+    "mean_coverage": 0.06364293029039572,
+    "mean_invented": 102.0,
+    "controls_unique_families": {
+      "off": 0.0,
+      "random": 3.0,
+      "heuristic": 1.8571428571428572,
+      "full": 3.0,
+      "diversity": 4.0,
+      "bandit": 4.0,
+      "diversity_full": 4.0
+    },
+    "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
+  },
+  "audit": {
+    "leakage_scan": {
+      "invention_source_leaks": [],
+      "pass": true
+    },
+    "diversity_audit": {
+      "kind": "diversity_audit",
+      "exploration": "hierarchical/thompson/novelty_bandit",
+      "archive": {
+        "mean_families": 62.857142857142854,
+        "mean_unique_families_tested": 4.0,
+        "mean_coverage": 0.06364293029039572,
+        "mean_invented": 102.0,
+        "controls_unique_families": {
+          "off": 0.0,
+          "random": 3.0,
+          "heuristic": 1.8571428571428572,
+          "full": 3.0,
+          "diversity": 4.0,
+          "bandit": 4.0,
+          "diversity_full": 4.0
+        },
+        "note": "Family counts from structural clustering; IG via discovery rates in controls/replay."
+      },
+      "scheduler": {},
+      "anti_bias": {
+        "full": {
+          "secret_rate": 0.0,
+          "mean_weak_pulls": 0.0,
+          "mean_familiar_pulls": 7.0,
+          "mean_unique_families": 7.0,
+          "mean_target_weak_hits": 0.0
+        },
+        "diversity": {
+          "secret_rate": 1.0,
+          "mean_weak_pulls": 5.0,
+          "mean_familiar_pulls": 4.0,
+          "mean_unique_families": 10.0,
+          "mean_target_weak_hits": 2.857142857142857
+        },
+        "bandit": {
+          "secret_rate": 1.0,
+          "mean_weak_pulls": 5.0,
+          "mean_familiar_pulls": 4.0,
+          "mean_unique_families": 10.0,
+          "mean_target_weak_hits": 2.857142857142857
+        },
+        "diversity_full": {
+          "secret_rate": 1.0,
+          "mean_weak_pulls": 5.0,
+          "mean_familiar_pulls": 4.0,
+          "mean_unique_families": 10.0,
+          "mean_target_weak_hits": 2.857142857142857
+        }
+      },
+      "note": "Family diversity from intervention structure; no Holdout-named boosts/penalties; novelty not sole reward."
+    },
+    "sacred_untouched": {
+      "holdout_x_v1": "NOT_DISCOVERED @ a972fec",
+      "holdout_y_v1": "NOT_DISCOVERED @ 95acf38"
+    }
+  },
+  "elapsed_s": 1.53
+}

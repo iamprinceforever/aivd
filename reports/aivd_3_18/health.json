@@ -1,0 +1,10 @@
+{
+  "package": "epistemic",
+  "n_modules": 18,
+  "default_mode_off": true,
+  "global_budget": 32,
+  "greedy_eig_only": false,
+  "reservations_revocable": true,
+  "shadow_mode": true,
+  "consolidation_note": "3.18 does not add a new discovery algorithm. GlobalEpistemicArbiter allocates a single 32-slot experiment budget across proposing subsystems. Default off \u2248 3.17."
+}

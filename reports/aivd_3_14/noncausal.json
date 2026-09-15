@@ -1,0 +1,54 @@
+{
+  "pass_rate": 1.0,
+  "rows": [
+    {
+      "seed": 0,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 1,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 2,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 3,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 4,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 7,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    },
+    {
+      "seed": 11,
+      "link_score": 0.30515955384615384,
+      "cf_consistency": 0.1,
+      "pass": true,
+      "spec": "correlated_noncausal"
+    }
+  ]
+}

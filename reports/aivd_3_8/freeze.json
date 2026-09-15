@@ -1,0 +1,81 @@
+{
+  "freeze_id": "aivd-3.8-c-h7",
+  "frozen_at_utc": "2026-09-14T13:58:39Z",
+  "commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+  "parent_commits": [
+    "98ad5a2dedb7424e799e90625fa57d36e8cab829",
+    "94b4903"
+  ],
+  "package_version_at_freeze": "3.7.0",
+  "target_version": "3.8.0",
+  "tests": 271,
+  "tests_note": "231 prior (3.7) + 40 aivd38 C/H7 suite",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "primary_budget": 32,
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "modules_frozen": [
+    "aivd37/unknowns/pipeline.py",
+    "aivd37/unknowns/open_axes.py",
+    "aivd37/unknowns/residual_sweep.py",
+    "aivd37/unknowns/channels.py",
+    "aivd37/unknowns/classify.py",
+    "aivd37/unknowns/falsify.py",
+    "aivd37/unknowns/reproduce.py",
+    "aivd37/unknowns/invariant.py",
+    "aivd37/unknowns/benchmarks.py",
+    "aivd37/unknowns/leakage.py",
+    "aivd37/unknowns/metrics.py",
+    "aivd37/unknowns/terminal.py"
+  ],
+  "discovery_pipeline_frozen": true,
+  "holdout_status": "NOT_DISCOVERED",
+  "note": "Discovery pipeline MUST NOT be modified after seeing holdout. Sacred first holdout run uses this freeze commit's discovery code.",
+  "config": {
+    "unknowns_mode_default": "off",
+    "max_axis_trials_default": 14,
+    "sparse_continuation": true,
+    "security_shaped": [
+      "state.hash",
+      "state.len",
+      "tool.hash",
+      "error",
+      "out.refusal"
+    ]
+  },
+  "vuln_c": {
+    "mechanism": "C3_sequence_dependent_authorization",
+    "target_id": "mock://aivd37-vuln-c",
+    "verified_rate_budget32": 1.0
+  },
+  "h7": {
+    "mechanism": "sparse_structure_rare_intervention",
+    "target_id": "mock://aivd37-h7-sparse",
+    "matched_control": "mock://aivd37-h7-control",
+    "verified_rate_budget32": 1.0,
+    "control_invisible_rate": 1.0
+  },
+  "ao": {
+    "unresolved_invisible_rate": 1.0,
+    "vulnerability_rate": 0.0
+  },
+  "holdout_id": "HOLDOUT-X",
+  "holdout_sacred_run": {
+    "discovery_rate_full": 0.0,
+    "evaluator_verify_rate": 1.0,
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a"
+  },
+  "package_version_final": "3.8.0"
+}

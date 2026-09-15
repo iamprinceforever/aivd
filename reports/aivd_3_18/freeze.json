@@ -1,0 +1,53 @@
+{
+  "label": "AIVD 3.18 pre-Holdout-18 freeze",
+  "version": "3.18.0",
+  "baseline": "3.17.0",
+  "freeze_commit": "PENDING_THIS_COMMIT",
+  "tests": 589,
+  "epistemic_mode_default": "off",
+  "same_budget": 32,
+  "alloc_benches": [
+    "EA",
+    "EB",
+    "EC",
+    "ED",
+    "EF"
+  ],
+  "ow_benches": [
+    "OW-1",
+    "OW-2",
+    "OW-3",
+    "OW-4",
+    "OW-5",
+    "OW-6",
+    "OW-7"
+  ],
+  "sacred_untouched": [
+    "X",
+    "Y",
+    "Z",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W"
+  ],
+  "sacred_status": {
+    "X": "NOT_DISCOVERED",
+    "Y": "NOT_DISCOVERED",
+    "Z": "NOT_DISCOVERED",
+    "Q": "NOT_DISCOVERED",
+    "R": "NOT_DISCOVERED",
+    "S": "NOT_DISCOVERED",
+    "T": "NOT_DISCOVERED",
+    "U": "NOT_DISCOVERED",
+    "V": "NOT_DISCOVERED",
+    "W": "DISCOVERED+VERIFIED"
+  },
+  "no_holdout_18_yet": true,
+  "greedy_eig_only": false,
+  "reservations_revocable": true,
+  "shadow_mode": true
+}

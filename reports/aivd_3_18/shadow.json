@@ -1,0 +1,16 @@
+[
+  {
+    "bench": "EA",
+    "tested": 5,
+    "shadow": true,
+    "agreement": 0.0,
+    "secret_found": true
+  },
+  {
+    "bench": "EB",
+    "tested": 6,
+    "shadow": true,
+    "agreement": 0.0,
+    "secret_found": true
+  }
+]

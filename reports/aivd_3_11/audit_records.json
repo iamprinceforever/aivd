@@ -1,0 +1,96 @@
+{
+  "leakage_scan": {
+    "invention_source_leaks": [],
+    "pass": true
+  },
+  "adaptive_audit": {
+    "kind": "adaptive_ordering_audit",
+    "search": {
+      "mean_search_steps_adaptive_full_x": 2.0,
+      "mean_unique_families_adaptive_full_x": 1.0,
+      "controls_discovery": {
+        "off": 0.0,
+        "random": 0.0,
+        "full": 1.0,
+        "diversity": 0.5714285714285714,
+        "diversity_full": 0.8571428571428571,
+        "adaptive": 1.0,
+        "adaptive_full": 1.0
+      },
+      "z_replay_discovery": {
+        "off": 0.0,
+        "random": 0.0,
+        "full": 0.0,
+        "diversity": 0.0,
+        "diversity_full": 0.0,
+        "adaptive": 0.0,
+        "adaptive_full": 0.0
+      },
+      "note": "Dynamic reorder after each TEST; priority decay \u2260 blacklist; salience \u2260 vuln."
+    },
+    "salience": {},
+    "anti_lock_in": {
+      "full": {
+        "secret_rate": 0.0,
+        "mean_weak_pulls": 0.0,
+        "mean_familiar_pulls": 7.0,
+        "mean_unique_families": 7.0,
+        "mean_target_weak_hits": 0.0,
+        "mean_search_steps": 0.0
+      },
+      "diversity": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 5.0,
+        "mean_familiar_pulls": 4.0,
+        "mean_unique_families": 10.0,
+        "mean_target_weak_hits": 2.857142857142857,
+        "mean_search_steps": 0.0
+      },
+      "diversity_full": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 5.0,
+        "mean_familiar_pulls": 4.0,
+        "mean_unique_families": 10.0,
+        "mean_target_weak_hits": 2.857142857142857,
+        "mean_search_steps": 0.0
+      },
+      "adaptive": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 1.0,
+        "mean_familiar_pulls": 2.0,
+        "mean_unique_families": 5.285714285714286,
+        "mean_target_weak_hits": 1.0,
+        "mean_search_steps": 10.571428571428571
+      },
+      "adaptive_full": {
+        "secret_rate": 1.0,
+        "mean_weak_pulls": 1.0,
+        "mean_familiar_pulls": 2.0,
+        "mean_unique_families": 5.285714285714286,
+        "mean_target_weak_hits": 1.0,
+        "mean_search_steps": 10.571428571428571
+      }
+    },
+    "ablation": null,
+    "note": "Adaptive reorder from evidence; priority decay \u2260 blacklist; no Holdout-named boosts; salience \u2260 vulnerability; no single score dominates."
+  },
+  "diversity_audit": {
+    "kind": "diversity_audit",
+    "exploration": "adaptive/hierarchical",
+    "archive": {
+      "note": "preserved from 3.10"
+    },
+    "scheduler": {},
+    "anti_bias": {},
+    "note": "Family diversity from intervention structure; no Holdout-named boosts/penalties; novelty not sole reward."
+  },
+  "sacred_untouched": {
+    "holdout_x_v1": "NOT_DISCOVERED @ a972fec",
+    "holdout_y_v1": "NOT_DISCOVERED @ 95acf38",
+    "holdout_z_v1": "NOT_DISCOVERED under 3.10 (a174716 / holdout_z artifacts)"
+  },
+  "fp_controls": {
+    "ao_verified_rate": 0.0,
+    "note": "AO should remain invisible / non-verified under invention off"
+  }
+}

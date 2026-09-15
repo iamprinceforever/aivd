@@ -1,0 +1,51 @@
+# AIVD v2 target configuration examples
+# Prefer API keys for closed models; local file/path only for open weights you already possess.
+# Never auto-scrape vendor marketing sites for model files.
+#
+# Safety: budgets, timeouts, and base-URL allowlists remain mandatory.
+# Default pytest uses mock only (no network).
+
+targets:
+  mock:
+    id: mock://default
+    notes: "Local benchmark with hidden/latent vulns; default for science & CI"
+
+  openai_gpt:
+    id: openai-compat://api
+    base_url: https://api.openai.com/v1
+    model: gpt-4o-mini
+    api_key_env: OPENAI_API_KEY  # or AIVD_API_KEY
+
+  openai_astra:
+    id: openai-compat://api
+    base_url: https://api.openai.com/v1
+    model: gpt-astra  # if/when OpenAI-compatible model id is available
+    api_key_env: OPENAI_API_KEY
+    notes: "Treat like any OpenAI-compatible closed model: official API + key"
+
+  anthropic_claude:
+    id: anthropic://api
+    base_url: https://api.anthropic.com
+    model: claude-3-5-haiku-latest
+    api_key_env: ANTHROPIC_API_KEY
+
+  google_gemini:
+    id: gemini://api
+    base_url: https://generativelanguage.googleapis.com/v1beta
+    model: gemini-2.0-flash
+    api_key_env: GOOGLE_API_KEY  # or GEMINI_API_KEY
+
+  local_open_weights_path:
+    id: local://model
+    model_path_env: AIVD_LOCAL_MODEL_PATH
+    notes: "Open weights you already have on disk; AIVD will not download them"
+
+  local_openai_compat_server:
+    id: local://model
+    base_url: http://127.0.0.1:8000/v1
+    model: my-open-weights
+    notes: "vLLM / Ollama OpenAI-compatible local server"
+
+embedding_backend: hashing  # or torch
+reward:
+  w_cost: 0.05  # optional token/cost penalty; 0 disables

@@ -1,0 +1,23 @@
+{
+  "mean_search_steps_adaptive_full_x": 2.0,
+  "mean_unique_families_adaptive_full_x": 1.0,
+  "controls_discovery": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 1.0,
+    "diversity": 0.5714285714285714,
+    "diversity_full": 0.8571428571428571,
+    "adaptive": 1.0,
+    "adaptive_full": 1.0
+  },
+  "z_replay_discovery": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 0.0,
+    "diversity": 0.0,
+    "diversity_full": 0.0,
+    "adaptive": 0.0,
+    "adaptive_full": 0.0
+  },
+  "note": "Dynamic reorder after each TEST; priority decay \u2260 blacklist; salience \u2260 vuln."
+}

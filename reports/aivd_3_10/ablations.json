@@ -1,0 +1,308 @@
+{
+  "A_invention_off": {
+    "mode": "full",
+    "invention_mode": "off",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    }
+  },
+  "B_invention_random": {
+    "mode": "full",
+    "invention_mode": "random",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 33.285714285714285,
+      "mean_tested": 3.0,
+      "mean_families": 33.285714285714285,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.09041253459456224,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    }
+  },
+  "C_invention_heuristic": {
+    "mode": "full",
+    "invention_mode": "heuristic",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 43.0,
+      "mean_tested": 3.0,
+      "mean_families": 33.0,
+      "mean_unique_families_tested": 1.7142857142857142,
+      "mean_coverage": 0.05194805194805195,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    }
+  },
+  "D_invention_full_3_9": {
+    "mode": "full",
+    "invention_mode": "full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 73.0,
+      "mean_tested": 3.0,
+      "mean_families": 43.0,
+      "mean_unique_families_tested": 3.0,
+      "mean_coverage": 0.06976744186046512,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    }
+  },
+  "E_diversity": {
+    "mode": "full",
+    "invention_mode": "diversity",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "F_bandit": {
+    "mode": "full",
+    "invention_mode": "bandit",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "G_diversity_full": {
+    "mode": "full",
+    "invention_mode": "diversity_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "H_diversity_heuristic": {
+    "mode": "full",
+    "invention_mode": "diversity_heuristic",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 64.0,
+      "mean_tested": 6.0,
+      "mean_families": 49.285714285714285,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.08117589893100097,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "I_no_invention_flag": {
+    "mode": "full,no_invention",
+    "invention_mode": "diversity_full",
+    "kwargs": {},
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_families": 0.0,
+      "mean_unique_families_tested": 0.0,
+      "mean_coverage": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    }
+  },
+  "sat_OFF": {
+    "mode": "full",
+    "invention_mode": "diversity_full",
+    "kwargs": {
+      "saturation": false
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "revival_OFF": {
+    "mode": "full",
+    "invention_mode": "diversity_full",
+    "kwargs": {
+      "revival": false
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 102.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 4.0,
+      "mean_coverage": 0.06364293029039572,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    }
+  },
+  "exploration_OFF": {
+    "mode": "full",
+    "invention_mode": "diversity_full",
+    "kwargs": {
+      "exploration_enabled": false
+    },
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 105.0,
+      "mean_tested": 6.0,
+      "mean_families": 62.857142857142854,
+      "mean_unique_families_tested": 6.0,
+      "mean_coverage": 0.0954643954355936,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    }
+  }
+}

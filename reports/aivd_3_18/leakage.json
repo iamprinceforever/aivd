@@ -1,0 +1,11 @@
+{
+  "package": "aivd.epistemic",
+  "version_target": "3.18.0",
+  "leakage_pass": true,
+  "leaks": [],
+  "default_mode_off": true,
+  "no_holdout_rules": true,
+  "same_budget_32": true,
+  "not_greedy_eig_only": true,
+  "reservations_revocable": true
+}

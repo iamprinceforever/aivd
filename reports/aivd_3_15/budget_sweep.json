@@ -1,0 +1,74 @@
+{
+  "8": {
+    "n": 3,
+    "discovery_rate": 0.0,
+    "mean_probes": 5.0,
+    "mean_add": 4.0,
+    "mean_hypotheses": 4.0,
+    "brute_force_rate": 0.0,
+    "secret_invention_rate": 0.0,
+    "aggregate_pipeline": {
+      "n": 3,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 5.0
+    }
+  },
+  "16": {
+    "n": 3,
+    "discovery_rate": 0.0,
+    "mean_probes": 9.0,
+    "mean_add": 4.0,
+    "mean_hypotheses": 4.0,
+    "brute_force_rate": 0.0,
+    "secret_invention_rate": 0.0,
+    "aggregate_pipeline": {
+      "n": 3,
+      "verified_rate": 0.0,
+      "unresolved_invisible_rate": 1.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 0.0,
+      "mean_probes": 9.0
+    }
+  },
+  "32": {
+    "n": 3,
+    "discovery_rate": 1.0,
+    "mean_probes": 28.0,
+    "mean_add": 0.0,
+    "mean_hypotheses": 0.0,
+    "brute_force_rate": 0.0,
+    "secret_invention_rate": 1.0,
+    "aggregate_pipeline": {
+      "n": 3,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 28.0
+    }
+  },
+  "64": {
+    "n": 3,
+    "discovery_rate": 1.0,
+    "mean_probes": 35.0,
+    "mean_add": 0.0,
+    "mean_hypotheses": 0.0,
+    "brute_force_rate": 0.0,
+    "secret_invention_rate": 1.0,
+    "aggregate_pipeline": {
+      "n": 3,
+      "verified_rate": 1.0,
+      "unresolved_invisible_rate": 0.0,
+      "rejected_rate": 0.0,
+      "unresolved_rate": 0.0,
+      "vulnerability_rate": 1.0,
+      "mean_probes": 35.0
+    }
+  }
+}

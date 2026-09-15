@@ -1,0 +1,72 @@
+{
+  "version": "3.18.0",
+  "budget": 32,
+  "alloc": {
+    "n": 35,
+    "discovery_rate": 0.8,
+    "mean_tested": 0.0,
+    "mean_starvation": 0.0,
+    "mean_slot_efficiency": 0.0,
+    "mean_agreement": 0.0,
+    "mean_probes": 0.0,
+    "false_positive_rate": 0.0
+  },
+  "ow_regression": {
+    "n": 21,
+    "discovery_rate": 0.7142857142857143,
+    "mean_tested": 0.0,
+    "mean_starvation": 0.0,
+    "mean_slot_efficiency": 0.0,
+    "mean_agreement": 0.0,
+    "mean_probes": 0.0,
+    "false_positive_rate": 0.0
+  },
+  "eig_trap_greedy": {
+    "counts": {
+      "trap": 12,
+      "path": 0
+    },
+    "path_share": 0.0,
+    "trap_share": 1.0,
+    "used": 12,
+    "total": 12,
+    "invariant_ok": true,
+    "path_completed": false,
+    "greedy": true
+  },
+  "eig_trap_arbiter": {
+    "counts": {
+      "trap": 0,
+      "path": 5
+    },
+    "path_share": 1.0,
+    "trap_share": 0.0,
+    "used": 5,
+    "total": 12,
+    "invariant_ok": true,
+    "path_completed": true,
+    "greedy": false
+  },
+  "dead_end": {
+    "hist": [
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real"
+    ],
+    "used": 10,
+    "invariant_ok": true,
+    "decoy_state": "FORMING"
+  },
+  "path_vs_greedy": {
+    "arbiter_path_share": 1.0,
+    "greedy_path_share": 0.0,
+    "arbiter_prefers_completion": true
+  }
+}

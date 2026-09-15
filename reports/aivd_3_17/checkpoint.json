@@ -1,0 +1,12 @@
+{
+  "ok": true,
+  "bundle_keys": [
+    "policy_state",
+    "optimizer_state",
+    "config",
+    "update_count",
+    "aivd_version",
+    "checkpoint_format",
+    "meta"
+  ]
+}

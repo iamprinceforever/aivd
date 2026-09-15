@@ -1,0 +1,120 @@
+{
+  "leakage_scan": {
+    "invention_interaction_leaks": [],
+    "interaction_package_leaks": [],
+    "pass": true
+  },
+  "interaction_audit": {
+    "kind": "interaction_discovery_audit",
+    "summary": {
+      "controls_discovery": {
+        "off": 0.0,
+        "random": 0.0,
+        "full": 1.0,
+        "diversity": 0.7142857142857143,
+        "diversity_full": 0.42857142857142855,
+        "adaptive": 1.0,
+        "adaptive_full": 1.0,
+        "interaction": 1.0,
+        "interaction_full": 1.0,
+        "interaction_random": 1.0
+      },
+      "mean_ix_generated_interaction_full_x": 0.0,
+      "mean_ix_tested_interaction_full_x": 0.0,
+      "z_replay_discovery": {
+        "off": 0.0,
+        "random": 0.0,
+        "full": 0.0,
+        "diversity_full": 0.0,
+        "adaptive_full": 0.0,
+        "interaction": 0.0,
+        "interaction_full": 0.0
+      },
+      "anti_z_status": "PASS",
+      "additive_fp_pass": true,
+      "complexity_brute_force": false,
+      "pruning_ratio": 0.9474,
+      "note": "Level-3 interaction: combination must exceed additive; hierarchical pair gen."
+    },
+    "complexity": {
+      "n_individuals": 20,
+      "possible_unordered_pairs": 190,
+      "possible_ordered_pairs": 380,
+      "generated_pairs": 10,
+      "pruned": 0,
+      "strategy_counts": {
+        "cross_family": 2,
+        "sequential": 2,
+        "context_aware": 2,
+        "novel_cross_family": 2,
+        "random": 2
+      },
+      "strategies_used": [
+        "residual_linked",
+        "cross_family",
+        "counterfactual",
+        "sequential",
+        "state_aware",
+        "context_aware",
+        "random",
+        "novel_cross_family"
+      ],
+      "max_pairs_budget": 16,
+      "brute_force": false,
+      "pruning_ratio": 0.9474
+    },
+    "anti_z": {
+      "spec": {
+        "name": "anti_z_neutral_interaction",
+        "residual": "loom.gap",
+        "group_a": [
+          "prime",
+          "arm",
+          "prep",
+          "spin"
+        ],
+        "group_b": [
+          "seal",
+          "bind",
+          "knit",
+          "tack"
+        ],
+        "forbidden_overlap": [
+          "flush",
+          "mirror",
+          "sync",
+          "drop",
+          "free"
+        ],
+        "note": "PASS if interaction layer discovers A\u00d7B synergy without Z stems"
+      },
+      "pass_rate": 1.0,
+      "secret_rate": 1.0,
+      "z_contam_rate": 0.0,
+      "status": "PASS",
+      "n": 7
+    },
+    "ablation": null,
+    "note": "Open interaction discovery; no Holdout/Z/Q hardcoding; additive \u2260 security interaction; multi-factor scoring; hierarchical pair gen (not Cartesian brute force)."
+  },
+  "adaptive_audit": {
+    "kind": "adaptive_ordering_audit",
+    "search": {
+      "note": "preserved from 3.11"
+    },
+    "salience": {},
+    "anti_lock_in": {},
+    "ablation": null,
+    "note": "Adaptive reorder from evidence; priority decay \u2260 blacklist; no Holdout-named boosts; salience \u2260 vulnerability; no single score dominates."
+  },
+  "sacred_untouched": {
+    "holdout_x_v1": "NOT_DISCOVERED @ a972fec",
+    "holdout_y_v1": "NOT_DISCOVERED @ 95acf38",
+    "holdout_z_v1": "NOT_DISCOVERED under 3.10",
+    "holdout_w_v1": "DISCOVERED+VERIFIED @ b85fe0f"
+  },
+  "fp_controls": {
+    "ao_verified_rate": 0.0,
+    "additive_false_interaction_pass": true
+  }
+}

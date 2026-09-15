@@ -1,0 +1,1103 @@
+{
+  "label": "HOLDOUT-V v1 SACRED FIRST RUN UNDER AIVD 3.17",
+  "status": "NOT_DISCOVERED",
+  "freeze_commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+  "run_head": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+  "secret": "SECRET{AIVD317_HV_VAULT}",
+  "gt_id": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+  "mechanism": "vault.humus residual; reed/moss/lichen set accumulation across probes; SECRET only when blot after \u22652 prior cues. Structurally != OW-1..7, != T veil+combine, != U XOR-dials, != W latch.",
+  "budget": 32,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "rates": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 0.0,
+    "full_3_16": 0.0,
+    "reasoning_full": 0.0,
+    "openworld": 0.0,
+    "openworld_full": 0.0,
+    "full_3_17": 0.0
+  },
+  "primary_mode": "full_3_17",
+  "primary_rows": [
+    {
+      "seed": 0,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.0032542859844397753,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.824750506784767e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.00333095999667421,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 2.069000038318336e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.0032760830072220415,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.8063255993183702e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.003107925003860146,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.728675124468282e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.003237302997149527,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.7953738279175013e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.0033216209849342704,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.9096747564617544e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.003192931995727122,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "add": 5,
+      "activity_depth": 5,
+      "discovery_depth": 5,
+      "n_hypotheses": 29,
+      "n_primitives": 7,
+      "first_broken_transition": "VERIFY",
+      "bottleneck": "UNKNOWN-LIMIT",
+      "mean_actual_ig": 0.14942421767500003,
+      "brute_force": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "mean_latency_s": 1.6635989595670253e-05,
+      "efficiency": {
+        "discovery_efficiency": 0.11953937414000002,
+        "hypothesis_efficiency": 0.13793103448275862,
+        "information_efficiency": 0.24904036279166672,
+        "search_reduction": 0.9375,
+        "activity_depth": 5,
+        "discovery_depth": 5,
+        "activity_without_discovery": false
+      },
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "starvation": false,
+      "representable": true,
+      "informative": true,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      }
+    }
+  ],
+  "direct_openworld_rows": [
+    {
+      "seed": 0,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 1,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 2,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 3,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 4,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 7,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 11,
+      "secret_found": true,
+      "gt_hit": "AIVD317-HOLDOUT-V-VAULT-HUMUS",
+      "tested": 13,
+      "generated": 25,
+      "n_primitives": 7,
+      "primitives": [
+        "cues",
+        "reed",
+        "moss",
+        "lichen",
+        "vault",
+        "closer",
+        "blot"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "first_broken": null,
+      "diagnostics": {
+        "codes": [
+          "REPRESENTABLE",
+          "GENERATABLE",
+          "EXECUTABLE",
+          "INFORMATIVE"
+        ],
+        "first_broken_capability": null,
+        "representation_ok": false,
+        "starvation": false,
+        "dead_end": false
+      },
+      "activity_depth": 8,
+      "discovery_depth": 8
+    }
+  ],
+  "direct_openworld_rate": 1.0,
+  "mean_add": 5.0,
+  "mean_activity_depth": 5.0,
+  "mean_discovery_depth": 5.0,
+  "mean_tested": 4.0,
+  "mean_generated": 25.0,
+  "first_broken": [
+    "VERIFY",
+    "VERIFY",
+    "VERIFY",
+    "VERIFY",
+    "VERIFY",
+    "VERIFY",
+    "VERIFY"
+  ],
+  "levels": {
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0,
+    "5": 1.0,
+    "6": 1.0,
+    "7": 0.0
+  },
+  "diag_first_broken_capability": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "legacy_representable": false,
+  "openworld_represent_generate_execute_informative": {
+    "representable": true,
+    "mean_tested": 4.0,
+    "starvation_rate": 0.0
+  },
+  "no_post_hoc_tune": true
+}

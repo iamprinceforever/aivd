@@ -1,0 +1,224 @@
+{
+  "budget": 20,
+  "seed": 42,
+  "version": "3.0.0",
+  "methods": {
+    "random": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.25,
+      "ExplorationCoverage": 0.3125,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.6,
+      "tests_per_discovery": 4.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 12,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE",
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "CorpusEscapeGT": [
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-ENCODING": 2,
+        "HV-CORPUS-ROLE": 4,
+        "HV-NOVEL-DELIMITER": 1,
+        "HV-CORPUS-INJECT": 2,
+        "HV-NOVEL-INDIRECT": 3
+      },
+      "status_counts": {
+        "tested": 8,
+        "confirmed": 12
+      },
+      "mean_reward": 0.31047206552537043
+    },
+    "corpus": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.1,
+      "ExplorationCoverage": 0.3125,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.0,
+      "tests_per_discovery": 10.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 14,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE"
+      ],
+      "CorpusEscapeGT": [],
+      "gt_hits": {
+        "HV-CORPUS-INJECT": 8,
+        "HV-CORPUS-ROLE": 6
+      },
+      "status_counts": {
+        "confirmed": 14,
+        "tested": 6
+      },
+      "mean_reward": 0.20497184774210683
+    },
+    "novelty": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.1,
+      "ExplorationCoverage": 0.4375,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 1.0,
+      "tests_per_discovery": 10.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 11,
+      "ConfirmedUniqueGT": [
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING"
+      ],
+      "CorpusEscapeGT": [
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-DELIMITER": 4,
+        "HV-NOVEL-ENCODING": 7
+      },
+      "status_counts": {
+        "confirmed": 11,
+        "tested": 9
+      },
+      "mean_reward": 0.15219866078649738
+    },
+    "rl": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.25,
+      "ExplorationCoverage": 0.3125,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.6,
+      "tests_per_discovery": 4.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 14,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE",
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "CorpusEscapeGT": [
+        "HV-NOVEL-DELIMITER",
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-DELIMITER": 6,
+        "HV-CORPUS-ROLE": 3,
+        "HV-NOVEL-INDIRECT": 2,
+        "HV-CORPUS-INJECT": 1,
+        "HV-NOVEL-ENCODING": 2
+      },
+      "status_counts": {
+        "confirmed": 14,
+        "tested": 6
+      },
+      "mean_reward": 0.3561509361522396
+    },
+    "rl_v2": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.15,
+      "ExplorationCoverage": 0.3125,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.3333333333333333,
+      "tests_per_discovery": 6.666666666666667,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 17,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE",
+        "HV-NOVEL-ENCODING"
+      ],
+      "CorpusEscapeGT": [
+        "HV-NOVEL-ENCODING"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-ENCODING": 7,
+        "HV-CORPUS-INJECT": 4,
+        "HV-CORPUS-ROLE": 6
+      },
+      "status_counts": {
+        "confirmed": 17,
+        "tested": 3
+      },
+      "mean_reward": 0.39582267618234784
+    },
+    "ppo": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.2,
+      "ExplorationCoverage": 0.25,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.5,
+      "tests_per_discovery": 5.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 15,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE",
+        "HV-LATENT-COMPOSE",
+        "HV-NOVEL-ENCODING"
+      ],
+      "CorpusEscapeGT": [
+        "HV-LATENT-COMPOSE",
+        "HV-NOVEL-ENCODING"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-ENCODING": 7,
+        "HV-CORPUS-INJECT": 4,
+        "HV-LATENT-COMPOSE": 2,
+        "HV-CORPUS-ROLE": 2
+      },
+      "status_counts": {
+        "confirmed": 15,
+        "tested": 5
+      },
+      "mean_reward": 0.37155544723513867
+    },
+    "hybrid": {
+      "experiments": 20,
+      "DiscoveryEfficiency": 0.2,
+      "ExplorationCoverage": 0.1875,
+      "FalsePositiveRate": 0.0,
+      "ReproRate": 1.0,
+      "CorpusEscapeRate": 0.5,
+      "tests_per_discovery": 5.0,
+      "AnomalyRate": 0.0,
+      "ConfirmedCount": 19,
+      "ConfirmedUniqueGT": [
+        "HV-CORPUS-INJECT",
+        "HV-CORPUS-ROLE",
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "CorpusEscapeGT": [
+        "HV-NOVEL-ENCODING",
+        "HV-NOVEL-INDIRECT"
+      ],
+      "gt_hits": {
+        "HV-NOVEL-ENCODING": 16,
+        "HV-NOVEL-INDIRECT": 1,
+        "HV-CORPUS-ROLE": 1,
+        "HV-CORPUS-INJECT": 1
+      },
+      "status_counts": {
+        "confirmed": 19,
+        "tested": 1
+      },
+      "mean_reward": 0.33803961847742914
+    }
+  },
+  "learned_encoder_train_steps_demo": 1
+}
