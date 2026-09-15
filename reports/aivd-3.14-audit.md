@@ -22,3 +22,8 @@
 ## Forbidden hardcoding
 No R span/enable/open/fuse, Q conduit/prime/seal, Z flush×mirror, S-specific rules,
 or `if holdout == ...` in discovery layers.
+
+## Holdout-S sacred
+- Status: NOT_DISCOVERED
+- Freeze commit: 631d2e5abe8f1d9d6e019eb877b78aca19a1add8
+- No retune after S.

@@ -93,5 +93,7 @@
   "anti_mapping_pass_rate": 1.0,
   "noncausal_pass_rate": 1.0,
   "brute_force_rate_synthetic": 0.0,
-  "elapsed_s_pre_freeze_body": 12.015
+  "elapsed_s_pre_freeze_body": 12.015,
+  "freeze_commit": "631d2e5abe8f1d9d6e019eb877b78aca19a1add8",
+  "freeze_commit_short": "631d2e5"
 }
