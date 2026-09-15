@@ -87,6 +87,7 @@ class ScienceController:
         baseline = observe_fn(seed_prompt)
         sci = ScienceProposer(seed=self.seed, max_new=self.max_candidates)
         sci.bind(seed_prompt, baseline)
+        sci.observe(seed_prompt, baseline, ops=[])
         ops_of: dict[str, list[str]] = {}
         best_obs: Any = None
         if make_contrast(baseline).secret:

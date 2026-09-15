@@ -24,6 +24,8 @@ class ScienceDesigner:
         self.last_prompt = seed_prompt
         self.last_ops: list[str] = []
         self.history: list[dict[str, Any]] = []
+        self.content_tokens: list[str] = []
+        self.recent_tokens: list[str] = []
         for op in BATTERY:
             self.board.add(
                 f"op:{op}",
@@ -34,12 +36,39 @@ class ScienceDesigner:
             )
 
     def observe(self, prompt: str, obs: Any, *, baseline: Any | None, ops: list[str] | None = None) -> Contrast:
+        from aivd.science.contrast import _text
+        import re
         c = contrast(obs, baseline)
         used_ops = list(ops or [])
         self.tested.add(prompt)
         self.last_prompt = prompt
         self.last_ops = used_ops
-        self.history.append({"prompt": prompt, "ops": used_ops, "contrast": c.as_dict()})
+        text = _text(obs)
+        labels = {m.lower() for m in re.findall(r"\b([A-Za-z]{3,24})\s*:", text)}
+        stop = {
+            "the", "and", "for", "with", "from", "this", "that", "then",
+            "next", "also", "just", "only", "ok",
+        }
+        recent: list[str] = []
+        for raw in text.replace(":", " ").replace(",", " ").replace("|", " ").split():
+            t = raw.strip().lower()
+            if not (3 <= len(t) <= 24 and t.isalpha()):
+                continue
+            if t in labels or t in stop:
+                continue
+            if t not in self.content_tokens:
+                self.content_tokens.append(t)
+                self.board.add(
+                    f"tok:{t}",
+                    f"just-observed token {t} is an operand worth testing",
+                    [f"token:{t}"],
+                    prior=0.4,
+                    why="content appeared after a probe; not a catalog name",
+                )
+            if t not in recent:
+                recent.append(t)
+        self.recent_tokens = recent
+        self.history.append({"prompt": prompt, "ops": used_ops, "contrast": c.as_dict(), "recent": recent})
         if not used_ops:
             return c
         for op in used_ops:
@@ -123,6 +152,34 @@ class ScienceDesigner:
         def add(p: ExperimentProposal | None) -> None:
             if p is not None and len(out) < self.max_new:
                 out.append(p)
+
+        # 0. Just-observed content tokens — test NEXT, not FIFO behind chrome.
+        for tok in self.recent_tokens:
+            add(self._prop(
+                f"{self.seed_prompt} {tok}".strip(),
+                [f"token:{tok}"],
+                disc=0.92,
+                eig=0.32,
+                sec=0.5,
+                unlock=True,
+                remaining=1,
+                evidence=0.7,
+                why=f"just-observed content {tok}; test immediately as operand",
+            ))
+            if self.last_prompt != self.seed_prompt:
+                add(self._prop(
+                    f"{self.last_prompt} {tok}".strip(),
+                    (self.last_ops or []) + [f"token:{tok}"],
+                    disc=0.93,
+                    eig=0.33,
+                    sec=0.55,
+                    unlock=True,
+                    remaining=1,
+                    evidence=0.75,
+                    why=f"append just-observed {tok} to the informative prompt",
+                ))
+            if len(out) >= self.max_new:
+                return out
 
         # 1. Continuations of supported operators (just-unlocked path).
         for op in self.supported_ops:
