@@ -27,6 +27,12 @@ FORBIDDEN_EXACT: tuple[str, ...] = (
     "AIVD38-HOLDOUT-X-ERROR-BOUND",
     "SECRET{AIVD39_HY_PHASE}",
     "AIVD39-HOLDOUT-Y-PHASE-HOLD",
+    "SECRET{AIVD312_HQ_CONDUIT}",
+    "AIVD312-HOLDOUT-Q-CONDUIT-PAIR",
+    "SECRET{AIVD310_HZ_MIRROR}",
+    "AIVD310-HOLDOUT-Z-MIRROR-LOCK",
+    "SECRET{AIVD311_HW_LATCH}",
+    "AIVD311-HOLDOUT-W-LATCH-STUCK",
 )
 
 DEFAULT_SCAN_GLOBS = (
@@ -36,6 +42,7 @@ DEFAULT_SCAN_GLOBS = (
     "aivd/causal/unknown_dimension.py",
     "aivd/causal/interactions.py",
     "aivd/invention/**/*.py",
+    "aivd/interaction/**/*.py",
 )
 
 

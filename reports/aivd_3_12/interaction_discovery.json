@@ -1,0 +1,30 @@
+{
+  "controls_discovery": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 1.0,
+    "diversity": 0.7142857142857143,
+    "diversity_full": 0.42857142857142855,
+    "adaptive": 1.0,
+    "adaptive_full": 1.0,
+    "interaction": 1.0,
+    "interaction_full": 1.0,
+    "interaction_random": 1.0
+  },
+  "mean_ix_generated_interaction_full_x": 0.0,
+  "mean_ix_tested_interaction_full_x": 0.0,
+  "z_replay_discovery": {
+    "off": 0.0,
+    "random": 0.0,
+    "full": 0.0,
+    "diversity_full": 0.0,
+    "adaptive_full": 0.0,
+    "interaction": 0.0,
+    "interaction_full": 0.0
+  },
+  "anti_z_status": "PASS",
+  "additive_fp_pass": true,
+  "complexity_brute_force": false,
+  "pruning_ratio": 0.9474,
+  "note": "Level-3 interaction: combination must exceed additive; hierarchical pair gen."
+}

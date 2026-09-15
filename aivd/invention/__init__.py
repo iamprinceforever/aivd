@@ -1,11 +1,13 @@
-"""AIVD 3.9/3.10/3.11 Open Intervention Invention (+ Diversity + Adaptive Ordering).
+"""AIVD 3.9–3.12 Open Intervention Invention (+ Diversity + Adaptive + Interaction).
 
 Sits ABOVE 3.6 causal, BEFORE residual sweep / investigation.
 Config: invention_mode = off | random | heuristic | full |
         diversity | bandit | diversity_full | diversity_heuristic |
-        adaptive | adaptive_full | adaptive_heuristic (default off).
-Optional: invention_diversity_mode, adaptive_ordering_mode, exploration,
-saturation/revival. Novelty alone is NOT rewarded. No Holdout special-cases.
+        adaptive | adaptive_full | adaptive_heuristic |
+        interaction | interaction_full | interaction_random (default off).
+Optional: invention_diversity_mode, adaptive_ordering_mode, interaction_mode,
+exploration, saturation/revival. Novelty alone is NOT rewarded.
+No Holdout special-cases. Interaction layer distinguishes additive vs synergistic.
 """
 from aivd.invention.controller import InventionController
 from aivd.invention.intervention_space import Intervention, InterventionOp
@@ -16,6 +18,7 @@ from aivd.invention.audit import (
     novelty_audit_record,
     diversity_audit_record,
     adaptive_ordering_audit_record,
+    interaction_discovery_audit_record,
 )
 from aivd.invention.family import assign_family, cluster_interventions, extract_family_features
 from aivd.invention.selection import diversity_score, select_diverse_batch, rank_with_diversity
@@ -43,6 +46,7 @@ __all__ = [
     "novelty_audit_record",
     "diversity_audit_record",
     "adaptive_ordering_audit_record",
+    "interaction_discovery_audit_record",
     "assign_family",
     "cluster_interventions",
     "extract_family_features",

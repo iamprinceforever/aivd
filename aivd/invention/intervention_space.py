@@ -79,6 +79,20 @@ ACTION_STEMS: tuple[str, ...] = (
     "delay",
     "repeat",
     "reorder",
+    # 3.12 general interaction vocabulary (not Holdout-named)
+    "prime",
+    "couple",
+    "join",
+    "link",
+    "arm",
+    "seal",
+    "fuse",
+    "span",
+    "prep",
+    "bind",
+    "knit",
+    "tack",
+    "spin",
 )
 
 # Morphological suffixes for open invention (applied at runtime → derived forms)

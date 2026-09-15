@@ -22,6 +22,8 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
     hz_label = "HOLDOUT" + "-Z"
     hw_secret_prefix = "SECRET{AIVD311_HW_"
     hw_label = "HOLDOUT" + "-W"
+    hq_secret_prefix = "SECRET{AIVD312_HQ_"
+    hq_label = "HOLDOUT" + "-Q"
     return (
         ack_bound,
         clearance,
@@ -39,9 +41,17 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
         hw_label,
         hw_secret_prefix,
         "HoldoutW",
+        "HoldoutQ",
+        hq_label,
+        hq_secret_prefix,
         "holdout_y_phase_key",
         "holdout_z_lease_key",
         "holdout_w_latch_key",
+        "holdout_q_conduit_key",
+        "flush-mirror",
+        "free-mirror",
+        "sync-mirror",
+        "drop-mirror",
     )
 
 
@@ -49,20 +59,21 @@ FORBIDDEN_HOLDOUT_LITERALS = _forbidden_holdout_literals()
 
 
 def scan_invention_source(root: Path | None = None) -> list[tuple[str, str]]:
-    """Scan aivd/invention for forbidden Holdout solution literals."""
+    """Scan aivd/invention and aivd/interaction for forbidden Holdout solution literals."""
     root = root or Path(__file__).resolve().parents[2]
-    inv = root / "aivd" / "invention"
     leaks: list[tuple[str, str]] = []
-    if not inv.is_dir():
-        return leaks
     forbidden = _forbidden_holdout_literals()
-    for f in inv.rglob("*.py"):
-        if f.name == "audit.py":
-            continue  # this module defines the checker
-        text = f.read_text(errors="ignore")
-        for tok in forbidden:
-            if tok and tok in text:
-                leaks.append((str(f.relative_to(root)), tok))
+    for sub in ("invention", "interaction"):
+        inv = root / "aivd" / sub
+        if not inv.is_dir():
+            continue
+        for f in inv.rglob("*.py"):
+            if f.name == "audit.py":
+                continue  # checker documents forbidden tokens via fragments
+            text = f.read_text(errors="ignore")
+            for tok in forbidden:
+                if tok and tok in text:
+                    leaks.append((str(f.relative_to(root)), tok))
     return leaks
 
 
@@ -135,3 +146,24 @@ def adaptive_ordering_audit_record(
 def write_audit_json(path: Path, records: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps({"records": records, "n": len(records)}, indent=2))
+
+
+
+def interaction_discovery_audit_record(
+    *,
+    summary: dict[str, Any],
+    complexity: dict[str, Any] | None = None,
+    anti_z: dict[str, Any] | None = None,
+    ablation: str | None = None,
+) -> dict[str, Any]:
+    return {
+        "kind": "interaction_discovery_audit",
+        "summary": summary,
+        "complexity": complexity or {},
+        "anti_z": anti_z or {},
+        "ablation": ablation,
+        "note": (
+            "Open interaction discovery; no Holdout/Z/Q hardcoding; "
+            "additive ≠ security interaction; not Cartesian brute force."
+        ),
+    }

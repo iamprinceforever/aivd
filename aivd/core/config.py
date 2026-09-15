@@ -112,6 +112,7 @@ class AIVDConfig(BaseModel):
         "off", "random", "heuristic", "full",
         "diversity", "bandit", "diversity_full", "diversity_heuristic",
         "adaptive", "adaptive_full", "adaptive_heuristic",
+        "interaction", "interaction_full", "interaction_random",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -127,6 +128,16 @@ class AIVDConfig(BaseModel):
     # v3.11 adaptive search ordering (default off)
     adaptive_ordering_mode: Literal["off", "on", "full", "heuristic"] = "off"
     invention_adaptive_ablation: str | None = None
+    # v3.12 open interaction discovery (default off)
+    interaction_mode: Literal[
+        "off", "random", "static", "diversity", "adaptive",
+        "interaction", "interaction_full", "interaction_random",
+    ] = "off"
+    interaction_max_pairs: int = 24
+    interaction_max_screen: int = 8
+    interaction_max_counterfactuals: int = 4
+    interaction_max_triples: int = 2
+    invention_interaction_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

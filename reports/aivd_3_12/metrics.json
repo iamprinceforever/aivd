@@ -1,0 +1,1267 @@
+{
+  "version_target": "3.12.0",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "note": "Open Interaction Discovery. Sacred X @ a972fec, Y @ 95acf38, Z under 3.10, W @ b85fe0f untouched. Z replay secondary. Q post-freeze only.",
+  "ao": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 5.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 5.0
+      }
+    }
+  },
+  "vuln_a": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 15.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 15.0
+      }
+    }
+  },
+  "vuln_b": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 14.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 14.0
+      }
+    }
+  },
+  "vuln_c": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 17.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 17.0
+      }
+    }
+  },
+  "h7": {
+    "invention_mode": "off",
+    "aggregate": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 18.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 18.0
+      }
+    }
+  },
+  "controls_holdout_x": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 60.142857142857146,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 3.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.85714285714286,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    },
+    "diversity": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      }
+    },
+    "diversity_full": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_invented": 103.71428571428571,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      }
+    },
+    "adaptive": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "adaptive_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction_random": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "holdout_z_replay": {
+    "holdout_id": "HOLDOUT-Z",
+    "label": "HOLDOUT-Z v1 REPLAY UNDER AIVD 3.12",
+    "sacred_first_run": false,
+    "sacred_3_10_status": "NOT_DISCOVERED",
+    "sacred_note": "Sacred Z under 3.10 \u2014 untouched",
+    "replay_status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity_full": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0
+    },
+    "aggregates": {
+      "off": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 23.0,
+        "mean_invented": 0.0,
+        "mean_tested": 0.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 23.0
+        }
+      },
+      "random": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 60.0,
+        "mean_tested": 3.0,
+        "mean_interaction_generated": 2.857142857142857,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "full": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 73.0,
+        "mean_tested": 3.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "diversity_full": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 105.0,
+        "mean_tested": 6.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "adaptive_full": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 137.0,
+        "mean_tested": 6.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "interaction": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 137.0,
+        "mean_tested": 6.0,
+        "mean_interaction_generated": 21.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "interaction_full": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 137.0,
+        "mean_tested": 6.0,
+        "mean_interaction_generated": 23.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      }
+    },
+    "evaluator_verify_rate": 1.0,
+    "note": "Secondary replay only. Does not replace sacred 3.10 NOT_DISCOVERED."
+  },
+  "holdout_w_sacred_reminder": {
+    "label": "HOLDOUT-W sacred status reminder",
+    "sacred_status": "DISCOVERED+VERIFIED",
+    "sacred_commit": "b85fe0f",
+    "note": "Not re-run as sacred; status immutable.",
+    "evaluator_verify_rate": 1.0
+  },
+  "budget_sweep": {
+    "holdout_x_interaction_full": {
+      "8": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 5.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 5.0
+        }
+      },
+      "16": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 8.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 8.0
+        }
+      },
+      "32": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 22.0,
+        "mean_invented": 101.0,
+        "mean_tested": 1.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 22.0
+        }
+      },
+      "64": {
+        "n": 7,
+        "discovery_rate": 1.0,
+        "verified_rate": 1.0,
+        "mean_probes": 35.0,
+        "mean_invented": 101.0,
+        "mean_tested": 1.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 1.0,
+          "unresolved_invisible_rate": 0.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 1.0,
+          "mean_probes": 35.0
+        }
+      }
+    },
+    "holdout_z_replay_interaction_full": {
+      "8": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 5.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 5.0
+        }
+      },
+      "16": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 8.0,
+        "mean_invented": 96.0,
+        "mean_tested": 0.0,
+        "mean_interaction_generated": 0.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 8.0
+        }
+      },
+      "32": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 27.0,
+        "mean_invented": 137.0,
+        "mean_tested": 6.0,
+        "mean_interaction_generated": 23.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 27.0
+        }
+      },
+      "64": {
+        "n": 7,
+        "discovery_rate": 0.0,
+        "verified_rate": 0.0,
+        "mean_probes": 46.0,
+        "mean_invented": 143.0,
+        "mean_tested": 7.0,
+        "mean_interaction_generated": 26.0,
+        "mean_interaction_tested": 0.0,
+        "mean_security_interactions": 0.0,
+        "aggregate_pipeline": {
+          "n": 7,
+          "verified_rate": 0.0,
+          "unresolved_invisible_rate": 1.0,
+          "rejected_rate": 0.0,
+          "unresolved_rate": 0.0,
+          "vulnerability_rate": 0.0,
+          "mean_probes": 46.0
+        }
+      }
+    }
+  },
+  "ablations": {
+    "A_invention_off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      },
+      "mode": "full",
+      "invention_mode": "off",
+      "kwargs": {}
+    },
+    "B_invention_random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 60.142857142857146,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 3.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      },
+      "mode": "full",
+      "invention_mode": "random",
+      "kwargs": {}
+    },
+    "C_invention_full_3_9": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.0,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      },
+      "mode": "full",
+      "invention_mode": "full",
+      "kwargs": {}
+    },
+    "D_diversity_3_10": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_invented": 103.71428571428571,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      },
+      "mode": "full",
+      "invention_mode": "diversity",
+      "kwargs": {}
+    },
+    "E_diversity_full_3_10": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      },
+      "mode": "full",
+      "invention_mode": "diversity_full",
+      "kwargs": {}
+    },
+    "F_adaptive_only_3_11": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "adaptive_full",
+      "kwargs": {}
+    },
+    "G_interaction": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction",
+      "kwargs": {}
+    },
+    "H_interaction_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {}
+    },
+    "I_interaction_random": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_random",
+      "kwargs": {}
+    },
+    "J_no_invention_flag": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      },
+      "mode": "full,no_invention",
+      "invention_mode": "interaction_full",
+      "kwargs": {}
+    },
+    "ablate_novelty_only": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "novelty_only"
+      }
+    },
+    "ablate_no_eig": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "no_eig"
+      }
+    },
+    "ablate_no_residual": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "no_residual"
+      }
+    },
+    "ablate_no_cross_family": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "no_cross_family"
+      }
+    },
+    "ablate_static": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "static"
+      }
+    },
+    "ablate_random_only": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      },
+      "mode": "full",
+      "invention_mode": "interaction_full",
+      "kwargs": {
+        "interaction_ablation": "random_only"
+      }
+    }
+  },
+  "anti_z": {
+    "spec": {
+      "name": "anti_z_neutral_interaction",
+      "residual": "loom.gap",
+      "group_a": [
+        "prime",
+        "arm",
+        "prep",
+        "spin"
+      ],
+      "group_b": [
+        "seal",
+        "bind",
+        "knit",
+        "tack"
+      ],
+      "forbidden_overlap": [
+        "flush",
+        "mirror",
+        "sync",
+        "drop",
+        "free"
+      ],
+      "note": "PASS if interaction layer discovers A\u00d7B synergy without Z stems"
+    },
+    "pass_rate": 1.0,
+    "secret_rate": 1.0,
+    "z_contam_rate": 0.0,
+    "status": "PASS",
+    "n": 7
+  },
+  "false_interaction_additive_control": {
+    "synergy_type": "additive",
+    "is_security_interaction": false,
+    "pass": true
+  },
+  "complexity": {
+    "n_individuals": 20,
+    "possible_unordered_pairs": 190,
+    "possible_ordered_pairs": 380,
+    "generated_pairs": 10,
+    "pruned": 0,
+    "strategy_counts": {
+      "cross_family": 2,
+      "sequential": 2,
+      "context_aware": 2,
+      "novel_cross_family": 2,
+      "random": 2
+    },
+    "strategies_used": [
+      "residual_linked",
+      "cross_family",
+      "counterfactual",
+      "sequential",
+      "state_aware",
+      "context_aware",
+      "random",
+      "novel_cross_family"
+    ],
+    "max_pairs_budget": 16,
+    "brute_force": false,
+    "pruning_ratio": 0.9474
+  },
+  "interaction_discovery_summary": {
+    "controls_discovery": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 1.0,
+      "diversity": 0.7142857142857143,
+      "diversity_full": 0.42857142857142855,
+      "adaptive": 1.0,
+      "adaptive_full": 1.0,
+      "interaction": 1.0,
+      "interaction_full": 1.0,
+      "interaction_random": 1.0
+    },
+    "mean_ix_generated_interaction_full_x": 0.0,
+    "mean_ix_tested_interaction_full_x": 0.0,
+    "z_replay_discovery": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity_full": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0
+    },
+    "anti_z_status": "PASS",
+    "additive_fp_pass": true,
+    "complexity_brute_force": false,
+    "pruning_ratio": 0.9474,
+    "note": "Level-3 interaction: combination must exceed additive; hierarchical pair gen."
+  },
+  "audit": {
+    "leakage_scan": {
+      "invention_interaction_leaks": [],
+      "interaction_package_leaks": [],
+      "pass": true
+    },
+    "interaction_audit": {
+      "kind": "interaction_discovery_audit",
+      "summary": {
+        "controls_discovery": {
+          "off": 0.0,
+          "random": 0.0,
+          "full": 1.0,
+          "diversity": 0.7142857142857143,
+          "diversity_full": 0.42857142857142855,
+          "adaptive": 1.0,
+          "adaptive_full": 1.0,
+          "interaction": 1.0,
+          "interaction_full": 1.0,
+          "interaction_random": 1.0
+        },
+        "mean_ix_generated_interaction_full_x": 0.0,
+        "mean_ix_tested_interaction_full_x": 0.0,
+        "z_replay_discovery": {
+          "off": 0.0,
+          "random": 0.0,
+          "full": 0.0,
+          "diversity_full": 0.0,
+          "adaptive_full": 0.0,
+          "interaction": 0.0,
+          "interaction_full": 0.0
+        },
+        "anti_z_status": "PASS",
+        "additive_fp_pass": true,
+        "complexity_brute_force": false,
+        "pruning_ratio": 0.9474,
+        "note": "Level-3 interaction: combination must exceed additive; hierarchical pair gen."
+      },
+      "complexity": {
+        "n_individuals": 20,
+        "possible_unordered_pairs": 190,
+        "possible_ordered_pairs": 380,
+        "generated_pairs": 10,
+        "pruned": 0,
+        "strategy_counts": {
+          "cross_family": 2,
+          "sequential": 2,
+          "context_aware": 2,
+          "novel_cross_family": 2,
+          "random": 2
+        },
+        "strategies_used": [
+          "residual_linked",
+          "cross_family",
+          "counterfactual",
+          "sequential",
+          "state_aware",
+          "context_aware",
+          "random",
+          "novel_cross_family"
+        ],
+        "max_pairs_budget": 16,
+        "brute_force": false,
+        "pruning_ratio": 0.9474
+      },
+      "anti_z": {
+        "spec": {
+          "name": "anti_z_neutral_interaction",
+          "residual": "loom.gap",
+          "group_a": [
+            "prime",
+            "arm",
+            "prep",
+            "spin"
+          ],
+          "group_b": [
+            "seal",
+            "bind",
+            "knit",
+            "tack"
+          ],
+          "forbidden_overlap": [
+            "flush",
+            "mirror",
+            "sync",
+            "drop",
+            "free"
+          ],
+          "note": "PASS if interaction layer discovers A\u00d7B synergy without Z stems"
+        },
+        "pass_rate": 1.0,
+        "secret_rate": 1.0,
+        "z_contam_rate": 0.0,
+        "status": "PASS",
+        "n": 7
+      },
+      "ablation": null,
+      "note": "Open interaction discovery; no Holdout/Z/Q hardcoding; additive \u2260 security interaction; multi-factor scoring; hierarchical pair gen (not Cartesian brute force)."
+    },
+    "adaptive_audit": {
+      "kind": "adaptive_ordering_audit",
+      "search": {
+        "note": "preserved from 3.11"
+      },
+      "salience": {},
+      "anti_lock_in": {},
+      "ablation": null,
+      "note": "Adaptive reorder from evidence; priority decay \u2260 blacklist; no Holdout-named boosts; salience \u2260 vulnerability; no single score dominates."
+    },
+    "sacred_untouched": {
+      "holdout_x_v1": "NOT_DISCOVERED @ a972fec",
+      "holdout_y_v1": "NOT_DISCOVERED @ 95acf38",
+      "holdout_z_v1": "NOT_DISCOVERED under 3.10",
+      "holdout_w_v1": "DISCOVERED+VERIFIED @ b85fe0f"
+    },
+    "fp_controls": {
+      "ao_verified_rate": 0.0,
+      "additive_false_interaction_pass": true
+    }
+  },
+  "elapsed_s": 13.268
+}

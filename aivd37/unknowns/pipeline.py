@@ -94,6 +94,12 @@ class UnknownsPipeline:
         invention_exploration_enabled: bool = True,
         adaptive_ordering_mode: str = "off",
         invention_adaptive_ablation: str | None = None,
+        interaction_mode: str = "off",
+        invention_interaction_ablation: str | None = None,
+        interaction_max_pairs: int = 24,
+        interaction_max_screen: int = 8,
+        interaction_max_counterfactuals: int = 4,
+        interaction_max_triples: int = 2,
     ):
         self.target = target
         if probe_fn is not None:
@@ -118,6 +124,12 @@ class UnknownsPipeline:
         self.invention_exploration_enabled = bool(invention_exploration_enabled)
         self.adaptive_ordering_mode = str(adaptive_ordering_mode or "off").lower().strip()
         self.invention_adaptive_ablation = invention_adaptive_ablation
+        self.interaction_mode = str(interaction_mode or "off").lower().strip()
+        self.invention_interaction_ablation = invention_interaction_ablation
+        self.interaction_max_pairs = int(interaction_max_pairs)
+        self.interaction_max_screen = int(interaction_max_screen)
+        self.interaction_max_counterfactuals = int(interaction_max_counterfactuals)
+        self.interaction_max_triples = int(interaction_max_triples)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -142,6 +154,24 @@ class UnknownsPipeline:
                 self.invention_mode = "adaptive_heuristic"
             else:
                 self.invention_mode = "adaptive"
+        # interaction_mode overlays (3.12) — takes precedence when set
+        if self.interaction_mode not in ("off", "false", "0", ""):
+            im = self.interaction_mode
+            if self.invention_mode in ("off", "false", "0", ""):
+                if im in ("interaction_full", "full"):
+                    self.invention_mode = "interaction_full"
+                elif im in ("random", "interaction_random"):
+                    self.invention_mode = "interaction_random"
+                else:
+                    self.invention_mode = "interaction"
+            elif im in ("interaction_full", "full") or self.invention_mode in (
+                "adaptive_full", "diversity_full", "full", "interaction_full",
+            ):
+                self.invention_mode = "interaction_full"
+            elif im in ("random", "interaction_random"):
+                self.invention_mode = "interaction_random"
+            else:
+                self.invention_mode = "interaction"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -187,7 +217,7 @@ class UnknownsPipeline:
             # Leave headroom for falsify/reproduce/invariant (~8 probes)
             gate_reserve = min(8, max(4, self.episode_budget // 5))
             # Diversity modes need larger invention reserve for family coverage
-            _div_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic", "adaptive", "adaptive_full", "adaptive_heuristic")
+            _div_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic", "adaptive", "adaptive_full", "adaptive_heuristic", "interaction", "interaction_full", "interaction_random")
             inv_frac_den = 2 if self.invention_mode in _div_modes else 3
             invention_reserve = min(
                 int(self.invention_max_cheap_tests),
@@ -371,6 +401,11 @@ class UnknownsPipeline:
                         revival_enabled=self.invention_revival,
                         exploration_enabled=self.invention_exploration_enabled,
                         adaptive_ablation=self.invention_adaptive_ablation,
+                        interaction_ablation=self.invention_interaction_ablation,
+                        interaction_max_pairs=self.interaction_max_pairs,
+                        interaction_max_screen=self.interaction_max_screen,
+                        interaction_max_counterfactuals=self.interaction_max_counterfactuals,
+                        interaction_max_triples=self.interaction_max_triples,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

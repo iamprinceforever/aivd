@@ -4,6 +4,7 @@ Sits ABOVE causal, BEFORE residual sweep handoff / investigation.
 Preserves terminal semantics; does not claim VERIFIED without gates.
 3.10 extends 3.9 with optional diversity-aware selection (default off via mode).
 3.11 adds Adaptive Search Ordering: TEST→observe→evidence→reorder (default off).
+3.12 adds Open Interaction Discovery after individual results (default off).
 """
 from __future__ import annotations
 
@@ -15,6 +16,8 @@ from aivd.invention.adaptive_ordering import (
     is_adaptive_mode,
     _base_gen_mode as _adaptive_base_gen,
 )
+from aivd.interaction.scheduler import is_interaction_mode, INTERACTION_MODES
+from aivd.interaction.controller import InteractionDiscoveryController
 from aivd.invention.archive import FamilyArchive
 from aivd.invention.budget import InventionBudget
 from aivd.invention.candidate_generator import generate_candidates
@@ -41,11 +44,17 @@ _DIVERSITY_MODES = frozenset({
 })
 # 3.11 adaptive modes also use diversity-style generation / coarse families
 _ADAPTIVE_MODES = ADAPTIVE_MODES
+# 3.12 interaction modes
+_INTERACTION_MODES = INTERACTION_MODES
 
 
 def _base_gen_mode(mode: str) -> str:
-    """Map diversity / adaptive modes onto a 3.9 generator mode."""
+    """Map diversity / adaptive / interaction modes onto a 3.9 generator mode."""
     m = (mode or "off").lower().strip()
+    if m in _INTERACTION_MODES or m.startswith("interaction"):
+        if m in ("interaction_random", "random"):
+            return "full"
+        return "full"
     if m in _ADAPTIVE_MODES:
         return _adaptive_base_gen(m)
     if m in ("diversity", "bandit", "diversity_full"):
@@ -67,7 +76,7 @@ def _exploration_for_mode(mode: str, exploration: str | None) -> str:
         return "novelty_bandit"
     if m == "diversity_full":
         return "hierarchical"
-    if m in ("adaptive", "adaptive_full"):
+    if m in ("adaptive", "adaptive_full") or m.startswith("interaction"):
         return "hierarchical"
     if m == "adaptive_heuristic":
         return "epsilon_greedy"
@@ -119,7 +128,7 @@ def _security_signal(obs: Any, baseline: Any | None = None) -> float:
 
 
 class InventionController:
-    """Open intervention invention loop (3.9 + 3.10 diversity + 3.11 adaptive ordering)."""
+    """Open intervention invention loop (3.9–3.12: diversity + adaptive + interaction)."""
 
     def __init__(
         self,
@@ -135,6 +144,12 @@ class InventionController:
         diversity_enabled: bool | None = None,
         adaptive_ordering: bool | None = None,
         adaptive_ablation: str | None = None,
+        interaction_discovery: bool | None = None,
+        interaction_ablation: str | None = None,
+        interaction_max_pairs: int = 24,
+        interaction_max_screen: int = 8,
+        interaction_max_counterfactuals: int = 4,
+        interaction_max_triples: int = 2,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -149,13 +164,24 @@ class InventionController:
         self.revival_enabled = bool(revival_enabled)
         self.exploration_enabled = bool(exploration_enabled)
         self.adaptive_ablation = adaptive_ablation
+        self.interaction_ablation = interaction_ablation
+        self.interaction_max_pairs = int(interaction_max_pairs)
+        self.interaction_max_screen = int(interaction_max_screen)
+        self.interaction_max_counterfactuals = int(interaction_max_counterfactuals)
+        self.interaction_max_triples = int(interaction_max_triples)
         if adaptive_ordering is None:
-            self.adaptive_enabled = is_adaptive_mode(self.mode)
+            self.adaptive_enabled = is_adaptive_mode(self.mode) or is_interaction_mode(self.mode)
         else:
             self.adaptive_enabled = bool(adaptive_ordering)
+        if interaction_discovery is None:
+            self.interaction_enabled = is_interaction_mode(self.mode)
+        else:
+            self.interaction_enabled = bool(interaction_discovery)
         if diversity_enabled is None:
             self.diversity_enabled = (
-                self.mode in _DIVERSITY_MODES or self.adaptive_enabled
+                self.mode in _DIVERSITY_MODES
+                or self.adaptive_enabled
+                or self.interaction_enabled
             )
         else:
             self.diversity_enabled = bool(diversity_enabled)
@@ -219,6 +245,8 @@ class InventionController:
                 "positive_prompts": [],
                 "trace": self.trace.as_dict(),
                 "diversity": None,
+                "interaction": None,
+                "interaction_enabled": False,
             }
 
         ctx = dict(residual_context or {})
@@ -235,6 +263,8 @@ class InventionController:
                 "trace": self.trace.as_dict(),
                 "skipped": True,
                 "diversity": None,
+                "interaction": None,
+                "interaction_enabled": self.interaction_enabled,
             }
 
         gen_mode = _base_gen_mode(self.mode)
@@ -551,6 +581,104 @@ class InventionController:
         adaptive_summary = None
         if self.adaptive_state is not None:
             adaptive_summary = self.adaptive_state.as_dict()
+
+        # 3.12 Open Interaction Discovery (after individual results)
+        interaction_summary = None
+        if self.interaction_enabled and not secret_found:
+            # Use tested interventions as independent components
+            tested_objs: list[Intervention] = []
+            effects_map: dict[str, float] = {}
+            for entry in self.trace.tested:
+                # Reconstruct minimal Intervention from tested entry
+                seq = list(entry.get("sequence") or [])
+                if not seq:
+                    continue
+                inv_r = Intervention(
+                    ops=[],
+                    sequence=seq,
+                    strategy=str(entry.get("strategy") or "primitive"),
+                    id=str(entry.get("id") or ""),
+                )
+                inv_r.effect = float(entry.get("effect") or 0.0)
+                inv_r.security = float(entry.get("effect") or 0.0)
+                inv_r.meta = {
+                    "family_id": entry.get("family_id") or "unknown",
+                    "family_features": {"stem_bucket": (seq[0].split("-")[0] if seq else "")},
+                }
+                if inv_r.id:
+                    effects_map[inv_r.id] = inv_r.effect
+                tested_objs.append(inv_r)
+            # Also include kept originals with richer meta
+            for k in kept_objs:
+                if k.id not in effects_map:
+                    effects_map[k.id] = float(k.effect or k.security or 0.0)
+                    tested_objs.append(k)
+            # Dedup by id
+            seen_i: set[str] = set()
+            uniq_inds: list[Intervention] = []
+            for t in tested_objs:
+                if t.id and t.id not in seen_i:
+                    seen_i.add(t.id)
+                    uniq_inds.append(t)
+            if len(uniq_inds) >= 2 and self.budget.can_test():
+                ic_mode = self.mode if is_interaction_mode(self.mode) else "interaction"
+                idc = InteractionDiscoveryController(
+                    mode=ic_mode,
+                    seed=self.seed,
+                    max_pairs=self.interaction_max_pairs,
+                    max_screen=self.interaction_max_screen,
+                    max_counterfactuals=min(
+                        self.interaction_max_counterfactuals,
+                        self.budget.remaining_tests(),
+                    ),
+                    max_triples=self.interaction_max_triples,
+                    ablation=self.interaction_ablation,
+                    enable_triples=self.mode == "interaction_full",
+                )
+
+                def _charge_ix() -> bool:
+                    if charge is not None and not charge():
+                        return False
+                    if not self.budget.can_test():
+                        return False
+                    self.budget.charge_test()
+                    return True
+
+                ix = idc.run(
+                    seed_prompt,
+                    individuals=uniq_inds,
+                    observe_fn=observe_fn,
+                    residual_context=ctx,
+                    charge=_charge_ix,
+                    individual_effects=effects_map,
+                )
+                interaction_summary = ix
+                self.trace.add(
+                    "interaction_discovery",
+                    n_generated=ix.get("n_generated"),
+                    n_tested=ix.get("n_tested"),
+                    n_security=ix.get("n_security_interactions"),
+                    secret=ix.get("secret_found"),
+                )
+                self.trace.probes_used += int(ix.get("probes_used") or 0)
+                if ix.get("secret_found"):
+                    secret_found = True
+                    best_prompt = ix.get("best_prompt") or best_prompt
+                    best_obs = ix.get("best_obs") or best_obs
+                    best_effect = max(best_effect, float(ix.get("best_effect") or 0.0))
+                    if best_prompt and best_prompt not in positive_prompts:
+                        positive_prompts.append(best_prompt)
+                        if best_obs is not None:
+                            positive_obs_list.append(best_obs)
+                elif ix.get("best_prompt") and float(ix.get("best_effect") or 0) > best_effect:
+                    best_effect = float(ix.get("best_effect") or 0)
+                    best_prompt = ix.get("best_prompt")
+                    best_obs = ix.get("best_obs")
+
+        self.trace.best_prompt = best_prompt
+        self.trace.best_effect = best_effect
+        self.trace.secret_found = secret_found
+
         return {
             "enabled": True,
             "best_prompt": best_prompt,
@@ -572,5 +700,7 @@ class InventionController:
             "diversity_enabled": self.diversity_enabled,
             "adaptive_enabled": self.adaptive_enabled,
             "adaptive": adaptive_summary,
+            "interaction_enabled": self.interaction_enabled,
+            "interaction": interaction_summary,
             "exploration": self.exploration,
         }

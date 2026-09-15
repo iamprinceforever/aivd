@@ -1,0 +1,401 @@
+{
+  "freeze_id": "aivd-3.12-open-interaction-discovery",
+  "frozen_at_utc": "2026-09-15T05:29:41Z",
+  "commit": "423296d9a9466db0ed294d53f61028d5c7aae759",
+  "package_version_at_freeze": "3.12.0",
+  "tests_note": "392 tests (374 prior 3.11 + interaction suite; version assert relaxed)",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "primary_budget": 32,
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "modules_frozen": [
+    "aivd/invention/__init__.py",
+    "aivd/invention/intervention_space.py",
+    "aivd/invention/candidate_generator.py",
+    "aivd/invention/controller.py",
+    "aivd/invention/audit.py",
+    "aivd/invention/adaptive_ordering.py",
+    "aivd/interaction/__init__.py",
+    "aivd/interaction/representation.py",
+    "aivd/interaction/pair_generator.py",
+    "aivd/interaction/composition.py",
+    "aivd/interaction/interaction_score.py",
+    "aivd/interaction/counterfactual.py",
+    "aivd/interaction/screening.py",
+    "aivd/interaction/scheduler.py",
+    "aivd/interaction/memory.py",
+    "aivd/interaction/audit.py",
+    "aivd/interaction/traces.py",
+    "aivd/interaction/synergy.py",
+    "aivd/interaction/controller.py",
+    "aivd37/unknowns/pipeline.py",
+    "aivd/core/config.py"
+  ],
+  "module_sha256": {
+    "aivd/invention/__init__.py": "0682db5576bd23b206db6380f1f421d73a0b212429654bbad7ed1fe37ad5b382",
+    "aivd/invention/intervention_space.py": "f0d2e37ff4d209d317d3367347e67f522be9b69f17201956879d370a75334dad",
+    "aivd/invention/candidate_generator.py": "524d8272d9f8a3a6b89445a7145453dd3ae757fd0e94b665eb60cdac7fb965b5",
+    "aivd/invention/controller.py": "9f2089bc9f6a7a6835ac447436e90314edfa7e0b52ad9a60984369dfa895a6da",
+    "aivd/invention/audit.py": "84c92e4b8aba80c3c7a84d0dd2cb5bf44f1ae643bc258af8f8f22df9278f3547",
+    "aivd/invention/adaptive_ordering.py": "c0685794f946cfec09f2ec6f287424effef051e3f472ac2bc69d65508a5dd301",
+    "aivd/interaction/__init__.py": "8772c4b70a76906711748be149b2b51ba3f9e11bf8910643e8a8fee5c0bf885b",
+    "aivd/interaction/representation.py": "4398533693ca4090ecdc16c6256cc83662bc99c7adfecb1aeec6698791cba9bb",
+    "aivd/interaction/pair_generator.py": "ff7b0853496c0d582c0ebedc47b087fb0b6209acde9e0864ddb876a73e56d6fb",
+    "aivd/interaction/composition.py": "695f53d70fd2b386fe70edf1338bc5e727ecdc6db46ee08539957d37d07c5078",
+    "aivd/interaction/interaction_score.py": "f656638f487060db0c0cdd47916931ee3587168c45805a28c4d8dd15237d0c86",
+    "aivd/interaction/counterfactual.py": "565d4aa08a5ec736186cbb7e2980a6271af2fda1ecc34a2c3286644babc0011c",
+    "aivd/interaction/screening.py": "dbbe5f284b366603a8115f59305bb69d80bbdc634fd7ef3db8978a6eca106bb7",
+    "aivd/interaction/scheduler.py": "f43c954ac0dd09781c9746575f38bdfb5eadfba4c664bdc5d75707bc49eaed5d",
+    "aivd/interaction/memory.py": "af522a2da087cc16609e2304e786638b14c3c96ba673763f38e34b53a2ee3f45",
+    "aivd/interaction/audit.py": "cb1f44f57bf4f3352978b967ce0c431619ab7083e383090d115ca9629b0ef5c3",
+    "aivd/interaction/traces.py": "0686c62caef1ea477f90843ed57cf65eb242267c189bfee540999ebdb0eee6cc",
+    "aivd/interaction/synergy.py": "0ee8d34f10177b8b6d4e02eb3dfabffad14baf4842f200766091f609728ae72b",
+    "aivd/interaction/controller.py": "8f9c8ecb34ef11a734834e7931f63af19222ab136a0ea9ab93625e066cb1c8e2",
+    "aivd37/unknowns/pipeline.py": "0a74cdea5383fe88cfc4e12e5e190900c5a945dca4707f73e0746e739c2e9438",
+    "aivd/core/config.py": "ebd0b0ba77e9c491bd60f83d38f490809cc05fad90753d562271482c1f887a3d"
+  },
+  "discovery_pipeline_frozen_before_holdout_q": true,
+  "holdout_q_created": false,
+  "config": {
+    "invention_mode_default": "off",
+    "adaptive_ordering_mode_default": "off",
+    "interaction_mode_default": "off",
+    "module_toggles": {
+      "interaction": "off_by_default",
+      "adaptive": "off_by_default",
+      "diversity": "off_by_default"
+    }
+  },
+  "holdout_x_sacred_3_8": {
+    "status": "NOT_DISCOVERED",
+    "frozen_commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a"
+  },
+  "holdout_y_sacred_3_9": {
+    "status": "NOT_DISCOVERED",
+    "frozen_invention_commit": "95acf3848c742f4b95368e57ecc93f87a2b09d6a"
+  },
+  "holdout_z_sacred_3_10": {
+    "status": "NOT_DISCOVERED",
+    "note": "under 3.10 \u2014 untouched"
+  },
+  "holdout_w_sacred_3_11": {
+    "status": "DISCOVERED+VERIFIED",
+    "frozen_commit": "b85fe0f405431149577c86499d3475240ed540b8"
+  },
+  "holdout_z_replay_under_3_12": {
+    "label": "HOLDOUT-Z v1 REPLAY UNDER AIVD 3.12",
+    "status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity_full": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0
+    }
+  },
+  "controls_summary": {
+    "off": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 23.0,
+      "mean_invented": 0.0,
+      "mean_tested": 0.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 23.0
+      }
+    },
+    "random": {
+      "n": 7,
+      "discovery_rate": 0.0,
+      "verified_rate": 0.0,
+      "mean_probes": 27.0,
+      "mean_invented": 60.142857142857146,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 3.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.0,
+        "unresolved_invisible_rate": 1.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.0,
+        "mean_probes": 27.0
+      }
+    },
+    "full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 32.0,
+      "mean_invented": 70.85714285714286,
+      "mean_tested": 3.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 32.0
+      }
+    },
+    "diversity": {
+      "n": 7,
+      "discovery_rate": 0.7142857142857143,
+      "verified_rate": 0.7142857142857143,
+      "mean_probes": 30.571428571428573,
+      "mean_invented": 102.85714285714286,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.7142857142857143,
+        "unresolved_invisible_rate": 0.2857142857142857,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.7142857142857143,
+        "mean_probes": 30.571428571428573
+      }
+    },
+    "diversity_full": {
+      "n": 7,
+      "discovery_rate": 0.42857142857142855,
+      "verified_rate": 0.42857142857142855,
+      "mean_probes": 29.142857142857142,
+      "mean_invented": 103.71428571428571,
+      "mean_tested": 6.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 0.42857142857142855,
+        "unresolved_invisible_rate": 0.5714285714285714,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 0.42857142857142855,
+        "mean_probes": 29.142857142857142
+      }
+    },
+    "adaptive": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "adaptive_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction_full": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    },
+    "interaction_random": {
+      "n": 7,
+      "discovery_rate": 1.0,
+      "verified_rate": 1.0,
+      "mean_probes": 22.0,
+      "mean_invented": 101.0,
+      "mean_tested": 1.0,
+      "mean_interaction_generated": 0.0,
+      "mean_interaction_tested": 0.0,
+      "mean_security_interactions": 0.0,
+      "aggregate_pipeline": {
+        "n": 7,
+        "verified_rate": 1.0,
+        "unresolved_invisible_rate": 0.0,
+        "rejected_rate": 0.0,
+        "unresolved_rate": 0.0,
+        "vulnerability_rate": 1.0,
+        "mean_probes": 22.0
+      }
+    }
+  },
+  "anti_z_summary": {
+    "spec": {
+      "name": "anti_z_neutral_interaction",
+      "residual": "loom.gap",
+      "group_a": [
+        "prime",
+        "arm",
+        "prep",
+        "spin"
+      ],
+      "group_b": [
+        "seal",
+        "bind",
+        "knit",
+        "tack"
+      ],
+      "forbidden_overlap": [
+        "flush",
+        "mirror",
+        "sync",
+        "drop",
+        "free"
+      ],
+      "note": "PASS if interaction layer discovers A\u00d7B synergy without Z stems"
+    },
+    "pass_rate": 1.0,
+    "secret_rate": 1.0,
+    "z_contam_rate": 0.0,
+    "status": "PASS",
+    "n": 7
+  },
+  "interaction_discovery_summary": {
+    "controls_discovery": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 1.0,
+      "diversity": 0.7142857142857143,
+      "diversity_full": 0.42857142857142855,
+      "adaptive": 1.0,
+      "adaptive_full": 1.0,
+      "interaction": 1.0,
+      "interaction_full": 1.0,
+      "interaction_random": 1.0
+    },
+    "mean_ix_generated_interaction_full_x": 0.0,
+    "mean_ix_tested_interaction_full_x": 0.0,
+    "z_replay_discovery": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity_full": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0
+    },
+    "anti_z_status": "PASS",
+    "additive_fp_pass": true,
+    "complexity_brute_force": false,
+    "pruning_ratio": 0.9474,
+    "note": "Level-3 interaction: combination must exceed additive; hierarchical pair gen."
+  },
+  "complexity": {
+    "n_individuals": 20,
+    "possible_unordered_pairs": 190,
+    "possible_ordered_pairs": 380,
+    "generated_pairs": 10,
+    "pruned": 0,
+    "strategy_counts": {
+      "cross_family": 2,
+      "sequential": 2,
+      "context_aware": 2,
+      "novel_cross_family": 2,
+      "random": 2
+    },
+    "strategies_used": [
+      "residual_linked",
+      "cross_family",
+      "counterfactual",
+      "sequential",
+      "state_aware",
+      "context_aware",
+      "random",
+      "novel_cross_family"
+    ],
+    "max_pairs_budget": 16,
+    "brute_force": false,
+    "pruning_ratio": 0.9474
+  },
+  "note": "Freeze BEFORE Holdout-Q. Do not retune invention/interaction after seeing Q."
+}

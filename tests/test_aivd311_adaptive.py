@@ -321,6 +321,7 @@ def test_evidence_update_revives_on_overlap():
     assert "salience" in snap
 
 
-def test_version_3_11_0():
+def test_version_at_least_3_11_0():
     import aivd
-    assert aivd.__version__ == "3.11.0"
+    parts = tuple(int(x) for x in aivd.__version__.split(".")[:3])
+    assert parts >= (3, 11, 0)
