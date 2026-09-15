@@ -35,6 +35,14 @@ def _forbidden() -> list[str]:
         "vault.humus",
         "if openworld then allocate",
         "if this looks like V",
+        "SECRET{AIVD318_H18",
+        "cistern.silt",
+        "holdout_18_",
+        "surge-lock",
+        "flood-gate",
+        "AIVD318-HOLDOUT-18",
+        "sluice",
+        "spillway",
     ]
 
 

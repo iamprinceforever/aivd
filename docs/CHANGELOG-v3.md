@@ -4,6 +4,8 @@
   revocable reservations, soft evidence-driven floor, shadow mode
 - Default `epistemic_mode=off` ≈ 3.17; same 32-experiment episode budget
 - Allocation benches EA–EF before Holdout-18; sacred X–V untouched
+- Holdout-18 sacred first run **NOT_DISCOVERED** (direct arbiter@32 rate 1.0; no retune)
+
 
 ## 3.17.0 — Open-World Behavioral Representation & Generative Experimentation
 

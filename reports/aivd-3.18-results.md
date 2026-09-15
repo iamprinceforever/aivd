@@ -107,16 +107,17 @@ not a claim that shadow is "better."
 
 ## Tests
 
-**589 passed** at freeze (includes 3.18 unit/gates; excludes Holdout-18 first-run).
+**589 passed** at freeze. Holdout-18 oracles added post-freeze (evaluator-only).
 
 ## Conservative claim
 
 With the same 32 slots, the completion-value arbiter **beats greedy EIG** on the
 immediate-EIG trap, completes EA–ED allocation benches, preserves EF invisible
 and OW-7 FP=0, and **does not** automatically inherit every 3.17 openworld
-competence (OW-3 XOR). Whether this improves a genuinely fresh holdout is
-answered only by the post-freeze Holdout-18 first run — not by retuning V.
+competence (OW-3 XOR).
 
-## Holdout-18
+## Holdout-18 (post-freeze, no retune)
 
-Created after freeze. See `reports/aivd-3.18-holdout.md`.
+Sacred pipeline `full_3_18` @32: **NOT_DISCOVERED** (rate 0.0).
+Direct EpistemicController @32 (secondary): rate **1.0**.
+Failure class: VERIFICATION. Details: `reports/aivd-3.18-holdout.md`.

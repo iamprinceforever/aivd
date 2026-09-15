@@ -504,7 +504,11 @@ def test_source_no_holdout_literals():
 
 def test_no_holdout_hardcoding_in_epistemic():
     root = ROOT / "aivd" / "epistemic"
-    bad = ["facet-prism", "skew-drift", "holdout_v_", "left-dial", "check-parity", "vault.humus"]
+    bad = [
+        "facet-prism", "skew-drift", "holdout_v_", "left-dial", "check-parity",
+        "vault.humus", "cistern.silt", "holdout_18_", "surge-lock", "flood-gate",
+        "SECRET{AIVD318_H18",
+    ]
     for path in root.rglob("*.py"):
         if path.name in ("audit.py",):
             continue
@@ -516,7 +520,7 @@ def test_no_holdout_hardcoding_in_epistemic():
 def test_leakage_scan_paths():
     hits = scan_paths_for_tokens(
         ROOT / "aivd" / "epistemic",
-        forbidden=["SECRET{AIVD317_HV_VAULT}", "facet-prism", "holdout_v_"],
+        forbidden=["SECRET{AIVD317_HV_VAULT}", "facet-prism", "holdout_v_", "SECRET{AIVD318_H18_CISTERN}", "cistern.silt"],
     )
     assert isinstance(hits, list)
     assert hits == [] or all("audit.py" in f for f, _ in hits)

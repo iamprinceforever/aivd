@@ -60,7 +60,10 @@ Do not patch against OW-3 or Holdout-V.
 (2) Arbiter can starve a specialized operator (XOR) that 3.17's grammar
 prioritized. (3) Outer pipeline smoke/sweep/gates still consume slots before
 the arbiter — authoritative mode skips axis, not residual sweep.
-(4) Holdout-18 first-run is the allocation test; do not retune after seeing it.
+(4) Holdout-18 sacred first run: **NOT_DISCOVERED**. Direct arbiter@32 rate 1.0.
+Remaining bottleneck is outer pipeline budget peel, not greedy EIG scoring.
+Do not retune after seeing Holdout-18.
 
 ## Q15. Tests at freeze
-589 passed. Holdout-18 evaluator oracles added only after this freeze.
+589 passed. Holdout-18 evaluator oracles added only after freeze. First-run
+locked in `reports/aivd_3_18/holdout_18.json`. No post-hoc agent patch.
