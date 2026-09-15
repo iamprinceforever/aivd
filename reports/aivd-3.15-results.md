@@ -16,7 +16,7 @@
 | Q v1 | NOT_DISCOVERED | dab0f49 |
 | R v1 | NOT_DISCOVERED | a216569 |
 | S v1 | NOT_DISCOVERED | 631d2e5 / 48ffcac |
-| T v1 | *(post-freeze)* | — |
+| T v1 | **NOT_DISCOVERED** | (this release; freeze `f54d9e10`) |
 
 ## Config defaults
 ```json
@@ -46,5 +46,11 @@ See `reports/aivd_3_15/controls.json`. Autonomy modes preserve X discovery when 
 ## Holdout-Z/Q/R/S REPLAY under 3.15
 All discovery rates 0.0 across off/cross_signal/autonomy/full_3_15. Sacred untouched.
 
-## Holdout-T
-See `reports/aivd-3.15-holdout.md` (post-freeze sacred first run).
+## Holdout-T (sacred first run)
+- Status: **NOT_DISCOVERED**
+- Freeze: `f54d9e10fed9512b5e6b68a75a2b0b0cad662b23`
+- Mean ADD: **4.0**; first broken transition: **EXPERIMENT**
+- Discovery rates all 0.0 across modes @32
+- No post-hoc tune.
+- See `reports/aivd-3.15-holdout.md` and `reports/aivd_3_15/holdout_t.json`.
+

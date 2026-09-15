@@ -22,3 +22,9 @@ Pass: aivd_version 3.15.0, format 2
 ## Forbidden hardcoding
 No S ridge/gauge/steer, R span, Q conduit, Z flush×mirror, T-specific rules,
 or `if holdout == ...` in discovery layers (`aivd/autonomy/`).
+
+## Holdout-T sacred
+- Status: NOT_DISCOVERED
+- Freeze commit: f54d9e10fed9512b5e6b68a75a2b0b0cad662b23
+- First broken transition: EXPERIMENT (ADD≈4)
+- No retune after T.

@@ -1,6 +1,6 @@
 {
   "version": "3.15.0",
-  "freeze_commit": "05b306bb689a18daf47bda6b4bd1bd63bbab279c",
+  "freeze_commit": "f54d9e10fed9512b5e6b68a75a2b0b0cad662b23",
   "autonomy_mode_default": "off",
   "autonomy_reserve_fraction": 0.25,
   "seeds": [
