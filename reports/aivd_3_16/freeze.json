@@ -2,7 +2,7 @@
   "label": "AIVD 3.16.0 pre-Holdout-U freeze",
   "version": "3.16.0",
   "baseline": "32272e8",
-  "freeze_commit": "24f3abb37f1e328482e002cc72a4043bfc92c096",
+  "freeze_commit": "75eb8af2c15ba2e6d15c2e9633b6d356c795aeda",
   "reasoning_mode_default": "off",
   "settings": {
     "reasoning_max_steps": 32,
@@ -11,5 +11,5 @@
     "epistemic_invent_reserve_share": 0.4
   },
   "first_bottleneck": "EXPERIMENT/BUDGET",
-  "no_holdout_u_yet": true
+  "no_holdout_u_yet": false
 }

@@ -32,6 +32,7 @@ def _forbidden_literals() -> tuple[str, ...]:
         "HOLDOUT" + "-S",
         "SECRET{AIVD315_HT_",
         "HOLDOUT" + "-T",
+        "HOLDOUT" + "-U",
         "holdout_x_bound_key",
         "holdout_y_phase_key",
         "holdout_z_mirror_key",

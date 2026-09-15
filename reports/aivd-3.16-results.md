@@ -11,7 +11,7 @@
 |---------|---------------|
 | X/Y/Z/Q/R/S/T | NOT_DISCOVERED |
 | W | DISCOVERED+VERIFIED |
-| U | (post-freeze; see holdout report) |
+| U | **NOT_DISCOVERED** @ freeze `75eb8af2` |
 
 ## FIRST INFORMATION BOTTLENECK
 **EXPERIMENT / BUDGET** (invent without probes under outer-stack starvation); deeper **GENERATION** lexicon limit.
@@ -114,3 +114,13 @@ Leakage PASS; checkpoint PASS; noncausal/invisible FP 0.0; default mode OFF.
 3.16 improves **experimental allocation and measurement** (IG, discovery vs activity,
 epistemic budget) and discovery rate on lexicon-compatible diverse structures.
 It does **not** claim to solve open-vocabulary holdouts (T) or rewrite sacred results.
+
+
+## Holdout-U (sacred first run)
+- Status: **NOT_DISCOVERED**
+- Freeze: `75eb8af2c15ba2e6d15c2e9633b6d356c795aeda`
+- Mean ADD: **4.0**; activity_depth **4.0**; discovery_depth **0.0**
+- First broken: **EXPERIMENT**; tested=0 (activity without discovery)
+- Discovery rates all 0.0 @32
+- No post-hoc tune.
+- See `reports/aivd-3.16-holdout.md` and `reports/aivd_3_16/holdout_u.json`.
