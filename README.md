@@ -12,6 +12,15 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.11.0
+
+**Adaptive Search Ordering** over 3.9/3.10 invention: after each cheap TEST,
+update residual salience + family/candidate value and **REORDER** remaining
+candidates (explore/exploit/revive budgets; priority decay ≠ blacklist).
+Config `adaptive_ordering_mode` / `invention_mode=adaptive*` (default **off**).
+Sacred Holdout-W first run recorded in `reports/aivd-3.11-holdout.md`.
+Holdout-Z replay under 3.11 is secondary only.
+
 ## What's new in v3.10.0
 
 Open **Intervention Invention** above causal / before residual handoff: morph+compound

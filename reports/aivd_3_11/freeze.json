@@ -83,7 +83,7 @@
     "aivd/core/config.py": "5dc487b0751db533a2812d63d894e14f17d78523102dbf067a9c6fc273c9d29d"
   },
   "discovery_pipeline_frozen_before_holdout_w": true,
-  "holdout_w_created": false,
+  "holdout_w_created": true,
   "config": {
     "invention_mode_default": "off",
     "adaptive_ordering_mode_default": "off"
@@ -327,5 +327,19 @@
     },
     "note": "Dynamic reorder after each TEST; priority decay \u2260 blacklist; salience \u2260 vuln."
   },
-  "note": "Freeze BEFORE Holdout-W. Do not retune invention after seeing W."
+  "note": "Freeze BEFORE Holdout-W. Do not retune invention after seeing W.",
+  "holdout_w_sacred": {
+    "status": "DISCOVERED+VERIFIED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity": 0.42857142857142855,
+      "diversity_full": 0.42857142857142855,
+      "adaptive": 1.0,
+      "adaptive_full": 1.0
+    },
+    "evaluator_verify_rate": 1.0,
+    "frozen_invention_commit": "b85fe0f405431149577c86499d3475240ed540b8"
+  }
 }

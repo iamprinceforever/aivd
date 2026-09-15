@@ -60,3 +60,19 @@ AO verified_rate under invention off: **0.000** (expected 0).
 - Holdout-Z replay: **NOT_DISCOVERED** (secondary; does not rewrite sacred NOT_DISCOVERED).
 - No GT hardcoding; no flush/mirror special-cases; priority decay ≠ blacklist.
 - Holdout-W created only AFTER this freeze.
+
+## HOLDOUT-W sacred first run
+
+**Status:** **DISCOVERED+VERIFIED**  
+**Evaluator verify:** 1.000  
+**Mechanism:** latch.stuck + resolve/recover/reset/unbind-latch
+
+| Mode | discovery_rate |
+|------|---------------:|
+| off | 0.000 |
+| random | 0.000 |
+| full | 0.000 |
+| diversity | 0.429 |
+| diversity_full | 0.429 |
+| adaptive | 1.000 |
+| adaptive_full | 1.000 |
