@@ -1,4 +1,4 @@
-"""AIVD 3.9–3.14 Open Intervention Invention (+ Diversity + Adaptive + Interaction + Joint + Cross-Signal).
+"""AIVD 3.9–3.15 Open Intervention Invention (+ … + Autonomy).
 
 Sits ABOVE 3.6 causal, BEFORE residual sweep / investigation.
 Config: invention_mode = off | random | heuristic | full |
@@ -8,7 +8,9 @@ Config: invention_mode = off | random | heuristic | full |
         joint | joint_full | joint_only | joint_random |
         interaction_joint | full_3_13 |
         cross_signal | cross_signal_full | cross_signal_only | cross_signal_random |
-        cross_joint | full_3_14 (default off).
+        cross_joint | full_3_14 |
+        autonomy | autonomy_full | autonomy_only | autonomy_random |
+        autonomy_cross | full_3_15 (default off).
 Optional: invention_diversity_mode, adaptive_ordering_mode, interaction_mode,
 exploration, saturation/revival. Novelty alone is NOT rewarded.
 No Holdout special-cases. Interaction layer distinguishes additive vs synergistic.

@@ -1,0 +1,9 @@
+{
+  "prior": 0.35,
+  "pass": true,
+  "spec": {
+    "name": "false_residual_region_transfer",
+    "transfer_expected_max": 0.55,
+    "note": "Independent residual features should not force high region prior"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "Z": {
+    "label": "REPLAY",
+    "discovery_rates": {
+      "off": 0.0,
+      "cross_signal": 0.0,
+      "autonomy": 0.0,
+      "full_3_15": 0.0
+    },
+    "sacred_untouched": true
+  },
+  "Q": {
+    "label": "REPLAY",
+    "discovery_rates": {
+      "off": 0.0,
+      "cross_signal": 0.0,
+      "autonomy": 0.0,
+      "full_3_15": 0.0
+    },
+    "sacred_untouched": true
+  },
+  "R": {
+    "label": "REPLAY",
+    "discovery_rates": {
+      "off": 0.0,
+      "cross_signal": 0.0,
+      "autonomy": 0.0,
+      "full_3_15": 0.0
+    },
+    "sacred_untouched": true
+  },
+  "S": {
+    "label": "REPLAY",
+    "discovery_rates": {
+      "off": 0.0,
+      "cross_signal": 0.0,
+      "autonomy": 0.0,
+      "full_3_15": 0.0
+    },
+    "sacred_untouched": true
+  }
+}

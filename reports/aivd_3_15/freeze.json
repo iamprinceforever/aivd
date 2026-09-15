@@ -1,0 +1,35 @@
+{
+  "version": "3.15.0",
+  "freeze_commit": "05b306bb689a18daf47bda6b4bd1bd63bbab279c",
+  "autonomy_mode_default": "off",
+  "autonomy_reserve_fraction": 0.25,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budgets": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "primary_budget": 32,
+  "note": "PRE-Holdout-T freeze artifact (commit SHA filled at freeze commit)",
+  "config": {
+    "invention_mode": "off",
+    "autonomy_mode": "off",
+    "cross_signal_mode": "off",
+    "joint_mode": "off"
+  },
+  "autonomy_settings": {
+    "autonomy_mode": "off",
+    "autonomy_max_steps": 32,
+    "autonomy_max_candidates": 24,
+    "autonomy_reserve_fraction": 0.25
+  }
+}

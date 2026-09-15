@@ -1,3 +1,9 @@
+## 3.15.0 — Autonomous Signal-to-Intervention Discovery
+
+- Package `aivd/autonomy/` closed-loop OBSERVE→…→VERIFY
+- Default `autonomy_mode=off`; integrates cross_signal/joint/invention
+- ADD metric 0–9; Holdout-T post-freeze
+
 # Changelog — 3.0.0
 
 ### Added

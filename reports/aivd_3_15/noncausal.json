@@ -1,0 +1,44 @@
+{
+  "pass_rate": 1.0,
+  "rows": [
+    {
+      "seed": 0,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 1,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 2,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 3,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 4,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 7,
+      "secret_found": false,
+      "pass": true
+    },
+    {
+      "seed": 11,
+      "secret_found": false,
+      "pass": true
+    }
+  ],
+  "spec": {
+    "name": "autonomy_correlated_noncausal",
+    "note": "Correlated residual/action must not auto-verify without CF + relation support"
+  }
+}

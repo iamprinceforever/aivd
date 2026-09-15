@@ -111,6 +111,11 @@ class UnknownsPipeline:
         cross_signal_max_hypotheses: int = 6,
         cross_signal_max_combinations: int = 4,
         cross_signal_reserve_fraction: float = 0.25,
+        autonomy_mode: str = "off",
+        invention_autonomy_ablation: str | None = None,
+        autonomy_max_steps: int = 32,
+        autonomy_max_candidates: int = 24,
+        autonomy_reserve_fraction: float = 0.25,
     ):
         self.target = target
         if probe_fn is not None:
@@ -152,6 +157,11 @@ class UnknownsPipeline:
         self.cross_signal_max_hypotheses = int(cross_signal_max_hypotheses)
         self.cross_signal_max_combinations = int(cross_signal_max_combinations)
         self.cross_signal_reserve_fraction = float(cross_signal_reserve_fraction)
+        self.autonomy_mode = str(autonomy_mode or "off").lower().strip()
+        self.invention_autonomy_ablation = invention_autonomy_ablation
+        self.autonomy_max_steps = int(autonomy_max_steps)
+        self.autonomy_max_candidates = int(autonomy_max_candidates)
+        self.autonomy_reserve_fraction = float(autonomy_reserve_fraction)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -220,6 +230,19 @@ class UnknownsPipeline:
                 self.invention_mode = "cross_joint"
             else:
                 self.invention_mode = "cross_signal"
+        # autonomy_mode overlays (3.15) — takes precedence when set
+        if self.autonomy_mode not in ("off", "false", "0", ""):
+            am = self.autonomy_mode
+            if am in ("autonomy_full", "full_3_15", "full"):
+                self.invention_mode = "full_3_15" if am == "full_3_15" else "autonomy_full"
+            elif am in ("autonomy_only",):
+                self.invention_mode = "autonomy_only"
+            elif am in ("autonomy_random", "random"):
+                self.invention_mode = "autonomy_random"
+            elif am in ("autonomy_cross",):
+                self.invention_mode = "autonomy_cross"
+            else:
+                self.invention_mode = "autonomy"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -463,6 +486,10 @@ class UnknownsPipeline:
                         cross_signal_max_hypotheses=self.cross_signal_max_hypotheses,
                         cross_signal_max_combinations=self.cross_signal_max_combinations,
                         cross_signal_reserve_fraction=self.cross_signal_reserve_fraction,
+                        autonomy_ablation=self.invention_autonomy_ablation,
+                        autonomy_max_steps=self.autonomy_max_steps,
+                        autonomy_max_candidates=self.autonomy_max_candidates,
+                        autonomy_reserve_fraction=self.autonomy_reserve_fraction,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),
