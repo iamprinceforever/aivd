@@ -343,7 +343,7 @@
     "frozen_invention_commit": "b85fe0f405431149577c86499d3475240ed540b8"
   },
   "package_version_final": "3.11.0",
-  "final_commit": "PENDING",
+  "final_commit": "90b922f8a826ed4ee73271a8531479222da9d728",
   "tests": 374,
   "baseline_commit_3_10": "236752a87607f97ef8cde40c93d3b4b1beef8949",
   "pre_holdout_w_freeze_commit": "b85fe0f405431149577c86499d3475240ed540b8",
