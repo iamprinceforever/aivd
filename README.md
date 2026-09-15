@@ -12,6 +12,16 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.19.0
+
+**Episode-owned epistemic arbitration** over 3.18 leftover:
+the global allocator owns remaining slots after one infra smoke instead of
+inheriting sequential sweep/gate peel. Same 32-experiment budget.
+`full_3_18` leftover is preserved. Default **off** ≈ 3.17.
+Holdout-18 3.18 first-run stays **NOT_DISCOVERED**; 3.19 evaluation verifies
+it without holdout-specific rules.
+See `docs/3.19_episode_owned_arbitration.md`.
+
 ## What's new in v3.18.0
 
 **Global Epistemic Budget Arbitration** over 3.17:

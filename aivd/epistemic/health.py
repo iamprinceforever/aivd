@@ -17,9 +17,10 @@ def health_check(root: Path | None = None) -> dict[str, Any]:
         "reservations_revocable": True,
         "shadow_mode": True,
         "consolidation_note": (
-            "3.18 does not add a new discovery algorithm. GlobalEpistemicArbiter "
-            "allocates a single 32-slot experiment budget across proposing "
-            "subsystems. Default off ≈ 3.17."
+            "3.19 does not add a new discovery algorithm. GlobalEpistemicArbiter "
+            "owns the episode after infra smoke so sequential sweep/gate peel "
+            "cannot starve multi-step branches. Default off ≈ 3.17. "
+            "full_3_18 remains leftover-arbiter for the frozen 3.18 protocol."
         ),
     }
 

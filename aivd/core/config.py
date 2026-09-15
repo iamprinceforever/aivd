@@ -124,7 +124,7 @@ class AIVDConfig(BaseModel):
         "openworld", "openworld_full", "openworld_only", "openworld_random",
         "full_3_17",
         "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-        "arbiter", "shadow", "full_3_18",
+        "arbiter", "shadow", "full_3_18", "full_3_19",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -180,7 +180,7 @@ class AIVDConfig(BaseModel):
         "openworld", "openworld_full", "openworld_only", "openworld_random",
         "full_3_17",
         "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-        "arbiter", "shadow", "full_3_18",
+        "arbiter", "shadow", "full_3_18", "full_3_19",
     ] = "off"
     autonomy_max_steps: int = 32
     autonomy_max_candidates: int = 24
@@ -204,10 +204,10 @@ class AIVDConfig(BaseModel):
     openworld_max_candidates: int = 24
     openworld_floor_fraction: float = 0.40
     invention_openworld_ablation: str | None = None
-    # v3.18 global epistemic budget arbitration (default off)
+    # v3.18/3.19 global epistemic budget arbitration (default off)
     epistemic_mode: Literal[
         "off", "epistemic", "epistemic_full", "epistemic_only",
-        "epistemic_shadow", "arbiter", "shadow", "full_3_18",
+        "epistemic_shadow", "arbiter", "shadow", "full_3_18", "full_3_19",
     ] = "off"
     epistemic_max_steps: int = 32
     epistemic_max_candidates: int = 24

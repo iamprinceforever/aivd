@@ -1,3 +1,14 @@
+## 3.19.0 — Episode-Owned Epistemic Arbitration
+
+- Arbiter owns remaining episode slots after one infra smoke (`full_3_19`)
+- Sequential residual-sweep peel + pre-discovery gate lock skipped
+- `full_3_18` leftover protocol preserved; default still `off` ≈ 3.17
+- Same 32-experiment budget; no holdout-specific rules
+- Holdout-18 3.18 sacred first-run **NOT_DISCOVERED** (untouched)
+- Holdout-18 3.19 evaluation: pipeline **DISCOVERED+VERIFIED** @32, 7/7 seeds
+- Pipeline A/B: leftover 0/12 on EA–ED vs episode-owned EA/EB/EC verified;
+  ED miss and OW-3 XOR miss kept honest; EF/OW-7 FP=0
+
 ## 3.18.0 — Global Epistemic Budget Arbitration
 
 - Package `aivd/epistemic/`: global arbiter, completion-value scoring (not greedy EIG),

@@ -283,8 +283,13 @@ class UnknownsPipeline:
         # epistemic_mode overlays (3.18) — takes precedence when set
         if self.epistemic_mode not in ("off", "false", "0", ""):
             em = self.epistemic_mode
-            if em in ("epistemic_full", "full_3_18", "full", "arbiter"):
-                self.invention_mode = "full_3_18" if em == "full_3_18" else "epistemic_full"
+            if em in ("epistemic_full", "full_3_18", "full_3_19", "full", "arbiter"):
+                if em == "full_3_19":
+                    self.invention_mode = "full_3_19"
+                elif em == "full_3_18":
+                    self.invention_mode = "full_3_18"
+                else:
+                    self.invention_mode = "epistemic_full"
             elif em in ("epistemic_only",):
                 self.invention_mode = "epistemic_only"
             elif em in ("epistemic_shadow", "shadow"):
@@ -329,10 +334,21 @@ class UnknownsPipeline:
         self.trace = PipelineTrace(mode=self.mode)
         self._local_used = 0
         seed = (seed_prompt or "authorized research").strip()
+        owns_episode = False
+        try:
+            from aivd.epistemic.scheduler import epistemic_owns_episode as _owns
+            owns_episode = _owns(self.invention_mode) or _owns(self.epistemic_mode)
+        except Exception:
+            owns_episode = False
         # Reserve probes for invention when enabled (ABOVE residual handoff)
         invention_reserve = 0
         gate_reserve = 0
-        if self.invention_mode not in ("off", "false", "0", "") and "no_invention" not in self.mode:
+        if owns_episode:
+            # 3.19: arbiter owns remaining slots after infra smoke.
+            # Do not lock a sequential gate bucket that never runs if discovery fails.
+            invention_reserve = max(4, self.episode_budget - 1)
+            gate_reserve = 0
+        elif self.invention_mode not in ("off", "false", "0", "") and "no_invention" not in self.mode:
             # Leave headroom for falsify/reproduce/invariant (~8 probes)
             gate_reserve = min(8, max(4, self.episode_budget // 5))
             # Diversity modes need larger invention reserve for family coverage
@@ -383,7 +399,14 @@ class UnknownsPipeline:
             preferred.append(str(dim))
 
         # Residual-channel sweep (ABOVE causal)
-        if self.mode == "no_residual" or "no_residual_sweep" in self.mode:
+        if owns_episode:
+            # Contrast probes compete through the arbiter instead of a sequential
+            # 4-slot peel that never feeds harvest.
+            sweep = ResidualSweepResult(
+                notes="deferred_to_global_arbiter",
+                actionable=True,
+            )
+        elif self.mode == "no_residual" or "no_residual_sweep" in self.mode:
             sweep = ResidualSweepResult(notes="ablated_no_residual")
         else:
             sweep = residual_sweep(
@@ -403,8 +426,14 @@ class UnknownsPipeline:
 
         self.trace.sweep = sweep
         self.trace.steps.append({"kind": "sweep", **sweep.as_dict()})
+        if owns_episode:
+            self.trace.steps.append({
+                "kind": "episode_owned",
+                "gate_reserve": 0,
+                "sweep": "deferred_to_global_arbiter",
+            })
 
-        if not sweep.actionable:
+        if not sweep.actionable and not owns_episode:
             term = TerminalResult(
                 state=TerminalState.UNRESOLVED_INVISIBLE,
                 residual_channels=list(sweep.residual_channels),
@@ -533,10 +562,16 @@ class UnknownsPipeline:
             if "no_invention" not in self.mode:
                 try:
                     from aivd.invention.controller import InventionController
-                    # Leave gate_reserve probes for falsify/reproduce/invariant
-                    gate_leave = max(gate_reserve, 8)
-                    room = max(0, self.episode_budget - self._local_used - gate_leave)
-                    inv_budget = max(4, min(self.invention_max_cheap_tests, room))
+                    # 3.19 owns_episode: no pre-discovery gate lock.
+                    # 3.18 leftover: leave gate_reserve for falsify/reproduce/invariant.
+                    if owns_episode:
+                        gate_leave = 0
+                        room = max(0, self.episode_budget - self._local_used)
+                        inv_budget = max(4, room)
+                    else:
+                        gate_leave = max(gate_reserve, 8)
+                        room = max(0, self.episode_budget - self._local_used - gate_leave)
+                        inv_budget = max(4, min(self.invention_max_cheap_tests, room))
                     ic = InventionController(
                         mode=self.invention_mode,
                         seed=self.seed,
@@ -578,12 +613,14 @@ class UnknownsPipeline:
                         epistemic_max_candidates=self.epistemic_max_candidates,
                     )
                     residual_ctx = {
-                        "residual_channels": list(sweep.residual_channels),
+                        "residual_channels": list(sweep.residual_channels) or (["unknown"] if owns_episode else []),
                         "security_shaped_residuals": list(sweep.security_shaped_residuals),
                         "unexplained": 1.0 if sweep.actionable else 0.6,
-                        "axes_exhausted": True,
+                        "axes_exhausted": not owns_episode,
                         "error": None,
                     }
+                    if owns_episode:
+                        residual_ctx["axes"] = list(self.trace.axes or [])
                     for st in reversed(self.trace.steps):
                         if st.get("error"):
                             residual_ctx["error"] = st.get("error")
@@ -597,11 +634,11 @@ class UnknownsPipeline:
                             if isinstance(meta, dict) and meta.get("error"):
                                 residual_ctx["error"] = meta.get("error")
                                 residual_ctx["error_text"] = str(meta.get("error"))
-                    invent_cap = self._local_used + inv_budget
+                    invent_cap = self.episode_budget if owns_episode else (self._local_used + inv_budget)
                     def _invention_charge() -> bool:
                         if self._local_used >= invent_cap:
                             return False
-                        if self._local_used >= self.episode_budget - gate_leave:
+                        if gate_leave and self._local_used >= self.episode_budget - gate_leave:
                             return False
                         return self._charge()
                     inv_res = ic.run(

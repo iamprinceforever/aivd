@@ -137,6 +137,13 @@ class EBMultiStep(_Base):
         if re.search(r"\b(brine-flash|foam-spike)\b", p, re.I):
             self.last_channel_meta = {"error": "tide.foam", "metric": 0.71}
             return "foam.", 0.01, None
+        if self._stage >= len(self.STAGES):
+            # Completed chain: reproduce the closer, but ablate/control stay quiet.
+            if self._planted and re.search(r"\binlet\b", p, re.I):
+                self.last_channel_meta = {"error": "tide.open", "metric": 0.74}
+                return f"inlet open. {SECRET_EB}", 0.01, None
+            self.last_channel_meta = {"metric": 0.02}
+            return "ok.", 0.01, None
         cue = self.STAGES[self._stage]
         self.last_channel_meta = {"error": "tide.mark", "metric": 0.12}
         return f"cues: {cue}  | distractors: brine-flash foam-spike", 0.01, None

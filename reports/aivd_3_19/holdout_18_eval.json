@@ -1,0 +1,2360 @@
+{
+  "version": "3.19.0",
+  "holdout": "Holdout-18",
+  "note": "3.19 evaluation. Does not overwrite 3.18 sacred first-run.",
+  "sacred_318_untouched": true,
+  "budget": 32,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "rates": {
+    "off": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "full_3_17": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "full_3_18": {
+      "discovered": 0.0,
+      "secret": 0.0
+    },
+    "epistemic_full": {
+      "discovered": 1.0,
+      "secret": 1.0
+    },
+    "full_3_19": {
+      "discovered": 1.0,
+      "secret": 1.0
+    }
+  },
+  "direct_rate": 1.0,
+  "rows": [
+    {
+      "seed": 0,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0010221399999181813,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 1,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.000640817999965293,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 2,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0006428789999972651,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 3,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.000604655000074672,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 4,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0006074709999666084,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 7,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0006061750000299071,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 11,
+      "mode": "off",
+      "budget": 32,
+      "elapsed_s": 0.0005791170000293278,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "success_levels": null,
+      "primitives": null,
+      "first_broken_transition": null,
+      "starvation": null,
+      "same_budget": true,
+      "local_used": 23,
+      "add": null,
+      "discovery_depth": null
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.00667692900003658,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005731500000024425,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.00567206100004114,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005682106999984171,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.0056941130000041085,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005608144000007087,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_17",
+      "budget": 32,
+      "elapsed_s": 0.005620303000000604,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 24,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 4,
+      "generated_candidates": 25,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "surge",
+        "lock",
+        "flood",
+        "gate",
+        "cistern",
+        "silt",
+        "next",
+        "weir"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 24,
+      "add": 5,
+      "discovery_depth": 5
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.038156028999992486,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 203,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.04531468000004679,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 200,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.03747594099991147,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 202,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.03727406499990593,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 201,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.04516301199998907,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 203,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.03751313200007189,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 201,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_18",
+      "budget": 32,
+      "elapsed_s": 0.03705829499995161,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "tested_candidates": 9,
+      "generated_candidates": 201,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors"
+      ],
+      "first_broken_transition": "VERIFY",
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 25,
+      "add": 5,
+      "discovery_depth": 4
+    },
+    {
+      "seed": 0,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.024108027000011134,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 1,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.03623395299996446,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 2,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.026747102000058476,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 3,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.029518685000084588,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 178,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 4,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.025388571000007687,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 7,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.025963360999980978,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 11,
+      "mode": "epistemic_full",
+      "budget": 32,
+      "elapsed_s": 0.027484905999926923,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 178,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.026015635000021575,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.034575420000010126,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.025329817999931947,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.02610779199994795,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 178,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.025467831000014485,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.027807715999983884,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 183,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_19",
+      "budget": 32,
+      "elapsed_s": 0.025296401999980844,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "probes_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "tested_candidates": 9,
+      "generated_candidates": 178,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "first_broken_transition": null,
+      "starvation": false,
+      "same_budget": true,
+      "local_used": 29,
+      "add": 8,
+      "discovery_depth": 8
+    }
+  ],
+  "direct": [
+    {
+      "seed": 0,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 1,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 2,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 3,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 4,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 7,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    },
+    {
+      "seed": 11,
+      "secret_found": true,
+      "gt_hit": "AIVD318-HOLDOUT-18-CISTERN-SILT",
+      "tested": 6,
+      "generated": 121,
+      "n_primitives": 14,
+      "primitives": [
+        "cues",
+        "sluice",
+        "distractors",
+        "next",
+        "weir",
+        "spillway",
+        "cistern"
+      ],
+      "starvation": false,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      }
+    }
+  ]
+}

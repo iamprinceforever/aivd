@@ -1,7 +1,10 @@
-"""AIVD 3.18 — Global Epistemic Budget Arbitration.
+"""AIVD 3.18/3.19 — Global Epistemic Budget Arbitration.
 
 Default epistemic_mode=off → ≈ 3.17. No holdout-specific rules.
 ONE global experiment budget of 32. Subsystems propose; the arbiter selects.
+
+3.18: arbiter owns leftover after sequential peel.
+3.19: arbiter owns the episode after infra smoke (no sweep/gate lock).
 """
 from aivd.epistemic.scheduler import (
     EPISTEMIC_MODES,
@@ -9,6 +12,7 @@ from aivd.epistemic.scheduler import (
     is_authoritative,
     is_shadow_mode,
     epistemic_skips_legacy_tower,
+    epistemic_owns_episode,
 )
 from aivd.epistemic.types import (
     BranchState,
@@ -50,6 +54,7 @@ __all__ = [
     "is_authoritative",
     "is_shadow_mode",
     "epistemic_skips_legacy_tower",
+    "epistemic_owns_episode",
     "BranchState",
     "ExperimentProposal",
     "ScoreBreakdown",

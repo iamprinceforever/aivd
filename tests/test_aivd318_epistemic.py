@@ -17,6 +17,7 @@ from aivd.epistemic import (
     is_epistemic_mode,
     is_authoritative,
     is_shadow_mode,
+    epistemic_owns_episode,
     EPISTEMIC_MODES,
     score_proposal,
     apply_opportunity_costs,
@@ -76,7 +77,7 @@ def test_config_epistemic_defaults_off():
 
 
 def test_config_accepts_epistemic_modes():
-    for m in ("epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow", "full_3_18", "arbiter"):
+    for m in ("epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow", "full_3_18", "full_3_19", "arbiter"):
         cfg = AIVDConfig(epistemic_mode=m)
         assert cfg.epistemic_mode == m
         cfg2 = AIVDConfig(invention_mode=m)
@@ -86,12 +87,18 @@ def test_config_accepts_epistemic_modes():
 def test_is_epistemic_mode():
     assert is_epistemic_mode("epistemic")
     assert is_epistemic_mode("full_3_18")
+    assert is_epistemic_mode("full_3_19")
     assert is_authoritative("epistemic_full")
     assert is_shadow_mode("epistemic_shadow")
     assert not is_authoritative("epistemic_shadow")
     assert not is_epistemic_mode("openworld")
     assert not is_epistemic_mode("off")
     assert "epistemic" in EPISTEMIC_MODES
+    assert epistemic_owns_episode("full_3_19")
+    assert epistemic_owns_episode("epistemic_full")
+    assert not epistemic_owns_episode("full_3_18")
+    assert not epistemic_owns_episode("off")
+    assert not epistemic_owns_episode("epistemic_shadow")
 
 
 def test_disabled_behaves_like_317():

@@ -64,7 +64,7 @@ def epistemic_audit_record() -> dict[str, Any]:
     scan = scan_epistemic_source()
     return {
         "package": "aivd.epistemic",
-        "version_target": "3.18.0",
+        "version_target": "3.19.0",
         "leakage_pass": scan["pass"],
         "leaks": scan["leaks"],
         "default_mode_off": True,

@@ -1,0 +1,2174 @@
+{
+  "version": "3.19.0",
+  "budget": 32,
+  "default_off": true,
+  "owns_episode_full_3_19": true,
+  "owns_episode_full_3_18": false,
+  "eig_trap": {
+    "greedy": {
+      "counts": {
+        "trap": 12,
+        "path": 0
+      },
+      "path_share": 0.0,
+      "trap_share": 1.0,
+      "used": 12,
+      "total": 12,
+      "invariant_ok": true,
+      "path_completed": false,
+      "greedy": true
+    },
+    "arbiter": {
+      "counts": {
+        "trap": 0,
+        "path": 5
+      },
+      "path_share": 1.0,
+      "trap_share": 0.0,
+      "used": 5,
+      "total": 12,
+      "invariant_ok": true,
+      "path_completed": true,
+      "greedy": false
+    }
+  },
+  "dead_end": {
+    "hist": [
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real",
+      "real"
+    ],
+    "after_falsify": [],
+    "real_after": 0,
+    "decoy_after": 0,
+    "used": 10,
+    "invariant_ok": true,
+    "decoy_state": "FORMING"
+  },
+  "alloc_direct": {
+    "n": 35,
+    "discovery_rate": 0.8,
+    "mean_tested": 0.0,
+    "mean_starvation": 0.0,
+    "mean_slot_efficiency": 0.0,
+    "mean_agreement": 0.0,
+    "mean_probes": 0.0,
+    "false_positive_rate": 0.0
+  },
+  "alloc_rows": [
+    {
+      "id": "EA",
+      "seed": 0,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 1,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 2,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 3,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 4,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 7,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EA",
+      "seed": 11,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 151,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 0,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 1,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 2,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 3,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 4,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 7,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EB",
+      "seed": 11,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 7,
+      "generated": 139,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 0,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 1,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 2,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 3,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 4,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 7,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "EC",
+      "seed": 11,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 8,
+      "generated": 171,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 0,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 1,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 2,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 3,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 4,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 7,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "ED",
+      "seed": 11,
+      "secret_found": true,
+      "expect_secret": true,
+      "hit": true,
+      "tested": 4,
+      "generated": 84,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 0,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 149,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 1,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 143,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 2,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 149,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 3,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 153,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 4,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 153,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 7,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 153,
+      "same_budget": true
+    },
+    {
+      "id": "EF",
+      "seed": 11,
+      "secret_found": false,
+      "expect_secret": false,
+      "hit": true,
+      "tested": 19,
+      "generated": 153,
+      "same_budget": true
+    }
+  ],
+  "ow_rows": [
+    {
+      "id": "OW-1",
+      "seed": 0,
+      "v319": true,
+      "v317": true,
+      "tested_319": 1
+    },
+    {
+      "id": "OW-1",
+      "seed": 1,
+      "v319": true,
+      "v317": true,
+      "tested_319": 1
+    },
+    {
+      "id": "OW-1",
+      "seed": 2,
+      "v319": true,
+      "v317": true,
+      "tested_319": 1
+    },
+    {
+      "id": "OW-2",
+      "seed": 0,
+      "v319": true,
+      "v317": true,
+      "tested_319": 2
+    },
+    {
+      "id": "OW-2",
+      "seed": 1,
+      "v319": true,
+      "v317": true,
+      "tested_319": 2
+    },
+    {
+      "id": "OW-2",
+      "seed": 2,
+      "v319": true,
+      "v317": true,
+      "tested_319": 2
+    },
+    {
+      "id": "OW-3",
+      "seed": 0,
+      "v319": false,
+      "v317": true,
+      "tested_319": 24
+    },
+    {
+      "id": "OW-3",
+      "seed": 1,
+      "v319": false,
+      "v317": true,
+      "tested_319": 23
+    },
+    {
+      "id": "OW-3",
+      "seed": 2,
+      "v319": false,
+      "v317": true,
+      "tested_319": 24
+    },
+    {
+      "id": "OW-4",
+      "seed": 0,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-4",
+      "seed": 1,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-4",
+      "seed": 2,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-5",
+      "seed": 0,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-5",
+      "seed": 1,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-5",
+      "seed": 2,
+      "v319": true,
+      "v317": true,
+      "tested_319": 3
+    },
+    {
+      "id": "OW-6",
+      "seed": 0,
+      "v319": true,
+      "v317": true,
+      "tested_319": 7
+    },
+    {
+      "id": "OW-6",
+      "seed": 1,
+      "v319": true,
+      "v317": true,
+      "tested_319": 7
+    },
+    {
+      "id": "OW-6",
+      "seed": 2,
+      "v319": true,
+      "v317": true,
+      "tested_319": 7
+    },
+    {
+      "id": "OW-7",
+      "seed": 0,
+      "v319": false,
+      "v317": false,
+      "tested_319": 19
+    },
+    {
+      "id": "OW-7",
+      "seed": 1,
+      "v319": false,
+      "v317": false,
+      "tested_319": 18
+    },
+    {
+      "id": "OW-7",
+      "seed": 2,
+      "v319": false,
+      "v317": false,
+      "tested_319": 19
+    }
+  ],
+  "peel_rows": [
+    {
+      "id": "EA",
+      "mode": "full_3_18",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 239,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EA",
+      "mode": "full_3_18",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 236,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EA",
+      "mode": "full_3_18",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 238,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EA",
+      "mode": "full_3_19",
+      "seed": 0,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 9,
+      "generated_candidates": 193,
+      "probes_used": 29,
+      "local_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EA",
+      "mode": "full_3_19",
+      "seed": 1,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 9,
+      "generated_candidates": 193,
+      "probes_used": 29,
+      "local_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EA",
+      "mode": "full_3_19",
+      "seed": 2,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 9,
+      "generated_candidates": 193,
+      "probes_used": 29,
+      "local_used": 29,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "cobble",
+        "distractors",
+        "flare",
+        "chime",
+        "mortar"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_18",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 203,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_18",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 200,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_18",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 202,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_19",
+      "seed": 0,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 201,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors",
+        "next",
+        "drift",
+        "eddy",
+        "inlet"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_19",
+      "seed": 1,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 201,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors",
+        "next",
+        "drift",
+        "eddy",
+        "inlet"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EB",
+      "mode": "full_3_19",
+      "seed": 2,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 201,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "kelp",
+        "distractors",
+        "next",
+        "drift",
+        "eddy",
+        "inlet"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_18",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 244,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_18",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 241,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_18",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 242,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_19",
+      "seed": 0,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 213,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_19",
+      "seed": 1,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 213,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EC",
+      "mode": "full_3_19",
+      "seed": 2,
+      "terminal_state": "VERIFIED",
+      "classification": "unclassified_mechanism",
+      "discovered": true,
+      "secret_found": true,
+      "tested_candidates": 10,
+      "generated_candidates": 213,
+      "probes_used": 31,
+      "local_used": 31,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": true
+          }
+        },
+        "highest_contiguous": 7
+      },
+      "primitives": [
+        "cues",
+        "wicker",
+        "distractors",
+        "gilt",
+        "tinsel",
+        "follow",
+        "plait"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_18",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 208,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_18",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 205,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_18",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 9,
+      "generated_candidates": 207,
+      "probes_used": 25,
+      "local_used": 25,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_19",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 241,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_19",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 241,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "ED",
+      "mode": "full_3_19",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 241,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": true
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 6
+      },
+      "primitives": [
+        "families",
+        "noria",
+        "flume"
+      ],
+      "starvation": false
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_18",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "probes_used": 5,
+      "local_used": 5,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": null,
+      "primitives": null,
+      "starvation": null
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_18",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "probes_used": 5,
+      "local_used": 5,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": null,
+      "primitives": null,
+      "starvation": null
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_18",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": null,
+      "generated_candidates": null,
+      "probes_used": 5,
+      "local_used": 5,
+      "owns_episode": false,
+      "peel_skipped": false,
+      "same_budget": true,
+      "success_levels": null,
+      "primitives": null,
+      "starvation": null
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_19",
+      "seed": 0,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 164,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [],
+      "starvation": false
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_19",
+      "seed": 1,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 164,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [],
+      "starvation": false
+    },
+    {
+      "id": "EF",
+      "mode": "full_3_19",
+      "seed": 2,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "classification": "invisible_unresolved",
+      "discovered": false,
+      "secret_found": false,
+      "tested_candidates": 15,
+      "generated_candidates": 164,
+      "probes_used": 32,
+      "local_used": 32,
+      "owns_episode": true,
+      "peel_skipped": true,
+      "same_budget": true,
+      "success_levels": {
+        "levels": {
+          "1": {
+            "name": "represent_previously_unrepresentable",
+            "pass": true
+          },
+          "2": {
+            "name": "generate_experiment",
+            "pass": true
+          },
+          "3": {
+            "name": "execute",
+            "pass": true
+          },
+          "4": {
+            "name": "informative_evidence",
+            "pass": true
+          },
+          "5": {
+            "name": "hypothesis_discrimination",
+            "pass": true
+          },
+          "6": {
+            "name": "security_relevant_discovery",
+            "pass": false
+          },
+          "7": {
+            "name": "reproduce_causal_verify",
+            "pass": false
+          }
+        },
+        "highest_contiguous": 5
+      },
+      "primitives": [],
+      "starvation": false
+    }
+  ],
+  "audit": {
+    "package": "aivd.epistemic",
+    "version_target": "3.19.0",
+    "leakage_pass": true,
+    "leaks": [],
+    "default_mode_off": true,
+    "no_holdout_rules": true,
+    "same_budget_32": true,
+    "not_greedy_eig_only": true,
+    "reservations_revocable": true
+  },
+  "health": {
+    "package": "epistemic",
+    "n_modules": 18,
+    "default_mode_off": true,
+    "global_budget": 32,
+    "greedy_eig_only": false,
+    "reservations_revocable": true,
+    "shadow_mode": true,
+    "consolidation_note": "3.19 does not add a new discovery algorithm. GlobalEpistemicArbiter owns the episode after infra smoke so sequential sweep/gate peel cannot starve multi-step branches. Default off \u2248 3.17. full_3_18 remains leftover-arbiter for the frozen 3.18 protocol."
+  },
+  "leakage_pass": true
+}
