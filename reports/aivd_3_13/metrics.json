@@ -782,5 +782,25 @@
     "anti_q": "PASS",
     "leakage_pass": true
   },
-  "elapsed_s": 14.229
+  "elapsed_s": 14.229,
+  "holdout_r": {
+    "status": "NOT_DISCOVERED",
+    "discovery_rates": {
+      "off": 0.0,
+      "random": 0.0,
+      "full": 0.0,
+      "diversity": 0.0,
+      "diversity_full": 0.0,
+      "adaptive": 0.0,
+      "adaptive_full": 0.0,
+      "interaction": 0.0,
+      "interaction_full": 0.0,
+      "joint_only": 0.0,
+      "joint": 0.0,
+      "joint_full": 0.0,
+      "interaction_joint": 0.0,
+      "full_3_13": 0.0
+    },
+    "freeze_commit": "a2165695cd3e8b8efd389894d0ab571492db89ef"
+  }
 }

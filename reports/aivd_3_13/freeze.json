@@ -73,5 +73,7 @@
   },
   "anti_q_status": "PASS",
   "leakage_pass": true,
-  "note": "FREEZE precedes Holdout-R creation. No post-hoc retune against R."
+  "note": "FREEZE precedes Holdout-R creation. No post-hoc retune against R.",
+  "freeze_commit": "a2165695cd3e8b8efd389894d0ab571492db89ef",
+  "freeze_commit_short": "a216569"
 }
