@@ -378,9 +378,10 @@ def test_no_holdout_leakage_in_interaction_or_invention():
     assert path_leaks == [], f"explorer path leaks: {path_leaks}"
 
 
-def test_version_is_312():
+def test_version_at_least_312():
     import aivd
-    assert aivd.__version__ == "3.12.0"
+    parts = tuple(int(x) for x in aivd.__version__.split(".")[:3])
+    assert parts >= (3, 12, 0)
 
 
 def test_screen_prunes_low_value():

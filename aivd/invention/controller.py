@@ -5,6 +5,7 @@ Preserves terminal semantics; does not claim VERIFIED without gates.
 3.10 extends 3.9 with optional diversity-aware selection (default off via mode).
 3.11 adds Adaptive Search Ordering: TEST→observe→evidence→reorder (default off).
 3.12 adds Open Interaction Discovery after individual results (default off).
+3.13 adds Joint Residual Budget Allocation after interaction hypothesis (default off).
 """
 from __future__ import annotations
 
@@ -18,6 +19,12 @@ from aivd.invention.adaptive_ordering import (
 )
 from aivd.interaction.scheduler import is_interaction_mode, INTERACTION_MODES
 from aivd.interaction.controller import InteractionDiscoveryController
+from aivd.joint.scheduler import (
+    is_joint_mode,
+    joint_enables_interaction,
+    JOINT_MODES,
+)
+from aivd.joint.controller import JointResidualController
 from aivd.invention.archive import FamilyArchive
 from aivd.invention.budget import InventionBudget
 from aivd.invention.candidate_generator import generate_candidates
@@ -46,11 +53,15 @@ _DIVERSITY_MODES = frozenset({
 _ADAPTIVE_MODES = ADAPTIVE_MODES
 # 3.12 interaction modes
 _INTERACTION_MODES = INTERACTION_MODES
+# 3.13 joint modes
+_JOINT_MODES = JOINT_MODES
 
 
 def _base_gen_mode(mode: str) -> str:
-    """Map diversity / adaptive / interaction modes onto a 3.9 generator mode."""
+    """Map diversity / adaptive / interaction / joint modes onto a 3.9 generator mode."""
     m = (mode or "off").lower().strip()
+    if m in _JOINT_MODES or m.startswith("joint") or m in ("interaction_joint", "full_3_13"):
+        return "full"
     if m in _INTERACTION_MODES or m.startswith("interaction"):
         if m in ("interaction_random", "random"):
             return "full"
@@ -76,7 +87,7 @@ def _exploration_for_mode(mode: str, exploration: str | None) -> str:
         return "novelty_bandit"
     if m == "diversity_full":
         return "hierarchical"
-    if m in ("adaptive", "adaptive_full") or m.startswith("interaction"):
+    if m in ("adaptive", "adaptive_full") or m.startswith("interaction") or m.startswith("joint") or m in ("interaction_joint", "full_3_13"):
         return "hierarchical"
     if m == "adaptive_heuristic":
         return "epsilon_greedy"
@@ -128,7 +139,7 @@ def _security_signal(obs: Any, baseline: Any | None = None) -> float:
 
 
 class InventionController:
-    """Open intervention invention loop (3.9–3.12: diversity + adaptive + interaction)."""
+    """Open intervention invention loop (3.9–3.13: diversity + adaptive + interaction + joint)."""
 
     def __init__(
         self,
@@ -150,6 +161,12 @@ class InventionController:
         interaction_max_screen: int = 8,
         interaction_max_counterfactuals: int = 4,
         interaction_max_triples: int = 2,
+        joint_allocation: bool | None = None,
+        joint_ablation: str | None = None,
+        joint_max_hypotheses: int = 6,
+        joint_max_combinations: int = 4,
+        joint_alloc_policy: str = "joint_aware",
+        joint_reserve_fraction: float = 0.25,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -170,18 +187,37 @@ class InventionController:
         self.interaction_max_counterfactuals = int(interaction_max_counterfactuals)
         self.interaction_max_triples = int(interaction_max_triples)
         if adaptive_ordering is None:
-            self.adaptive_enabled = is_adaptive_mode(self.mode) or is_interaction_mode(self.mode)
+            self.adaptive_enabled = is_adaptive_mode(self.mode) or is_interaction_mode(self.mode) or is_joint_mode(self.mode)
         else:
             self.adaptive_enabled = bool(adaptive_ordering)
         if interaction_discovery is None:
-            self.interaction_enabled = is_interaction_mode(self.mode)
+            self.interaction_enabled = (
+                is_interaction_mode(self.mode)
+                or (is_joint_mode(self.mode) and joint_enables_interaction(self.mode))
+            )
         else:
             self.interaction_enabled = bool(interaction_discovery)
+        self.joint_ablation = joint_ablation
+        self.joint_max_hypotheses = int(joint_max_hypotheses)
+        self.joint_max_combinations = int(joint_max_combinations)
+        self.joint_alloc_policy = str(joint_alloc_policy or "joint_aware")
+        self.joint_reserve_fraction = float(joint_reserve_fraction)
+        if joint_allocation is None:
+            self.joint_enabled = is_joint_mode(self.mode)
+        else:
+            self.joint_enabled = bool(joint_allocation)
+        # joint_only: joint without interaction layer
+        if self.mode == "joint_only":
+            self.interaction_enabled = False
+            self.joint_enabled = True
+        if adaptive_ordering is None and self.joint_enabled:
+            self.adaptive_enabled = True
         if diversity_enabled is None:
             self.diversity_enabled = (
                 self.mode in _DIVERSITY_MODES
                 or self.adaptive_enabled
                 or self.interaction_enabled
+                or self.joint_enabled
             )
         else:
             self.diversity_enabled = bool(diversity_enabled)
@@ -247,6 +283,8 @@ class InventionController:
                 "diversity": None,
                 "interaction": None,
                 "interaction_enabled": False,
+                "joint": None,
+                "joint_enabled": False,
             }
 
         ctx = dict(residual_context or {})
@@ -675,6 +713,93 @@ class InventionController:
                     best_prompt = ix.get("best_prompt")
                     best_obs = ix.get("best_obs")
 
+        # 3.13 Joint Residual Budget Allocation (after interaction hypothesis)
+        joint_summary = None
+        if self.joint_enabled and not secret_found:
+            tested_objs_j: list[Intervention] = []
+            effects_map_j: dict[str, float] = {}
+            for entry in self.trace.tested:
+                seq = list(entry.get("sequence") or [])
+                if not seq:
+                    continue
+                inv_r = Intervention(
+                    ops=[],
+                    sequence=seq,
+                    strategy=str(entry.get("strategy") or "primitive"),
+                    id=str(entry.get("id") or ""),
+                )
+                inv_r.effect = float(entry.get("effect") or 0.0)
+                inv_r.security = float(entry.get("effect") or 0.0)
+                inv_r.meta = {
+                    "family_id": entry.get("family_id") or "unknown",
+                    "family_features": {"stem_bucket": (seq[0].split("-")[0] if seq else "")},
+                }
+                if inv_r.id:
+                    effects_map_j[inv_r.id] = inv_r.effect
+                tested_objs_j.append(inv_r)
+            for k in kept_objs:
+                if k.id not in effects_map_j:
+                    effects_map_j[k.id] = float(k.effect or k.security or 0.0)
+                    tested_objs_j.append(k)
+            seen_j: set[str] = set()
+            uniq_j: list[Intervention] = []
+            for t in tested_objs_j:
+                if t.id and t.id not in seen_j:
+                    seen_j.add(t.id)
+                    uniq_j.append(t)
+            if len(uniq_j) >= 2 and self.budget.can_test():
+                jc_mode = self.mode if is_joint_mode(self.mode) else "joint"
+                jrc = JointResidualController(
+                    mode=jc_mode,
+                    seed=self.seed,
+                    max_hypotheses=self.joint_max_hypotheses,
+                    max_combinations=self.joint_max_combinations,
+                    alloc_policy=self.joint_alloc_policy,
+                    reserve_fraction=self.joint_reserve_fraction,
+                    ablation=self.joint_ablation,
+                    total_budget=self.budget.remaining_tests(),
+                )
+
+                def _charge_j() -> bool:
+                    if charge is not None and not charge():
+                        return False
+                    if not self.budget.can_test():
+                        return False
+                    self.budget.charge_test()
+                    return True
+
+                jx = jrc.run(
+                    seed_prompt,
+                    individuals=uniq_j,
+                    observe_fn=observe_fn,
+                    residual_context=ctx,
+                    charge=_charge_j,
+                    individual_effects=effects_map_j,
+                    budget=self.budget.remaining_tests(),
+                )
+                joint_summary = jx
+                self.trace.add(
+                    "joint_allocation",
+                    n_hypotheses=jx.get("n_hypotheses"),
+                    n_combinations=jx.get("n_combinations_tested"),
+                    secret=jx.get("secret_found"),
+                    asymmetric=(jx.get("allocation") or {}).get("asymmetric"),
+                )
+                self.trace.probes_used += int(jx.get("probes_used") or 0)
+                if jx.get("secret_found"):
+                    secret_found = True
+                    best_prompt = jx.get("best_prompt") or best_prompt
+                    best_obs = jx.get("best_obs") or best_obs
+                    best_effect = max(best_effect, float(jx.get("best_effect") or 0.0))
+                    if best_prompt and best_prompt not in positive_prompts:
+                        positive_prompts.append(best_prompt)
+                        if best_obs is not None:
+                            positive_obs_list.append(best_obs)
+                elif jx.get("best_prompt") and float(jx.get("best_effect") or 0) > best_effect:
+                    best_effect = float(jx.get("best_effect") or 0)
+                    best_prompt = jx.get("best_prompt")
+                    best_obs = jx.get("best_obs")
+
         self.trace.best_prompt = best_prompt
         self.trace.best_effect = best_effect
         self.trace.secret_found = secret_found
@@ -702,5 +827,7 @@ class InventionController:
             "adaptive": adaptive_summary,
             "interaction_enabled": self.interaction_enabled,
             "interaction": interaction_summary,
+            "joint_enabled": self.joint_enabled,
+            "joint": joint_summary,
             "exploration": self.exploration,
         }

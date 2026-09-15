@@ -1,0 +1,16 @@
+{
+  "holdout_id": "HOLDOUT-Q",
+  "label": "HOLDOUT-Q v1 REPLAY UNDER AIVD 3.13",
+  "sacred_first_run": false,
+  "replay_status": "NOT_DISCOVERED",
+  "sacred_status_untouched": "NOT_DISCOVERED",
+  "sacred_commit": "dab0f49",
+  "discovery_rates": {
+    "off": 0.0,
+    "interaction": 0.0,
+    "interaction_full": 0.0,
+    "joint": 0.0,
+    "joint_full": 0.0,
+    "full_3_13": 0.0
+  }
+}

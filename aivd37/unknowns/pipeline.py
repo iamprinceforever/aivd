@@ -100,6 +100,12 @@ class UnknownsPipeline:
         interaction_max_screen: int = 8,
         interaction_max_counterfactuals: int = 4,
         interaction_max_triples: int = 2,
+        joint_mode: str = "off",
+        invention_joint_ablation: str | None = None,
+        joint_max_hypotheses: int = 6,
+        joint_max_combinations: int = 4,
+        joint_alloc_policy: str = "joint_aware",
+        joint_reserve_fraction: float = 0.25,
     ):
         self.target = target
         if probe_fn is not None:
@@ -130,6 +136,12 @@ class UnknownsPipeline:
         self.interaction_max_screen = int(interaction_max_screen)
         self.interaction_max_counterfactuals = int(interaction_max_counterfactuals)
         self.interaction_max_triples = int(interaction_max_triples)
+        self.joint_mode = str(joint_mode or "off").lower().strip()
+        self.invention_joint_ablation = invention_joint_ablation
+        self.joint_max_hypotheses = int(joint_max_hypotheses)
+        self.joint_max_combinations = int(joint_max_combinations)
+        self.joint_alloc_policy = str(joint_alloc_policy or "joint_aware")
+        self.joint_reserve_fraction = float(joint_reserve_fraction)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -172,6 +184,19 @@ class UnknownsPipeline:
                 self.invention_mode = "interaction_random"
             else:
                 self.invention_mode = "interaction"
+        # joint_mode overlays (3.13) — takes precedence when set
+        if self.joint_mode not in ("off", "false", "0", ""):
+            jm = self.joint_mode
+            if jm in ("joint_full", "full_3_13", "full"):
+                self.invention_mode = "joint_full" if jm != "full_3_13" else "full_3_13"
+            elif jm in ("joint_only",):
+                self.invention_mode = "joint_only"
+            elif jm in ("joint_random", "random"):
+                self.invention_mode = "joint_random"
+            elif jm in ("interaction_joint",):
+                self.invention_mode = "interaction_joint"
+            else:
+                self.invention_mode = "joint"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -406,6 +431,11 @@ class UnknownsPipeline:
                         interaction_max_screen=self.interaction_max_screen,
                         interaction_max_counterfactuals=self.interaction_max_counterfactuals,
                         interaction_max_triples=self.interaction_max_triples,
+                        joint_ablation=self.invention_joint_ablation,
+                        joint_max_hypotheses=self.joint_max_hypotheses,
+                        joint_max_combinations=self.joint_max_combinations,
+                        joint_alloc_policy=self.joint_alloc_policy,
+                        joint_reserve_fraction=self.joint_reserve_fraction,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

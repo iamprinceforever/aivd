@@ -1,0 +1,197 @@
+{
+  "sample": {
+    "kind": "joint_residual_budget_allocation_audit",
+    "summary": {
+      "n_hypotheses": 6,
+      "n_combinations_tested": 5,
+      "secret_found": false,
+      "asymmetric": true,
+      "reserve_consumed": 2
+    },
+    "allocation": {
+      "policy": "joint_aware",
+      "total_budget": 8,
+      "characterization_budget": 6,
+      "reserve": 2,
+      "per_family": {
+        "f0": 2,
+        "f1": 1,
+        "f2": 1,
+        "f3": 1,
+        "f4": 1
+      },
+      "family_details": {
+        "f0": {
+          "family_id": "f0",
+          "state": "CHARACTERIZED",
+          "u": 0.3,
+          "need": 0.35,
+          "linkage_max": 0.98,
+          "joint_evi_max": 0.57375
+        },
+        "f1": {
+          "family_id": "f1",
+          "state": "CHARACTERIZED",
+          "u": 0.3,
+          "need": 0.35,
+          "linkage_max": 0.98,
+          "joint_evi_max": 0.57375
+        },
+        "f2": {
+          "family_id": "f2",
+          "state": "CHARACTERIZED",
+          "u": 0.3,
+          "need": 0.35,
+          "linkage_max": 0.98,
+          "joint_evi_max": 0.57375
+        },
+        "f3": {
+          "family_id": "f3",
+          "state": "CHARACTERIZED",
+          "u": 0.3,
+          "need": 0.35,
+          "linkage_max": 0.98,
+          "joint_evi_max": 0.57375
+        },
+        "f4": {
+          "family_id": "f4",
+          "state": "CHARACTERIZED",
+          "u": 0.3,
+          "need": 0.35,
+          "linkage_max": 0.98,
+          "joint_evi_max": 0.57375
+        }
+      },
+      "asymmetric": true,
+      "audit": [
+        {
+          "kind": "joint_aware",
+          "weights": {
+            "f0": 0.5746,
+            "f1": 0.5746,
+            "f2": 0.5746,
+            "f3": 0.5746,
+            "f4": 0.5746
+          },
+          "raw": {
+            "f0": 1.2,
+            "f1": 1.2,
+            "f2": 1.2,
+            "f3": 1.2,
+            "f4": 1.2
+          }
+        }
+      ],
+      "sum_allocated": 8
+    },
+    "readiness": [
+      {
+        "family_id": "f0",
+        "state": "INTERACTION_READY",
+        "readiness_score": 1.0,
+        "is_vulnerability": false,
+        "n_probes": 4,
+        "n_variants": 2,
+        "effect_mean": 0.05
+      },
+      {
+        "family_id": "f1",
+        "state": "INTERACTION_READY",
+        "readiness_score": 1.0,
+        "is_vulnerability": false,
+        "n_probes": 3,
+        "n_variants": 2,
+        "effect_mean": 0.05000000000000001
+      },
+      {
+        "family_id": "f2",
+        "state": "INTERACTION_READY",
+        "readiness_score": 1.0,
+        "is_vulnerability": false,
+        "n_probes": 3,
+        "n_variants": 2,
+        "effect_mean": 0.05000000000000001
+      },
+      {
+        "family_id": "f3",
+        "state": "INTERACTION_READY",
+        "readiness_score": 1.0,
+        "is_vulnerability": false,
+        "n_probes": 3,
+        "n_variants": 2,
+        "effect_mean": 0.05000000000000001
+      },
+      {
+        "family_id": "f4",
+        "state": "INTERACTION_READY",
+        "readiness_score": 1.0,
+        "is_vulnerability": false,
+        "n_probes": 3,
+        "n_variants": 2,
+        "effect_mean": 0.05000000000000001
+      }
+    ],
+    "complexity": {
+      "n_families": 5,
+      "possible_unordered_pairs": 10,
+      "hypotheses_possible": 10,
+      "hypotheses_generated": 6,
+      "orders_possible": 24,
+      "orders_tested": 5,
+      "triples_possible": 10,
+      "triples_tested": 2,
+      "pruning_ratio": 0.4,
+      "brute_force": false
+    },
+    "anti_q": {},
+    "ablation": null,
+    "note": "Joint residual budget allocation; no Holdout/Q/Z hardcoding; readiness \u2260 vulnerability; asymmetric allocation; revisable reserve; hierarchical multi-way (not brute force)."
+  },
+  "trace_readiness": [
+    {
+      "family_id": "f0",
+      "state": "INTERACTION_READY",
+      "readiness_score": 1.0,
+      "is_vulnerability": false,
+      "n_probes": 4,
+      "n_variants": 2,
+      "effect_mean": 0.05
+    },
+    {
+      "family_id": "f1",
+      "state": "INTERACTION_READY",
+      "readiness_score": 1.0,
+      "is_vulnerability": false,
+      "n_probes": 3,
+      "n_variants": 2,
+      "effect_mean": 0.05000000000000001
+    },
+    {
+      "family_id": "f2",
+      "state": "INTERACTION_READY",
+      "readiness_score": 1.0,
+      "is_vulnerability": false,
+      "n_probes": 3,
+      "n_variants": 2,
+      "effect_mean": 0.05000000000000001
+    },
+    {
+      "family_id": "f3",
+      "state": "INTERACTION_READY",
+      "readiness_score": 1.0,
+      "is_vulnerability": false,
+      "n_probes": 3,
+      "n_variants": 2,
+      "effect_mean": 0.05000000000000001
+    },
+    {
+      "family_id": "f4",
+      "state": "INTERACTION_READY",
+      "readiness_score": 1.0,
+      "is_vulnerability": false,
+      "n_probes": 3,
+      "n_variants": 2,
+      "effect_mean": 0.05000000000000001
+    }
+  ]
+}

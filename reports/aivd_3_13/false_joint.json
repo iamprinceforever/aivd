@@ -1,0 +1,12 @@
+{
+  "linkage": 0.5650000000000001,
+  "reserve": 2,
+  "pass": false,
+  "spec": {
+    "name": "false_joint_dependency",
+    "family_a": "enable",
+    "family_b": "dismiss",
+    "linkage_expected_max": 0.35,
+    "note": "Low linkage \u2192 allocator should not over-reserve combination slots"
+  }
+}

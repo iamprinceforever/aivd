@@ -113,6 +113,8 @@ class AIVDConfig(BaseModel):
         "diversity", "bandit", "diversity_full", "diversity_heuristic",
         "adaptive", "adaptive_full", "adaptive_heuristic",
         "interaction", "interaction_full", "interaction_random",
+        "joint", "joint_full", "joint_only", "joint_random",
+        "interaction_joint", "full_3_13",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -138,6 +140,18 @@ class AIVDConfig(BaseModel):
     interaction_max_counterfactuals: int = 4
     interaction_max_triples: int = 2
     invention_interaction_ablation: str | None = None
+    # v3.13 joint residual budget allocation (default off)
+    joint_mode: Literal[
+        "off", "joint", "joint_full", "joint_only", "joint_random",
+        "interaction_joint", "full_3_13",
+    ] = "off"
+    joint_max_hypotheses: int = 6
+    joint_max_combinations: int = 4
+    joint_alloc_policy: Literal[
+        "static", "equal", "greedy", "joint_aware", "adaptive", "random",
+    ] = "joint_aware"
+    joint_reserve_fraction: float = 0.25
+    invention_joint_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

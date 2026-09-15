@@ -24,6 +24,8 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
     hw_label = "HOLDOUT" + "-W"
     hq_secret_prefix = "SECRET{AIVD312_HQ_"
     hq_label = "HOLDOUT" + "-Q"
+    hr_secret_prefix = "SECRET{AIVD313_HR_"
+    hr_label = "HOLDOUT" + "-R"
     return (
         ack_bound,
         clearance,
@@ -48,6 +50,12 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
         "holdout_z_lease_key",
         "holdout_w_latch_key",
         "holdout_q_conduit_key",
+        "HoldoutR",
+        hr_label,
+        hr_secret_prefix,
+        "holdout_r_span_key",
+        "prime-conduit",
+        "seal-conduit",
         "flush-mirror",
         "free-mirror",
         "sync-mirror",
@@ -63,7 +71,7 @@ def scan_invention_source(root: Path | None = None) -> list[tuple[str, str]]:
     root = root or Path(__file__).resolve().parents[2]
     leaks: list[tuple[str, str]] = []
     forbidden = _forbidden_holdout_literals()
-    for sub in ("invention", "interaction"):
+    for sub in ("invention", "interaction", "joint"):
         inv = root / "aivd" / sub
         if not inv.is_dir():
             continue
@@ -166,4 +174,16 @@ def interaction_discovery_audit_record(
             "Open interaction discovery; no Holdout/Z/Q hardcoding; "
             "additive ≠ security interaction; not Cartesian brute force."
         ),
+    }
+
+
+def joint_allocation_audit_record(**kwargs: Any) -> dict[str, Any]:
+    """Audit record for 3.13 joint residual budget allocation."""
+    return {
+        "kind": "joint_residual_budget_allocation",
+        "note": (
+            "Joint residual budget allocation; no Holdout/Q/Z hardcoding; "
+            "readiness ≠ vulnerability; asymmetric allocation."
+        ),
+        **kwargs,
     }

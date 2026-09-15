@@ -1,10 +1,12 @@
-"""AIVD 3.9–3.12 Open Intervention Invention (+ Diversity + Adaptive + Interaction).
+"""AIVD 3.9–3.13 Open Intervention Invention (+ Diversity + Adaptive + Interaction + Joint).
 
 Sits ABOVE 3.6 causal, BEFORE residual sweep / investigation.
 Config: invention_mode = off | random | heuristic | full |
         diversity | bandit | diversity_full | diversity_heuristic |
         adaptive | adaptive_full | adaptive_heuristic |
-        interaction | interaction_full | interaction_random (default off).
+        interaction | interaction_full | interaction_random |
+        joint | joint_full | joint_only | joint_random |
+        interaction_joint | full_3_13 (default off).
 Optional: invention_diversity_mode, adaptive_ordering_mode, interaction_mode,
 exploration, saturation/revival. Novelty alone is NOT rewarded.
 No Holdout special-cases. Interaction layer distinguishes additive vs synergistic.
@@ -19,6 +21,7 @@ from aivd.invention.audit import (
     diversity_audit_record,
     adaptive_ordering_audit_record,
     interaction_discovery_audit_record,
+    joint_allocation_audit_record,
 )
 from aivd.invention.family import assign_family, cluster_interventions, extract_family_features
 from aivd.invention.selection import diversity_score, select_diverse_batch, rank_with_diversity
