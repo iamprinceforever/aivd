@@ -1,7 +1,7 @@
 {
   "freeze_id": "aivd-3.11-adaptive-search-ordering",
   "frozen_at_utc": "2026-09-15T04:55:38Z",
-  "commit": "236752a87607f97ef8cde40c93d3b4b1beef8949",
+  "commit": "b85fe0f405431149577c86499d3475240ed540b8",
   "package_version_at_freeze": "3.11.0",
   "tests_note": "367 tests (349 prior + 18 adaptive suite)",
   "seeds": [
@@ -327,7 +327,7 @@
     },
     "note": "Dynamic reorder after each TEST; priority decay \u2260 blacklist; salience \u2260 vuln."
   },
-  "note": "Freeze BEFORE Holdout-W. Do not retune invention after seeing W.",
+  "note": "Freeze BEFORE Holdout-W. Do not retune invention after seeing W. Corrected: pre-Holdout-W freeze commit is b85fe0f (3.11 adaptive ordering), not 236752a (3.10.0 base).",
   "holdout_w_sacred": {
     "status": "DISCOVERED+VERIFIED",
     "discovery_rates": {
@@ -343,6 +343,9 @@
     "frozen_invention_commit": "b85fe0f405431149577c86499d3475240ed540b8"
   },
   "package_version_final": "3.11.0",
-  "final_commit": "69961cce8398af4ed078dfa6775dbe74f584ae16",
-  "tests": 374
+  "final_commit": "PENDING",
+  "tests": 374,
+  "baseline_commit_3_10": "236752a87607f97ef8cde40c93d3b4b1beef8949",
+  "pre_holdout_w_freeze_commit": "b85fe0f405431149577c86499d3475240ed540b8",
+  "holdout_w_commit": "69961cce8398af4ed078dfa6775dbe74f584ae16"
 }

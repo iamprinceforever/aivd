@@ -1,9 +1,10 @@
 # AIVD 3.11.0 Results — Adaptive Search Ordering
 
 **Package version:** 3.11.0  
-**Freeze commit (pre-Holdout-W):** `236752a87607f97ef8cde40c93d3b4b1beef8949`  
+**Freeze commit (pre-Holdout-W):** `b85fe0f405431149577c86499d3475240ed540b8`  
+**Baseline (3.10.0):** `236752a87607f97ef8cde40c93d3b4b1beef8949`  
 **Date:** 2026-09-15  
-**Tests:** 367 (349 prior 3.10 + adaptive suite)  
+**Tests:** 374 (349 prior 3.10 + adaptive/holdout suite)  
 **Honesty:** Sacred Holdout-X @ a972fec, Y @ 95acf38, Z under 3.10 (a174716) untouched.
 
 ## Layer
