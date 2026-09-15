@@ -144,7 +144,7 @@ class PPOAgent:
                 "seed": self.config.seed,
             },
             "update_count": self.update_count,
-            "aivd_version": "3.15.0",
+            "aivd_version": "3.16.0",
             "checkpoint_format": 2,
         }
 

@@ -1,0 +1,14 @@
+{
+  "name": "autonomy_anti_mapping",
+  "residual_vocab": [
+    "loom",
+    "haze",
+    "drift"
+  ],
+  "action_vocab": [
+    "tilt",
+    "warp",
+    "fold"
+  ],
+  "note": "Randomized opaque IDs must not change planner ranking structure"
+}

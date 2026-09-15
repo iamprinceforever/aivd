@@ -408,7 +408,7 @@ def test_ppo_checkpoint_roundtrip_versioned(tmp_path):
     path = tmp_path / "ckpt.pt"
     agent.save_checkpoint(path, meta={"note": "3.14"})
     bundle = agent.load_checkpoint(path)
-    assert bundle.get("aivd_version") == "3.15.0" or bundle.get("checkpoint_format") == 2
+    assert bundle.get("aivd_version") == "3.16.0" or bundle.get("checkpoint_format") == 2
     agent2 = PPOAgent(PPOConfig(state_dim=8, action_dim=4, seed=1))
     agent2.load_checkpoint(path)
     assert agent2.update_count == agent.update_count
@@ -416,4 +416,4 @@ def test_ppo_checkpoint_roundtrip_versioned(tmp_path):
 
 def test_version_is_315():
     import aivd
-    assert aivd.__version__ == "3.15.0"
+    assert aivd.__version__ == "3.16.0"

@@ -1,0 +1,242 @@
+{
+  "version": "3.16.0",
+  "first_bottleneck_audit": {
+    "earliest_transition": "EXPERIMENT",
+    "bottleneck_code": "BUDGET",
+    "evidence": [
+      "Holdout-T sacred @32: ADD=4 invent, tested_candidates=0, gen=576, all 7 seeds",
+      "charge_ok=0 charge_fail\u226510 when autonomy entered with remaining_tests=5",
+      "_invention_charge fails: _local_used \u2265 invent_cap / gate_leave after outer stack",
+      "Trajectory: ROUTE/CANDIDATE_GEN/INVENT/EXPERIMENT_PLAN/UPDATE loop without EXPERIMENT probes"
+    ],
+    "deeper_structural": {
+      "code": "GENERATION",
+      "why": "Candidate generation = ACTION_STEMS\u00d7residual_token compounds. Holdout-W (resolve/recover\u00d7latch) fits lexicon \u2192 DISCOVERED. Holdout-T (facet/beam/gleam-prism, skew/slant/veer-drift) outside lexicon \u2192 unrepresentable without open morphology or observation-harvested stems."
+    },
+    "synthetic_vs_general": "Benchmarks A\u2013T recur as weak-signal\u2192plant residual\u2192char sides\u2192combine\u2192SECRET with closed-lexicon compounds. GENERAL discovery competence \u2260 SYNTHETIC benchmark competence under this observation/generation model.",
+    "intervention_principle": "Do not add scoring layers. Ensure experiments can run (epistemic budget), predict before probing, measure actual IG, detect dead-ends, distinguish activity depth from discovery depth."
+  },
+  "controls_head": {
+    "off": {
+      "discovery_rate": 0.0,
+      "mean_add": 0.0,
+      "mean_discovery_depth": 0.0,
+      "mean_activity_depth": 0.0,
+      "mean_tested": 0.0,
+      "mean_ig": 0.0
+    },
+    "random": {
+      "discovery_rate": 0.0,
+      "mean_add": 7.0,
+      "mean_discovery_depth": 7.0,
+      "mean_activity_depth": 7.0,
+      "mean_tested": 6.0,
+      "mean_ig": 0.0
+    },
+    "full_3_15": {
+      "discovery_rate": 0.0,
+      "mean_add": 8.0,
+      "mean_discovery_depth": 8.0,
+      "mean_activity_depth": 8.0,
+      "mean_tested": 31.0,
+      "mean_ig": 0.0
+    },
+    "autonomy_full": {
+      "discovery_rate": 0.0,
+      "mean_add": 8.0,
+      "mean_discovery_depth": 8.0,
+      "mean_activity_depth": 8.0,
+      "mean_tested": 31.0,
+      "mean_ig": 0.0
+    },
+    "reasoning": {
+      "discovery_rate": 1.0,
+      "mean_add": 9.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_tested": 13.0,
+      "mean_ig": 0.058309587159502727
+    },
+    "reasoning_full": {
+      "discovery_rate": 1.0,
+      "mean_add": 9.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_tested": 13.0,
+      "mean_ig": 0.058309587159502727
+    },
+    "full_3_16": {
+      "discovery_rate": 1.0,
+      "mean_add": 9.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_tested": 13.0,
+      "mean_ig": 0.058309587159502727
+    }
+  },
+  "benchmarks_head": {
+    "A": {
+      "name": "unknown_state",
+      "discovery_rate": 1.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_ig": 0.058309587159502727
+    },
+    "B": {
+      "name": "unknown_input_transform",
+      "discovery_rate": 0.0,
+      "correct_rate": 0.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 8.0,
+      "mean_ig": 0.024184831814156312
+    },
+    "C": {
+      "name": "unknown_interaction",
+      "discovery_rate": 0.0,
+      "correct_rate": 0.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 8.0,
+      "mean_ig": 0.0245369864125135
+    },
+    "D": {
+      "name": "unknown_sequence",
+      "discovery_rate": 0.0,
+      "correct_rate": 0.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 8.0,
+      "mean_ig": 0.024992376610290756
+    },
+    "E": {
+      "name": "unknown_context",
+      "discovery_rate": 0.0,
+      "correct_rate": 0.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 5.0,
+      "mean_ig": 0.025806451612903226
+    },
+    "F": {
+      "name": "unknown_error",
+      "discovery_rate": 1.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_ig": 0.1331398169427461
+    },
+    "G": {
+      "name": "unknown_tool_state",
+      "discovery_rate": 1.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_ig": 0.13428419719677734
+    },
+    "H": {
+      "name": "noncausal",
+      "discovery_rate": 0.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 8.0,
+      "mean_ig": 0.024452407518501144
+    },
+    "I": {
+      "name": "invisible",
+      "discovery_rate": 0.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 3.0,
+      "mean_activity_depth": 5.0,
+      "mean_ig": 0.025806451612903226
+    },
+    "J": {
+      "name": "distractor_heavy",
+      "discovery_rate": 1.0,
+      "correct_rate": 1.0,
+      "mean_discovery_depth": 9.0,
+      "mean_activity_depth": 9.0,
+      "mean_ig": 0.15730585651041665
+    }
+  },
+  "ablations_head": {
+    "no_predict": {
+      "discovery_rate": 1.0,
+      "mean_discovery_depth": 9.0
+    },
+    "no_info_acq": {
+      "discovery_rate": 1.0,
+      "mean_discovery_depth": 9.0
+    },
+    "no_reserve": {
+      "discovery_rate": 1.0,
+      "mean_discovery_depth": 9.0
+    },
+    "no_hypothesize": {
+      "discovery_rate": 1.0,
+      "mean_discovery_depth": 9.0
+    },
+    "no_compose": {
+      "discovery_rate": 1.0,
+      "mean_discovery_depth": 9.0
+    },
+    "autonomy_only_baseline": {
+      "discovery_rate": 0.0,
+      "mean_discovery_depth": 0.0
+    }
+  },
+  "adversarial": {
+    "noncausal_H": 0.0,
+    "invisible_I": 0.0
+  },
+  "budget_sweep": {
+    "8": {
+      "discovery_rate": 0.0,
+      "mean_ig": 0.08883974503018947,
+      "mean_discovery_depth": 4.0
+    },
+    "16": {
+      "discovery_rate": 1.0,
+      "mean_ig": 0.058309587159502727,
+      "mean_discovery_depth": 9.0
+    },
+    "32": {
+      "discovery_rate": 1.0,
+      "mean_ig": 0.058309587159502727,
+      "mean_discovery_depth": 9.0
+    },
+    "64": {
+      "discovery_rate": 1.0,
+      "mean_ig": 0.058309587159502727,
+      "mean_discovery_depth": 9.0
+    }
+  },
+  "gates": {
+    "leakage_pass": true,
+    "audit": {
+      "package": "aivd.reasoning",
+      "version_target": "3.16.0",
+      "leakage_pass": true,
+      "leaks": [],
+      "default_mode_off": true,
+      "no_holdout_rules": true
+    },
+    "anti_mapping": {
+      "name": "autonomy_anti_mapping",
+      "residual_vocab": [
+        "loom",
+        "haze",
+        "drift"
+      ],
+      "action_vocab": [
+        "tilt",
+        "warp",
+        "fold"
+      ],
+      "note": "Randomized opaque IDs must not change planner ranking structure"
+    },
+    "noncausal": {
+      "name": "autonomy_correlated_noncausal",
+      "note": "Correlated residual/action must not auto-verify without CF + relation support"
+    },
+    "checkpoint_ok": true,
+    "config_default_off": true
+  }
+}

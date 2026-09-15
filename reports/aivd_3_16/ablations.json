@@ -1,0 +1,278 @@
+{
+  "no_predict": {
+    "discovery_rate": 1.0,
+    "mean_discovery_depth": 9.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 28,
+        "ig": 0.028571428571428574
+      },
+      {
+        "seed": 1,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 28,
+        "ig": 0.028571428571428574
+      },
+      {
+        "seed": 2,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 28,
+        "ig": 0.028571428571428574
+      },
+      {
+        "seed": 3,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 28,
+        "ig": 0.028571428571428574
+      },
+      {
+        "seed": 4,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 28,
+        "ig": 0.028571428571428574
+      }
+    ]
+  },
+  "no_info_acq": {
+    "discovery_rate": 1.0,
+    "mean_discovery_depth": 9.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.0873994275918461
+      },
+      {
+        "seed": 1,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 14,
+        "ig": 0.05399396519830819
+      },
+      {
+        "seed": 2,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.0873994275918461
+      },
+      {
+        "seed": 3,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.0873994275918461
+      },
+      {
+        "seed": 4,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.0873994275918461
+      }
+    ]
+  },
+  "no_reserve": {
+    "discovery_rate": 1.0,
+    "mean_discovery_depth": 9.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 13,
+        "ig": 0.058309587159502727
+      },
+      {
+        "seed": 1,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 13,
+        "ig": 0.058309587159502727
+      },
+      {
+        "seed": 2,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 13,
+        "ig": 0.058309587159502727
+      },
+      {
+        "seed": 3,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 13,
+        "ig": 0.058309587159502727
+      },
+      {
+        "seed": 4,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 13,
+        "ig": 0.058309587159502727
+      }
+    ]
+  },
+  "no_hypothesize": {
+    "discovery_rate": 1.0,
+    "mean_discovery_depth": 9.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.08673058215882049
+      },
+      {
+        "seed": 1,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 14,
+        "ig": 0.05359033892103209
+      },
+      {
+        "seed": 2,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.08673058215882049
+      },
+      {
+        "seed": 3,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.08673058215882049
+      },
+      {
+        "seed": 4,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 8,
+        "ig": 0.08673058215882049
+      }
+    ]
+  },
+  "no_compose": {
+    "discovery_rate": 1.0,
+    "mean_discovery_depth": 9.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 26,
+        "ig": 0.030769230769230774
+      },
+      {
+        "seed": 1,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 14,
+        "ig": 0.057142857142857155
+      },
+      {
+        "seed": 2,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 19,
+        "ig": 0.04210526315789474
+      },
+      {
+        "seed": 3,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 14,
+        "ig": 0.057142857142857155
+      },
+      {
+        "seed": 4,
+        "secret": true,
+        "add": 9,
+        "discovery_depth": 9,
+        "tested": 25,
+        "ig": 0.03200000000000001
+      }
+    ]
+  },
+  "autonomy_only_baseline": {
+    "discovery_rate": 0.0,
+    "mean_discovery_depth": 0.0,
+    "rows": [
+      {
+        "seed": 0,
+        "secret": false,
+        "add": 8,
+        "discovery_depth": null,
+        "tested": 31,
+        "ig": null
+      },
+      {
+        "seed": 1,
+        "secret": false,
+        "add": 8,
+        "discovery_depth": null,
+        "tested": 31,
+        "ig": null
+      },
+      {
+        "seed": 2,
+        "secret": false,
+        "add": 8,
+        "discovery_depth": null,
+        "tested": 31,
+        "ig": null
+      },
+      {
+        "seed": 3,
+        "secret": false,
+        "add": 8,
+        "discovery_depth": null,
+        "tested": 31,
+        "ig": null
+      },
+      {
+        "seed": 4,
+        "secret": false,
+        "add": 8,
+        "discovery_depth": null,
+        "tested": 31,
+        "ig": null
+      }
+    ]
+  }
+}

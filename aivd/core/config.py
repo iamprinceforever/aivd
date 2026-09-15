@@ -118,7 +118,9 @@ class AIVDConfig(BaseModel):
         "cross_signal", "cross_signal_full", "cross_signal_only", "cross_signal_random",
         "cross_joint", "full_3_14",
         "autonomy", "autonomy_full", "autonomy_only", "autonomy_random",
-        "autonomy_cross", "full_3_15",
+        "autonomy_cross", "full_3_15", "full_3_16",
+        "reasoning", "reasoning_full", "reasoning_only",
+        "experimental_reasoning",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -168,12 +170,23 @@ class AIVDConfig(BaseModel):
     # v3.15 autonomous signal-to-intervention discovery (default off)
     autonomy_mode: Literal[
         "off", "autonomy", "autonomy_full", "autonomy_only", "autonomy_random",
-        "autonomy_cross", "full_3_15",
+        "autonomy_cross", "full_3_15", "full_3_16",
+        "reasoning", "reasoning_full", "reasoning_only",
+        "experimental_reasoning",
     ] = "off"
     autonomy_max_steps: int = 32
     autonomy_max_candidates: int = 24
     autonomy_reserve_fraction: float = 0.25
     invention_autonomy_ablation: str | None = None
+    # v3.16 discovery reasoning reset (default off)
+    reasoning_mode: Literal[
+        "off", "reasoning", "reasoning_full", "reasoning_only",
+        "experimental_reasoning", "full_3_16",
+    ] = "off"
+    reasoning_max_steps: int = 32
+    reasoning_max_candidates: int = 24
+    reasoning_reserve_fraction: float = 0.15
+    invention_reasoning_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

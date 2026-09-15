@@ -116,6 +116,10 @@ class UnknownsPipeline:
         autonomy_max_steps: int = 32,
         autonomy_max_candidates: int = 24,
         autonomy_reserve_fraction: float = 0.25,
+        invention_reasoning_ablation: str | None = None,
+        reasoning_max_steps: int = 32,
+        reasoning_max_candidates: int = 24,
+        reasoning_reserve_fraction: float = 0.15,
     ):
         self.target = target
         if probe_fn is not None:
@@ -162,6 +166,10 @@ class UnknownsPipeline:
         self.autonomy_max_steps = int(autonomy_max_steps)
         self.autonomy_max_candidates = int(autonomy_max_candidates)
         self.autonomy_reserve_fraction = float(autonomy_reserve_fraction)
+        self.invention_reasoning_ablation = invention_reasoning_ablation
+        self.reasoning_max_steps = int(reasoning_max_steps)
+        self.reasoning_max_candidates = int(reasoning_max_candidates)
+        self.reasoning_reserve_fraction = float(reasoning_reserve_fraction)
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -490,6 +498,10 @@ class UnknownsPipeline:
                         autonomy_max_steps=self.autonomy_max_steps,
                         autonomy_max_candidates=self.autonomy_max_candidates,
                         autonomy_reserve_fraction=self.autonomy_reserve_fraction,
+                        reasoning_ablation=self.invention_reasoning_ablation,
+                        reasoning_max_steps=self.reasoning_max_steps,
+                        reasoning_max_candidates=self.reasoning_max_candidates,
+                        reasoning_reserve_fraction=self.reasoning_reserve_fraction,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

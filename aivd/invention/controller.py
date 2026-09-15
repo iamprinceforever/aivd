@@ -79,7 +79,9 @@ _AUTONOMY_MODES = AUTONOMY_MODES
 def _base_gen_mode(mode: str) -> str:
     """Map diversity / adaptive / interaction / joint / cross-signal / autonomy modes onto a 3.9 generator mode."""
     m = (mode or "off").lower().strip()
-    if m in _AUTONOMY_MODES or m.startswith("autonomy") or m in ("full_3_15",):
+    if m in _AUTONOMY_MODES or m.startswith("autonomy") or m in ("full_3_15", "full_3_16"):
+        return "full"
+    if m.startswith("reasoning") or m in ("experimental_reasoning", "full_3_16"):
         return "full"
     if m in _CROSS_SIGNAL_MODES or m.startswith("cross_signal") or m.startswith("cross_") or m in ("full_3_14", "cross_joint"):
         return "full"
@@ -110,7 +112,7 @@ def _exploration_for_mode(mode: str, exploration: str | None) -> str:
         return "novelty_bandit"
     if m == "diversity_full":
         return "hierarchical"
-    if m in ("adaptive", "adaptive_full") or m.startswith("interaction") or m.startswith("joint") or m.startswith("cross") or m.startswith("autonomy") or m in ("interaction_joint", "full_3_13", "full_3_14", "cross_joint", "full_3_15"):
+    if m in ("adaptive", "adaptive_full") or m.startswith("interaction") or m.startswith("joint") or m.startswith("cross") or m.startswith("autonomy") or m in ("interaction_joint", "full_3_13", "full_3_14", "cross_joint", "full_3_15", "full_3_16") or m.startswith("reasoning"):
         return "hierarchical"
     if m == "adaptive_heuristic":
         return "epsilon_greedy"
@@ -200,6 +202,11 @@ class InventionController:
         autonomy_max_steps: int = 32,
         autonomy_max_candidates: int = 24,
         autonomy_reserve_fraction: float = 0.25,
+        reasoning: bool | None = None,
+        reasoning_ablation: str | None = None,
+        reasoning_max_steps: int = 32,
+        reasoning_max_candidates: int = 24,
+        reasoning_reserve_fraction: float = 0.15,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -293,6 +300,30 @@ class InventionController:
             self.cross_signal_enabled = False
             self.joint_enabled = False
             self.interaction_enabled = False
+        self.reasoning_ablation = reasoning_ablation
+        self.reasoning_max_steps = int(reasoning_max_steps)
+        self.reasoning_max_candidates = int(reasoning_max_candidates)
+        self.reasoning_reserve_fraction = float(reasoning_reserve_fraction)
+        if reasoning is None:
+            from aivd.reasoning.controller import is_reasoning_mode as _is_rm
+            self.reasoning_enabled = _is_rm(self.mode)
+        else:
+            self.reasoning_enabled = bool(reasoning)
+        if self.reasoning_enabled:
+            # reasoning implies autonomy primitives available
+            self.autonomy_enabled = True
+            if self.mode != "reasoning_only":
+                self.cross_signal_enabled = True
+                self.joint_enabled = True
+                self.interaction_enabled = True
+            self.adaptive_enabled = True
+            self.diversity_enabled = True
+        if self.mode == "reasoning_only":
+            self.reasoning_enabled = True
+            self.autonomy_enabled = True
+            self.cross_signal_enabled = False
+            self.joint_enabled = False
+            self.interaction_enabled = False
         if adaptive_ordering is None and self.joint_enabled:
             self.adaptive_enabled = True
         if diversity_enabled is None:
@@ -303,6 +334,7 @@ class InventionController:
                 or self.joint_enabled
                 or self.cross_signal_enabled
                 or getattr(self, "autonomy_enabled", False)
+                or getattr(self, "reasoning_enabled", False)
             )
         else:
             self.diversity_enabled = bool(diversity_enabled)
@@ -347,6 +379,14 @@ class InventionController:
             exploration_enabled=self.exploration_enabled,
         )
         self.adaptive_state = None
+        # 3.16: reserve epistemic budget so reasoning experiments can run
+        self._reasoning_budget_reserve = 0
+        if getattr(self, "reasoning_enabled", False):
+            share = max(4, int(self.budget.max_cheap_tests * 0.40))
+            share = min(share, max(0, self.budget.max_cheap_tests - 4))
+            if share > 0:
+                self.budget.max_cheap_tests -= share
+                self._reasoning_budget_reserve = share
         if self.adaptive_enabled:
             self.adaptive_state = AdaptiveOrderingState(
                 mode=self.mode if is_adaptive_mode(self.mode) else "adaptive",
@@ -975,7 +1015,9 @@ class InventionController:
 
         # 3.15 Autonomous Signal-to-Intervention Discovery (after cross-signal)
         autonomy_summary = None
-        if getattr(self, "autonomy_enabled", False) and not secret_found:
+        reasoning_summary = None
+        # Reasoning mode owns the closed loop — skip duplicate autonomy pass to protect epistemic budget
+        if getattr(self, "autonomy_enabled", False) and not getattr(self, "reasoning_enabled", False) and not secret_found:
             tested_objs_a: list[Intervention] = []
             for entry in self.trace.tested:
                 seq = list(entry.get("sequence") or [])
@@ -1056,6 +1098,91 @@ class InventionController:
                     best_prompt = ax.get("best_prompt")
                     best_obs = ax.get("best_obs")
 
+        # 3.16 Discovery Reasoning Reset (after autonomy; default off)
+        reasoning_summary = None
+        if getattr(self, "reasoning_enabled", False) and not secret_found:
+            # Restore epistemic reserve for reasoning experiments
+            if getattr(self, "_reasoning_budget_reserve", 0):
+                self.budget.max_cheap_tests += int(self._reasoning_budget_reserve)
+                self._reasoning_budget_reserve = 0
+            if self.budget.can_test():
+                from aivd.reasoning.controller import ReasoningController
+                from aivd.reasoning.controller import is_reasoning_mode as _is_rm2
+                r_mode = self.mode if _is_rm2(self.mode) else "reasoning_full"
+                # Epistemic protection: ensure reasoning gets a fair experiment share
+                rem = self.budget.remaining_tests()
+                # If outer stack nearly exhausted, still attempt with whatever remains
+                rc = ReasoningController(
+                    mode=r_mode,
+                    seed=self.seed,
+                    max_steps=self.reasoning_max_steps,
+                    max_candidates=self.reasoning_max_candidates,
+                    reserve_fraction=self.reasoning_reserve_fraction,
+                    ablation=self.reasoning_ablation,
+                    total_budget=rem,
+                )
+                tested_objs_r: list = []
+                for entry in self.trace.tested:
+                    seq = list(entry.get("sequence") or [])
+                    if not seq:
+                        continue
+                    inv_r = Intervention(
+                        ops=[],
+                        sequence=seq,
+                        strategy=str(entry.get("strategy") or "primitive"),
+                        id=str(entry.get("id") or ""),
+                    )
+                    inv_r.effect = float(entry.get("effect") or 0.0)
+                    inv_r.security = float(entry.get("effect") or 0.0)
+                    inv_r.meta = {
+                        "family_id": entry.get("family_id") or "unknown",
+                        "family_features": {"stem_bucket": (seq[0].split("-")[0] if seq else "")},
+                    }
+                    tested_objs_r.append(inv_r)
+                for k in kept_objs:
+                    tested_objs_r.append(k)
+
+                def _charge_r() -> bool:
+                    if charge is not None and not charge():
+                        return False
+                    if not self.budget.can_test():
+                        return False
+                    self.budget.charge_test()
+                    return True
+
+                rx = rc.run(
+                    seed_prompt,
+                    observe_fn=observe_fn,
+                    residual_context=ctx,
+                    individuals=tested_objs_r or None,
+                    charge=_charge_r,
+                    budget=rem,
+                )
+                reasoning_summary = rx
+                self.trace.add(
+                    "reasoning",
+                    add=rx.get("add"),
+                    secret=rx.get("secret_found"),
+                    discovery_depth=rx.get("discovery_depth"),
+                    activity_depth=rx.get("activity_depth"),
+                    bottleneck=(rx.get("bottleneck") or {}).get("earliest"),
+                    broken=rx.get("first_broken_transition"),
+                )
+                self.trace.probes_used += int(rx.get("probes_used") or 0)
+                if rx.get("secret_found"):
+                    secret_found = True
+                    best_prompt = rx.get("best_prompt") or best_prompt
+                    best_obs = rx.get("best_obs") or best_obs
+                    best_effect = max(best_effect, float(rx.get("best_effect") or 0.0))
+                    if best_prompt and best_prompt not in positive_prompts:
+                        positive_prompts.append(best_prompt)
+                        if best_obs is not None:
+                            positive_obs_list.append(best_obs)
+                elif rx.get("best_prompt") and float(rx.get("best_effect") or 0) > best_effect:
+                    best_effect = float(rx.get("best_effect") or 0)
+                    best_prompt = rx.get("best_prompt")
+                    best_obs = rx.get("best_obs")
+
         self.trace.best_prompt = best_prompt
         self.trace.best_effect = best_effect
         self.trace.secret_found = secret_found
@@ -1089,5 +1216,7 @@ class InventionController:
             "cross_signal": cross_summary,
             "autonomy_enabled": getattr(self, "autonomy_enabled", False),
             "autonomy": autonomy_summary,
+            "reasoning_enabled": getattr(self, "reasoning_enabled", False),
+            "reasoning": reasoning_summary,
             "exploration": self.exploration,
         }
