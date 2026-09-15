@@ -20,6 +20,8 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
     # Holdout-Z fragments (post-3.10; ban if present as hard-coded solutions)
     hz_secret_prefix = "SECRET{AIVD310_HZ_"
     hz_label = "HOLDOUT" + "-Z"
+    hw_secret_prefix = "SECRET{AIVD311_HW_"
+    hw_label = "HOLDOUT" + "-W"
     return (
         ack_bound,
         clearance,
@@ -34,8 +36,12 @@ def _forbidden_holdout_literals() -> tuple[str, ...]:
         hz_label,
         hy_secret_prefix,
         hz_secret_prefix,
+        hw_label,
+        hw_secret_prefix,
+        "HoldoutW",
         "holdout_y_phase_key",
         "holdout_z_lease_key",
+        "holdout_w_latch_key",
     )
 
 
@@ -100,6 +106,28 @@ def diversity_audit_record(
         "note": (
             "Family diversity from intervention structure; "
             "no Holdout-named boosts/penalties; novelty not sole reward."
+        ),
+    }
+
+
+
+def adaptive_ordering_audit_record(
+    *,
+    search_summary: dict[str, Any],
+    salience_summary: dict[str, Any] | None = None,
+    anti_lock_in: dict[str, Any] | None = None,
+    ablation: str | None = None,
+) -> dict[str, Any]:
+    return {
+        "kind": "adaptive_ordering_audit",
+        "search": search_summary,
+        "salience": salience_summary or {},
+        "anti_lock_in": anti_lock_in or {},
+        "ablation": ablation,
+        "note": (
+            "Adaptive reorder from evidence; priority decay ≠ blacklist; "
+            "no Holdout-named boosts; salience ≠ vulnerability; "
+            "no single score dominates."
         ),
     }
 

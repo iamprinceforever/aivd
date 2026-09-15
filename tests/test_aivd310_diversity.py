@@ -415,6 +415,7 @@ def test_anti_bias_target_evaluator_verifiable():
     assert _AntiBiasTarget.SECRET not in resp2
 
 
-def test_version_3_10_0():
+def test_version_at_least_3_10_0():
     import aivd
-    assert aivd.__version__ == "3.10.0"
+    parts = tuple(int(x) for x in aivd.__version__.split(".")[:3])
+    assert parts >= (3, 10, 0)

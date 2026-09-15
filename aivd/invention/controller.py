@@ -3,11 +3,18 @@
 Sits ABOVE causal, BEFORE residual sweep handoff / investigation.
 Preserves terminal semantics; does not claim VERIFIED without gates.
 3.10 extends 3.9 with optional diversity-aware selection (default off via mode).
+3.11 adds Adaptive Search Ordering: TEST→observe→evidence→reorder (default off).
 """
 from __future__ import annotations
 
 from typing import Any, Callable
 
+from aivd.invention.adaptive_ordering import (
+    ADAPTIVE_MODES,
+    AdaptiveOrderingState,
+    is_adaptive_mode,
+    _base_gen_mode as _adaptive_base_gen,
+)
 from aivd.invention.archive import FamilyArchive
 from aivd.invention.budget import InventionBudget
 from aivd.invention.candidate_generator import generate_candidates
@@ -32,11 +39,15 @@ ObserveFn = Callable[[str], Any]
 _DIVERSITY_MODES = frozenset({
     "diversity", "bandit", "diversity_full", "diversity_heuristic",
 })
+# 3.11 adaptive modes also use diversity-style generation / coarse families
+_ADAPTIVE_MODES = ADAPTIVE_MODES
 
 
 def _base_gen_mode(mode: str) -> str:
-    """Map diversity modes onto a 3.9 generator mode."""
+    """Map diversity / adaptive modes onto a 3.9 generator mode."""
     m = (mode or "off").lower().strip()
+    if m in _ADAPTIVE_MODES:
+        return _adaptive_base_gen(m)
     if m in ("diversity", "bandit", "diversity_full"):
         return "full"
     if m == "diversity_heuristic":
@@ -56,6 +67,10 @@ def _exploration_for_mode(mode: str, exploration: str | None) -> str:
         return "novelty_bandit"
     if m == "diversity_full":
         return "hierarchical"
+    if m in ("adaptive", "adaptive_full"):
+        return "hierarchical"
+    if m == "adaptive_heuristic":
+        return "epsilon_greedy"
     return "thompson"
 
 
@@ -104,7 +119,7 @@ def _security_signal(obs: Any, baseline: Any | None = None) -> float:
 
 
 class InventionController:
-    """Open intervention invention loop (3.9 + optional 3.10 diversity)."""
+    """Open intervention invention loop (3.9 + 3.10 diversity + 3.11 adaptive ordering)."""
 
     def __init__(
         self,
@@ -118,6 +133,8 @@ class InventionController:
         revival_enabled: bool = True,
         exploration_enabled: bool = True,
         diversity_enabled: bool | None = None,
+        adaptive_ordering: bool | None = None,
+        adaptive_ablation: str | None = None,
     ):
         self.mode = str(mode or "off").lower().strip()
         self.seed = int(seed)
@@ -131,8 +148,15 @@ class InventionController:
         self.saturation_enabled = bool(saturation_enabled)
         self.revival_enabled = bool(revival_enabled)
         self.exploration_enabled = bool(exploration_enabled)
+        self.adaptive_ablation = adaptive_ablation
+        if adaptive_ordering is None:
+            self.adaptive_enabled = is_adaptive_mode(self.mode)
+        else:
+            self.adaptive_enabled = bool(adaptive_ordering)
         if diversity_enabled is None:
-            self.diversity_enabled = self.mode in _DIVERSITY_MODES
+            self.diversity_enabled = (
+                self.mode in _DIVERSITY_MODES or self.adaptive_enabled
+            )
         else:
             self.diversity_enabled = bool(diversity_enabled)
         self.archive = FamilyArchive(
@@ -145,6 +169,7 @@ class InventionController:
             seed=self.seed,
             exploration_enabled=self.exploration_enabled,
         )
+        self.adaptive_state: AdaptiveOrderingState | None = None
 
     @property
     def enabled(self) -> bool:
@@ -174,6 +199,18 @@ class InventionController:
             seed=self.seed,
             exploration_enabled=self.exploration_enabled,
         )
+        self.adaptive_state = None
+        if self.adaptive_enabled:
+            self.adaptive_state = AdaptiveOrderingState(
+                mode=self.mode if is_adaptive_mode(self.mode) else "adaptive",
+                seed=self.seed,
+                ablation=self.adaptive_ablation,
+                saturation_enabled=self.saturation_enabled,
+                revival_enabled=self.revival_enabled,
+            )
+            # Share archive so diversity summary / return stay consistent
+            self.adaptive_state.archive = self.archive
+            self.adaptive_state.scheduler.archive = self.archive
         if not self.enabled:
             return {
                 "enabled": False,
@@ -227,7 +264,16 @@ class InventionController:
             self.archive.ensure(fid, features=feats)
         self.scheduler.maybe_revive(residual_toks)
 
-        if self.diversity_enabled:
+        if self.adaptive_enabled and self.adaptive_state is not None:
+            ranked = self.adaptive_state.initial_order(
+                cands,
+                residual_context=ctx,
+                seen_sequences=self.memory.seen_sequences(),
+                batch_size=min(len(cands), self.budget.remaining_tests()),
+            )
+            for rec in self.adaptive_state.search_trace:
+                self.trace.add_search(rec)
+        elif self.diversity_enabled:
             ranked = select_diverse_batch(
                 cands,
                 self.archive,
@@ -275,7 +321,13 @@ class InventionController:
         queue = list(ranked)
         tested_ids: set[str] = set()
         rounds = 0
-        max_rounds = 3 if gen_mode == "full" or self.mode in _DIVERSITY_MODES else 1
+        # Adaptive tests one-at-a-time with reorder; allow up to budget rounds.
+        if self.adaptive_enabled:
+            max_rounds = max(self.budget.max_cheap_tests, self.budget.remaining_tests(), 1)
+        elif gen_mode == "full" or self.mode in _DIVERSITY_MODES:
+            max_rounds = 3
+        else:
+            max_rounds = 1
         # Per-family mutation cap (diversity): prevent mild-positive families from
         # monopolizing remaining budget via mutate/compose — structural, not stem-named.
         family_mutate_count: dict[str, int] = {}
@@ -320,13 +372,14 @@ class InventionController:
                 )
                 keep = sec >= 0.25 or hit
                 feats = (inv.meta or {}).get("family_features") or {}
-                self.archive.record(
-                    fid,
-                    effect=sec,
-                    success=keep,
-                    features=feats,
-                    evidence=str(ctx.get("error") or ""),
-                )
+                if not (self.adaptive_enabled and self.adaptive_state is not None):
+                    self.archive.record(
+                        fid,
+                        effect=sec,
+                        success=keep,
+                        features=feats,
+                        evidence=str(ctx.get("error") or ""),
+                    )
                 self.memory.record(
                     {
                         "id": inv.id,
@@ -379,6 +432,50 @@ class InventionController:
                                     queue.append(m)
                             family_mutate_count[fid] = family_mutate_count.get(fid, 0) + 1
 
+                # 3.11 Adaptive Search Ordering: observe → evidence → REORDER remaining
+                if self.adaptive_enabled and self.adaptive_state is not None:
+                    obs_meta = {}
+                    if obs is not None:
+                        err = getattr(obs, "error", None) or getattr(obs, "error_channel", None)
+                        if isinstance(obs, dict):
+                            err = err or obs.get("error")
+                        ch = getattr(obs, "channels", None) or {}
+                        if isinstance(ch, dict) and ch.get("error"):
+                            err = err or ch.get("error")
+                        if err:
+                            obs_meta["error"] = err
+                        meta = getattr(obs, "meta", None) or {}
+                        if isinstance(meta, dict) and meta.get("error"):
+                            obs_meta["error"] = meta.get("error")
+                    # Keep full unused pool so later stems are not starved by early batch size
+                    unused_pool = [c for c in cands if c.id not in tested_ids and c.id != inv.id]
+                    remaining = [
+                        c for c in list(batch) + list(queue) + list(unused_pool)
+                        if c.id not in tested_ids and c.id != inv.id
+                    ]
+                    seen_r: set[str] = set()
+                    uniq_rem = []
+                    for c in remaining:
+                        if c.id not in seen_r:
+                            seen_r.add(c.id)
+                            uniq_rem.append(c)
+                    reordered = self.adaptive_state.after_test(
+                        inv=inv,
+                        effect=sec,
+                        success=keep,
+                        obs_meta=obs_meta,
+                        remaining=uniq_rem,
+                        seen_sequences=self.memory.seen_sequences(),
+                    )
+                    if self.adaptive_state.search_trace:
+                        self.trace.add_search(self.adaptive_state.search_trace[-1])
+                    # Next tests from reordered; retain unused for coverage continuity
+                    queue = list(reordered)
+                    sel_ids = {c.id for c in queue}
+                    unused_pool = [c for c in unused_pool if c.id not in sel_ids]
+                    batch = []
+                    break
+
             if gen_mode == "full" and kept_objs and self.budget.can_test():
                 # Diversity: compose across distinct families only
                 compose_parents = kept_objs
@@ -400,7 +497,22 @@ class InventionController:
                 queue = []
                 break
 
-            if self.diversity_enabled:
+            if self.adaptive_enabled and self.adaptive_state is not None:
+                unused_pool = [c for c in unused_pool if c.id not in tested_ids]
+                mix = [c for c in list(queue) + unused_pool if c.id not in tested_ids]
+                if mix and self.budget.can_test():
+                    queue = self.adaptive_state.initial_order(
+                        mix,
+                        residual_context=self.adaptive_state.residual_context or ctx,
+                        seen_sequences=self.memory.seen_sequences(),
+                        batch_size=self.budget.remaining_tests(),
+                    )
+                    if self.adaptive_state.search_trace:
+                        self.trace.add_search(self.adaptive_state.search_trace[-1])
+                    unused_pool = []
+                else:
+                    queue = []
+            elif self.diversity_enabled:
                 # Re-inject unused original candidates so coverage can reach later stems
                 unused_pool = [c for c in unused_pool if c.id not in tested_ids]
                 mix = list(queue) + unused_pool
@@ -436,6 +548,9 @@ class InventionController:
         # attach tested count
         div_summary["n_tested_interventions"] = len(self.trace.tested)
         self.trace.add("diversity_summary", **div_summary)
+        adaptive_summary = None
+        if self.adaptive_state is not None:
+            adaptive_summary = self.adaptive_state.as_dict()
         return {
             "enabled": True,
             "best_prompt": best_prompt,
@@ -455,5 +570,7 @@ class InventionController:
             "archive": self.archive.as_dict(),
             "scheduler": self.scheduler.as_dict(),
             "diversity_enabled": self.diversity_enabled,
+            "adaptive_enabled": self.adaptive_enabled,
+            "adaptive": adaptive_summary,
             "exploration": self.exploration,
         }

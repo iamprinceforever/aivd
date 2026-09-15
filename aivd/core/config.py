@@ -111,6 +111,7 @@ class AIVDConfig(BaseModel):
     invention_mode: Literal[
         "off", "random", "heuristic", "full",
         "diversity", "bandit", "diversity_full", "diversity_heuristic",
+        "adaptive", "adaptive_full", "adaptive_heuristic",
     ] = "off"
     invention_max_candidates: int = 16
     invention_max_cheap_tests: int = 16
@@ -123,6 +124,9 @@ class AIVDConfig(BaseModel):
     invention_saturation: bool = True
     invention_revival: bool = True
     invention_exploration_enabled: bool = True
+    # v3.11 adaptive search ordering (default off)
+    adaptive_ordering_mode: Literal["off", "on", "full", "heuristic"] = "off"
+    invention_adaptive_ablation: str | None = None
     # When True and target is non-mock, use RealModelSecurityAnalyzer
     use_real_model_analyzer: bool = False
     # v3.2 continual learning

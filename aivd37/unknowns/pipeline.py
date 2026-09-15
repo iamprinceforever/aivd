@@ -92,6 +92,8 @@ class UnknownsPipeline:
         invention_saturation: bool = True,
         invention_revival: bool = True,
         invention_exploration_enabled: bool = True,
+        adaptive_ordering_mode: str = "off",
+        invention_adaptive_ablation: str | None = None,
     ):
         self.target = target
         if probe_fn is not None:
@@ -114,6 +116,8 @@ class UnknownsPipeline:
         self.invention_saturation = bool(invention_saturation)
         self.invention_revival = bool(invention_revival)
         self.invention_exploration_enabled = bool(invention_exploration_enabled)
+        self.adaptive_ordering_mode = str(adaptive_ordering_mode or "off").lower().strip()
+        self.invention_adaptive_ablation = invention_adaptive_ablation
         # Resolve effective invention mode when diversity_mode overlays base mode
         if self.invention_diversity_mode not in ("off", "false", "0", "") and self.invention_mode in (
             "full", "heuristic", "random",
@@ -127,6 +131,17 @@ class UnknownsPipeline:
                 self.invention_mode = "diversity_heuristic"
             else:
                 self.invention_mode = "diversity"
+        # adaptive_ordering_mode overlays when invention_mode is base/diversity
+        if self.adaptive_ordering_mode not in ("off", "false", "0", ""):
+            am = self.adaptive_ordering_mode
+            if self.invention_mode in ("off", "false", "0", ""):
+                pass
+            elif am == "full" or self.invention_mode in ("full", "diversity_full", "adaptive_full"):
+                self.invention_mode = "adaptive_full"
+            elif am == "heuristic" or self.invention_mode in ("heuristic", "diversity_heuristic"):
+                self.invention_mode = "adaptive_heuristic"
+            else:
+                self.invention_mode = "adaptive"
         self._local_used = 0
         self.trace = PipelineTrace(mode=self.mode)
         self.invention_result: dict[str, Any] | None = None
@@ -172,7 +187,7 @@ class UnknownsPipeline:
             # Leave headroom for falsify/reproduce/invariant (~8 probes)
             gate_reserve = min(8, max(4, self.episode_budget // 5))
             # Diversity modes need larger invention reserve for family coverage
-            _div_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic")
+            _div_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic", "adaptive", "adaptive_full", "adaptive_heuristic")
             inv_frac_den = 2 if self.invention_mode in _div_modes else 3
             invention_reserve = min(
                 int(self.invention_max_cheap_tests),
@@ -355,6 +370,7 @@ class UnknownsPipeline:
                         saturation_enabled=self.invention_saturation,
                         revival_enabled=self.invention_revival,
                         exploration_enabled=self.invention_exploration_enabled,
+                        adaptive_ablation=self.invention_adaptive_ablation,
                     )
                     residual_ctx = {
                         "residual_channels": list(sweep.residual_channels),

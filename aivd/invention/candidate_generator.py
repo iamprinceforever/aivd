@@ -423,11 +423,12 @@ def generate_candidates(
     mode = (mode or "off").lower().strip()
     if mode in ("off", "false", "0"):
         return []
-    # diversity-* / bandit map to full generation + stem coverage
+    # diversity-* / bandit / adaptive-* map to full generation + stem coverage
     diversity_modes = ("diversity", "bandit", "diversity_full", "diversity_heuristic")
-    if mode in diversity_modes:
+    adaptive_modes = ("adaptive", "adaptive_full", "adaptive_heuristic")
+    if mode in diversity_modes or mode in adaptive_modes:
         stem_coverage = True
-        mode = "heuristic" if mode == "diversity_heuristic" else "full"
+        mode = "heuristic" if mode in ("diversity_heuristic", "adaptive_heuristic") else "full"
     n = max(4, min(64, int(budget)))
     history = history or []
     history_prompts = history_prompts or []
