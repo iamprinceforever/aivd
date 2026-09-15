@@ -2,7 +2,7 @@
   "label": "AIVD 3.18 pre-Holdout-18 freeze",
   "version": "3.18.0",
   "baseline": "3.17.0",
-  "freeze_commit": "PENDING_THIS_COMMIT",
+  "freeze_commit": "93fed3d6bd6a8457130110fdb92b7d4ca61c771b",
   "tests": 589,
   "epistemic_mode_default": "off",
   "same_budget": 32,
