@@ -30,8 +30,8 @@ OUT = Path("reports/aivd_3_34_llama")
 SEEDS = [0, 1, 2, 3, 4, 7, 11]
 PRIMARY = 32
 CASES = (("S", LlamaPrefixTarget), ("U", LlamaOddTarget))
-IMPLEMENTATION_FREEZE = "PENDING"
-FREEZE_PIN = "PENDING"
+IMPLEMENTATION_FREEZE = "ac0c40d6ee0431c943ce2bb95d7f5926d5386f12"
+FREEZE_PIN = "d02cc81f9619532347fc6a9e9e34c601028e8ff5"
 
 
 def _pipe(target, seed, mode):

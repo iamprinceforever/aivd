@@ -20,7 +20,16 @@ specific operators. Compact micro-language, not unbounded invention.
 - SX1/NP1/AX1 still 7/7 on 3.34 (not always-escalate)
 - alwaysearly ablation false-escalates SX1; alwayslate starves BX2
 - 3.33 leftover skip remains BUDGET_ALLOCATION_FAILURE
-- Llama last-char-prefix / odd-chars first-run is post-freeze
+- Llama last-char-prefix / odd-chars first-run (post-freeze `ac0c40d`):
+  S pipeline **secret 7/7**, **verified 0/7** (prefix atom
+  `atom_mapt_cat_at_-1_tok` fire @30 / used 32, leftover gates).
+  S direct **DISCOVERED+VERIFIED 7/7** @30. 3.33 pipeline 0/7 both
+  (`BUDGET_ALLOCATION_FAILURE`, no atom). U pipeline and direct 0/7
+  (4th atom `ATOM_INVENTION_SKIPPED_BY_PLANNING`). Control 0/7. Cap 48.
+  Planner path: 2 IR → 1 prim → 1 ext → 3 atoms. Not a 3.33 retune.
+  Compact micro-language, not unbounded invention. Do not raise 32.
+
+---
 
 ---
 ## 3.33.0 — Atom invention + open-ended experiment-language growth
