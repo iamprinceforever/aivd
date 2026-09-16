@@ -1,0 +1,226 @@
+{
+  "version": "3.22.0",
+  "label": "3.22 TRANSFER (not sacred)",
+  "holdout_21": {
+    "holdout": "Holdout-21",
+    "sacred_first_run_untouched": true,
+    "mode": "full_3_22",
+    "pipeline_verified_rate": 1.0,
+    "pipeline_secret_rate": 1.0,
+    "direct_secret_rate": 1.0,
+    "mean_tested_pipeline": 17.0,
+    "rows": [
+      {
+        "seed": 0,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 1,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 2,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 3,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 4,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 7,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 11,
+        "discovered": true,
+        "secret_found": true,
+        "tested": 17,
+        "local_used": 27,
+        "gt": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL"
+      }
+    ],
+    "direct": [
+      {
+        "seed": 0,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 1,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 2,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 3,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 4,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 7,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      },
+      {
+        "seed": 11,
+        "secret_found": true,
+        "verified": true,
+        "tested": 19
+      }
+    ]
+  },
+  "holdout_22": {
+    "holdout": "Holdout-22",
+    "sacred_first_run_untouched": true,
+    "mode": "full_3_22",
+    "pipeline_verified_rate": 0.0,
+    "pipeline_secret_rate": 1.0,
+    "direct_secret_rate": 1.0,
+    "mean_tested_pipeline": 29.0,
+    "rows": [
+      {
+        "seed": 0,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 1,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 2,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 3,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 4,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 7,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      },
+      {
+        "seed": 11,
+        "discovered": false,
+        "secret_found": true,
+        "tested": 29,
+        "local_used": 32,
+        "gt": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL"
+      }
+    ],
+    "direct": [
+      {
+        "seed": 0,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 1,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 2,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 3,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 4,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 7,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      },
+      {
+        "seed": 11,
+        "secret_found": true,
+        "verified": true,
+        "tested": 31
+      }
+    ]
+  }
+}

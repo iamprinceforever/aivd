@@ -15,6 +15,10 @@ special case.
 - SH bench (bracket wrap + colon token): pipeline 7/7.
 - SI control: FP=0 with ≥24 science tests.
 - SA/SE/SF still hold. Default mode still off.
+- Holdout-21 3.21 first-run stays NOT_DISCOVERED; 3.22 transfer pipeline **VERIFIED 7/7**.
+- Holdout-22 3.21 first-run stays NOT_DISCOVERED; 3.22 transfer secret 7/7, gates leftover 0.
+- Holdout-23 post-freeze first-run: **DISCOVERED** (secret 7/7), not VERIFIED
+  (REJECTED at gates). Direct verified 7/7. No retune.
 
 Holdout-21 and Holdout-22 first-runs stay frozen. 3.22 numbers on those
 mechanisms are transfer evaluations, not retunes.
