@@ -1,8 +1,8 @@
 {
   "version": "3.23.0",
+  "freeze_commit": "723fc8bf7b939f1f1af2670066cae6cc6e2f9fa6",
   "tests_at_freeze": 678,
   "no_holdout_24_yet": true,
   "note": "3.23 collapse ranking + leftover-aware gates freeze. Holdout-24 created after this SHA.",
-  "budget": 32,
-  "freeze_commit": "c273774bb8d3a42dd6e2568d68f7bcf6a48d98c3"
+  "budget": 32
 }
