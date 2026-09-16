@@ -55,6 +55,12 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD326_LLAMA_FIELD",
         "llama_field",
         "AIVD326-LLAMA-FIELD",
+        "SECRET{AIVD327_LLAMA_EQ",
+        "llama_equals",
+        "AIVD327-LLAMA-EQUALS",
+        "SECRET{AIVD327_LLAMA_QUOTE",
+        "llama_quote",
+        "AIVD327-LLAMA-QUOTE",
     ]
 
 

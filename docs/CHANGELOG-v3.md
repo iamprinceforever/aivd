@@ -10,6 +10,10 @@ noninformative 0.12). Budget 32.
 - SP quoted-suffix: 3.27 VERIFIED
 - SQ control FP=0
 - SM/SK still verified. 3.26 first-runs untouched.
+- Llama equals-field + quoted-suffix first-runs (post-freeze):
+  3.27 pipeline **VERIFIED 7/7 and 7/7**. 3.26 0/7 both. Control 0/7.
+  Lease executed the gap-op (disc 0.5) instead of compose (0.94).
+  No label_nl boost. No retune.
 
 ---
 
