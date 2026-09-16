@@ -8,6 +8,9 @@ Budget 32.
 
 - ST pipe-field: 3.28 VERIFIED 7/7; 3.27 does not find it
 - SO/SP/SM/SK still verified. 3.27 first-runs untouched.
+- Llama pipe-field first-run (post-freeze): **NOT_DISCOVERED**.
+  First-wave leases revoked; INVENT_CAP=48 blocked `field_*` on the
+  11-token TinyLlama seed. Do not raise the cap. No retune.
 
 ---
 

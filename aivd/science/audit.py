@@ -61,6 +61,9 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD327_LLAMA_QUOTE",
         "llama_quote",
         "AIVD327-LLAMA-QUOTE",
+        "SECRET{AIVD328_LLAMA_PIPE",
+        "llama_pipe",
+        "AIVD328-LLAMA-PIPE",
     ]
 
 
