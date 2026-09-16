@@ -1,4 +1,4 @@
-"""Health check for the 3.22 science layer."""
+"""Health check for the 3.23 science layer."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -20,9 +20,11 @@ def health_check(root: Path | None = None) -> dict[str, Any]:
         "does_not_stop_on_collapse": True,
         "single_charge_per_experiment": True,
         "live_priority_untested_methods": True,
+        "collapse_does_not_rewalk_failed_singles": True,
+        "leftover_aware_gates": True,
         "consolidation_note": (
-            "3.22: one experiment, one slot in the full pipeline, and after a "
-            "live informative state untested methods outrank already-tried "
-            "uninformative singles. Budget stays 32. Default off ≈ 3.19."
+            "3.23: collapse restore still uses the live prompt, but untested "
+            "methods stay first. Gates scale to leftover so a found secret can "
+            "verify under 32. Default off ≈ 3.19."
         ),
     }

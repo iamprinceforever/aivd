@@ -1,3 +1,19 @@
+## 3.23.0 — Collapse does not re-walk failed singles; leftover-aware gates
+
+3.22 found secrets in the pipeline then REJECTED them: collapse-restore
+re-ranked the cheap battery at 0.96 over untested invented methods, and
+default gates demanded 8 leftover probes.
+
+3.23 keeps the live prompt on collapse, but untested methods stay first.
+When leftover is under 8, gates compact to 1 falsify + 1 extra reproduce
+(discovery counts) + as many control invariants as remain. Budget stays 32.
+
+- SJ bench (paren wrap + slash token): pipeline VERIFIED 7/7
+- SH still verified. SI/SG FP=0. SE/SF hold
+- Holdout-23 first-run stays DISCOVERED/not verified. 3.23 numbers on it are transfer.
+
+---
+
 ## 3.22.0 — Single-charge episode + live-priority invention
 
 Each experiment in an episode-owned pipeline now costs **one** slot, not

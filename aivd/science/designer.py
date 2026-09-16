@@ -284,6 +284,7 @@ class ScienceDesigner:
         if self.collapsed or self.supported_ops:
             base = self.live_prompt
             base_ops = list(self.live_ops)
+            pending: list[tuple[int, str, str, list[str]]] = []
             for other in self._candidate_ops():
                 if other in self.trap_ops:
                     continue
@@ -294,16 +295,13 @@ class ScienceDesigner:
                 nxt = self._apply(base, other)
                 if not nxt or nxt == base:
                     continue
-                seq = base_ops + [other]
-                in_battery = other in BATTERY
                 node = self.board.nodes.get(f"op:{other}")
                 tested_n = int(getattr(node, "tests", 0) or 0) if node is not None else 0
-                # On a live informative prompt: untried methods first.
-                # Already-tested singles that produced no support must not
-                # exhaust the remaining 32 before invented methods run.
-                if self.collapsed and in_battery:
-                    disc = 0.96
-                elif tested_n == 0:
+                pending.append((tested_n, other, nxt, base_ops + [other]))
+            # Untested methods first — collapse must not re-walk failed singles.
+            pending.sort(key=lambda t: (0 if t[0] == 0 else 1, t[0]))
+            for tested_n, other, nxt, seq in pending:
+                if tested_n == 0:
                     disc = 0.94
                 elif other in self.supported_ops:
                     disc = 0.90

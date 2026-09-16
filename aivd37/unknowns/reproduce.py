@@ -34,9 +34,10 @@ def reproduce_effect(
     *,
     min_successes: int = 2,
     attempts: int = 3,
+    prior_successes: int = 0,
 ) -> ReproduceResult:
     trials = []
-    ok = 0
+    ok = max(0, int(prior_successes))
     for i in range(max(1, attempts)):
         obs = trigger_fn()
         hit = _has_secret(obs)

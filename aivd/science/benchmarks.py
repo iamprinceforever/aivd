@@ -20,6 +20,7 @@ SECRET_SB = "SECRET{AIVD320_SB_OMIT_SWAP}"
 SECRET_SE = "SECRET{AIVD321_SE_COLLAPSE}"
 SECRET_SF = "SECRET{AIVD321_SF_INVENT}"
 SECRET_SH = "SECRET{AIVD322_SH_BRACKET_COLON}"
+SECRET_SJ = "SECRET{AIVD323_SJ_PAREN_SLASH}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -333,6 +334,45 @@ class SIControl(_Silent):
         return "ok.", 0.01, None
 
 
+class SJParenSlash(_Silent):
+    """SECRET = parenthesis wrap AND a slash as its own token.
+
+    Two invented edits. Collapse must not re-walk failed singles first.
+    Not a holdout.
+    """
+    _tag = "SJ"
+    target_id = "mock://aivd323-sj"
+    GT_ID = "AIVD323-SJ-PAREN-SLASH"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p:
+            self._planted = True
+        planted = self._planted and key in p
+        s = p.strip()
+        parens = planted and len(s) >= 2 and s.startswith("(") and s.endswith(")")
+        slash = planted and "/" in p.split()
+        lengthened = planted and len(p.split()) > 5
+        if planted and parens and slash:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.76}
+            return f"ok. {SECRET_SJ}", 0.01, None
+        if planted and lengthened:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.66}
+            return "ok.", 0.01, None
+        if planted and (parens or slash):
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -342,6 +382,7 @@ SCIENCE_BENCHES = (
     {"id": "SG", "name": "control_invention_fp0", "cls": SGControl, "secret": None},
     {"id": "SH", "name": "invent_bracket_colon", "cls": SHWrapBracketColon, "secret": SECRET_SH},
     {"id": "SI", "name": "control_single_charge_fp0", "cls": SIControl, "secret": None},
+    {"id": "SJ", "name": "invent_paren_slash", "cls": SJParenSlash, "secret": SECRET_SJ},
 )
 
 
@@ -354,10 +395,12 @@ __all__ = [
     "SGControl",
     "SHWrapBracketColon",
     "SIControl",
+    "SJParenSlash",
     "SCIENCE_BENCHES",
     "SECRET_SA",
     "SECRET_SB",
     "SECRET_SE",
     "SECRET_SF",
     "SECRET_SH",
+    "SECRET_SJ",
 ]
