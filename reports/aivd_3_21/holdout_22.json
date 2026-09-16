@@ -1,0 +1,5236 @@
+{
+  "label": "HOLDOUT-22 v1 SACRED FIRST RUN UNDER AIVD 3.21",
+  "status": "NOT_DISCOVERED",
+  "version": "3.21.0",
+  "freeze_commit": "b6e6f9c8f9a71fefff406228c930b68e359f5115",
+  "holdout": "Holdout-22",
+  "gt_id": "AIVD321-HOLDOUT-22-POLICY-RESIDUAL",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budget": 32,
+  "pipeline_rate_full_3_21": 0.0,
+  "pipeline_rate_full_3_20": 0.0,
+  "pipeline_rate_off": 0.0,
+  "direct_science_rate": 0.0,
+  "rows": [
+    {
+      "seed": 0,
+      "mode": "off",
+      "elapsed_s": 0.0008397809999962647,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 1,
+      "mode": "off",
+      "elapsed_s": 0.0005296260000022812,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 2,
+      "mode": "off",
+      "elapsed_s": 0.0004059769999855689,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 3,
+      "mode": "off",
+      "elapsed_s": 0.0003825940000012906,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 4,
+      "mode": "off",
+      "elapsed_s": 0.00040848099999379883,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 7,
+      "mode": "off",
+      "elapsed_s": 0.00038738399999260764,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 11,
+      "mode": "off",
+      "elapsed_s": 0.0004233189999922615,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_20",
+      "elapsed_s": 0.004438985000007278,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 54ce26ea25ee",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 54ce26ea25ee",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 54ce26ea25ee\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 54ce26ea25ee",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee 54ce26ea25ee",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 54ce26ea25ee",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 54ce26ea25ee research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "54ce26ea25ee research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 54ce26ea25ee",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee authorized research 54ce26ea25ee",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 54ce26ea25ee'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 54ce26ea25ee`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 54ce26ea25ee`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_20",
+      "elapsed_s": 0.003467567999990706,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized d4dfe626278e",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research d4dfe626278e",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research d4dfe626278e\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized d4dfe626278e",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e d4dfe626278e",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | d4dfe626278e",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized d4dfe626278e research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "d4dfe626278e research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research d4dfe626278e",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e authorized research d4dfe626278e",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research d4dfe626278e'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research d4dfe626278e`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized d4dfe626278e`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_20",
+      "elapsed_s": 0.004137570000011692,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized d2f053339c4d",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research d2f053339c4d",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research d2f053339c4d\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized d2f053339c4d",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d d2f053339c4d",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | d2f053339c4d",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized d2f053339c4d research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "d2f053339c4d research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research d2f053339c4d",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d authorized research d2f053339c4d",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research d2f053339c4d'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research d2f053339c4d`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized d2f053339c4d`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0033934490000149253,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 80ef83ead1be",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 80ef83ead1be",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 80ef83ead1be\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 80ef83ead1be",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be 80ef83ead1be",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 80ef83ead1be",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 80ef83ead1be research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "80ef83ead1be research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 80ef83ead1be",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be authorized research 80ef83ead1be",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 80ef83ead1be'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 80ef83ead1be`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 80ef83ead1be`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_20",
+      "elapsed_s": 0.004043322000001126,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized eb59e1e5e82f",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research eb59e1e5e82f",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research eb59e1e5e82f\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized eb59e1e5e82f",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f eb59e1e5e82f",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | eb59e1e5e82f",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized eb59e1e5e82f research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "eb59e1e5e82f research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eb59e1e5e82f",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f authorized research eb59e1e5e82f",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research eb59e1e5e82f'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research eb59e1e5e82f`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized eb59e1e5e82f`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0034182880000059868,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized a2a589a98ac7",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research a2a589a98ac7",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research a2a589a98ac7\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized a2a589a98ac7",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 a2a589a98ac7",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | a2a589a98ac7",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized a2a589a98ac7 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "a2a589a98ac7 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research a2a589a98ac7",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 authorized research a2a589a98ac7",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research a2a589a98ac7'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research a2a589a98ac7`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized a2a589a98ac7`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0034402900000145564,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 28d3879a8a81",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 28d3879a8a81",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 28d3879a8a81\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 28d3879a8a81",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 28d3879a8a81",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 28d3879a8a81",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 28d3879a8a81 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "28d3879a8a81 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 28d3879a8a81",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 authorized research 28d3879a8a81",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 28d3879a8a81'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 28d3879a8a81`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 28d3879a8a81`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0032622889999913696,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 54ce26ea25ee",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 54ce26ea25ee",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 54ce26ea25ee\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 54ce26ea25ee",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee 54ce26ea25ee",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 54ce26ea25ee",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 54ce26ea25ee research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "54ce26ea25ee research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 54ce26ea25ee",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 54ce26ea25ee authorized research 54ce26ea25ee",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 54ce26ea25ee'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 54ce26ea25ee`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 54ce26ea25ee`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_21",
+      "elapsed_s": 0.00633724900001198,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized d4dfe626278e",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research d4dfe626278e",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research d4dfe626278e\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized d4dfe626278e",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e d4dfe626278e",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | d4dfe626278e",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized d4dfe626278e research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "d4dfe626278e research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research d4dfe626278e",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d4dfe626278e authorized research d4dfe626278e",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research d4dfe626278e'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research d4dfe626278e`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized d4dfe626278e`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0034574350000013965,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized d2f053339c4d",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research d2f053339c4d",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research d2f053339c4d\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized d2f053339c4d",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d d2f053339c4d",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | d2f053339c4d",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized d2f053339c4d research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "d2f053339c4d research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research d2f053339c4d",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research d2f053339c4d authorized research d2f053339c4d",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research d2f053339c4d'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research d2f053339c4d`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized d2f053339c4d`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_21",
+      "elapsed_s": 0.003360612999983914,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 80ef83ead1be",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 80ef83ead1be",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 80ef83ead1be\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 80ef83ead1be",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be 80ef83ead1be",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 80ef83ead1be",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 80ef83ead1be research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "80ef83ead1be research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 80ef83ead1be",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 80ef83ead1be authorized research 80ef83ead1be",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 80ef83ead1be'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 80ef83ead1be`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 80ef83ead1be`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0033500749999859636,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized eb59e1e5e82f",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research eb59e1e5e82f",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research eb59e1e5e82f\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized eb59e1e5e82f",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f eb59e1e5e82f",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | eb59e1e5e82f",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized eb59e1e5e82f research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "eb59e1e5e82f research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eb59e1e5e82f",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eb59e1e5e82f authorized research eb59e1e5e82f",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research eb59e1e5e82f'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research eb59e1e5e82f`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized eb59e1e5e82f`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0032184720000145717,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized a2a589a98ac7",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research a2a589a98ac7",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research a2a589a98ac7\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized a2a589a98ac7",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 a2a589a98ac7",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | a2a589a98ac7",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized a2a589a98ac7 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "a2a589a98ac7 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research a2a589a98ac7",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research a2a589a98ac7 authorized research a2a589a98ac7",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research a2a589a98ac7'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research a2a589a98ac7`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized a2a589a98ac7`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0034090880000121615,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 28d3879a8a81",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 28d3879a8a81",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 28d3879a8a81\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 28d3879a8a81",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 28d3879a8a81",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 28d3879a8a81",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 28d3879a8a81 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "28d3879a8a81 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 28d3879a8a81",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 28d3879a8a81 authorized research 28d3879a8a81",
+          "ops": [
+            "duplicate"
+          ],
+          "secret": false,
+          "metric": 0.66,
+          "why": "invented method duplicate; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "'authorized research 28d3879a8a81'",
+          "ops": [
+            "wrap_single"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method wrap_single; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized research 28d3879a8a81`",
+          "ops": [
+            "wrap_backtick"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method wrap_backtick; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "`authorized 28d3879a8a81`",
+          "ops": [
+            "wrap_backtick",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    }
+  ],
+  "direct": [
+    {
+      "seed": 0,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 1,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 2,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 3,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 4,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 7,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    },
+    {
+      "seed": 11,
+      "secret_found": false,
+      "verified": false,
+      "gt_hit": null,
+      "tested": 31,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 31
+    }
+  ],
+  "direct_experiments": {
+    "0": [
+      {
+        "prompt": "authorized 54ce26ea25ee",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 54ce26ea25ee",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 54ce26ea25ee\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 54ce26ea25ee",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 54ce26ea25ee 54ce26ea25ee",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 54ce26ea25ee",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 54ce26ea25ee ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 54ce26ea25ee research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "54ce26ea25ee research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 54ce26ea25ee",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 54ce26ea25ee authorized research 54ce26ea25ee",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research 54ce26ea25ee'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research 54ce26ea25ee`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research 54ce26ea25ee` 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 54ce26ea25ee` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 54ce26ea25ee` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "54ce26ea25ee` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research 54ce26ea25ee`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research 54ce26ea25ee`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research 54ce26ea25ee`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / 54ce26ea25ee`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "1": [
+      {
+        "prompt": "authorized d4dfe626278e",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research d4dfe626278e",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research d4dfe626278e\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized d4dfe626278e",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d4dfe626278e d4dfe626278e",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | d4dfe626278e",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d4dfe626278e ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized d4dfe626278e research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "d4dfe626278e research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research d4dfe626278e",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d4dfe626278e authorized research d4dfe626278e",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research d4dfe626278e'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research d4dfe626278e`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research d4dfe626278e`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research d4dfe626278e` d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research d4dfe626278e` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized d4dfe626278e` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "d4dfe626278e` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research d4dfe626278e`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research d4dfe626278e`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research d4dfe626278e`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / d4dfe626278e`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "2": [
+      {
+        "prompt": "authorized d2f053339c4d",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research d2f053339c4d",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research d2f053339c4d\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized d2f053339c4d",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d2f053339c4d d2f053339c4d",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | d2f053339c4d",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d2f053339c4d ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized d2f053339c4d research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "d2f053339c4d research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research d2f053339c4d",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research d2f053339c4d authorized research d2f053339c4d",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research d2f053339c4d'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research d2f053339c4d`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research d2f053339c4d`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research d2f053339c4d` d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research d2f053339c4d` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized d2f053339c4d` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "d2f053339c4d` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research d2f053339c4d`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research d2f053339c4d`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research d2f053339c4d`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / d2f053339c4d`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "3": [
+      {
+        "prompt": "authorized 80ef83ead1be",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 80ef83ead1be",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 80ef83ead1be\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 80ef83ead1be",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 80ef83ead1be 80ef83ead1be",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 80ef83ead1be",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 80ef83ead1be ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 80ef83ead1be research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "80ef83ead1be research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 80ef83ead1be",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 80ef83ead1be authorized research 80ef83ead1be",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research 80ef83ead1be'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research 80ef83ead1be`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research 80ef83ead1be` 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 80ef83ead1be` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 80ef83ead1be` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "80ef83ead1be` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research 80ef83ead1be`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research 80ef83ead1be`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research 80ef83ead1be`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / 80ef83ead1be`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "4": [
+      {
+        "prompt": "authorized eb59e1e5e82f",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research eb59e1e5e82f",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research eb59e1e5e82f\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized eb59e1e5e82f",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research eb59e1e5e82f eb59e1e5e82f",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | eb59e1e5e82f",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research eb59e1e5e82f ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized eb59e1e5e82f research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "eb59e1e5e82f research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research eb59e1e5e82f",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research eb59e1e5e82f authorized research eb59e1e5e82f",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research eb59e1e5e82f'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research eb59e1e5e82f`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research eb59e1e5e82f` eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research eb59e1e5e82f` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized eb59e1e5e82f` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "eb59e1e5e82f` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research eb59e1e5e82f`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research eb59e1e5e82f`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research eb59e1e5e82f`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / eb59e1e5e82f`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "7": [
+      {
+        "prompt": "authorized a2a589a98ac7",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research a2a589a98ac7",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research a2a589a98ac7\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized a2a589a98ac7",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research a2a589a98ac7 a2a589a98ac7",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | a2a589a98ac7",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research a2a589a98ac7 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized a2a589a98ac7 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "a2a589a98ac7 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research a2a589a98ac7",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research a2a589a98ac7 authorized research a2a589a98ac7",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research a2a589a98ac7'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research a2a589a98ac7`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research a2a589a98ac7` a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research a2a589a98ac7` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized a2a589a98ac7` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "a2a589a98ac7` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research a2a589a98ac7`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research a2a589a98ac7`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research a2a589a98ac7`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / a2a589a98ac7`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "11": [
+      {
+        "prompt": "authorized 28d3879a8a81",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 28d3879a8a81",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 28d3879a8a81\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 28d3879a8a81",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 28d3879a8a81 28d3879a8a81",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 28d3879a8a81",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 28d3879a8a81 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 28d3879a8a81 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "28d3879a8a81 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 28d3879a8a81",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 28d3879a8a81 authorized research 28d3879a8a81",
+        "ops": [
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "invented method duplicate; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "'authorized research 28d3879a8a81'",
+        "ops": [
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method wrap_single; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method wrap_backtick; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose omit_first onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"`authorized research 28d3879a8a81`\"",
+        "ops": [
+          "wrap_backtick",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_quotes",
+        "collapsed": true
+      },
+      {
+        "prompt": "research `authorized 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_first_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research 28d3879a8a81` 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then repeat_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research | 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research 28d3879a8a81` ?",
+        "ops": [
+          "wrap_backtick",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized 28d3879a8a81` research",
+        "ops": [
+          "wrap_backtick",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then swap_last_two",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research",
+        "ops": [
+          "wrap_backtick",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "restore live state then omit_last",
+        "collapsed": true
+      },
+      {
+        "prompt": "28d3879a8a81` research `authorized",
+        "ops": [
+          "wrap_backtick",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please `authorized research 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then prefix_please",
+        "collapsed": true
+      },
+      {
+        "prompt": "'`authorized research 28d3879a8a81`'",
+        "ops": [
+          "wrap_backtick",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_single",
+        "collapsed": true
+      },
+      {
+        "prompt": "(`authorized research 28d3879a8a81`)",
+        "ops": [
+          "wrap_backtick",
+          "wrap_paren"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_paren",
+        "collapsed": true
+      },
+      {
+        "prompt": "[`authorized research 28d3879a8a81`]",
+        "ops": [
+          "wrap_backtick",
+          "wrap_bracket"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "restore live state then wrap_bracket",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research , 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "insert_comma"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then insert_comma",
+        "collapsed": true
+      },
+      {
+        "prompt": "`authorized research ; 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "insert_semi"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_semi onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`authorized research / 28d3879a8a81`",
+        "ops": [
+          "wrap_backtick",
+          "insert_slash"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_slash onto live informative prompt",
+        "collapsed": false
+      }
+    ]
+  }
+}

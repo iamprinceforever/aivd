@@ -6,8 +6,9 @@
 - Does not stop when the cheap battery is empty; remaining 32 slots are spent
 - SE collapse-restore 7/7, SF invented wrap 7/7, SG/SC FP=0
 - Holdout-20 3.20 first-run stays NOT_DISCOVERED; 3.21 transfer 7/7 (not sacred)
-- Holdout-21 post-freeze first-run: pipeline **NOT_DISCOVERED** (science
-  loop got 15/32). Direct science 7/7. No retune.
+- Holdout-22 post-freeze first-run: **NOT_DISCOVERED** (pipeline and direct).
+  First invented edit went live; the true second edit was the next grammar
+  item after the 32 ran out. No retune.
 - Same 32-experiment budget; default still `off` ≈ 3.19; no holdout-specific rules
 
 ## 3.20.0 — Autonomous Hypothesis Science
