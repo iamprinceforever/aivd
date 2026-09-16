@@ -234,6 +234,7 @@ class ScienceController:
             "substrate_synthesis": (designer.ext_synth.telemetry() if designer and getattr(designer, "ext_synth", None) else {}),
             "atom_synthesis": (designer.atom_synth.telemetry() if designer and getattr(designer, "atom_synth", None) else {}),
             "language": (designer.language.describe() if designer and getattr(designer, "language", None) else {}),
+            "escalation": (designer.planner.telemetry() if designer and getattr(designer, "planner", None) else {}),
             "failure_class": getattr(designer, "failure_class", None) if designer else None,
             "success_levels": {
                 "levels": {

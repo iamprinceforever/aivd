@@ -19,6 +19,14 @@ from aivd.science.primitive_synth import PrimitiveSynthesizer
 from aivd.science.ext_synth import ExtensionSynthesizer
 from aivd.science.atom_synth import AtomSynthesizer
 from aivd.science.language import ExperimentLanguage
+from aivd.science.escalate import (
+    CONTINUE,
+    ESC_ATOM,
+    ESC_EXT,
+    ESC_PRIM,
+    STOP,
+    EscalationPlanner,
+)
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -40,28 +48,37 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
-        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
-        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode) and "nosub" not in self.mode
+        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode) and "nosub" not in self.mode
         self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
         self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
         self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
         self.allow_ext_question = "noquestion" not in self.mode
-        self.allow_atom = "3_33" in self.mode and "noatom" not in self.mode
+        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode) and "noatom" not in self.mode
         self.allow_atom_lease = self.allow_atom and "nolease" not in self.mode
         self.allow_atom_lazy = self.allow_atom and "nolazy" not in self.mode
         self.allow_atom_novelty = self.allow_atom and "nonovelty" not in self.mode
         self.allow_atom_question = "noquestion" not in self.mode
         self.allow_atom_budget = self.allow_atom and "nobudget" not in self.mode
         self.allow_lang = self.allow_atom and "nolang" not in self.mode
+        self.allow_esc = "3_34" in self.mode and "noesc" not in self.mode
+        self.allow_reserve = self.allow_esc and "noreserve" not in self.mode
+        self.allow_plan = self.allow_esc and "noplan" not in self.mode
+        self.allow_ev = self.allow_esc and "noev" not in self.mode
+        self.allow_qval = self.allow_esc and "noqval" not in self.mode
+        self.allow_lval = self.allow_esc and "nolval" not in self.mode
+        self.allow_portfolio = self.allow_esc and "noportfolio" not in self.mode
+        self.always_late = "alwayslate" in self.mode
+        self.always_early = "alwaysearly" in self.mode
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
@@ -76,6 +93,19 @@ class ScienceDesigner:
             require_question=self.allow_atom_question,
         )
         self.language = ExperimentLanguage()
+        self.planner = EscalationPlanner(
+            reserve=self.allow_reserve,
+            plan=self.allow_plan,
+            ev=self.allow_ev,
+            qval=self.allow_qval,
+            lval=self.allow_lval,
+            portfolio=self.allow_portfolio,
+            always_late=self.always_late,
+            always_early=self.always_early,
+        )
+        self._force_atom = False
+        self._skip_prim = False
+        self._skip_ir = False
         self.field_spec: dict | None = None
         self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
@@ -362,6 +392,8 @@ class ScienceDesigner:
 
     def _ir_kinds_exhausted(self) -> bool:
         """3.30 IR kinds failed to distinguish. More SWAP instances are not a new capability."""
+        if getattr(self, "_skip_ir", False) or getattr(self, "_force_atom", False):
+            return True
         if not self.allow_prim:
             return False
         kinds = self._syn_rejected_kinds()
@@ -393,6 +425,8 @@ class ScienceDesigner:
 
     def _prim_kinds_exhausted(self) -> bool:
         """3.31 cardinality-changing primitives failed. More MAP instances are not a new substrate."""
+        if getattr(self, "_skip_prim", False) or getattr(self, "_force_atom", False):
+            return True
         if not self.allow_ext:
             return False
         kinds = self._prim_rejected_kinds()
@@ -406,6 +440,8 @@ class ScienceDesigner:
 
     def _ext_kinds_exhausted(self) -> bool:
         """3.32 token-opaque operators failed. More 3.32 programs are not a new atom."""
+        if getattr(self, "_force_atom", False):
+            return True
         if not self.allow_atom:
             return False
         if self.ext_synth.board.rejections >= 2:
@@ -415,6 +451,32 @@ class ScienceDesigner:
         if self.ext_synth.board.rejections >= 3 and not self.ext_synth.board.remaining:
             return True
         return False
+
+    def _esc_action(self, current: str) -> str:
+        if not self.allow_esc:
+            return CONTINUE
+        leftover = int(getattr(self, "remaining_steps", 32))
+        act = self.planner.decide(remaining=leftover, current=current)
+        if act == STOP:
+            why = "INSUFFICIENT_BUDGET_FOR_COMPLETE_ESCALATION"
+            if current == "atom":
+                why = "ATOM_INVENTION_SKIPPED_BY_PLANNING"
+            if not any(e.get("event") == why for e in self.methods_log):
+                self.failure_class = why
+                self.methods_log.append({
+                    "event": why,
+                    "layer": current,
+                    "leftover": str(leftover),
+                    "floor": str(self.planner.estimate(leftover).floor),
+                })
+        elif act != CONTINUE:
+            self.methods_log.append({
+                "event": "escalate",
+                "from": current,
+                "to": act,
+                "leftover": str(leftover),
+            })
+        return act
 
     def _release_nonlease_slot(self, why: str) -> bool:
         leased = {L.op for L in self.commitments.leases if L.state not in ("REVOKED",)}
@@ -449,6 +511,13 @@ class ScienceDesigner:
             return
         if self.allow_ext and self._prim_kinds_exhausted():
             return
+        if self.allow_esc:
+            act = self._esc_action("prim")
+            if act in (ESC_EXT, ESC_ATOM, STOP):
+                self._skip_prim = True
+                if act == ESC_ATOM:
+                    self._force_atom = True
+                return
         if not self._ir_kinds_exhausted() and self.synthesizer.board.remaining:
             return
         if not self._ir_kinds_exhausted() and self.synthesizer.board.executed == 0:
@@ -553,6 +622,12 @@ class ScienceDesigner:
             return
         if not self._prim_kinds_exhausted():
             return
+        if self.allow_esc:
+            act = self._esc_action("ext")
+            if act in (ESC_ATOM, STOP):
+                if act == ESC_ATOM:
+                    self._force_atom = True
+                return
         fam = self.families.families.get("record.field_delim")
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
             return
@@ -649,9 +724,35 @@ class ScienceDesigner:
         if self.allow_atom_question and not question:
             self.atom_synth.board.without_question += 1
             return
-        if not self._ext_kinds_exhausted():
+        planned_atom = False
+        if self.allow_esc:
+            act = self._esc_action("atom")
+            if act == STOP:
+                return
+            planned_atom = bool(getattr(self, "_force_atom", False) or act == ESC_ATOM)
+        if not self._ext_kinds_exhausted() and not planned_atom:
             return
         leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        if self.allow_esc and leftover < 3:
+            act = STOP
+            self.atom_synth.board.budget_skips += 1
+            if not any(e.get("event") == "ATOM_INVENTION_SKIPPED_BY_PLANNING" for e in self.methods_log):
+                why = "ATOM_INVENTION_SKIPPED_BY_PLANNING"
+                if self.ext_synth.board.rejections >= 2 or self.planner.layers["ext"].rejected >= 2:
+                    why = "LATE_ESCALATION"
+                    self.failure_class = "LATE_ESCALATION"
+                    self.methods_log.append({
+                        "event": "LATE_ESCALATION",
+                        "why": "atom invention after current language exhausted leftover",
+                        "leftover": str(leftover),
+                    })
+                self.failure_class = "ATOM_INVENTION_SKIPPED_BY_PLANNING"
+                self.methods_log.append({
+                    "event": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+                    "why": "planner: leftover below complete-chain floor",
+                    "leftover": str(leftover),
+                })
+            return
         if self.allow_atom_budget and leftover < 3:
             self.atom_synth.board.budget_skips += 1
             if not any(e.get("event") == "BUDGET_ALLOCATION_FAILURE" for e in self.methods_log):
@@ -774,68 +875,79 @@ class ScienceDesigner:
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
             return
         if self.allow_synth and not self._ir_kinds_exhausted():
-            ident = self.identity_prompt or self.seed_prompt
-            self.synthesizer.plan(
-                prompt=ident,
-                hot_indices=list(self.hot_indices),
-                question=True,
-                known_ops=set(self.inventor.ops),
-            )
-            if self.inventor.occupancy() >= INVENT_CAP:
-                self._release_nonlease_slot("slot for synthesized IR program")
-            if self.inventor.occupancy() >= INVENT_CAP:
-                self.methods_log.append({
-                    "event": "synthesis_capacity_wait",
-                    "occupancy": str(self.inventor.occupancy()),
-                })
-                return
-            prog = self.synthesizer.next_program()
-            if prog is not None:
-                name = prog.name()
-                if name not in self.inventor.ops:
-                    ok = self.inventor._register(
-                        name,
-                        self.synthesizer.make_fn(prog),
-                        why=prog.why or "synthesized IR program for unresolved question",
-                    )
-                    if not ok:
-                        self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
-                        return
-                    self.synthesizer.op_of[name] = prog
-                    self.synthesizer.board.materialized += 1
-                    qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.synth.0"
-                    self.families.remember(
-                        self.synthesizer.family_id,
-                        remaining=[p.key() for p in self.synthesizer.board.remaining],
-                        question_id=qid,
-                        why="runtime synthesized family; lazy remaining programs",
-                    )
-                    if f"op:{name}" not in self.board.nodes:
-                        self.board.add(
-                            f"op:{name}",
-                            f"synthesized program {name} may discriminate remaining hypotheses",
-                            [name],
-                            prior=0.42,
-                            why=prog.why,
-                        )
-                    self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
-                    self.commitments.max_leases_executed = max(
-                        self.commitments.max_leases_executed, self.commitments.executed_novel + 1
-                    )
+            skip_ir = False
+            if self.allow_esc:
+                act = self._esc_action("ir")
+                if act in (ESC_PRIM, ESC_EXT, ESC_ATOM, STOP):
+                    skip_ir = True
+                    self._skip_ir = True
+                    if act == ESC_ATOM:
+                        self._force_atom = True
+                    if act in (ESC_EXT, ESC_PRIM):
+                        self._skip_prim = act == ESC_EXT
+            if not skip_ir:
+                ident = self.identity_prompt or self.seed_prompt
+                self.synthesizer.plan(
+                    prompt=ident,
+                    hot_indices=list(self.hot_indices),
+                    question=True,
+                    known_ops=set(self.inventor.ops),
+                )
+                if self.inventor.occupancy() >= INVENT_CAP:
+                    self._release_nonlease_slot("slot for synthesized IR program")
+                if self.inventor.occupancy() >= INVENT_CAP:
                     self.methods_log.append({
-                        "event": "synth_materialize",
-                        "op": name,
-                        "key": prog.key(),
-                        "origin": "SYNTHESIZED_PROGRAM",
+                        "event": "synthesis_capacity_wait",
                         "occupancy": str(self.inventor.occupancy()),
                     })
                     return
+                prog = self.synthesizer.next_program()
+                if prog is not None:
+                    name = prog.name()
+                    if name not in self.inventor.ops:
+                        ok = self.inventor._register(
+                            name,
+                            self.synthesizer.make_fn(prog),
+                            why=prog.why or "synthesized IR program for unresolved question",
+                        )
+                        if not ok:
+                            self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
+                            return
+                        self.synthesizer.op_of[name] = prog
+                        self.synthesizer.board.materialized += 1
+                        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.synth.0"
+                        self.families.remember(
+                            self.synthesizer.family_id,
+                            remaining=[p.key() for p in self.synthesizer.board.remaining],
+                            question_id=qid,
+                            why="runtime synthesized family; lazy remaining programs",
+                        )
+                        if f"op:{name}" not in self.board.nodes:
+                            self.board.add(
+                                f"op:{name}",
+                                f"synthesized program {name} may discriminate remaining hypotheses",
+                                [name],
+                                prior=0.42,
+                                why=prog.why,
+                            )
+                        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+                        self.commitments.max_leases_executed = max(
+                            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+                        )
+                        self.methods_log.append({
+                            "event": "synth_materialize",
+                            "op": name,
+                            "key": prog.key(),
+                            "origin": "SYNTHESIZED_PROGRAM",
+                            "occupancy": str(self.inventor.occupancy()),
+                        })
+                        return
         if self.allow_prim:
             before = len(self.prim_synth.board.materialized)
             self._maybe_synthesize_primitive()
             if len(self.prim_synth.board.materialized) > before:
                 return
-        if self.allow_ext and not (self.allow_atom and self._ext_kinds_exhausted()):
+        if self.allow_ext and not getattr(self, "_force_atom", False) and not (self.allow_atom and self._ext_kinds_exhausted()):
             before = len(self.ext_synth.board.materialized)
             self._maybe_synthesize_extension()
             if len(self.ext_synth.board.materialized) > before:
@@ -968,6 +1080,8 @@ class ScienceDesigner:
                                 self.synthesizer.board.successes += 1
                             elif not informative:
                                 self.synthesizer.board.rejections += 1
+                            if self.allow_esc:
+                                self.planner.observe_layer("ir", informative=informative, secret=bool(c.secret), metric=c.metric)
                         if op0.startswith("p_"):
                             self.prim_synth.board.executed += 1
                             if c.secret:
@@ -975,6 +1089,8 @@ class ScienceDesigner:
                                 self.prim_synth.board.language_successes += 1
                             elif not informative:
                                 self.prim_synth.board.rejections += 1
+                            if self.allow_esc:
+                                self.planner.observe_layer("prim", informative=informative, secret=bool(c.secret), metric=c.metric)
                         if op0.startswith("ext_"):
                             self.ext_synth.board.executed += 1
                             if c.secret:
@@ -983,6 +1099,8 @@ class ScienceDesigner:
                                 self.ext_synth.board.retained += 1
                             elif not informative:
                                 self.ext_synth.board.rejections += 1
+                            if self.allow_esc:
+                                self.planner.observe_layer("ext", informative=informative, secret=bool(c.secret), metric=c.metric)
                         if op0.startswith("atom_"):
                             self.atom_synth.board.executed += 1
                             if c.secret:
@@ -991,6 +1109,8 @@ class ScienceDesigner:
                                 self.atom_synth.board.retained += 1
                             elif not informative:
                                 self.atom_synth.board.rejections += 1
+                            if self.allow_esc:
+                                self.planner.observe_layer("atom", informative=informative, secret=bool(c.secret), metric=c.metric)
                         self._maybe_synthesize()
                 else:
                     self._maybe_wave2()

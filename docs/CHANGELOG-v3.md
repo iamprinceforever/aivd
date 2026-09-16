@@ -1,3 +1,28 @@
+## 3.34.0 — Budget-aware adaptive escalation
+
+3.33 invents atoms after 3.32 is exhausted, then skips if leftover < 3.
+That skip is post-hoc. 3.34 keeps 3.33 atom invention as the frozen
+language-growth mechanism and adds backward budget planning: reserve a
+complete chain (invent + reproduce + verify) before spending the next
+experiment on a layer whose expected value is collapsing. INVENT_CAP
+stays 48. Budget 32. Do not retune 3.33 leftover<3 skip. No target-
+specific operators. Compact micro-language, not unbounded invention.
+
+- EscalationPlanner: CONTINUE / escalate to IR, primitive, substrate,
+  atom / STOP_AND_PRESERVE_VERIFICATION_BUDGET
+- Untried layer gets one shot if remaining > floor (false-escalation
+  guard). rejected≥2, leftover starve, or tight leftover after one
+  reject escalates. Layer EV from in-episode evidence only.
+- BX1 last-char prefix (3rd micro-candidate) and BX8 odd-chars mock
+- BX2 last-char-only (5th atom): leftover-skips on 3.33 and 3.34;
+  3.34 escalates off the 3rd IR and records a planning skip rather
+  than inventing an unverifiable atom. One reserved chain is 3, not 5.
+- SX1/NP1/AX1 still 7/7 on 3.34 (not always-escalate)
+- alwaysearly ablation false-escalates SX1; alwayslate starves BX2
+- 3.33 leftover skip remains BUDGET_ALLOCATION_FAILURE
+- Llama last-char-prefix / odd-chars first-run is post-freeze
+
+---
 ## 3.33.0 — Atom invention + open-ended experiment-language growth
 
 3.32 synthesizes operators from a developer-defined atom catalog. That
