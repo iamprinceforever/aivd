@@ -1,0 +1,7 @@
+{
+  "version": "3.21.0",
+  "freeze_commit": "b6e6f9c8f9a71fefff406228c930b68e359f5115",
+  "no_holdout_21_yet": true,
+  "tests_at_freeze": 651,
+  "note": "3.21 runtime method invention freeze. Holdout-21 created after this SHA."
+}

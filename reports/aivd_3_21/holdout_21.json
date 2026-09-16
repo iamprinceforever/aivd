@@ -1,0 +1,5418 @@
+{
+  "label": "HOLDOUT-21 v1 SACRED FIRST RUN UNDER AIVD 3.21",
+  "status": "NOT_DISCOVERED",
+  "version": "3.21.0",
+  "freeze_commit": "b6e6f9c8f9a71fefff406228c930b68e359f5115",
+  "holdout": "Holdout-21",
+  "gt_id": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budget": 32,
+  "pipeline_rate_full_3_21": 0.0,
+  "pipeline_rate_full_3_20": 0.0,
+  "pipeline_rate_off": 0.0,
+  "direct_science_rate": 1.0,
+  "rows": [
+    {
+      "seed": 0,
+      "mode": "off",
+      "elapsed_s": 0.0006496070000139298,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 1,
+      "mode": "off",
+      "elapsed_s": 0.0004970160000539181,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 2,
+      "mode": "off",
+      "elapsed_s": 0.0004017010001007293,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 3,
+      "mode": "off",
+      "elapsed_s": 0.00044581100019058795,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 4,
+      "mode": "off",
+      "elapsed_s": 0.0004073310001331265,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 7,
+      "mode": "off",
+      "elapsed_s": 0.00043703999995159393,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 11,
+      "mode": "off",
+      "elapsed_s": 0.00038724099999853934,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 23,
+      "tested_candidates": null,
+      "report": null,
+      "same_budget": true,
+      "local_used": 23,
+      "invented": null,
+      "experiments": []
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_20",
+      "elapsed_s": 0.004089906999979576,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized fd401659bad0",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research fd401659bad0",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research fd401659bad0\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized fd401659bad0",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research fd401659bad0 fd401659bad0",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | fd401659bad0",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research fd401659bad0 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized fd401659bad0 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "fd401659bad0 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research fd401659bad0",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research fd401659bad0\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research fd401659bad0 fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_20",
+      "elapsed_s": 0.004564724999909231,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 06fdde1604ab",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 06fdde1604ab",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 06fdde1604ab\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 06fdde1604ab",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 06fdde1604ab 06fdde1604ab",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 06fdde1604ab",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 06fdde1604ab ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 06fdde1604ab research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "06fdde1604ab research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 06fdde1604ab",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 06fdde1604ab\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 06fdde1604ab 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_20",
+      "elapsed_s": 0.003640404999941893,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized eee2d3771ef6",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research eee2d3771ef6",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research eee2d3771ef6\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized eee2d3771ef6",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eee2d3771ef6 eee2d3771ef6",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | eee2d3771ef6",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eee2d3771ef6 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized eee2d3771ef6 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "eee2d3771ef6 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eee2d3771ef6",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research eee2d3771ef6\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eee2d3771ef6 eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0035875940000096307,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 41915fb7d785",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 41915fb7d785",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 41915fb7d785\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 41915fb7d785",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 41915fb7d785 41915fb7d785",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 41915fb7d785",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 41915fb7d785 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 41915fb7d785 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "41915fb7d785 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 41915fb7d785",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 41915fb7d785\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 41915fb7d785 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0037649850000889273,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized aae2937e5a84",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research aae2937e5a84",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research aae2937e5a84\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized aae2937e5a84",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research aae2937e5a84 aae2937e5a84",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | aae2937e5a84",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research aae2937e5a84 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized aae2937e5a84 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "aae2937e5a84 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research aae2937e5a84",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research aae2937e5a84\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research aae2937e5a84 aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_20",
+      "elapsed_s": 0.00359805699986282,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized c94a1587a79e",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research c94a1587a79e",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research c94a1587a79e\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized c94a1587a79e",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research c94a1587a79e c94a1587a79e",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | c94a1587a79e",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research c94a1587a79e ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized c94a1587a79e research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "c94a1587a79e research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research c94a1587a79e",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research c94a1587a79e\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research c94a1587a79e c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_20",
+      "elapsed_s": 0.0037525689999711176,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 5cf2e7223ecd",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 5cf2e7223ecd",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 5cf2e7223ecd\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 5cf2e7223ecd",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 5cf2e7223ecd 5cf2e7223ecd",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 5cf2e7223ecd",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 5cf2e7223ecd ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 5cf2e7223ecd research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "5cf2e7223ecd research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 5cf2e7223ecd\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 5cf2e7223ecd 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 0,
+      "mode": "full_3_21",
+      "elapsed_s": 0.003941523999856145,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized fd401659bad0",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research fd401659bad0",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research fd401659bad0\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized fd401659bad0",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research fd401659bad0 fd401659bad0",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | fd401659bad0",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research fd401659bad0 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized fd401659bad0 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "fd401659bad0 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research fd401659bad0",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research fd401659bad0\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research fd401659bad0 fd401659bad0",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0037576940001144976,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 06fdde1604ab",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 06fdde1604ab",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 06fdde1604ab\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 06fdde1604ab",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 06fdde1604ab 06fdde1604ab",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 06fdde1604ab",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 06fdde1604ab ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 06fdde1604ab research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "06fdde1604ab research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 06fdde1604ab",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 06fdde1604ab\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 06fdde1604ab 06fdde1604ab",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0038975219999883848,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized eee2d3771ef6",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research eee2d3771ef6",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research eee2d3771ef6\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized eee2d3771ef6",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eee2d3771ef6 eee2d3771ef6",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | eee2d3771ef6",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research eee2d3771ef6 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized eee2d3771ef6 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "eee2d3771ef6 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eee2d3771ef6",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research eee2d3771ef6\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research eee2d3771ef6 eee2d3771ef6",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0038613310000528145,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 41915fb7d785",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 41915fb7d785",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 41915fb7d785\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 41915fb7d785",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 41915fb7d785 41915fb7d785",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 41915fb7d785",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 41915fb7d785 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 41915fb7d785 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "41915fb7d785 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 41915fb7d785",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 41915fb7d785\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 41915fb7d785 41915fb7d785",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0035287319999497413,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized aae2937e5a84",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research aae2937e5a84",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research aae2937e5a84\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized aae2937e5a84",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research aae2937e5a84 aae2937e5a84",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | aae2937e5a84",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research aae2937e5a84 ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized aae2937e5a84 research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "aae2937e5a84 research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research aae2937e5a84",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research aae2937e5a84\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research aae2937e5a84 aae2937e5a84",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0036635060000662634,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized c94a1587a79e",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research c94a1587a79e",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research c94a1587a79e\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized c94a1587a79e",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research c94a1587a79e c94a1587a79e",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | c94a1587a79e",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research c94a1587a79e ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized c94a1587a79e research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "c94a1587a79e research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research c94a1587a79e",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research c94a1587a79e\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research c94a1587a79e c94a1587a79e",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "full_3_21",
+      "elapsed_s": 0.0036380530000315048,
+      "terminal_state": "UNRESOLVED_INVISIBLE",
+      "discovered": false,
+      "secret_found": false,
+      "gt_hit": null,
+      "probes_used": 32,
+      "tested_candidates": 15,
+      "report": {
+        "secret_found": false,
+        "verified": false,
+        "reproduced": false,
+        "best_prompt": null,
+        "surviving_hypotheses": [
+          {
+            "hyp_id": "op:prefix_please",
+            "claim": "invented method prefix_please may gate security-relevant behavior",
+            "operators": [
+              "prefix_please"
+            ],
+            "prior": 0.28,
+            "posterior": 0.98,
+            "state": "supported",
+            "evidence_for": 2.75,
+            "evidence_against": 0.0,
+            "tests": 5,
+            "why": "runtime invention after collapse or cheap-battery exhaustion",
+            "parent_id": null,
+            "meta": {}
+          }
+        ],
+        "falsified_hypotheses": [],
+        "n_hypotheses": 31,
+        "n_experiments": 15,
+        "entropy_final": 3.296991985199456,
+        "causal_sketch": "prefix_please",
+        "remaining_alternatives": [
+          "security-relevant behavior is gated by operator omit_second",
+          "security-relevant behavior is gated by operator omit_first",
+          "security-relevant behavior is gated by operator wrap_quotes",
+          "security-relevant behavior is gated by operator swap_first_two",
+          "security-relevant behavior is gated by operator repeat_last",
+          "security-relevant behavior is gated by operator insert_sep",
+          "security-relevant behavior is gated by operator suffix_q",
+          "security-relevant behavior is gated by operator swap_last_two"
+        ],
+        "confidence": 0.49,
+        "notes": "science_loop+invent+residual_context_ignored_as_gt"
+      },
+      "same_budget": true,
+      "local_used": 32,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "experiments": [
+        {
+          "prompt": "authorized 5cf2e7223ecd",
+          "ops": [
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_second; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research 5cf2e7223ecd",
+          "ops": [
+            "omit_first"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator omit_first; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"authorized research 5cf2e7223ecd\"",
+          "ops": [
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator wrap_quotes; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "research authorized 5cf2e7223ecd",
+          "ops": [
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_first_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 5cf2e7223ecd 5cf2e7223ecd",
+          "ops": [
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator repeat_last; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research | 5cf2e7223ecd",
+          "ops": [
+            "insert_sep"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator insert_sep; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research 5cf2e7223ecd ?",
+          "ops": [
+            "suffix_q"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator suffix_q; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized 5cf2e7223ecd research",
+          "ops": [
+            "swap_last_two"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "untested operator swap_last_two; discriminate against alternatives",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized research",
+          "ops": [
+            "omit_last"
+          ],
+          "secret": false,
+          "metric": 0.02,
+          "why": "invented method omit_last; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "5cf2e7223ecd research authorized",
+          "ops": [
+            "reverse_content"
+          ],
+          "secret": false,
+          "metric": 0.12,
+          "why": "invented method reverse_content; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "invented method prefix_please; cheap battery did not suffice",
+          "collapsed": false
+        },
+        {
+          "prompt": "please research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "omit_second"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose omit_second onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "\"please authorized research 5cf2e7223ecd\"",
+          "ops": [
+            "prefix_please",
+            "wrap_quotes"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose wrap_quotes onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "authorized please research 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "swap_first_two"
+          ],
+          "secret": false,
+          "metric": 0.29,
+          "why": "compose swap_first_two onto live informative prompt",
+          "collapsed": false
+        },
+        {
+          "prompt": "please authorized research 5cf2e7223ecd 5cf2e7223ecd",
+          "ops": [
+            "prefix_please",
+            "repeat_last"
+          ],
+          "secret": false,
+          "metric": 0.0,
+          "why": "compose repeat_last onto live informative prompt",
+          "collapsed": false
+        }
+      ]
+    }
+  ],
+  "direct": [
+    {
+      "seed": 0,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 1,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 2,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 3,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 4,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 7,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    },
+    {
+      "seed": 11,
+      "secret_found": true,
+      "verified": true,
+      "gt_hit": "AIVD321-HOLDOUT-21-POLICY-RESIDUAL",
+      "tested": 27,
+      "invented": [
+        "omit_last",
+        "reverse_content",
+        "prefix_please",
+        "duplicate",
+        "omit_i0",
+        "omit_i1",
+        "omit_i2",
+        "wrap_single",
+        "wrap_backtick",
+        "wrap_paren",
+        "wrap_bracket",
+        "insert_comma",
+        "insert_semi",
+        "insert_slash",
+        "insert_dash",
+        "insert_colon",
+        "swap_i0",
+        "swap_i1"
+      ],
+      "n_experiments": 25
+    }
+  ],
+  "direct_experiments": {
+    "0": [
+      {
+        "prompt": "authorized fd401659bad0",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research fd401659bad0",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research fd401659bad0\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized fd401659bad0",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research fd401659bad0 fd401659bad0",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | fd401659bad0",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research fd401659bad0 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized fd401659bad0 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "fd401659bad0 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research fd401659bad0",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research fd401659bad0\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research fd401659bad0 fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research fd401659bad0 ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized fd401659bad0 research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "fd401659bad0 research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research fd401659bad0 please authorized research fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized fd401659bad0",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research fd401659bad0'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research fd401659bad0`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research fd401659bad0)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "1": [
+      {
+        "prompt": "authorized 06fdde1604ab",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 06fdde1604ab",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 06fdde1604ab\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 06fdde1604ab",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 06fdde1604ab 06fdde1604ab",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 06fdde1604ab",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 06fdde1604ab ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 06fdde1604ab research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "06fdde1604ab research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 06fdde1604ab",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research 06fdde1604ab\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 06fdde1604ab 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 06fdde1604ab ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 06fdde1604ab research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "06fdde1604ab research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research 06fdde1604ab please authorized research 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 06fdde1604ab",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research 06fdde1604ab'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research 06fdde1604ab`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research 06fdde1604ab)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "2": [
+      {
+        "prompt": "authorized eee2d3771ef6",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research eee2d3771ef6",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research eee2d3771ef6\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized eee2d3771ef6",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research eee2d3771ef6 eee2d3771ef6",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | eee2d3771ef6",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research eee2d3771ef6 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized eee2d3771ef6 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "eee2d3771ef6 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research eee2d3771ef6",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research eee2d3771ef6\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research eee2d3771ef6 eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research eee2d3771ef6 ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized eee2d3771ef6 research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "eee2d3771ef6 research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research eee2d3771ef6 please authorized research eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized eee2d3771ef6",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research eee2d3771ef6'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research eee2d3771ef6`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research eee2d3771ef6)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "3": [
+      {
+        "prompt": "authorized 41915fb7d785",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 41915fb7d785",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 41915fb7d785\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 41915fb7d785",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 41915fb7d785 41915fb7d785",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 41915fb7d785",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 41915fb7d785 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 41915fb7d785 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "41915fb7d785 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 41915fb7d785",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research 41915fb7d785\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 41915fb7d785 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 41915fb7d785 ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 41915fb7d785 research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "41915fb7d785 research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research 41915fb7d785 please authorized research 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 41915fb7d785",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research 41915fb7d785'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research 41915fb7d785`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research 41915fb7d785)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "4": [
+      {
+        "prompt": "authorized aae2937e5a84",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research aae2937e5a84",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research aae2937e5a84\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized aae2937e5a84",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research aae2937e5a84 aae2937e5a84",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | aae2937e5a84",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research aae2937e5a84 ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized aae2937e5a84 research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "aae2937e5a84 research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research aae2937e5a84",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research aae2937e5a84\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research aae2937e5a84 aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research aae2937e5a84 ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized aae2937e5a84 research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "aae2937e5a84 research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research aae2937e5a84 please authorized research aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized aae2937e5a84",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research aae2937e5a84'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research aae2937e5a84`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research aae2937e5a84)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "7": [
+      {
+        "prompt": "authorized c94a1587a79e",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research c94a1587a79e",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research c94a1587a79e\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized c94a1587a79e",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research c94a1587a79e c94a1587a79e",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | c94a1587a79e",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research c94a1587a79e ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized c94a1587a79e research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "c94a1587a79e research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research c94a1587a79e",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research c94a1587a79e\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research c94a1587a79e c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research c94a1587a79e ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized c94a1587a79e research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "c94a1587a79e research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research c94a1587a79e please authorized research c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized c94a1587a79e",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research c94a1587a79e'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research c94a1587a79e`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research c94a1587a79e)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ],
+    "11": [
+      {
+        "prompt": "authorized 5cf2e7223ecd",
+        "ops": [
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_second; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research 5cf2e7223ecd",
+        "ops": [
+          "omit_first"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator omit_first; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"authorized research 5cf2e7223ecd\"",
+        "ops": [
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator wrap_quotes; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "research authorized 5cf2e7223ecd",
+        "ops": [
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_first_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 5cf2e7223ecd 5cf2e7223ecd",
+        "ops": [
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator repeat_last; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research | 5cf2e7223ecd",
+        "ops": [
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator insert_sep; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research 5cf2e7223ecd ?",
+        "ops": [
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator suffix_q; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized 5cf2e7223ecd research",
+        "ops": [
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "untested operator swap_last_two; discriminate against alternatives",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized research",
+        "ops": [
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "invented method omit_last; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "5cf2e7223ecd research authorized",
+        "ops": [
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.12,
+        "why": "invented method reverse_content; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 5cf2e7223ecd",
+        "ops": [
+          "prefix_please"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "invented method prefix_please; cheap battery did not suffice",
+        "collapsed": false
+      },
+      {
+        "prompt": "please research 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "omit_second"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_second onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "\"please authorized research 5cf2e7223ecd\"",
+        "ops": [
+          "prefix_please",
+          "wrap_quotes"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_quotes onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "authorized please research 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "swap_first_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_first_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 5cf2e7223ecd 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "repeat_last"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose repeat_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research | 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "insert_sep"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose insert_sep onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research 5cf2e7223ecd ?",
+        "ops": [
+          "prefix_please",
+          "suffix_q"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose suffix_q onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 5cf2e7223ecd research",
+        "ops": [
+          "prefix_please",
+          "swap_last_two"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose swap_last_two onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized research",
+        "ops": [
+          "prefix_please",
+          "omit_last"
+        ],
+        "secret": false,
+        "metric": 0.02,
+        "why": "compose omit_last onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "5cf2e7223ecd research authorized please",
+        "ops": [
+          "prefix_please",
+          "reverse_content"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "restore live state then reverse_content",
+        "collapsed": true
+      },
+      {
+        "prompt": "please authorized research 5cf2e7223ecd please authorized research 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "duplicate"
+        ],
+        "secret": false,
+        "metric": 0.66,
+        "why": "compose duplicate onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "please authorized 5cf2e7223ecd",
+        "ops": [
+          "prefix_please",
+          "omit_i2"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose omit_i2 onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "'please authorized research 5cf2e7223ecd'",
+        "ops": [
+          "prefix_please",
+          "wrap_single"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_single onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "`please authorized research 5cf2e7223ecd`",
+        "ops": [
+          "prefix_please",
+          "wrap_backtick"
+        ],
+        "secret": false,
+        "metric": 0.29,
+        "why": "compose wrap_backtick onto live informative prompt",
+        "collapsed": false
+      },
+      {
+        "prompt": "(please authorized research 5cf2e7223ecd)",
+        "ops": [
+          "prefix_please",
+          "wrap_paren"
+        ],
+        "secret": true,
+        "metric": 0.75,
+        "why": "compose wrap_paren onto live informative prompt",
+        "collapsed": false
+      }
+    ]
+  }
+}
