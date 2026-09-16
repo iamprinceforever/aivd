@@ -11,6 +11,13 @@ primitives are executable, leased, lazy, and reusable. INVENT_CAP stays
 - NP4 zip-then-pair composition, NP5 continuation, NP6 after cap, NP7 unknown-unknown: 7/7
 - OW1/OW2 (3.30 programs/families) still 7/7 on 3.31
 - SU still verified. 3.25–3.30 sacred first-runs untouched
+- Llama zip-stutter + pair-join first-run (post-freeze `3ad5d9d`):
+  **DISCOVERED+VERIFIED**. Pipeline 7/7 and 7/7. 3.30 0/7 both. 3.29 0/7.
+  Direct 7/7. Control 0/7. Cap still 48.
+  S: `p_zip` (NEW_PRIMITIVE / ZIP) fire @27, used 32/32.
+  U: `p_zip` rejected, then `p_pairjoin` (NEW_PRIMITIVE / PAIR_JOIN)
+  fire @28, used 32/32. No target `ontology_gap` flag on U.
+  Compact substrate, not unbounded invention. 3.29 frontier A/B/C not re-scored.
 
 ---
 ## 3.30.0 — Open-world intervention IR synthesis
