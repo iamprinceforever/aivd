@@ -254,6 +254,55 @@ def compile_field_delims(
     return new
 
 
+def field_family_spec(
+    *,
+    prompt: str,
+    hot_indices: list[int],
+) -> dict | None:
+    """Compressed field-delimiter family. No instances registered.
+
+    Remaining domain is the unused-delimiter tuple already in the 3.28
+    compiler. Not a plant name. Not an eager instance list.
+    """
+    toks = split_prompt(prompt)
+    n = len(toks)
+    if n < 2:
+        return None
+    order = list(hot_indices)
+    for i in range(n):
+        if i not in order:
+            order.append(i)
+    i = next((k for k in order if 0 <= k < n and len(toks[k].strip(".,;:!?\"'`")) >= 4), None)
+    if i is None:
+        return None
+    lab = toks[i].strip(".,;:!?\"'`")
+    return {
+        "family_id": "record.field_delim",
+        "remaining": list(FIELD_DELIMS),
+        "index": i,
+        "label": lab,
+        "body": prompt,
+    }
+
+
+def compile_one_field(spec: dict, param: str, register: Callable[..., bool]) -> str | None:
+    """Materialize one parameterization of a remembered field family."""
+    if not param:
+        return None
+    i = int(spec["index"])
+    lab = str(spec["label"])
+    body = str(spec["body"])
+    code = abs(ord(param[0]))
+    name = f"field_{code}_i{i}"
+    if register(
+        name,
+        lambda p, L=lab, s=param, B=body: f"{L}{s}{B}",
+        why="lazy materialize of deferred field-delimiter family",
+    ):
+        return name
+    return None
+
+
 def gap_hypothesis(*, hot_indices: list[int], harvested: list[str]) -> AbstractDimension:
     return AbstractDimension(
         dimension_id="gap.unknown_segmentation",
@@ -287,6 +336,8 @@ __all__ = [
     "compile_from_structure",
     "compile_record_forms",
     "compile_field_delims",
+    "field_family_spec",
+    "compile_one_field",
     "FIELD_DELIMS",
     "gap_hypothesis",
 ]

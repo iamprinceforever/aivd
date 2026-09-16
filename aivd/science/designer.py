@@ -11,13 +11,16 @@ from typing import Any
 from aivd.epistemic.types import ExperimentProposal
 from aivd.science.contrast import Contrast, contrast
 from aivd.science.hypotheses import HypothesisBoard
-from aivd.science.methods import MethodInventor
+from aivd.science.methods import INVENT_CAP, MethodInventor
 from aivd.science.commit import CommitmentBoard
+from aivd.science.families import FamilyInventory
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
     compile_record_forms,
     compile_field_delims,
+    compile_one_field,
+    field_family_spec,
     gap_hypothesis,
     harvest_unseen_chars,
 )
@@ -32,12 +35,16 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28"))
-        self.allow_commit = "3_27" in self.mode or "3_28" in self.mode
-        self.allow_wave2 = "3_28" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode
+        self.allow_lazy = "3_29" in self.mode
         self.wave2_compiled = False
+        self.families = FamilyInventory()
+        self.field_spec: dict | None = None
+        self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
         self.ontology_insufficient = False
         self.harvested_texts: list[str] = []
@@ -225,6 +232,87 @@ class ScienceDesigner:
             self.methods_log.append({"event": "wave2_compile", "ops": ",".join(new)})
         self.wave2_compiled = True
 
+    def _maybe_continue_families(self) -> None:
+        """3.29: remember deferred families; materialize one instance if a slot is free."""
+        if not self.allow_lazy:
+            return
+        ident = self.identity_prompt or self.seed_prompt
+        occ = self.inventor.occupancy()
+        self.families.note_occupancy(occ)
+        gap_open = bool(self.commitments.questions) and not any(
+            L.state == "UNLOCKED" for L in self.commitments.leases
+        )
+        pending = [
+            L for L in self.commitments.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        first_done = (not pending) and self.commitments.revoked >= 1
+        if first_done and "record.field_delim" not in self.families.families:
+            spec = field_family_spec(prompt=ident, hot_indices=list(self.hot_indices))
+            if spec:
+                self.field_spec = spec
+                self.families.remember(
+                    spec["family_id"],
+                    list(spec["remaining"]),
+                    question_id=(self.commitments.questions[-1].question_id if self.commitments.questions else ""),
+                    why="unresolved ontology-gap question after first-wave revocation",
+                )
+                self.methods_log.append({
+                    "event": "family_deferred",
+                    "family": spec["family_id"],
+                    "remaining": str(len(spec["remaining"])),
+                    "occupancy": str(occ),
+                    "cap": str(INVENT_CAP),
+                })
+                if occ >= INVENT_CAP:
+                    self.methods_log.append({
+                        "event": "registry_full",
+                        "family": spec["family_id"],
+                        "occupancy": str(occ),
+                    })
+        if not gap_open:
+            return
+        fam = self.families.families.get("record.field_delim")
+        if fam is None or self.field_spec is None:
+            return
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self.methods_log.append({
+                "event": "registry_full",
+                "family": fam.family_id,
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            return
+        param = self.families.next_param(fam.family_id)
+        if param is None:
+            return
+        name = compile_one_field(self.field_spec, str(param), self.inventor._register)
+        if not name:
+            self.failure_class = "LAZY_MATERIALIZATION_FAILURE"
+            return
+        self.families.mark_materialized(fam.family_id, param, name)
+        self.families.wakeups += 1
+        if f"op:{name}" not in self.board.nodes:
+            self.board.add(
+                f"op:{name}",
+                f"lazy instance {name} of deferred family {fam.family_id}",
+                [name],
+                prior=0.4,
+                why="materialized after executable capacity released",
+            )
+        qid = fam.question_id or (self.commitments.questions[-1].question_id if self.commitments.questions else "q.gap.0")
+        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+        self.commitments.waves = max(self.commitments.waves, 2)
+        self.commitments.max_leases_executed = max(
+            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+        )
+        self.methods_log.append({
+            "event": "lazy_materialize",
+            "op": name,
+            "family": fam.family_id,
+            "reason": "capacity_released+unresolved_question",
+            "occupancy": str(self.inventor.occupancy()),
+        })
+
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
         for op in ops:
@@ -328,7 +416,21 @@ class ScienceDesigner:
                     "informative": str(informative),
                     "secret": str(bool(c.secret)),
                 })
-                self._maybe_wave2()
+                if self.allow_lazy:
+                    if not informative and not c.secret:
+                        if self.inventor.release(op0):
+                            self.families.capacity_releases += 1
+                            self.methods_log.append({
+                                "event": "capacity_release",
+                                "op": op0,
+                                "occupancy": str(self.inventor.occupancy()),
+                            })
+                        self.families.mark_executed(op0, rejected=True)
+                    else:
+                        self.families.mark_executed(op0, rejected=False)
+                    self._maybe_continue_families()
+                else:
+                    self._maybe_wave2()
 
         if len(used_ops) >= 2:
             hid = "cmp:" + "+".join(used_ops)
@@ -512,6 +614,7 @@ class ScienceDesigner:
             ident = self.identity_prompt or self.seed_prompt
             if self.allow_commit:
                 self._maybe_wave2()
+                self._maybe_continue_families()
                 due = self.commitments.due()
                 if due is not None:
                     nxt = self._apply(ident, due.op)

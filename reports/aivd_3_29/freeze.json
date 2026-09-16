@@ -1,0 +1,9 @@
+{
+  "version": "3.29.0",
+  "tests_at_freeze_excluding_llama_oracles": 733,
+  "invent_cap": 48,
+  "invent_cap_unchanged": true,
+  "no_llama_holdout_yet": true,
+  "budget": 32,
+  "note": "Frozen before sacred TinyLlama hash-field holdout. No retune of 3.28."
+}

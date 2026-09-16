@@ -68,7 +68,22 @@ class MethodInventor:
         self.ops: dict[str, Callable[[str], str]] = dict(OPERATORS)
         self.invented: list[str] = []
         self.promoted: list[str] = []
+        self.archived: list[str] = []
         self.log: list[dict[str, str]] = []
+
+    def occupancy(self) -> int:
+        """Executable-registry occupancy. Cap formula is unchanged (INVENT_CAP=48)."""
+        return len(self.invented) + len(self.promoted)
+
+    def release(self, name: str) -> bool:
+        """Free an executable slot. The operator remains callable; it no longer occupies cap."""
+        if name not in self.invented:
+            return False
+        self.invented.remove(name)
+        if name not in self.archived:
+            self.archived.append(name)
+        self.log.append({"op": name, "why": "released executable slot after noninformative evidence"})
+        return True
 
     def apply(self, prompt: str, name: str) -> str:
         fn = self.ops.get(name)

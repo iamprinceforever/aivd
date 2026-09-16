@@ -14,7 +14,7 @@ from aivd37.unknowns.terminal import TerminalState
 
 
 def test_version_324():
-    assert __version__ == "3.28.0"
+    assert __version__ == "3.29.0"
     cfg = AIVDConfig(epistemic_mode="full_3_24", invention_mode="full_3_24")
     assert cfg.epistemic_mode == "full_3_24"
     assert is_science_mode("full_3_24")
