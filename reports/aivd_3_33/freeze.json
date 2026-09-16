@@ -10,5 +10,5 @@
   "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
   "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
   "note": "Frozen before sacred TinyLlama holdout. Atom invention from character/index micro-language after 3.32 operators fail. 3.32 atom catalog not expanded. No join-all/cyclic-shift/append-reversed constructors. leftover<3 skips new atom invention. No retune of 3.32 U.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "468994ef8bc4c882005a6a2a5a7bacabd6537ddf"
 }
