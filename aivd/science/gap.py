@@ -16,7 +16,7 @@ from typing import Callable
 from aivd.science.operators import join_prompt, split_prompt
 
 # Already expressible by wrap / insert / battery. Do not re-compile these.
-_KNOWN = set(' "\'`()[],;/-:|?')
+_KNOWN = set(' "\'`()[],;/-:|?.!')
 
 
 @dataclass
@@ -35,11 +35,13 @@ class AbstractDimension:
     source: str = "science.gap"
 
 
-def harvest_unseen_chars(texts: list[str]) -> list[str]:
+def harvest_unseen_chars(texts: list[str], *, exclude: str = "") -> list[str]:
+    blocked = set(_KNOWN)
+    blocked.update(exclude or "")
     out: list[str] = []
     for text in texts:
         for ch in text or "":
-            if ch.isalnum() or ch in _KNOWN or ch == " ":
+            if ch.isalnum() or ch in blocked or ch == " ":
                 continue
             if ch not in out:
                 out.append(ch)
@@ -147,6 +149,67 @@ def compile_from_structure(
     return new
 
 
+def compile_record_forms(
+    register: Callable[..., bool],
+    *,
+    prompt: str,
+    hot_indices: list[int],
+    cap_new: int = 2,
+) -> list[str]:
+    """3.27: additional identity-preserving record forms from the prompt.
+
+    Equals-field and quoted-suffix are generic structural probes compiled
+    from the utterance's own tokens. Not a holdout catalog. Not label_nl.
+    """
+    new: list[str] = []
+    toks = split_prompt(prompt)
+    n = len(toks)
+    if n < 2:
+        return new
+
+    def _add(name: str, fn, why: str) -> bool:
+        if len(new) >= cap_new:
+            return False
+        if register(name, fn, why=why):
+            new.append(name)
+            return True
+        return False
+
+    order = list(hot_indices)
+    for i in range(n):
+        if i not in order:
+            order.append(i)
+    n_eq = 0
+    for i in order:
+        if i < 0 or i >= n:
+            continue
+        lab = toks[i].strip(".,;:!?\"'`")
+        if len(lab) < 4:
+            continue
+        if n_eq >= 1:
+            break
+        _add(
+            f"label_eq_i{i}",
+            lambda p, L=lab, body=prompt: f"{L}={body}",
+            "token-as-equals-field then original body",
+        )
+        n_eq += 1
+        if len(new) >= cap_new:
+            return new
+    mid = max(1, min(n - 1, n // 2))
+    _add(
+        f"quote_tail_i{mid}",
+        lambda p, k=mid: (
+            join_prompt(split_prompt(p)[:k])
+            + ' "'
+            + join_prompt(split_prompt(p)[k:])
+            + '"'
+        ),
+        "quote only the suffix; whole-prompt wrap cannot express this",
+    )
+    return new
+
+
 def gap_hypothesis(*, hot_indices: list[int], harvested: list[str]) -> AbstractDimension:
     return AbstractDimension(
         dimension_id="gap.unknown_segmentation",
@@ -178,5 +241,6 @@ __all__ = [
     "rejoin_at",
     "compile_from_harvest",
     "compile_from_structure",
+    "compile_record_forms",
     "gap_hypothesis",
 ]

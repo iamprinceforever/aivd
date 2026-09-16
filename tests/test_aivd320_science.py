@@ -22,7 +22,7 @@ from aivd37.unknowns.terminal import TerminalState
 
 
 def test_version_320():
-    assert __version__ == "3.26.0"
+    assert __version__ == "3.27.0"
     cfg = AIVDConfig()
     assert cfg.epistemic_mode == "off"
     assert cfg.invention_mode == "off"

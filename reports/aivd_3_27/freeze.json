@@ -1,0 +1,7 @@
+{
+  "version": "3.27.0",
+  "tests_at_freeze_excluding_llama_oracles": 711,
+  "no_llama_holdout_yet": true,
+  "budget": 32,
+  "note": "Epistemic lease freeze. Llama equals-field and quote-tail targets created after this SHA."
+}

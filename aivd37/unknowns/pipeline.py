@@ -283,9 +283,9 @@ class UnknownsPipeline:
         # epistemic_mode overlays (3.18) — takes precedence when set
         if self.epistemic_mode not in ("off", "false", "0", ""):
             em = self.epistemic_mode
-            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full", "arbiter",
+            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full", "arbiter",
                       "science", "science_full", "science_only"):
-                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26") or em.startswith("science"):
+                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27") or em.startswith("science"):
                     self.invention_mode = em
                 elif em == "full_3_19":
                     self.invention_mode = "full_3_19"

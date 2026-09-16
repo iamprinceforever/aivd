@@ -116,6 +116,7 @@ class ScienceController:
             empty_rounds = 0
             props.sort(
                 key=lambda p: (
+                    1.0 if "epistemic-lease" in str((p.meta or {}).get("why") or "") else 0.0,
                     float(p.hypothesis_discrimination_value),
                     1.0 if p.unlocks_hypothesis_class else 0.0,
                     float(p.security_relevance),
@@ -215,6 +216,15 @@ class ScienceController:
                 (d.__dict__ if hasattr(d, "__dict__") else d)
                 for d in (getattr(designer, "abstract_dimensions", None) or [])
             ] if designer else [],
+            "commitments": {
+                "executed": int(getattr(getattr(designer, "commitments", None), "executed_novel", 0) or 0),
+                "revoked": int(getattr(getattr(designer, "commitments", None), "revoked", 0) or 0),
+                "informative": int(getattr(getattr(designer, "commitments", None), "informative", 0) or 0),
+                "leases": [
+                    {"op": L.op, "state": L.state, "executed": L.executed}
+                    for L in list(getattr(getattr(designer, "commitments", None), "leases", None) or [])
+                ],
+            } if designer else {},
             "success_levels": {
                 "levels": {
                     "1": {"name": "represent_previously_unrepresentable", "pass": True},

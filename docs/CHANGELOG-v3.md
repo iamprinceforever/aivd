@@ -1,3 +1,18 @@
+## 3.27.0 — Epistemic commitment / first-test lease
+
+3.26 compiled gap-addressing interventions then starved them under familiar
+compose (0.94 vs 0.91). 3.27 gives a temporary, revocable lease to the
+first few experiments compiled for an unresolved ontology-gap question.
+Not a label_nl boost. Not novelty farming (max 3 first-tests; revoke on
+noninformative 0.12). Budget 32.
+
+- SO long-seed starvation: 3.27 VERIFIED 7/7
+- SP quoted-suffix: 3.27 VERIFIED
+- SQ control FP=0
+- SM/SK still verified. 3.26 first-runs untouched.
+
+---
+
 ## 3.26.0 — Empty-harvest structure compiler
 
 3.25 declared an ontology gap then halted because observation harvest was

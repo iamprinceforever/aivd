@@ -12,7 +12,14 @@ from aivd.epistemic.types import ExperimentProposal
 from aivd.science.contrast import Contrast, contrast
 from aivd.science.hypotheses import HypothesisBoard
 from aivd.science.methods import MethodInventor
-from aivd.science.gap import compile_from_harvest, compile_from_structure, gap_hypothesis, harvest_unseen_chars
+from aivd.science.commit import CommitmentBoard
+from aivd.science.gap import (
+    compile_from_harvest,
+    compile_from_structure,
+    compile_record_forms,
+    gap_hypothesis,
+    harvest_unseen_chars,
+)
 from aivd.science.operators import BATTERY, apply_operator, apply_sequence, split_prompt
 
 
@@ -24,9 +31,11 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = "3_24" in self.mode or "3_25" in self.mode or "3_26" in self.mode
-        self.allow_gap = "3_25" in self.mode or "3_26" in self.mode
-        self.allow_struct = "3_26" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27"))
+        self.allow_struct = "3_26" in self.mode or "3_27" in self.mode
+        self.allow_commit = "3_27" in self.mode
+        self.commitments = CommitmentBoard()
         self.ontology_insufficient = False
         self.harvested_texts: list[str] = []
         self.abstract_dimensions: list[Any] = []
@@ -135,7 +144,7 @@ class ScienceDesigner:
         ]
         if pending:
             return
-        chars = harvest_unseen_chars(self.harvested_texts)
+        chars = harvest_unseen_chars(self.harvested_texts, exclude=self.identity_prompt or self.seed_prompt)
         self.ontology_insufficient = True
         hyp = gap_hypothesis(hot_indices=self.hot_indices, harvested=chars)
         self.abstract_dimensions.append(hyp)
@@ -145,6 +154,13 @@ class ScienceDesigner:
         })
         ident = self.identity_prompt or self.seed_prompt
         new = compile_from_harvest(self.inventor._register, prompt=ident, chars=chars)
+        if self.allow_commit:
+            extra = compile_record_forms(
+                self.inventor._register,
+                prompt=ident,
+                hot_indices=list(self.hot_indices),
+            )
+            new = list(extra) + list(new)
         if self.allow_struct:
             new = list(new) + compile_from_structure(
                 self.inventor._register,
@@ -155,13 +171,23 @@ class ScienceDesigner:
             if f"op:{name}" not in self.board.nodes:
                 self.board.add(
                     f"op:{name}",
-                    f"harvested rejoin {name} may discriminate remaining hypotheses",
+                    f"gap-compiled {name} may discriminate remaining hypotheses",
                     [name],
                     prior=0.38,
-                    why="observation-driven compiler after ontology gap",
+                    why="compiled after ontology gap to address unresolved question",
                 )
         if new:
             self.methods_log.append({"event": "gap_compile", "ops": ",".join(new)})
+        if self.allow_commit and new:
+            q = self.commitments.open_gap(probe=len(self.history))
+            # First-test entitlement for a small prefix, not every compiled op
+            # (avoids novelty farming and starving known wrap/insert).
+            self.commitments.commit_ops(list(new)[:3], question_id=q.question_id, probe=len(self.history))
+            self.methods_log.append({
+                "event": "epistemic_commitment",
+                "question": q.question_id,
+                "ops": ",".join(new),
+            })
         self.gap_compiled = True
         self.representation_gap = True
 
@@ -257,6 +283,18 @@ class ScienceDesigner:
             else:
                 self.board.update(hid, support=0.12)
 
+        if self.allow_commit and used_ops:
+            op0 = used_ops[0] if len(used_ops) == 1 else ""
+            if op0 and any(L.op == op0 for L in self.commitments.leases):
+                informative = bool(c.secret or (c.metric >= 0.28 and c.error))
+                self.commitments.on_result(op0, informative=informative, secret=bool(c.secret))
+                self.methods_log.append({
+                    "event": "lease_result",
+                    "op": op0,
+                    "informative": str(informative),
+                    "secret": str(bool(c.secret)),
+                })
+
         if len(used_ops) >= 2:
             hid = "cmp:" + "+".join(used_ops)
             self.board.add(
@@ -293,7 +331,13 @@ class ScienceDesigner:
                 self._maybe_declare_gap()
         prev = self.live_metric
         upgraded = False
+        lease_dead = False
+        if self.allow_commit and len(used_ops) == 1:
+            op0 = used_ops[0]
+            lease_dead = any(L.op == op0 and L.state == "REVOKED" for L in self.commitments.leases)
         if c.greedy_metric:
+            self.collapsed = False
+        elif lease_dead:
             self.collapsed = False
         elif c.secret or c.metric > prev + 0.05:
             self.live_prompt = prompt
@@ -431,19 +475,37 @@ class ScienceDesigner:
         if self.allow_gap:
             self._maybe_declare_gap()
             ident = self.identity_prompt or self.seed_prompt
+            if self.allow_commit:
+                due = self.commitments.due()
+                if due is not None:
+                    nxt = self._apply(ident, due.op)
+                    if nxt and nxt != ident and nxt not in self.tested:
+                        add(self._prop(
+                            nxt,
+                            [due.op],
+                            disc=0.5,
+                            eig=0.2,
+                            sec=0.4,
+                            unlock=True,
+                            remaining=1,
+                            evidence=0.5,
+                            why=f"epistemic-lease {due.lease_id} for unresolved {due.question_id}",
+                        ))
+                        if out:
+                            return out[: self.max_new]
+                    self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_"))
             ]
-            # Prefer token-as-label (new 3.26 structure) over harvested rejoin.
-            struct_ops.sort(key=lambda n: (0 if n.startswith("label_nl_") else 1, n))
+            struct_ops.sort(key=lambda n: (0 if n.startswith(("label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:
                 if other in self.trap_ops:
                     continue
                 nxt = self._apply(ident, other)
                 if not nxt or nxt == ident:
                     continue
-                disc = 0.91 if other.startswith("label_nl_") else 0.88
+                disc = 0.91 if other.startswith(("label_nl_", "label_eq_", "quote_tail_")) else 0.88
                 add(self._prop(
                     nxt,
                     [other],
@@ -455,7 +517,6 @@ class ScienceDesigner:
                     evidence=max(evidence_strength, 0.7),
                     why=f"ontology-gap compiled intervention {other}",
                 ))
-            # Do not return early: untested wrap/insert must still compete.
 
         # 0. Collapse restore / live-state compose.
 
