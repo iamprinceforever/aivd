@@ -67,6 +67,12 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD329_LLAMA_HASH",
         "llama_hash",
         "AIVD329-LLAMA-HASH",
+        "SECRET{AIVD329_FRONTIER_A",
+        "SECRET{AIVD329_FRONTIER_B",
+        "SECRET{AIVD329_FRONTIER_C",
+        "AIVD329-FRONTIER-A-JOIN",
+        "AIVD329-FRONTIER-B-ROTATE",
+        "AIVD329-FRONTIER-C-MIRROR",
     ]
 
 

@@ -1,0 +1,140 @@
+{
+  "invent_cap": 48,
+  "families": [
+    {
+      "family": "OMIT",
+      "constructor": "omit_at / omit_first / omit_second / omit_last / omit_i{k}",
+      "parameter_space": "token index in the live prompt",
+      "composition": "sequencable with any other family",
+      "source": "operators.py + methods.invent_from_prompt",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "SWAP_ADJACENT",
+      "constructor": "swap_at(i, i+1) / swap_first_two / swap_last_two / swap_i{k}",
+      "parameter_space": "adjacent pair index; not arbitrary permutation",
+      "composition": "2-op sequences in designer; not n-cycle",
+      "source": "operators.py + methods.invent_from_prompt",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "REVERSE_TOKENS",
+      "constructor": "reverse_content",
+      "parameter_space": "none (full token-order reverse)",
+      "composition": "sequencable",
+      "source": "operators.py UNUSED_PRIMITIVES",
+      "explicit": true,
+      "dynamic_instances": false
+    },
+    {
+      "family": "WRAP_WHOLE",
+      "constructor": "wrap_pair(left,right) / wrap_quotes",
+      "parameter_space": "pairs \"\" '' `` () []",
+      "composition": "whole-prompt only",
+      "source": "operators.py + methods.WRAP_PAIRS",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "INSERT_SEPARATOR_TOKEN",
+      "constructor": "insert_token(sep, at=-1) / insert_sep",
+      "parameter_space": "|, comma, semi, slash, dash, colon as their own token",
+      "composition": "sequencable",
+      "source": "operators.py + methods.SEPARATORS",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "REPEAT_DUPLICATE",
+      "constructor": "repeat_last / duplicate",
+      "parameter_space": "none",
+      "composition": "sequencable",
+      "source": "operators.py",
+      "explicit": true,
+      "dynamic_instances": false
+    },
+    {
+      "family": "AFFIX_POLITENESS",
+      "constructor": "suffix_q / prefix_please",
+      "parameter_space": "none",
+      "composition": "sequencable",
+      "source": "operators.py",
+      "explicit": true,
+      "dynamic_instances": false
+    },
+    {
+      "family": "INTRA_TOKEN",
+      "constructor": "mutate_token(i, fn) \u2192 revchar / caseflip / duphead",
+      "parameter_space": "hot token index; fn in INTRA_KINDS",
+      "composition": "identity-preserving; not character-grouping splits",
+      "source": "methods.invent_intra",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "HARVEST_REJOIN",
+      "constructor": "rejoin_at(i, harvested_char)",
+      "parameter_space": "unseen observation chars \u00d7 mid-ish index; one join",
+      "composition": "single boundary, not join-all",
+      "source": "gap.compile_from_harvest",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "RECORD_LABEL_NL",
+      "constructor": "LABEL:\\n + body",
+      "parameter_space": "punct-stripped identity token len>=4",
+      "composition": "n/a",
+      "source": "gap.compile_from_structure",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "WHITESPACE_REJOIN",
+      "constructor": "rejoin_nl / rejoin_tab at mid",
+      "parameter_space": "mid index",
+      "composition": "one boundary",
+      "source": "gap.compile_from_structure",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "RECORD_EQUALS",
+      "constructor": "LABEL=body",
+      "parameter_space": "one identity token",
+      "composition": "n/a",
+      "source": "gap.compile_record_forms",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "QUOTE_SUFFIX",
+      "constructor": "prefix + \" + suffix + \"",
+      "parameter_space": "mid index",
+      "composition": "n/a",
+      "source": "gap.compile_record_forms",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "FIELD_DELIMITER",
+      "constructor": "LABEL + delim + body for delim in FIELD_DELIMS",
+      "parameter_space": "('|', '#', '~') \u00d7 one hot token",
+      "composition": "lazy 3.29 family continuation; not join-all, not rotate",
+      "source": "gap.FIELD_DELIMS + families.FamilyInventory",
+      "explicit": true,
+      "dynamic_instances": true
+    },
+    {
+      "family": "LIVE_COMPOSE",
+      "constructor": "apply_sequence of two existing instances",
+      "parameter_space": "supported_op \u00d7 candidate_op; live + one more",
+      "composition": "depth typically 2, not arbitrary programs",
+      "source": "designer.propose",
+      "explicit": true,
+      "dynamic_instances": true
+    }
+  ]
+}
