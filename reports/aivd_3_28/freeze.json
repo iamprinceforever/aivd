@@ -2,5 +2,6 @@
   "version": "3.28.0",
   "tests_at_freeze_excluding_llama_oracles": 717,
   "no_llama_holdout_yet": true,
-  "budget": 32
+  "budget": 32,
+  "freeze_commit": "610dcb301d84f55bebde38c626e76ae2a5e33fc3"
 }
