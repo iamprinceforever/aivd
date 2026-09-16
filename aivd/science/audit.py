@@ -42,6 +42,10 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD323_H25",
         "holdout_25_",
         "AIVD323-HOLDOUT-25",
+        "SECRET{AIVD323_LLAMA_ORPHAN",
+        "llama_orphan",
+        "AIVD323-LLAMA-ORPHAN",
+        "orphan-compaction",
     ]
 
 
