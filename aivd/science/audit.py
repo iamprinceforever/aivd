@@ -73,6 +73,10 @@ def _forbidden() -> list[str]:
         "AIVD329-FRONTIER-A-JOIN",
         "AIVD329-FRONTIER-B-ROTATE",
         "AIVD329-FRONTIER-C-MIRROR",
+        "SECRET{AIVD330_LLAMA_SWAP",
+        "SECRET{AIVD330_LLAMA_WRAP",
+        "AIVD330-LLAMA-SWAP",
+        "AIVD330-LLAMA-WRAP",
     ]
 
 
