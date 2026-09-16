@@ -3,5 +3,6 @@
   "tests_at_freeze": 698,
   "no_llama_holdout_yet": true,
   "note": "3.24 intra-token inventor freeze. Llama unknown-dimension target created after this SHA.",
-  "budget": 32
+  "budget": 32,
+  "freeze_commit": "ed8059d25cdd465f9c14097edb85a2c0e0dd3074"
 }
