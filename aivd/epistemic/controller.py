@@ -92,7 +92,7 @@ class EpistemicController:
                 mode=self.mode,
                 seed=self.seed,
                 max_steps=self.max_steps,
-                max_candidates=min(8, self.max_candidates),
+                max_candidates=min(16, self.max_candidates),
                 total_budget=int(budget if budget is not None else self.total_budget),
             )
             return sci.run(

@@ -1,9 +1,12 @@
 """ScienceController — autonomous hypothesis science under a fixed budget.
 
 OBSERVE baseline → form competing operator hypotheses → design discriminating
-experiments → update posteriors → falsify traps → reproduce → verified report.
+experiments → update posteriors → falsify traps → on collapse, invent a new
+method from the live state → keep spending remaining budget → reproduce →
+verified report.
 
 Does not follow planted lexical cues. Residual harvest is not the search.
+Does not stop just because the cheap battery is empty.
 """
 from __future__ import annotations
 
@@ -25,7 +28,7 @@ class ScienceController:
         mode: str = "off",
         seed: int = 0,
         max_steps: int = 32,
-        max_candidates: int = 8,
+        max_candidates: int = 16,
         total_budget: int | None = None,
     ):
         self.mode = str(mode or "off").lower().strip()
@@ -65,6 +68,7 @@ class ScienceController:
         verified = False
         best_prompt: str | None = None
         executed: list[dict[str, Any]] = []
+        empty_rounds = 0
 
         def _charge() -> bool:
             nonlocal used
@@ -98,11 +102,18 @@ class ScienceController:
         for _ in range(self.max_steps):
             if secret_found or used >= total:
                 break
-            props = sci.propose(remaining_steps=max(1, total - used), evidence_strength=0.45)
+            remaining = max(1, total - used)
+            props = sci.propose(remaining_steps=remaining, evidence_strength=0.45)
+            if not props:
+                sci.invent()
+                props = sci.propose(remaining_steps=remaining, evidence_strength=0.45)
             generated += len(props)
             if not props:
-                break
-            # Local discrimination pick: highest disc, then unlock, then not trap.
+                empty_rounds += 1
+                if empty_rounds >= 2:
+                    break
+                continue
+            empty_rounds = 0
             props.sort(
                 key=lambda p: (
                     float(p.hypothesis_discrimination_value),
@@ -127,6 +138,7 @@ class ScienceController:
                 "secret": c.secret,
                 "metric": c.metric,
                 "why": (chosen.meta or {}).get("why"),
+                "collapsed": bool((chosen.meta or {}).get("collapsed")),
             })
             if c.secret:
                 secret_found = True
@@ -149,7 +161,6 @@ class ScienceController:
                             sci.designer.board.mark_reproduced(f"op:{op}")
 
         if standalone and reproduced and best_prompt and used < total:
-            # Independent structural variation: wrap the winning prompt in extra space.
             variant = " ".join(best_prompt.split())
             if variant == best_prompt:
                 variant = best_prompt + " "
@@ -163,9 +174,9 @@ class ScienceController:
                             sci.designer.board.mark_verified(f"op:{op}")
 
         board = sci.designer.board if sci.designer is not None else None
-        notes = "science_loop"
+        notes = "science_loop+invent"
         if residual_context:
-            notes = "science_loop+residual_context_ignored_as_gt"
+            notes = "science_loop+invent+residual_context_ignored_as_gt"
         report = build_report(
             board=board if board is not None else __import__(
                 "aivd.science.hypotheses", fromlist=["HypothesisBoard"]
@@ -177,6 +188,7 @@ class ScienceController:
             n_experiments=tested,
             notes=notes,
         )
+        designer = sci.designer
         return {
             "enabled": True,
             "mode": self.mode,
@@ -194,6 +206,10 @@ class ScienceController:
             "hypotheses": board.as_dict() if board is not None else {},
             "report": report.as_dict(),
             "science": True,
+            "invented": list(designer.invented) if designer else [],
+            "collapsed": bool(designer.collapsed) if designer else False,
+            "live_prompt": designer.live_prompt if designer else seed_prompt,
+            "methods_log": list(designer.methods_log) if designer else [],
             "success_levels": {
                 "levels": {
                     "1": {"name": "represent_previously_unrepresentable", "pass": True},
@@ -207,7 +223,7 @@ class ScienceController:
                 "highest_contiguous": 7 if (verified or (secret_found and not standalone)) else (6 if secret_found else 5),
             },
             "starvation": tested == 0 and generated > 0,
-            "primitives": list(sci.designer.supported_ops) if sci.designer else [],
+            "primitives": list(designer.supported_ops) if designer else [],
             "first_broken_transition": None if secret_found else "DISCOVER",
         }
 

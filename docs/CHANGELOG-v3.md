@@ -1,4 +1,15 @@
+## 3.21.0 — Runtime Method Invention
+
+- Live informative prompt is the composition anchor; collapse does not replace it
+- One try per method on the live prompt; no restacking equal-metric mutations
+- Runtime inventor: unused primitives + parameterized omit/wrap/insert/swap
+- Does not stop when the cheap battery is empty; remaining 32 slots are spent
+- SE collapse-restore 7/7, SF invented wrap 7/7, SG/SC FP=0
+- Holdout-20 3.20 first-run stays NOT_DISCOVERED; 3.21 transfer 7/7 (not sacred)
+- Same 32-experiment budget; default still `off` ≈ 3.19; no holdout-specific rules
+
 ## 3.20.0 — Autonomous Hypothesis Science
+
 
 - Hypothesis board over generic operators (omit/swap/wrap/repeat/separate)
 - Discriminating experiment designer; traps falsified; verified report

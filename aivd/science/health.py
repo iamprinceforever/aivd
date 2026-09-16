@@ -1,4 +1,4 @@
-"""Health check for the 3.20 science layer."""
+"""Health check for the 3.21 science layer."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -16,10 +16,12 @@ def health_check(root: Path | None = None) -> dict[str, Any]:
         "no_signatures": True,
         "no_planted_hints": True,
         "no_closed_attack_taxonomy": True,
+        "invents_at_runtime": True,
+        "does_not_stop_on_collapse": True,
         "consolidation_note": (
-            "3.20 owns the episode like 3.19, but the search is hypothesis "
-            "discrimination over generic operators — not residual token replay "
-            "and not a predefined attack catalog. Default off ≈ 3.19."
+            "3.21 owns the episode like 3.19/3.20, but when a method collapses "
+            "it invents a new experimental method from the live informative "
+            "state and keeps spending remaining budget. Default off ≈ 3.19."
         ),
     }
 

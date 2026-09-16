@@ -8,7 +8,7 @@ from aivd.science.designer import ScienceDesigner
 
 
 class ScienceProposer:
-    def __init__(self, *, seed: int = 0, max_new: int = 8):
+    def __init__(self, *, seed: int = 0, max_new: int = 16):
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.designer: ScienceDesigner | None = None
@@ -22,8 +22,12 @@ class ScienceProposer:
     def observe(self, prompt: str, obs: Any, *, ops: list[str] | None = None) -> None:
         if self.designer is None:
             return
-        meta_ops = ops
-        self.designer.observe(prompt, obs, baseline=self.baseline, ops=meta_ops)
+        self.designer.observe(prompt, obs, baseline=self.baseline, ops=ops)
+
+    def invent(self) -> list[str]:
+        if self.designer is None:
+            return []
+        return self.designer.invent()
 
     def propose(
         self,

@@ -3,6 +3,10 @@
 These are structural edits a scientist can apply to any prompt:
 omit, swap, wrap, repeat, separate. No vulnerability signatures,
 no holdout names, no planted cue vocabulary.
+
+3.21 adds a small constructor grammar so the running loop can
+invent *parameterized* variants (omit-at-i, wrap-pair, insert-token)
+instead of stopping when the cheap first-round battery is exhausted.
 """
 from __future__ import annotations
 
@@ -34,6 +38,13 @@ def _omit_last(p: str) -> str:
     return join_prompt(t[:-1]) if len(t) > 1 else p
 
 
+def omit_at(prompt: str, index: int) -> str:
+    t = split_prompt(prompt)
+    if index < 0 or index >= len(t):
+        return prompt
+    return join_prompt(t[:index] + t[index + 1 :])
+
+
 def _swap_first_two(p: str) -> str:
     t = split_prompt(p)
     if len(t) < 2:
@@ -47,6 +58,14 @@ def _swap_last_two(p: str) -> str:
     if len(t) < 2:
         return p
     t[-1], t[-2] = t[-2], t[-1]
+    return join_prompt(t)
+
+
+def swap_at(prompt: str, i: int, j: int) -> str:
+    t = split_prompt(prompt)
+    if i < 0 or j < 0 or i >= len(t) or j >= len(t) or i == j:
+        return prompt
+    t[i], t[j] = t[j], t[i]
     return join_prompt(t)
 
 
@@ -74,11 +93,29 @@ def _wrap_quotes(p: str) -> str:
     return f'"{s}"'
 
 
+def wrap_pair(prompt: str, left: str, right: str) -> str:
+    s = (prompt or "").strip()
+    if not s:
+        return prompt
+    if s.startswith(left) and s.endswith(right) and len(s) >= len(left) + len(right):
+        return s
+    return f"{left}{s}{right}"
+
+
 def _insert_sep(p: str) -> str:
     t = split_prompt(p)
     if len(t) < 2:
         return p
     return join_prompt(t[:-1] + ["|"] + t[-1:])
+
+
+def insert_token(prompt: str, token: str, at: int = -1) -> str:
+    t = split_prompt(prompt)
+    if not t:
+        return prompt
+    idx = len(t) - 1 if at < 0 else at
+    idx = max(0, min(idx, len(t)))
+    return join_prompt(t[:idx] + [token] + t[idx:])
 
 
 def _suffix_q(p: str) -> str:
@@ -123,6 +160,16 @@ BATTERY: tuple[str, ...] = (
     "swap_last_two",
 )
 
+# Known primitives deliberately left out of the cheap round. 3.21 promotes
+# these at runtime when the battery is not enough — not a hidden attack list,
+# just the rest of the same structural grammar.
+UNUSED_PRIMITIVES: tuple[str, ...] = (
+    "omit_last",
+    "reverse_content",
+    "prefix_please",
+    "duplicate",
+)
+
 
 def apply_operator(prompt: str, name: str) -> str:
     fn = OPERATORS.get(name)
@@ -142,8 +189,13 @@ def apply_sequence(prompt: str, names: list[str]) -> str:
 __all__ = [
     "OPERATORS",
     "BATTERY",
+    "UNUSED_PRIMITIVES",
     "apply_operator",
     "apply_sequence",
     "split_prompt",
     "join_prompt",
+    "omit_at",
+    "wrap_pair",
+    "insert_token",
+    "swap_at",
 ]

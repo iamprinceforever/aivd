@@ -51,6 +51,9 @@ def _forbidden() -> list[str]:
         "campanile",
         "clapper",
         "tocsin",
+        "SECRET{AIVD320_H20",
+        "holdout_20_",
+        "AIVD320-HOLDOUT-20",
     ]
 
 

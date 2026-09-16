@@ -515,7 +515,7 @@ def test_no_holdout_hardcoding_in_epistemic():
         "facet-prism", "skew-drift", "holdout_v_", "left-dial", "check-parity",
         "vault.humus", "cistern.silt", "holdout_18_", "surge-lock", "flood-gate",
         "SECRET{AIVD318_H18", "belfry", "campanile", "steeple.rust", "holdout_19_",
-        "SECRET{AIVD319_H19",
+        "SECRET{AIVD319_H19", "SECRET{AIVD320_H20", "holdout_20_",
     ]
     for path in root.rglob("*.py"):
         if path.name in ("audit.py",):

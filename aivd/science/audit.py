@@ -24,6 +24,9 @@ def _forbidden() -> list[str]:
         "left-dial",
         "right-dial",
         "if this looks like",
+        "SECRET{AIVD320_H20",
+        "holdout_20_",
+        "AIVD320-HOLDOUT-20",
     ]
 
 

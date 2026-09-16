@@ -12,6 +12,16 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 ---
 
 
+## What's new in v3.21.0
+
+**Runtime method invention** over 3.20:
+when a method collapses, AIVD keeps the live informative state, invents a new
+experimental method from that state (or from unused primitives / wrap variants),
+and keeps spending remaining budget. It does not chain a dead prompt and does
+not stop when the cheap battery is empty. Same 32-experiment budget.
+`full_3_20` is preserved. Default **off** ≈ 3.19.
+See `docs/3.21_runtime_method_invention.md`.
+
 ## What's new in v3.20.0
 
 **Autonomous Hypothesis Science** over 3.19:
