@@ -1,8 +1,8 @@
 {
   "version": "3.22.0",
+  "freeze_commit": "a3a7317c3be8fbeb805bad18d352a90720d202a5",
   "tests_at_freeze": 668,
   "no_holdout_23_yet": true,
   "note": "3.22 single-charge + live-priority freeze. Holdout-23 created after this SHA.",
-  "budget": 32,
-  "freeze_commit": "e3bb67b234be5bdd2e77285d42359c6de74e779a"
+  "budget": 32
 }
