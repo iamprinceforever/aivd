@@ -1,3 +1,26 @@
+## 3.22.0 — Single-charge episode + live-priority invention
+
+Each experiment in an episode-owned pipeline now costs **one** slot, not
+two. 3.21 billed `charge()` and then billed again inside `_observe`, so
+science only received 15 of 32. After a live informative state, methods
+that have never been tested outrank already-tried uninformative singles,
+so the inventor can spend the remaining budget on new methods instead of
+re-walking the cheap battery.
+
+Budget stays 32. No holdout-specific vocabulary. No dash/colon/please
+special case.
+
+- Pipeline: `_probe_only` when invention already charges.
+- Designer: live compose disc 0.94 for untested, 0.78 for failed singles.
+- SH bench (bracket wrap + colon token): pipeline 7/7.
+- SI control: FP=0 with ≥24 science tests.
+- SA/SE/SF still hold. Default mode still off.
+
+Holdout-21 and Holdout-22 first-runs stay frozen. 3.22 numbers on those
+mechanisms are transfer evaluations, not retunes.
+
+---
+
 ## 3.21.0 — Runtime Method Invention
 
 - Live informative prompt is the composition anchor; collapse does not replace it

@@ -1,4 +1,4 @@
-"""Health check for the 3.21 science layer."""
+"""Health check for the 3.22 science layer."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -18,12 +18,11 @@ def health_check(root: Path | None = None) -> dict[str, Any]:
         "no_closed_attack_taxonomy": True,
         "invents_at_runtime": True,
         "does_not_stop_on_collapse": True,
+        "single_charge_per_experiment": True,
+        "live_priority_untested_methods": True,
         "consolidation_note": (
-            "3.21 owns the episode like 3.19/3.20, but when a method collapses "
-            "it invents a new experimental method from the live informative "
-            "state and keeps spending remaining budget. Default off ≈ 3.19."
+            "3.22: one experiment, one slot in the full pipeline, and after a "
+            "live informative state untested methods outrank already-tried "
+            "uninformative singles. Budget stays 32. Default off ≈ 3.19."
         ),
     }
-
-
-__all__ = ["health_check"]

@@ -1,8 +1,8 @@
-"""AIVD 3.21 — Runtime Method Invention.
+"""AIVD 3.22 — Single-charge episode + live-priority invention.
 
 Default off ≈ 3.19. No holdout-specific rules. No vulnerability signatures.
-When the current method collapses, invent a new one from the live state
-and keep spending the remaining 32-experiment budget.
+Each experiment costs one pipeline slot. After a live informative state,
+untested methods run before already-tried uninformative singles.
 """
 from aivd.science.scheduler import SCIENCE_MODES, is_science_mode
 from aivd.science.operators import OPERATORS, BATTERY, apply_operator, apply_sequence

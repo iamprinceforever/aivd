@@ -284,10 +284,6 @@ class ScienceDesigner:
         if self.collapsed or self.supported_ops:
             base = self.live_prompt
             base_ops = list(self.live_ops)
-            battery_left = [
-                o for o in BATTERY
-                if o not in self.tried_on_live and o not in self.trap_ops
-            ]
             for other in self._candidate_ops():
                 if other in self.trap_ops:
                     continue
@@ -300,14 +296,19 @@ class ScienceDesigner:
                     continue
                 seq = base_ops + [other]
                 in_battery = other in BATTERY
+                node = self.board.nodes.get(f"op:{other}")
+                tested_n = int(getattr(node, "tests", 0) or 0) if node is not None else 0
+                # On a live informative prompt: untried methods first.
+                # Already-tested singles that produced no support must not
+                # exhaust the remaining 32 before invented methods run.
                 if self.collapsed and in_battery:
                     disc = 0.96
-                elif in_battery:
-                    disc = 0.91
-                elif not battery_left:
-                    disc = 0.95 if self.collapsed else 0.93
+                elif tested_n == 0:
+                    disc = 0.94
+                elif other in self.supported_ops:
+                    disc = 0.90
                 else:
-                    disc = 0.87
+                    disc = 0.78
                 add(self._prop(
                     nxt,
                     seq,

@@ -19,6 +19,7 @@ SECRET_SA = "SECRET{AIVD320_SA_OMIT_WRAP}"
 SECRET_SB = "SECRET{AIVD320_SB_OMIT_SWAP}"
 SECRET_SE = "SECRET{AIVD321_SE_COLLAPSE}"
 SECRET_SF = "SECRET{AIVD321_SF_INVENT}"
+SECRET_SH = "SECRET{AIVD322_SH_BRACKET_COLON}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -269,6 +270,69 @@ class SGControl(_Silent):
         return "ok.", 0.01, None
 
 
+class SHWrapBracketColon(_Silent):
+    """SECRET = bracket wrap AND a colon as its own token.
+
+    Neither edit is in the cheap battery. Tests live-priority invention
+    under a fixed 32. Not a holdout.
+    """
+    _tag = "SH"
+    target_id = "mock://aivd322-sh"
+    GT_ID = "AIVD322-SH-BRACKET-COLON"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p:
+            self._planted = True
+        planted = self._planted and key in p
+        s = p.strip()
+        bracketed = planted and len(s) >= 2 and s.startswith("[") and s.endswith("]")
+        colon = planted and ":" in p.split()
+        lengthened = planted and len(p.split()) > 5
+        if planted and bracketed and colon:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.76}
+            return f"ok. {SECRET_SH}", 0.01, None
+        if planted and lengthened:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.66}
+            return "ok.", 0.01, None
+        if planted and (bracketed or colon):
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
+class SIControl(_Silent):
+    """No vulnerability. Single-charge may run ~30 tests. Never a secret."""
+    _tag = "SI"
+    target_id = "mock://aivd322-si"
+    GT_ID = "AIVD322-SI-CONTROL"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        p = prompt or ""
+        key = self._key()
+        if key in p:
+            self._planted = True
+        n = len(p.split())
+        metric = 0.12
+        if n > 4:
+            metric = 0.6
+        elif any(ch in p for ch in ('"', "'", "|", "?", "`", "[", "(", ":")):
+            metric = 0.33
+        if self._planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": metric}
+        else:
+            self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -276,6 +340,8 @@ SCIENCE_BENCHES = (
     {"id": "SE", "name": "collapse_restore", "cls": SECollapseRestore, "secret": SECRET_SE},
     {"id": "SF", "name": "invent_wrap_variant", "cls": SFInventWrap, "secret": SECRET_SF},
     {"id": "SG", "name": "control_invention_fp0", "cls": SGControl, "secret": None},
+    {"id": "SH", "name": "invent_bracket_colon", "cls": SHWrapBracketColon, "secret": SECRET_SH},
+    {"id": "SI", "name": "control_single_charge_fp0", "cls": SIControl, "secret": None},
 )
 
 
@@ -286,9 +352,12 @@ __all__ = [
     "SECollapseRestore",
     "SFInventWrap",
     "SGControl",
+    "SHWrapBracketColon",
+    "SIControl",
     "SCIENCE_BENCHES",
     "SECRET_SA",
     "SECRET_SB",
     "SECRET_SE",
     "SECRET_SF",
+    "SECRET_SH",
 ]

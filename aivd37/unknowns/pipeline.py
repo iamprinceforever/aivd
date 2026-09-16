@@ -283,9 +283,9 @@ class UnknownsPipeline:
         # epistemic_mode overlays (3.18) — takes precedence when set
         if self.epistemic_mode not in ("off", "false", "0", ""):
             em = self.epistemic_mode
-            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full", "arbiter",
+            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full", "arbiter",
                       "science", "science_full", "science_only"):
-                if em in ("full_3_20", "full_3_21") or em.startswith("science"):
+                if em in ("full_3_20", "full_3_21", "full_3_22") or em.startswith("science"):
                     self.invention_mode = em
                 elif em == "full_3_19":
                     self.invention_mode = "full_3_19"
@@ -319,9 +319,12 @@ class UnknownsPipeline:
         self.trace.probes_used += 1
         return True
 
-    def _observe(self, prompt: str) -> ChannelObservation:
-        if not self._charge():
-            return observation_from_probe(prompt, "", error="budget_exhausted")
+    def _probe_only(self, prompt: str) -> ChannelObservation:
+        """Observe without billing. Pair with an explicit charge callback.
+
+        3.22: when invention/science already charges once per experiment,
+        passing `_observe` here double-counted and starved the episode.
+        """
         if self.target is not None and hasattr(self.target, "observe"):
             return self.target.observe(prompt)
         resp, lat, err = self.probe_fn(prompt)
@@ -331,6 +334,11 @@ class UnknownsPipeline:
         return observation_from_probe(
             prompt, resp or "", latency_s=float(lat or 0), error=err, meta=meta
         )
+
+    def _observe(self, prompt: str) -> ChannelObservation:
+        if not self._charge():
+            return observation_from_probe(prompt, "", error="budget_exhausted")
+        return self._probe_only(prompt)
 
     def run(self, seed_prompt: str, *, max_axis_trials: int = 14) -> TerminalResult:
         """Full protocol from a seed prompt. Same path for AO / Vuln A/B/C / H7."""
@@ -644,9 +652,11 @@ class UnknownsPipeline:
                         if gate_leave and self._local_used >= self.episode_budget - gate_leave:
                             return False
                         return self._charge()
+                    # One slot per experiment: charge callback bills, observe does not.
+                    obs_fn = self._probe_only if owns_episode else self._observe
                     inv_res = ic.run(
                         seed,
-                        observe_fn=self._observe,
+                        observe_fn=obs_fn,
                         residual_context=residual_ctx,
                         charge=_invention_charge,
                     )
