@@ -39,6 +39,9 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD323_H24",
         "holdout_24_",
         "AIVD323-HOLDOUT-24",
+        "SECRET{AIVD323_H25",
+        "holdout_25_",
+        "AIVD323-HOLDOUT-25",
     ]
 
 

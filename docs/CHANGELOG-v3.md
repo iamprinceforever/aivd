@@ -10,6 +10,8 @@ When leftover is under 8, gates compact to 1 falsify + 1 extra reproduce
 
 - Holdout-24 post-freeze first-run: pipeline **DISCOVERED+VERIFIED 7/7**,
   direct verified 7/7. No retune.
+- Holdout-25 post-freeze first-run: pipeline **DISCOVERED+VERIFIED 7/7**,
+  direct verified 7/7. Swap-last-two + bracket wrap. No retune.
 
 ---
 
