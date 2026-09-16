@@ -16,6 +16,13 @@ catalog is not expanded.
 - SU still verified. 3.25–3.32 sacred first-runs untouched
 - Compact micro-language, not unbounded invention. 3.29 frontier A/B/C not re-scored.
 - leftover<3 → BUDGET_ALLOCATION_FAILURE for new atoms only. Do not retune 3.32 U.
+- Llama last-char-suffix + even-chars first-run (post-freeze `468994e`):
+  S pipeline **NOT_DISCOVERED** 0/7 (`BUDGET_ALLOCATION_FAILURE`, leftover<3
+  skip, no atom). S direct **DISCOVERED+VERIFIED** 7/7 via
+  `atom_mapt_cat_tok_at_-1` @30 used 32. U pipeline and direct 0/7
+  (second atom skipped). 3.32 0/7 both. Control 0/7. Cap still 48.
+  Compact micro-language, not unbounded invention. Do not retune.
+  3.29 frontier A/B/C not re-scored.
 
 ---
 ## 3.32.0 — Runtime substrate-operator synthesis
