@@ -9,6 +9,9 @@ for the 3.25 plant. Budget 32.
 - SN control FP=0
 - SK/SH still verified
 - 3.25 Llama discourse-split first-run untouched
+- Llama field-label first-run (post-freeze): **NOT_DISCOVERED**.
+  Compiled `label_nl_i*` after empty harvest; executed 0 (lengthen compose
+  ate the budget). Do not raise `label_nl` rank. No retune.
 
 ---
 

@@ -52,6 +52,9 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD325_LLAMA_DISC",
         "llama_discourse",
         "AIVD325-LLAMA-DISC",
+        "SECRET{AIVD326_LLAMA_FIELD",
+        "llama_field",
+        "AIVD326-LLAMA-FIELD",
     ]
 
 
