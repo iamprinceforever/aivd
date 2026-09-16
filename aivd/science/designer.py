@@ -14,6 +14,7 @@ from aivd.science.hypotheses import HypothesisBoard
 from aivd.science.methods import INVENT_CAP, MethodInventor
 from aivd.science.commit import CommitmentBoard
 from aivd.science.families import FamilyInventory
+from aivd.science.synth import InterventionSynthesizer
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -35,14 +36,16 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode
-        self.allow_lazy = "3_29" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode
+        self.allow_synth = "3_30" in self.mode
         self.wave2_compiled = False
         self.families = FamilyInventory()
+        self.synthesizer = InterventionSynthesizer()
         self.field_spec: dict | None = None
         self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
@@ -313,6 +316,80 @@ class ScienceDesigner:
             "occupancy": str(self.inventor.occupancy()),
         })
 
+    def _maybe_synthesize(self) -> None:
+        if not self.allow_synth:
+            return
+        if any(L.state == "UNLOCKED" for L in self.commitments.leases):
+            return
+        pending = [
+            L for L in self.commitments.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        if pending:
+            return
+        question = bool(self.commitments.questions) or self.ontology_insufficient
+        if not question:
+            self.synthesizer.board.without_question += 1
+            return
+        fam = self.families.families.get("record.field_delim")
+        if fam is not None and fam.remaining and fam.generated < fam.max_generated:
+            return
+        ident = self.identity_prompt or self.seed_prompt
+        self.synthesizer.plan(
+            prompt=ident,
+            hot_indices=list(self.hot_indices),
+            question=True,
+            known_ops=set(self.inventor.ops),
+        )
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self.methods_log.append({
+                "event": "synthesis_capacity_wait",
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            return
+        prog = self.synthesizer.next_program()
+        if prog is None:
+            return
+        name = prog.name()
+        if name in self.inventor.ops:
+            return
+        ok = self.inventor._register(
+            name,
+            self.synthesizer.make_fn(prog),
+            why=prog.why or "synthesized IR program for unresolved question",
+        )
+        if not ok:
+            self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
+            return
+        self.synthesizer.op_of[name] = prog
+        self.synthesizer.board.materialized += 1
+        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.synth.0"
+        self.families.remember(
+            self.synthesizer.family_id,
+            remaining=[p.key() for p in self.synthesizer.board.remaining],
+            question_id=qid,
+            why="runtime synthesized family; lazy remaining programs",
+        )
+        if f"op:{name}" not in self.board.nodes:
+            self.board.add(
+                f"op:{name}",
+                f"synthesized program {name} may discriminate remaining hypotheses",
+                [name],
+                prior=0.42,
+                why=prog.why,
+            )
+        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+        self.commitments.max_leases_executed = max(
+            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+        )
+        self.methods_log.append({
+            "event": "synth_materialize",
+            "op": name,
+            "key": prog.key(),
+            "origin": "SYNTHESIZED_PROGRAM",
+            "occupancy": str(self.inventor.occupancy()),
+        })
+
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
         for op in ops:
@@ -429,6 +506,14 @@ class ScienceDesigner:
                     else:
                         self.families.mark_executed(op0, rejected=False)
                     self._maybe_continue_families()
+                    if self.allow_synth:
+                        if op0.startswith("syn_"):
+                            self.synthesizer.board.executed += 1
+                            if c.secret:
+                                self.synthesizer.board.successes += 1
+                            elif not informative:
+                                self.synthesizer.board.rejections += 1
+                        self._maybe_synthesize()
                 else:
                     self._maybe_wave2()
 
@@ -615,6 +700,7 @@ class ScienceDesigner:
             if self.allow_commit:
                 self._maybe_wave2()
                 self._maybe_continue_families()
+                self._maybe_synthesize()
                 due = self.commitments.due()
                 if due is not None:
                     nxt = self._apply(ident, due.op)
@@ -635,9 +721,9 @@ class ScienceDesigner:
                     self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_"))
             ]
-            struct_ops.sort(key=lambda n: (0 if n.startswith(("label_eq_", "quote_tail_")) else 1, n))
+            struct_ops.sort(key=lambda n: (0 if n.startswith(("syn_", "label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:
                 if other in self.trap_ops:
                     continue

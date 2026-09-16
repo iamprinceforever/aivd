@@ -229,6 +229,7 @@ class ScienceController:
             "occupancy": int(designer.inventor.occupancy()) if designer else 0,
             "occupancy_cap": 48,
             "capacity_releases": int(getattr(getattr(designer, "families", None), "capacity_releases", 0) or 0) if designer else 0,
+            "synthesis": (designer.synthesizer.telemetry() if designer and getattr(designer, "synthesizer", None) else {}),
             "failure_class": getattr(designer, "failure_class", None) if designer else None,
             "success_levels": {
                 "levels": {

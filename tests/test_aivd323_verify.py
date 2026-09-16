@@ -20,7 +20,7 @@ from aivd37.unknowns.terminal import TerminalState
 
 
 def test_version_323():
-    assert __version__ == "3.29.0"
+    assert __version__ == "3.30.0"
     cfg = AIVDConfig(epistemic_mode="full_3_23", invention_mode="full_3_23")
     assert cfg.epistemic_mode == "full_3_23"
     assert is_science_mode("full_3_23")

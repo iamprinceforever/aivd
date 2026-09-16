@@ -74,11 +74,14 @@ class CommitmentBoard:
             ))
 
     def due(self) -> ExperimentLease | None:
-        if self.executed_novel >= self.max_leases_executed:
-            return None
         for L in self.leases:
-            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0:
-                return L
+            if L.state not in ("COMMITTED", "TESTING", "INFORMATIVE") or L.remaining <= 0:
+                continue
+            if L.executed == 0:
+                return L  # first-test entitlement; cap applies to renewals
+            if self.executed_novel >= self.max_leases_executed:
+                continue
+            return L
         return None
 
     def postpone(self) -> None:
