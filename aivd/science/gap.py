@@ -210,6 +210,50 @@ def compile_record_forms(
     return new
 
 
+# Unused record separators. Not "=" (wave-1 equals-field). Not wrap pairs.
+# Parameterized as field_{ord}_i{k} so the concrete delim is not a named plant.
+FIELD_DELIMS: tuple[str, ...] = ("|", "#", "~")
+
+
+def compile_field_delims(
+    register: Callable[..., bool],
+    *,
+    prompt: str,
+    hot_indices: list[int],
+    cap_new: int = 3,
+) -> list[str]:
+    """Second-wave record fields after first-wave leases revoke.
+
+    Generic: token + unused delimiter + original body. Compiled from the
+    identity prompt, not from a holdout name.
+    """
+    new: list[str] = []
+    toks = split_prompt(prompt)
+    n = len(toks)
+    if n < 2:
+        return new
+    order = list(hot_indices)
+    for i in range(n):
+        if i not in order:
+            order.append(i)
+    i = next((k for k in order if 0 <= k < n and len(toks[k].strip(".,;:!?\"'`")) >= 4), None)
+    if i is None:
+        return new
+    lab = toks[i].strip(".,;:!?\"'`")
+    for delim in FIELD_DELIMS:
+        if len(new) >= cap_new:
+            break
+        code = abs(ord(delim[0]))
+        name = f"field_{code}_i{i}"
+        if register(
+            name,
+            lambda p, L=lab, s=delim, body=prompt: f"{L}{s}{body}",
+            why="second-wave unused field delimiter after first-wave revocation",
+        ):
+            new.append(name)
+    return new
+
+
 def gap_hypothesis(*, hot_indices: list[int], harvested: list[str]) -> AbstractDimension:
     return AbstractDimension(
         dimension_id="gap.unknown_segmentation",
@@ -242,5 +286,7 @@ __all__ = [
     "compile_from_harvest",
     "compile_from_structure",
     "compile_record_forms",
+    "compile_field_delims",
+    "FIELD_DELIMS",
     "gap_hypothesis",
 ]

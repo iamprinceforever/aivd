@@ -17,6 +17,7 @@ from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
     compile_record_forms,
+    compile_field_delims,
     gap_hypothesis,
     harvest_unseen_chars,
 )
@@ -31,10 +32,12 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27"))
-        self.allow_struct = "3_26" in self.mode or "3_27" in self.mode
-        self.allow_commit = "3_27" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28"))
+        self.allow_commit = "3_27" in self.mode or "3_28" in self.mode
+        self.allow_wave2 = "3_28" in self.mode
+        self.wave2_compiled = False
         self.commitments = CommitmentBoard()
         self.ontology_insufficient = False
         self.harvested_texts: list[str] = []
@@ -183,6 +186,7 @@ class ScienceDesigner:
             # First-test entitlement for a small prefix, not every compiled op
             # (avoids novelty farming and starving known wrap/insert).
             self.commitments.commit_ops(list(new)[:3], question_id=q.question_id, probe=len(self.history))
+            self.commitments.waves = max(self.commitments.waves, 1)
             self.methods_log.append({
                 "event": "epistemic_commitment",
                 "question": q.question_id,
@@ -190,6 +194,36 @@ class ScienceDesigner:
             })
         self.gap_compiled = True
         self.representation_gap = True
+
+    def _maybe_wave2(self) -> None:
+        if not self.allow_wave2 or self.wave2_compiled:
+            return
+        if not self.commitments.first_wave_exhausted():
+            return
+        ident = self.identity_prompt or self.seed_prompt
+        new = compile_field_delims(
+            self.inventor._register,
+            prompt=ident,
+            hot_indices=list(self.hot_indices),
+        )
+        for name in new:
+            if f"op:{name}" not in self.board.nodes:
+                self.board.add(
+                    f"op:{name}",
+                    f"second-wave field {name} may answer the unresolved gap",
+                    [name],
+                    prior=0.4,
+                    why="compiled after first-wave leases revoked",
+                )
+        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.gap.0"
+        if new:
+            self.commitments.commit_ops(new, question_id=qid, probe=len(self.history))
+            self.commitments.waves = 2
+            self.commitments.max_leases_executed = max(
+                self.commitments.max_leases_executed, self.commitments.executed_novel + len(new)
+            )
+            self.methods_log.append({"event": "wave2_compile", "ops": ",".join(new)})
+        self.wave2_compiled = True
 
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
@@ -294,6 +328,7 @@ class ScienceDesigner:
                     "informative": str(informative),
                     "secret": str(bool(c.secret)),
                 })
+                self._maybe_wave2()
 
         if len(used_ops) >= 2:
             hid = "cmp:" + "+".join(used_ops)
@@ -476,6 +511,7 @@ class ScienceDesigner:
             self._maybe_declare_gap()
             ident = self.identity_prompt or self.seed_prompt
             if self.allow_commit:
+                self._maybe_wave2()
                 due = self.commitments.due()
                 if due is not None:
                     nxt = self._apply(ident, due.op)
@@ -496,7 +532,7 @@ class ScienceDesigner:
                     self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_"))
             ]
             struct_ops.sort(key=lambda n: (0 if n.startswith(("label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:

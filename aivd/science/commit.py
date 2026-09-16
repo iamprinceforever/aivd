@@ -40,6 +40,16 @@ class CommitmentBoard:
     revoked: int = 0
     informative: int = 0
     max_leases_executed: int = 3
+    waves: int = 0
+
+    def first_wave_exhausted(self) -> bool:
+        if any(L.state == "UNLOCKED" for L in self.leases):
+            return False
+        pending = [
+            L for L in self.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        return (not pending) and self.revoked >= 1 and self.waves < 2
 
     def open_gap(self, *, probe: int) -> UnresolvedQuestion:
         q = UnresolvedQuestion(

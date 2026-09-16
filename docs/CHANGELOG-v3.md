@@ -1,3 +1,16 @@
+## 3.28.0 — Second-wave field delimiters after first-wave revocation
+
+3.27 executed the first leased family. If that family was the wrong
+record form, leases exhausted and the search returned to compose.
+3.28 compiles unused field delimiters (`field_{ord}_i{k}`) only after
+first-wave leases revoke. Not a pipe constructor named for the plant.
+Budget 32.
+
+- ST pipe-field: 3.28 VERIFIED 7/7; 3.27 does not find it
+- SO/SP/SM/SK still verified. 3.27 first-runs untouched.
+
+---
+
 ## 3.27.0 — Epistemic commitment / first-test lease
 
 3.26 compiled gap-addressing interventions then starved them under familiar

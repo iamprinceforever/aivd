@@ -1,0 +1,6 @@
+{
+  "version": "3.28.0",
+  "tests_at_freeze_excluding_llama_oracles": 717,
+  "no_llama_holdout_yet": true,
+  "budget": 32
+}
