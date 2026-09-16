@@ -16,6 +16,7 @@ from aivd.science.commit import CommitmentBoard
 from aivd.science.families import FamilyInventory
 from aivd.science.synth import InterventionSynthesizer
 from aivd.science.primitive_synth import PrimitiveSynthesizer
+from aivd.science.ext_synth import ExtensionSynthesizer
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -37,20 +38,29 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode
-        self.allow_prim = "3_31" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
+        self.allow_ext = "3_32" in self.mode and "nosub" not in self.mode
+        self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
+        self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
+        self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
+        self.allow_ext_question = "noquestion" not in self.mode
         self.wave2_compiled = False
         self.families = FamilyInventory()
         self.synthesizer = InterventionSynthesizer()
         self.prim_synth = PrimitiveSynthesizer()
+        self.ext_synth = ExtensionSynthesizer(
+            filter_novelty=self.allow_ext_novelty,
+            require_question=self.allow_ext_question,
+        )
         self.field_spec: dict | None = None
         self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
@@ -348,10 +358,41 @@ class ScienceDesigner:
             return True
         return False
 
+    def _prim_rejected_kinds(self) -> set[str]:
+        kinds: set[str] = set()
+        for L in self.commitments.leases:
+            if not str(L.op).startswith("p_") or L.state != "REVOKED":
+                continue
+            rest = str(L.op)[2:]
+            if rest.startswith("zip"):
+                kinds.add("ZIP")
+            elif rest.startswith("pair"):
+                kinds.add("PAIR_JOIN")
+            elif rest.startswith("win"):
+                kinds.add("WIN_SWAP")
+            elif rest.startswith("map"):
+                kinds.add("MAP")
+            elif rest.startswith("slice"):
+                kinds.add("SLICE")
+        return kinds
+
+    def _prim_kinds_exhausted(self) -> bool:
+        """3.31 cardinality-changing primitives failed. More MAP instances are not a new substrate."""
+        if not self.allow_ext:
+            return False
+        kinds = self._prim_rejected_kinds()
+        if {"ZIP", "PAIR_JOIN"} <= kinds:
+            return True
+        if self.prim_synth.board.executed >= self.prim_synth.board.max_executed:
+            return True
+        if self.prim_synth.board.rejections >= 3 and not self.prim_synth.board.remaining:
+            return True
+        return False
+
     def _release_nonlease_slot(self, why: str) -> bool:
         leased = {L.op for L in self.commitments.leases if L.state not in ("REVOKED",)}
         for name in list(self.inventor.invented):
-            if name in leased or name.startswith(("p_", "syn_", "label_", "quote_", "field_")):
+            if name in leased or name.startswith(("p_", "syn_", "ext_", "label_", "quote_", "field_")):
                 continue
             if self.inventor.release(name):
                 self.families.capacity_releases += 1
@@ -378,6 +419,8 @@ class ScienceDesigner:
         question = bool(self.commitments.questions) or self.ontology_insufficient
         if not question:
             self.prim_synth.board.without_question += 1
+            return
+        if self.allow_ext and self._prim_kinds_exhausted():
             return
         if not self._ir_kinds_exhausted() and self.synthesizer.board.remaining:
             return
@@ -466,8 +509,106 @@ class ScienceDesigner:
             if self.allow_prim_lazy:
                 break
 
+    def _maybe_synthesize_extension(self) -> None:
+        if not self.allow_ext:
+            return
+        if any(L.state == "UNLOCKED" for L in self.commitments.leases):
+            return
+        pending = [
+            L for L in self.commitments.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        if pending:
+            return
+        question = bool(self.commitments.questions) or self.ontology_insufficient
+        if self.allow_ext_question and not question:
+            self.ext_synth.board.without_question += 1
+            return
+        if not self._prim_kinds_exhausted():
+            return
+        fam = self.families.families.get("record.field_delim")
+        if fam is not None and fam.remaining and fam.generated < fam.max_generated:
+            return
+        ident = self.identity_prompt or self.seed_prompt
+        if not any(e.get("event") == "COMPUTATIONAL_CAPABILITY_NOT_REPRESENTABLE" for e in self.methods_log):
+            self.failure_class = "COMPUTATIONAL_CAPABILITY_NOT_REPRESENTABLE"
+            self.methods_log.append({
+                "event": "COMPUTATIONAL_CAPABILITY_NOT_REPRESENTABLE",
+                "why": "3.31 primitives cannot discriminate remaining hypotheses",
+                "rejected_kinds": ",".join(sorted(self._prim_rejected_kinds())),
+            })
+            self.methods_log.append({
+                "event": "language_extension_hypothesis",
+                "hypothesis": "meta-language operators beyond the 3.31 combinators",
+            })
+        self.ext_synth.plan(
+            prompt=ident,
+            question=True,
+            known_ops=set(self.inventor.ops),
+        )
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self._release_nonlease_slot("slot for question-justified substrate extension")
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self.methods_log.append({
+                "event": "ext_capacity_wait",
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+            return
+        n_mat = 1 if self.allow_ext_lazy else 4
+        for _ in range(n_mat):
+            if self.inventor.occupancy() >= INVENT_CAP:
+                break
+            ext = self.ext_synth.next_extension()
+            if ext is None:
+                break
+            name = ext.name()
+            if name in self.inventor.ops:
+                continue
+            ok = self.inventor._register(
+                name,
+                self.ext_synth.make_fn(ext),
+                why=ext.why or "synthesized substrate operator for unresolved question",
+            )
+            if not ok:
+                self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+                return
+            self.ext_synth.op_of[name] = ext
+            self.ext_synth.board.materialized.append(name)
+            qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.ext.0"
+            self.families.remember(
+                self.ext_synth.family_id,
+                remaining=[p.key() for p in self.ext_synth.board.remaining],
+                question_id=qid,
+                why="runtime synthesized substrate family; lazy remaining operators",
+            )
+            if f"op:{name}" not in self.board.nodes:
+                self.board.add(
+                    f"op:{name}",
+                    f"synthesized substrate operator {name} may discriminate remaining hypotheses",
+                    [name],
+                    prior=0.46,
+                    why=ext.why,
+                )
+            if self.allow_ext_lease:
+                self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+                self.commitments.max_leases_executed = max(
+                    self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+                )
+            self.methods_log.append({
+                "event": "ext_materialize",
+                "op": name,
+                "key": ext.key(),
+                "origin": "SYNTHESIZED_SUBSTRATE_OPERATOR",
+                "novelty": ext.novelty,
+                "level": ext.level,
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            if self.allow_ext_lazy:
+                break
+
     def _maybe_synthesize(self) -> None:
-        if not self.allow_synth and not self.allow_prim:
+        if not self.allow_synth and not self.allow_prim and not self.allow_ext:
             return
         if any(L.state == "UNLOCKED" for L in self.commitments.leases):
             return
@@ -483,7 +624,10 @@ class ScienceDesigner:
                 self.synthesizer.board.without_question += 1
             if self.allow_prim:
                 self.prim_synth.board.without_question += 1
-            return
+            if not (self.allow_ext and not self.allow_ext_question):
+                if self.allow_ext:
+                    self.ext_synth.board.without_question += 1
+                return
         fam = self.families.families.get("record.field_delim")
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
             return
@@ -545,7 +689,12 @@ class ScienceDesigner:
                     })
                     return
         if self.allow_prim:
+            before = len(self.prim_synth.board.materialized)
             self._maybe_synthesize_primitive()
+            if len(self.prim_synth.board.materialized) > before:
+                return
+        if self.allow_ext:
+            self._maybe_synthesize_extension()
 
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
@@ -677,6 +826,14 @@ class ScienceDesigner:
                                 self.prim_synth.board.language_successes += 1
                             elif not informative:
                                 self.prim_synth.board.rejections += 1
+                        if op0.startswith("ext_"):
+                            self.ext_synth.board.executed += 1
+                            if c.secret:
+                                self.ext_synth.board.successes += 1
+                                self.ext_synth.board.language_successes += 1
+                                self.ext_synth.board.retained += 1
+                            elif not informative:
+                                self.ext_synth.board.rejections += 1
                         self._maybe_synthesize()
                 else:
                     self._maybe_wave2()
@@ -885,9 +1042,9 @@ class ScienceDesigner:
                     self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_", "p_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_", "p_", "ext_"))
             ]
-            struct_ops.sort(key=lambda n: (0 if n.startswith(("p_", "syn_", "label_eq_", "quote_tail_")) else 1, n))
+            struct_ops.sort(key=lambda n: (0 if n.startswith(("ext_", "p_", "syn_", "label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:
                 if other in self.trap_ops:
                     continue

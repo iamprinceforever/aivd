@@ -7,13 +7,13 @@ from __future__ import annotations
 
 EPISTEMIC_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "epistemic_shadow",
-    "arbiter", "shadow", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31",
+    "arbiter", "shadow", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32",
     "science", "science_full", "science_only",
 })
 
 AUTHORITATIVE_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "arbiter",
-    "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "science", "science_full", "science_only",
+    "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "science", "science_full", "science_only",
 })
 
 SHADOW_MODES = frozenset({
@@ -24,7 +24,7 @@ SHADOW_MODES = frozenset({
 # so the 3.18 first-run protocol remains reproducible.
 EPISODE_OWNED_MODES = frozenset({
     "epistemic", "epistemic_full", "epistemic_only", "arbiter", "full_3_19",
-    "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "science", "science_full", "science_only",
+    "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "science", "science_full", "science_only",
 })
 
 
@@ -34,9 +34,9 @@ def is_epistemic_mode(mode: str | None) -> bool:
         return True
     if m.startswith("epistemic"):
         return True
-    if m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "arbiter", "shadow"):
+    if m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "arbiter", "shadow"):
         return True
-    if m.startswith("full_3_31"):
+    if m.startswith("full_3_31") or m.startswith("full_3_32"):
         return True
     if m.startswith("science"):
         return True
@@ -72,7 +72,7 @@ def epistemic_owns_episode(mode: str | None) -> bool:
     m = (mode or "off").lower().strip()
     if m in EPISODE_OWNED_MODES:
         return True
-    if m.startswith("full_3_31"):
+    if m.startswith("full_3_31") or m.startswith("full_3_32"):
         return True
     if m == "full_3_18" or m in SHADOW_MODES or "shadow" in m:
         return False

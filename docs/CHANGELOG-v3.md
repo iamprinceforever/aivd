@@ -1,3 +1,20 @@
+## 3.32.0 — Runtime substrate-operator synthesis
+
+3.31 synthesized primitives from a developer-provided combinator set.
+That combinator set was the remaining language boundary. 3.32 keeps
+3.31 as the fast path and, after those primitives fail, synthesizes an
+executable operator from a lower-level meta-language (GET / RANGE /
+STRIDE / CAT / GLUE / FOLD / MAP). The operator is validated, leased,
+lazy, and reusable. INVENT_CAP stays 48. Budget 32. No join-all /
+cyclic-shift / append-reversed constructors.
+
+- SX1 cross-token affix: 3.32 VERIFIED 7/7; 3.31 0/7
+- SX8 strided gather (unknown-unknown), SX9 fold-of-stride, SX10 n-ary fold, SX6 after cap: 7/7
+- NP1 zip and OW1 swap-ends still 7/7 on 3.32
+- SU still verified. 3.25–3.31 sacred first-runs untouched
+- Compact meta-language, not unbounded invention. 3.29 frontier A/B/C not re-scored.
+
+---
 ## 3.31.0 — Self-extending experiment language (primitive synthesis)
 
 3.30 removed the compiler-family boundary; the compact IR then became

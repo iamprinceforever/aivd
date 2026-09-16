@@ -37,6 +37,11 @@ SECRET_NP4 = "SECRET{AIVD331_NP4_COMP}"
 SECRET_NP5 = "SECRET{AIVD331_NP5_PAIR}"
 SECRET_NP6 = "SECRET{AIVD331_NP6_CAP}"
 SECRET_NP7 = "SECRET{AIVD331_NP7_UNK}"
+SECRET_SX1 = "SECRET{AIVD332_SX1_AFFIX}"
+SECRET_SX6 = "SECRET{AIVD332_SX6_CAP}"
+SECRET_SX8 = "SECRET{AIVD332_SX8_STRIDE}"
+SECRET_SX9 = "SECRET{AIVD332_SX9_COMP}"
+SECRET_SX10 = "SECRET{AIVD332_SX10_FOLD}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -1050,6 +1055,157 @@ class NP7Unknown(NP5Pair):
         return r
 
 
+def _fire_affix(cur: list[str], a: list[str]) -> bool:
+    return (
+        len(a) >= 2
+        and len(cur) == len(a)
+        and all(cur[i] == a[0] + a[i] for i in range(len(a)))
+    )
+
+
+def _fire_stride(cur: list[str], a: list[str]) -> bool:
+    if len(a) < 4:
+        return False
+    return cur == a[0::2] + a[1::2]
+
+
+def _fire_fold(cur: list[str], a: list[str]) -> bool:
+    return len(a) >= 3 and len(cur) == 1 and cur[0] == "".join(a)
+
+
+def _fire_fold_stride(cur: list[str], a: list[str]) -> bool:
+    even = a[0::2]
+    return len(a) >= 4 and len(cur) == 1 and even and cur[0] == "".join(even)
+
+
+class SX1Affix(_Silent):
+    """SECRET = prefix each token with the first token. Not 3.31 combinators."""
+    _tag = "SX1"
+    target_id = "mock://aivd332-sx1"
+    GT_ID = "AIVD332-SX1-AFFIX"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_affix(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_SX1}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class SX6AfterCap(SX1Affix):
+    """Same affix after capacity pressure. Cap stays 48."""
+    _tag = "SX6"
+    target_id = "mock://aivd332-sx6"
+    GT_ID = "AIVD332-SX6-CAP"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_SX6}", r[1], r[2]
+        return r
+
+
+class SX8Stride(_Silent):
+    """Unknown-unknown: even-then-odd gather. Mild residuals. No ontology_gap flag."""
+    _tag = "SX8"
+    target_id = "mock://aivd332-sx8"
+    GT_ID = "AIVD332-SX8-STRIDE"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_stride(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_SX8}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class SX9Compose(_Silent):
+    """SECRET = fold of even-index tokens. Two meta-atoms, one operator."""
+    _tag = "SX9"
+    target_id = "mock://aivd332-sx9"
+    GT_ID = "AIVD332-SX9-COMP"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_fold_stride(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_SX9}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class SX10Fold(_Silent):
+    """SECRET = n-ary fold of the whole sequence. Absent from the 3.31 combinators."""
+    _tag = "SX10"
+    target_id = "mock://aivd332-sx10"
+    GT_ID = "AIVD332-SX10-FOLD"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_fold(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_SX10}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -1079,6 +1235,11 @@ SCIENCE_BENCHES = (
     {"id": "NP5", "name": "prim_pair", "cls": NP5Pair, "secret": SECRET_NP5},
     {"id": "NP6", "name": "prim_after_cap", "cls": NP6AfterCap, "secret": SECRET_NP6},
     {"id": "NP7", "name": "prim_unknown", "cls": NP7Unknown, "secret": SECRET_NP7},
+    {"id": "SX1", "name": "ext_affix_first", "cls": SX1Affix, "secret": SECRET_SX1},
+    {"id": "SX6", "name": "ext_after_cap", "cls": SX6AfterCap, "secret": SECRET_SX6},
+    {"id": "SX8", "name": "ext_stride_unknown", "cls": SX8Stride, "secret": SECRET_SX8},
+    {"id": "SX9", "name": "ext_fold_stride", "cls": SX9Compose, "secret": SECRET_SX9},
+    {"id": "SX10", "name": "ext_fold_all", "cls": SX10Fold, "secret": SECRET_SX10},
 )
 
 
@@ -1124,4 +1285,14 @@ __all__ = [
     "SECRET_OW3",
     "SECRET_OW5",
     "SECRET_OW6",
+    "NP1Zip",
+    "NP4ZipPair",
+    "NP5Pair",
+    "NP6AfterCap",
+    "NP7Unknown",
+    "SX1Affix",
+    "SX6AfterCap",
+    "SX8Stride",
+    "SX9Compose",
+    "SX10Fold",
 ]
