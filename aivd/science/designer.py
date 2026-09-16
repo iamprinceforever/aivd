@@ -17,6 +17,8 @@ from aivd.science.families import FamilyInventory
 from aivd.science.synth import InterventionSynthesizer
 from aivd.science.primitive_synth import PrimitiveSynthesizer
 from aivd.science.ext_synth import ExtensionSynthesizer
+from aivd.science.atom_synth import AtomSynthesizer
+from aivd.science.language import ExperimentLanguage
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -38,21 +40,29 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode
-        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
-        self.allow_ext = "3_32" in self.mode and "nosub" not in self.mode
+        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode) and "nosub" not in self.mode
         self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
         self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
         self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
         self.allow_ext_question = "noquestion" not in self.mode
+        self.allow_atom = "3_33" in self.mode and "noatom" not in self.mode
+        self.allow_atom_lease = self.allow_atom and "nolease" not in self.mode
+        self.allow_atom_lazy = self.allow_atom and "nolazy" not in self.mode
+        self.allow_atom_novelty = self.allow_atom and "nonovelty" not in self.mode
+        self.allow_atom_question = "noquestion" not in self.mode
+        self.allow_atom_budget = self.allow_atom and "nobudget" not in self.mode
+        self.allow_lang = self.allow_atom and "nolang" not in self.mode
+        self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
         self.synthesizer = InterventionSynthesizer()
@@ -61,6 +71,11 @@ class ScienceDesigner:
             filter_novelty=self.allow_ext_novelty,
             require_question=self.allow_ext_question,
         )
+        self.atom_synth = AtomSynthesizer(
+            filter_novelty=self.allow_atom_novelty,
+            require_question=self.allow_atom_question,
+        )
+        self.language = ExperimentLanguage()
         self.field_spec: dict | None = None
         self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
@@ -389,10 +404,22 @@ class ScienceDesigner:
             return True
         return False
 
+    def _ext_kinds_exhausted(self) -> bool:
+        """3.32 token-opaque operators failed. More 3.32 programs are not a new atom."""
+        if not self.allow_atom:
+            return False
+        if self.ext_synth.board.rejections >= 2:
+            return True
+        if self.ext_synth.board.executed >= self.ext_synth.board.max_executed:
+            return True
+        if self.ext_synth.board.rejections >= 3 and not self.ext_synth.board.remaining:
+            return True
+        return False
+
     def _release_nonlease_slot(self, why: str) -> bool:
         leased = {L.op for L in self.commitments.leases if L.state not in ("REVOKED",)}
         for name in list(self.inventor.invented):
-            if name in leased or name.startswith(("p_", "syn_", "ext_", "label_", "quote_", "field_")):
+            if name in leased or name.startswith(("p_", "syn_", "ext_", "atom_", "label_", "quote_", "field_")):
                 continue
             if self.inventor.release(name):
                 self.families.capacity_releases += 1
@@ -607,8 +634,121 @@ class ScienceDesigner:
             if self.allow_ext_lazy:
                 break
 
+    def _maybe_invent_atom(self) -> None:
+        if not self.allow_atom:
+            return
+        if any(L.state == "UNLOCKED" for L in self.commitments.leases):
+            return
+        pending = [
+            L for L in self.commitments.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        if pending:
+            return
+        question = bool(self.commitments.questions) or self.ontology_insufficient
+        if self.allow_atom_question and not question:
+            self.atom_synth.board.without_question += 1
+            return
+        if not self._ext_kinds_exhausted():
+            return
+        leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        if self.allow_atom_budget and leftover < 3:
+            self.atom_synth.board.budget_skips += 1
+            if not any(e.get("event") == "BUDGET_ALLOCATION_FAILURE" for e in self.methods_log):
+                self.failure_class = "BUDGET_ALLOCATION_FAILURE"
+                self.methods_log.append({
+                    "event": "BUDGET_ALLOCATION_FAILURE",
+                    "why": "atom invention skipped; leftover insufficient for verification",
+                    "leftover": str(leftover),
+                })
+            return
+        fam = self.families.families.get("record.field_delim")
+        if fam is not None and fam.remaining and fam.generated < fam.max_generated:
+            return
+        ident = self.identity_prompt or self.seed_prompt
+        if not any(e.get("event") == "ATOM_CAPABILITY_NOT_REPRESENTABLE" for e in self.methods_log):
+            self.failure_class = "ATOM_CAPABILITY_NOT_REPRESENTABLE"
+            self.methods_log.append({
+                "event": "ATOM_CAPABILITY_NOT_REPRESENTABLE",
+                "why": "3.32 operators cannot discriminate remaining hypotheses",
+                "rejected_ext": str(self.ext_synth.board.rejections),
+            })
+            self.methods_log.append({
+                "event": "atom_capability_hypothesis",
+                "hypothesis": "intra-token character operations beyond the 3.32 atoms",
+            })
+        self.atom_synth.plan(
+            prompt=ident,
+            question=True,
+            known_ops=set(self.inventor.ops),
+        )
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self._release_nonlease_slot("slot for question-justified invented atom")
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self.methods_log.append({
+                "event": "atom_capacity_wait",
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+            return
+        n_mat = 1 if self.allow_atom_lazy else 4
+        for _ in range(n_mat):
+            if self.inventor.occupancy() >= INVENT_CAP:
+                break
+            atom = self.atom_synth.next_atom()
+            if atom is None:
+                break
+            name = atom.name()
+            if name in self.inventor.ops:
+                continue
+            ok = self.inventor._register(
+                name,
+                self.atom_synth.make_fn(atom),
+                why=atom.why or "invented atom for unresolved question",
+            )
+            if not ok:
+                self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+                return
+            self.atom_synth.op_of[name] = atom
+            self.atom_synth.board.materialized.append(name)
+            if self.allow_lang:
+                self.language.add_atom(atom, grow=True)
+            qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.atom.0"
+            self.families.remember(
+                self.atom_synth.family_id,
+                remaining=[p.key() for p in self.atom_synth.board.remaining],
+                question_id=qid,
+                why="runtime invented atom family; lazy remaining atoms",
+            )
+            if f"op:{name}" not in self.board.nodes:
+                self.board.add(
+                    f"op:{name}",
+                    f"invented atom {name} may discriminate remaining hypotheses",
+                    [name],
+                    prior=0.48,
+                    why=atom.why,
+                )
+            if self.allow_atom_lease:
+                self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+                self.commitments.max_leases_executed = max(
+                    self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+                )
+            self.methods_log.append({
+                "event": "atom_materialize",
+                "op": name,
+                "key": atom.key(),
+                "origin": "INVENTED_ATOM",
+                "novelty": atom.novelty,
+                "level": atom.level,
+                "semantic_class": atom.semantic_class,
+                "generation": str(self.language.generation),
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            if self.allow_atom_lazy:
+                break
+
     def _maybe_synthesize(self) -> None:
-        if not self.allow_synth and not self.allow_prim and not self.allow_ext:
+        if not self.allow_synth and not self.allow_prim and not self.allow_ext and not self.allow_atom:
             return
         if any(L.state == "UNLOCKED" for L in self.commitments.leases):
             return
@@ -627,6 +767,8 @@ class ScienceDesigner:
             if not (self.allow_ext and not self.allow_ext_question):
                 if self.allow_ext:
                     self.ext_synth.board.without_question += 1
+                if self.allow_atom and self.allow_atom_question:
+                    self.atom_synth.board.without_question += 1
                 return
         fam = self.families.families.get("record.field_delim")
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
@@ -693,8 +835,13 @@ class ScienceDesigner:
             self._maybe_synthesize_primitive()
             if len(self.prim_synth.board.materialized) > before:
                 return
-        if self.allow_ext:
+        if self.allow_ext and not (self.allow_atom and self._ext_kinds_exhausted()):
+            before = len(self.ext_synth.board.materialized)
             self._maybe_synthesize_extension()
+            if len(self.ext_synth.board.materialized) > before:
+                return
+        if self.allow_atom:
+            self._maybe_invent_atom()
 
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
@@ -723,6 +870,8 @@ class ScienceDesigner:
         self.tested.add(prompt)
         self.last_prompt = prompt
         self.last_ops = used_ops
+        if used_ops:
+            self.remaining_steps = max(0, int(getattr(self, "remaining_steps", 32) or 0) - 1)
         text = _text(obs)
         self.harvested_texts.append(text)
         labels = {m.lower() for m in re.findall(r"\b([A-Za-z]{3,24})\s*:", text)}
@@ -834,6 +983,14 @@ class ScienceDesigner:
                                 self.ext_synth.board.retained += 1
                             elif not informative:
                                 self.ext_synth.board.rejections += 1
+                        if op0.startswith("atom_"):
+                            self.atom_synth.board.executed += 1
+                            if c.secret:
+                                self.atom_synth.board.successes += 1
+                                self.atom_synth.board.language_successes += 1
+                                self.atom_synth.board.retained += 1
+                            elif not informative:
+                                self.atom_synth.board.rejections += 1
                         self._maybe_synthesize()
                 else:
                     self._maybe_wave2()
@@ -970,6 +1127,7 @@ class ScienceDesigner:
 
     def propose(self, *, remaining_steps: int = 6, evidence_strength: float = 0.4) -> list[ExperimentProposal]:
         out: list[ExperimentProposal] = []
+        self.remaining_steps = int(remaining_steps)
 
         def add(p: ExperimentProposal | None) -> None:
             if p is not None and len(out) < self.max_new:
@@ -1042,9 +1200,9 @@ class ScienceDesigner:
                     self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_", "p_", "ext_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_", "p_", "ext_", "atom_"))
             ]
-            struct_ops.sort(key=lambda n: (0 if n.startswith(("ext_", "p_", "syn_", "label_eq_", "quote_tail_")) else 1, n))
+            struct_ops.sort(key=lambda n: (0 if n.startswith(("atom_", "ext_", "p_", "syn_", "label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:
                 if other in self.trap_ops:
                     continue

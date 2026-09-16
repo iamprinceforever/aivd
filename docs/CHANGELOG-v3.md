@@ -1,3 +1,23 @@
+## 3.33.0 — Atom invention + open-ended experiment-language growth
+
+3.32 synthesizes operators from a developer-defined atom catalog. That
+catalog was the remaining language boundary. 3.33 keeps 3.32 as the
+fast path and, after those operators fail, invents a genuinely new atom
+from a lower-level character/index micro-language (TOK / AT / SLICE /
+CAT / REV / MAPT). The atom is validated, leased, lazy, and added to
+an evolving language L_t. INVENT_CAP stays 48. Budget 32. leftover<3
+skips new atom invention (addresses 3.32 U without retuning it). No
+join-all / cyclic-shift / append-reversed constructors. The 3.32 atom
+catalog is not expanded.
+
+- AX1 last-char suffix: 3.33 VERIFIED 7/7; 3.32 0/7
+- AX8 even-chars (unknown-unknown), AX6 after cap: 7/7
+- NP1 zip and SX1 affix still 7/7 on 3.33 (3.32 fast path)
+- SU still verified. 3.25–3.32 sacred first-runs untouched
+- Compact micro-language, not unbounded invention. 3.29 frontier A/B/C not re-scored.
+- leftover<3 → BUDGET_ALLOCATION_FAILURE for new atoms only. Do not retune 3.32 U.
+
+---
 ## 3.32.0 — Runtime substrate-operator synthesis
 
 3.31 synthesized primitives from a developer-provided combinator set.
