@@ -1,3 +1,17 @@
+## 3.26.0 — Empty-harvest structure compiler
+
+3.25 declared an ontology gap then halted because observation harvest was
+empty. 3.26 still compiles from the identity prompt: token-as-field-label
+(`label_nl_i{k}`) and unused whitespace joiners. Not a newline constructor
+for the 3.25 plant. Budget 32.
+
+- SM field-label bench: 3.26 VERIFIED 7/7; 3.25 does not find it
+- SN control FP=0
+- SK/SH still verified
+- 3.25 Llama discourse-split first-run untouched
+
+---
+
 ## 3.25.0 — Ontology-gap detection; observation-driven rejoin compiler
 
 3.24 could compile a new *instance* of an intra-token family that the

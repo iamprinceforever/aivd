@@ -12,7 +12,7 @@ from aivd.epistemic.types import ExperimentProposal
 from aivd.science.contrast import Contrast, contrast
 from aivd.science.hypotheses import HypothesisBoard
 from aivd.science.methods import MethodInventor
-from aivd.science.gap import compile_from_harvest, gap_hypothesis, harvest_unseen_chars
+from aivd.science.gap import compile_from_harvest, compile_from_structure, gap_hypothesis, harvest_unseen_chars
 from aivd.science.operators import BATTERY, apply_operator, apply_sequence, split_prompt
 
 
@@ -24,8 +24,9 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = "3_24" in self.mode or "3_25" in self.mode
-        self.allow_gap = "3_25" in self.mode
+        self.allow_intra = "3_24" in self.mode or "3_25" in self.mode or "3_26" in self.mode
+        self.allow_gap = "3_25" in self.mode or "3_26" in self.mode
+        self.allow_struct = "3_26" in self.mode
         self.ontology_insufficient = False
         self.harvested_texts: list[str] = []
         self.abstract_dimensions: list[Any] = []
@@ -144,6 +145,12 @@ class ScienceDesigner:
         })
         ident = self.identity_prompt or self.seed_prompt
         new = compile_from_harvest(self.inventor._register, prompt=ident, chars=chars)
+        if self.allow_struct:
+            new = list(new) + compile_from_structure(
+                self.inventor._register,
+                prompt=ident,
+                hot_indices=list(self.hot_indices),
+            )
         for name in new:
             if f"op:{name}" not in self.board.nodes:
                 self.board.add(
@@ -424,18 +431,23 @@ class ScienceDesigner:
         if self.allow_gap:
             self._maybe_declare_gap()
             ident = self.identity_prompt or self.seed_prompt
-            for other in list(self.inventor.invented):
-                if not other.startswith("rejoin_"):
-                    continue
+            struct_ops = [
+                n for n in self.inventor.invented
+                if n.startswith(("label_nl_", "rejoin_"))
+            ]
+            # Prefer token-as-label (new 3.26 structure) over harvested rejoin.
+            struct_ops.sort(key=lambda n: (0 if n.startswith("label_nl_") else 1, n))
+            for other in struct_ops:
                 if other in self.trap_ops:
                     continue
                 nxt = self._apply(ident, other)
                 if not nxt or nxt == ident:
                     continue
+                disc = 0.91 if other.startswith("label_nl_") else 0.88
                 add(self._prop(
                     nxt,
                     [other],
-                    disc=0.96,
+                    disc=disc,
                     eig=0.32,
                     sec=0.55,
                     unlock=True,
@@ -443,8 +455,9 @@ class ScienceDesigner:
                     evidence=max(evidence_strength, 0.7),
                     why=f"ontology-gap compiled intervention {other}",
                 ))
-            if any(p.meta and "ontology-gap" in str((p.meta or {}).get("why")) for p in out):
-                return out[: self.max_new]
+            # Do not return early: untested wrap/insert must still compete.
+
+        # 0. Collapse restore / live-state compose.
 
         # 0. Collapse restore / live-state compose.
         #    Remaining operators on the LIVE prompt, never on a collapsed last_prompt.

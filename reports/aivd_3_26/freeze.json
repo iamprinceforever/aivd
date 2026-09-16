@@ -1,0 +1,7 @@
+{
+  "version": "3.26.0",
+  "tests_at_freeze_excluding_llama_oracles": 705,
+  "no_llama_holdout_yet": true,
+  "note": "Empty-harvest structure compiler freeze. Llama field-label target created after this SHA.",
+  "budget": 32
+}

@@ -89,6 +89,64 @@ def compile_from_harvest(
     return new
 
 
+def compile_from_structure(
+    register: Callable[..., bool],
+    *,
+    prompt: str,
+    hot_indices: list[int],
+    cap_new: int = 6,
+) -> list[str]:
+    """3.26: after an ontology gap, compile from the identity prompt itself.
+
+    Empty observation harvest must not halt invention. Unused whitespace
+    joiners and token-as-field-label are generic record-structure probes,
+    not a holdout list. Parameterized from the live prompt's tokens.
+    """
+    new: list[str] = []
+    toks = split_prompt(prompt)
+    n = len(toks)
+    if n < 2:
+        return new
+
+    def _add(name: str, fn, why: str) -> bool:
+        if len(new) >= cap_new:
+            return False
+        if register(name, fn, why=why):
+            new.append(name)
+            return True
+        return False
+
+    order = list(hot_indices)
+    for i in range(n):
+        if i not in order:
+            order.append(i)
+    for i in order:
+        if i < 0 or i >= n:
+            continue
+        raw = toks[i]
+        lab = raw.strip(".,;:!?\"'`")
+        if len(lab) < 4:
+            continue
+        name = f"label_nl_i{i}"
+        _add(
+            name,
+            lambda p, L=lab, body=prompt: f"{L}:\n{body}",
+            "token-as-field-label then original body; compiled after empty harvest",
+        )
+        if len(new) >= cap_new:
+            return new
+
+    mid = max(1, n // 2)
+    for tag, sep in (("nl", "\n"), ("tab", "\t")):
+        name = f"rejoin_{tag}_i{mid}"
+        _add(
+            name,
+            lambda p, k=mid, s=sep: rejoin_at(p, k, s),
+            "unused whitespace joiner; space-concatenation is not the only utterance form",
+        )
+    return new
+
+
 def gap_hypothesis(*, hot_indices: list[int], harvested: list[str]) -> AbstractDimension:
     return AbstractDimension(
         dimension_id="gap.unknown_segmentation",
@@ -119,5 +177,6 @@ __all__ = [
     "harvest_unseen_chars",
     "rejoin_at",
     "compile_from_harvest",
+    "compile_from_structure",
     "gap_hypothesis",
 ]

@@ -13,7 +13,7 @@ from aivd37.unknowns.llama_discourse import (
 
 
 def test_version_325():
-    assert __version__ == "3.25.0"
+    assert __version__ == "3.26.0"
     cfg = AIVDConfig(epistemic_mode="full_3_25", invention_mode="full_3_25")
     assert cfg.epistemic_mode == "full_3_25"
     assert is_science_mode("full_3_25")

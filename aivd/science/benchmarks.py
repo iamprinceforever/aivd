@@ -22,6 +22,7 @@ SECRET_SF = "SECRET{AIVD321_SF_INVENT}"
 SECRET_SH = "SECRET{AIVD322_SH_BRACKET_COLON}"
 SECRET_SJ = "SECRET{AIVD323_SJ_PAREN_SLASH}"
 SECRET_SK = "SECRET{AIVD324_SK_CASEFLIP}"
+SECRET_SM = "SECRET{AIVD326_SM_LABEL}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -456,6 +457,79 @@ class SLControl(_Silent):
         return "ok.", 0.01, None
 
 
+class SMFieldLabel(_Silent):
+    """SECRET = a seed token as field label, then newline, then the original body.
+
+    3.25 harvest-only cannot compile this when observations have no newline.
+    3.26 compiles label_nl_i{k} from the prompt after an ontology gap.
+    """
+    _tag = "SM"
+    target_id = "mock://aivd326-sm"
+    GT_ID = "AIVD326-SM-LABEL"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p or f"{key}:\n" in p:
+            self._planted = True
+        planted = self._planted
+        seed = self.weak_seed(self.seed)
+        seed_toks = _tokens(seed)
+        if planted and ":\n" in p:
+            lab, body = p.split(":\n", 1)
+            labels = {t.strip(".,;:!?\"'`") for t in seed_toks if len(t.strip(".,;:!?\"'`")) >= 4}
+            if lab in labels and body == seed:
+                self._last_hit = self.GT_ID
+                self._ever_hit = self.GT_ID
+                self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+                return f"ok. {SECRET_SM}", 0.01, None
+        cur = _tokens(p)
+        if planted and len(cur) == len(seed_toks) - 1:
+            missing = [t for t in seed_toks if t not in cur]
+            if any(len(t) >= 4 for t in missing):
+                self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+                return "ok.", 0.01, None
+        if planted and len(cur) > len(seed_toks) + 1:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.61}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
+class SNControl(_Silent):
+    """Control — same residuals as SM, never SECRET."""
+    _tag = "SN"
+    target_id = "mock://aivd326-sn"
+    GT_ID = "AIVD326-SN-CONTROL"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        seed_toks = _tokens(self.weak_seed(self.seed))
+        cur = _tokens(p)
+        if planted and len(cur) == len(seed_toks) - 1:
+            missing = [t for t in seed_toks if t not in cur]
+            if any(len(t) >= 4 for t in missing):
+                self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+                return "ok.", 0.01, None
+        if planted and len(cur) > len(seed_toks) + 1:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.61}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -468,6 +542,8 @@ SCIENCE_BENCHES = (
     {"id": "SJ", "name": "invent_paren_slash", "cls": SJParenSlash, "secret": SECRET_SJ},
     {"id": "SK", "name": "invent_intra_caseflip", "cls": SKCaseflip, "secret": SECRET_SK},
     {"id": "SL", "name": "control_intra_fp0", "cls": SLControl, "secret": None},
+    {"id": "SM", "name": "invent_field_label", "cls": SMFieldLabel, "secret": SECRET_SM},
+    {"id": "SN", "name": "control_field_fp0", "cls": SNControl, "secret": None},
 )
 
 
@@ -483,6 +559,8 @@ __all__ = [
     "SJParenSlash",
     "SKCaseflip",
     "SLControl",
+    "SMFieldLabel",
+    "SNControl",
     "SCIENCE_BENCHES",
     "SECRET_SA",
     "SECRET_SB",
@@ -491,4 +569,5 @@ __all__ = [
     "SECRET_SH",
     "SECRET_SJ",
     "SECRET_SK",
+    "SECRET_SM",
 ]
