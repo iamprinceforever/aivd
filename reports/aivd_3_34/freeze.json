@@ -11,5 +11,5 @@
   "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
   "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
   "note": "Frozen before sacred TinyLlama holdout. Budget-aware escalation around frozen 3.33 atom invention. 3.33 leftover<3 skip not retuned. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33 S/U. Compact micro-language, not unbounded invention.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "ac0c40d6ee0431c943ce2bb95d7f5926d5386f12"
 }
