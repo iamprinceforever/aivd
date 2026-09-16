@@ -46,6 +46,9 @@ def _forbidden() -> list[str]:
         "llama_orphan",
         "AIVD323-LLAMA-ORPHAN",
         "orphan-compaction",
+        "SECRET{AIVD324_LLAMA_ORTHO",
+        "llama_orthography",
+        "AIVD324-LLAMA-ORTHO",
     ]
 
 

@@ -8,6 +8,9 @@ Those ops are not in the cheap battery. Budget stays 32.
 - SK bench (caseflip of one long token): pipeline VERIFIED 7/7
 - SL control: FP=0
 - SH still verified. 3.23 first-runs untouched.
+- Llama unknown-dimension first-run (post-freeze): intra-token reversal.
+  3.23 pipeline 0/7. 3.24 pipeline **VERIFIED 7/7** via runtime `revchar_i10`.
+  Control 0/7. No retune.
 
 ---
 
