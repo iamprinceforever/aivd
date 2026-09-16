@@ -15,6 +15,7 @@ from aivd.science.methods import INVENT_CAP, MethodInventor
 from aivd.science.commit import CommitmentBoard
 from aivd.science.families import FamilyInventory
 from aivd.science.synth import InterventionSynthesizer
+from aivd.science.primitive_synth import PrimitiveSynthesizer
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -36,16 +37,20 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode
-        self.allow_synth = "3_30" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode
+        self.allow_prim = "3_31" in self.mode
+        self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
+        self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
         self.wave2_compiled = False
         self.families = FamilyInventory()
         self.synthesizer = InterventionSynthesizer()
+        self.prim_synth = PrimitiveSynthesizer()
         self.field_spec: dict | None = None
         self.failure_class: str | None = None
         self.commitments = CommitmentBoard()
@@ -316,8 +321,51 @@ class ScienceDesigner:
             "occupancy": str(self.inventor.occupancy()),
         })
 
-    def _maybe_synthesize(self) -> None:
-        if not self.allow_synth:
+    def _syn_rejected_kinds(self) -> set[str]:
+        kinds: set[str] = set()
+        for L in self.commitments.leases:
+            if not str(L.op).startswith("syn_") or L.state != "REVOKED":
+                continue
+            rest = str(L.op)[4:]
+            if rest.startswith("swap"):
+                kinds.add("SWAP")
+            elif rest.startswith("move"):
+                kinds.add("MOVE")
+            elif rest.startswith("wrap"):
+                kinds.add("WRAP_EACH")
+        return kinds
+
+    def _ir_kinds_exhausted(self) -> bool:
+        """3.30 IR kinds failed to distinguish. More SWAP instances are not a new capability."""
+        if not self.allow_prim:
+            return False
+        kinds = self._syn_rejected_kinds()
+        if {"SWAP", "MOVE", "WRAP_EACH"} <= kinds:
+            return True
+        if self.synthesizer.board.executed >= self.synthesizer.board.max_executed:
+            return True
+        if self.synthesizer.board.rejections >= 3 and not self.synthesizer.board.remaining:
+            return True
+        return False
+
+    def _release_nonlease_slot(self, why: str) -> bool:
+        leased = {L.op for L in self.commitments.leases if L.state not in ("REVOKED",)}
+        for name in list(self.inventor.invented):
+            if name in leased or name.startswith(("p_", "syn_", "label_", "quote_", "field_")):
+                continue
+            if self.inventor.release(name):
+                self.families.capacity_releases += 1
+                self.methods_log.append({
+                    "event": "capacity_release",
+                    "op": name,
+                    "why": why,
+                    "occupancy": str(self.inventor.occupancy()),
+                })
+                return True
+        return False
+
+    def _maybe_synthesize_primitive(self) -> None:
+        if not self.allow_prim:
             return
         if any(L.state == "UNLOCKED" for L in self.commitments.leases):
             return
@@ -329,66 +377,175 @@ class ScienceDesigner:
             return
         question = bool(self.commitments.questions) or self.ontology_insufficient
         if not question:
-            self.synthesizer.board.without_question += 1
+            self.prim_synth.board.without_question += 1
             return
+        if not self._ir_kinds_exhausted() and self.synthesizer.board.remaining:
+            return
+        if not self._ir_kinds_exhausted() and self.synthesizer.board.executed == 0:
+            # 3.30 still the fast path; wait until IR has been given its leases.
+            if self.allow_synth and self.synthesizer.board.materialized == 0:
+                return
         fam = self.families.families.get("record.field_delim")
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
             return
         ident = self.identity_prompt or self.seed_prompt
-        self.synthesizer.plan(
+        if not any(e.get("event") == "EXPERIMENT_LANGUAGE_INSUFFICIENT" for e in self.methods_log):
+            self.failure_class = "EXPERIMENT_LANGUAGE_INSUFFICIENT"
+            self.methods_log.append({
+                "event": "EXPERIMENT_LANGUAGE_INSUFFICIENT",
+                "why": "3.30 IR kinds cannot discriminate remaining hypotheses",
+                "rejected_kinds": ",".join(sorted(self._syn_rejected_kinds())),
+            })
+            self.methods_log.append({
+                "event": "language_extension_hypothesis",
+                "hypothesis": "sequence combinators beyond the 3.30 IR (zip/pair/map-all)",
+            })
+        self.prim_synth.plan(
             prompt=ident,
-            hot_indices=list(self.hot_indices),
             question=True,
             known_ops=set(self.inventor.ops),
+            failed_kinds=self._syn_rejected_kinds(),
         )
         if self.inventor.occupancy() >= INVENT_CAP:
+            self._release_nonlease_slot("slot for question-justified primitive")
+        if self.inventor.occupancy() >= INVENT_CAP:
             self.methods_log.append({
-                "event": "synthesis_capacity_wait",
+                "event": "prim_capacity_wait",
                 "occupancy": str(self.inventor.occupancy()),
             })
-            return
-        prog = self.synthesizer.next_program()
-        if prog is None:
-            return
-        name = prog.name()
-        if name in self.inventor.ops:
-            return
-        ok = self.inventor._register(
-            name,
-            self.synthesizer.make_fn(prog),
-            why=prog.why or "synthesized IR program for unresolved question",
-        )
-        if not ok:
             self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
             return
-        self.synthesizer.op_of[name] = prog
-        self.synthesizer.board.materialized += 1
-        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.synth.0"
-        self.families.remember(
-            self.synthesizer.family_id,
-            remaining=[p.key() for p in self.synthesizer.board.remaining],
-            question_id=qid,
-            why="runtime synthesized family; lazy remaining programs",
-        )
-        if f"op:{name}" not in self.board.nodes:
-            self.board.add(
-                f"op:{name}",
-                f"synthesized program {name} may discriminate remaining hypotheses",
-                [name],
-                prior=0.42,
-                why=prog.why,
+        n_mat = 1 if self.allow_prim_lazy else 4
+        for _ in range(n_mat):
+            if self.inventor.occupancy() >= INVENT_CAP:
+                break
+            prim = self.prim_synth.next_primitive()
+            if prim is None:
+                break
+            name = prim.name()
+            if name in self.inventor.ops:
+                continue
+            ok = self.inventor._register(
+                name,
+                self.prim_synth.make_fn(prim),
+                why=prim.why or "synthesized primitive for unresolved question",
             )
-        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
-        self.commitments.max_leases_executed = max(
-            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
-        )
-        self.methods_log.append({
-            "event": "synth_materialize",
-            "op": name,
-            "key": prog.key(),
-            "origin": "SYNTHESIZED_PROGRAM",
-            "occupancy": str(self.inventor.occupancy()),
-        })
+            if not ok:
+                self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
+                return
+            self.prim_synth.op_of[name] = prim
+            self.prim_synth.board.materialized.append(name)
+            qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.prim.0"
+            self.families.remember(
+                self.prim_synth.family_id,
+                remaining=[p.key() for p in self.prim_synth.board.remaining],
+                question_id=qid,
+                why="runtime synthesized primitive family; lazy remaining programs",
+            )
+            if f"op:{name}" not in self.board.nodes:
+                self.board.add(
+                    f"op:{name}",
+                    f"synthesized primitive {name} may discriminate remaining hypotheses",
+                    [name],
+                    prior=0.44,
+                    why=prim.why,
+                )
+            if self.allow_prim_lease:
+                self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+                self.commitments.max_leases_executed = max(
+                    self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+                )
+            self.methods_log.append({
+                "event": "prim_materialize",
+                "op": name,
+                "key": prim.key(),
+                "origin": "SYNTHESIZED_PRIMITIVE",
+                "novelty": prim.novelty,
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            if self.allow_prim_lazy:
+                break
+
+    def _maybe_synthesize(self) -> None:
+        if not self.allow_synth and not self.allow_prim:
+            return
+        if any(L.state == "UNLOCKED" for L in self.commitments.leases):
+            return
+        pending = [
+            L for L in self.commitments.leases
+            if L.state in ("COMMITTED", "TESTING", "INFORMATIVE") and L.remaining > 0
+        ]
+        if pending:
+            return
+        question = bool(self.commitments.questions) or self.ontology_insufficient
+        if not question:
+            if self.allow_synth:
+                self.synthesizer.board.without_question += 1
+            if self.allow_prim:
+                self.prim_synth.board.without_question += 1
+            return
+        fam = self.families.families.get("record.field_delim")
+        if fam is not None and fam.remaining and fam.generated < fam.max_generated:
+            return
+        if self.allow_synth and not self._ir_kinds_exhausted():
+            ident = self.identity_prompt or self.seed_prompt
+            self.synthesizer.plan(
+                prompt=ident,
+                hot_indices=list(self.hot_indices),
+                question=True,
+                known_ops=set(self.inventor.ops),
+            )
+            if self.inventor.occupancy() >= INVENT_CAP:
+                self._release_nonlease_slot("slot for synthesized IR program")
+            if self.inventor.occupancy() >= INVENT_CAP:
+                self.methods_log.append({
+                    "event": "synthesis_capacity_wait",
+                    "occupancy": str(self.inventor.occupancy()),
+                })
+                return
+            prog = self.synthesizer.next_program()
+            if prog is not None:
+                name = prog.name()
+                if name not in self.inventor.ops:
+                    ok = self.inventor._register(
+                        name,
+                        self.synthesizer.make_fn(prog),
+                        why=prog.why or "synthesized IR program for unresolved question",
+                    )
+                    if not ok:
+                        self.failure_class = "SYNTHESIS_CAPACITY_FAILURE"
+                        return
+                    self.synthesizer.op_of[name] = prog
+                    self.synthesizer.board.materialized += 1
+                    qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.synth.0"
+                    self.families.remember(
+                        self.synthesizer.family_id,
+                        remaining=[p.key() for p in self.synthesizer.board.remaining],
+                        question_id=qid,
+                        why="runtime synthesized family; lazy remaining programs",
+                    )
+                    if f"op:{name}" not in self.board.nodes:
+                        self.board.add(
+                            f"op:{name}",
+                            f"synthesized program {name} may discriminate remaining hypotheses",
+                            [name],
+                            prior=0.42,
+                            why=prog.why,
+                        )
+                    self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+                    self.commitments.max_leases_executed = max(
+                        self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+                    )
+                    self.methods_log.append({
+                        "event": "synth_materialize",
+                        "op": name,
+                        "key": prog.key(),
+                        "origin": "SYNTHESIZED_PROGRAM",
+                        "occupancy": str(self.inventor.occupancy()),
+                    })
+                    return
+        if self.allow_prim:
+            self._maybe_synthesize_primitive()
 
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
@@ -513,6 +670,13 @@ class ScienceDesigner:
                                 self.synthesizer.board.successes += 1
                             elif not informative:
                                 self.synthesizer.board.rejections += 1
+                        if op0.startswith("p_"):
+                            self.prim_synth.board.executed += 1
+                            if c.secret:
+                                self.prim_synth.board.successes += 1
+                                self.prim_synth.board.language_successes += 1
+                            elif not informative:
+                                self.prim_synth.board.rejections += 1
                         self._maybe_synthesize()
                 else:
                     self._maybe_wave2()
@@ -721,9 +885,9 @@ class ScienceDesigner:
                     self.commitments.postpone()
             struct_ops = [
                 n for n in self.inventor.invented
-                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_"))
+                if n.startswith(("label_nl_", "rejoin_", "label_eq_", "quote_tail_", "field_", "syn_", "p_"))
             ]
-            struct_ops.sort(key=lambda n: (0 if n.startswith(("syn_", "label_eq_", "quote_tail_")) else 1, n))
+            struct_ops.sort(key=lambda n: (0 if n.startswith(("p_", "syn_", "label_eq_", "quote_tail_")) else 1, n))
             for other in struct_ops:
                 if other in self.trap_ops:
                     continue

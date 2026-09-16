@@ -1,0 +1,11 @@
+{
+  "version": "3.31.0",
+  "tests_at_freeze_excluding_llama_oracles": 815,
+  "invent_cap": 48,
+  "invent_cap_unchanged": true,
+  "budget": 32,
+  "no_llama_holdout_yet": true,
+  "substrate_hash": "9ec3488b45eca0ef86eb07970cd5a0e54286ed5353b1976d7b3031ee647d266d",
+  "base_kinds": ["MAP", "ZIP", "PAIR_JOIN", "WIN_SWAP", "SLICE", "ZIP_CONST"],
+  "note": "Frozen before sacred TinyLlama holdout. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.30."
+}

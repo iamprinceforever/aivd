@@ -1,3 +1,18 @@
+## 3.31.0 — Self-extending experiment language (primitive synthesis)
+
+3.30 removed the compiler-family boundary; the compact IR then became
+the experiment-language boundary. 3.31 keeps 3.30 as the fast path and
+adds a question-directed primitive synthesizer over a bounded token-
+sequence substrate (MAP / ZIP / PAIR_JOIN / WIN_SWAP / SLICE). New
+primitives are executable, leased, lazy, and reusable. INVENT_CAP stays
+48. Budget 32. No join-all / cyclic-shift / append-reversed constructors.
+
+- NP1 zip-stutter: 3.31 VERIFIED 7/7; 3.30 0/7
+- NP4 zip-then-pair composition, NP5 continuation, NP6 after cap, NP7 unknown-unknown: 7/7
+- OW1/OW2 (3.30 programs/families) still 7/7 on 3.31
+- SU still verified. 3.25–3.30 sacred first-runs untouched
+
+---
 ## 3.30.0 — Open-world intervention IR synthesis
 
 The 3.29 compiler was the experiment language. 3.30 keeps that compiler
