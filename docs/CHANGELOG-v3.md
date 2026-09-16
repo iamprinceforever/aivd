@@ -13,6 +13,15 @@ cyclic-shift / append-reversed constructors.
 - NP1 zip and OW1 swap-ends still 7/7 on 3.32
 - SU still verified. 3.25–3.31 sacred first-runs untouched
 - Compact meta-language, not unbounded invention. 3.29 frontier A/B/C not re-scored.
+- Llama cross-token affix + even-odd gather first-run (post-freeze `8607b48`):
+  S **DISCOVERED+VERIFIED** 7/7. U secret 7/7, pipeline verified 0/7 (gates
+  REJECTED at fire @30 / used 32). Direct U 7/7. 3.31 0/7 both. Control 0/7.
+  Cap still 48.
+  S: `ext_map_glue_get_0_cur` (NEW_SUBSTRATE_CAPABILITY) fire @29, used 32/32.
+  U: affix rejected, then `ext_cat_stride_0_2_stride_1_2` fire @30, secret
+  found, leftover gates REJECTED. No target `ontology_gap` flag on U.
+  Compact meta-language, not unbounded invention. Do not retune U. 3.29
+  frontier A/B/C not re-scored.
 
 ---
 ## 3.31.0 — Self-extending experiment language (primitive synthesis)
