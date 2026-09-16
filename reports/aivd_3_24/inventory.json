@@ -1,0 +1,331 @@
+{
+  "version": "3.24.0",
+  "invent_cap": 48,
+  "cannot_alter": [
+    "history",
+    "provenance",
+    "message_role",
+    "newline_turn",
+    "unicode_homoglyph",
+    "paraphrase",
+    "instruction_hierarchy"
+  ],
+  "interventions": [
+    {
+      "name": "omit_second",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "omit_first",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "wrap_quotes",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "swap_first_two",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_order"
+      ]
+    },
+    {
+      "name": "swap_last_two",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_order"
+      ]
+    },
+    {
+      "name": "repeat_last",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_count"
+      ]
+    },
+    {
+      "name": "insert_sep",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "suffix_q",
+      "family": "whitespace-token",
+      "in_battery": true,
+      "unused": false,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "duplicate",
+      "family": "whitespace-token",
+      "in_battery": false,
+      "unused": true,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_count"
+      ]
+    },
+    {
+      "name": "reverse_content",
+      "family": "whitespace-token",
+      "in_battery": false,
+      "unused": true,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_order"
+      ]
+    },
+    {
+      "name": "omit_last",
+      "family": "whitespace-token",
+      "in_battery": false,
+      "unused": true,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "prefix_please",
+      "family": "whitespace-token",
+      "in_battery": false,
+      "unused": true,
+      "available_pre_run": true,
+      "generated_dynamically": false,
+      "can_compose": true,
+      "alters": [
+        "token_identity"
+      ]
+    },
+    {
+      "name": "wrap_single",
+      "family": "wrap-pair",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "formatting",
+        "wrapping"
+      ]
+    },
+    {
+      "name": "wrap_backtick",
+      "family": "wrap-pair",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "formatting",
+        "wrapping"
+      ]
+    },
+    {
+      "name": "wrap_paren",
+      "family": "wrap-pair",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "formatting",
+        "wrapping"
+      ]
+    },
+    {
+      "name": "wrap_bracket",
+      "family": "wrap-pair",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "formatting",
+        "wrapping"
+      ]
+    },
+    {
+      "name": "insert_comma",
+      "family": "insert-separator",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "insertion",
+        "token_count"
+      ]
+    },
+    {
+      "name": "insert_semi",
+      "family": "insert-separator",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "insertion",
+        "token_count"
+      ]
+    },
+    {
+      "name": "insert_slash",
+      "family": "insert-separator",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "insertion",
+        "token_count"
+      ]
+    },
+    {
+      "name": "insert_dash",
+      "family": "insert-separator",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "insertion",
+        "token_count"
+      ]
+    },
+    {
+      "name": "insert_colon",
+      "family": "insert-separator",
+      "in_battery": false,
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true,
+      "alters": [
+        "insertion",
+        "token_count"
+      ]
+    },
+    {
+      "name": "omit_i{k}",
+      "family": "parameterized-omit",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "can_compose": true,
+      "alters": [
+        "omission",
+        "token_count"
+      ]
+    },
+    {
+      "name": "swap_i{k}",
+      "family": "parameterized-swap",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "can_compose": true,
+      "alters": [
+        "token_order",
+        "position"
+      ]
+    },
+    {
+      "name": "revchar_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version": "3.24",
+      "can_compose": true,
+      "alters": [
+        "encoding",
+        "token_identity"
+      ],
+      "note": "compiled from hot index; not in BATTERY"
+    },
+    {
+      "name": "caseflip_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version": "3.24",
+      "can_compose": true,
+      "alters": [
+        "encoding",
+        "token_identity"
+      ],
+      "note": "compiled from hot index; not in BATTERY"
+    },
+    {
+      "name": "duphead_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version": "3.24",
+      "can_compose": true,
+      "alters": [
+        "encoding",
+        "token_identity"
+      ],
+      "note": "compiled from hot index; not in BATTERY"
+    }
+  ]
+}

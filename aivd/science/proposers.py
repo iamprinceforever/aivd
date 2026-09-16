@@ -8,14 +8,17 @@ from aivd.science.designer import ScienceDesigner
 
 
 class ScienceProposer:
-    def __init__(self, *, seed: int = 0, max_new: int = 16):
+    def __init__(self, *, seed: int = 0, max_new: int = 16, mode: str = "off"):
         self.seed = int(seed)
         self.max_new = int(max_new)
+        self.mode = str(mode or "off")
         self.designer: ScienceDesigner | None = None
         self.baseline: Any = None
 
     def bind(self, seed_prompt: str, baseline: Any) -> None:
-        self.designer = ScienceDesigner(seed_prompt=seed_prompt, seed=self.seed, max_new=self.max_new)
+        self.designer = ScienceDesigner(
+            seed_prompt=seed_prompt, seed=self.seed, max_new=self.max_new, mode=self.mode,
+        )
         self.baseline = baseline
         self.designer.tested.add(seed_prompt)
 

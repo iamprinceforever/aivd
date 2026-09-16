@@ -1,4 +1,4 @@
-"""Health check for the 3.23 science layer."""
+"""Health check for the 3.24 science layer."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -18,13 +18,11 @@ def health_check(root: Path | None = None) -> dict[str, Any]:
         "no_closed_attack_taxonomy": True,
         "invents_at_runtime": True,
         "does_not_stop_on_collapse": True,
-        "single_charge_per_experiment": True,
-        "live_priority_untested_methods": True,
-        "collapse_does_not_rewalk_failed_singles": True,
-        "leftover_aware_gates": True,
+        "intra_token_invention": True,
+        "invents_only_after_slot_residual": True,
         "consolidation_note": (
-            "3.23: collapse restore still uses the live prompt, but untested "
-            "methods stay first. Gates scale to leftover so a found secret can "
-            "verify under 32. Default off ≈ 3.19."
+            "3.24: when a token-slot residual is unexplained, compile "
+            "identity-preserving intra-token mutations from that index. "
+            "The 3.23 wrap/omit/insert grammar stays. Default off ≈ 3.19."
         ),
     }

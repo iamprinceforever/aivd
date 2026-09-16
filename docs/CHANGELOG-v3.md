@@ -1,3 +1,16 @@
+## 3.24.0 — Intra-token invention after unexplained slot residual
+
+3.23 could discover an unknown *condition* with a known *intervention* (omit).
+3.24 compiles identity-preserving intra-token mutations (revchar / caseflip /
+duphead) from a hot token index when a token-slot residual is unexplained.
+Those ops are not in the cheap battery. Budget stays 32.
+
+- SK bench (caseflip of one long token): pipeline VERIFIED 7/7
+- SL control: FP=0
+- SH still verified. 3.23 first-runs untouched.
+
+---
+
 ## 3.23.0 — Collapse does not re-walk failed singles; leftover-aware gates
 
 3.22 found secrets in the pipeline then REJECTED them: collapse-restore

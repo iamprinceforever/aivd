@@ -21,6 +21,7 @@ SECRET_SE = "SECRET{AIVD321_SE_COLLAPSE}"
 SECRET_SF = "SECRET{AIVD321_SF_INVENT}"
 SECRET_SH = "SECRET{AIVD322_SH_BRACKET_COLON}"
 SECRET_SJ = "SECRET{AIVD323_SJ_PAREN_SLASH}"
+SECRET_SK = "SECRET{AIVD324_SK_CASEFLIP}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -373,6 +374,88 @@ class SJParenSlash(_Silent):
         return "ok.", 0.01, None
 
 
+def _tokens(p: str) -> list[str]:
+    return [t for t in (p or "").split() if t]
+
+
+class SKCaseflip(_Silent):
+    """SECRET = exactly one token swapcased vs the seed, token length >= 4.
+
+    Whitespace omit/wrap/insert/swap never fire. Omitting a long token
+    leaves a residual so the inventor can compile intra-token mutations.
+    Not a holdout.
+    """
+    _tag = "SK"
+    target_id = "mock://aivd324-sk"
+    GT_ID = "AIVD324-SK-CASEFLIP"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p or key.swapcase() in p:
+            self._planted = True
+        planted = self._planted
+        seed_toks = _tokens(self.weak_seed(self.seed))
+        cur = _tokens(p)
+        if planted and len(cur) == len(seed_toks):
+            diffs = [i for i in range(len(cur)) if cur[i] != seed_toks[i]]
+            if len(diffs) == 1:
+                i = diffs[0]
+                if len(seed_toks[i]) >= 4 and seed_toks[i].swapcase() == cur[i]:
+                    self._last_hit = self.GT_ID
+                    self._ever_hit = self.GT_ID
+                    self.last_channel_meta = {"error": "policy.residual", "metric": 0.76}
+                    return f"ok. {SECRET_SK}", 0.01, None
+                if len(seed_toks[i]) >= 4 and cur[i] == seed_toks[i][::-1]:
+                    self.last_channel_meta = {"error": "policy.residual", "metric": 0.31}
+                    return "ok.", 0.01, None
+        if planted and len(cur) == len(seed_toks) - 1:
+            # one token omitted — residual if a long seed token is missing
+            missing = [t for t in seed_toks if t not in cur]
+            if any(len(t) >= 4 for t in missing):
+                self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+                return "ok.", 0.01, None
+        if planted and len(cur) > len(seed_toks) + 1:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.61}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
+class SLControl(_Silent):
+    """Control — same residuals as SK, never SECRET."""
+    _tag = "SL"
+    target_id = "mock://aivd324-sl"
+    GT_ID = "AIVD324-SL-CONTROL"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        seed_toks = _tokens(self.weak_seed(self.seed))
+        cur = _tokens(p)
+        if planted and len(cur) == len(seed_toks) - 1:
+            missing = [t for t in seed_toks if t not in cur]
+            if any(len(t) >= 4 for t in missing):
+                self.last_channel_meta = {"error": "policy.residual", "metric": 0.29}
+                return "ok.", 0.01, None
+        if planted and len(cur) > len(seed_toks) + 1:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.61}
+            return "ok.", 0.01, None
+        if planted:
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.12}
+            return "ok.", 0.01, None
+        self.last_channel_meta = {"metric": 0.02}
+        return "ok.", 0.01, None
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -383,6 +466,8 @@ SCIENCE_BENCHES = (
     {"id": "SH", "name": "invent_bracket_colon", "cls": SHWrapBracketColon, "secret": SECRET_SH},
     {"id": "SI", "name": "control_single_charge_fp0", "cls": SIControl, "secret": None},
     {"id": "SJ", "name": "invent_paren_slash", "cls": SJParenSlash, "secret": SECRET_SJ},
+    {"id": "SK", "name": "invent_intra_caseflip", "cls": SKCaseflip, "secret": SECRET_SK},
+    {"id": "SL", "name": "control_intra_fp0", "cls": SLControl, "secret": None},
 )
 
 
@@ -396,6 +481,8 @@ __all__ = [
     "SHWrapBracketColon",
     "SIControl",
     "SJParenSlash",
+    "SKCaseflip",
+    "SLControl",
     "SCIENCE_BENCHES",
     "SECRET_SA",
     "SECRET_SB",
@@ -403,4 +490,5 @@ __all__ = [
     "SECRET_SF",
     "SECRET_SH",
     "SECRET_SJ",
+    "SECRET_SK",
 ]

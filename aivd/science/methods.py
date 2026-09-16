@@ -3,26 +3,25 @@
 A method is an experimental strategy the loop did not start with:
   - promote a known primitive that was not in the cheap battery
   - parameterize omit / wrap / insert / swap from the live prompt
+  - 3.24: identity-preserving intra-token mutations compiled from a hot
+    token index (the token's own characters). Not a holdout catalog.
 
-Not a vulnerability catalog. Not holdout-specific. Invented only from
-the current prompt's structure and from evidence that the current method
-collapsed or exhausted.
+Not a vulnerability catalog. Not holdout-specific.
 """
 from __future__ import annotations
 
-from typing import Callable
+from typing import Callable, Iterable
 
 from aivd.science.operators import (
     UNUSED_PRIMITIVES,
     insert_token,
+    join_prompt,
     omit_at,
     split_prompt,
     swap_at,
     wrap_pair,
 )
 
-# Generic wrap pairs a scientist tries after double-quotes fail.
-# Not an exploit list — delimiter variants of the same wrap method.
 WRAP_PAIRS: tuple[tuple[str, str, str], ...] = (
     ("wrap_single", "'", "'"),
     ("wrap_backtick", "`", "`"),
@@ -30,7 +29,6 @@ WRAP_PAIRS: tuple[tuple[str, str, str], ...] = (
     ("wrap_bracket", "[", "]"),
 )
 
-# Generic punctuation separators. Pipe is already `insert_sep` in the battery.
 SEPARATORS: tuple[tuple[str, str], ...] = (
     ("insert_comma", ","),
     ("insert_semi", ";"),
@@ -39,7 +37,26 @@ SEPARATORS: tuple[tuple[str, str], ...] = (
     ("insert_colon", ":"),
 )
 
-INVENT_CAP = 24
+# Intra-token maps compiled from the token string itself.
+# Not registered until a token *index* is hot. Not in BATTERY.
+INTRA_KINDS: tuple[tuple[str, Callable[[str], str]], ...] = (
+    ("revchar", lambda t: t[::-1]),
+    ("caseflip", lambda t: t.swapcase()),
+    ("duphead", lambda t: (t[:1] + t) if t else t),
+)
+
+INVENT_CAP = 48
+
+
+def mutate_token(prompt: str, index: int, fn: Callable[[str], str]) -> str:
+    toks = split_prompt(prompt)
+    if index < 0 or index >= len(toks):
+        return prompt
+    nxt = list(toks)
+    nxt[index] = fn(toks[index])
+    if nxt[index] == toks[index]:
+        return prompt
+    return join_prompt(nxt)
 
 
 class MethodInventor:
@@ -77,7 +94,6 @@ class MethodInventor:
         return True
 
     def promote_unused(self) -> list[str]:
-        """Battery was the cheap round. Promote the rest of the grammar."""
         new: list[str] = []
         for name in UNUSED_PRIMITIVES:
             if name in self.ops and name not in self.promoted:
@@ -88,8 +104,24 @@ class MethodInventor:
                 new.append(name)
         return new
 
+    def invent_intra(self, prompt: str, indices: Iterable[int]) -> list[str]:
+        """Compile intra-token mutations for hot indices. Identity-preserving."""
+        new: list[str] = []
+        n = len(split_prompt(prompt))
+        for i in indices:
+            if i < 0 or i >= n:
+                continue
+            for kind, fn in INTRA_KINDS:
+                name = f"{kind}_i{i}"
+                if self._register(
+                    name,
+                    lambda p, k=i, f=fn: mutate_token(p, k, f),
+                    why=f"invented intra-token {kind} at index {i}; token-slot residual unexplained",
+                ):
+                    new.append(name)
+        return new
+
     def invent_from_prompt(self, prompt: str) -> list[str]:
-        """Invent parameterized operators from the live prompt's structure."""
         new: list[str] = []
         toks = split_prompt(prompt)
         n = len(toks)
@@ -125,10 +157,18 @@ class MethodInventor:
                 new.append(name)
         return new
 
-    def invent(self, prompt: str) -> list[str]:
+    def invent(self, prompt: str, *, hot_indices: Iterable[int] | None = None) -> list[str]:
         promoted = self.promote_unused()
+        intra = self.invent_intra(prompt, list(hot_indices or []))
         parameterized = self.invent_from_prompt(prompt)
-        return promoted + parameterized
+        return promoted + intra + parameterized
 
 
-__all__ = ["MethodInventor", "WRAP_PAIRS", "SEPARATORS", "INVENT_CAP"]
+__all__ = [
+    "MethodInventor",
+    "WRAP_PAIRS",
+    "SEPARATORS",
+    "INTRA_KINDS",
+    "INVENT_CAP",
+    "mutate_token",
+]

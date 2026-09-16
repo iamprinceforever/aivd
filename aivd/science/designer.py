@@ -12,16 +12,39 @@ from aivd.epistemic.types import ExperimentProposal
 from aivd.science.contrast import Contrast, contrast
 from aivd.science.hypotheses import HypothesisBoard
 from aivd.science.methods import MethodInventor
-from aivd.science.operators import BATTERY, apply_operator, apply_sequence
+from aivd.science.operators import BATTERY, apply_operator, apply_sequence, split_prompt
 
 
 class ScienceDesigner:
     """Hypothesis → experiment. Residual tokens are not the search."""
 
-    def __init__(self, *, seed_prompt: str, seed: int = 0, max_new: int = 16):
+    def __init__(self, *, seed_prompt: str, seed: int = 0, max_new: int = 16, mode: str = "off"):
         self.seed_prompt = seed_prompt
         self.seed = int(seed)
         self.max_new = int(max_new)
+        self.mode = str(mode or "off")
+        self.allow_intra = "3_24" in self.mode
+        self.board = HypothesisBoard(seed=seed)
+        self.tested: set[str] = set()
+        self.seq = 0
+        self.supported_ops: list[str] = []
+        self.trap_ops: list[str] = []
+        self.last_prompt = seed_prompt
+        self.last_ops: list[str] = []
+        self.history: list[dict[str, Any]] = []
+        self.content_tokens: list[str] = []
+        self.recent_tokens: list[str] = []
+        self.live_prompt = seed_prompt
+        self.live_ops: list[str] = []
+        self.live_metric = 0.0
+        self.live_error = ""
+        self.collapsed = False
+        self.tried_on_live: set[str] = set()
+        self.inventor = MethodInventor()
+        self.methods_log: list[dict[str, str]] = []
+        self.hot_indices: list[int] = []
+        self.identity_prompt = seed_prompt
+        self.representation_gap = False
         self.board = HypothesisBoard(seed=seed)
         self.tested: set[str] = set()
         self.seq = 0
@@ -61,20 +84,52 @@ class ScienceDesigner:
 
     def invent(self) -> list[str]:
         """Invent methods from the live prompt. Called when current method dies."""
-        base = self.live_prompt or self.seed_prompt
-        new = self.inventor.invent(base)
+        base = self.identity_prompt or self.live_prompt or self.seed_prompt
+        hot = list(self.hot_indices) if self.allow_intra else []
+        new = self.inventor.invent(base, hot_indices=hot)
         for name in new:
             if f"op:{name}" not in self.board.nodes:
+                intra = name.startswith(("revchar_", "caseflip_", "duphead_"))
                 self.board.add(
                     f"op:{name}",
                     f"invented method {name} may gate security-relevant behavior",
                     [name],
-                    prior=0.28,
-                    why="runtime invention after collapse or cheap-battery exhaustion",
+                    prior=0.42 if intra else 0.28,
+                    why=(
+                        "intra-token identity mutation after token-slot residual"
+                        if intra
+                        else "runtime invention after collapse or cheap-battery exhaustion"
+                    ),
                 )
         if new:
             self.methods_log.append({"event": "invent", "ops": ",".join(new)})
+        if self.allow_intra and self.hot_indices and not any(
+            n.startswith(("revchar_", "caseflip_", "duphead_")) for n in self.inventor.invented
+        ):
+            self.representation_gap = True
+            self.methods_log.append({
+                "event": "representation_gap",
+                "why": "token-slot residual; identity-preserving intra-token not yet compiled",
+            })
         return new
+
+    def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
+        n = len(split_prompt(self.identity_prompt or self.seed_prompt))
+        for op in ops:
+            idx: int | None = None
+            if op == "omit_first":
+                idx = 0
+            elif op == "omit_second":
+                idx = 1
+            elif op == "omit_last":
+                idx = max(0, n - 1)
+            elif op.startswith("omit_i") and op[6:].isdigit():
+                idx = int(op[6:])
+            elif op.startswith("swap_i") and op[6:].isdigit():
+                idx = int(op[6:])
+            if idx is not None and idx not in self.hot_indices:
+                self.hot_indices.append(idx)
+
 
     def observe(self, prompt: str, obs: Any, *, baseline: Any | None, ops: list[str] | None = None) -> Contrast:
         from aivd.science.contrast import _text
@@ -170,6 +225,17 @@ class ScienceDesigner:
             or (c.security_shaped and not c.greedy_metric)
             or (c.metric_delta >= 0.08 and c.error and not c.greedy_metric)
         )
+        if informative and not c.secret and used_ops:
+            self._mark_hot_from_ops(used_ops, prompt)
+            if self.allow_intra:
+                self.representation_gap = True
+                self.methods_log.append({
+                    "event": "representation_gap",
+                    "ops": "+".join(used_ops),
+                    "why": "token-level residual without secret; current grammar may not preserve identity",
+                })
+                # Compile intra-token methods against the identity prompt.
+                self.invent()
         prev = self.live_metric
         upgraded = False
         if c.greedy_metric:
@@ -278,6 +344,34 @@ class ScienceDesigner:
                 self.invent()
         elif self.collapsed and remaining_steps <= 4 and len(self.inventor.invented) < 8:
             self.invent()
+
+        # -1. Identity-preserving intra-token mutations on the original
+        #     utterance, never on a compacted live prompt.
+        if self.allow_intra:
+            intra_ops = [
+                n for n in self.inventor.invented
+                if n.startswith(("revchar_", "caseflip_", "duphead_"))
+            ]
+            ident = self.identity_prompt or self.seed_prompt
+            for other in intra_ops:
+                if other in self.trap_ops:
+                    continue
+                nxt = self._apply(ident, other)
+                if not nxt or nxt == ident:
+                    continue
+                add(self._prop(
+                    nxt,
+                    [other],
+                    disc=0.95,
+                    eig=0.34,
+                    sec=0.6,
+                    unlock=True,
+                    remaining=1,
+                    evidence=max(evidence_strength, 0.72),
+                    why=f"identity-preserving intra-token probe {other}",
+                ))
+            if intra_ops and out:
+                return out[: self.max_new]
 
         # 0. Collapse restore / live-state compose.
         #    Remaining operators on the LIVE prompt, never on a collapsed last_prompt.

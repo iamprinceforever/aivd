@@ -89,7 +89,7 @@ class ScienceController:
                 "report": VulnerabilityReport(notes="no_budget_for_baseline").as_dict(),
             }
         baseline = observe_fn(seed_prompt)
-        sci = ScienceProposer(seed=self.seed, max_new=self.max_candidates)
+        sci = ScienceProposer(seed=self.seed, max_new=self.max_candidates, mode=self.mode)
         sci.bind(seed_prompt, baseline)
         sci.observe(seed_prompt, baseline, ops=[])
         ops_of: dict[str, list[str]] = {}

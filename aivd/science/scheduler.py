@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 SCIENCE_MODES = frozenset({
-    "science", "science_full", "science_only", "full_3_20", "full_3_21", "full_3_22", "full_3_23",
+    "science", "science_full", "science_only", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24",
 })
 
 
