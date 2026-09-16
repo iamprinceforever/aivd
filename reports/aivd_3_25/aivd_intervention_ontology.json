@@ -1,0 +1,232 @@
+{
+  "version": "3.24.0",
+  "families": [
+    "insert-separator",
+    "intra-token",
+    "parameterized-omit",
+    "parameterized-swap",
+    "whitespace-token",
+    "wrap-pair"
+  ],
+  "size": 26,
+  "cannot_express": [
+    "newline_utterance_split",
+    "message_role_prefix",
+    "semantic_paraphrase",
+    "nonadjacent_reference_binding",
+    "json_record_mode",
+    "instruction_provenance",
+    "homoglyph",
+    "conversation_branch_identity"
+  ],
+  "interventions": [
+    {
+      "operation": "omit_second",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "omit_first",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "wrap_quotes",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "swap_first_two",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "swap_last_two",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "repeat_last",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_sep",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "suffix_q",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": true,
+      "unused_primitive": false,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "duplicate",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": false,
+      "unused_primitive": true,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "reverse_content",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": false,
+      "unused_primitive": true,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "omit_last",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": false,
+      "unused_primitive": true,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "prefix_please",
+      "family": "whitespace-token",
+      "available_pre_run": true,
+      "in_battery": false,
+      "unused_primitive": true,
+      "generated_dynamically": false,
+      "can_compose": true
+    },
+    {
+      "operation": "wrap_single",
+      "family": "wrap-pair",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "wrap_backtick",
+      "family": "wrap-pair",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "wrap_paren",
+      "family": "wrap-pair",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "wrap_bracket",
+      "family": "wrap-pair",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_comma",
+      "family": "insert-separator",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_semi",
+      "family": "insert-separator",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_slash",
+      "family": "insert-separator",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_dash",
+      "family": "insert-separator",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "insert_colon",
+      "family": "insert-separator",
+      "available_pre_run": false,
+      "generated_dynamically": true,
+      "can_compose": true
+    },
+    {
+      "operation": "omit_i{k}",
+      "family": "parameterized-omit",
+      "generated_dynamically": true,
+      "available_pre_run": false
+    },
+    {
+      "operation": "swap_i{k}",
+      "family": "parameterized-swap",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "adjacent_only": true
+    },
+    {
+      "operation": "revchar_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version_introduced": "3.24"
+    },
+    {
+      "operation": "caseflip_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version_introduced": "3.24"
+    },
+    {
+      "operation": "duphead_i{k}",
+      "family": "intra-token",
+      "generated_dynamically": true,
+      "available_pre_run": false,
+      "available_only_after_slot_residual": true,
+      "version_introduced": "3.24"
+    }
+  ]
+}

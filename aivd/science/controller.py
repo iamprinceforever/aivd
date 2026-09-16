@@ -210,6 +210,11 @@ class ScienceController:
             "collapsed": bool(designer.collapsed) if designer else False,
             "live_prompt": designer.live_prompt if designer else seed_prompt,
             "methods_log": list(designer.methods_log) if designer else [],
+            "ontology_insufficient": bool(getattr(designer, "ontology_insufficient", False)) if designer else False,
+            "abstract_dimensions": [
+                (d.__dict__ if hasattr(d, "__dict__") else d)
+                for d in (getattr(designer, "abstract_dimensions", None) or [])
+            ] if designer else [],
             "success_levels": {
                 "levels": {
                     "1": {"name": "represent_previously_unrepresentable", "pass": True},

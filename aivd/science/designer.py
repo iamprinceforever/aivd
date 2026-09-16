@@ -12,6 +12,7 @@ from aivd.epistemic.types import ExperimentProposal
 from aivd.science.contrast import Contrast, contrast
 from aivd.science.hypotheses import HypothesisBoard
 from aivd.science.methods import MethodInventor
+from aivd.science.gap import compile_from_harvest, gap_hypothesis, harvest_unseen_chars
 from aivd.science.operators import BATTERY, apply_operator, apply_sequence, split_prompt
 
 
@@ -23,7 +24,12 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = "3_24" in self.mode
+        self.allow_intra = "3_24" in self.mode or "3_25" in self.mode
+        self.allow_gap = "3_25" in self.mode
+        self.ontology_insufficient = False
+        self.harvested_texts: list[str] = []
+        self.abstract_dimensions: list[Any] = []
+        self.gap_compiled = False
         self.board = HypothesisBoard(seed=seed)
         self.tested: set[str] = set()
         self.seq = 0
@@ -113,6 +119,45 @@ class ScienceDesigner:
             })
         return new
 
+    def _maybe_declare_gap(self) -> None:
+        if not self.allow_gap or self.gap_compiled:
+            return
+        intra = [
+            n for n in self.inventor.invented
+            if n.startswith(("revchar_", "caseflip_", "duphead_"))
+        ]
+        if not intra:
+            return
+        pending = [
+            n for n in intra
+            if int(getattr(self.board.nodes.get(f"op:{n}"), "tests", 0) or 0) == 0
+        ]
+        if pending:
+            return
+        chars = harvest_unseen_chars(self.harvested_texts)
+        self.ontology_insufficient = True
+        hyp = gap_hypothesis(hot_indices=self.hot_indices, harvested=chars)
+        self.abstract_dimensions.append(hyp)
+        self.methods_log.append({
+            "event": "KNOWN_INTERVENTIONS_INSUFFICIENT",
+            "harvested": ",".join(repr(c) for c in chars),
+        })
+        ident = self.identity_prompt or self.seed_prompt
+        new = compile_from_harvest(self.inventor._register, prompt=ident, chars=chars)
+        for name in new:
+            if f"op:{name}" not in self.board.nodes:
+                self.board.add(
+                    f"op:{name}",
+                    f"harvested rejoin {name} may discriminate remaining hypotheses",
+                    [name],
+                    prior=0.38,
+                    why="observation-driven compiler after ontology gap",
+                )
+        if new:
+            self.methods_log.append({"event": "gap_compile", "ops": ",".join(new)})
+        self.gap_compiled = True
+        self.representation_gap = True
+
     def _mark_hot_from_ops(self, ops: list[str], prompt: str) -> None:
         n = len(split_prompt(self.identity_prompt or self.seed_prompt))
         for op in ops:
@@ -141,6 +186,7 @@ class ScienceDesigner:
         self.last_prompt = prompt
         self.last_ops = used_ops
         text = _text(obs)
+        self.harvested_texts.append(text)
         labels = {m.lower() for m in re.findall(r"\b([A-Za-z]{3,24})\s*:", text)}
         stop = {
             "the", "and", "for", "with", "from", "this", "that", "then",
@@ -236,6 +282,8 @@ class ScienceDesigner:
                 })
                 # Compile intra-token methods against the identity prompt.
                 self.invent()
+            if self.allow_gap:
+                self._maybe_declare_gap()
         prev = self.live_metric
         upgraded = False
         if c.greedy_metric:
@@ -371,6 +419,31 @@ class ScienceDesigner:
                     why=f"identity-preserving intra-token probe {other}",
                 ))
             if intra_ops and out:
+                return out[: self.max_new]
+
+        if self.allow_gap:
+            self._maybe_declare_gap()
+            ident = self.identity_prompt or self.seed_prompt
+            for other in list(self.inventor.invented):
+                if not other.startswith("rejoin_"):
+                    continue
+                if other in self.trap_ops:
+                    continue
+                nxt = self._apply(ident, other)
+                if not nxt or nxt == ident:
+                    continue
+                add(self._prop(
+                    nxt,
+                    [other],
+                    disc=0.96,
+                    eig=0.32,
+                    sec=0.55,
+                    unlock=True,
+                    remaining=1,
+                    evidence=max(evidence_strength, 0.7),
+                    why=f"ontology-gap compiled intervention {other}",
+                ))
+            if any(p.meta and "ontology-gap" in str((p.meta or {}).get("why")) for p in out):
                 return out[: self.max_new]
 
         # 0. Collapse restore / live-state compose.

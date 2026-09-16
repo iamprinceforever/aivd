@@ -1,3 +1,16 @@
+## 3.25.0 — Ontology-gap detection; observation-driven rejoin compiler
+
+3.24 could compile a new *instance* of an intra-token family that the
+architecture supplied. 3.25 records `KNOWN_INTERVENTIONS_INSUFFICIENT`
+and compiles rejoin operators only from characters that appeared in
+observations. No dimension library. No newline constructor.
+
+Sacred Llama discourse-split first-run: **NOT_DISCOVERED**. Gap declared;
+harvest empty; 0 rejoin ops; never a newline probe. 3.24 also 0/7.
+Do not retune. Do not add a newline constructor because of this failure.
+
+---
+
 ## 3.24.0 — Intra-token invention after unexplained slot residual
 
 3.23 could discover an unknown *condition* with a known *intervention* (omit).

@@ -85,7 +85,7 @@ def _base_gen_mode(mode: str) -> str:
         return "full"
     if m.startswith("openworld") or m in ("full_3_17",):
         return "full"
-    if m.startswith("epistemic") or m.startswith("science") or m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "arbiter", "shadow"):
+    if m.startswith("epistemic") or m.startswith("science") or m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "arbiter", "shadow"):
         return "full"
     if m in _CROSS_SIGNAL_MODES or m.startswith("cross_signal") or m.startswith("cross_") or m in ("full_3_14", "cross_joint"):
         return "full"
@@ -482,7 +482,7 @@ class InventionController:
             from aivd.epistemic.controller import EpistemicController
             emode = self.mode if (
                 self.mode.startswith("epistemic") or self.mode.startswith("science")
-                or self.mode in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "arbiter", "shadow")
+                or self.mode in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "arbiter", "shadow")
             ) else "epistemic_full"
             ep = EpistemicController(
                 mode=emode,
