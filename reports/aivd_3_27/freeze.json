@@ -3,5 +3,6 @@
   "tests_at_freeze_excluding_llama_oracles": 711,
   "no_llama_holdout_yet": true,
   "budget": 32,
-  "note": "Epistemic lease freeze. Llama equals-field and quote-tail targets created after this SHA."
+  "note": "Epistemic lease freeze. Llama equals-field and quote-tail targets created after this SHA.",
+  "freeze_commit": "f831632f5145d6e1067b178c1ad9e20f2842589e"
 }
