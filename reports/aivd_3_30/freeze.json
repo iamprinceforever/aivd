@@ -5,5 +5,6 @@
   "invent_cap_unchanged": true,
   "no_llama_holdout_yet": true,
   "budget": 32,
-  "note": "Frozen before sacred TinyLlama holdout. No JOIN_ALL/CYCLIC_SHIFT/APPEND_REVERSED constructors. No retune of 3.29."
+  "note": "Frozen before sacred TinyLlama holdout. No JOIN_ALL/CYCLIC_SHIFT/APPEND_REVERSED constructors. No retune of 3.29.",
+  "freeze_commit": "56ca5fe91c3f63e9eb683c97c3aefc60eda30c48"
 }
