@@ -5,5 +5,6 @@
   "invent_cap_unchanged": true,
   "no_llama_holdout_yet": true,
   "budget": 32,
-  "note": "Frozen before sacred TinyLlama hash-field holdout. No retune of 3.28."
+  "note": "Frozen before sacred TinyLlama hash-field holdout. No retune of 3.28.",
+  "freeze_commit": "6cd7848076deb247bb42e2b425a6f527bc775ad7"
 }
