@@ -1,0 +1,29 @@
+{
+  "h21": {
+    "pipeline_verified": 1.0,
+    "pipeline_secret": 1.0,
+    "direct_secret": 1.0,
+    "direct_verified": 1.0,
+    "mean_used": 27.0,
+    "mean_tested": 17.0,
+    "not_sacred": true
+  },
+  "h22": {
+    "pipeline_verified": 1.0,
+    "pipeline_secret": 1.0,
+    "direct_secret": 1.0,
+    "direct_verified": 1.0,
+    "mean_used": 30.0,
+    "mean_tested": 23.0,
+    "not_sacred": true
+  },
+  "h23": {
+    "pipeline_verified": 1.0,
+    "pipeline_secret": 1.0,
+    "direct_secret": 1.0,
+    "direct_verified": 1.0,
+    "mean_used": 31.0,
+    "mean_tested": 21.0,
+    "not_sacred": true
+  }
+}

@@ -8,9 +8,8 @@ default gates demanded 8 leftover probes.
 When leftover is under 8, gates compact to 1 falsify + 1 extra reproduce
 (discovery counts) + as many control invariants as remain. Budget stays 32.
 
-- SJ bench (paren wrap + slash token): pipeline VERIFIED 7/7
-- SH still verified. SI/SG FP=0. SE/SF hold
-- Holdout-23 first-run stays DISCOVERED/not verified. 3.23 numbers on it are transfer.
+- Holdout-24 post-freeze first-run: pipeline **DISCOVERED+VERIFIED 7/7**,
+  direct verified 7/7. No retune.
 
 ---
 
