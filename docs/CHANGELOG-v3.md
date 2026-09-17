@@ -26,7 +26,16 @@ unbounded invention.
 - leftover<3 still skips new atoms, growth, and compose
 - nocompose / nogrow / greedy / neverinvent ablations: EX8 fails
 - nolangext: CAT-self skipped, sequential compose still fires EX8
-- Llama even-then-last / stride-3 first-run pending post-freeze
+- Llama even-then-last / stride-3 first-run (post-freeze `82d92ba`):
+  S pipeline **DISCOVERED+VERIFIED** 7/7 via compositional program
+  `cmp_atom_mapt_slice_0_2_tok_atom_mapt_at_-1`
+  (`NEW_COMPOSITIONAL_CAPABILITY`) fire @30 / used 32,
+  leftover=2 invariant reuse (`reused=1`). 3.36 pipeline 0/7 (CAT-self
+  first, leftover-skip). S direct **7/7** @30 used 32. U pipeline and
+  direct 0/7 (compose miss then `ATOM_INVENTION_SKIPPED_BY_PLANNING`;
+  stride-3 is 8th, same class as even). Control 0/7. Cap 48. Language
+  L0→L4. Compact micro-language, not unbounded invention. Do not
+  retune U. Do not raise 32.
 
 ---
 

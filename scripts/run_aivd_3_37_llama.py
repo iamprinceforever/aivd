@@ -31,7 +31,7 @@ SEEDS = [0, 1, 2, 3, 4, 7, 11]
 PRIMARY = 32
 CASES = (("S", LlamaEvenLastTarget), ("U", LlamaStride3Target))
 IMPLEMENTATION_FREEZE = "82d92ba8a0251b58053305a016984a60deffcf3b"
-FREEZE_PIN = "PENDING"
+FREEZE_PIN = "9d113c34966662031383b0d66b43c9bda35069ac"
 
 
 def _pipe(target, seed, mode):
