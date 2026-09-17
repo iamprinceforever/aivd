@@ -11,5 +11,5 @@
   "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
   "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
   "note": "Frozen before sacred TinyLlama holdout. Deep recursive language growth around frozen 3.36. Sequential compose of two most recently promoted distinct-class atoms after untried classes exhausted. leftover<3 invent/grow/compose skip not retuned. Even-then-last is not in propose_atoms. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33/3.34/3.35/3.36 S/U. Compact micro-language, not unbounded invention.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "82d92ba8a0251b58053305a016984a60deffcf3b"
 }

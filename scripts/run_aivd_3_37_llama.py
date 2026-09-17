@@ -30,7 +30,7 @@ OUT = Path("reports/aivd_3_37_llama")
 SEEDS = [0, 1, 2, 3, 4, 7, 11]
 PRIMARY = 32
 CASES = (("S", LlamaEvenLastTarget), ("U", LlamaStride3Target))
-IMPLEMENTATION_FREEZE = "PENDING"
+IMPLEMENTATION_FREEZE = "82d92ba8a0251b58053305a016984a60deffcf3b"
 FREEZE_PIN = "PENDING"
 
 
