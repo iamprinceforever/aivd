@@ -32,6 +32,18 @@ to propose_atoms. Compact micro-language, not unbounded invention.
 - nofirewall: CAT-self of original even still fires FX8 (no Level 14)
 - Level 14 complete VERIFIED on TinyLlama is the leftover wall
   (REDISCOVERY_FLOOR=5, leftover=3 after last-only)
+- Llama doubled-even / reverse-each first-run (post-freeze `34bc665`):
+  S pipeline **DISCOVERED+VERIFIED** 7/7 via grown program
+  `cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok`
+  (`NEW_PROGRAM`) fire @30 / used 32,
+  leftover=2 invariant reuse (`reused=1`). Firewall skipped
+  (`REDISCOVERY_BUDGET_FAILURE`; leftover=3 < floor=5). 3.37 pipeline
+  0/7 (compose-first, leftover-skip). S direct **7/7** @30 used 32.
+  U pipeline and direct 0/7 (CAT-self even miss then
+  `ATOM_INVENTION_SKIPPED_BY_PLANNING`; reverse-each is not in the
+  8-set). Control 0/7. Cap 48. Language L0→L4. Compact
+  micro-language, not unbounded invention. Do not retune U. Do not
+  raise 32.
 
 ---
 
