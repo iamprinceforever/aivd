@@ -64,6 +64,7 @@ class InventedAtom:
     semantic_class: str = ""
     provenance: tuple[str, ...] = ()
     lease_state: str = "COMMITTED"
+    proposal_index: int = 0
 
     def key(self) -> str:
         return self.body.key()

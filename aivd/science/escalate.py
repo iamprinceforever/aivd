@@ -119,6 +119,7 @@ class EscalationPlanner:
         portfolio: bool = True,
         always_late: bool = False,
         always_early: bool = False,
+        dynamic: bool = False,
     ) -> None:
         self.reserve = bool(reserve)
         self.plan = bool(plan)
@@ -128,6 +129,7 @@ class EscalationPlanner:
         self.portfolio = bool(portfolio)
         self.always_late = bool(always_late)
         self.always_early = bool(always_early)
+        self.dynamic = bool(dynamic)
         self.layers: dict[str, LayerValue] = {n: LayerValue(name=n) for n in LAYERS}
         self.question = QuestionValue()
         self.events: list[dict[str, str]] = []
@@ -170,6 +172,13 @@ class EscalationPlanner:
             floor = 0
         else:
             floor = invent + repro + verify
+            if self.dynamic:
+                from aivd.science.lifecycle import dynamic_floor
+                floor = dynamic_floor(
+                    base=floor,
+                    atom_rejected=self.layers["atom"].rejected,
+                    dynamic=True,
+                )
         # Dynamic bump: if two synthesis layers already failed, another
         # invention try is likely; keep the same floor (one complete chain).
         available = max(0, remaining - floor) if self.reserve else remaining

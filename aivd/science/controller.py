@@ -235,6 +235,7 @@ class ScienceController:
             "atom_synthesis": (designer.atom_synth.telemetry() if designer and getattr(designer, "atom_synth", None) else {}),
             "language": (designer.language.describe() if designer and getattr(designer, "language", None) else {}),
             "escalation": (designer.planner.telemetry() if designer and getattr(designer, "planner", None) else {}),
+            "evidence_ledger": (designer.ledger.as_dict() if designer and getattr(designer, "ledger", None) else {}),
             "failure_class": getattr(designer, "failure_class", None) if designer else None,
             "success_levels": {
                 "levels": {

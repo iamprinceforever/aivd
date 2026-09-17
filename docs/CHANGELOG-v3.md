@@ -1,3 +1,37 @@
+## 3.35.0 — End-to-end invention→verification efficiency
+
+3.34 can invent an atom before the budget is exhausted, then still
+fail pipeline verification because leftover=2 at the gates pays
+falsify+reproduce and starves the invariant. 3.35 keeps 3.34
+escalation as the frozen planner (dynamic=False, floor=3) and adds
+an evidence ledger, class-aware atom ranking, a capped dynamic
+floor, and compact leftover=2 invariant reuse of already-paid
+negatives. Independent falsify and reproduction still run.
+Discovery cannot substitute for reproduction. INVENT_CAP stays 48.
+Budget 32. Do not retune 3.34 leftover<3 invent skip. No
+target-specific operators. Compact micro-language, not unbounded
+invention.
+
+- EvidenceLedger: one experiment is one experiment. Search negatives
+  and controls may satisfy an invariant; a secret firing may not.
+- rank_atoms: untried semantic class outranks a class that already
+  failed. Frozen proposal order is the tie-break. greedy ablation
+  keeps original order.
+- dynamic_floor: expected extra atom tries capped at +2 (floor 5
+  when untried). 3.34 planner remains bit-identical (dynamic=False).
+- Compact leftover=2 gates: reuse already-paid smoke/ledger negative
+  as invariant. leftover=3 still pays a new invariant probe.
+- CX1 last-char-only (5th proposal, 3rd under class ranking) vs
+  3.34 leftover-skip of the same atom as 5th.
+- CX8 first+last is still glue-class (7th); leftover-skip is an
+  honest expensive-path outcome, not a retune target.
+- SX1/NP1/AX1/BX1 still 7/7 on 3.35 (not always-escalate).
+- leftover<3 still skips new atom invention (3.33/3.34 immutable).
+- Llama last-char-only / first+last first-run is post-freeze.
+
+---
+
+---
 ## 3.34.0 — Budget-aware adaptive escalation
 
 3.33 invents atoms after 3.32 is exhausted, then skips if leftover < 3.

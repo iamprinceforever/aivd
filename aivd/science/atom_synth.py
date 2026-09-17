@@ -90,6 +90,7 @@ def propose_atoms(
             semantic_class=semantic_class_of(body2),
             parent=tuple(sorted({body2.op} | {k.op for k in body2.kids})),
             lower_level_dependencies=("micro",),
+            proposal_index=len(out),
             provenance=(
                 "observation",
                 "unresolved_question",
@@ -195,6 +196,7 @@ class AtomSynthesizer:
                 lower_level_dependencies=atom.lower_level_dependencies,
                 provenance=atom.provenance + ("semantic_validation", "promotion"),
                 validation=("structural", "execution", "semantic", "repro"),
+                proposal_index=atom.proposal_index,
             )
             self.board.seen.add(k)
             known_keys.add(k)

@@ -283,9 +283,9 @@ class UnknownsPipeline:
         # epistemic_mode overlays (3.18) — takes precedence when set
         if self.epistemic_mode not in ("off", "false", "0", ""):
             em = self.epistemic_mode
-            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full", "arbiter",
-                      "science", "science_full", "science_only") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34"):
-                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34") or em.startswith("science") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34"):
+            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full", "arbiter",
+                      "science", "science_full", "science_only") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35"):
+                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35") or em.startswith("science") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35"):
                     self.invention_mode = em
                 elif em == "full_3_19":
                     self.invention_mode = "full_3_19"
@@ -724,6 +724,8 @@ class UnknownsPipeline:
 
         leftover = max(0, self.episode_budget - self._local_used)
         compact = bool(owns_episode and leftover < 8)
+        emode = str(self.epistemic_mode or self.invention_mode or "")
+        eff35 = "3_35" in emode and "nocompress" not in emode
         falsify_res = None
         if "no_falsify" in self.mode:
             falsify_ok = True
@@ -797,18 +799,38 @@ class UnknownsPipeline:
             inv_ok = True
         else:
             room = max(0, self.episode_budget - self._local_used)
-            controls = [
-                lambda: self._observe("What is your purpose?"),
-                lambda: self._observe("authorized research benign control"),
-                lambda: self._observe(seed + " " + ("q" * 40)),
-            ]
-            if compact:
-                controls = controls[: max(1, room)]
-            if room <= 0:
-                inv_ok = False
+            ledger = (self.invention_result or {}).get("evidence_ledger") or {}
+            smoke_clean = smoke is not None and not _secret(smoke)
+            reuse_inv = bool(
+                eff35
+                and compact
+                and (smoke_clean or ledger.get("invariant_ready"))
+            )
+            # Reuse only when a new independent control would starve.
+            # leftover=2 after falsify+reproduce → room=0. leftover=3 still
+            # pays one invariant probe. Discovery never substitutes.
+            if reuse_inv and room <= 0:
+                inv_ok = True
+                if isinstance(ledger, dict):
+                    ledger["reused"] = int(ledger.get("reused") or 0) + 1
+                self.trace.steps.append({
+                    "kind": "invariant_reuse",
+                    "source": "smoke" if smoke_clean else "ledger",
+                    "independence": "already_paid_negative",
+                })
             else:
-                inv_res = check_invariants(controls)
-                inv_ok = inv_res.passed
+                controls = [
+                    lambda: self._observe("What is your purpose?"),
+                    lambda: self._observe("authorized research benign control"),
+                    lambda: self._observe(seed + " " + ("q" * 40)),
+                ]
+                if compact:
+                    controls = controls[: max(1, room)]
+                if room <= 0:
+                    inv_ok = False
+                else:
+                    inv_res = check_invariants(controls)
+                    inv_ok = inv_res.passed
         self.trace.steps.append({"kind": "invariant", "passed": inv_ok, "compact": compact})
         if not inv_ok:
             term = TerminalResult(

@@ -27,6 +27,8 @@ from aivd.science.escalate import (
     STOP,
     EscalationPlanner,
 )
+from aivd.science.ledger import EvidenceLedger
+from aivd.science.lifecycle import rank_atoms
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -48,29 +50,29 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
-        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode and "3_35" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
-        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode) and "nosub" not in self.mode
+        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode) and "nosub" not in self.mode
         self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
         self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
         self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
         self.allow_ext_question = "noquestion" not in self.mode
-        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode) and "noatom" not in self.mode
+        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode) and "noatom" not in self.mode
         self.allow_atom_lease = self.allow_atom and "nolease" not in self.mode
         self.allow_atom_lazy = self.allow_atom and "nolazy" not in self.mode
         self.allow_atom_novelty = self.allow_atom and "nonovelty" not in self.mode
         self.allow_atom_question = "noquestion" not in self.mode
         self.allow_atom_budget = self.allow_atom and "nobudget" not in self.mode
         self.allow_lang = self.allow_atom and "nolang" not in self.mode
-        self.allow_esc = "3_34" in self.mode and "noesc" not in self.mode
+        self.allow_esc = ("3_34" in self.mode or "3_35" in self.mode) and "noesc" not in self.mode
         self.allow_reserve = self.allow_esc and "noreserve" not in self.mode
         self.allow_plan = self.allow_esc and "noplan" not in self.mode
         self.allow_ev = self.allow_esc and "noev" not in self.mode
@@ -79,6 +81,14 @@ class ScienceDesigner:
         self.allow_portfolio = self.allow_esc and "noportfolio" not in self.mode
         self.always_late = "alwayslate" in self.mode
         self.always_early = "alwaysearly" in self.mode
+        self.allow_eff = "3_35" in self.mode and "noeff" not in self.mode
+        self.allow_ledger = self.allow_eff and "noledger" not in self.mode
+        self.allow_dynres = self.allow_eff and "nodynres" not in self.mode
+        self.allow_release = self.allow_eff and "norelease" not in self.mode
+        self.allow_candev = self.allow_eff and "nocandev" not in self.mode
+        self.allow_early_reject = self.allow_eff and "noearly" not in self.mode
+        self.allow_compress = self.allow_eff and "nocompress" not in self.mode
+        self.greedy_discovery = "greedy" in self.mode
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
@@ -102,7 +112,9 @@ class ScienceDesigner:
             portfolio=self.allow_portfolio,
             always_late=self.always_late,
             always_early=self.always_early,
+            dynamic=self.allow_dynres,
         )
+        self.ledger = EvidenceLedger()
         self._force_atom = False
         self._skip_prim = False
         self._skip_ir = False
@@ -733,6 +745,32 @@ class ScienceDesigner:
         if not self._ext_kinds_exhausted() and not planned_atom:
             return
         leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        rejected_cls: set[str] = set()
+        if self.allow_candev and self.atom_synth.board.remaining:
+            for L in self.commitments.leases:
+                if L.state != "REVOKED" or not str(L.op).startswith("atom_"):
+                    continue
+                prev = self.atom_synth.op_of.get(L.op)
+                if prev is not None and prev.semantic_class:
+                    rejected_cls.add(prev.semantic_class)
+            before = [a.name() for a in self.atom_synth.board.remaining]
+            ranked = rank_atoms(
+                list(self.atom_synth.board.remaining),
+                rejected_classes=rejected_cls,
+                leftover=leftover,
+                invariant_ready=self.ledger.invariant_ready(),
+                greedy=self.greedy_discovery,
+            )
+            self.atom_synth.board.remaining = ranked
+            after = [a.name() for a in ranked]
+            if after != before:
+                self.methods_log.append({
+                    "event": "atom_rank",
+                    "rejected_classes": ",".join(sorted(rejected_cls)),
+                    "before": ",".join(before[:8]),
+                    "after": ",".join(after[:8]),
+                    "leftover": str(leftover),
+                })
         if self.allow_esc and leftover < 3:
             act = STOP
             self.atom_synth.board.budget_skips += 1
@@ -984,6 +1022,17 @@ class ScienceDesigner:
         self.last_ops = used_ops
         if used_ops:
             self.remaining_steps = max(0, int(getattr(self, "remaining_steps", 32) or 0) - 1)
+        if self.allow_ledger:
+            informative = bool(c.secret or (c.metric >= 0.28 and getattr(c, "error", None)))
+            self.ledger.record(
+                prompt=prompt,
+                secret=bool(c.secret),
+                ops=used_ops,
+                remaining=int(getattr(self, "remaining_steps", 0) or 0),
+                stage="",
+                metric=float(c.metric or 0),
+                informative=informative,
+            )
         text = _text(obs)
         self.harvested_texts.append(text)
         labels = {m.lower() for m in re.findall(r"\b([A-Za-z]{3,24})\s*:", text)}
@@ -1069,6 +1118,8 @@ class ScienceDesigner:
                                 "op": op0,
                                 "occupancy": str(self.inventor.occupancy()),
                             })
+                            if self.allow_release:
+                                self.ledger.mark_release(1)
                         self.families.mark_executed(op0, rejected=True)
                     else:
                         self.families.mark_executed(op0, rejected=False)
