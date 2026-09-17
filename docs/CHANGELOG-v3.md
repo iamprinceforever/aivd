@@ -27,7 +27,15 @@ invention.
   honest expensive-path outcome, not a retune target.
 - SX1/NP1/AX1/BX1 still 7/7 on 3.35 (not always-escalate).
 - leftover<3 still skips new atom invention (3.33/3.34 immutable).
-- Llama last-char-only / first+last first-run is post-freeze.
+- Llama last-char-only / first+last first-run (post-freeze `97b856b`):
+  S pipeline **DISCOVERED+VERIFIED** 7/7 via `atom_mapt_at_-1`
+  (`INVENTED_ATOM`) fire @29 / used 32. 3.34 pipeline 0/7 (5th atom
+  leftover-skip). S direct **7/7** @29 used 31. U pipeline and
+  direct 0/7 (`ATOM_INVENTION_SKIPPED_BY_PLANNING` after 4th atom;
+  first+last is glue-class 7th). Control 0/7. Cap 48. Class ranking
+  made last-only the 3rd atom; dynamic floor skipped 2nd IR so
+  leftover=3 paid a real invariant. Compact micro-language, not
+  unbounded invention. Do not retune U. Do not raise 32.
 
 ---
 
