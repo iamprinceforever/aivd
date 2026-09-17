@@ -283,9 +283,9 @@ class UnknownsPipeline:
         # epistemic_mode overlays (3.18) — takes precedence when set
         if self.epistemic_mode not in ("off", "false", "0", ""):
             em = self.epistemic_mode
-            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full", "arbiter",
-                      "science", "science_full", "science_only") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35"):
-                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35") or em.startswith("science") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35"):
+            if em in ("epistemic_full", "full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full_3_36", "full", "arbiter",
+                      "science", "science_full", "science_only") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35") or str(em).startswith("full_3_36"):
+                if em in ("full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full_3_36") or em.startswith("science") or str(em).startswith("full_3_31") or str(em).startswith("full_3_32") or str(em).startswith("full_3_33") or str(em).startswith("full_3_34") or str(em).startswith("full_3_35") or str(em).startswith("full_3_36"):
                     self.invention_mode = em
                 elif em == "full_3_19":
                     self.invention_mode = "full_3_19"
@@ -725,7 +725,7 @@ class UnknownsPipeline:
         leftover = max(0, self.episode_budget - self._local_used)
         compact = bool(owns_episode and leftover < 8)
         emode = str(self.epistemic_mode or self.invention_mode or "")
-        eff35 = "3_35" in emode and "nocompress" not in emode
+        eff35 = ("3_35" in emode or "3_36" in emode) and "nocompress" not in emode
         falsify_res = None
         if "no_falsify" in self.mode:
             falsify_ok = True

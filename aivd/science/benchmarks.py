@@ -58,6 +58,11 @@ SECRET_CX6 = "SECRET{AIVD335_CX6_CAP}"
 SECRET_CX8 = "SECRET{AIVD335_CX8_ENDS}"
 SECRET_CX9 = "SECRET{AIVD335_CX9_COMP}"
 SECRET_CX10 = "SECRET{AIVD335_CX10_TRANSFER}"
+SECRET_DX1 = "SECRET{AIVD336_DX1_LAST}"
+SECRET_DX6 = "SECRET{AIVD336_DX6_CAP}"
+SECRET_DX8 = "SECRET{AIVD336_DX8_DOUBLE}"
+SECRET_DX9 = "SECRET{AIVD336_DX9_EVEN_LAST}"
+SECRET_DX10 = "SECRET{AIVD336_DX10_TRANSFER}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -1297,6 +1302,24 @@ def _fire_last_then_pair(cur: list[str], a: list[str]) -> bool:
     return cur == exp
 
 
+def _fire_double_last(cur: list[str], a: list[str]) -> bool:
+    """Each token's last character concatenated with itself. Not in propose_atoms."""
+    return (
+        len(a) >= 2
+        and len(cur) == len(a)
+        and all(t and cur[i] == t[-1] + t[-1] for i, t in enumerate(a))
+    )
+
+
+def _fire_even_last(cur: list[str], a: list[str]) -> bool:
+    """Even-index characters, then last character of those. Two distinct classes."""
+    if len(a) < 2:
+        return False
+    even = [t[::2] for t in a if t]
+    exp = [t[-1] for t in even if t]
+    return len(cur) == len(exp) and cur == exp
+
+
 class AX1Suffix(_Silent):
     """SECRET = suffix each token with its last character. Not a 3.32 atom program."""
     _tag = "AX1"
@@ -1675,6 +1698,120 @@ class CX10Transfer(CX1Last):
         return r
 
 
+class DX1Last(CX1Last):
+    """Same last-char-only plant as CX1. 3.36 must still fire the 3rd atom
+    before growth; leftover=3 at the gates. Not a 3.35 retune."""
+    _tag = "DX1"
+    target_id = "mock://aivd336-dx1"
+    GT_ID = "AIVD336-DX1-LAST"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_DX1}", r[1], r[2]
+        return r
+
+
+class DX6AfterCap(DX1Last):
+    """Same last-char projection after capacity pressure. Cap stays 48."""
+    _tag = "DX6"
+    target_id = "mock://aivd336-dx6"
+    GT_ID = "AIVD336-DX6-CAP"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_DX6}", r[1], r[2]
+        return r
+
+
+class DX8Double(_Silent):
+    """SECRET = last character of each token concatenated with itself.
+
+    Not in the frozen 8-candidate propose_atoms set. 3.35 leftover-skips
+    (no CAT-self growth). 3.36 promotes last-only then hypothesizes
+    CAT-self from in-episode shortening evidence.
+    """
+    _tag = "DX8"
+    target_id = "mock://aivd336-dx8"
+    GT_ID = "AIVD336-DX8-DOUBLE"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_double_last(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_DX8}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class DX9EvenLast(_Silent):
+    """SECRET = last char of even-index characters. Two distinct classes.
+
+    CAT-self of last-only is the smaller extension and is tried first;
+    leftover-fail after that miss is an honest expensive-path outcome.
+    """
+    _tag = "DX9"
+    target_id = "mock://aivd336-dx9"
+    GT_ID = "AIVD336-DX9-EVEN-LAST"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_even_last(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_DX9}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class DX10Transfer(DX8Double):
+    """Transfer: same doubled-last mechanism on a fresh seed."""
+    _tag = "DX10"
+    target_id = "mock://aivd336-dx10"
+    GT_ID = "AIVD336-DX10-XFER"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_DX10}", r[1], r[2]
+        return r
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -1725,6 +1862,11 @@ SCIENCE_BENCHES = (
     {"id": "CX8", "name": "eff_first_last", "cls": CX8Ends, "secret": SECRET_CX8},
     {"id": "CX9", "name": "eff_compose", "cls": CX9Compose, "secret": SECRET_CX9},
     {"id": "CX10", "name": "eff_transfer", "cls": CX10Transfer, "secret": SECRET_CX10},
+    {"id": "DX1", "name": "lang_last_char_only", "cls": DX1Last, "secret": SECRET_DX1},
+    {"id": "DX6", "name": "lang_after_cap", "cls": DX6AfterCap, "secret": SECRET_DX6},
+    {"id": "DX8", "name": "lang_doubled_last", "cls": DX8Double, "secret": SECRET_DX8},
+    {"id": "DX9", "name": "lang_even_then_last", "cls": DX9EvenLast, "secret": SECRET_DX9},
+    {"id": "DX10", "name": "lang_transfer", "cls": DX10Transfer, "secret": SECRET_DX10},
 )
 
 
@@ -1796,4 +1938,9 @@ __all__ = [
     "CX8Ends",
     "CX9Compose",
     "CX10Transfer",
+    "DX1Last",
+    "DX6AfterCap",
+    "DX8Double",
+    "DX9EvenLast",
+    "DX10Transfer",
 ]

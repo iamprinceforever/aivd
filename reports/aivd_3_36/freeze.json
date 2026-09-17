@@ -1,0 +1,15 @@
+{
+  "version": "3.36.0",
+  "tests_at_freeze_excluding_llama_oracles": 966,
+  "tests_collected": 966,
+  "invent_cap": 48,
+  "invent_cap_unchanged": true,
+  "budget": 32,
+  "no_llama_holdout_yet": true,
+  "meta_hash": "eaa162f39fef03a33da754c0e08cba299aacf1be9db03d20ceb8e07c4549c8ed",
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
+  "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
+  "note": "Frozen before sacred TinyLlama holdout. Self-growing experiment language around frozen 3.35 efficiency. Promotion into L_t, CAT-self growth of shortening char_project, leftover=2 invariant reuse accepted on 3.36. leftover<3 invent skip not retuned. Doubled-last is not in propose_atoms. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33/3.34/3.35 S/U. Compact micro-language, not unbounded invention.",
+  "freeze_commit": "PENDING"
+}

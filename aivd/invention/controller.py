@@ -85,7 +85,7 @@ def _base_gen_mode(mode: str) -> str:
         return "full"
     if m.startswith("openworld") or m in ("full_3_17",):
         return "full"
-    if m.startswith("epistemic") or m.startswith("science") or m.startswith("full_3_31") or m.startswith("full_3_32") or m.startswith("full_3_33") or m.startswith("full_3_34") or m.startswith("full_3_35") or m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "arbiter", "shadow"):
+    if m.startswith("epistemic") or m.startswith("science") or m.startswith("full_3_31") or m.startswith("full_3_32") or m.startswith("full_3_33") or m.startswith("full_3_34") or m.startswith("full_3_35") or m.startswith("full_3_36") or m in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full_3_36", "arbiter", "shadow"):
         return "full"
     if m in _CROSS_SIGNAL_MODES or m.startswith("cross_signal") or m.startswith("cross_") or m in ("full_3_14", "cross_joint"):
         return "full"
@@ -481,8 +481,8 @@ class InventionController:
         if getattr(self, "epistemic_enabled", False):
             from aivd.epistemic.controller import EpistemicController
             emode = self.mode if (
-                self.mode.startswith("epistemic") or self.mode.startswith("science") or self.mode.startswith("full_3_31") or self.mode.startswith("full_3_32") or self.mode.startswith("full_3_33") or self.mode.startswith("full_3_34") or self.mode.startswith("full_3_35")
-                or self.mode in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "arbiter", "shadow")
+                self.mode.startswith("epistemic") or self.mode.startswith("science") or self.mode.startswith("full_3_31") or self.mode.startswith("full_3_32") or self.mode.startswith("full_3_33") or self.mode.startswith("full_3_34") or self.mode.startswith("full_3_35") or self.mode.startswith("full_3_36")
+                or self.mode in ("full_3_18", "full_3_19", "full_3_20", "full_3_21", "full_3_22", "full_3_23", "full_3_24", "full_3_25", "full_3_26", "full_3_27", "full_3_28", "full_3_29", "full_3_30", "full_3_31", "full_3_32", "full_3_33", "full_3_34", "full_3_35", "full_3_36", "arbiter", "shadow")
             ) else "epistemic_full"
             ep = EpistemicController(
                 mode=emode,

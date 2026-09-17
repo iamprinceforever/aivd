@@ -1,3 +1,27 @@
+## 3.36.0 — Self-growing experiment language
+
+3.35 invents an atom and can verify it under 32. It does not turn that
+atom into a reusable language. 3.36 keeps 3.35 as the frozen fast path
+(ranking, dynamic floor, leftover=2 invariant reuse) and adds promotion
+into L_t plus evidence-driven growth programs. After a novel atom is
+executed it is promoted even if noninformative. The smallest extension
+is CAT-self of a shortening char_project: MAPT(X) → MAPT(CAT(X,X)).
+That program is not in the frozen propose_atoms catalog. leftover<3
+still skips new atom invention and skips growth. INVENT_CAP stays 48.
+Budget 32. Do not retune 3.35 leftover=2 / leftover-gates / leftover<3
+skip. No JOIN_ALL / CYCLIC_SHIFT / APPEND_REVERSED. No doubled-last
+added to propose_atoms. Compact micro-language, not unbounded invention.
+
+- ExperimentLanguage: CANDIDATE → PROMOTED, snapshot/restore, graph
+- propose_growth: CAT-self of reversed promoted shortening projections
+- DX8 doubled-last (not in the 8-candidate set) vs 3.35 leftover-miss
+- DX1 last-only still 7/7 (fires 3rd, before growth)
+- DX9 even-then-last leftover-fail if CAT-self is tried first (honest)
+- leftover=2 gate reuse accepted on 3.36
+- leftover<3 still skips new atoms (3.33/3.34/3.35 immutable)
+
+---
+
 ## 3.35.0 — End-to-end invention→verification efficiency
 
 3.34 can invent an atom before the budget is exhausted, then still
