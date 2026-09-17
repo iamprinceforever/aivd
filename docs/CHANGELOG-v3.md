@@ -19,6 +19,15 @@ added to propose_atoms. Compact micro-language, not unbounded invention.
 - DX9 even-then-last leftover-fail if CAT-self is tried first (honest)
 - leftover=2 gate reuse accepted on 3.36
 - leftover<3 still skips new atoms (3.33/3.34/3.35 immutable)
+- Llama doubled-last / first+last first-run (post-freeze `2661517`):
+  S pipeline **DISCOVERED+VERIFIED** 7/7 via grown program
+  `cmp_mapt_cat_at_-1_at_-1` (`NEW_PROGRAM`) fire @30 / used 32,
+  leftover=2 invariant reuse (`reused=1`). 3.35 pipeline 0/7 (no
+  CAT-self). S direct **7/7** @30 used 32. U pipeline and direct
+  0/7 (CAT-self miss then `ATOM_INVENTION_SKIPPED_BY_PLANNING`).
+  Control 0/7. Cap 48. Language L0→L4. Recursive second atom not
+  reached under 32. Compact micro-language, not unbounded
+  invention. Do not retune U. Do not raise 32.
 
 ---
 
