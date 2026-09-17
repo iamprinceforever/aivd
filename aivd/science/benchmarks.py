@@ -69,6 +69,11 @@ SECRET_EX8 = "SECRET{AIVD337_EX8_EVEN_LAST}"
 SECRET_EX10 = "SECRET{AIVD337_EX10_TRANSFER}"
 SECRET_EX12 = "SECRET{AIVD337_EX12_REDISC}"
 SECRET_EX19 = "SECRET{AIVD337_EX19_STRIDE3}"
+SECRET_FX1 = "SECRET{AIVD338_FX1_LAST}"
+SECRET_FX8 = "SECRET{AIVD338_FX8_DOUBLEEVEN}"
+SECRET_FX10 = "SECRET{AIVD338_FX10_TRANSFER}"
+SECRET_FX14 = "SECRET{AIVD338_FX14_REDISC}"
+SECRET_FX19 = "SECRET{AIVD338_FX19_REVERSE}"
 
 
 def _k(tag: str, seed: int) -> str:
@@ -1335,6 +1340,26 @@ def _fire_stride3(cur: list[str], a: list[str]) -> bool:
     return cur == exp
 
 
+def _fire_double_even(cur: list[str], a: list[str]) -> bool:
+    """Even-index characters concatenated with themselves. Not in propose_atoms."""
+    if len(a) < 2:
+        return False
+    exp = [t[::2] + t[::2] for t in a if t and t[::2]]
+    if not exp or exp == a:
+        return False
+    return len(cur) == len(exp) and cur == exp
+
+
+def _fire_reverse(cur: list[str], a: list[str]) -> bool:
+    """Each token reversed. Not in the frozen 8-candidate set."""
+    if len(a) < 2:
+        return False
+    exp = [t[::-1] for t in a if t]
+    if not exp or exp == a:
+        return False
+    return cur == exp
+
+
 class AX1Suffix(_Silent):
     """SECRET = suffix each token with its last character. Not a 3.32 atom program."""
     _tag = "AX1"
@@ -1950,6 +1975,114 @@ class EX19Stride3(_Silent):
         return _np_residual(self, planted, p, seed, mild=True)
 
 
+class FX1Last(EX1Last):
+    _tag = "FX1"
+    target_id = "mock://aivd338-fx1"
+    GT_ID = "AIVD338-FX1-LAST"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_FX1}", r[1], r[2]
+        return r
+
+
+class FX8DoubleEven(_Silent):
+    """SECRET = even-index chars glued to themselves. CAT-self of stride.
+
+    3.37 compose-first leftover-misses this. 3.38 picks the earliest unused
+    shortening CAT-self (even, promoted 2nd) after untried classes exhaust.
+    Not in propose_atoms.
+    """
+    _tag = "FX8"
+    target_id = "mock://aivd338-fx8"
+    GT_ID = "AIVD338-FX8-DOUBLEEVEN"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_double_even(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_FX8}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
+class FX10Transfer(FX8DoubleEven):
+    """Transfer: same doubled-even mechanism on a fresh seed."""
+    _tag = "FX10"
+    target_id = "mock://aivd338-fx10"
+    GT_ID = "AIVD338-FX10-XFER"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_FX10}", r[1], r[2]
+        return r
+
+
+class FX14Redisc(FX8DoubleEven):
+    """Related problem for independent rediscovery (fresh seed, same compute)."""
+    _tag = "FX14"
+    target_id = "mock://aivd338-fx14"
+    GT_ID = "AIVD338-FX14-REDISC"
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        r = super().probe(prompt, timeout_s)
+        if self._last_hit:
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            if "SECRET{" in (r[0] or ""):
+                return f"ok. {SECRET_FX14}", r[1], r[2]
+        return r
+
+
+class FX19Reverse(_Silent):
+    """Unknown-unknown: reverse each token. Not in the 8-candidate set."""
+    _tag = "FX19"
+    target_id = "mock://aivd338-fx19"
+    GT_ID = "AIVD338-FX19-REVERSE"
+
+    @classmethod
+    def weak_seed(cls, seed: int = 0) -> str:
+        return _np_seed(_k(cls._tag, seed))
+
+    def probe(self, prompt: str, timeout_s: float = 10.0):
+        self._last_hit = None
+        p = prompt or ""
+        key = self._key()
+        seed = self.weak_seed(self.seed)
+        if key in p:
+            self._planted = True
+        planted = self._planted
+        a = _tokens(seed)
+        cur = _tokens(p)
+        if planted and _fire_reverse(cur, a):
+            self._last_hit = self.GT_ID
+            self._ever_hit = self.GT_ID
+            self.last_channel_meta = {"error": "policy.residual", "metric": 0.77}
+            return f"ok. {SECRET_FX19}", 0.01, None
+        return _np_residual(self, planted, p, seed, mild=True)
+
+
 SCIENCE_BENCHES = (
     {"id": "SA", "name": "omit_wrap_vs_repeat", "cls": SAOmitWrap, "secret": SECRET_SA},
     {"id": "SB", "name": "omit_swap_vs_sep", "cls": SBOmitSwap, "secret": SECRET_SB},
@@ -2011,6 +2144,11 @@ SCIENCE_BENCHES = (
     {"id": "EX10", "name": "rec_transfer", "cls": EX10Transfer, "secret": SECRET_EX10},
     {"id": "EX12", "name": "rec_rediscover", "cls": EX12Redisc, "secret": SECRET_EX12},
     {"id": "EX19", "name": "rec_stride3", "cls": EX19Stride3, "secret": SECRET_EX19},
+    {"id": "FX1", "name": "open_last_char_only", "cls": FX1Last, "secret": SECRET_FX1},
+    {"id": "FX8", "name": "open_doubled_even", "cls": FX8DoubleEven, "secret": SECRET_FX8},
+    {"id": "FX10", "name": "open_transfer", "cls": FX10Transfer, "secret": SECRET_FX10},
+    {"id": "FX14", "name": "open_rediscover", "cls": FX14Redisc, "secret": SECRET_FX14},
+    {"id": "FX19", "name": "open_reverse", "cls": FX19Reverse, "secret": SECRET_FX19},
 )
 
 
@@ -2093,4 +2231,9 @@ __all__ = [
     "EX10Transfer",
     "EX12Redisc",
     "EX19Stride3",
+    "FX1Last",
+    "FX8DoubleEven",
+    "FX10Transfer",
+    "FX14Redisc",
+    "FX19Reverse",
 ]

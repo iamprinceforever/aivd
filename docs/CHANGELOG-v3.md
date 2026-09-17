@@ -1,3 +1,40 @@
+## 3.38.0 — Independent rediscovery + open-ended language growth
+
+3.37 composes two independently invented classes after untried classes
+are exhausted. It does not hide those inventions, independently
+regenerate them, or pick the next generation from unused shortening
+CAT-self. 3.38 keeps 3.37 as the frozen fast path (compose-first when
+open-ended growth is off, leftover=2 invariant reuse, leftover<3 skip,
+CAT-self of project) and adds a provenance firewall plus an open-ended
+generation pick. Earliest unused shortening CAT-self outranks later
+conjunction. A runtime safety cap of 8 is not a scientific stop.
+leftover<3 still skips new atom invention, growth, and compose.
+INVENT_CAP stays 48. Budget 32. Do not retune 3.37 leftover=2 /
+leftover-gates / leftover<3 skip / compose-first. No JOIN_ALL /
+CYCLIC_SHIFT / APPEND_REVERSED. No doubled-even or reverse-each added
+to propose_atoms. Compact micro-language, not unbounded invention.
+
+- provenance firewall: strip atom/program IDs, bodies, fn_of; keep
+  class-level general knowledge. REDISCOVERY_FLOOR=5 so TinyLlama
+  leftover=3 skips firewall honestly
+- pick_generation_action: earliest unused shortening CAT-self, then
+  compose. greedy/always_invent keep compose-first
+- propose_growth(any_class=True) appends CAT-self of stride; 3.36
+  any_class=False still project-first
+- FX8 doubled-even 7/7 vs 3.37 0/7; FX1 last-only still 7/7 (fires
+  3rd, before growth); DX8 doubled-last still 7/7 (CAT-self even miss
+  then CAT-self last); EX8 even-then-last still 7/7 (two CAT-self
+  misses then compose of rediscovered A'+B' when leftover>=5)
+- FX19 reverse-each leftover-miss documented (not in the 8-set)
+- leftover=2 gate reuse accepted on 3.38
+- leftover<3 still skips new atoms, growth, and compose
+- noopen / nogrow / greedy / neverinvent ablations: FX8 fails
+- nofirewall: CAT-self of original even still fires FX8 (no Level 14)
+- Level 14 complete VERIFIED on TinyLlama is the leftover wall
+  (REDISCOVERY_FLOOR=5, leftover=3 after last-only)
+
+---
+
 ## 3.37.0 — Deep recursive language growth
 
 3.36 grows L_t by one CAT-self layer after a promoted char_project.

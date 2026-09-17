@@ -6,6 +6,7 @@ and keep spending remaining budget.
 """
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any
 
 from aivd.epistemic.types import ExperimentProposal
@@ -19,7 +20,7 @@ from aivd.science.primitive_synth import PrimitiveSynthesizer
 from aivd.science.ext_synth import ExtensionSynthesizer
 from aivd.science.atom_synth import AtomSynthesizer
 from aivd.science.language import ExperimentLanguage
-from aivd.science.grow import propose_growth, pick_compose_pair
+from aivd.science.grow import propose_growth, pick_compose_pair, pick_generation_action, REDISCOVERY_FLOOR, MAX_RUNTIME_GENERATIONS
 from aivd.science.atom import make_fn
 from aivd.science.escalate import (
     CONTINUE,
@@ -52,29 +53,29 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode and "3_35" not in self.mode and "3_36" not in self.mode and "3_37" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode
-        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode and "3_35" not in self.mode and "3_36" not in self.mode and "3_37" not in self.mode and "3_38" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
-        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode) and "nosub" not in self.mode
+        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "nosub" not in self.mode
         self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
         self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
         self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
         self.allow_ext_question = "noquestion" not in self.mode
-        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode) and "noatom" not in self.mode and "neverinvent" not in self.mode
+        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noatom" not in self.mode and "neverinvent" not in self.mode
         self.allow_atom_lease = self.allow_atom and "nolease" not in self.mode
         self.allow_atom_lazy = self.allow_atom and "nolazy" not in self.mode
         self.allow_atom_novelty = self.allow_atom and "nonovelty" not in self.mode
         self.allow_atom_question = "noquestion" not in self.mode
         self.allow_atom_budget = self.allow_atom and "nobudget" not in self.mode
         self.allow_lang = self.allow_atom and "nolang" not in self.mode
-        self.allow_esc = ("3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode) and "noesc" not in self.mode
+        self.allow_esc = ("3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noesc" not in self.mode
         self.allow_reserve = self.allow_esc and "noreserve" not in self.mode
         self.allow_plan = self.allow_esc and "noplan" not in self.mode
         self.allow_ev = self.allow_esc and "noev" not in self.mode
@@ -83,7 +84,7 @@ class ScienceDesigner:
         self.allow_portfolio = self.allow_esc and "noportfolio" not in self.mode
         self.always_late = "alwayslate" in self.mode
         self.always_early = "alwaysearly" in self.mode or "alwaysinvent" in self.mode
-        self.allow_eff = ("3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode) and "noeff" not in self.mode
+        self.allow_eff = ("3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noeff" not in self.mode
         self.allow_ledger = self.allow_eff and "noledger" not in self.mode
         self.allow_dynres = self.allow_eff and "nodynres" not in self.mode
         self.allow_release = self.allow_eff and "norelease" not in self.mode
@@ -91,16 +92,19 @@ class ScienceDesigner:
         self.allow_early_reject = self.allow_eff and "noearly" not in self.mode
         self.allow_compress = self.allow_eff and "nocompress" not in self.mode
         self.greedy_discovery = "greedy" in self.mode
-        self.allow_grow = ("3_36" in self.mode or "3_37" in self.mode) and "nogrow" not in self.mode
+        self.allow_grow = ("3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "nogrow" not in self.mode
         self.allow_persist = self.allow_grow and "nopersist" not in self.mode
         self.allow_reuse = self.allow_grow and "noreuse" not in self.mode
         self.allow_recursive = self.allow_grow and "norecurse" not in self.mode
         self.allow_langext = self.allow_grow and "nolangext" not in self.mode
         self.allow_langmem = self.allow_grow and "nomem" not in self.mode
         self.allow_langval = self.allow_grow and "noval" not in self.mode
-        self.allow_compose = "3_37" in self.mode and "nocompose" not in self.mode
-        self.allow_retire = "3_37" in self.mode and "noretire" not in self.mode
-        self.allow_rediscover = "3_37" in self.mode and "norediscover" not in self.mode
+        self.allow_compose = ("3_37" in self.mode or "3_38" in self.mode) and "nocompose" not in self.mode
+        self.allow_retire = ("3_37" in self.mode or "3_38" in self.mode) and "noretire" not in self.mode
+        self.allow_rediscover = ("3_37" in self.mode or "3_38" in self.mode) and "norediscover" not in self.mode
+        self.allow_firewall = "3_38" in self.mode and "nofirewall" not in self.mode
+        self.allow_open = "3_38" in self.mode and "noopen" not in self.mode
+        self.allow_anycat = "3_38" in self.mode and "noanycat" not in self.mode
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
@@ -115,6 +119,7 @@ class ScienceDesigner:
             require_question=self.allow_atom_question,
         )
         self.language = ExperimentLanguage()
+        self.firewall_vault: dict | None = None
         self.planner = EscalationPlanner(
             reserve=self.allow_reserve,
             plan=self.allow_plan,
@@ -849,6 +854,15 @@ class ScienceDesigner:
             atom = self.atom_synth.next_atom()
             if atom is None:
                 break
+            if self.language.firewalled:
+                n = len(self.language.invented)
+                new_id = ("atom_rd" + str(n) + "_" + atom.name().removeprefix("atom_"))[:48]
+                atom = replace(
+                    atom,
+                    atom_id=new_id,
+                    origin="independent_rediscovery",
+                    provenance=atom.provenance + ("independent_rediscovery",),
+                )
             name = atom.name()
             if name in self.inventor.ops:
                 continue
@@ -900,7 +914,7 @@ class ScienceDesigner:
                 "event": "atom_materialize",
                 "op": name,
                 "key": atom.key(),
-                "origin": "INVENTED_ATOM",
+                "origin": "independent_rediscovery" if self.language.firewalled else "INVENTED_ATOM",
                 "novelty": atom.novelty,
                 "level": atom.level,
                 "semantic_class": atom.semantic_class,
@@ -909,6 +923,75 @@ class ScienceDesigner:
             })
             if self.allow_atom_lazy:
                 break
+
+    def _untried_atom_classes(self) -> list:
+        rejected = {
+            x.semantic_class for x in self.language.invented
+            if self.language.state_of(x.name()) == "PROMOTED" and not str(x.name()).startswith("cmp_")
+        }
+        rejected.update(self.language.general_knowledge.get("rejected_classes") or [])
+        return [
+            x for x in self.atom_synth.board.remaining
+            if x.semantic_class and x.semantic_class not in rejected
+        ]
+
+    def _maybe_firewall(self) -> None:
+        """Hide solution-specific A/B after two classes are promoted. 3.38 only."""
+        if not self.allow_firewall or not self.allow_rediscover:
+            return
+        if self.language.firewalled:
+            return
+        leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        promoted_cls = {
+            x.semantic_class for x in self.language.invented
+            if self.language.state_of(x.name()) == "PROMOTED"
+            and not str(x.name()).startswith("cmp_")
+            and x.semantic_class
+        }
+        if len(promoted_cls) < 2:
+            return
+        if self._untried_atom_classes():
+            return
+        if leftover < REDISCOVERY_FLOOR:
+            if not any(e.get("event") == "REDISCOVERY_BUDGET_FAILURE" for e in self.methods_log):
+                self.failure_class = "REDISCOVERY_BUDGET_FAILURE"
+                self.language.stop_reason = "BUDGET_EXHAUSTED"
+                self.methods_log.append({
+                    "event": "REDISCOVERY_BUDGET_FAILURE",
+                    "why": "firewall skipped; leftover below independent rediscovery floor",
+                    "leftover": str(leftover),
+                    "floor": str(REDISCOVERY_FLOOR),
+                })
+            return
+        vault = self.language.firewall(reason="independent_rediscovery")
+        self.firewall_vault = vault
+        for name in list(self.inventor.ops):
+            if str(name).startswith(("atom_", "cmp_")):
+                self.inventor.release(name)
+        self.commitments.leases = [
+            L for L in self.commitments.leases
+            if not str(L.op).startswith(("atom_", "cmp_"))
+        ]
+        self.atom_synth.board.remaining = []
+        self.atom_synth.board.materialized = []
+        self.atom_synth.board.seen = set()
+        self.atom_synth.board.generated = 0
+        self.atom_synth.board.executed = 0
+        self.atom_synth.board.successes = 0
+        self.atom_synth.board.rejections = 0
+        self.atom_synth.board.language_successes = 0
+        self.atom_synth.board.retained = 0
+        self.atom_synth.board.budget_skips = 0
+        self.atom_synth.op_of = {
+            k: v for k, v in self.atom_synth.op_of.items()
+            if not str(k).startswith(("atom_", "cmp_"))
+        }
+        self.methods_log.append({
+            "event": "provenance_firewall",
+            "leftover": str(leftover),
+            "useful_classes": ",".join(self.language.general_knowledge.get("useful_classes") or []),
+            "hidden": str(len(self.language.hidden_ids)),
+        })
 
     def _maybe_compose(self) -> None:
         """Sequential program over two promoted distinct-class atoms. 3.37 only.
@@ -998,6 +1081,60 @@ class ScienceDesigner:
             "leftover": str(leftover),
             "why": "L1 insufficient; two distinct promoted classes; sequential program",
         })
+        self.language.note_generation(
+            kind="compose", eid=name, parent=a.name() + "," + b.name(),
+            novelty="NEW_COMPOSITIONAL_CAPABILITY",
+        )
+
+    def _register_growth(self, prog) -> bool:
+        name = prog.name()
+        if name in self.inventor.ops:
+            return False
+        leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self._release_nonlease_slot("slot for language-growth program")
+        if self.inventor.occupancy() >= INVENT_CAP:
+            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+            return False
+        ok = self.inventor._register(
+            name,
+            make_fn(prog),
+            why=prog.why or "program from self-grown language",
+        )
+        if not ok:
+            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+            return False
+        self.atom_synth.op_of[name] = prog
+        self.language.add_program(prog, reason="cat_self_of_promoted_shortening")
+        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.grow.0"
+        if f"op:{name}" not in self.board.nodes:
+            self.board.add(
+                f"op:{name}",
+                f"grown program {name} may discriminate remaining hypotheses",
+                [name],
+                prior=0.5,
+                why=prog.why,
+            )
+        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
+        self.commitments.max_leases_executed = max(
+            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+        )
+        self.methods_log.append({
+            "event": "language_grow",
+            "op": name,
+            "key": prog.key(),
+            "origin": "independent_rediscovery" if self.language.firewalled else "language_growth",
+            "novelty": prog.novelty,
+            "level": prog.level,
+            "semantic_class": prog.semantic_class,
+            "parent": ",".join(prog.parent),
+            "generation": str(self.language.generation),
+            "leftover": str(leftover),
+        })
+        self.language.note_generation(
+            kind="grow", eid=name, parent=",".join(prog.parent), novelty=prog.novelty or "",
+        )
+        return True
 
     def _maybe_grow(self) -> None:
         if not self.allow_grow or not self.allow_langext:
@@ -1020,50 +1157,77 @@ class ScienceDesigner:
         cands = propose_growth(self.language, identity=ident, leftover=leftover)
         if not cands:
             return
-        if self.inventor.occupancy() >= INVENT_CAP:
-            self._release_nonlease_slot("slot for language-growth program")
-        if self.inventor.occupancy() >= INVENT_CAP:
-            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+        self._register_growth(cands[0])
+
+    def _maybe_next_generation(self) -> None:
+        """Open-ended generation pick. 3.38 only. Not a hardcoded depth."""
+        leftover = int(getattr(self, "remaining_steps", 32) or 0)
+        if leftover < 3:
+            if not self.language.stop_reason:
+                self.language.stop_reason = "BUDGET_EXHAUSTED"
+            if not any(e.get("event") == "RECURSIVE_BUDGET_FAILURE" for e in self.methods_log):
+                self.failure_class = "RECURSIVE_BUDGET_FAILURE"
+                self.methods_log.append({
+                    "event": "RECURSIVE_BUDGET_FAILURE",
+                    "why": "open-ended generation skipped; leftover below complete-chain floor",
+                    "leftover": str(leftover),
+                    "stop_reason": self.language.stop_reason,
+                })
             return
-        prog = cands[0]
-        name = prog.name()
-        if name in self.inventor.ops:
+        if self.language.growth_count >= MAX_RUNTIME_GENERATIONS:
+            self.language.stop_reason = "SAFETY_RUNTIME_GUARD"
+            self.methods_log.append({
+                "event": "SAFETY_RUNTIME_GUARD",
+                "growth_count": str(self.language.growth_count),
+            })
             return
-        ok = self.inventor._register(
-            name,
-            make_fn(prog),
-            why=prog.why or "program from self-grown language",
-        )
-        if not ok:
-            self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+        if self._untried_atom_classes():
             return
-        self.atom_synth.op_of[name] = prog
-        self.language.add_program(prog, reason="cat_self_of_promoted_projection")
-        qid = self.commitments.questions[-1].question_id if self.commitments.questions else "q.grow.0"
-        if f"op:{name}" not in self.board.nodes:
-            self.board.add(
-                f"op:{name}",
-                f"grown program {name} may discriminate remaining hypotheses",
-                [name],
-                prior=0.5,
-                why=prog.why,
+        ident = self.identity_prompt or self.seed_prompt
+        cands = []
+        if self.allow_grow and self.allow_langext:
+            cands = propose_growth(
+                self.language, identity=ident, leftover=leftover, any_class=self.allow_anycat,
             )
-        self.commitments.commit_ops([name], question_id=qid, probe=len(self.history))
-        self.commitments.max_leases_executed = max(
-            self.commitments.max_leases_executed, self.commitments.executed_novel + 1
+        pair = pick_compose_pair(self.language) if self.allow_compose else None
+        action = pick_generation_action(
+            self.language,
+            growth_cands=cands,
+            compose_pair=pair,
+            leftover=leftover,
+            greedy=self.greedy_discovery,
+            always_invent=self.always_early,
         )
         self.methods_log.append({
-            "event": "language_grow",
-            "op": name,
-            "key": prog.key(),
-            "origin": "language_growth",
-            "novelty": prog.novelty,
-            "level": prog.level,
-            "semantic_class": prog.semantic_class,
-            "parent": ",".join(prog.parent),
-            "generation": str(self.language.generation),
+            "event": "generation_decision",
+            "action": (action[0] if action else "none"),
             "leftover": str(leftover),
+            "growth_count": str(self.language.growth_count),
+            "n_growth_cands": str(len(cands)),
+            "has_compose": str(bool(pair)),
         })
+        if action is None:
+            planned = int(getattr(self.atom_synth.board, "generated", 0) or 0)
+            if (
+                not self.atom_synth.board.remaining
+                and planned > 0
+                and not self.language.stop_reason
+            ):
+                self.language.stop_reason = "HYPOTHESIS_EXHAUSTED"
+            return
+        kind, payload = action
+        if kind == "safety":
+            self.language.stop_reason = "SAFETY_RUNTIME_GUARD"
+            self.methods_log.append({
+                "event": "SAFETY_RUNTIME_GUARD",
+                "growth_count": str(self.language.growth_count),
+            })
+            return
+        if kind == "compose":
+            self._maybe_compose()
+            return
+        if kind == "grow" and payload is not None:
+            self._register_growth(payload)
 
     def hydrate_language(self, snap: dict) -> None:
         if not self.allow_persist:
@@ -1193,16 +1357,24 @@ class ScienceDesigner:
             self._maybe_synthesize_extension()
             if len(self.ext_synth.board.materialized) > before:
                 return
-        if self.allow_compose:
+        if self.allow_firewall:
+            self._maybe_firewall()
+        if self.allow_open:
             before = self.language.growth_count
-            self._maybe_compose()
+            self._maybe_next_generation()
             if self.language.growth_count > before:
                 return
-        if self.allow_grow:
-            before = self.language.growth_count
-            self._maybe_grow()
-            if self.language.growth_count > before:
-                return
+        else:
+            if self.allow_compose:
+                before = self.language.growth_count
+                self._maybe_compose()
+                if self.language.growth_count > before:
+                    return
+            if self.allow_grow:
+                before = self.language.growth_count
+                self._maybe_grow()
+                if self.language.growth_count > before:
+                    return
         if self.allow_atom:
             if self.allow_grow and not self.allow_recursive and self.language.growth_count >= 1:
                 return
@@ -1599,7 +1771,13 @@ class ScienceDesigner:
                 due = self.commitments.due()
                 if due is not None:
                     nxt = self._apply(ident, due.op)
-                    if nxt and nxt != ident and nxt not in self.tested:
+                    allow_replay = bool(
+                        self.language.firewalled
+                        and str(due.op).startswith(("atom_", "cmp_"))
+                    )
+                    if nxt and nxt != ident and (nxt not in self.tested or allow_replay):
+                        if allow_replay:
+                            self.tested.discard(nxt)
                         add(self._prop(
                             nxt,
                             [due.op],

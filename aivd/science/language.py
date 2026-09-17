@@ -67,6 +67,19 @@ class ExperimentLanguage:
         self.validation_evidence: dict[str, str] = {}
         self.growth_count = 0
         self.edges: list[dict[str, str]] = []
+        self.general_knowledge: dict[str, Any] = {
+            "useful_classes": [],
+            "rejected_classes": [],
+            "hypotheses": [],
+        }
+        self.hidden_ids: set[str] = set()
+        self.provenance_leak = False
+        self.firewalled = False
+        self.stop_reason = ""
+        self.generations_attempted = 0
+        self.generations_added = 0
+        self.generation_ledger: list[dict[str, str]] = []
+        self.retrieval_log: list[dict[str, str]] = []
 
     def state_of(self, name: str) -> str:
         return self.capability_state.get(name, "")
@@ -293,13 +306,86 @@ class ExperimentLanguage:
         self.retirement_history.append(name)
         self.events.append({"event": "language_retire", "eid": name, "reason": reason})
         self.edges.append({"rel": "retired", "src": name, "dst": reason})
+        cls = next((a.semantic_class for a in self.invented if a.name() == name), "")
+        if cls and cls not in self.general_knowledge.get("rejected_classes", []):
+            self.general_knowledge.setdefault("rejected_classes", []).append(cls)
         return True
 
+    def firewall(self, *, reason: str = "independent_rediscovery") -> dict[str, Any]:
+        """Strip solution-specific memory. Keep class-level general knowledge.
+
+        Returns an evaluator vault. Discovery must not call restore() on it
+        during the rediscovery phase.
+        """
+        useful = sorted({
+            a.semantic_class for a in self.invented
+            if self.state_of(a.name()) == "PROMOTED" and a.semantic_class
+            and not str(a.name()).startswith("cmp_")
+        })
+        rejected = list(self.general_knowledge.get("rejected_classes") or [])
+        vault = {
+            "atoms": list(self.snapshot().get("atoms") or []),
+            "programs": list(self.programs),
+            "capability_state": dict(self.capability_state),
+            "hidden_ids": sorted(a.name() for a in self.invented) + list(self.programs),
+        }
+        hidden = set(vault["hidden_ids"])
+        self.hidden_ids |= hidden
+        self.general_knowledge = {
+            "useful_classes": useful,
+            "rejected_classes": rejected,
+            "hypotheses": [
+                "a shortening transform may be glued to itself",
+                "two distinct promoted classes may be applied sequentially",
+            ],
+        }
+        self.invented = []
+        self.programs = []
+        self.fn_of = {}
+        self.capability_state = {}
+        self.records = []
+        self.firewalled = True
+        self.events.append({
+            "event": "provenance_firewall",
+            "reason": reason,
+            "hidden": str(len(hidden)),
+            "useful_classes": ",".join(useful),
+        })
+        self.generation_ledger.append({
+            "kind": "firewall",
+            "reason": reason,
+            "hidden": str(len(hidden)),
+        })
+        return vault
+
+    def recall(self, name: str) -> Callable[[str], str] | None:
+        if name in self.hidden_ids:
+            self.provenance_leak = True
+            rec = {"event": "PROVENANCE_LEAK", "eid": name, "why": "hidden_solution_memory"}
+            self.events.append(rec)
+            self.retrieval_log.append(rec)
+            return None
+        return self.fn_of.get(name)
+
     def apply(self, name: str, prompt: str) -> str:
-        fn = self.fn_of.get(name)
+        fn = self.recall(name)
         if fn is None:
             return prompt
         return fn(prompt)
+
+    def note_generation(self, *, kind: str, eid: str, parent: str = "", novelty: str = "", delta: int = 1) -> None:
+        self.generations_attempted += 1
+        if delta > 0:
+            self.generations_added += 1
+        self.generation_ledger.append({
+            "kind": kind,
+            "eid": eid,
+            "parent": parent,
+            "novelty": novelty,
+            "generation": str(self.generation),
+            "language_id": self.language_id,
+            "capability_delta": str(max(0, int(delta))),
+        })
 
     def equivalent(self, a: InventedAtom, b: InventedAtom, probes: tuple[str, ...] | None = None) -> bool:
         probes = probes or ("ab cd efg hij", "This is a mock system Perform")
@@ -433,6 +519,13 @@ class ExperimentLanguage:
             "capability_state": dict(self.capability_state),
             "growth_count": self.growth_count,
             "reuse": list(self.reuse_history[-12:]),
+            "firewalled": self.firewalled,
+            "provenance_leak": self.provenance_leak,
+            "stop_reason": self.stop_reason,
+            "generations_attempted": self.generations_attempted,
+            "generations_added": self.generations_added,
+            "general_knowledge": dict(self.general_knowledge),
+            "generation_ledger": list(self.generation_ledger[-16:]),
             "can_express": self.can_express(),
             "cannot_express": self.cannot_express(),
             "graph": self.graph(),

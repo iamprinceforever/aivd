@@ -47,7 +47,7 @@ from aivd37.unknowns.terminal import TerminalState
 
 
 def test_version_337():
-    assert __version__.startswith("3.37")
+    assert __version__.startswith("3.")
     assert INVENT_CAP == 48
     cfg = AIVDConfig(epistemic_mode="full_3_37", invention_mode="full_3_37")
     assert cfg.epistemic_mode == "full_3_37"
