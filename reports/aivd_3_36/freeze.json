@@ -11,5 +11,5 @@
   "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
   "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
   "note": "Frozen before sacred TinyLlama holdout. Self-growing experiment language around frozen 3.35 efficiency. Promotion into L_t, CAT-self growth of shortening char_project, leftover=2 invariant reuse accepted on 3.36. leftover<3 invent skip not retuned. Doubled-last is not in propose_atoms. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33/3.34/3.35 S/U. Compact micro-language, not unbounded invention.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "26615172f0bad873ddfa14fa657aa070f98777eb"
 }
