@@ -1,3 +1,35 @@
+## 3.37.0 — Deep recursive language growth
+
+3.36 grows L_t by one CAT-self layer after a promoted char_project.
+It does not compose two independently invented atoms, so even-then-last
+leftover-misses when CAT-self is tried first. 3.37 keeps 3.36 as the
+frozen fast path (promotion, CAT-self, leftover=2 invariant reuse,
+leftover<3 skip) and adds sequential composition of the two most
+recently promoted distinct-class atoms after untried classes are
+exhausted. Composition is a program, not a new atom. leftover<3 still
+skips new atom invention, growth, and compose. INVENT_CAP stays 48.
+Budget 32. Do not retune 3.36 leftover=2 / leftover-gates / leftover<3
+skip / CAT-self. No JOIN_ALL / CYCLIC_SHIFT / APPEND_REVERSED. No
+even-then-last added to propose_atoms. Compact micro-language, not
+unbounded invention.
+
+- pick_compose_pair: two most recently promoted distinct classes,
+  chronological apply (earlier then later)
+- compose before CAT-self, gated on 3.37 so 3.36 CAT-self-first is
+  bit-identical
+- EX8 even-then-last 7/7 vs 3.36 0/7; EX1 last-only still 7/7 (fires
+  3rd, before compose); DX8 doubled-last still 7/7 (compose miss then
+  CAT-self)
+- DX9 on 3.37 7/7 (same fire as EX8)
+- EX19 stride-3 leftover-miss documented (same class as even)
+- leftover=2 gate reuse accepted on 3.37
+- leftover<3 still skips new atoms, growth, and compose
+- nocompose / nogrow / greedy / neverinvent ablations: EX8 fails
+- nolangext: CAT-self skipped, sequential compose still fires EX8
+- Llama even-then-last / stride-3 first-run pending post-freeze
+
+---
+
 ## 3.36.0 — Self-growing experiment language
 
 3.35 invents an atom and can verify it under 32. It does not turn that

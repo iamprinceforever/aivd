@@ -44,6 +44,49 @@ def cat_self_body(body: Micro) -> Micro | None:
     return canonicalize_micro(Micro("MAPT", kids=(Micro("CAT", kids=(inner, inner)),)))
 
 
+def semantic_distance(
+    a: Any,
+    b: Any,
+    probes: tuple[str, ...] = ("ab cd efg hij", "This is a mock system Perform"),
+) -> float:
+    """Class mismatch plus behavioral disagreement. Not an evaluator ranking."""
+    class_d = 0.0 if getattr(a, "semantic_class", "") == getattr(b, "semantic_class", "") else 1.0
+    n = 0
+    d = 0
+    for p in probes:
+        try:
+            ga = apply_micro(p, a.body)
+            gb = apply_micro(p, b.body)
+        except Exception:
+            return class_d + 1.0
+        n += 1
+        if ga != gb:
+            d += 1
+    return class_d + (d / max(1, n))
+
+
+def pick_compose_pair(language: Any) -> tuple[Any, Any] | None:
+    """Two most recently promoted distinct-class atoms, chronological apply order.
+
+    Not a holdout pair schedule. Skips programs and retired names.
+    """
+    promoted = [
+        a for a in getattr(language, "invented", [])
+        if getattr(language, "state_of", lambda _n: "")(a.name()) == "PROMOTED"
+        and not str(a.name()).startswith("cmp_")
+    ]
+    if len(promoted) < 2:
+        return None
+    later = promoted[-1]
+    earlier = next(
+        (x for x in reversed(promoted[:-1]) if x.semantic_class != later.semantic_class),
+        None,
+    )
+    if earlier is None:
+        return None
+    return (earlier, later)
+
+
 def propose_growth(
     language: Any,
     *,
@@ -60,7 +103,7 @@ def propose_growth(
     if not promoted:
         return []
     known_keys = {a.key() for a in language.invented}
-    known_keys.update(getattr(language, "program_keys", lambda: set)())
+    known_keys.update(getattr(language, "program_keys", lambda: set())())
     behaviors: dict[str, str] = {}
     try:
         for a in promoted:
@@ -131,24 +174,8 @@ def propose_growth(
             break
 
     # Conjunction of two promoted classes that each failed alone.
-    if len(out) < 2:
-        for i, a in enumerate(promoted):
-            for b in promoted[i + 1 :]:
-                if a.semantic_class == b.semantic_class:
-                    continue
-                try:
-                    fa = apply_micro(identity, a.body)
-                    got = apply_micro(fa, b.body)
-                except Exception:
-                    continue
-                if got == identity or got == fa:
-                    continue
-                # Sequential composition is a program over two atoms, recorded
-                # as applying b after a. Represented by composing the bodies
-                # is not always possible in the micro-language; the designer
-                # registers the Python composition. Here we only emit a
-                # CAT-self-like micro when both are MAPT of char ops.
-                continue
+    # Sequential bodies are registered as Python composition in the designer;
+    # this proposer stays a CAT-self catalog so 3.36 ranking is unchanged.
     return out[:2]
 
 
@@ -157,6 +184,7 @@ def propose_sequential(language: Any) -> list[tuple[Any, Any]]:
     promoted = [
         a for a in getattr(language, "invented", [])
         if getattr(language, "state_of", lambda _n: "")(a.name()) == "PROMOTED"
+        and not str(a.name()).startswith("cmp_")
     ]
     pairs: list[tuple[Any, Any]] = []
     for i, a in enumerate(promoted):
@@ -167,4 +195,11 @@ def propose_sequential(language: Any) -> list[tuple[Any, Any]]:
     return pairs[:2]
 
 
-__all__ = ["propose_growth", "propose_sequential", "cat_self_body", "tokens_shorter"]
+__all__ = [
+    "propose_growth",
+    "propose_sequential",
+    "pick_compose_pair",
+    "cat_self_body",
+    "tokens_shorter",
+    "semantic_distance",
+]

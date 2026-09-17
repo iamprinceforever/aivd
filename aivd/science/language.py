@@ -285,6 +285,16 @@ class ExperimentLanguage:
         self.reuse_history.append({"eid": name, "useful": "1" if useful else "0"})
         self.events.append({"event": "language_reuse", "eid": name, "useful": str(useful)})
 
+    def retire(self, name: str, *, reason: str = "noninformative") -> bool:
+        st = self.capability_state.get(name, "")
+        if not st or st in ("RETIRED", "REVOKED"):
+            return False
+        self.capability_state[name] = "RETIRED"
+        self.retirement_history.append(name)
+        self.events.append({"event": "language_retire", "eid": name, "reason": reason})
+        self.edges.append({"rel": "retired", "src": name, "dst": reason})
+        return True
+
     def apply(self, name: str, prompt: str) -> str:
         fn = self.fn_of.get(name)
         if fn is None:
@@ -352,6 +362,13 @@ class ExperimentLanguage:
             ],
             "programs": list(self.programs),
             "reuse_history": list(self.reuse_history),
+            "retirement_history": list(self.retirement_history),
+            "growth_count": self.growth_count,
+            "compositions": [
+                {"eid": r.eid, "a": r.deps[0], "b": r.deps[1]}
+                for r in self.records
+                if r.kind == "composition" and len(r.deps) >= 2
+            ],
         }
 
     def restore(self, snap: dict[str, Any]) -> None:
@@ -362,8 +379,11 @@ class ExperimentLanguage:
         self.capability_state = dict(snap.get("capability_state") or {})
         self.programs = list(snap.get("programs") or [])
         self.reuse_history = list(snap.get("reuse_history") or [])
+        self.retirement_history = list(snap.get("retirement_history") or [])
+        self.growth_count = int(snap.get("growth_count") or 0)
         self.invented = []
         self.fn_of = {}
+        by_name: dict[str, Any] = {}
         for row in snap.get("atoms") or []:
             body = _dict_to_micro(row.get("body") or {})
             if body is None:
@@ -380,6 +400,21 @@ class ExperimentLanguage:
             )
             self.invented.append(atom)
             self.fn_of[atom.name()] = make_fn(atom)
+            by_name[atom.name()] = atom
+        for row in snap.get("compositions") or []:
+            a = by_name.get(str(row.get("a") or ""))
+            b = by_name.get(str(row.get("b") or ""))
+            eid = str(row.get("eid") or "")
+            if a is None or b is None or not eid:
+                continue
+            fa, fb = make_fn(a), make_fn(b)
+
+            def _fn(p: str, _fa=fa, _fb=fb) -> str:
+                return _fb(_fa(p))
+
+            self.fn_of[eid] = _fn
+            if eid not in self.programs:
+                self.programs.append(eid)
 
     def describe(self) -> dict[str, Any]:
         return {

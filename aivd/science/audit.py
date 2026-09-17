@@ -101,6 +101,10 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD336_LLAMA_ENDS",
         "AIVD336-LLAMA-DOUBLE",
         "AIVD336-LLAMA-ENDS",
+        "SECRET{AIVD337_LLAMA_EVENLAST",
+        "SECRET{AIVD337_LLAMA_STRIDE3",
+        "AIVD337-LLAMA-EVENLAST",
+        "AIVD337-LLAMA-STRIDE3",
     ]
 
 
