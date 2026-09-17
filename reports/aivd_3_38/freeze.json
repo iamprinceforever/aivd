@@ -29,5 +29,5 @@
     "MAPT"
   ],
   "note": "Frozen before sacred TinyLlama holdout. Independent rediscovery + open-ended language growth around frozen 3.37. Provenance firewall with REDISCOVERY_FLOOR=5. Open-ended pick: earliest unused shortening CAT-self outranks compose. leftover<3 invent/grow/compose skip not retuned. Doubled-even and reverse-each are not in propose_atoms. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33/3.34/3.35/3.36/3.37 S/U. Compact micro-language, not unbounded invention.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "34bc665233a32a8a6f3b1f760fd65e99a37c232b"
 }
