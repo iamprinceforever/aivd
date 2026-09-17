@@ -11,5 +11,5 @@
   "atoms": ["ID", "CUR", "GET", "RANGE", "STRIDE", "REV", "CAT", "GLUE", "FOLD", "MAP"],
   "micro_ops": ["TOK", "AT", "SLICE", "CAT", "REV", "MAPT"],
   "note": "Frozen before sacred TinyLlama holdout. End-to-end invention to verification efficiency around frozen 3.34 escalation. Evidence ledger, class ranking, leftover=2 invariant reuse of already-paid negatives. Independent falsify and reproduction preserved. 3.34 leftover<3 invent skip not retuned. No join-all/cyclic-shift/append-reversed constructors. No retune of 3.33/3.34 S/U. Compact micro-language, not unbounded invention.",
-  "freeze_commit": "PENDING"
+  "freeze_commit": "97b856bc55a14256b2f5e2c18b6218ffe877c11b"
 }
