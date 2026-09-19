@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <rect width="16" height="16" fill="#0c0d0f"/>
+  <rect x="0.5" y="0.5" width="15" height="15" fill="none" stroke="#8b9aa8" stroke-width="1"/>
+  <!-- 32-slot ledger: 4 rows × 8 cols = hypothesis, experiment, falsify, verify -->
+  <g fill="#8b9aa8">
+    <rect x="4" y="5" width="1" height="1"/>
+    <rect x="5" y="5" width="1" height="1"/>
+    <rect x="6" y="5" width="1" height="1"/>
+    <rect x="7" y="5" width="1" height="1"/>
+    <rect x="8" y="5" width="1" height="1"/>
+    <rect x="9" y="5" width="1" height="1"/>
+    <rect x="10" y="5" width="1" height="1"/>
+    <rect x="11" y="5" width="1" height="1"/>
+  </g>
+  <g fill="#ece8e0">
+    <rect x="4" y="7" width="1" height="1"/>
+    <rect x="5" y="7" width="1" height="1"/>
+    <rect x="6" y="7" width="1" height="1"/>
+    <rect x="7" y="7" width="1" height="1"/>
+    <rect x="8" y="7" width="1" height="1"/>
+    <rect x="9" y="7" width="1" height="1"/>
+    <rect x="10" y="7" width="1" height="1"/>
+    <rect x="11" y="7" width="1" height="1"/>
+  </g>
+  <g fill="#8a4a3a">
+    <rect x="4" y="9" width="1" height="1"/>
+    <rect x="5" y="9" width="1" height="1"/>
+    <rect x="6" y="9" width="1" height="1"/>
+    <rect x="7" y="9" width="1" height="1"/>
+    <rect x="8" y="9" width="1" height="1"/>
+    <rect x="9" y="9" width="1" height="1"/>
+    <rect x="10" y="9" width="1" height="1"/>
+    <rect x="11" y="9" width="1" height="1"/>
+  </g>
+  <g fill="#3d6b5c">
+    <rect x="4" y="11" width="1" height="1"/>
+    <rect x="5" y="11" width="1" height="1"/>
+    <rect x="6" y="11" width="1" height="1"/>
+    <rect x="7" y="11" width="1" height="1"/>
+    <rect x="8" y="11" width="1" height="1"/>
+    <rect x="9" y="11" width="1" height="1"/>
+    <rect x="10" y="11" width="1" height="1"/>
+    <rect x="11" y="11" width="1" height="1"/>
+  </g>
+</svg>
