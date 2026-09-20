@@ -148,6 +148,7 @@ def main() -> int:
         "mode": "full_3_39",
         "implementation_freeze": IMPLEMENTATION_FREEZE,
         "freeze_pin": FREEZE_PIN,
+        "environment_config": "configs/aivd339_tinyllama_environment.json",
         "note": "No Level-14 instruction; no retune; fresh plants only.",
     }
     (OUT / "env_gate.json").write_text(json.dumps(gate, indent=2) + "\n")
@@ -241,6 +242,30 @@ def main() -> int:
         "freeze": freeze,
         "cases": cases,
     }
+    
+    # Persist generation ledgers for Stage 4 independence analysis
+    all_ledgers = {}
+    for label, case in cases.items():
+        rows = []
+        for bucket in ("rows", "direct", "control"):
+            for r in case.get(bucket) or []:
+                for rec in r.get("generation_records") or []:
+                    rows.append({
+                        "label": label,
+                        "seed": r.get("seed"),
+                        "mode": r.get("mode"),
+                        "direct": r.get("direct"),
+                        "vulnerable": r.get("vulnerable", True),
+                        "record": rec,
+                    })
+        all_ledgers[label] = rows
+        (OUT / f"generation_ledgers_{label}.json").write_text(
+            json.dumps(rows, indent=2, default=str) + "\n"
+        )
+    (OUT / "generation_ledgers.json").write_text(
+        json.dumps(all_ledgers, indent=2, default=str) + "\n"
+    )
+
     (OUT / "first_run.json").write_text(json.dumps(payload, default=str))
     s_ok = int(round(cases["S"]["pipeline_verified_3_39"] * 7))
     u_ok = int(round(cases["U"]["pipeline_verified_3_39"] * 7))
