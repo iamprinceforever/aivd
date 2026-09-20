@@ -1,0 +1,47 @@
+{
+  "title": "AIVD 3.39 Independent Generations AUDIT",
+  "status": "AUDIT_ONLY_STOP_BEFORE_IMPLEMENTATION",
+  "head": "358ea693abdd286e3451b973877c36b7077612a5",
+  "version": "3.38.0",
+  "branch": "research/aivd-3.39-independent-generations",
+  "branch_url": "https://github.com/iamprinceforever/aivd/tree/research/aivd-3.39-independent-generations",
+  "tests": {
+    "collected": 1033,
+    "passed": 995,
+    "failed": 38,
+    "skipped": 0,
+    "warnings": 0,
+    "python": "3.13.5",
+    "fail_reason": "llama oracles require transformers + /workspace/models/tinyllama (absent)"
+  },
+  "sacred": {
+    "S": {
+      "plant": "doubled-even",
+      "verified": "7/7",
+      "fire_at": 30,
+      "leftover_after_fire": 2,
+      "invariant_reused": 1,
+      "firewalled": false
+    },
+    "U": {
+      "plant": "reverse-each",
+      "verified": "0/7",
+      "status": "NOT_DISCOVERED",
+      "failure": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "note": "CAT-self even miss then leftover-skip; firewall floor=5 leftover=3 at gates"
+    }
+  },
+  "leakage": {
+    "discovery_path_plant_encoding": false,
+    "propose_atoms_contains_doubled_even_or_reverse_each": false,
+    "evaluator_side": [
+      "aivd/science/benchmarks.py FX8*",
+      "aivd37/unknowns/llama_338.py",
+      "tests/scripts"
+    ],
+    "documentation": [
+      "reports/aivd_3_38_llama/*"
+    ]
+  },
+  "audit_md": "reports/aivd_3_39_independent_generations_AUDIT.md"
+}
