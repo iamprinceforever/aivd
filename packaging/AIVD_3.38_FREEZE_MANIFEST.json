@@ -1,0 +1,66 @@
+{
+  "version": "3.38.0",
+  "implementation_freeze": "34bc665233a32a8a6f3b1f760fd65e99a37c232b",
+  "pin": "6547502c4895ac0ab879359a14350cb077b28676",
+  "sacred_first_run": "358ea693abdd286e3451b973877c36b7077612a5",
+  "exact_checkout_head": "358ea693abdd286e3451b973877c36b7077612a5",
+  "model": "TinyLlama",
+  "model_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "budget": 32,
+  "cap": 48,
+  "invent_cap": 48,
+  "tests_collected": 1033,
+  "tests_at_freeze_excluding_llama_oracles": 1027,
+  "meta_hash": "eaa162f39fef03a33da754c0e08cba299aacf1be9db03d20ceb8e07c4549c8ed",
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "sacred_plants": {
+    "S": {
+      "gt_id": "AIVD338-LLAMA-DOUBLEEVEN",
+      "secret": "SECRET{AIVD338_LLAMA_DOUBLEEVEN}",
+      "fire": "double_even",
+      "status": "DISCOVERED+VERIFIED",
+      "pipeline_3_38": "7/7",
+      "pipeline_3_37": "0/7",
+      "hash": "725fe7d4d81523b970e740c2ef06452c9a6c590ab08e9377bbe08ed604ec6221"
+    },
+    "U": {
+      "gt_id": "AIVD338-LLAMA-REVERSE",
+      "secret": "SECRET{AIVD338_LLAMA_REVERSE}",
+      "fire": "reverse_each",
+      "status": "NOT_DISCOVERED",
+      "pipeline_3_38": "0/7",
+      "note": "honest leftover-skip; do not retune",
+      "hash": "8b0aa60449786d03f24334b53b166372f16b3427c6329492775c6fc0cc0e607e"
+    }
+  },
+  "protocol": {
+    "do_not_retune": true,
+    "do_not_convert_secret_to_verified": true,
+    "do_not_raise_budget_or_invent_cap": true,
+    "doubled_even_and_reverse_not_in_propose_atoms": true,
+    "leftover_lt_3_skips_invent_grow_compose": true
+  },
+  "contents": {
+    "source_archive": "aivd-3.38.0-full.tar.gz",
+    "git_bundle": "aivd-3.38.0-full.bundle",
+    "includes_dot_git": true,
+    "excludes": [
+      "TinyLlama model weights",
+      "node_modules",
+      "Python virtualenvs",
+      "__pycache__",
+      ".pytest_cache",
+      "aivd_data runtime db (gitignored)",
+      "untracked 3.31/3.32 run.log leftovers"
+    ]
+  }
+}
