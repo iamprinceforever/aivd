@@ -79,6 +79,8 @@ class ExperimentLanguage:
         self.generations_attempted = 0
         self.generations_added = 0
         self.generation_ledger: list[dict[str, str]] = []
+        self.generation_records: list[dict] = []
+        self.firewall_epoch = 0
         self.retrieval_log: list[dict[str, str]] = []
 
     def state_of(self, name: str) -> str:
@@ -345,16 +347,19 @@ class ExperimentLanguage:
         self.capability_state = {}
         self.records = []
         self.firewalled = True
+        self.firewall_epoch = int(self.firewall_epoch or 0) + 1
         self.events.append({
             "event": "provenance_firewall",
             "reason": reason,
             "hidden": str(len(hidden)),
             "useful_classes": ",".join(useful),
+            "firewall_epoch": str(self.firewall_epoch),
         })
         self.generation_ledger.append({
             "kind": "firewall",
             "reason": reason,
             "hidden": str(len(hidden)),
+            "firewall_epoch": str(self.firewall_epoch),
         })
         return vault
 
@@ -385,7 +390,21 @@ class ExperimentLanguage:
             "generation": str(self.generation),
             "language_id": self.language_id,
             "capability_delta": str(max(0, int(delta))),
+            "firewall_epoch": str(self.firewall_epoch),
         })
+
+    def emit_generation_record(self, record) -> dict:
+        """Append a GenerationRecord (or dict). No-op decision semantics."""
+        if hasattr(record, "to_dict"):
+            d = record.to_dict()
+        else:
+            d = dict(record or {})
+        d.setdefault("firewall_epoch", self.firewall_epoch)
+        d.setdefault("generation_epoch", self.firewall_epoch)
+        d.setdefault("language_id", self.language_id)
+        d.setdefault("generation_index", self.generation)
+        self.generation_records.append(d)
+        return d
 
     def equivalent(self, a: InventedAtom, b: InventedAtom, probes: tuple[str, ...] | None = None) -> bool:
         probes = probes or ("ab cd efg hij", "This is a mock system Perform")
@@ -526,6 +545,8 @@ class ExperimentLanguage:
             "generations_added": self.generations_added,
             "general_knowledge": dict(self.general_knowledge),
             "generation_ledger": list(self.generation_ledger[-16:]),
+            "firewall_epoch": self.firewall_epoch,
+            "generation_records": list(self.generation_records[-32:]),
             "can_express": self.can_express(),
             "cannot_express": self.cannot_express(),
             "graph": self.graph(),

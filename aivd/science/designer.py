@@ -21,6 +21,7 @@ from aivd.science.ext_synth import ExtensionSynthesizer
 from aivd.science.atom_synth import AtomSynthesizer
 from aivd.science.language import ExperimentLanguage
 from aivd.science.grow import propose_growth, pick_compose_pair, pick_generation_action, REDISCOVERY_FLOOR, MAX_RUNTIME_GENERATIONS
+from aivd.science.generation_record import build_record, assign_discovery_origin, CandidateOrigin
 from aivd.science.atom import make_fn
 from aivd.science.escalate import (
     CONTINUE,
@@ -53,29 +54,29 @@ class ScienceDesigner:
         self.seed = int(seed)
         self.max_new = int(max_new)
         self.mode = str(mode or "off")
-        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
-        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
-        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
-        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38"))
-        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode and "3_35" not in self.mode and "3_36" not in self.mode and "3_37" not in self.mode and "3_38" not in self.mode
-        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
-        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
-        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode
+        self.allow_intra = any(v in self.mode for v in ("3_24", "3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38", "3_39"))
+        self.allow_gap = any(v in self.mode for v in ("3_25", "3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38", "3_39"))
+        self.allow_struct = any(v in self.mode for v in ("3_26", "3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38", "3_39"))
+        self.allow_commit = any(v in self.mode for v in ("3_27", "3_28", "3_29", "3_30", "3_31", "3_32", "3_33", "3_34", "3_35", "3_36", "3_37", "3_38", "3_39"))
+        self.allow_wave2 = "3_28" in self.mode and "3_29" not in self.mode and "3_30" not in self.mode and "3_31" not in self.mode and "3_32" not in self.mode and "3_33" not in self.mode and "3_34" not in self.mode and "3_35" not in self.mode and "3_36" not in self.mode and "3_37" not in self.mode and "3_38" not in self.mode and "3_39" not in self.mode
+        self.allow_lazy = "3_29" in self.mode or "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode
+        self.allow_synth = "3_30" in self.mode or "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode
+        self.allow_prim = "3_31" in self.mode or "3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode
         self.allow_prim_lease = self.allow_prim and "nolease" not in self.mode
         self.allow_prim_lazy = self.allow_prim and "nolazy" not in self.mode
-        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "nosub" not in self.mode
+        self.allow_ext = ("3_32" in self.mode or "3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "nosub" not in self.mode
         self.allow_ext_lease = self.allow_ext and "nolease" not in self.mode
         self.allow_ext_lazy = self.allow_ext and "nolazy" not in self.mode
         self.allow_ext_novelty = self.allow_ext and "nonovelty" not in self.mode
         self.allow_ext_question = "noquestion" not in self.mode
-        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noatom" not in self.mode and "neverinvent" not in self.mode
+        self.allow_atom = ("3_33" in self.mode or "3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "noatom" not in self.mode and "neverinvent" not in self.mode
         self.allow_atom_lease = self.allow_atom and "nolease" not in self.mode
         self.allow_atom_lazy = self.allow_atom and "nolazy" not in self.mode
         self.allow_atom_novelty = self.allow_atom and "nonovelty" not in self.mode
         self.allow_atom_question = "noquestion" not in self.mode
         self.allow_atom_budget = self.allow_atom and "nobudget" not in self.mode
         self.allow_lang = self.allow_atom and "nolang" not in self.mode
-        self.allow_esc = ("3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noesc" not in self.mode
+        self.allow_esc = ("3_34" in self.mode or "3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "noesc" not in self.mode
         self.allow_reserve = self.allow_esc and "noreserve" not in self.mode
         self.allow_plan = self.allow_esc and "noplan" not in self.mode
         self.allow_ev = self.allow_esc and "noev" not in self.mode
@@ -84,7 +85,7 @@ class ScienceDesigner:
         self.allow_portfolio = self.allow_esc and "noportfolio" not in self.mode
         self.always_late = "alwayslate" in self.mode
         self.always_early = "alwaysearly" in self.mode or "alwaysinvent" in self.mode
-        self.allow_eff = ("3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "noeff" not in self.mode
+        self.allow_eff = ("3_35" in self.mode or "3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "noeff" not in self.mode
         self.allow_ledger = self.allow_eff and "noledger" not in self.mode
         self.allow_dynres = self.allow_eff and "nodynres" not in self.mode
         self.allow_release = self.allow_eff and "norelease" not in self.mode
@@ -92,19 +93,20 @@ class ScienceDesigner:
         self.allow_early_reject = self.allow_eff and "noearly" not in self.mode
         self.allow_compress = self.allow_eff and "nocompress" not in self.mode
         self.greedy_discovery = "greedy" in self.mode
-        self.allow_grow = ("3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode) and "nogrow" not in self.mode
+        self.allow_grow = ("3_36" in self.mode or "3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "nogrow" not in self.mode
         self.allow_persist = self.allow_grow and "nopersist" not in self.mode
         self.allow_reuse = self.allow_grow and "noreuse" not in self.mode
         self.allow_recursive = self.allow_grow and "norecurse" not in self.mode
         self.allow_langext = self.allow_grow and "nolangext" not in self.mode
         self.allow_langmem = self.allow_grow and "nomem" not in self.mode
         self.allow_langval = self.allow_grow and "noval" not in self.mode
-        self.allow_compose = ("3_37" in self.mode or "3_38" in self.mode) and "nocompose" not in self.mode
-        self.allow_retire = ("3_37" in self.mode or "3_38" in self.mode) and "noretire" not in self.mode
-        self.allow_rediscover = ("3_37" in self.mode or "3_38" in self.mode) and "norediscover" not in self.mode
-        self.allow_firewall = "3_38" in self.mode and "nofirewall" not in self.mode
-        self.allow_open = "3_38" in self.mode and "noopen" not in self.mode
-        self.allow_anycat = "3_38" in self.mode and "noanycat" not in self.mode
+        self.allow_compose = ("3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "nocompose" not in self.mode
+        self.allow_retire = ("3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "noretire" not in self.mode
+        self.allow_rediscover = ("3_37" in self.mode or "3_38" in self.mode or "3_39" in self.mode) and "norediscover" not in self.mode
+        self.allow_firewall = ("3_38" in self.mode or "3_39" in self.mode) and "nofirewall" not in self.mode
+        self.allow_open = ("3_38" in self.mode or "3_39" in self.mode) and "noopen" not in self.mode
+        self.allow_anycat = ("3_38" in self.mode or "3_39" in self.mode) and "noanycat" not in self.mode
+        self.allow_gen_record = "3_39" in self.mode and "norecord" not in self.mode
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
@@ -910,6 +912,11 @@ class ScienceDesigner:
                 self.commitments.max_leases_executed = max(
                     self.commitments.max_leases_executed, self.commitments.executed_novel + 1
                 )
+            origin = (
+                CandidateOrigin.INDEPENDENT_REDISCOVERY.value
+                if self.language.firewalled
+                else CandidateOrigin.INVENTED_ATOM.value
+            )
             self.methods_log.append({
                 "event": "atom_materialize",
                 "op": name,
@@ -921,6 +928,33 @@ class ScienceDesigner:
                 "generation": str(self.language.generation),
                 "occupancy": str(self.inventor.occupancy()),
             })
+            hidden_keys = set()
+            if self.firewall_vault:
+                from aivd.science.language import _dict_to_micro
+                for row in (self.firewall_vault.get("atoms") or []):
+                    if not isinstance(row, dict):
+                        continue
+                    if row.get("key"):
+                        hidden_keys.add(row["key"])
+                        continue
+                    body = _dict_to_micro(row.get("body") or {})
+                    if body is not None:
+                        hidden_keys.add(body.key())
+            self._emit_gen_record(
+                kind="atom",
+                action="rediscover" if self.language.firewalled else "invent",
+                eid=name,
+                origin=origin,
+                novelty=str(atom.novelty or ""),
+                semantic_class=str(atom.semantic_class or ""),
+                body_key=atom.key(),
+                body=atom.body,
+                provenance=tuple(atom.provenance or ()),
+                textual_identity_to_hidden=atom.key() in hidden_keys,
+                behavioral_equiv_to_hidden=False,
+                parent_eids=tuple(atom.parent or ()),
+                capability_delta=1,
+            )
             if self.allow_atom_lazy:
                 break
 
@@ -934,6 +968,18 @@ class ScienceDesigner:
             x for x in self.atom_synth.board.remaining
             if x.semantic_class and x.semantic_class not in rejected
         ]
+
+
+    def _emit_gen_record(self, **kwargs):
+        """Emit a generation_record when 3.39 recording is on. No decision change."""
+        if not getattr(self, "allow_gen_record", False):
+            return None
+        kwargs.setdefault("language", self.language)
+        kwargs.setdefault("mode", self.mode)
+        kwargs.setdefault("seed", getattr(self, "seed", None))
+        kwargs.setdefault("leftover", int(getattr(self, "remaining_steps", 32) or 0))
+        rec = build_record(**kwargs)
+        return self.language.emit_generation_record(rec)
 
     def _maybe_firewall(self) -> None:
         """Hide solution-specific A/B after two classes are promoted. 3.38 only."""
@@ -991,7 +1037,17 @@ class ScienceDesigner:
             "leftover": str(leftover),
             "useful_classes": ",".join(self.language.general_knowledge.get("useful_classes") or []),
             "hidden": str(len(self.language.hidden_ids)),
+            "firewall_epoch": str(self.language.firewall_epoch),
         })
+        self._emit_gen_record(
+            kind="firewall",
+            action="firewall",
+            eid="firewall_epoch_" + str(self.language.firewall_epoch),
+            origin=CandidateOrigin.INDEPENDENT_REDISCOVERY.value,
+            leftover=leftover,
+            notes="provenance firewall armed",
+            capability_delta=0,
+        )
 
     def _maybe_compose(self) -> None:
         """Sequential program over two promoted distinct-class atoms. 3.37 only.
@@ -1085,6 +1141,19 @@ class ScienceDesigner:
             kind="compose", eid=name, parent=a.name() + "," + b.name(),
             novelty="NEW_COMPOSITIONAL_CAPABILITY",
         )
+        self._emit_gen_record(
+            kind="compose",
+            action="compose",
+            eid=name,
+            parent_eids=(a.name(), b.name()),
+            origin=assign_discovery_origin(
+                firewalled=self.language.firewalled, kind="compose", recombined=True,
+            ),
+            novelty="NEW_COMPOSITIONAL_CAPABILITY",
+            semantic_class="compose",
+            leftover=leftover,
+            capability_delta=1,
+        )
 
     def _register_growth(self, prog) -> bool:
         name = prog.name()
@@ -1133,6 +1202,25 @@ class ScienceDesigner:
         })
         self.language.note_generation(
             kind="grow", eid=name, parent=",".join(prog.parent), novelty=prog.novelty or "",
+        )
+        grow_origin = (
+            CandidateOrigin.INDEPENDENT_REDISCOVERY.value
+            if self.language.firewalled
+            else CandidateOrigin.LANGUAGE_GROWTH.value
+        )
+        self._emit_gen_record(
+            kind="grow",
+            action="grow",
+            eid=name,
+            parent_eids=tuple(prog.parent or ()),
+            origin=grow_origin,
+            novelty=str(prog.novelty or ""),
+            semantic_class=str(prog.semantic_class or ""),
+            body_key=prog.key(),
+            body=prog.body,
+            provenance=tuple(getattr(prog, "provenance", ()) or ()),
+            leftover=leftover,
+            capability_delta=1,
         )
         return True
 

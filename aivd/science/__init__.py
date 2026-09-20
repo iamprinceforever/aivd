@@ -13,7 +13,7 @@ from aivd.science.proposers import ScienceProposer
 from aivd.science.controller import ScienceController
 from aivd.science.methods import MethodInventor
 from aivd.science.report import VulnerabilityReport, build_report
-from aivd.science.audit import scan_science_source
+from aivd.science.audit import scan_science_source, scan_discovery_target_leakage
 from aivd.science.health import health_check
 
 __all__ = [
@@ -35,5 +35,6 @@ __all__ = [
     "VulnerabilityReport",
     "build_report",
     "scan_science_source",
+    "scan_discovery_target_leakage",
     "health_check",
 ]

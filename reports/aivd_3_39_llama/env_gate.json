@@ -1,0 +1,21 @@
+{
+  "sacred_status": "NOT_RUN",
+  "reason": "transformers not installed",
+  "plants": [
+    "AIVD339-LLAMA-ODDDOUBLE",
+    "AIVD339-LLAMA-ROTATE"
+  ],
+  "budget": 32,
+  "invent_cap": 48,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "mode": "full_3_39",
+  "note": "No Level-14 instruction; no retune; fresh plants only."
+}

@@ -109,6 +109,10 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD338_LLAMA_REVERSE",
         "AIVD338-LLAMA-DOUBLEEVEN",
         "AIVD338-LLAMA-REVERSE",
+        "SECRET{AIVD339_LLAMA_ODDDOUBLE",
+        "SECRET{AIVD339_LLAMA_ROTATE",
+        "AIVD339-LLAMA-ODDDOUBLE",
+        "AIVD339-LLAMA-ROTATE",
     ]
 
 
@@ -126,4 +130,67 @@ def scan_science_source(root: Path | None = None) -> dict[str, Any]:
     return {"leaks": hits, "pass": len(hits) == 0}
 
 
-__all__ = ["scan_science_source"]
+
+
+# Tokens that must never appear as discovery proposal targets in science/*.py
+# (excluding audit.py itself and historical docs outside this tree).
+_DISCOVERY_TARGET_FORBIDDEN = (
+    "Level 14",
+    "Level-14",
+    "level_14",
+    "FX8DoubleEven",
+    "SECRET{AIVD338_FX8",
+    "AIVD338-FX8-DOUBLEEVEN",
+    "doubled-even",
+    "double_even",
+    "DOUBLEEVEN",
+    "reverse-each",
+    "reverse_each",
+    "CAT-self",  # as a named plant target string; class-level growth prose is separate
+    "MAX_GENERATIONS=14",
+    "expected_generation",
+    "AIVD339-LLAMA-ODDDOUBLE",
+    "AIVD339-LLAMA-ROTATE",
+    "SECRET{AIVD339_LLAMA_ODDDOUBLE",
+    "SECRET{AIVD339_LLAMA_ROTATE",
+)
+
+
+def scan_discovery_target_leakage(root: Path | None = None) -> dict[str, Any]:
+    """Fail if discovery proposers encode Level-14 / FX8 / plant GT as targets.
+
+    Scans grow/designer/atom_synth/language/generation_record only.
+    Historical docs and evaluator modules are out of scope.
+    """
+    base = root or Path(__file__).resolve().parent
+    targets = (
+        "grow.py", "designer.py", "atom_synth.py", "language.py",
+        "generation_record.py", "proposers.py", "lifecycle.py",
+    )
+    # Soft tokens that appear in allowed class-level prose — exclude from hard fail
+    # when they are only in comments about growth class knowledge, not plant IDs.
+    hard = [
+        t for t in _DISCOVERY_TARGET_FORBIDDEN
+        if t not in ("CAT-self",)  # grow.py may mention CAT-self as class growth; checked separately
+    ]
+    hits: list[dict[str, str]] = []
+    for name in targets:
+        path = base / name
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8")
+        for tok in hard:
+            if tok in text:
+                hits.append({"file": name, "token": tok})
+    # CAT-self as a *proposal target* string inside propose_atoms is forbidden;
+    # mentioning the growth operator class in grow.py comments/docstrings is OK.
+    atom = base / "atom_synth.py"
+    if atom.is_file():
+        at = atom.read_text(encoding="utf-8")
+        for tok in ("CAT-self", "doubled-even", "reverse-each", "Level 14", "FX8"):
+            if tok in at:
+                hits.append({"file": "atom_synth.py", "token": tok})
+    return {"leaks": hits, "pass": len(hits) == 0}
+
+
+__all__ = ["scan_science_source", "scan_discovery_target_leakage"]

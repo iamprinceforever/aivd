@@ -1,0 +1,26 @@
+{
+  "version": "3.39.0",
+  "branch": "research/aivd-3.39-independent-generations",
+  "audit_pin": "f0fed2b",
+  "sacred_3_39": "NOT_RUN_ENV",
+  "sacred_reason": "transformers not installed; tinyllama weights absent",
+  "mock_gate": "PASS",
+  "tests_339": {
+    "passed": 30,
+    "skipped_llama_module": 1
+  },
+  "tests_338_regression": {
+    "passed": 25
+  },
+  "non_llm_core": {
+    "passed": 980,
+    "failed_env_llama": 12
+  },
+  "constraints_ok": true,
+  "propose_atoms_len": 8,
+  "invent_cap": 48,
+  "budget": 32,
+  "rediscovery_floor": 5,
+  "report_md": "reports/aivd_3_39_independent_generations.md",
+  "mock_json": "reports/aivd_3_39_independent_generations/mock_experiment.json"
+}
