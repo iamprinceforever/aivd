@@ -1,0 +1,17 @@
+{
+  "version": "3.39.0",
+  "tests_at_freeze_excluding_llama_oracles": 1027,
+  "invent_cap": 48,
+  "invent_cap_unchanged": true,
+  "budget": 32,
+  "rediscovery_floor": 5,
+  "no_llama_holdout_yet": true,
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "propose_atoms_len": 8,
+  "plants": {
+    "S": "AIVD339-LLAMA-ODDDOUBLE",
+    "U": "AIVD339-LLAMA-ROTATE"
+  },
+  "note": "Frozen before sacred TinyLlama holdout. Independent generation records + firewall epoch around frozen 3.38. full_3_38 emits no generation_records. Odd-double and rotate-left are not in propose_atoms. No Level-14 / FX8 / doubled-even / reverse-each as discovery targets. leftover<3 invent/grow/compose skip not retuned. REDISCOVERY_FLOOR=5 not retuned. Compact language, not a larger budget.",
+  "freeze_commit": "f86ebdf19403554be30e3545ee3c402dec04bb04"
+}
