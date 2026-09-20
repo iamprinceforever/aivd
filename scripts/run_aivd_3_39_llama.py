@@ -32,7 +32,7 @@ SEEDS = [0, 1, 2, 3, 4, 7, 11]
 PRIMARY = 32
 CASES = (("S", LlamaOddDoubleTarget), ("U", LlamaRotateTarget))
 IMPLEMENTATION_FREEZE = "f86ebdf19403554be30e3545ee3c402dec04bb04"
-FREEZE_PIN = "PENDING_PIN"
+FREEZE_PIN = "b07b58920b42140ea1d2cecb137b29cdad7e1c8f"
 
 
 def env_ready() -> tuple[bool, str]:
