@@ -1,0 +1,2949 @@
+{
+  "document": "aivd_3_40_stage5_results",
+  "recorded_at_ist": "2026-09-21 19:16 IST",
+  "design_tip": "2496857",
+  "execution_head_pre_commit": "2496857b348cc804d7fc43c6e099dba777c6552c",
+  "authorization": "STAGE-5 EXECUTION AUTHORIZED (offline equivalence audit only)",
+  "executed": true,
+  "sacred_authorized": false,
+  "sacred_executed": false,
+  "filter_repair_authorized": false,
+  "filter_repair_performed": false,
+  "autonomous_discovery_credit": false,
+  "claim_label": "OFFLINE_EQUIV_AUDIT",
+  "provenance_default": "OFFLINE_EVAL",
+  "freeze_verification": {
+    "design_tip": "2496857",
+    "head": "2496857b348cc804d7fc43c6e099dba777c6552c",
+    "head_short": "2496857",
+    "head_is_design_tip": true,
+    "files_match_tip": true,
+    "files": [
+      {
+        "path": "reports/aivd_3_40_stage5_charter.md",
+        "match": true,
+        "tip_blob": "e8ac172a77d7664639d1aad9afe51018ea175b40",
+        "work_blob": "e8ac172a77d7664639d1aad9afe51018ea175b40"
+      },
+      {
+        "path": "reports/aivd_3_40_stage5_hypothesis_tree.md",
+        "match": true,
+        "tip_blob": "12de8e7547b3ab883290f31cc8cc5bf9f3e6b243",
+        "work_blob": "12de8e7547b3ab883290f31cc8cc5bf9f3e6b243"
+      },
+      {
+        "path": "reports/aivd_3_40_stage5_matrix.json",
+        "match": true,
+        "tip_blob": "9310ade5971a60707a6990c63baf9e19426d22c9",
+        "work_blob": "9310ade5971a60707a6990c63baf9e19426d22c9"
+      },
+      {
+        "path": "reports/aivd_3_40_stage5_preregistration.md",
+        "match": true,
+        "tip_blob": "b07a2bcbe92595478642931cdabb204415cf001b",
+        "work_blob": "b07a2bcbe92595478642931cdabb204415cf001b"
+      },
+      {
+        "path": "reports/aivd_3_40_stage5_equivalence_spec.md",
+        "match": true,
+        "tip_blob": "b92607fb0387b028d4fb13d6f815c2b0c69219d3",
+        "work_blob": "b92607fb0387b028d4fb13d6f815c2b0c69219d3"
+      }
+    ],
+    "matrix_executed_at_start": false,
+    "historical_artifacts_unchanged": true,
+    "historical": [
+      {
+        "tip": "4005e66",
+        "path": "reports/aivd_3_40_stage4_results.json",
+        "match": true
+      },
+      {
+        "tip": "4005e66",
+        "path": "reports/aivd_3_40_stage4_results.md",
+        "match": true
+      },
+      {
+        "tip": "f4d7a2b",
+        "path": "reports/aivd_3_40_phase2_results.json",
+        "match": true
+      },
+      {
+        "tip": "a2ab0cc",
+        "path": "reports/aivd_3_40_phase1_results.json",
+        "match": true
+      },
+      {
+        "tip": "146915b",
+        "path": "reports/aivd_3_40_stage3_charter.md",
+        "match": true
+      },
+      {
+        "tip": "dcae889",
+        "path": "reports/aivd_3_40_stage2_results.md",
+        "match": true
+      }
+    ],
+    "ok": true
+  },
+  "immutability": {
+    "grow_py_unchanged_since_4005e66": true,
+    "REDISCOVERY_FLOOR": 5,
+    "INVENT_CAP": 48,
+    "propose_growth_callable": true,
+    "tip_blob": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+    "work_blob": "93b297c73227734f5eac7485e955d3bd8ec63f51"
+  },
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "context_bank_hash": "2a2767cc1ba0861b89371cab977a519d1eeddeae90b0a72869afe0ce0bd54b1b",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "BH": 48,
+  "audit": {
+    "status": "STAGE-5 COMPLETE",
+    "provenance": "OFFLINE_EVAL",
+    "claim_label": "OFFLINE_EQUIV_AUDIT",
+    "autonomous_discovery_credit": false,
+    "context_bank_hash": "2a2767cc1ba0861b89371cab977a519d1eeddeae90b0a72869afe0ce0bd54b1b",
+    "n_contexts": 20,
+    "controls": {
+      "pass": true,
+      "true_dup_recognized": true,
+      "nondup_distinguishable": true,
+      "u_good_ok": true,
+      "artifact_ok": true,
+      "n_true_dup_controls_pass": 3,
+      "n_nondup_controls_pass": 4,
+      "TD-01": {
+        "schema": "aivd340-stage5-equiv-pair-1",
+        "pair_id": "TD-01",
+        "condition_id": "S5-EQ-TRUE-DUP-TD01",
+        "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+        "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+        "textual_equal": true,
+        "structural_equal": true,
+        "structural_diff": null,
+        "filter_classified_dup": true,
+        "duplicate_of": [
+          "MAPT(CAT(AT:-1|AT:-1))"
+        ],
+        "live_identity": "ab cd ef gh ij kl",
+        "behavioral_live_equal": true,
+        "live_got_a": "bb dd ff hh jj ll",
+        "live_got_b": "bb dd ff hh jj ll",
+        "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+        "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=same.",
+        "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+        "context_results": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "prompt": "ab cd efg hij",
+            "got_a": "bb dd gg jj",
+            "got_b": "bb dd gg jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-02",
+            "family": "TRANSFORMED",
+            "prompt": "AB CD EF GH",
+            "got_a": "BB DD FF HH",
+            "got_b": "BB DD FF HH",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-03",
+            "family": "TRANSFORMED",
+            "prompt": "a1 b2 c3 d4",
+            "got_a": "11 22 33 44",
+            "got_b": "11 22 33 44",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-04",
+            "family": "TRANSFORMED",
+            "prompt": "hello world test case",
+            "got_a": "oo dd tt ee",
+            "got_b": "oo dd tt ee",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-05",
+            "family": "TRANSFORMED",
+            "prompt": "This is a mock system Perform",
+            "got_a": "ss ss aa kk mm mm",
+            "got_b": "ss ss aa kk mm mm",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-01",
+            "family": "REORDERED",
+            "prompt": "kl ij gh ef cd ab",
+            "got_a": "ll jj hh ff dd bb",
+            "got_b": "ll jj hh ff dd bb",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-02",
+            "family": "REORDERED",
+            "prompt": "ef ab kl cd ij gh",
+            "got_a": "ff bb ll dd jj hh",
+            "got_b": "ff bb ll dd jj hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-03",
+            "family": "REORDERED",
+            "prompt": "cd ab ef gh ij kl",
+            "got_a": "dd bb ff hh jj ll",
+            "got_b": "dd bb ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-01",
+            "family": "BOUNDARY",
+            "prompt": "xy z",
+            "got_a": "yy zz",
+            "got_b": "yy zz",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-02",
+            "family": "BOUNDARY",
+            "prompt": "a",
+            "got_a": "aa",
+            "got_b": "aa",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-03",
+            "family": "BOUNDARY",
+            "prompt": "a bb ccc dddd",
+            "got_a": "aa bb cc dd",
+            "got_b": "aa bb cc dd",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-04",
+            "family": "BOUNDARY",
+            "prompt": "abcdefghij",
+            "got_a": "jj",
+            "got_b": "jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-05",
+            "family": "BOUNDARY",
+            "prompt": "12 34 56 78",
+            "got_a": "22 44 66 88",
+            "got_b": "22 44 66 88",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-06",
+            "family": "BOUNDARY",
+            "prompt": "1 22 333 4444 55555",
+            "got_a": "11 22 33 44 55",
+            "got_b": "11 22 33 44 55",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-01",
+            "family": "COMPOSITION",
+            "prompt": "aa bb cc dd ee ff",
+            "got_a": "aa bb cc dd ee ff",
+            "got_b": "aa bb cc dd ee ff",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-02",
+            "family": "COMPOSITION",
+            "prompt": "ab cd ef gh ij kl mn",
+            "got_a": "bb dd ff hh jj ll nn",
+            "got_b": "bb dd ff hh jj ll nn",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-03",
+            "family": "COMPOSITION",
+            "prompt": "The quick brown fox",
+            "got_a": "ee kk nn xx",
+            "got_b": "ee kk nn xx",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-04",
+            "family": "COMPOSITION",
+            "prompt": "wxyz abcd efgh",
+            "got_a": "zz dd hh",
+            "got_b": "zz dd hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          }
+        ],
+        "behavioral_audit_equal": true,
+        "families_diverged": [],
+        "false_duplicate_flag": false,
+        "missed_duplicate_flag": false,
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_EQUIV_AUDIT",
+        "provenance": "OFFLINE_EVAL",
+        "seed": null,
+        "epistemic": {
+          "textual_equal": "OBSERVED",
+          "structural_equal": "OBSERVED",
+          "behavioral_live_equal": "OFFLINE_EVAL",
+          "behavioral_audit_equal": "OFFLINE_EVAL",
+          "false_duplicate_flag": "OFFLINE_EVAL",
+          "missed_duplicate_flag": "OFFLINE_EVAL"
+        }
+      },
+      "TD-02": {
+        "schema": "aivd340-stage5-equiv-pair-1",
+        "pair_id": "TD-02",
+        "condition_id": "S5-EQ-TRUE-DUP-TD02",
+        "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+        "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+        "textual_equal": true,
+        "structural_equal": true,
+        "structural_diff": null,
+        "filter_classified_dup": true,
+        "duplicate_of": [
+          "MAPT(CAT(AT:-1|AT:-1))"
+        ],
+        "live_identity": "ab cd ef gh ij kl",
+        "behavioral_live_equal": true,
+        "live_got_a": "bb dd ff hh jj ll",
+        "live_got_b": "bb dd ff hh jj ll",
+        "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+        "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=same.",
+        "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+        "context_results": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "prompt": "ab cd efg hij",
+            "got_a": "bb dd gg jj",
+            "got_b": "bb dd gg jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-02",
+            "family": "TRANSFORMED",
+            "prompt": "AB CD EF GH",
+            "got_a": "BB DD FF HH",
+            "got_b": "BB DD FF HH",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-03",
+            "family": "TRANSFORMED",
+            "prompt": "a1 b2 c3 d4",
+            "got_a": "11 22 33 44",
+            "got_b": "11 22 33 44",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-04",
+            "family": "TRANSFORMED",
+            "prompt": "hello world test case",
+            "got_a": "oo dd tt ee",
+            "got_b": "oo dd tt ee",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-05",
+            "family": "TRANSFORMED",
+            "prompt": "This is a mock system Perform",
+            "got_a": "ss ss aa kk mm mm",
+            "got_b": "ss ss aa kk mm mm",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-01",
+            "family": "REORDERED",
+            "prompt": "kl ij gh ef cd ab",
+            "got_a": "ll jj hh ff dd bb",
+            "got_b": "ll jj hh ff dd bb",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-02",
+            "family": "REORDERED",
+            "prompt": "ef ab kl cd ij gh",
+            "got_a": "ff bb ll dd jj hh",
+            "got_b": "ff bb ll dd jj hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-03",
+            "family": "REORDERED",
+            "prompt": "cd ab ef gh ij kl",
+            "got_a": "dd bb ff hh jj ll",
+            "got_b": "dd bb ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-01",
+            "family": "BOUNDARY",
+            "prompt": "xy z",
+            "got_a": "yy zz",
+            "got_b": "yy zz",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-02",
+            "family": "BOUNDARY",
+            "prompt": "a",
+            "got_a": "aa",
+            "got_b": "aa",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-03",
+            "family": "BOUNDARY",
+            "prompt": "a bb ccc dddd",
+            "got_a": "aa bb cc dd",
+            "got_b": "aa bb cc dd",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-04",
+            "family": "BOUNDARY",
+            "prompt": "abcdefghij",
+            "got_a": "jj",
+            "got_b": "jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-05",
+            "family": "BOUNDARY",
+            "prompt": "12 34 56 78",
+            "got_a": "22 44 66 88",
+            "got_b": "22 44 66 88",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-06",
+            "family": "BOUNDARY",
+            "prompt": "1 22 333 4444 55555",
+            "got_a": "11 22 33 44 55",
+            "got_b": "11 22 33 44 55",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-01",
+            "family": "COMPOSITION",
+            "prompt": "aa bb cc dd ee ff",
+            "got_a": "aa bb cc dd ee ff",
+            "got_b": "aa bb cc dd ee ff",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-02",
+            "family": "COMPOSITION",
+            "prompt": "ab cd ef gh ij kl mn",
+            "got_a": "bb dd ff hh jj ll nn",
+            "got_b": "bb dd ff hh jj ll nn",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-03",
+            "family": "COMPOSITION",
+            "prompt": "The quick brown fox",
+            "got_a": "ee kk nn xx",
+            "got_b": "ee kk nn xx",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-04",
+            "family": "COMPOSITION",
+            "prompt": "wxyz abcd efgh",
+            "got_a": "zz dd hh",
+            "got_b": "zz dd hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          }
+        ],
+        "behavioral_audit_equal": true,
+        "families_diverged": [],
+        "false_duplicate_flag": false,
+        "missed_duplicate_flag": false,
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_EQUIV_AUDIT",
+        "provenance": "OFFLINE_EVAL",
+        "seed": null,
+        "epistemic": {
+          "textual_equal": "OBSERVED",
+          "structural_equal": "OBSERVED",
+          "behavioral_live_equal": "OFFLINE_EVAL",
+          "behavioral_audit_equal": "OFFLINE_EVAL",
+          "false_duplicate_flag": "OFFLINE_EVAL",
+          "missed_duplicate_flag": "OFFLINE_EVAL"
+        }
+      },
+      "TD-03": {
+        "schema": "aivd340-stage5-equiv-pair-1",
+        "pair_id": "TD-03",
+        "condition_id": "S5-EQ-TRUE-DUP-TD03",
+        "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+        "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+        "textual_equal": true,
+        "structural_equal": true,
+        "structural_diff": null,
+        "filter_classified_dup": true,
+        "duplicate_of": [
+          "MAPT(CAT(AT:-1|AT:-1))"
+        ],
+        "live_identity": "ab cd ef gh ij kl",
+        "behavioral_live_equal": true,
+        "live_got_a": "bb dd ff hh jj ll",
+        "live_got_b": "bb dd ff hh jj ll",
+        "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+        "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=same.",
+        "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+        "context_results": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "bb dd ff hh jj ll",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "prompt": "ab cd efg hij",
+            "got_a": "bb dd gg jj",
+            "got_b": "bb dd gg jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-02",
+            "family": "TRANSFORMED",
+            "prompt": "AB CD EF GH",
+            "got_a": "BB DD FF HH",
+            "got_b": "BB DD FF HH",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-03",
+            "family": "TRANSFORMED",
+            "prompt": "a1 b2 c3 d4",
+            "got_a": "11 22 33 44",
+            "got_b": "11 22 33 44",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-04",
+            "family": "TRANSFORMED",
+            "prompt": "hello world test case",
+            "got_a": "oo dd tt ee",
+            "got_b": "oo dd tt ee",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-05",
+            "family": "TRANSFORMED",
+            "prompt": "This is a mock system Perform",
+            "got_a": "ss ss aa kk mm mm",
+            "got_b": "ss ss aa kk mm mm",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-01",
+            "family": "REORDERED",
+            "prompt": "kl ij gh ef cd ab",
+            "got_a": "ll jj hh ff dd bb",
+            "got_b": "ll jj hh ff dd bb",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-02",
+            "family": "REORDERED",
+            "prompt": "ef ab kl cd ij gh",
+            "got_a": "ff bb ll dd jj hh",
+            "got_b": "ff bb ll dd jj hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-03",
+            "family": "REORDERED",
+            "prompt": "cd ab ef gh ij kl",
+            "got_a": "dd bb ff hh jj ll",
+            "got_b": "dd bb ff hh jj ll",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-01",
+            "family": "BOUNDARY",
+            "prompt": "xy z",
+            "got_a": "yy zz",
+            "got_b": "yy zz",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-02",
+            "family": "BOUNDARY",
+            "prompt": "a",
+            "got_a": "aa",
+            "got_b": "aa",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-03",
+            "family": "BOUNDARY",
+            "prompt": "a bb ccc dddd",
+            "got_a": "aa bb cc dd",
+            "got_b": "aa bb cc dd",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-04",
+            "family": "BOUNDARY",
+            "prompt": "abcdefghij",
+            "got_a": "jj",
+            "got_b": "jj",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-05",
+            "family": "BOUNDARY",
+            "prompt": "12 34 56 78",
+            "got_a": "22 44 66 88",
+            "got_b": "22 44 66 88",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-06",
+            "family": "BOUNDARY",
+            "prompt": "1 22 333 4444 55555",
+            "got_a": "11 22 33 44 55",
+            "got_b": "11 22 33 44 55",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-01",
+            "family": "COMPOSITION",
+            "prompt": "aa bb cc dd ee ff",
+            "got_a": "aa bb cc dd ee ff",
+            "got_b": "aa bb cc dd ee ff",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-02",
+            "family": "COMPOSITION",
+            "prompt": "ab cd ef gh ij kl mn",
+            "got_a": "bb dd ff hh jj ll nn",
+            "got_b": "bb dd ff hh jj ll nn",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-03",
+            "family": "COMPOSITION",
+            "prompt": "The quick brown fox",
+            "got_a": "ee kk nn xx",
+            "got_b": "ee kk nn xx",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-04",
+            "family": "COMPOSITION",
+            "prompt": "wxyz abcd efgh",
+            "got_a": "zz dd hh",
+            "got_b": "zz dd hh",
+            "equal": true,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          }
+        ],
+        "behavioral_audit_equal": true,
+        "families_diverged": [],
+        "false_duplicate_flag": false,
+        "missed_duplicate_flag": false,
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_EQUIV_AUDIT",
+        "provenance": "OFFLINE_EVAL",
+        "seed": null,
+        "epistemic": {
+          "textual_equal": "OBSERVED",
+          "structural_equal": "OBSERVED",
+          "behavioral_live_equal": "OFFLINE_EVAL",
+          "behavioral_audit_equal": "OFFLINE_EVAL",
+          "false_duplicate_flag": "OFFLINE_EVAL",
+          "missed_duplicate_flag": "OFFLINE_EVAL"
+        }
+      },
+      "known_nonduplicates": [
+        {
+          "schema": "aivd340-stage5-equiv-pair-1",
+          "pair_id": "ND-01",
+          "condition_id": "S5-EQ-NONDUP-ND01",
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "textual_equal": false,
+          "structural_equal": false,
+          "structural_diff": "op/args/kids differ: A=MAPT(AT:-1) B=MAPT(AT:0)",
+          "filter_classified_dup": false,
+          "duplicate_of": [],
+          "live_identity": "ab cd ef gh ij kl",
+          "behavioral_live_equal": false,
+          "live_got_a": "b d f h j l",
+          "live_got_b": "a c e g i k",
+          "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+          "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+          "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+          "context_results": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "a c e g i k",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "a c e g i k",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "prompt": "ab cd efg hij",
+              "got_a": "b d g j",
+              "got_b": "a c e h",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-02",
+              "family": "TRANSFORMED",
+              "prompt": "AB CD EF GH",
+              "got_a": "B D F H",
+              "got_b": "A C E G",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-03",
+              "family": "TRANSFORMED",
+              "prompt": "a1 b2 c3 d4",
+              "got_a": "1 2 3 4",
+              "got_b": "a b c d",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-04",
+              "family": "TRANSFORMED",
+              "prompt": "hello world test case",
+              "got_a": "o d t e",
+              "got_b": "h w t c",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-05",
+              "family": "TRANSFORMED",
+              "prompt": "This is a mock system Perform",
+              "got_a": "s s a k m m",
+              "got_b": "T i a m s P",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-01",
+              "family": "REORDERED",
+              "prompt": "kl ij gh ef cd ab",
+              "got_a": "l j h f d b",
+              "got_b": "k i g e c a",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-02",
+              "family": "REORDERED",
+              "prompt": "ef ab kl cd ij gh",
+              "got_a": "f b l d j h",
+              "got_b": "e a k c i g",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-03",
+              "family": "REORDERED",
+              "prompt": "cd ab ef gh ij kl",
+              "got_a": "d b f h j l",
+              "got_b": "c a e g i k",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-01",
+              "family": "BOUNDARY",
+              "prompt": "xy z",
+              "got_a": "y z",
+              "got_b": "x z",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-02",
+              "family": "BOUNDARY",
+              "prompt": "a",
+              "got_a": "a",
+              "got_b": "a",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-03",
+              "family": "BOUNDARY",
+              "prompt": "a bb ccc dddd",
+              "got_a": "a b c d",
+              "got_b": "a b c d",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-04",
+              "family": "BOUNDARY",
+              "prompt": "abcdefghij",
+              "got_a": "j",
+              "got_b": "a",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-05",
+              "family": "BOUNDARY",
+              "prompt": "12 34 56 78",
+              "got_a": "2 4 6 8",
+              "got_b": "1 3 5 7",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-06",
+              "family": "BOUNDARY",
+              "prompt": "1 22 333 4444 55555",
+              "got_a": "1 2 3 4 5",
+              "got_b": "1 2 3 4 5",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-01",
+              "family": "COMPOSITION",
+              "prompt": "aa bb cc dd ee ff",
+              "got_a": "a b c d e f",
+              "got_b": "a b c d e f",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-02",
+              "family": "COMPOSITION",
+              "prompt": "ab cd ef gh ij kl mn",
+              "got_a": "b d f h j l n",
+              "got_b": "a c e g i k m",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-03",
+              "family": "COMPOSITION",
+              "prompt": "The quick brown fox",
+              "got_a": "e k n x",
+              "got_b": "T q b f",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-04",
+              "family": "COMPOSITION",
+              "prompt": "wxyz abcd efgh",
+              "got_a": "z d h",
+              "got_b": "w a e",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            }
+          ],
+          "behavioral_audit_equal": false,
+          "families_diverged": [
+            "BASELINE_IDENTITY",
+            "BOUNDARY",
+            "COMPOSITION",
+            "REORDERED",
+            "TRANSFORMED"
+          ],
+          "false_duplicate_flag": false,
+          "missed_duplicate_flag": false,
+          "autonomous_discovery_credit": false,
+          "claim_label": "OFFLINE_EQUIV_AUDIT",
+          "provenance": "OFFLINE_EVAL",
+          "seed": null,
+          "epistemic": {
+            "textual_equal": "OBSERVED",
+            "structural_equal": "OBSERVED",
+            "behavioral_live_equal": "OFFLINE_EVAL",
+            "behavioral_audit_equal": "OFFLINE_EVAL",
+            "false_duplicate_flag": "OFFLINE_EVAL",
+            "missed_duplicate_flag": "OFFLINE_EVAL"
+          }
+        },
+        {
+          "schema": "aivd340-stage5-equiv-pair-1",
+          "pair_id": "ND-02",
+          "condition_id": "S5-EQ-NONDUP-ND02",
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "textual_equal": false,
+          "structural_equal": false,
+          "structural_diff": "op/args/kids differ: A=MAPT(SLICE:0,2(TOK)) B=MAPT(SLICE:1,2(TOK))",
+          "filter_classified_dup": false,
+          "duplicate_of": [],
+          "live_identity": "ab cd ef gh ij kl",
+          "behavioral_live_equal": false,
+          "live_got_a": "a c e g i k",
+          "live_got_b": "b d f h j l",
+          "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+          "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+          "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+          "context_results": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "a c e g i k",
+              "got_b": "b d f h j l",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "a c e g i k",
+              "got_b": "b d f h j l",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "prompt": "ab cd efg hij",
+              "got_a": "a c eg hj",
+              "got_b": "b d f i",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-02",
+              "family": "TRANSFORMED",
+              "prompt": "AB CD EF GH",
+              "got_a": "A C E G",
+              "got_b": "B D F H",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-03",
+              "family": "TRANSFORMED",
+              "prompt": "a1 b2 c3 d4",
+              "got_a": "a b c d",
+              "got_b": "1 2 3 4",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-04",
+              "family": "TRANSFORMED",
+              "prompt": "hello world test case",
+              "got_a": "hlo wrd ts cs",
+              "got_b": "el ol et ae",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-05",
+              "family": "TRANSFORMED",
+              "prompt": "This is a mock system Perform",
+              "got_a": "Ti i a mc sse Prom",
+              "got_b": "hs s ok ytm efr",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-01",
+              "family": "REORDERED",
+              "prompt": "kl ij gh ef cd ab",
+              "got_a": "k i g e c a",
+              "got_b": "l j h f d b",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-02",
+              "family": "REORDERED",
+              "prompt": "ef ab kl cd ij gh",
+              "got_a": "e a k c i g",
+              "got_b": "f b l d j h",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-03",
+              "family": "REORDERED",
+              "prompt": "cd ab ef gh ij kl",
+              "got_a": "c a e g i k",
+              "got_b": "d b f h j l",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-01",
+              "family": "BOUNDARY",
+              "prompt": "xy z",
+              "got_a": "x z",
+              "got_b": "y",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-02",
+              "family": "BOUNDARY",
+              "prompt": "a",
+              "got_a": "a",
+              "got_b": "a",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-03",
+              "family": "BOUNDARY",
+              "prompt": "a bb ccc dddd",
+              "got_a": "a b cc dd",
+              "got_b": "b c dd",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-04",
+              "family": "BOUNDARY",
+              "prompt": "abcdefghij",
+              "got_a": "acegi",
+              "got_b": "bdfhj",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-05",
+              "family": "BOUNDARY",
+              "prompt": "12 34 56 78",
+              "got_a": "1 3 5 7",
+              "got_b": "2 4 6 8",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-06",
+              "family": "BOUNDARY",
+              "prompt": "1 22 333 4444 55555",
+              "got_a": "1 2 33 44 555",
+              "got_b": "2 3 44 55",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-01",
+              "family": "COMPOSITION",
+              "prompt": "aa bb cc dd ee ff",
+              "got_a": "a b c d e f",
+              "got_b": "a b c d e f",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-02",
+              "family": "COMPOSITION",
+              "prompt": "ab cd ef gh ij kl mn",
+              "got_a": "a c e g i k m",
+              "got_b": "b d f h j l n",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-03",
+              "family": "COMPOSITION",
+              "prompt": "The quick brown fox",
+              "got_a": "Te qik bon fx",
+              "got_b": "h uc rw o",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-04",
+              "family": "COMPOSITION",
+              "prompt": "wxyz abcd efgh",
+              "got_a": "wy ac eg",
+              "got_b": "xz bd fh",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            }
+          ],
+          "behavioral_audit_equal": false,
+          "families_diverged": [
+            "BASELINE_IDENTITY",
+            "BOUNDARY",
+            "COMPOSITION",
+            "REORDERED",
+            "TRANSFORMED"
+          ],
+          "false_duplicate_flag": false,
+          "missed_duplicate_flag": false,
+          "autonomous_discovery_credit": false,
+          "claim_label": "OFFLINE_EQUIV_AUDIT",
+          "provenance": "OFFLINE_EVAL",
+          "seed": null,
+          "epistemic": {
+            "textual_equal": "OBSERVED",
+            "structural_equal": "OBSERVED",
+            "behavioral_live_equal": "OFFLINE_EVAL",
+            "behavioral_audit_equal": "OFFLINE_EVAL",
+            "false_duplicate_flag": "OFFLINE_EVAL",
+            "missed_duplicate_flag": "OFFLINE_EVAL"
+          }
+        },
+        {
+          "schema": "aivd340-stage5-equiv-pair-1",
+          "pair_id": "ND-03",
+          "condition_id": "S5-EQ-NONDUP-ND03",
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "textual_equal": false,
+          "structural_equal": false,
+          "structural_diff": "op/args/kids differ: A=MAPT(CAT(AT:-1|AT:-1)) B=MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "filter_classified_dup": false,
+          "duplicate_of": [],
+          "live_identity": "ab cd ef gh ij kl",
+          "behavioral_live_equal": false,
+          "live_got_a": "bb dd ff hh jj ll",
+          "live_got_b": "aa cc ee gg ii kk",
+          "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+          "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+          "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+          "context_results": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "bb dd ff hh jj ll",
+              "got_b": "aa cc ee gg ii kk",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "bb dd ff hh jj ll",
+              "got_b": "aa cc ee gg ii kk",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "prompt": "ab cd efg hij",
+              "got_a": "bb dd gg jj",
+              "got_b": "aa cc egeg hjhj",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-02",
+              "family": "TRANSFORMED",
+              "prompt": "AB CD EF GH",
+              "got_a": "BB DD FF HH",
+              "got_b": "AA CC EE GG",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-03",
+              "family": "TRANSFORMED",
+              "prompt": "a1 b2 c3 d4",
+              "got_a": "11 22 33 44",
+              "got_b": "aa bb cc dd",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-04",
+              "family": "TRANSFORMED",
+              "prompt": "hello world test case",
+              "got_a": "oo dd tt ee",
+              "got_b": "hlohlo wrdwrd tsts cscs",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-05",
+              "family": "TRANSFORMED",
+              "prompt": "This is a mock system Perform",
+              "got_a": "ss ss aa kk mm mm",
+              "got_b": "TiTi ii aa mcmc ssesse PromProm",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-01",
+              "family": "REORDERED",
+              "prompt": "kl ij gh ef cd ab",
+              "got_a": "ll jj hh ff dd bb",
+              "got_b": "kk ii gg ee cc aa",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-02",
+              "family": "REORDERED",
+              "prompt": "ef ab kl cd ij gh",
+              "got_a": "ff bb ll dd jj hh",
+              "got_b": "ee aa kk cc ii gg",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-03",
+              "family": "REORDERED",
+              "prompt": "cd ab ef gh ij kl",
+              "got_a": "dd bb ff hh jj ll",
+              "got_b": "cc aa ee gg ii kk",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-01",
+              "family": "BOUNDARY",
+              "prompt": "xy z",
+              "got_a": "yy zz",
+              "got_b": "xx zz",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-02",
+              "family": "BOUNDARY",
+              "prompt": "a",
+              "got_a": "aa",
+              "got_b": "aa",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-03",
+              "family": "BOUNDARY",
+              "prompt": "a bb ccc dddd",
+              "got_a": "aa bb cc dd",
+              "got_b": "aa bb cccc dddd",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-04",
+              "family": "BOUNDARY",
+              "prompt": "abcdefghij",
+              "got_a": "jj",
+              "got_b": "acegiacegi",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-05",
+              "family": "BOUNDARY",
+              "prompt": "12 34 56 78",
+              "got_a": "22 44 66 88",
+              "got_b": "11 33 55 77",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-06",
+              "family": "BOUNDARY",
+              "prompt": "1 22 333 4444 55555",
+              "got_a": "11 22 33 44 55",
+              "got_b": "11 22 3333 4444 555555",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-01",
+              "family": "COMPOSITION",
+              "prompt": "aa bb cc dd ee ff",
+              "got_a": "aa bb cc dd ee ff",
+              "got_b": "aa bb cc dd ee ff",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-02",
+              "family": "COMPOSITION",
+              "prompt": "ab cd ef gh ij kl mn",
+              "got_a": "bb dd ff hh jj ll nn",
+              "got_b": "aa cc ee gg ii kk mm",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-03",
+              "family": "COMPOSITION",
+              "prompt": "The quick brown fox",
+              "got_a": "ee kk nn xx",
+              "got_b": "TeTe qikqik bonbon fxfx",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-04",
+              "family": "COMPOSITION",
+              "prompt": "wxyz abcd efgh",
+              "got_a": "zz dd hh",
+              "got_b": "wywy acac egeg",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            }
+          ],
+          "behavioral_audit_equal": false,
+          "families_diverged": [
+            "BASELINE_IDENTITY",
+            "BOUNDARY",
+            "COMPOSITION",
+            "REORDERED",
+            "TRANSFORMED"
+          ],
+          "false_duplicate_flag": false,
+          "missed_duplicate_flag": false,
+          "autonomous_discovery_credit": false,
+          "claim_label": "OFFLINE_EQUIV_AUDIT",
+          "provenance": "OFFLINE_EVAL",
+          "seed": null,
+          "epistemic": {
+            "textual_equal": "OBSERVED",
+            "structural_equal": "OBSERVED",
+            "behavioral_live_equal": "OFFLINE_EVAL",
+            "behavioral_audit_equal": "OFFLINE_EVAL",
+            "false_duplicate_flag": "OFFLINE_EVAL",
+            "missed_duplicate_flag": "OFFLINE_EVAL"
+          }
+        },
+        {
+          "schema": "aivd340-stage5-equiv-pair-1",
+          "pair_id": "ND-04",
+          "condition_id": "S5-EQ-NONDUP-ND04",
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "textual_equal": false,
+          "structural_equal": false,
+          "structural_diff": "op/args/kids differ: A=MAPT(AT:-1) B=MAPT(SLICE:1,2(TOK))",
+          "filter_classified_dup": true,
+          "duplicate_of": [
+            "MAPT(AT:-1)"
+          ],
+          "live_identity": "ab cd ef gh ij kl",
+          "behavioral_live_equal": true,
+          "live_got_a": "b d f h j l",
+          "live_got_b": "b d f h j l",
+          "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+          "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+          "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+          "context_results": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "b d f h j l",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "prompt": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "b d f h j l",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "prompt": "ab cd efg hij",
+              "got_a": "b d g j",
+              "got_b": "b d f i",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-02",
+              "family": "TRANSFORMED",
+              "prompt": "AB CD EF GH",
+              "got_a": "B D F H",
+              "got_b": "B D F H",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-03",
+              "family": "TRANSFORMED",
+              "prompt": "a1 b2 c3 d4",
+              "got_a": "1 2 3 4",
+              "got_b": "1 2 3 4",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-04",
+              "family": "TRANSFORMED",
+              "prompt": "hello world test case",
+              "got_a": "o d t e",
+              "got_b": "el ol et ae",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-TR-05",
+              "family": "TRANSFORMED",
+              "prompt": "This is a mock system Perform",
+              "got_a": "s s a k m m",
+              "got_b": "hs s ok ytm efr",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-01",
+              "family": "REORDERED",
+              "prompt": "kl ij gh ef cd ab",
+              "got_a": "l j h f d b",
+              "got_b": "l j h f d b",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-02",
+              "family": "REORDERED",
+              "prompt": "ef ab kl cd ij gh",
+              "got_a": "f b l d j h",
+              "got_b": "f b l d j h",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-RO-03",
+              "family": "REORDERED",
+              "prompt": "cd ab ef gh ij kl",
+              "got_a": "d b f h j l",
+              "got_b": "d b f h j l",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-01",
+              "family": "BOUNDARY",
+              "prompt": "xy z",
+              "got_a": "y z",
+              "got_b": "y",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-02",
+              "family": "BOUNDARY",
+              "prompt": "a",
+              "got_a": "a",
+              "got_b": "a",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-03",
+              "family": "BOUNDARY",
+              "prompt": "a bb ccc dddd",
+              "got_a": "a b c d",
+              "got_b": "b c dd",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-04",
+              "family": "BOUNDARY",
+              "prompt": "abcdefghij",
+              "got_a": "j",
+              "got_b": "bdfhj",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-05",
+              "family": "BOUNDARY",
+              "prompt": "12 34 56 78",
+              "got_a": "2 4 6 8",
+              "got_b": "2 4 6 8",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-BD-06",
+              "family": "BOUNDARY",
+              "prompt": "1 22 333 4444 55555",
+              "got_a": "1 2 3 4 5",
+              "got_b": "2 3 44 55",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-01",
+              "family": "COMPOSITION",
+              "prompt": "aa bb cc dd ee ff",
+              "got_a": "a b c d e f",
+              "got_b": "a b c d e f",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-02",
+              "family": "COMPOSITION",
+              "prompt": "ab cd ef gh ij kl mn",
+              "got_a": "b d f h j l n",
+              "got_b": "b d f h j l n",
+              "equal": true,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-03",
+              "family": "COMPOSITION",
+              "prompt": "The quick brown fox",
+              "got_a": "e k n x",
+              "got_b": "h uc rw o",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            },
+            {
+              "context_id": "CTX-CO-04",
+              "family": "COMPOSITION",
+              "prompt": "wxyz abcd efgh",
+              "got_a": "z d h",
+              "got_b": "xz bd fh",
+              "equal": false,
+              "apply_error_a": null,
+              "apply_error_b": null,
+              "provenance": "OFFLINE_EVAL",
+              "claim_label": "OFFLINE_EQUIV_AUDIT"
+            }
+          ],
+          "behavioral_audit_equal": false,
+          "families_diverged": [
+            "BOUNDARY",
+            "COMPOSITION",
+            "TRANSFORMED"
+          ],
+          "false_duplicate_flag": true,
+          "missed_duplicate_flag": false,
+          "autonomous_discovery_credit": false,
+          "claim_label": "OFFLINE_EQUIV_AUDIT",
+          "provenance": "OFFLINE_EVAL",
+          "seed": null,
+          "epistemic": {
+            "textual_equal": "OBSERVED",
+            "structural_equal": "OBSERVED",
+            "behavioral_live_equal": "OFFLINE_EVAL",
+            "behavioral_audit_equal": "OFFLINE_EVAL",
+            "false_duplicate_flag": "OFFLINE_EVAL",
+            "missed_duplicate_flag": "OFFLINE_EVAL"
+          }
+        }
+      ],
+      "U-GOOD": {
+        "schema": "aivd340-stage5-equiv-pair-1",
+        "pair_id": "U-GOOD",
+        "condition_id": "S5-EQ-U-GOOD",
+        "body_key_a": "MAPT(AT:-1)",
+        "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+        "textual_equal": false,
+        "structural_equal": false,
+        "structural_diff": "op/args/kids differ: A=MAPT(AT:-1) B=MAPT(CAT(AT:-1|AT:-1))",
+        "filter_classified_dup": false,
+        "duplicate_of": [],
+        "live_identity": "ab cd ef gh ij kl",
+        "behavioral_live_equal": false,
+        "live_got_a": "b d f h j l",
+        "live_got_b": "bb dd ff hh jj ll",
+        "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+        "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+        "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+        "context_results": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "b d f h j l",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "prompt": "ab cd ef gh ij kl",
+            "got_a": "b d f h j l",
+            "got_b": "bb dd ff hh jj ll",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "prompt": "ab cd efg hij",
+            "got_a": "b d g j",
+            "got_b": "bb dd gg jj",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-02",
+            "family": "TRANSFORMED",
+            "prompt": "AB CD EF GH",
+            "got_a": "B D F H",
+            "got_b": "BB DD FF HH",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-03",
+            "family": "TRANSFORMED",
+            "prompt": "a1 b2 c3 d4",
+            "got_a": "1 2 3 4",
+            "got_b": "11 22 33 44",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-04",
+            "family": "TRANSFORMED",
+            "prompt": "hello world test case",
+            "got_a": "o d t e",
+            "got_b": "oo dd tt ee",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-TR-05",
+            "family": "TRANSFORMED",
+            "prompt": "This is a mock system Perform",
+            "got_a": "s s a k m m",
+            "got_b": "ss ss aa kk mm mm",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-01",
+            "family": "REORDERED",
+            "prompt": "kl ij gh ef cd ab",
+            "got_a": "l j h f d b",
+            "got_b": "ll jj hh ff dd bb",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-02",
+            "family": "REORDERED",
+            "prompt": "ef ab kl cd ij gh",
+            "got_a": "f b l d j h",
+            "got_b": "ff bb ll dd jj hh",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-RO-03",
+            "family": "REORDERED",
+            "prompt": "cd ab ef gh ij kl",
+            "got_a": "d b f h j l",
+            "got_b": "dd bb ff hh jj ll",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-01",
+            "family": "BOUNDARY",
+            "prompt": "xy z",
+            "got_a": "y z",
+            "got_b": "yy zz",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-02",
+            "family": "BOUNDARY",
+            "prompt": "a",
+            "got_a": "a",
+            "got_b": "aa",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-03",
+            "family": "BOUNDARY",
+            "prompt": "a bb ccc dddd",
+            "got_a": "a b c d",
+            "got_b": "aa bb cc dd",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-04",
+            "family": "BOUNDARY",
+            "prompt": "abcdefghij",
+            "got_a": "j",
+            "got_b": "jj",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-05",
+            "family": "BOUNDARY",
+            "prompt": "12 34 56 78",
+            "got_a": "2 4 6 8",
+            "got_b": "22 44 66 88",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-BD-06",
+            "family": "BOUNDARY",
+            "prompt": "1 22 333 4444 55555",
+            "got_a": "1 2 3 4 5",
+            "got_b": "11 22 33 44 55",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-01",
+            "family": "COMPOSITION",
+            "prompt": "aa bb cc dd ee ff",
+            "got_a": "a b c d e f",
+            "got_b": "aa bb cc dd ee ff",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-02",
+            "family": "COMPOSITION",
+            "prompt": "ab cd ef gh ij kl mn",
+            "got_a": "b d f h j l n",
+            "got_b": "bb dd ff hh jj ll nn",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-03",
+            "family": "COMPOSITION",
+            "prompt": "The quick brown fox",
+            "got_a": "e k n x",
+            "got_b": "ee kk nn xx",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          },
+          {
+            "context_id": "CTX-CO-04",
+            "family": "COMPOSITION",
+            "prompt": "wxyz abcd efgh",
+            "got_a": "z d h",
+            "got_b": "zz dd hh",
+            "equal": false,
+            "apply_error_a": null,
+            "apply_error_b": null,
+            "provenance": "OFFLINE_EVAL",
+            "claim_label": "OFFLINE_EQUIV_AUDIT"
+          }
+        ],
+        "behavioral_audit_equal": false,
+        "families_diverged": [
+          "BASELINE_IDENTITY",
+          "BOUNDARY",
+          "COMPOSITION",
+          "REORDERED",
+          "TRANSFORMED"
+        ],
+        "false_duplicate_flag": false,
+        "missed_duplicate_flag": false,
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_EQUIV_AUDIT",
+        "provenance": "OFFLINE_EVAL",
+        "seed": null,
+        "epistemic": {
+          "textual_equal": "OBSERVED",
+          "structural_equal": "OBSERVED",
+          "behavioral_live_equal": "OFFLINE_EVAL",
+          "behavioral_audit_equal": "OFFLINE_EVAL",
+          "false_duplicate_flag": "OFFLINE_EVAL",
+          "missed_duplicate_flag": "OFFLINE_EVAL"
+        }
+      },
+      "artifact_replay": {
+        "condition_ids": [
+          "S5-ART-POOL-FULL",
+          "S5-ART-POOL-SOLO"
+        ],
+        "full_promote_set": [
+          {
+            "seed": 0,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 1,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 2,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 3,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 4,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 7,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 11,
+            "in_candidate_pool": false,
+            "rejection_category": "FILTER_BEHAVIORAL_DUP",
+            "duplicate_of": [
+              "MAPT(CAT(AT:-1|AT:-1))"
+            ],
+            "stop_stage": "STRUCTURAL_FILTERS",
+            "provenance": "ARTIFACT_REPLAY"
+          }
+        ],
+        "solo_odd_only": [
+          {
+            "seed": 0,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 1,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 2,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 3,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 4,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 7,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          },
+          {
+            "seed": 11,
+            "in_candidate_pool": true,
+            "pool_body_keys": [
+              "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            ],
+            "stop_stage": "CANDIDATE_POOL",
+            "provenance": "ARTIFACT_REPLAY"
+          }
+        ],
+        "full_absent_count": 7,
+        "solo_present_count": 7,
+        "stage4_pool_full_reproduced": true,
+        "stage4_pool_solo_reproduced": true,
+        "explanation": "OBSERVED (Stage-4 artifacts): under full R1 promote-set, odd CAT-self is constructed then rejected FILTER_BEHAVIORAL_DUP as duplicate_of MAPT(CAT(AT:-1|AT:-1)) (competing behaviors value present). Under solo odd-only, no competing CAT-self behavior string exists, so odd CAT-self enters the pool. Stage-5 offline audit asks whether that identity-string collision is semantic equivalence across the preregistered context bank.",
+        "claim_label": "ARTIFACT_REPLAY",
+        "autonomous_discovery_credit": false,
+        "epistemic": "OBSERVED"
+      }
+    },
+    "critical_pair": {
+      "schema": "aivd340-stage5-equiv-pair-1",
+      "pair_id": "CRIT-ODD-AT",
+      "condition_id": "S5-EQ-CRIT-ODD-AT",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "textual_equal": false,
+      "structural_equal": false,
+      "structural_diff": "op/args/kids differ: A=MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) B=MAPT(CAT(AT:-1|AT:-1))",
+      "filter_classified_dup": true,
+      "duplicate_of": [
+        "MAPT(CAT(AT:-1|AT:-1))"
+      ],
+      "live_identity": "ab cd ef gh ij kl",
+      "behavioral_live_equal": true,
+      "live_got_a": "bb dd ff hh jj ll",
+      "live_got_b": "bb dd ff hh jj ll",
+      "mapt_notes": "MAPT applies per-token; CAT-self doubles the inner projection per token.",
+      "cat_structure_notes": "A CAT kids mirror; B CAT kids mirror; keys=differ.",
+      "at_vs_slice_notes": "AT:-1 indexes last char; SLICE:1,2 takes chars[1::2]. On length-2 tokens these coincide; on other lengths they diverge.",
+      "context_results": [
+        {
+          "context_id": "CTX-ID-01",
+          "family": "BASELINE_IDENTITY",
+          "prompt": "ab cd ef gh ij kl",
+          "got_a": "bb dd ff hh jj ll",
+          "got_b": "bb dd ff hh jj ll",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-ID-02",
+          "family": "BASELINE_IDENTITY",
+          "prompt": "ab cd ef gh ij kl",
+          "got_a": "bb dd ff hh jj ll",
+          "got_b": "bb dd ff hh jj ll",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-TR-01",
+          "family": "TRANSFORMED",
+          "prompt": "ab cd efg hij",
+          "got_a": "bb dd ff ii",
+          "got_b": "bb dd gg jj",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-TR-02",
+          "family": "TRANSFORMED",
+          "prompt": "AB CD EF GH",
+          "got_a": "BB DD FF HH",
+          "got_b": "BB DD FF HH",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-TR-03",
+          "family": "TRANSFORMED",
+          "prompt": "a1 b2 c3 d4",
+          "got_a": "11 22 33 44",
+          "got_b": "11 22 33 44",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-TR-04",
+          "family": "TRANSFORMED",
+          "prompt": "hello world test case",
+          "got_a": "elel olol etet aeae",
+          "got_b": "oo dd tt ee",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-TR-05",
+          "family": "TRANSFORMED",
+          "prompt": "This is a mock system Perform",
+          "got_a": "hshs ss okok ytmytm efrefr",
+          "got_b": "ss ss aa kk mm mm",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-RO-01",
+          "family": "REORDERED",
+          "prompt": "kl ij gh ef cd ab",
+          "got_a": "ll jj hh ff dd bb",
+          "got_b": "ll jj hh ff dd bb",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-RO-02",
+          "family": "REORDERED",
+          "prompt": "ef ab kl cd ij gh",
+          "got_a": "ff bb ll dd jj hh",
+          "got_b": "ff bb ll dd jj hh",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-RO-03",
+          "family": "REORDERED",
+          "prompt": "cd ab ef gh ij kl",
+          "got_a": "dd bb ff hh jj ll",
+          "got_b": "dd bb ff hh jj ll",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-01",
+          "family": "BOUNDARY",
+          "prompt": "xy z",
+          "got_a": "yy",
+          "got_b": "yy zz",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-02",
+          "family": "BOUNDARY",
+          "prompt": "a",
+          "got_a": "a",
+          "got_b": "aa",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-03",
+          "family": "BOUNDARY",
+          "prompt": "a bb ccc dddd",
+          "got_a": "bb cc dddd",
+          "got_b": "aa bb cc dd",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-04",
+          "family": "BOUNDARY",
+          "prompt": "abcdefghij",
+          "got_a": "bdfhjbdfhj",
+          "got_b": "jj",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-05",
+          "family": "BOUNDARY",
+          "prompt": "12 34 56 78",
+          "got_a": "22 44 66 88",
+          "got_b": "22 44 66 88",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-BD-06",
+          "family": "BOUNDARY",
+          "prompt": "1 22 333 4444 55555",
+          "got_a": "22 33 4444 5555",
+          "got_b": "11 22 33 44 55",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-CO-01",
+          "family": "COMPOSITION",
+          "prompt": "aa bb cc dd ee ff",
+          "got_a": "aa bb cc dd ee ff",
+          "got_b": "aa bb cc dd ee ff",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-CO-02",
+          "family": "COMPOSITION",
+          "prompt": "ab cd ef gh ij kl mn",
+          "got_a": "bb dd ff hh jj ll nn",
+          "got_b": "bb dd ff hh jj ll nn",
+          "equal": true,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-CO-03",
+          "family": "COMPOSITION",
+          "prompt": "The quick brown fox",
+          "got_a": "hh ucuc rwrw oo",
+          "got_b": "ee kk nn xx",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        },
+        {
+          "context_id": "CTX-CO-04",
+          "family": "COMPOSITION",
+          "prompt": "wxyz abcd efgh",
+          "got_a": "xzxz bdbd fhfh",
+          "got_b": "zz dd hh",
+          "equal": false,
+          "apply_error_a": null,
+          "apply_error_b": null,
+          "provenance": "OFFLINE_EVAL",
+          "claim_label": "OFFLINE_EQUIV_AUDIT"
+        }
+      ],
+      "behavioral_audit_equal": false,
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "false_duplicate_flag": true,
+      "missed_duplicate_flag": false,
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_EQUIV_AUDIT",
+      "provenance": "OFFLINE_EVAL",
+      "seed": null,
+      "epistemic": {
+        "textual_equal": "OBSERVED",
+        "structural_equal": "OBSERVED",
+        "behavioral_live_equal": "OFFLINE_EVAL",
+        "behavioral_audit_equal": "OFFLINE_EVAL",
+        "false_duplicate_flag": "OFFLINE_EVAL",
+        "missed_duplicate_flag": "OFFLINE_EVAL"
+      },
+      "state_variation_results": [
+        {
+          "state_id": "ST-KEEP-AT-FIRST",
+          "role": "full promote-set keep order (Stage-4 full)",
+          "filter_classified_dup": true,
+          "note": "OBSERVED via Stage-4 artifacts: AT CAT-self kept before odd path",
+          "odd_in_pool": false,
+          "provenance": "ARTIFACT_REPLAY"
+        },
+        {
+          "state_id": "ST-KEEP-ODD-ONLY",
+          "role": "solo odd-only promote set",
+          "filter_classified_dup": false,
+          "note": "OBSERVED via Stage-4 artifacts: odd CAT-self kept when no competitor",
+          "odd_in_pool": true,
+          "provenance": "ARTIFACT_REPLAY"
+        },
+        {
+          "state_id": "ST-KEEP-ODD-BEFORE-AT",
+          "role": "attempt odd-first keep",
+          "status": "NOT_APPLICABLE",
+          "reason": "Frozen propose_growth iterates char_project CAT-self before other shortening classes; odd stride is char_stride. Reordering requires code change \u2014 forbidden in Stage-5.",
+          "provenance": "OFFLINE_EVAL"
+        },
+        {
+          "state_id": "ST-IDENTITY-ALT",
+          "role": "classify under each BASELINE_IDENTITY as identity",
+          "results": [
+            {
+              "context_id": "CTX-ID-01",
+              "identity": "ab cd ef gh ij kl",
+              "behavioral_live_equal": true,
+              "provenance": "OFFLINE_EVAL"
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "identity": "ab cd ef gh ij kl",
+              "behavioral_live_equal": true,
+              "provenance": "OFFLINE_EVAL"
+            }
+          ],
+          "note": "Both BASELINE_IDENTITY prompts are the Stage-4 identity string 'ab cd ef gh ij kl' (CTX-ID-02 pinned to artifact).",
+          "provenance": "OFFLINE_EVAL"
+        },
+        {
+          "state_id": "ST-CONTEXT-DEPENDENCE-SUMMARY",
+          "role": "critical-pair agreement by family (from frozen bank)",
+          "families_diverged": [
+            "BOUNDARY",
+            "COMPOSITION",
+            "TRANSFORMED"
+          ],
+          "behavioral_audit_equal": false,
+          "note": "Context-dependent: identity-collide on BASELINE_IDENTITY / some REORDERED/TRANSFORMED/COMPOSITION/BOUNDARY cells; diverge on others.",
+          "provenance": "OFFLINE_EVAL",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ]
+    },
+    "tallies": {
+      "n_pairs_audited": 9,
+      "n_filter_classified_dup": 5,
+      "n_false_duplicate": 2,
+      "n_missed_duplicate": 0,
+      "critical_pair_behavioral_audit_equal": false,
+      "stage4_pool_full_reproduced": true,
+      "stage4_pool_solo_reproduced": true
+    },
+    "interpretation": {
+      "evidence_matrix": {
+        "H5a": {
+          "stance": "AGAINST",
+          "for": [
+            "Control battery PASS (true-dup recognized; known-nondup distinguishable) \u2014 OFFLINE_EVAL"
+          ],
+          "against": [
+            "Isolable false duplicate under preregistered bank \u2014 OFFLINE_EVAL"
+          ],
+          "unknown": []
+        },
+        "H5b": {
+          "stance": "FOR",
+          "for": [
+            "Critical pair FILTER_CLASSIFIED_DUP but diverges on preregistered bank (families=['BOUNDARY', 'COMPOSITION', 'TRANSFORMED']) \u2014 OFFLINE_EVAL FALSE_DUPLICATE",
+            "ND-04: live identity collide but audit-distinct \u2014 OFFLINE_EVAL FALSE_DUPLICATE"
+          ],
+          "against": [],
+          "unknown": []
+        },
+        "H5c": {
+          "stance": "AGAINST",
+          "for": [],
+          "against": [
+            "Critical pair diverged on families ['BOUNDARY', 'COMPOSITION', 'TRANSFORMED'] \u2014 OFFLINE_EVAL"
+          ],
+          "unknown": []
+        },
+        "H5d": {
+          "stance": "FOR",
+          "for": [
+            "Critical pair: equal on 10 contexts, distinct on 10 contexts across families; context-dependent equivalence \u2014 OFFLINE_EVAL",
+            "ST-KEEP-AT-FIRST vs ST-KEEP-ODD-ONLY: pool membership flips with competitor presence (ARTIFACT_REPLAY) while audit divergence pattern is stable \u2014 OBSERVED/OFFLINE_EVAL"
+          ],
+          "against": [],
+          "unknown": []
+        }
+      },
+      "supported_labels": [
+        "H5b SUPPORTED",
+        "H5d SUPPORTED"
+      ],
+      "conclusion_code": "B",
+      "conclusion_label": "H5b SUPPORTED",
+      "co_supported": [
+        "H5d SUPPORTED"
+      ],
+      "primary_rationale": "Primary B (H5b): FILTER_BEHAVIORAL_DUP collapses the Stage-4 critical pair on the singleton identity probe, but the pair produces behaviorally distinct outputs under multiple preregistered TRANSFORMED/BOUNDARY/COMPOSITION contexts. H5d co-supported: equivalence is context-dependent within the frozen bank (agreement on some contexts, disagreement on others). H5a/H5c rejected for the critical pair. Controls PASS so the evaluator is validated."
+    },
+    "stage4_reconciliation": {
+      "full_promote_set_odd_cat_in_pool": "0/7",
+      "solo_odd_only_odd_cat_in_pool": "7/7",
+      "mechanism": "OBSERVED (Stage-4): odd CAT-self removed because apply_micro(identity, \u00b7) collides with earlier-kept MAPT(CAT(AT:-1|AT:-1)). OFFLINE_EVAL (Stage-5): that collision is NOT full-bank behavioral equivalence \u2014 pair diverges under ['BOUNDARY', 'COMPOSITION', 'TRANSFORMED']. Therefore 0/7 is explained by over-broad identity-only FILTER_BEHAVIORAL_DUP (FALSE_DUPLICATE), not by genuine semantic equivalence of the collapsed pair. Solo 7/7 occurs because no competing behaviors value exists. Promote set unmodified.",
+      "epistemic": "OBSERVED+OFFLINE_EVAL"
+    }
+  },
+  "conclusion_code": "B",
+  "conclusion_label": "H5b SUPPORTED",
+  "supported_labels": [
+    "H5b SUPPORTED",
+    "H5d SUPPORTED"
+  ],
+  "co_supported": [
+    "H5d SUPPORTED"
+  ],
+  "status_line": "STAGE-5 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED"
+}
