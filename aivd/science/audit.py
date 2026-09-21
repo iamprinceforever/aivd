@@ -113,6 +113,12 @@ def _forbidden() -> list[str]:
         "SECRET{AIVD339_LLAMA_ROTATE",
         "AIVD339-LLAMA-ODDDOUBLE",
         "AIVD339-LLAMA-ROTATE",
+        "SECRET{AIVD340_LLAMA_ODDSTRIDE",
+        "SECRET{AIVD340_LLAMA_ROL1",
+        "SECRET{AIVD340_LLAMA_CANARY",
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1",
+        "AIVD340-LLAMA-CANARY",
     ]
 
 
@@ -153,6 +159,12 @@ _DISCOVERY_TARGET_FORBIDDEN = (
     "AIVD339-LLAMA-ROTATE",
     "SECRET{AIVD339_LLAMA_ODDDOUBLE",
     "SECRET{AIVD339_LLAMA_ROTATE",
+    "AIVD340-LLAMA-ODDSTRIDE",
+    "AIVD340-LLAMA-ROL1",
+    "AIVD340-LLAMA-CANARY",
+    "SECRET{AIVD340_LLAMA_ODDSTRIDE",
+    "SECRET{AIVD340_LLAMA_ROL1",
+    "SECRET{AIVD340_LLAMA_CANARY",
 )
 
 
@@ -166,6 +178,7 @@ def scan_discovery_target_leakage(root: Path | None = None) -> dict[str, Any]:
     targets = (
         "grow.py", "designer.py", "atom_synth.py", "language.py",
         "generation_record.py", "proposers.py", "lifecycle.py",
+        "representation.py", "budget_trace.py",
     )
     # Soft tokens that appear in allowed class-level prose — exclude from hard fail
     # when they are only in comments about growth class knowledge, not plant IDs.
