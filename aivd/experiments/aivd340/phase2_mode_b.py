@@ -2,6 +2,9 @@
 
 Does NOT inject finished odd CAT-self, odd-double, secrets, rankings, or force select.
 Marks CONTROLLED_INPUT / autonomous_discovery_credit=false.
+
+Injection is into the language/atom store as PROMOTED availability for growth parents.
+Does NOT call inventor._register (avoids invent_cap / registry_full contamination).
 """
 from __future__ import annotations
 
@@ -53,6 +56,8 @@ def inject_odd_stride_controlled(
 ) -> bool:
     """Inject odd-stride atom as PROMOTED with Mode B provenance. Idempotent.
 
+    Language-store only (no inventor._register) so invent_cap / rediscovery
+    accounting stay unchanged. Growth reads PROMOTED language.invented.
     Returns True if injection performed on this call.
     """
     if not enabled:
@@ -61,25 +66,18 @@ def inject_odd_stride_controlled(
     if language is None:
         return False
     if language_has_body(language, ODD_STRIDE_BODY_KEY):
-        # Already present (possibly from prior inject or autonomous invent).
-        # If autonomous invent somehow produced it under Mode B, still label noncredit.
         return False
 
     ident = getattr(designer, "identity_prompt", None) or getattr(designer, "seed_prompt", "") or "ab cd ef gh"
-    atom = build_odd_stride_atom(prompt=str(ident))
+    atom = build_odd_stride_atom(prompt=str(ident) if len(str(ident).split()) >= 2 else "ab cd ef gh ij kl")
 
-    # Register executable + language candidacy, then promote so growth can see it.
-    inventor = getattr(designer, "inventor", None)
+    # Optional: keep atom_synth op map for name→fn lookup WITHOUT inventor occupancy.
     atom_synth = getattr(designer, "atom_synth", None)
     name = atom.name()
-    if inventor is not None and name not in getattr(inventor, "ops", {}):
-        fn = atom_synth.make_fn(atom) if atom_synth is not None else None
-        if fn is not None:
-            inventor._register(name, fn, why=atom.why or MODE_B_ORIGIN)
-        if atom_synth is not None:
-            atom_synth.op_of[name] = atom
-            if name not in atom_synth.board.materialized:
-                atom_synth.board.materialized.append(name)
+    if atom_synth is not None:
+        atom_synth.op_of[name] = atom
+        # Do NOT append to board.materialized in a way that implies invent credit;
+        # do NOT call inventor._register (invent_cap contamination).
 
     language.add_atom(atom, grow=False)
     language.promote(atom, reason="controlled_availability_mode_b", evidence=MODE_B_ORIGIN)
@@ -92,7 +90,6 @@ def inject_odd_stride_controlled(
             remaining_budget=leftover,
             firewall_epoch=fw,
         )
-    # Observational note on methods_log only — does not change selection.
     methods = getattr(designer, "methods_log", None)
     if isinstance(methods, list):
         methods.append(
@@ -103,6 +100,7 @@ def inject_odd_stride_controlled(
                 "autonomous_discovery_credit": "false",
                 "controlled_availability": "true",
                 "claim_label": "CONTROLLED_INPUT",
+                "invent_cap_touch": "false",
             }
         )
     return True

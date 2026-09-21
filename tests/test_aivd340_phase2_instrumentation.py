@@ -166,3 +166,23 @@ def test_fresh_plants_not_stage2():
     assert PLANT_P2_S == "AIVD340-P2-S"
     assert PLANT_P2_U == "AIVD340-P2-U"
     assert "S2" not in PLANT_P2_S and "S2" not in PLANT_P2_U
+
+
+def test_mode_b_injection_does_not_touch_invent_cap():
+    from aivd.science.designer import ScienceDesigner
+    from aivd.experiments.aivd340.phase2_mode_b import inject_odd_stride_controlled
+    from aivd.experiments.aivd340.phase2_recorder import Phase2Recorder
+    from aivd37.unknowns.llama_340 import WEAK_SEED
+
+    d = ScienceDesigner(seed_prompt=WEAK_SEED, seed=0, mode="full_3_39_r1")
+    before = d.inventor.occupancy()
+    rec = Phase2Recorder(
+        episode_id="b",
+        condition_id="P2-R1-MODEB-ODD",
+        mode="B",
+        autonomous_discovery_credit=False,
+        controlled_availability=True,
+        seed=0,
+    )
+    assert inject_odd_stride_controlled(d, rec, enabled=True) is True
+    assert d.inventor.occupancy() == before
