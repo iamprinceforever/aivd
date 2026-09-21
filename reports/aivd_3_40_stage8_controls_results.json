@@ -1,0 +1,80 @@
+{
+  "document": "aivd_3_40_stage8_controls_results",
+  "overall_pass": true,
+  "checks": {
+    "C1_recorder": {
+      "pass": true,
+      "note": "hooks+recorder importable; smoke on first episode"
+    },
+    "C2_baseline": {
+      "pass": true,
+      "grow_blob_now": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "grow_blob_4005e66": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "singleton_rule_present": true,
+      "note": "live BASELINE uses unmodified rule via hooks family==BASELINE branch"
+    },
+    "C3_leakage": {
+      "pass": true,
+      "discovery": {
+        "leaks": [],
+        "pass": true
+      },
+      "science": {
+        "leaks": [],
+        "pass": true
+      }
+    },
+    "C4_fresh_plants": {
+      "pass": true,
+      "plant_ids": [
+        "AIVD340-S8-BASELINE",
+        "AIVD340-S8-RA",
+        "AIVD340-S8-RC",
+        "AIVD340-S8-RD"
+      ],
+      "no_s2_reuse": true
+    },
+    "C5_impl_identity": {
+      "pass": true,
+      "integration_replay_axis1": true,
+      "families": {
+        "R-A": true,
+        "R-C": true,
+        "R-D": true
+      }
+    },
+    "C6_budget": {
+      "pass": true,
+      "BH": 48,
+      "INVENT_CAP_lock": 48,
+      "INVENT_CAP_live": 48,
+      "repair_ledger_separate": true
+    },
+    "C7_firewall": {
+      "pass": true,
+      "REDISCOVERY_FLOOR": 5,
+      "force_firewall": false
+    },
+    "C8_338_frozen": {
+      "pass": true,
+      "note": "Stage-8 does not modify or rerun 3.38 Sacred; cite-only"
+    },
+    "C9_multi_candidate": {
+      "pass": true,
+      "conditions": [
+        "S8-BASELINE",
+        "S8-RA",
+        "S8-RC",
+        "S8-RD"
+      ],
+      "excluded": [
+        "R-B"
+      ],
+      "rb_wired": false
+    },
+    "C10_s_non_injection": {
+      "pass": true,
+      "injection_refs": []
+    }
+  }
+}

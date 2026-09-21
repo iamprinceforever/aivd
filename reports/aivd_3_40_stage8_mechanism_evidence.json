@@ -1,0 +1,130 @@
+{
+  "document": "aivd_3_40_stage8_mechanism_evidence",
+  "recorded_at_ist": "2026-09-21 21:15:16 IST",
+  "note": "EQUIVALENCE / A-I mechanism only \u2014 not discovery credit",
+  "by_condition": {
+    "S8-RA": {
+      "axis3_pass": false,
+      "axis3_null": true,
+      "baseline_mean_D": 0.0,
+      "family_mean_D": 0.0,
+      "delta": 0.0,
+      "seeds_D_decreased": 0,
+      "seeds_compared": 7,
+      "attribution_keep_events": 21,
+      "mean_unobserved_rate": 0.0
+    },
+    "S8-RC": {
+      "axis3_pass": false,
+      "axis3_null": true,
+      "baseline_mean_D": 0.0,
+      "family_mean_D": 0.0,
+      "delta": 0.0,
+      "seeds_D_decreased": 0,
+      "seeds_compared": 7,
+      "attribution_keep_events": 21,
+      "mean_unobserved_rate": 0.0
+    },
+    "S8-RD": {
+      "axis3_pass": false,
+      "axis3_null": true,
+      "baseline_mean_D": 0.0,
+      "family_mean_D": 0.0,
+      "delta": 0.0,
+      "seeds_D_decreased": 0,
+      "seeds_compared": 7,
+      "attribution_keep_events": 21,
+      "mean_unobserved_rate": 0.0
+    }
+  },
+  "per_condition_fates": {
+    "S8-BASELINE": {
+      "E": 14,
+      "H": 28
+    },
+    "S8-RA": {
+      "E": 14,
+      "H": 28
+    },
+    "S8-RC": {
+      "E": 14,
+      "H": 28
+    },
+    "S8-RD": {
+      "E": 14,
+      "H": 28
+    }
+  },
+  "per_seed_D_rate": {
+    "S8-BASELINE": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "7": 0.0,
+      "11": 0.0
+    },
+    "S8-RA": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "7": 0.0,
+      "11": 0.0
+    },
+    "S8-RC": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "7": 0.0,
+      "11": 0.0
+    },
+    "S8-RD": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "7": 0.0,
+      "11": 0.0
+    }
+  },
+  "equiv_decision_counts": {
+    "S8-BASELINE": {
+      "n_decisions": 21,
+      "n_duplicate": 0,
+      "n_keep": 21
+    },
+    "S8-RA": {
+      "n_decisions": 21,
+      "n_duplicate": 0,
+      "n_keep": 21
+    },
+    "S8-RC": {
+      "n_decisions": 21,
+      "n_duplicate": 0,
+      "n_keep": 21
+    },
+    "S8-RD": {
+      "n_decisions": 21,
+      "n_duplicate": 0,
+      "n_keep": 21
+    }
+  },
+  "localization": {
+    "change_surface": "_keep step 6 only",
+    "baseline_rule": "got in behaviors.values()",
+    "families": [
+      "R-A",
+      "R-C",
+      "R-D"
+    ],
+    "excluded": [
+      "R-B"
+    ]
+  }
+}

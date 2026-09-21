@@ -1,0 +1,164 @@
+{
+  "condition_id": "S8-BASELINE",
+  "family": "BASELINE",
+  "plant_id": "AIVD340-S8-BASELINE",
+  "seed": 11,
+  "sacred": true,
+  "stage": 8,
+  "elapsed_s": 0.032,
+  "recorded_at_ist": "2026-09-21 21:14:04 IST",
+  "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+  "discovered": false,
+  "pipeline_verified": false,
+  "secret_found": false,
+  "budget_used": 48,
+  "budget_remaining": null,
+  "firewall_epoch": 1,
+  "firewalled": true,
+  "provenance_leak": false,
+  "leftover_at_firewall_decision": 16,
+  "firewall_skipped": false,
+  "firewall_armed": true,
+  "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+  "stop_reason": "BUDGET_EXHAUSTED",
+  "occupancy": 47,
+  "n_generation_records": 10,
+  "n_independent": 7,
+  "n_independent_rediscovery_origin": 7,
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "BH": 48,
+  "isolation": {
+    "plant_id": "AIVD340-S8-BASELINE",
+    "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+    "fresh_instance": true,
+    "preload_discoveries": false,
+    "shared_language_store": false
+  },
+  "mechanism": {
+    "condition_id": "S8-BASELINE",
+    "family": "BASELINE",
+    "plant_id": "AIVD340-S8-BASELINE",
+    "seed": 11,
+    "n_equiv_decisions": 3,
+    "n_pool_entered": 2,
+    "n_pool_removed_D": 0,
+    "n_pool_survived": 2,
+    "n_selected": 0,
+    "n_verified_keys": 0,
+    "n_rediscovered": 6,
+    "n_recursive": 0,
+    "D_rate": 0.0,
+    "surv_rate": 1.0,
+    "fate_counts": {
+      "E": 2,
+      "H": 4
+    },
+    "fates": {
+      "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))": "E",
+      "MAPT(CAT(AT:-1|AT:-1))": "E",
+      "MAPT(CAT(TOK|AT:-1))": "H",
+      "MAPT(AT:-1)": "H",
+      "MAPT(SLICE:0,2(TOK))": "H",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": "H"
+    },
+    "unobserved_reasons": {},
+    "repair_calls_total": 0,
+    "recursive_edges": [],
+    "equiv_decisions": [
+      {
+        "event": "equiv_decision",
+        "family": "BASELINE",
+        "candidate_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "label": "retain",
+        "action": "keep",
+        "apply_micro_calls": 0,
+        "ambiguity_state": null,
+        "compared_keys": [],
+        "comparisons": []
+      },
+      {
+        "event": "equiv_decision",
+        "family": "BASELINE",
+        "candidate_key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "label": "retain",
+        "action": "keep",
+        "apply_micro_calls": 0,
+        "ambiguity_state": null,
+        "compared_keys": [],
+        "comparisons": []
+      },
+      {
+        "event": "equiv_decision",
+        "family": "BASELINE",
+        "candidate_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "label": "retain",
+        "action": "keep",
+        "apply_micro_calls": 0,
+        "ambiguity_state": null,
+        "compared_keys": [],
+        "comparisons": []
+      }
+    ]
+  },
+  "s_diagnostic": {
+    "namespace": "S_DIAGNOSTIC",
+    "odd_cat_self_in_records": false,
+    "verified": false,
+    "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+  },
+  "error": null,
+  "strict_independence": false,
+  "generation_record_summaries": [
+    {
+      "body_key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "invented_atom",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "invented_atom",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(AT:-1)",
+      "origin": "invented_atom",
+      "parent": null
+    },
+    {
+      "body_key": "",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(AT:-1)",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(CAT(AT:-1|AT:-1))",
+      "origin": "independent_rediscovery",
+      "parent": null
+    },
+    {
+      "body_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "origin": "independent_rediscovery",
+      "parent": null
+    }
+  ]
+}

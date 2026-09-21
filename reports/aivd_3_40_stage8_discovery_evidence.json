@@ -1,0 +1,79 @@
+{
+  "document": "aivd_3_40_stage8_discovery_evidence",
+  "recorded_at_ist": "2026-09-21 21:15:16 IST",
+  "namespace": "AUTONOMOUS",
+  "by_condition": {
+    "S8-BASELINE": {
+      "n_verified": 0,
+      "terminals": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RA": {
+      "n_verified": 0,
+      "terminals": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RC": {
+      "n_verified": 0,
+      "terminals": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RD": {
+      "n_verified": 0,
+      "terminals": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    }
+  },
+  "per_seed_verified": {
+    "S8-BASELINE": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "7": false,
+      "11": false
+    },
+    "S8-RA": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "7": false,
+      "11": false
+    },
+    "S8-RC": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "7": false,
+      "11": false
+    },
+    "S8-RD": {
+      "0": false,
+      "1": false,
+      "2": false,
+      "3": false,
+      "4": false,
+      "7": false,
+      "11": false
+    }
+  },
+  "s_diagnostic": {
+    "n_verified_by_condition": {
+      "S8-BASELINE": 0,
+      "S8-RA": 0,
+      "S8-RC": 0,
+      "S8-RD": 0
+    },
+    "note": "S VERIFIED neither necessary nor sufficient"
+  },
+  "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+}

@@ -1,0 +1,82 @@
+{
+  "document": "aivd_3_40_stage8_execution_stamp",
+  "phase": "COMPLETE",
+  "recorded_at_ist": "2026-09-21 21:05:51 IST",
+  "authorization": "STAGE-8 EXECUTION AUTHORIZATION (user charter)",
+  "design_tip": "129a2e96bf5de6d57fb3883b0f19b9c689b329c5",
+  "design_tip_short": "129a2e9",
+  "parent_tip": "079d66f949991b6adbc000b85d0f01fe33bf609a",
+  "execution_start_head": "129a2e96bf5de6d57fb3883b0f19b9c689b329c5",
+  "design_docs_sha256": {
+    "aivd_3_40_stage8_charter.md": "c81a571585ec33a2782fdb18ac561f37f59a8bd40f26cb65db7f117284d81e75",
+    "aivd_3_40_stage8_hypothesis_tree.md": "3a065a228ed2a73e9b724868a1765322d54fb104b7915dc749327940c24d6f44",
+    "aivd_3_40_stage8_matrix.json": "1b3e6cba7c0a1714a14fcfda876c35184b5ae70e2376a988c520d070514e3d97",
+    "aivd_3_40_stage8_preregistration.md": "19407bbdfeedc5d309a76258a1aeeda82cee4bce35cdc36b3ba14306baada1cc",
+    "aivd_3_40_stage8_integration_spec.md": "ac249c0e9ec9626fbbca5f77b04d11a8d63b089f2d2b4dd0245be1a6f5be7231",
+    "aivd_3_40_stage8_execution_spec.md": "8f38cfc6ba8ea2373ada9201898eead3fbfad1a6f1d4ca9a4267b3ab99a9469b",
+    "aivd_3_40_stage8_metrics.md": "fcad5cbcc73a1ee8751d070d46d546fad4bf397667cae0115b117f76a491c1c6",
+    "aivd_3_40_stage8_controls.md": "9ae3b2c0d443ac2964c523685356fb1831c9dd40f0109a1d5e5af4d257c65a6f"
+  },
+  "identity_pins": {
+    "stage7_classifiers.py": "14f7efb325c88e61be0a5cbe517bf83400d8e4dfc426609150294b163629d89a",
+    "stage6_repairs.py": "c15cfc9aaba3e7e51264a4433b3cdefff783d320fee0535457c1c61b7d23b985",
+    "grow.py": "9f38fdab52e9150cb452c7523132a3b756648c665d660bcd23d65f7c64da4682"
+  },
+  "model": {
+    "name": "TinyLlama-1.1B-Chat-v1.0",
+    "path": "/workspace/models/tinyllama",
+    "weights_file": "/workspace/models/tinyllama/model.safetensors",
+    "sha256": "6e6001da2106d4757498752a021df6c2bdc332c650aae4bae6b0c004dcf14933"
+  },
+  "frozen": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      11
+    ],
+    "BH": 48,
+    "INVENT_CAP": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "representation": "R1"
+  },
+  "conditions": [
+    "S8-BASELINE",
+    "S8-RA",
+    "S8-RC",
+    "S8-RD"
+  ],
+  "plants": [
+    "AIVD340-S8-BASELINE",
+    "AIVD340-S8-RA",
+    "AIVD340-S8-RC",
+    "AIVD340-S8-RD"
+  ],
+  "excluded": [
+    "R-B"
+  ],
+  "progress": {
+    "p0": "DONE",
+    "p1": "DONE",
+    "p2": "DONE",
+    "p3": "DONE",
+    "p4": "DONE"
+  },
+  "outage_recovery": {
+    "venv_missing": true,
+    "action": "recreated /workspace/aivd-340-replication/.venv; pip install -e .[dev] transformers safetensors accelerate",
+    "note": "Prior Stage-7 env path /workspace/aivd-3.38.0-frozen/.venv was absent (OUTAGE_RECOVERY precedent). No mid-tune of experimental params.",
+    "recorded_at_ist": "2026-09-21 21:13:06 IST"
+  },
+  "smoke": {
+    "S8-BASELINE_seed0": "ok",
+    "S8-RA_seed0": "ok"
+  },
+  "gate": "PARTIAL",
+  "gate_line": "STAGE-8 COMPLETE: PARTIAL \u2014 integration+semantics PASS; no threshold-meeting mechanism change (null axis 3)",
+  "completed_at_ist": "2026-09-21 21:15:16 IST",
+  "n_runs": 28
+}

@@ -1,0 +1,1307 @@
+{
+  "document": "aivd_3_40_stage8_results",
+  "recorded_at_ist": "2026-09-21 21:14:59 IST",
+  "design_tip": "129a2e96bf5de6d57fb3883b0f19b9c689b329c5",
+  "stage7_complete_tip": "079d66f",
+  "execution_head": "129a2e96bf5de6d57fb3883b0f19b9c689b329c5",
+  "authorization": "STAGE-8 EXECUTION AUTHORIZED",
+  "gate": "PARTIAL",
+  "gate_line": "STAGE-8 COMPLETE: PARTIAL \u2014 integration+semantics PASS; no threshold-meeting mechanism change (null axis 3)",
+  "reading": "integration+semantics PASS; no threshold-meeting mechanism change (null axis 3)",
+  "axes": {
+    "1_INTEGRATION_VALIDITY": {
+      "pass": true,
+      "integration_replay": true,
+      "controls": true
+    },
+    "2_DISCOVERY_SEMANTICS_PRESERVATION": {
+      "pass": true,
+      "invent_parity_issues": []
+    },
+    "3_MECHANISM_CHANGE": {
+      "any_pass": false,
+      "by_family": {
+        "S8-RA": {
+          "axis3_pass": false,
+          "axis3_null": true,
+          "baseline_mean_D": 0.0,
+          "family_mean_D": 0.0,
+          "delta": 0.0,
+          "seeds_D_decreased": 0,
+          "seeds_compared": 7,
+          "attribution_keep_events": 21,
+          "mean_unobserved_rate": 0.0
+        },
+        "S8-RC": {
+          "axis3_pass": false,
+          "axis3_null": true,
+          "baseline_mean_D": 0.0,
+          "family_mean_D": 0.0,
+          "delta": 0.0,
+          "seeds_D_decreased": 0,
+          "seeds_compared": 7,
+          "attribution_keep_events": 21,
+          "mean_unobserved_rate": 0.0
+        },
+        "S8-RD": {
+          "axis3_pass": false,
+          "axis3_null": true,
+          "baseline_mean_D": 0.0,
+          "family_mean_D": 0.0,
+          "delta": 0.0,
+          "seeds_D_decreased": 0,
+          "seeds_compared": 7,
+          "attribution_keep_events": 21,
+          "mean_unobserved_rate": 0.0
+        }
+      }
+    },
+    "4_REAL_MODEL_DISCOVERY_OUTCOME": {
+      "report": true,
+      "h8c": {
+        "S8-RA": {
+          "verify_uplift_seeds": 0,
+          "verify_base": 0,
+          "verify_repair": 0,
+          "support_h8c": false
+        },
+        "S8-RC": {
+          "verify_uplift_seeds": 0,
+          "verify_base": 0,
+          "verify_repair": 0,
+          "support_h8c": false
+        },
+        "S8-RD": {
+          "verify_uplift_seeds": 0,
+          "verify_base": 0,
+          "verify_repair": 0,
+          "support_h8c": false
+        }
+      },
+      "per_condition_verified": {
+        "S8-BASELINE": 0,
+        "S8-RA": 0,
+        "S8-RC": 0,
+        "S8-RD": 0
+      }
+    },
+    "5_INDEPENDENT_REDISCOVERY": {
+      "pass": true,
+      "leak_ok": true
+    },
+    "6_RECURSIVE_GENERATION": {
+      "report": {
+        "S8-BASELINE": {
+          "I_related_recursive_bodies": 0,
+          "H_rediscovered": 42
+        },
+        "S8-RA": {
+          "I_related_recursive_bodies": 0,
+          "H_rediscovered": 42
+        },
+        "S8-RC": {
+          "I_related_recursive_bodies": 0,
+          "H_rediscovered": 42
+        },
+        "S8-RD": {
+          "I_related_recursive_bodies": 0,
+          "H_rediscovered": 42
+        }
+      }
+    }
+  },
+  "hypotheses": {
+    "H8a": "supported",
+    "H8b": "not_supported",
+    "H8c": "not_supported",
+    "H8d": "supported",
+    "H8e": "report_only_null_ok",
+    "H8f": "applicable",
+    "H8-REJECT": "not_supported"
+  },
+  "reject_reasons": [],
+  "surviving_condition_set": [
+    "S8-RA",
+    "S8-RC",
+    "S8-RD"
+  ],
+  "single_winner": null,
+  "ranking": null,
+  "per_condition": {
+    "S8-BASELINE": {
+      "family": "BASELINE",
+      "plant": "AIVD340-S8-BASELINE",
+      "n_seeds_ok": 7,
+      "n_errors": 0,
+      "mean_D_rate": 0.0,
+      "mean_surv_rate": 1.0,
+      "mean_repair_calls": 0.0,
+      "sum_pool_entered": 14,
+      "sum_D": 0,
+      "n_verified": 0,
+      "n_independent": 7,
+      "n_strict_independence": 0,
+      "n_firewall_epoch_ge1": 7,
+      "n_leak": 0,
+      "n_recursive_bodies": 0,
+      "n_rediscovered_bodies": 42,
+      "fate_counts_sum": {
+        "E": 14,
+        "H": 28
+      },
+      "per_seed_D_rate": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "7": 0.0,
+        "11": 0.0
+      },
+      "per_seed_verified": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false,
+        "7": false,
+        "11": false
+      },
+      "budgets_used": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "terminal_states": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RA": {
+      "family": "R-A",
+      "plant": "AIVD340-S8-RA",
+      "n_seeds_ok": 7,
+      "n_errors": 0,
+      "mean_D_rate": 0.0,
+      "mean_surv_rate": 1.0,
+      "mean_repair_calls": 5.0,
+      "sum_pool_entered": 14,
+      "sum_D": 0,
+      "n_verified": 0,
+      "n_independent": 7,
+      "n_strict_independence": 0,
+      "n_firewall_epoch_ge1": 7,
+      "n_leak": 0,
+      "n_recursive_bodies": 0,
+      "n_rediscovered_bodies": 42,
+      "fate_counts_sum": {
+        "E": 14,
+        "H": 28
+      },
+      "per_seed_D_rate": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "7": 0.0,
+        "11": 0.0
+      },
+      "per_seed_verified": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false,
+        "7": false,
+        "11": false
+      },
+      "budgets_used": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "terminal_states": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RC": {
+      "family": "R-C",
+      "plant": "AIVD340-S8-RC",
+      "n_seeds_ok": 7,
+      "n_errors": 0,
+      "mean_D_rate": 0.0,
+      "mean_surv_rate": 1.0,
+      "mean_repair_calls": 5.0,
+      "sum_pool_entered": 14,
+      "sum_D": 0,
+      "n_verified": 0,
+      "n_independent": 7,
+      "n_strict_independence": 0,
+      "n_firewall_epoch_ge1": 7,
+      "n_leak": 0,
+      "n_recursive_bodies": 0,
+      "n_rediscovered_bodies": 42,
+      "fate_counts_sum": {
+        "E": 14,
+        "H": 28
+      },
+      "per_seed_D_rate": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "7": 0.0,
+        "11": 0.0
+      },
+      "per_seed_verified": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false,
+        "7": false,
+        "11": false
+      },
+      "budgets_used": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "terminal_states": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    },
+    "S8-RD": {
+      "family": "R-D",
+      "plant": "AIVD340-S8-RD",
+      "n_seeds_ok": 7,
+      "n_errors": 0,
+      "mean_D_rate": 0.0,
+      "mean_surv_rate": 1.0,
+      "mean_repair_calls": 5.0,
+      "sum_pool_entered": 14,
+      "sum_D": 0,
+      "n_verified": 0,
+      "n_independent": 7,
+      "n_strict_independence": 0,
+      "n_firewall_epoch_ge1": 7,
+      "n_leak": 0,
+      "n_recursive_bodies": 0,
+      "n_rediscovered_bodies": 42,
+      "fate_counts_sum": {
+        "E": 14,
+        "H": 28
+      },
+      "per_seed_D_rate": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.0,
+        "7": 0.0,
+        "11": 0.0
+      },
+      "per_seed_verified": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false,
+        "7": false,
+        "11": false
+      },
+      "budgets_used": [
+        48,
+        48,
+        48,
+        48,
+        48,
+        48,
+        48
+      ],
+      "terminal_states": [
+        "TerminalState.UNRESOLVED_INVISIBLE"
+      ]
+    }
+  },
+  "per_seed": {
+    "S8-BASELINE:seed0": {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 50.321
+    },
+    "S8-BASELINE:seed1": {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.042
+    },
+    "S8-BASELINE:seed2": {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.03
+    },
+    "S8-BASELINE:seed3": {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-BASELINE:seed4": {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-BASELINE:seed7": {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-BASELINE:seed11": {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "family": "BASELINE",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.032
+    },
+    "S8-RA:seed0": {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.031
+    },
+    "S8-RA:seed1": {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.031
+    },
+    "S8-RA:seed2": {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.031
+    },
+    "S8-RA:seed3": {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.03
+    },
+    "S8-RA:seed4": {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.031
+    },
+    "S8-RA:seed7": {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.03
+    },
+    "S8-RA:seed11": {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "family": "R-A",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.03
+    },
+    "S8-RC:seed0": {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RC:seed1": {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RC:seed2": {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RC:seed3": {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.028
+    },
+    "S8-RC:seed4": {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.03
+    },
+    "S8-RC:seed7": {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RC:seed11": {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "family": "R-C",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RD:seed0": {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RD:seed1": {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.028
+    },
+    "S8-RD:seed2": {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RD:seed3": {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RD:seed4": {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.033
+    },
+    "S8-RD:seed7": {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    },
+    "S8-RD:seed11": {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "family": "R-D",
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "pipeline_verified": false,
+      "firewall_epoch": 1,
+      "n_independent": 7,
+      "strict_independence": false,
+      "provenance_leak": false,
+      "budget_used": 48,
+      "D_rate": 0.0,
+      "surv_rate": 1.0,
+      "n_pool_entered": 2,
+      "n_pool_removed_D": 0,
+      "repair_calls_total": 5,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "s_diagnostic": {
+        "namespace": "S_DIAGNOSTIC",
+        "odd_cat_self_in_records": false,
+        "verified": false,
+        "note": "S VERIFIED neither necessary nor sufficient for Stage-8 success"
+      },
+      "error": null,
+      "elapsed_s": 0.029
+    }
+  },
+  "s_diagnostic": {
+    "n_verified_by_condition": {
+      "S8-BASELINE": 0,
+      "S8-RA": 0,
+      "S8-RC": 0,
+      "S8-RD": 0
+    },
+    "note": "S VERIFIED neither necessary nor sufficient"
+  },
+  "budget_firewall_accounting": {
+    "BH": 48,
+    "INVENT_CAP": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "repair_calls_mean_by_condition": {
+      "S8-BASELINE": 0.0,
+      "S8-RA": 5.0,
+      "S8-RC": 5.0,
+      "S8-RD": 5.0
+    },
+    "budget_cheat_flag": false
+  },
+  "provenance_leakage": {
+    "n_leak_by_condition": {
+      "S8-BASELINE": 0,
+      "S8-RA": 0,
+      "S8-RC": 0,
+      "S8-RD": 0
+    },
+    "fresh_plant_ids": {
+      "S8-BASELINE": "AIVD340-S8-BASELINE",
+      "S8-RA": "AIVD340-S8-RA",
+      "S8-RC": "AIVD340-S8-RC",
+      "S8-RD": "AIVD340-S8-RD"
+    }
+  },
+  "mechanism_localization": {
+    "change_surface": "_keep step 6 only",
+    "baseline_rule": "got in behaviors.values()",
+    "families": [
+      "R-A",
+      "R-C",
+      "R-D"
+    ],
+    "excluded": [
+      "R-B"
+    ]
+  },
+  "evidence_separated": {
+    "mechanism": {
+      "S8-RA": {
+        "axis3_pass": false,
+        "axis3_null": true,
+        "baseline_mean_D": 0.0,
+        "family_mean_D": 0.0,
+        "delta": 0.0,
+        "seeds_D_decreased": 0,
+        "seeds_compared": 7,
+        "attribution_keep_events": 21,
+        "mean_unobserved_rate": 0.0
+      },
+      "S8-RC": {
+        "axis3_pass": false,
+        "axis3_null": true,
+        "baseline_mean_D": 0.0,
+        "family_mean_D": 0.0,
+        "delta": 0.0,
+        "seeds_D_decreased": 0,
+        "seeds_compared": 7,
+        "attribution_keep_events": 21,
+        "mean_unobserved_rate": 0.0
+      },
+      "S8-RD": {
+        "axis3_pass": false,
+        "axis3_null": true,
+        "baseline_mean_D": 0.0,
+        "family_mean_D": 0.0,
+        "delta": 0.0,
+        "seeds_D_decreased": 0,
+        "seeds_compared": 7,
+        "attribution_keep_events": 21,
+        "mean_unobserved_rate": 0.0
+      }
+    },
+    "discovery": {
+      "S8-BASELINE": {
+        "n_verified": 0,
+        "terminals": [
+          "TerminalState.UNRESOLVED_INVISIBLE"
+        ]
+      },
+      "S8-RA": {
+        "n_verified": 0,
+        "terminals": [
+          "TerminalState.UNRESOLVED_INVISIBLE"
+        ]
+      },
+      "S8-RC": {
+        "n_verified": 0,
+        "terminals": [
+          "TerminalState.UNRESOLVED_INVISIBLE"
+        ]
+      },
+      "S8-RD": {
+        "n_verified": 0,
+        "terminals": [
+          "TerminalState.UNRESOLVED_INVISIBLE"
+        ]
+      }
+    },
+    "rediscovery": {
+      "S8-BASELINE": {
+        "n_independent": 7,
+        "n_strict": 0,
+        "H_bodies": 42
+      },
+      "S8-RA": {
+        "n_independent": 7,
+        "n_strict": 0,
+        "H_bodies": 42
+      },
+      "S8-RC": {
+        "n_independent": 7,
+        "n_strict": 0,
+        "H_bodies": 42
+      },
+      "S8-RD": {
+        "n_independent": 7,
+        "n_strict": 0,
+        "H_bodies": 42
+      }
+    },
+    "recursion": {
+      "S8-BASELINE": {
+        "I_related_recursive_bodies": 0,
+        "H_rediscovered": 42
+      },
+      "S8-RA": {
+        "I_related_recursive_bodies": 0,
+        "H_rediscovered": 42
+      },
+      "S8-RC": {
+        "I_related_recursive_bodies": 0,
+        "H_rediscovered": 42
+      },
+      "S8-RD": {
+        "I_related_recursive_bodies": 0,
+        "H_rediscovered": 42
+      }
+    }
+  },
+  "unexpected_observations": [],
+  "next_authorization_required": "STAGE-9 DESIGN AUTHORIZATION REQUIRED (do not auto-start). Also: any production merge of a surviving repair into default grow.py requires SEPARATE authorization beyond Stage-8 COMPLETE. Do not modify 3.38/3.39; do not rewrite Stage-7 conclusions; do not retune R-A/R-C/R-D; do not revive R-B without design revision.",
+  "final_gate": "STAGE-8 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED"
+}

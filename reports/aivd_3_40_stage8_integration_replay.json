@@ -1,0 +1,33 @@
+{
+  "document": "aivd_3_40_stage8_integration_replay",
+  "rb_absent": true,
+  "baseline_unmodified": true,
+  "n_pairs": 25,
+  "families": {
+    "R-A": {
+      "mismatch_rate": 0.0,
+      "n_mismatches": 0,
+      "mismatches": [],
+      "pass": true,
+      "family_binding_ok": true,
+      "source": "stage7_repairs.classifiers == stage8 adapter FAMILY_CLASSIFY"
+    },
+    "R-C": {
+      "mismatch_rate": 0.0,
+      "n_mismatches": 0,
+      "mismatches": [],
+      "pass": true,
+      "family_binding_ok": true,
+      "source": "stage7_repairs.classifiers == stage8 adapter FAMILY_CLASSIFY"
+    },
+    "R-D": {
+      "mismatch_rate": 0.0,
+      "n_mismatches": 0,
+      "mismatches": [],
+      "pass": true,
+      "family_binding_ok": true,
+      "source": "stage7_repairs.classifiers == stage8 adapter FAMILY_CLASSIFY"
+    }
+  },
+  "axis1_pass": true
+}

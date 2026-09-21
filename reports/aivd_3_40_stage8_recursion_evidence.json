@@ -1,0 +1,23 @@
+{
+  "document": "aivd_3_40_stage8_recursion_evidence",
+  "recorded_at_ist": "2026-09-21 21:15:16 IST",
+  "by_condition": {
+    "S8-BASELINE": {
+      "I_related_recursive_bodies": 0,
+      "H_rediscovered": 42
+    },
+    "S8-RA": {
+      "I_related_recursive_bodies": 0,
+      "H_rediscovered": 42
+    },
+    "S8-RC": {
+      "I_related_recursive_bodies": 0,
+      "H_rediscovered": 42
+    },
+    "S8-RD": {
+      "I_related_recursive_bodies": 0,
+      "H_rediscovered": 42
+    }
+  },
+  "note": "Absence of I uplift is not automatic FAIL when axes 1-3 hold; here axis3 null"
+}

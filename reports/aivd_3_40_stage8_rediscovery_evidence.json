@@ -1,0 +1,41 @@
+{
+  "document": "aivd_3_40_stage8_rediscovery_evidence",
+  "recorded_at_ist": "2026-09-21 21:15:16 IST",
+  "by_condition": {
+    "S8-BASELINE": {
+      "n_independent": 7,
+      "n_strict": 0,
+      "H_bodies": 42
+    },
+    "S8-RA": {
+      "n_independent": 7,
+      "n_strict": 0,
+      "H_bodies": 42
+    },
+    "S8-RC": {
+      "n_independent": 7,
+      "n_strict": 0,
+      "H_bodies": 42
+    },
+    "S8-RD": {
+      "n_independent": 7,
+      "n_strict": 0,
+      "H_bodies": 42
+    }
+  },
+  "axis5_pass": true,
+  "provenance_leakage": {
+    "n_leak_by_condition": {
+      "S8-BASELINE": 0,
+      "S8-RA": 0,
+      "S8-RC": 0,
+      "S8-RD": 0
+    },
+    "fresh_plant_ids": {
+      "S8-BASELINE": "AIVD340-S8-BASELINE",
+      "S8-RA": "AIVD340-S8-RA",
+      "S8-RC": "AIVD340-S8-RC",
+      "S8-RD": "AIVD340-S8-RD"
+    }
+  }
+}

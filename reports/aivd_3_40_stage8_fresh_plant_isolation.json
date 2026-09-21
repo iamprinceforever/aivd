@@ -1,0 +1,380 @@
+{
+  "document": "aivd_3_40_stage8_fresh_plant_isolation",
+  "recorded_at_ist": "2026-09-21 21:15:16 IST",
+  "plants": [
+    "AIVD340-S8-BASELINE",
+    "AIVD340-S8-RA",
+    "AIVD340-S8-RC",
+    "AIVD340-S8-RD"
+  ],
+  "n_runs": 28,
+  "all_fresh": true,
+  "any_preload": false,
+  "any_leak": false,
+  "rows": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "plant_id": "AIVD340-S8-BASELINE",
+      "isolation": {
+        "plant_id": "AIVD340-S8-BASELINE",
+        "target_id": "llama://tinyllama-1.1b-s8-baseline-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "plant_id": "AIVD340-S8-RA",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RA",
+        "target_id": "llama://tinyllama-1.1b-s8-ra-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "plant_id": "AIVD340-S8-RC",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RC",
+        "target_id": "llama://tinyllama-1.1b-s8-rc-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "plant_id": "AIVD340-S8-RD",
+      "isolation": {
+        "plant_id": "AIVD340-S8-RD",
+        "target_id": "llama://tinyllama-1.1b-s8-rd-340",
+        "fresh_instance": true,
+        "preload_discoveries": false,
+        "shared_language_store": false
+      },
+      "provenance_leak": false
+    }
+  ]
+}
