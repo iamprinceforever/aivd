@@ -1,0 +1,193 @@
+{
+  "document": "aivd_3_40_stage9_matrix",
+  "recorded_at_ist": "2026-09-21 21:26 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "STAGE-9 DESIGN READY: OFFLINE TRAJECTORY AUDIT REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "analyzed": false,
+  "sacred_authorized": false,
+  "offline_audit_authorized": false,
+  "live_integration_authorized": false,
+  "filter_replacement_authorized": false,
+  "single_winner_authorized": false,
+  "new_experiment_authorized": false,
+  "start_tip": "a447649",
+  "start_tip_full": "a447649cd2b9cc09860106ce3645d8712d51f239",
+  "parent_commits": {
+    "stage8_complete_tip": "a447649",
+    "stage8_design_freeze": "129a2e9",
+    "stage7_complete_tip": "079d66f",
+    "stage7_design_freeze": "d0ef7b6",
+    "stage6_complete_tip": "000a4d8",
+    "stage6_design_freeze": "ac152c6",
+    "stage5_complete_tip": "c003e60",
+    "stage5_design_freeze": "2496857",
+    "stage4_complete_tip": "4005e66",
+    "stage4_design_freeze": "27e9e88",
+    "phase2_complete_tip": "f4d7a2b",
+    "phase2_design_freeze": "7be4124",
+    "phase1_result_tip": "a2ab0cc",
+    "stage3_charter": "146915b",
+    "stage2_tip": "dcae889",
+    "r1b_caveat": "7a3457e"
+  },
+  "primary_question": "Where does autonomous S disappear before equivalence filtering, and which causal hypothesis best explains that disappearance?",
+  "scientific_objective": "Offline forensic localization of autonomous S trajectory disappearance from Stage-8 recorded evidence only — NOT make S pass; NOT merge controlled Stage-4/5 D-fate with autonomous Stage-8 null; NOT invalidate H5b; NOT manufacture NOT_RECORDED fields; NOT retune R-A/R-C/R-D; NOT new Sacred",
+  "analysis_mode": {
+    "kind": "OFFLINE_TRAJECTORY_AUDIT",
+    "evidence_window": "Stage-8 COMPLETE artifacts only (28 cells)",
+    "new_plants": false,
+    "new_sacred": false,
+    "grow_py_modification": false,
+    "counterfactual_field_invention": false
+  },
+  "stage8_priors": {
+    "gate": "PARTIAL",
+    "gate_line": "STAGE-8 COMPLETE: PARTIAL — integration+semantics PASS; no threshold-meeting mechanism change (null axis 3)",
+    "s_verified_per_condition": {"S8-BASELINE": 0, "S8-RA": 0, "S8-RC": 0, "S8-RD": 0},
+    "D_rate_all": 0.0,
+    "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+    "axis1_pass": true,
+    "axis2_pass": true,
+    "axis3_null": true,
+    "axis5_pass": true,
+    "critical_observation": "Autonomous S plants never hit live equivalence-dup removal; Stage-4/5 bottleneck NOT expressed as fate D",
+    "surviving_condition_set": ["S8-RA", "S8-RC", "S8-RD"],
+    "single_winner": false,
+    "autonomous_discovery_credit_for_S": false,
+    "does_not_establish_equiv_as_autonomous_S_cause": true,
+    "does_not_invalidate_controlled_FALSE_DUPLICATE": true
+  },
+  "hypothesis_leaves": {
+    "H9a": "Representation / invention — S-direction atoms never invented",
+    "H9b": "Language growth — invent/growth path stalls",
+    "H9c": "Composition — S-direction body never composed / compose fails",
+    "H9d": "Candidate pool — composed but absent from pool (pre-equivalence)",
+    "H9e": "Candidate selection — survived pool/equiv but not selected (INCONCLUSIVE if rank/score/select NOT_RECORDED)",
+    "H9f": "Verification — selected but verify failed",
+    "H9g": "Rediscovery / firewall dynamics",
+    "H9h": "Budget / stopping envelope",
+    "H9i": "Observation / instrumentation gaps",
+    "H9D": "Equivalence filter active autonomous S bottleneck (scoped; Stage-8 D=0 likely AGAINST for this matrix)",
+    "H9-REJECT": "Protocol violation / manufactured evidence / namespace merge / historical mutation"
+  },
+  "confidence_enum": ["SUPPORTED", "WEAKLY SUPPORTED", "INCONCLUSIVE", "AGAINST"],
+  "forbidden_confidence_words": ["PROVEN", "DEFINITELY", "ROOT CAUSE"],
+  "observation_states": ["OBSERVED", "NOT_OBSERVED", "NOT_RECORDED", "NOT_APPLICABLE"],
+  "fate_labels_A_I": ["A", "B", "C", "D", "E", "F", "G", "H", "I"],
+  "conditions": [
+    {
+      "id": "S8-BASELINE",
+      "family": "BASELINE",
+      "plant_id": "AIVD340-S8-BASELINE",
+      "role": "autonomous_baseline_anchor",
+      "n_seeds": 7
+    },
+    {
+      "id": "S8-RA",
+      "family": "R-A",
+      "plant_id": "AIVD340-S8-RA",
+      "role": "autonomous_repair_survivor",
+      "n_seeds": 7
+    },
+    {
+      "id": "S8-RC",
+      "family": "R-C",
+      "plant_id": "AIVD340-S8-RC",
+      "role": "autonomous_repair_survivor",
+      "n_seeds": 7
+    },
+    {
+      "id": "S8-RD",
+      "family": "R-D",
+      "plant_id": "AIVD340-S8-RD",
+      "role": "autonomous_repair_survivor",
+      "n_seeds": 7
+    }
+  ],
+  "seeds": [0, 1, 2, 3, 4, 7, 11],
+  "n_cells": 28,
+  "trajectory_waypoints": [
+    "INVENTION",
+    "LANGUAGE_GROWTH",
+    "ATOM_BODY_IDENTITY",
+    "COMPOSITION",
+    "CANDIDATE_CREATION",
+    "POOL_ENTRY",
+    "EQUIVALENCE_DECISION",
+    "SURVIVAL",
+    "SELECTION",
+    "VERIFICATION",
+    "REDISCOVERY",
+    "RECURSION",
+    "STOPPING_STATE"
+  ],
+  "earliest_divergence_comparisons": [
+    "S8_CONDITION_vs_S8_BASELINE",
+    "S8_AUTONOMOUS_vs_3_38_S_HISTORICAL_REFERENCE",
+    "S8_AUTONOMOUS_vs_STAGE2_PHASE1_PHASE2_REFERENCE",
+    "S8_AUTONOMOUS_vs_STAGE4_CONTROLLED_ODD_STRIDE"
+  ],
+  "earliest_divergence_null_label": "NO OBSERVED REPAIR-INDUCED TRAJECTORY DIVERGENCE",
+  "namespaces": {
+    "AUTONOMOUS_DISCOVERY": "Stage-8 28 Sacred plants — primary",
+    "CONTROLLED_FILTER": "Stage-4 CONTROL B / Stage-5 H5b — cite only; keep separate",
+    "HISTORICAL_REFERENCE": "3.38 / Stage-2 / Phase-1 / Phase-2 — divergence reference only",
+    "OFFLINE_EVAL": "Stage-5/6/7 offline — cite only"
+  },
+  "evidence_sources": [
+    "reports/aivd_3_40_stage8_results.md",
+    "reports/aivd_3_40_stage8_results.json",
+    "reports/aivd_3_40_stage8_mechanism_evidence.json",
+    "reports/aivd_3_40_stage8_discovery_evidence.json",
+    "reports/aivd_3_40_stage8_rediscovery_evidence.json",
+    "reports/aivd_3_40_stage8_recursion_evidence.json",
+    "reports/aivd_3_40_stage8/runs/S8-*_seed*.json"
+  ],
+  "cite_only_sources": [
+    "reports/aivd_3_40_stage4_results.md",
+    "reports/aivd_3_40_stage5_results.md",
+    "reports/aivd_3_40_stage2_results.md",
+    "reports/aivd_3_40_phase1_results.md",
+    "reports/aivd_3_40_phase2_results.md"
+  ],
+  "frozen_locks": {
+    "BH": 48,
+    "INVENT_CAP": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "representation": "R1",
+    "r1b_auto": false,
+    "R_B": "EXCLUDED",
+    "combined_repairs": false,
+    "grow_py": "IMMUTABLE",
+    "stage8_results": "IMMUTABLE",
+    "baselines_338_339": "IMMUTABLE"
+  },
+  "success_criteria": {
+    "answers_required": [
+      "earliest_trajectory_disappearance",
+      "dominant_fate_preserving_D0",
+      "cross_seed_consistency",
+      "repair_induced_divergence_or_absence",
+      "equivalence_filter_involvement_or_not",
+      "strongest_supported_hypothesis_or_tie",
+      "missing_instrumentation_for_unresolved"
+    ],
+    "single_root_cause_required": false,
+    "valid_form_example": "localizes to X but cannot distinguish Y from Z because selection/ranking not recorded",
+    "conclusion_enum": {
+      "SUCCESS": "Offline audit completes; answers 1-7 with evidence tags; H9-REJECT not supported",
+      "PARTIAL": "Localization partial; multiple H9 leaves INCONCLUSIVE due to NOT_RECORDED",
+      "FAILED": "H9-REJECT / protocol violation / manufactured fields / namespace merge",
+      "INCONCLUSIVE": "Instrumentation gaps block honest separation under correct protocol"
+    }
+  },
+  "H9D_scope": {
+    "positive_claim": "Equivalence filter is the active autonomous S bottleneck in Stage-8 matrix",
+    "against_language_if_D0": "not observed as active bottleneck in Stage-8 autonomous S matrix",
+    "forbidden_overclaim": "never can be a bottleneck",
+    "must_preserve": "Stage-5 H5b FALSE_DUPLICATE SUPPORTED under CONTROLLED_FILTER / OFFLINE_EVAL"
+  },
+  "exact_execution_authorization_required": "STAGE-9 EXECUTION AUTHORIZATION REQUIRED: OFFLINE TRAJECTORY AUDIT ONLY — no Sacred; no TinyLlama plant runs; no grow.py / FILTER_BEHAVIORAL_DUP / R-A/R-C/R-D modification; no merge of repairs; no mutation of Stage-8 results or 3.38/3.39; no new experiments to fill NOT_RECORDED gaps",
+  "final_gate": "STAGE-9 DESIGN READY: OFFLINE TRAJECTORY AUDIT REQUIRES SEPARATE AUTHORIZATION"
+}
