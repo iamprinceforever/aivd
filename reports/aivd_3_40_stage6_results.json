@@ -1,0 +1,2412 @@
+{
+  "document": "aivd_3_40_stage6_results",
+  "schema": "aivd340-stage6-ablation-1",
+  "design_tip": "ac152c6",
+  "authorization": "STAGE-6 EXECUTION AUTHORIZED (offline equivalence-repair benchmark only)",
+  "executed": true,
+  "sacred_authorized": false,
+  "sacred_executed": false,
+  "filter_repair_merged": false,
+  "filter_replaced": false,
+  "pipeline_mutation": false,
+  "autonomous_discovery_credit": false,
+  "claim_label": "OFFLINE_REPAIR_BENCH",
+  "provenance_default": "OFFLINE_EVAL",
+  "context_bank_hash": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+  "gt_hash": "390c9b5c98cfab0d1a248318765657a8041b8218cbceda733e47d2716019f8ce",
+  "gt_freeze": {
+    "S6-TD-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S6-TD-02": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S6-TD-03": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S6-ND-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:0)",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-ND-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(SLICE:0,2(TOK))",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-ND-03": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-ND-04": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-CD-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-UG-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-ADV-TS-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S6-ADV-TS-02": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S6-ADV-TD-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-ADV-TD-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S6-HO-CRIT": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    }
+  },
+  "identity_default": "ab cd ef gh ij kl",
+  "ctx_id_02_pinned_to": "ab cd ef gh ij kl",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "stage5_complete_tip": "c003e60",
+  "stage4_complete_tip": "4005e66",
+  "pair_definitions": [
+    {
+      "condition_id": "S6-TD-01",
+      "pair_class": "TRUE_DUP",
+      "body_a_token": "IDENTICAL_MICRO_TWICE",
+      "body_b_token": "IDENTICAL_MICRO_TWICE",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_TD",
+      "gt": {
+        "gt_label": "DUP",
+        "gt_raw": "DUP",
+        "reason": "identical_canonical_key",
+        "n_equal": 20,
+        "n_differ": 0,
+        "n_unknown": 0,
+        "families_diverged": []
+      },
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S6-TD-02",
+      "pair_class": "TRUE_DUP",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:-1))",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_TD",
+      "gt": {
+        "gt_label": "DUP",
+        "gt_raw": "DUP",
+        "reason": "identical_canonical_key",
+        "n_equal": 20,
+        "n_differ": 0,
+        "n_unknown": 0,
+        "families_diverged": []
+      },
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S6-TD-03",
+      "pair_class": "TRUE_DUP",
+      "body_a_token": "CONFIRMED_FULL_BANK_TWIN_A",
+      "body_b_token": "CONFIRMED_FULL_BANK_TWIN_B",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_TD",
+      "gt": {
+        "gt_label": "DUP",
+        "gt_raw": "DUP",
+        "reason": "identical_canonical_key",
+        "n_equal": 20,
+        "n_differ": 0,
+        "n_unknown": 0,
+        "families_diverged": []
+      },
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S6-ND-01",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(AT:0)",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:0)",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ND",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 4,
+        "n_differ": 16,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BASELINE_IDENTITY",
+          "BOUNDARY",
+          "COMPOSITION",
+          "ORDERING",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-ND-02",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a_token": "MAPT(SLICE:0,2(TOK))",
+      "body_b_token": "MAPT(SLICE:1,2(TOK))",
+      "body_key_a": "MAPT(SLICE:0,2(TOK))",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ND",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 2,
+        "n_differ": 18,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BASELINE_IDENTITY",
+          "BOUNDARY",
+          "COMPOSITION",
+          "ORDERING",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-ND-03",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ND",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 2,
+        "n_differ": 18,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BASELINE_IDENTITY",
+          "BOUNDARY",
+          "COMPOSITION",
+          "ORDERING",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-ND-04",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(SLICE:1,2(TOK))",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ND",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 11,
+        "n_differ": 9,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BOUNDARY",
+          "COMPOSITION",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-CD-01",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": false,
+      "dual_role_with": "S6-HO-CRIT",
+      "population": "P_CD",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 10,
+        "n_differ": 10,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BOUNDARY",
+          "COMPOSITION",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-UG-01",
+      "pair_class": "U_GOOD",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_UG",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 0,
+        "n_differ": 20,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BASELINE_IDENTITY",
+          "BOUNDARY",
+          "COMPOSITION",
+          "ORDERING",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-ADV-TS-01",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:-1))",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ADV_TS",
+      "gt": {
+        "gt_label": "DUP",
+        "gt_raw": "DUP",
+        "reason": "identical_canonical_key",
+        "n_equal": 20,
+        "n_differ": 0,
+        "n_unknown": 0,
+        "families_diverged": []
+      },
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S6-ADV-TS-02",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "body_a_token": "IDENTICAL_MICRO_TWICE",
+      "body_b_token": "IDENTICAL_MICRO_TWICE",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ADV_TS",
+      "gt": {
+        "gt_label": "DUP",
+        "gt_raw": "DUP",
+        "reason": "identical_canonical_key",
+        "n_equal": 20,
+        "n_differ": 0,
+        "n_unknown": 0,
+        "families_diverged": []
+      },
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S6-ADV-TD-01",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(SLICE:1,2(TOK))",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(SLICE:1,2(TOK))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ADV_TD",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 11,
+        "n_differ": 9,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BOUNDARY",
+          "COMPOSITION",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-ADV-TD-02",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "held_out": false,
+      "dual_role_with": null,
+      "population": "P_ADV_TD",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 10,
+        "n_differ": 10,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BOUNDARY",
+          "COMPOSITION",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S6-HO-CRIT",
+      "pair_class": "HELD_OUT_CRITICAL",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": true,
+      "dual_role_with": null,
+      "population": "P_HO",
+      "gt": {
+        "gt_label": "DISTINCT",
+        "gt_raw": "DISTINCT",
+        "reason": "core_bank_audit",
+        "n_equal": 10,
+        "n_differ": 10,
+        "n_unknown": 0,
+        "families_diverged": [
+          "BOUNDARY",
+          "COMPOSITION",
+          "TRANSFORMED"
+        ]
+      },
+      "gt_label": "DISTINCT"
+    }
+  ],
+  "mechanisms": {
+    "BASELINE": {
+      "schema": "aivd340-stage6-ablation-1",
+      "mechanism": "BASELINE",
+      "n_pairs": 13,
+      "n_gt_dup": 5,
+      "n_gt_distinct": 8,
+      "FDR": 0.5,
+      "MDR": 0.0,
+      "MDR_hard": 0.0,
+      "DPR": 0.5,
+      "DPR_retain": 0.5,
+      "DCR": 1.0,
+      "AR": 0.0,
+      "critical_hard_collapse": 1,
+      "adv_ts_collapse": 1.0,
+      "adv_td_hard_collapse": 1.0,
+      "cd_hard_collapse_rate": 1.0,
+      "population_rates": {
+        "P_TD": {
+          "n_pairs": 3,
+          "n_gt_dup": 3,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ND": {
+          "n_pairs": 4,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 4,
+          "FDR": 0.25,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 0.75,
+          "DPR_retain": 0.75,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_CD": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 1.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 0.0,
+          "DPR_retain": 0.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_UG": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_ADV_TS": {
+          "n_pairs": 2,
+          "n_gt_dup": 2,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ADV_TD": {
+          "n_pairs": 2,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 2,
+          "FDR": 1.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 0.0,
+          "DPR_retain": 0.0,
+          "DCR": null,
+          "AR": 0.0
+        }
+      },
+      "calls_mean": 0.5384615384615384,
+      "calls_p50": 0,
+      "calls_p95": 2,
+      "calls_total": 7,
+      "sacred_bh_draws": 0,
+      "degeneracy_flags": [],
+      "target_special_case": false,
+      "pair_rows": [
+        {
+          "condition_id": "S6-TD-01",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-02",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-03",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-01",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-02",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-03",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-04",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-CD-01",
+          "pair_class": "CONTEXT_DEPENDENT",
+          "population": "P_CD",
+          "gt_label": "DISTINCT",
+          "pred": "duplicate",
+          "apply_micro_calls": 1,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-UG-01",
+          "pair_class": "U_GOOD",
+          "population": "P_UG",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-01",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-02",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-01",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-02",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ],
+      "validity": {
+        "target_specific_leakage": false,
+        "pipeline_mutation": false,
+        "budget_violation": false,
+        "held_out_contamination": false,
+        "degeneracy": false,
+        "valid_for_comparison": true
+      },
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "held_out": {
+        "condition_id": "S6-HO-CRIT",
+        "gt_label": "DISTINCT",
+        "pred": "duplicate",
+        "apply_micro_calls": 2,
+        "expansion_calls": 0,
+        "evidence": {
+          "identity": "ab cd ef gh ij kl",
+          "got_a": "bb dd ff hh jj ll",
+          "got_b": "bb dd ff hh jj ll"
+        },
+        "epistemic": "HELD_OUT",
+        "claim_label": "OFFLINE_REPAIR_BENCH",
+        "critical_hard_collapse": 1
+      },
+      "gate": "INCONCLUSIVE"
+    },
+    "R-A": {
+      "schema": "aivd340-stage6-ablation-1",
+      "mechanism": "R-A",
+      "n_pairs": 13,
+      "n_gt_dup": 5,
+      "n_gt_distinct": 8,
+      "FDR": 0.0,
+      "MDR": 0.0,
+      "MDR_hard": 0.0,
+      "DPR": 1.0,
+      "DPR_retain": 1.0,
+      "DCR": 1.0,
+      "AR": 0.0,
+      "critical_hard_collapse": 0,
+      "adv_ts_collapse": 1.0,
+      "adv_td_hard_collapse": 0.0,
+      "cd_hard_collapse_rate": 0.0,
+      "population_rates": {
+        "P_TD": {
+          "n_pairs": 3,
+          "n_gt_dup": 3,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ND": {
+          "n_pairs": 4,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 4,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_CD": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_UG": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_ADV_TS": {
+          "n_pairs": 2,
+          "n_gt_dup": 2,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ADV_TD": {
+          "n_pairs": 2,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 2,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        }
+      },
+      "calls_mean": 0.8461538461538461,
+      "calls_p50": 0,
+      "calls_p95": 2,
+      "calls_total": 11,
+      "sacred_bh_draws": 0,
+      "degeneracy_flags": [],
+      "target_special_case": false,
+      "pair_rows": [
+        {
+          "condition_id": "S6-TD-01",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-02",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-03",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-01",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-02",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-03",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-04",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-CD-01",
+          "pair_class": "CONTEXT_DEPENDENT",
+          "population": "P_CD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 3,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-UG-01",
+          "pair_class": "U_GOOD",
+          "population": "P_UG",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-01",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-02",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-01",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-02",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ],
+      "validity": {
+        "target_specific_leakage": false,
+        "pipeline_mutation": false,
+        "budget_violation": false,
+        "held_out_contamination": false,
+        "degeneracy": false,
+        "valid_for_comparison": true
+      },
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "held_out": {
+        "condition_id": "S6-HO-CRIT",
+        "gt_label": "DISTINCT",
+        "pred": "distinct",
+        "apply_micro_calls": 4,
+        "expansion_calls": 0,
+        "evidence": {
+          "contexts": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "equal": false
+            }
+          ]
+        },
+        "epistemic": "HELD_OUT",
+        "claim_label": "OFFLINE_REPAIR_BENCH",
+        "critical_hard_collapse": 0
+      },
+      "gate": "SUCCESS",
+      "delta_vs_baseline": {
+        "FDR": -0.5,
+        "MDR": 0.0,
+        "DPR": 0.5,
+        "DCR": 0.0,
+        "AR": 0.0,
+        "calls_mean": 0.3076923076923077,
+        "adv_ts_collapse": 0.0,
+        "adv_td_hard_collapse": -1.0
+      }
+    },
+    "R-B": {
+      "schema": "aivd340-stage6-ablation-1",
+      "mechanism": "R-B",
+      "n_pairs": 13,
+      "n_gt_dup": 5,
+      "n_gt_distinct": 8,
+      "FDR": 0.0,
+      "MDR": 0.0,
+      "MDR_hard": 0.0,
+      "DPR": 1.0,
+      "DPR_retain": 1.0,
+      "DCR": 1.0,
+      "AR": 0.0,
+      "critical_hard_collapse": 0,
+      "adv_ts_collapse": 1.0,
+      "adv_td_hard_collapse": 0.0,
+      "cd_hard_collapse_rate": 0.0,
+      "population_rates": {
+        "P_TD": {
+          "n_pairs": 3,
+          "n_gt_dup": 3,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ND": {
+          "n_pairs": 4,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 4,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_CD": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_UG": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_ADV_TS": {
+          "n_pairs": 2,
+          "n_gt_dup": 2,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ADV_TD": {
+          "n_pairs": 2,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 2,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        }
+      },
+      "calls_mean": 2.076923076923077,
+      "calls_p50": 0,
+      "calls_p95": 10,
+      "calls_total": 27,
+      "sacred_bh_draws": 0,
+      "degeneracy_flags": [],
+      "target_special_case": false,
+      "pair_rows": [
+        {
+          "condition_id": "S6-TD-01",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-02",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-03",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-01",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-02",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-03",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-04",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 10,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-CD-01",
+          "pair_class": "CONTEXT_DEPENDENT",
+          "population": "P_CD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 11,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-UG-01",
+          "pair_class": "U_GOOD",
+          "population": "P_UG",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-01",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-02",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-01",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-02",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ],
+      "validity": {
+        "target_specific_leakage": false,
+        "pipeline_mutation": false,
+        "budget_violation": false,
+        "held_out_contamination": false,
+        "degeneracy": false,
+        "valid_for_comparison": true
+      },
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "held_out": {
+        "condition_id": "S6-HO-CRIT",
+        "gt_label": "DISTINCT",
+        "pred": "distinct",
+        "apply_micro_calls": 12,
+        "expansion_calls": 0,
+        "evidence": {
+          "family_status": {
+            "BASELINE_IDENTITY": "AGREE",
+            "TRANSFORMED": "DISAGREE",
+            "ORDERING": "UNKNOWN",
+            "BOUNDARY": "UNKNOWN",
+            "COMPOSITION": "UNKNOWN"
+          },
+          "early_family": "TRANSFORMED",
+          "contexts": [
+            {
+              "context_id": "CTX-ID-01",
+              "family": "BASELINE_IDENTITY",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-ID-02",
+              "family": "BASELINE_IDENTITY",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "equal": false
+            },
+            {
+              "context_id": "CTX-TR-02",
+              "family": "TRANSFORMED",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-TR-03",
+              "family": "TRANSFORMED",
+              "equal": true
+            },
+            {
+              "context_id": "CTX-TR-04",
+              "family": "TRANSFORMED",
+              "equal": false
+            },
+            {
+              "context_id": "CTX-TR-05",
+              "family": "TRANSFORMED",
+              "equal": false
+            }
+          ]
+        },
+        "epistemic": "HELD_OUT",
+        "claim_label": "OFFLINE_REPAIR_BENCH",
+        "critical_hard_collapse": 0
+      },
+      "gate": "SUCCESS",
+      "delta_vs_baseline": {
+        "FDR": -0.5,
+        "MDR": 0.0,
+        "DPR": 0.5,
+        "DCR": 0.0,
+        "AR": 0.0,
+        "calls_mean": 1.5384615384615388,
+        "adv_ts_collapse": 0.0,
+        "adv_td_hard_collapse": -1.0
+      }
+    },
+    "R-C": {
+      "schema": "aivd340-stage6-ablation-1",
+      "mechanism": "R-C",
+      "n_pairs": 13,
+      "n_gt_dup": 5,
+      "n_gt_distinct": 8,
+      "FDR": 0.0,
+      "MDR": 0.0,
+      "MDR_hard": 0.0,
+      "DPR": 1.0,
+      "DPR_retain": 1.0,
+      "DCR": 1.0,
+      "AR": 0.0,
+      "critical_hard_collapse": 0,
+      "adv_ts_collapse": 1.0,
+      "adv_td_hard_collapse": 0.0,
+      "cd_hard_collapse_rate": 0.0,
+      "population_rates": {
+        "P_TD": {
+          "n_pairs": 3,
+          "n_gt_dup": 3,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ND": {
+          "n_pairs": 4,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 4,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_CD": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_UG": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_ADV_TS": {
+          "n_pairs": 2,
+          "n_gt_dup": 2,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ADV_TD": {
+          "n_pairs": 2,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 2,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        }
+      },
+      "calls_mean": 0.8461538461538461,
+      "calls_p50": 0,
+      "calls_p95": 2,
+      "calls_total": 11,
+      "sacred_bh_draws": 0,
+      "degeneracy_flags": [],
+      "target_special_case": false,
+      "pair_rows": [
+        {
+          "condition_id": "S6-TD-01",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-02",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-03",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-01",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-02",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-03",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-04",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-CD-01",
+          "pair_class": "CONTEXT_DEPENDENT",
+          "population": "P_CD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 3,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-UG-01",
+          "pair_class": "U_GOOD",
+          "population": "P_UG",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-01",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-02",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-01",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-02",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ],
+      "validity": {
+        "target_specific_leakage": false,
+        "pipeline_mutation": false,
+        "budget_violation": false,
+        "held_out_contamination": false,
+        "degeneracy": false,
+        "valid_for_comparison": true
+      },
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "held_out": {
+        "condition_id": "S6-HO-CRIT",
+        "gt_label": "DISTINCT",
+        "pred": "distinct",
+        "apply_micro_calls": 4,
+        "expansion_calls": 0,
+        "evidence": {
+          "stage": "P0",
+          "contexts": [
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "equal": false
+            }
+          ]
+        },
+        "epistemic": "HELD_OUT",
+        "claim_label": "OFFLINE_REPAIR_BENCH",
+        "critical_hard_collapse": 0
+      },
+      "gate": "SUCCESS",
+      "delta_vs_baseline": {
+        "FDR": -0.5,
+        "MDR": 0.0,
+        "DPR": 0.5,
+        "DCR": 0.0,
+        "AR": 0.0,
+        "calls_mean": 0.3076923076923077,
+        "adv_ts_collapse": 0.0,
+        "adv_td_hard_collapse": -1.0
+      }
+    },
+    "R-D": {
+      "schema": "aivd340-stage6-ablation-1",
+      "mechanism": "R-D",
+      "n_pairs": 13,
+      "n_gt_dup": 5,
+      "n_gt_distinct": 8,
+      "FDR": 0.0,
+      "MDR": 0.0,
+      "MDR_hard": 0.0,
+      "DPR": 1.0,
+      "DPR_retain": 1.0,
+      "DCR": 1.0,
+      "AR": 0.0,
+      "critical_hard_collapse": 0,
+      "adv_ts_collapse": 1.0,
+      "adv_td_hard_collapse": 0.0,
+      "cd_hard_collapse_rate": 0.0,
+      "population_rates": {
+        "P_TD": {
+          "n_pairs": 3,
+          "n_gt_dup": 3,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ND": {
+          "n_pairs": 4,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 4,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_CD": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_UG": {
+          "n_pairs": 1,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 1,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        },
+        "P_ADV_TS": {
+          "n_pairs": 2,
+          "n_gt_dup": 2,
+          "n_gt_distinct": 0,
+          "FDR": null,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": null,
+          "DPR_retain": null,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "P_ADV_TD": {
+          "n_pairs": 2,
+          "n_gt_dup": 0,
+          "n_gt_distinct": 2,
+          "FDR": 0.0,
+          "MDR": null,
+          "MDR_hard": null,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": null,
+          "AR": 0.0
+        }
+      },
+      "calls_mean": 0.8461538461538461,
+      "calls_p50": 0,
+      "calls_p95": 2,
+      "calls_total": 11,
+      "sacred_bh_draws": 0,
+      "degeneracy_flags": [],
+      "target_special_case": false,
+      "pair_rows": [
+        {
+          "condition_id": "S6-TD-01",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-02",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-TD-03",
+          "pair_class": "TRUE_DUP",
+          "population": "P_TD",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-01",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:0)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-02",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(SLICE:0,2(TOK))",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-03",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ND-04",
+          "pair_class": "KNOWN_NONDUP",
+          "population": "P_ND",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 2,
+          "expansion_calls": 2,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-CD-01",
+          "pair_class": "CONTEXT_DEPENDENT",
+          "population": "P_CD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 3,
+          "expansion_calls": 2,
+          "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-UG-01",
+          "pair_class": "U_GOOD",
+          "population": "P_UG",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-01",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TS-02",
+          "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+          "population": "P_ADV_TS",
+          "gt_label": "DUP",
+          "pred": "duplicate",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(AT:-1)",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-01",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(AT:-1)",
+          "body_key_b": "MAPT(SLICE:1,2(TOK))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        },
+        {
+          "condition_id": "S6-ADV-TD-02",
+          "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+          "population": "P_ADV_TD",
+          "gt_label": "DISTINCT",
+          "pred": "distinct",
+          "apply_micro_calls": 0,
+          "expansion_calls": 0,
+          "body_key_a": "MAPT(CAT(AT:-1|AT:-1))",
+          "body_key_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "claim_label": "OFFLINE_REPAIR_BENCH",
+          "epistemic": "OFFLINE_EVAL"
+        }
+      ],
+      "validity": {
+        "target_specific_leakage": false,
+        "pipeline_mutation": false,
+        "budget_violation": false,
+        "held_out_contamination": false,
+        "degeneracy": false,
+        "valid_for_comparison": true
+      },
+      "autonomous_discovery_credit": false,
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "held_out": {
+        "condition_id": "S6-HO-CRIT",
+        "gt_label": "DISTINCT",
+        "pred": "distinct",
+        "apply_micro_calls": 4,
+        "expansion_calls": 2,
+        "evidence": {
+          "stage": "semantic",
+          "contexts": [
+            {
+              "context_id": "CTX-TR-01",
+              "family": "TRANSFORMED",
+              "equal": false
+            }
+          ]
+        },
+        "epistemic": "HELD_OUT",
+        "claim_label": "OFFLINE_REPAIR_BENCH",
+        "critical_hard_collapse": 0
+      },
+      "gate": "SUCCESS",
+      "delta_vs_baseline": {
+        "FDR": -0.5,
+        "MDR": 0.0,
+        "DPR": 0.5,
+        "DCR": 0.0,
+        "AR": 0.0,
+        "calls_mean": 0.3076923076923077,
+        "adv_ts_collapse": 0.0,
+        "adv_td_hard_collapse": -1.0
+      }
+    }
+  },
+  "held_out_S6_HO_CRIT": {
+    "BASELINE": {
+      "condition_id": "S6-HO-CRIT",
+      "gt_label": "DISTINCT",
+      "pred": "duplicate",
+      "apply_micro_calls": 2,
+      "expansion_calls": 0,
+      "evidence": {
+        "identity": "ab cd ef gh ij kl",
+        "got_a": "bb dd ff hh jj ll",
+        "got_b": "bb dd ff hh jj ll"
+      },
+      "epistemic": "HELD_OUT",
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "critical_hard_collapse": 1
+    },
+    "R-A": {
+      "condition_id": "S6-HO-CRIT",
+      "gt_label": "DISTINCT",
+      "pred": "distinct",
+      "apply_micro_calls": 4,
+      "expansion_calls": 0,
+      "evidence": {
+        "contexts": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "equal": false
+          }
+        ]
+      },
+      "epistemic": "HELD_OUT",
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "critical_hard_collapse": 0
+    },
+    "R-B": {
+      "condition_id": "S6-HO-CRIT",
+      "gt_label": "DISTINCT",
+      "pred": "distinct",
+      "apply_micro_calls": 12,
+      "expansion_calls": 0,
+      "evidence": {
+        "family_status": {
+          "BASELINE_IDENTITY": "AGREE",
+          "TRANSFORMED": "DISAGREE",
+          "ORDERING": "UNKNOWN",
+          "BOUNDARY": "UNKNOWN",
+          "COMPOSITION": "UNKNOWN"
+        },
+        "early_family": "TRANSFORMED",
+        "contexts": [
+          {
+            "context_id": "CTX-ID-01",
+            "family": "BASELINE_IDENTITY",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-ID-02",
+            "family": "BASELINE_IDENTITY",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "equal": false
+          },
+          {
+            "context_id": "CTX-TR-02",
+            "family": "TRANSFORMED",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-TR-03",
+            "family": "TRANSFORMED",
+            "equal": true
+          },
+          {
+            "context_id": "CTX-TR-04",
+            "family": "TRANSFORMED",
+            "equal": false
+          },
+          {
+            "context_id": "CTX-TR-05",
+            "family": "TRANSFORMED",
+            "equal": false
+          }
+        ]
+      },
+      "epistemic": "HELD_OUT",
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "critical_hard_collapse": 0
+    },
+    "R-C": {
+      "condition_id": "S6-HO-CRIT",
+      "gt_label": "DISTINCT",
+      "pred": "distinct",
+      "apply_micro_calls": 4,
+      "expansion_calls": 0,
+      "evidence": {
+        "stage": "P0",
+        "contexts": [
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "equal": false
+          }
+        ]
+      },
+      "epistemic": "HELD_OUT",
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "critical_hard_collapse": 0
+    },
+    "R-D": {
+      "condition_id": "S6-HO-CRIT",
+      "gt_label": "DISTINCT",
+      "pred": "distinct",
+      "apply_micro_calls": 4,
+      "expansion_calls": 2,
+      "evidence": {
+        "stage": "semantic",
+        "contexts": [
+          {
+            "context_id": "CTX-TR-01",
+            "family": "TRANSFORMED",
+            "equal": false
+          }
+        ]
+      },
+      "epistemic": "HELD_OUT",
+      "claim_label": "OFFLINE_REPAIR_BENCH",
+      "critical_hard_collapse": 0
+    }
+  },
+  "global_budget": {
+    "total_apply_micro": 93,
+    "cap": 5000
+  },
+  "cost_exhausted": false,
+  "h6_interpretation": {
+    "H6a": "SUPPORTED",
+    "H6b": "SUPPORTED",
+    "H6c": "SUPPORTED",
+    "H6d": "NOT_TESTED",
+    "H6-REJECT": "AGAINST",
+    "success_mechanisms": [
+      "R-A",
+      "R-B",
+      "R-C",
+      "R-D"
+    ],
+    "partial_mechanisms": [],
+    "held_out_preds": {
+      "BASELINE": "duplicate",
+      "R-A": "distinct",
+      "R-B": "distinct",
+      "R-C": "distinct",
+      "R-D": "distinct"
+    }
+  },
+  "process_boundary": {
+    "S6_CD_01_dual_role_with_held_out": true,
+    "note": "S6-CD-01 shares bodies with S6-HO-CRIT. Primary bench includes CD-01; held-out formal evaluation runs last after all repair params frozen. No parameter was tuned using CD-01 or HO-CRIT outcomes.",
+    "epistemic": "OBSERVED"
+  },
+  "ablation_summary": {
+    "baseline_FDR": 0.5,
+    "baseline_DCR": 1.0,
+    "baseline_critical_hard_collapse": 1,
+    "repairs": [
+      {
+        "mechanism": "R-A",
+        "gate": "SUCCESS",
+        "FDR": 0.0,
+        "DCR": 1.0,
+        "delta_FDR": -0.5,
+        "delta_DCR": 0.0,
+        "calls_mean": 0.8461538461538461,
+        "critical_hard_collapse": 0,
+        "component_account": "full multi-context signature equality"
+      },
+      {
+        "mechanism": "R-B",
+        "gate": "SUCCESS",
+        "FDR": 0.0,
+        "DCR": 1.0,
+        "delta_FDR": -0.5,
+        "delta_DCR": 0.0,
+        "calls_mean": 2.076923076923077,
+        "critical_hard_collapse": 0,
+        "component_account": "family-wise agreement gates + ambiguity channel"
+      },
+      {
+        "mechanism": "R-C",
+        "gate": "SUCCESS",
+        "FDR": 0.0,
+        "DCR": 1.0,
+        "delta_FDR": -0.5,
+        "delta_DCR": 0.0,
+        "calls_mean": 0.8461538461538461,
+        "critical_hard_collapse": 0,
+        "component_account": "identity triage + P0 probe + reserve expansion"
+      },
+      {
+        "mechanism": "R-D",
+        "gate": "SUCCESS",
+        "FDR": 0.0,
+        "DCR": 1.0,
+        "delta_FDR": -0.5,
+        "delta_DCR": 0.0,
+        "calls_mean": 0.8461538461538461,
+        "critical_hard_collapse": 0,
+        "component_account": "identity triage + semantic-family Stage-2"
+      }
+    ],
+    "note": "Attribution by mechanism family definition only; no post-hoc component tuning."
+  },
+  "final_gate_line": "STAGE-6 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED",
+  "freeze_verification": {
+    "design_tip": "ac152c6",
+    "head": "ac152c6470cc42bb128ca51c0a4df3d568696657",
+    "head_short": "ac152c6",
+    "head_is_design_tip": true,
+    "files_match_tip": true,
+    "files": [
+      {
+        "path": "reports/aivd_3_40_stage6_charter.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage6_hypothesis_tree.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage6_matrix.json",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage6_preregistration.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage6_equivalence_repair_spec.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage6_metrics.md",
+        "match": true
+      }
+    ],
+    "matrix_executed_at_start": false,
+    "historical_unchanged": true,
+    "historical": [
+      {
+        "tip": "c003e60",
+        "path": "reports/aivd_3_40_stage5_results.json",
+        "match": true
+      },
+      {
+        "tip": "c003e60",
+        "path": "reports/aivd_3_40_stage5_results.md",
+        "match": true
+      },
+      {
+        "tip": "4005e66",
+        "path": "reports/aivd_3_40_stage4_results.json",
+        "match": true
+      },
+      {
+        "tip": "146915b",
+        "path": "reports/aivd_3_40_stage3_charter.md",
+        "match": true
+      },
+      {
+        "tip": "dcae889",
+        "path": "reports/aivd_3_40_stage2_results.md",
+        "match": true
+      }
+    ],
+    "grow_unchanged_since_4005e66": true,
+    "REDISCOVERY_FLOOR": 5,
+    "INVENT_CAP": 48,
+    "propose_growth_callable": true,
+    "ok": true
+  },
+  "recorded_at_ist": "2026-09-21 19:43 IST",
+  "execution_head_pre_commit": "ac152c6470cc42bb128ca51c0a4df3d568696657"
+}

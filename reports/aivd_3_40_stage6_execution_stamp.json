@@ -1,0 +1,20 @@
+{
+  "document": "aivd_3_40_stage6_execution_stamp",
+  "design_tip": "ac152c6",
+  "execution_head_pre_commit": "ac152c6470cc42bb128ca51c0a4df3d568696657",
+  "recorded_at_ist": "2026-09-21 19:43 IST",
+  "executed": true,
+  "sacred_authorized": false,
+  "filter_replaced": false,
+  "final_gate_line": "STAGE-6 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED",
+  "mechanism_gates": {
+    "BASELINE": "INCONCLUSIVE",
+    "R-A": "SUCCESS",
+    "R-B": "SUCCESS",
+    "R-C": "SUCCESS",
+    "R-D": "SUCCESS"
+  },
+  "context_bank_hash": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+  "gt_hash": "390c9b5c98cfab0d1a248318765657a8041b8218cbceda733e47d2716019f8ce",
+  "total_apply_micro": 93
+}
