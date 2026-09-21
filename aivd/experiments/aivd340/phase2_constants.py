@@ -1,0 +1,64 @@
+"""AIVD 3.40 Phase-2 frozen constants (from prereg at tip 7be4124)."""
+from __future__ import annotations
+
+# Historically observed odd-stride atom body from Stage-2/Phase-1 BH-R1b×S invent census.
+ODD_STRIDE_BODY_KEY = "MAPT(SLICE:1,2(TOK))"
+# Finished odd CAT-self (relevant growth product once odd-stride is available).
+ODD_CAT_SELF_BODY_KEY = "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+
+SEEDS: tuple[int, ...] = (0, 1, 2, 3, 4, 7, 11)
+BH48 = 48
+RECORD_SCHEMA_VERSION = "aivd340-phase2-instr-1"
+
+CONDITION_INSTR = "P2-R1-INSTR"
+CONDITION_MODEB = "P2-R1-MODEB-ODD"
+CONDITION_R1B_OPTIONAL = "P2-R1b-SACRED-AS-EXECUTED"
+
+MODE_B_ORIGIN = "controlled_availability_mode_b"
+CONTROLLED_INPUT = "CONTROLLED_INPUT"
+AUTONOMOUS = "AUTONOMOUS"
+
+REJECTION_CATEGORIES = (
+    "NOT_IN_POOL",
+    "LOW_RANK",
+    "TIE_LOST",
+    "FILTERED_PRE_RANK",
+    "NOT_SELECTED_OTHER",
+    "SELECTED_VERIFY_REJECT",
+    "SELECTED_VERIFY_SKIP",
+    "BUDGET_EXHAUSTED",
+    "MODE_B_NONCREDIT",
+    "UNKNOWN_INCONCLUSIVE",
+)
+
+# Interpretation outcomes 1–6 (charter §6).
+OUTCOME_ABSENT_POOL = 1
+OUTCOME_LOW_RANK = 2
+OUTCOME_HIGH_NOT_SELECTED = 3
+OUTCOME_VERIFY_FAIL = 4
+OUTCOME_GROWTH_DIVERGE = 5
+OUTCOME_INCONCLUSIVE = 6
+
+HIGH_RANK_CUTOFF = 2  # ranks 1..HIGH_RANK_CUTOFF count as high-ranked
+
+__all__ = [
+    "ODD_STRIDE_BODY_KEY",
+    "ODD_CAT_SELF_BODY_KEY",
+    "SEEDS",
+    "BH48",
+    "RECORD_SCHEMA_VERSION",
+    "CONDITION_INSTR",
+    "CONDITION_MODEB",
+    "CONDITION_R1B_OPTIONAL",
+    "MODE_B_ORIGIN",
+    "CONTROLLED_INPUT",
+    "AUTONOMOUS",
+    "REJECTION_CATEGORIES",
+    "OUTCOME_ABSENT_POOL",
+    "OUTCOME_LOW_RANK",
+    "OUTCOME_HIGH_NOT_SELECTED",
+    "OUTCOME_VERIFY_FAIL",
+    "OUTCOME_GROWTH_DIVERGE",
+    "OUTCOME_INCONCLUSIVE",
+    "HIGH_RANK_CUTOFF",
+]
