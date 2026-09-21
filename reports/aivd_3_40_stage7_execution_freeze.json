@@ -1,0 +1,1553 @@
+{
+  "document": "aivd_3_40_stage7_execution_freeze",
+  "recorded_at_ist": "2026-09-21 20:29 IST",
+  "design_tip": "d0ef7b6",
+  "design_tip_full": "d0ef7b64c7981ab900b9e5049fc65fd47211ca29",
+  "authorization": "STAGE-7 EXECUTION AUTHORIZED (Phase A then B; classification-only)",
+  "outage_recovery": {
+    "note": "OUTAGE_RECOVERY",
+    "detail": "Prior Phase-0 passed then Shell/Read outage; freeze JSON and runners lost. Prior hashes could not be reproduced bit-identical; NEW freeze regenerated from d0ef7b6 Stage-7 specs BEFORE repair outcomes. Independence labels follow generalization_spec; no Stage-6 per-pair prediction tuning.",
+    "prior_attempt_hashes": {
+      "context_bank_hash": "b521e4ffa14e4997b844f4ca7a73c3aec9186b3dd4290ea40f753a1809b02f6f",
+      "pair_list_hash": "5d613c219e96de9345ca831d174351e09c0e61934f5a99d9611ccb3b90381d7e",
+      "gt_hash": "57753bb3724d9302647d8b972a35c8ae7e1dabcac84f1f3417286f7f5e08dfd3",
+      "n_pairs": 25
+    },
+    "prior_hashes_matched": false,
+    "contamination_status": "NOT_COUNTED_AS_CONTAMINATION_IF_INDEPENDENCE_LABELS_CORRECT"
+  },
+  "executed_repairs_before_freeze": false,
+  "context_bank_hash": "d1a68addba695c7d31adef6fb731fcd21b9bdc3907d2e5bffe5d4a12897e7d4f",
+  "pair_list_hash": "aa46cb386d53534ff28353d1521ead19c1302d2a1e72d010a9d504c7166cc4cf",
+  "gt_hash": "c18227598fd0acaa46bcf7cf36e92279b5cb1f2faca772ee2882990b7fcbba09",
+  "stage6_bank_hash_ref": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+  "n_pairs": 25,
+  "n_independent": 22,
+  "ind_class_counts": {
+    "TRUE_DUP": 3,
+    "KNOWN_NONDUP": 4,
+    "CONTEXT_DEPENDENT": 2,
+    "TEXT_EQ_BEH_DIFF": 2,
+    "TEXT_DIFF_BEH_EQ": 2,
+    "STATE_CONTEXT_SENSITIVE": 2,
+    "COMPOSITION_SENSITIVE": 2,
+    "U_GOOD": 1,
+    "ADV_TEXT_DIFF_BEH_SAME": 2,
+    "ADV_TEXT_SIM_BEH_DIFF": 2
+  },
+  "context_family_coverage_potential": [
+    "BASELINE_IDENTITY",
+    "BOUNDARY",
+    "COMPOSITION",
+    "ORDERING",
+    "STATE_CONTEXT",
+    "TRANSFORMED"
+  ],
+  "context_family_coverage_ok": true,
+  "core_context_count": 30,
+  "reserve_context_count": 8,
+  "novel_context_count": 9,
+  "identity_default": "ab cd ef gh ij kl",
+  "context_bank": {
+    "core": [
+      {
+        "id": "CTX-ID-01",
+        "family": "BASELINE_IDENTITY",
+        "prompt": "ab cd ef gh ij kl",
+        "continuity": true
+      },
+      {
+        "id": "CTX-ID-02",
+        "family": "BASELINE_IDENTITY",
+        "prompt": "ab cd ef gh ij kl",
+        "continuity": true
+      },
+      {
+        "id": "CTX-TR-01",
+        "family": "TRANSFORMED",
+        "prompt": "ab cd efg hij",
+        "continuity": true
+      },
+      {
+        "id": "CTX-TR-02",
+        "family": "TRANSFORMED",
+        "prompt": "AB CD EF GH",
+        "continuity": true
+      },
+      {
+        "id": "CTX-TR-03",
+        "family": "TRANSFORMED",
+        "prompt": "a1 b2 c3 d4",
+        "continuity": true
+      },
+      {
+        "id": "CTX-TR-04",
+        "family": "TRANSFORMED",
+        "prompt": "hello world test case",
+        "continuity": true
+      },
+      {
+        "id": "CTX-TR-05",
+        "family": "TRANSFORMED",
+        "prompt": "This is a mock system Perform",
+        "continuity": true
+      },
+      {
+        "id": "CTX-OR-01",
+        "family": "ORDERING",
+        "prompt": "kl ij gh ef cd ab",
+        "continuity": true
+      },
+      {
+        "id": "CTX-OR-02",
+        "family": "ORDERING",
+        "prompt": "ef ab kl cd ij gh",
+        "continuity": true
+      },
+      {
+        "id": "CTX-OR-03",
+        "family": "ORDERING",
+        "prompt": "cd ab ef gh ij kl",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-01",
+        "family": "BOUNDARY",
+        "prompt": "xy z",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-02",
+        "family": "BOUNDARY",
+        "prompt": "a",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-03",
+        "family": "BOUNDARY",
+        "prompt": "a bb ccc dddd",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-04",
+        "family": "BOUNDARY",
+        "prompt": "abcdefghij",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-05",
+        "family": "BOUNDARY",
+        "prompt": "12 34 56 78",
+        "continuity": true
+      },
+      {
+        "id": "CTX-BD-06",
+        "family": "BOUNDARY",
+        "prompt": "1 22 333 4444 55555",
+        "continuity": true
+      },
+      {
+        "id": "CTX-CO-01",
+        "family": "COMPOSITION",
+        "prompt": "aa bb cc dd ee ff",
+        "continuity": true
+      },
+      {
+        "id": "CTX-CO-02",
+        "family": "COMPOSITION",
+        "prompt": "ab cd ef gh ij kl mn",
+        "continuity": true
+      },
+      {
+        "id": "CTX-CO-03",
+        "family": "COMPOSITION",
+        "prompt": "The quick brown fox",
+        "continuity": true
+      },
+      {
+        "id": "CTX-CO-04",
+        "family": "COMPOSITION",
+        "prompt": "wxyz abcd efgh",
+        "continuity": true
+      },
+      {
+        "id": "CTX-ST-01",
+        "family": "STATE_CONTEXT",
+        "prompt": "keep-order probe: ab cd ef gh ij kl",
+        "continuity": true
+      },
+      {
+        "id": "S7-TR-N1",
+        "family": "TRANSFORMED",
+        "prompt": "alpha beta gamma delta",
+        "continuity": false
+      },
+      {
+        "id": "S7-TR-N2",
+        "family": "TRANSFORMED",
+        "prompt": "Zebra Yellow Xray",
+        "continuity": false
+      },
+      {
+        "id": "S7-BD-N1",
+        "family": "BOUNDARY",
+        "prompt": "z",
+        "continuity": false
+      },
+      {
+        "id": "S7-BD-N2",
+        "family": "BOUNDARY",
+        "prompt": "tok1 tok22 tok333",
+        "continuity": false
+      },
+      {
+        "id": "S7-CO-N1",
+        "family": "COMPOSITION",
+        "prompt": "red green blue yellow",
+        "continuity": false
+      },
+      {
+        "id": "S7-CO-N2",
+        "family": "COMPOSITION",
+        "prompt": "moon star sun sky cloud",
+        "continuity": false
+      },
+      {
+        "id": "S7-OR-N1",
+        "family": "ORDERING",
+        "prompt": "kl ab ef ij cd gh",
+        "continuity": false
+      },
+      {
+        "id": "S7-ID-N1",
+        "family": "BASELINE_IDENTITY",
+        "prompt": "pq rs tu vw xy za",
+        "continuity": false
+      },
+      {
+        "id": "S7-ST-N1",
+        "family": "STATE_CONTEXT",
+        "prompt": "identity-alt meta: pq rs tu vw xy za",
+        "continuity": false
+      }
+    ],
+    "reserve": [
+      {
+        "id": "CTX-RS-01",
+        "family": "RESERVE",
+        "prompt": "zz yy xx ww vv uu"
+      },
+      {
+        "id": "CTX-RS-02",
+        "family": "RESERVE",
+        "prompt": "mixED Case Tokens Here"
+      },
+      {
+        "id": "CTX-RS-03",
+        "family": "RESERVE",
+        "prompt": "x"
+      },
+      {
+        "id": "CTX-RS-04",
+        "family": "RESERVE",
+        "prompt": "one two three four five six seven"
+      },
+      {
+        "id": "CTX-RS-05",
+        "family": "RESERVE",
+        "prompt": "q1 w2 e3 r4 t5"
+      },
+      {
+        "id": "CTX-RS-06",
+        "family": "RESERVE",
+        "prompt": "ab"
+      },
+      {
+        "id": "CTX-RS-07",
+        "family": "RESERVE",
+        "prompt": "The rain in Spain"
+      },
+      {
+        "id": "CTX-RS-08",
+        "family": "RESERVE",
+        "prompt": "00 11 222 3333"
+      }
+    ],
+    "novel_ids": [
+      "S7-TR-N1",
+      "S7-TR-N2",
+      "S7-BD-N1",
+      "S7-BD-N2",
+      "S7-CO-N1",
+      "S7-CO-N2",
+      "S7-OR-N1",
+      "S7-ID-N1",
+      "S7-ST-N1"
+    ],
+    "stage6_bank_hash_ref": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+    "identity_default": "ab cd ef gh ij kl"
+  },
+  "pairs": [
+    {
+      "condition_id": "S7-TD-01",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "IDENTICAL_AT0_TWICE",
+      "body_b_token": "IDENTICAL_AT0_TWICE",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:0)",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TD-02",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TD-03",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ND-01",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(AT:0)",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:0)",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 5,
+      "n_differ": 25,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ND-02",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(SLICE:0,2(TOK))",
+      "body_b_token": "MAPT(SLICE:0,3(TOK))",
+      "body_key_a": "MAPT(SLICE:0,2(TOK))",
+      "body_key_b": "MAPT(SLICE:0,3(TOK))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 15,
+      "n_differ": 15,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ND-03",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:0|AT:-1))",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 5,
+      "n_differ": 25,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ND-04",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:1)",
+      "body_b_token": "MAPT(SLICE:0,2(TOK))",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 3,
+      "n_differ": 27,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-CD-01",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:0)",
+      "body_b_token": "MAPT(SLICE:0,2(TOK))",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 15,
+      "n_differ": 15,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-CD-02",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 15,
+      "n_differ": 15,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TEBD-01",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 1,
+      "n_differ": 29,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TEBD-02",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:0)",
+      "body_b_token": "MAPT(AT:1)",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:1)",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 3,
+      "n_differ": 27,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TDBE-01",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:0))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-TDBE-02",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:1|AT:1))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:1))",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ST-01",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:2)",
+      "body_b_token": "MAPT(CAT(AT:2|AT:2))",
+      "body_key_a": "MAPT(AT:2)",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 15,
+      "n_differ": 15,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ST-02",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:1)",
+      "body_b_token": "MAPT(AT:-1)",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 14,
+      "n_differ": 16,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-CO-01",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:1))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:0))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 5,
+      "n_differ": 25,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-CO-02",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+      "body_b_token": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 5,
+      "n_differ": 25,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-UG-01",
+      "pair_class": "U_GOOD",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 0,
+      "n_differ": 30,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ADV-TS-01",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:2|AT:2))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:2))",
+      "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ADV-TS-02",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_b_token": "RE_CAT_SELF(MAPT(SLICE:0,3(TOK)))",
+      "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ADV-TD-01",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 15,
+      "n_differ": 15,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-ADV-TD-02",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "body_a_token": "MAPT(CAT(AT:1|AT:1))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:-1))",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 14,
+      "n_differ": 16,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-REPLAY-01",
+      "pair_class": "S6_REPLAY",
+      "independence": "S6_REPLAY",
+      "body_a_token": "S6_REPLAY_TD01",
+      "body_b_token": "S6_REPLAY_TD01",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "gt_reason": "identical_canonical_key",
+      "families_diverged": [],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 30,
+      "n_differ": 0,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-REL-01",
+      "pair_class": "RELATED",
+      "independence": "RELATED",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 12,
+      "n_differ": 18,
+      "n_unknown": 0
+    },
+    {
+      "condition_id": "S7-SDIAG-01",
+      "pair_class": "S_DIAGNOSTIC",
+      "independence": "S_DIAGNOSTIC",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "gt_reason": "core_bank_audit",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "families_touched": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "n_equal": 12,
+      "n_differ": 18,
+      "n_unknown": 0
+    }
+  ],
+  "pair_list_canonical": [
+    {
+      "condition_id": "S7-TD-01",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:0)",
+      "body_a_token": "IDENTICAL_AT0_TWICE",
+      "body_b_token": "IDENTICAL_AT0_TWICE",
+      "independence": "INDEPENDENT",
+      "pair_class": "TRUE_DUP",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-TD-02",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:0|AT:0))",
+      "independence": "INDEPENDENT",
+      "pair_class": "TRUE_DUP",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-TD-03",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_a_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "independence": "INDEPENDENT",
+      "pair_class": "TRUE_DUP",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-ND-01",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:0)",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(AT:0)",
+      "independence": "INDEPENDENT",
+      "pair_class": "KNOWN_NONDUP",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ND-02",
+      "body_key_a": "MAPT(SLICE:0,2(TOK))",
+      "body_key_b": "MAPT(SLICE:0,3(TOK))",
+      "body_a_token": "MAPT(SLICE:0,2(TOK))",
+      "body_b_token": "MAPT(SLICE:0,3(TOK))",
+      "independence": "INDEPENDENT",
+      "pair_class": "KNOWN_NONDUP",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ND-03",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+      "body_a_token": "MAPT(CAT(AT:-1|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:0|AT:-1))",
+      "independence": "INDEPENDENT",
+      "pair_class": "KNOWN_NONDUP",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ND-04",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "body_a_token": "MAPT(AT:1)",
+      "body_b_token": "MAPT(SLICE:0,2(TOK))",
+      "independence": "INDEPENDENT",
+      "pair_class": "KNOWN_NONDUP",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-CD-01",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "body_a_token": "MAPT(AT:0)",
+      "body_b_token": "MAPT(SLICE:0,2(TOK))",
+      "independence": "INDEPENDENT",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-CD-02",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "independence": "INDEPENDENT",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-TEBD-01",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:1))",
+      "independence": "INDEPENDENT",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-TEBD-02",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:1)",
+      "body_a_token": "MAPT(AT:0)",
+      "body_b_token": "MAPT(AT:1)",
+      "independence": "INDEPENDENT",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-TDBE-01",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:0))",
+      "independence": "INDEPENDENT",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-TDBE-02",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "body_a_token": "MAPT(CAT(AT:1|AT:1))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:1))",
+      "independence": "INDEPENDENT",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-ST-01",
+      "body_key_a": "MAPT(AT:2)",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "body_a_token": "MAPT(AT:2)",
+      "body_b_token": "MAPT(CAT(AT:2|AT:2))",
+      "independence": "INDEPENDENT",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ST-02",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "body_a_token": "MAPT(AT:1)",
+      "body_b_token": "MAPT(AT:-1)",
+      "independence": "INDEPENDENT",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-CO-01",
+      "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:1))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:0))",
+      "independence": "INDEPENDENT",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-CO-02",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+      "body_a_token": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+      "body_b_token": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+      "independence": "INDEPENDENT",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-UG-01",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "body_a_token": "MAPT(AT:-1)",
+      "body_b_token": "MAPT(CAT(AT:0|AT:0))",
+      "independence": "INDEPENDENT",
+      "pair_class": "U_GOOD",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ADV-TS-01",
+      "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "body_a_token": "MAPT(CAT(AT:2|AT:2))",
+      "body_b_token": "RE_CAT_SELF(MAPT(AT:2))",
+      "independence": "INDEPENDENT",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-ADV-TS-02",
+      "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_a_token": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_b_token": "RE_CAT_SELF(MAPT(SLICE:0,3(TOK)))",
+      "independence": "INDEPENDENT",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-ADV-TD-01",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_a_token": "MAPT(CAT(AT:0|AT:0))",
+      "body_b_token": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "independence": "INDEPENDENT",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-ADV-TD-02",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+      "body_a_token": "MAPT(CAT(AT:1|AT:1))",
+      "body_b_token": "MAPT(CAT(AT:1|AT:-1))",
+      "independence": "INDEPENDENT",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-REPLAY-01",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "body_a_token": "S6_REPLAY_TD01",
+      "body_b_token": "S6_REPLAY_TD01",
+      "independence": "S6_REPLAY",
+      "pair_class": "S6_REPLAY",
+      "gt_label": "DUP"
+    },
+    {
+      "condition_id": "S7-REL-01",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "independence": "RELATED",
+      "pair_class": "RELATED",
+      "gt_label": "DISTINCT"
+    },
+    {
+      "condition_id": "S7-SDIAG-01",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_a_token": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b_token": "MAPT(CAT(AT:-1|AT:-1))",
+      "independence": "S_DIAGNOSTIC",
+      "pair_class": "S_DIAGNOSTIC",
+      "gt_label": "DISTINCT"
+    }
+  ],
+  "gt_freeze": {
+    "S7-TD-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:0)",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-TD-02": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-TD-03": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-ND-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:0)",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ND-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(SLICE:0,2(TOK))",
+      "body_key_b": "MAPT(SLICE:0,3(TOK))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ND-03": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ND-04": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-CD-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(SLICE:0,2(TOK))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-CD-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-TEBD-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-TEBD-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:0)",
+      "body_key_b": "MAPT(AT:1)",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-TDBE-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-TDBE-02": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-ST-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:2)",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ST-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-CO-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-CO-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+      "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-UG-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+      "families_diverged": [
+        "BASELINE_IDENTITY",
+        "BOUNDARY",
+        "COMPOSITION",
+        "ORDERING",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ADV-TS-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+      "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-ADV-TS-02": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-ADV-TD-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+      "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-ADV-TD-02": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+      "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-REPLAY-01": {
+      "gt_label": "DUP",
+      "gt_raw": "DUP",
+      "body_key_a": "MAPT(AT:-1)",
+      "body_key_b": "MAPT(AT:-1)",
+      "families_diverged": [],
+      "reason": "identical_canonical_key"
+    },
+    "S7-REL-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    },
+    "S7-SDIAG-01": {
+      "gt_label": "DISTINCT",
+      "gt_raw": "DISTINCT",
+      "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "families_diverged": [
+        "BOUNDARY",
+        "COMPOSITION",
+        "STATE_CONTEXT",
+        "TRANSFORMED"
+      ],
+      "reason": "core_bank_audit"
+    }
+  },
+  "family_spec_version": "ac152c6",
+  "budget_envelope_version": "stage7_prereg_\u00a79",
+  "sacred_bh_draws_allowed": 0,
+  "filter_replacement_authorized": false,
+  "grow_py_edits_authorized": false
+}

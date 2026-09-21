@@ -1,0 +1,4643 @@
+{
+  "document": "aivd_3_40_stage7_results",
+  "recorded_at_ist": "2026-09-21 20:29 IST",
+  "design_tip": "d0ef7b6",
+  "execution_head_pre_commit": "d0ef7b64c7981ab900b9e5049fc65fd47211ca29",
+  "authorization": "STAGE-7 EXECUTION AUTHORIZED (Phase A then B; classification-only)",
+  "executed": true,
+  "sacred_authorized": false,
+  "sacred_executed": false,
+  "filter_replaced": false,
+  "pipeline_mutation": false,
+  "autonomous_discovery_credit": false,
+  "claim_label_a": "OFFLINE_GENERALIZATION_BENCH",
+  "claim_label_b": "IMPL_SPEC_EQUIVALENCE",
+  "outage_recovery": {
+    "note": "OUTAGE_RECOVERY",
+    "detail": "Prior Phase-0 passed then Shell/Read outage; freeze JSON and runners lost. Prior hashes could not be reproduced bit-identical; NEW freeze regenerated from d0ef7b6 Stage-7 specs BEFORE repair outcomes. Independence labels follow generalization_spec; no Stage-6 per-pair prediction tuning.",
+    "prior_attempt_hashes": {
+      "context_bank_hash": "b521e4ffa14e4997b844f4ca7a73c3aec9186b3dd4290ea40f753a1809b02f6f",
+      "pair_list_hash": "5d613c219e96de9345ca831d174351e09c0e61934f5a99d9611ccb3b90381d7e",
+      "gt_hash": "57753bb3724d9302647d8b972a35c8ae7e1dabcac84f1f3417286f7f5e08dfd3",
+      "n_pairs": 25
+    },
+    "prior_hashes_matched": false,
+    "contamination_status": "NOT_COUNTED_AS_CONTAMINATION_IF_INDEPENDENCE_LABELS_CORRECT"
+  },
+  "phase0": {
+    "head": "d0ef7b64c7981ab900b9e5049fc65fd47211ca29",
+    "head_short": "d0ef7b6",
+    "design_tip": "d0ef7b6",
+    "is_descendant_of_design_tip": true,
+    "design_docs_match_d0ef7b6": true,
+    "design_docs": [
+      {
+        "path": "reports/aivd_3_40_stage7_charter.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_hypothesis_tree.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_matrix.json",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_preregistration.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_generalization_spec.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_implementation_validation_spec.md",
+        "match": true
+      },
+      {
+        "path": "reports/aivd_3_40_stage7_metrics.md",
+        "match": true
+      }
+    ],
+    "stage6_results_unchanged": true,
+    "grow_unchanged_since_4005e66": true,
+    "REDISCOVERY_FLOOR": 5,
+    "INVENT_CAP": 48,
+    "propose_growth_callable": true,
+    "sacred_executed": false,
+    "filter_replaced": false,
+    "ok": true
+  },
+  "freeze": {
+    "context_bank_hash": "d1a68addba695c7d31adef6fb731fcd21b9bdc3907d2e5bffe5d4a12897e7d4f",
+    "pair_list_hash": "aa46cb386d53534ff28353d1521ead19c1302d2a1e72d010a9d504c7166cc4cf",
+    "gt_hash": "c18227598fd0acaa46bcf7cf36e92279b5cb1f2faca772ee2882990b7fcbba09",
+    "n_pairs": 25,
+    "n_independent": 22,
+    "ind_class_counts": {
+      "TRUE_DUP": 3,
+      "KNOWN_NONDUP": 4,
+      "CONTEXT_DEPENDENT": 2,
+      "TEXT_EQ_BEH_DIFF": 2,
+      "TEXT_DIFF_BEH_EQ": 2,
+      "STATE_CONTEXT_SENSITIVE": 2,
+      "COMPOSITION_SENSITIVE": 2,
+      "U_GOOD": 1,
+      "ADV_TEXT_DIFF_BEH_SAME": 2,
+      "ADV_TEXT_SIM_BEH_DIFF": 2
+    },
+    "path": "reports/aivd_3_40_stage7_execution_freeze.json"
+  },
+  "phase_a": {
+    "phase": "A_GENERALIZATION",
+    "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+    "context_bank_hash": "d1a68addba695c7d31adef6fb731fcd21b9bdc3907d2e5bffe5d4a12897e7d4f",
+    "pair_list_hash": "aa46cb386d53534ff28353d1521ead19c1302d2a1e72d010a9d504c7166cc4cf",
+    "gt_hash": "c18227598fd0acaa46bcf7cf36e92279b5cb1f2faca772ee2882990b7fcbba09",
+    "global_budget": {
+      "total_apply_micro": 244,
+      "cap": 5000
+    },
+    "cost_exhausted": false,
+    "mechanisms": {
+      "BASELINE": {
+        "schema": "aivd340-stage7-phaseA-ablation-1",
+        "mechanism": "BASELINE",
+        "population": "INDEPENDENT",
+        "n_pairs": 22,
+        "n_gt_dup": 7,
+        "n_gt_distinct": 15,
+        "FDR": 0.4666666666666667,
+        "MDR": 0.0,
+        "MDR_hard": 0.0,
+        "DPR": 0.5333333333333333,
+        "DPR_retain": 0.5333333333333333,
+        "DCR": 1.0,
+        "AR": 0.0,
+        "DCR_td_tdbe_advts": 1.0,
+        "DCR_all_ind_gt_dup": 1.0,
+        "context_family_coverage": 1.0,
+        "adv_ts_collapse": 1.0,
+        "adv_td_hard_collapse": 1.0,
+        "calls_mean": 0.7727272727272727,
+        "calls_median": 0.0,
+        "calls_max": 2,
+        "calls_worst": 2,
+        "calls_p50": 0,
+        "calls_p95": 2,
+        "calls_total": 19,
+        "calls_total_ind": 17,
+        "budget_utilization": 0.0038,
+        "sacred_bh_draws": 0,
+        "degeneracy_flags": [],
+        "target_special_case": false,
+        "related_as_independent": false,
+        "live_integration": false,
+        "diagnostic_conflict": true,
+        "sdiag_hard_collapse": 1,
+        "class_rates_ind": {
+          "ADV_TEXT_DIFF_BEH_SAME": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "ADV_TEXT_SIM_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 1.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.0,
+            "DPR_retain": 0.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "COMPOSITION_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "CONTEXT_DEPENDENT": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 1.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.0,
+            "DPR_retain": 0.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "KNOWN_NONDUP": {
+            "n_pairs": 4,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 4,
+            "FDR": 0.25,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.75,
+            "DPR_retain": 0.75,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "STATE_CONTEXT_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 1.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.0,
+            "DPR_retain": 0.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TEXT_DIFF_BEH_EQ": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "TEXT_EQ_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TRUE_DUP": {
+            "n_pairs": 3,
+            "n_gt_dup": 3,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "U_GOOD": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          }
+        },
+        "side_tables": {
+          "RELATED": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 1.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.0,
+            "DPR_retain": 0.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "S6_REPLAY": {
+            "n_pairs": 1,
+            "n_gt_dup": 1,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "S_DIAGNOSTIC": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 1.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 0.0,
+            "DPR_retain": 0.0,
+            "DCR": null,
+            "AR": 0.0,
+            "rows": [
+              {
+                "condition_id": "S7-SDIAG-01",
+                "gt_label": "DISTINCT",
+                "pred": "duplicate",
+                "calls": 0
+              }
+            ]
+          }
+        },
+        "full_set_rates": {
+          "n_pairs": 25,
+          "n_gt_dup": 8,
+          "n_gt_distinct": 17,
+          "FDR": 0.5294117647058824,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": 0.47058823529411764,
+          "DPR_retain": 0.47058823529411764,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "pair_rows": [
+          {
+            "condition_id": "S7-TD-01",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-02",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-03",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-01",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "a c e g i k"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-02",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "a c e g i k",
+              "got_b": "a c e g i k"
+            },
+            "body_key_a": "MAPT(SLICE:0,2(TOK))",
+            "body_key_b": "MAPT(SLICE:0,3(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-03",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "ba dc fe hg ji lk",
+              "got_b": "ab cd ef gh ij kl"
+            },
+            "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-04",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "a c e g i k"
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-01",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "a c e g i k",
+              "got_b": "a c e g i k"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-02",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "aa cc ee gg ii kk",
+              "got_b": "aa cc ee gg ii kk"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-01",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "aa cc ee gg ii kk",
+              "got_b": "bb dd ff hh jj ll"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-02",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "a c e g i k",
+              "got_b": "b d f h j l"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-01",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-02",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-01",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "ab cd ef gh ij kl",
+              "got_b": "ab cd ef gh ij kl"
+            },
+            "body_key_a": "MAPT(AT:2)",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-02",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "b d f h j l"
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-01",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "ab cd ef gh ij kl",
+              "got_b": "ba dc fe hg ji lk"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-02",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "ab cd ef gh ij kl",
+              "got_b": "ba dc fe hg ji lk"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+            "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-UG-01",
+            "pair_class": "U_GOOD",
+            "independence": "INDEPENDENT",
+            "population": "P_UG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "b d f h j l",
+              "got_b": "aa cc ee gg ii kk"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-01",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-02",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-01",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "aa cc ee gg ii kk",
+              "got_b": "aa cc ee gg ii kk"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-02",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "bb dd ff hh jj ll",
+              "got_b": "bb dd ff hh jj ll"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REPLAY-01",
+            "pair_class": "S6_REPLAY",
+            "independence": "S6_REPLAY",
+            "population": "P_REPLAY",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REL-01",
+            "pair_class": "RELATED",
+            "independence": "RELATED",
+            "population": "P_REL",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "bb dd ff hh jj ll",
+              "got_b": "bb dd ff hh jj ll"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-SDIAG-01",
+            "pair_class": "S_DIAGNOSTIC",
+            "independence": "S_DIAGNOSTIC",
+            "population": "P_SDIAG",
+            "gt_label": "DISTINCT",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "identity": "ab cd ef gh ij kl",
+              "got_a": "bb dd ff hh jj ll",
+              "got_b": "bb dd ff hh jj ll"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          }
+        ],
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+        "gate": "INCONCLUSIVE"
+      },
+      "R-A": {
+        "schema": "aivd340-stage7-phaseA-ablation-1",
+        "mechanism": "R-A",
+        "population": "INDEPENDENT",
+        "n_pairs": 22,
+        "n_gt_dup": 7,
+        "n_gt_distinct": 15,
+        "FDR": 0.0,
+        "MDR": 0.0,
+        "MDR_hard": 0.0,
+        "DPR": 1.0,
+        "DPR_retain": 1.0,
+        "DCR": 1.0,
+        "AR": 0.0,
+        "DCR_td_tdbe_advts": 1.0,
+        "DCR_all_ind_gt_dup": 1.0,
+        "context_family_coverage": 1.0,
+        "adv_ts_collapse": 1.0,
+        "adv_td_hard_collapse": 0.0,
+        "calls_mean": 1.2727272727272727,
+        "calls_median": 1.0,
+        "calls_max": 4,
+        "calls_worst": 4,
+        "calls_p50": 1,
+        "calls_p95": 4,
+        "calls_total": 32,
+        "calls_total_ind": 28,
+        "budget_utilization": 0.0102,
+        "sacred_bh_draws": 0,
+        "degeneracy_flags": [],
+        "target_special_case": false,
+        "related_as_independent": false,
+        "live_integration": false,
+        "diagnostic_conflict": false,
+        "sdiag_hard_collapse": 0,
+        "class_rates_ind": {
+          "ADV_TEXT_DIFF_BEH_SAME": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "ADV_TEXT_SIM_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "COMPOSITION_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "CONTEXT_DEPENDENT": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "KNOWN_NONDUP": {
+            "n_pairs": 4,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 4,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "STATE_CONTEXT_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TEXT_DIFF_BEH_EQ": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "TEXT_EQ_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TRUE_DUP": {
+            "n_pairs": 3,
+            "n_gt_dup": 3,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "U_GOOD": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          }
+        },
+        "side_tables": {
+          "RELATED": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "S6_REPLAY": {
+            "n_pairs": 1,
+            "n_gt_dup": 1,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "S_DIAGNOSTIC": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0,
+            "rows": [
+              {
+                "condition_id": "S7-SDIAG-01",
+                "gt_label": "DISTINCT",
+                "pred": "distinct",
+                "calls": 0
+              }
+            ]
+          }
+        },
+        "full_set_rates": {
+          "n_pairs": 25,
+          "n_gt_dup": 8,
+          "n_gt_distinct": 17,
+          "FDR": 0.0,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "pair_rows": [
+          {
+            "condition_id": "S7-TD-01",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-02",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-03",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-01",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-02",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(SLICE:0,2(TOK))",
+            "body_key_b": "MAPT(SLICE:0,3(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-03",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-04",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-01",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-02",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-01",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-02",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-01",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-02",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-01",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:2)",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-02",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-01",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-02",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+            "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-UG-01",
+            "pair_class": "U_GOOD",
+            "independence": "INDEPENDENT",
+            "population": "P_UG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-01",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-02",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-01",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-02",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 3,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REPLAY-01",
+            "pair_class": "S6_REPLAY",
+            "independence": "S6_REPLAY",
+            "population": "P_REPLAY",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REL-01",
+            "pair_class": "RELATED",
+            "independence": "RELATED",
+            "population": "P_REL",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-SDIAG-01",
+            "pair_class": "S_DIAGNOSTIC",
+            "independence": "S_DIAGNOSTIC",
+            "population": "P_SDIAG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          }
+        ],
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+        "gate": "SUCCESS",
+        "delta_vs_baseline": {
+          "FDR": -0.4666666666666667,
+          "MDR": 0.0,
+          "DPR": 0.4666666666666667,
+          "DCR": 0.0,
+          "AR": 0.0,
+          "calls_mean": 0.5,
+          "adv_ts_collapse": 0.0,
+          "adv_td_hard_collapse": -1.0,
+          "DCR_td_tdbe_advts": 0.0
+        }
+      },
+      "R-B": {
+        "schema": "aivd340-stage7-phaseA-ablation-1",
+        "mechanism": "R-B",
+        "population": "INDEPENDENT",
+        "n_pairs": 22,
+        "n_gt_dup": 7,
+        "n_gt_distinct": 15,
+        "FDR": 0.0,
+        "MDR": 0.0,
+        "MDR_hard": 0.0,
+        "DPR": 1.0,
+        "DPR_retain": 1.0,
+        "DCR": 1.0,
+        "AR": 0.0,
+        "DCR_td_tdbe_advts": 1.0,
+        "DCR_all_ind_gt_dup": 1.0,
+        "context_family_coverage": 1.0,
+        "adv_ts_collapse": 1.0,
+        "adv_td_hard_collapse": 0.0,
+        "calls_mean": 5.045454545454546,
+        "calls_median": 2.0,
+        "calls_max": 18,
+        "calls_worst": 18,
+        "calls_p50": 2,
+        "calls_p95": 18,
+        "calls_total": 129,
+        "calls_total_ind": 111,
+        "budget_utilization": 0.036,
+        "sacred_bh_draws": 0,
+        "degeneracy_flags": [],
+        "target_special_case": false,
+        "related_as_independent": false,
+        "live_integration": false,
+        "diagnostic_conflict": false,
+        "sdiag_hard_collapse": 0,
+        "class_rates_ind": {
+          "ADV_TEXT_DIFF_BEH_SAME": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "ADV_TEXT_SIM_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "COMPOSITION_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "CONTEXT_DEPENDENT": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "KNOWN_NONDUP": {
+            "n_pairs": 4,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 4,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "STATE_CONTEXT_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TEXT_DIFF_BEH_EQ": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "TEXT_EQ_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TRUE_DUP": {
+            "n_pairs": 3,
+            "n_gt_dup": 3,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "U_GOOD": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          }
+        },
+        "side_tables": {
+          "RELATED": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "S6_REPLAY": {
+            "n_pairs": 1,
+            "n_gt_dup": 1,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "S_DIAGNOSTIC": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0,
+            "rows": [
+              {
+                "condition_id": "S7-SDIAG-01",
+                "gt_label": "DISTINCT",
+                "pred": "distinct",
+                "calls": 0
+              }
+            ]
+          }
+        },
+        "full_set_rates": {
+          "n_pairs": 25,
+          "n_gt_dup": 8,
+          "n_gt_distinct": 17,
+          "FDR": 0.0,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "pair_rows": [
+          {
+            "condition_id": "S7-TD-01",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-02",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-03",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-01",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-02",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 18,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(SLICE:0,2(TOK))",
+            "body_key_b": "MAPT(SLICE:0,3(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-03",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-04",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-01",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 7,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-02",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 18,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-01",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-02",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-01",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-02",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-01",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 18,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:2)",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-02",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 14,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-01",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-02",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+            "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-UG-01",
+            "pair_class": "U_GOOD",
+            "independence": "INDEPENDENT",
+            "population": "P_UG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "DISAGREE",
+                "TRANSFORMED": "UNKNOWN",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "BASELINE_IDENTITY",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-01",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-02",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-01",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-02",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 16,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REPLAY-01",
+            "pair_class": "S6_REPLAY",
+            "independence": "S6_REPLAY",
+            "population": "P_REPLAY",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REL-01",
+            "pair_class": "RELATED",
+            "independence": "RELATED",
+            "population": "P_REL",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 18,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-SDIAG-01",
+            "pair_class": "S_DIAGNOSTIC",
+            "independence": "S_DIAGNOSTIC",
+            "population": "P_SDIAG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "family_status": {
+                "BASELINE_IDENTITY": "AGREE",
+                "TRANSFORMED": "DISAGREE",
+                "ORDERING": "UNKNOWN",
+                "BOUNDARY": "UNKNOWN",
+                "COMPOSITION": "UNKNOWN"
+              },
+              "early_family": "TRANSFORMED",
+              "contexts": [
+                {
+                  "context_id": "CTX-ID-01",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-ID-02",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "S7-ID-N1",
+                  "family": "BASELINE_IDENTITY",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-02",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-03",
+                  "family": "TRANSFORMED",
+                  "equal": true
+                },
+                {
+                  "context_id": "CTX-TR-04",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "CTX-TR-05",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N1",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                },
+                {
+                  "context_id": "S7-TR-N2",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          }
+        ],
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+        "gate": "COST_IMPRACTICAL",
+        "delta_vs_baseline": {
+          "FDR": -0.4666666666666667,
+          "MDR": 0.0,
+          "DPR": 0.4666666666666667,
+          "DCR": 0.0,
+          "AR": 0.0,
+          "calls_mean": 4.272727272727273,
+          "adv_ts_collapse": 0.0,
+          "adv_td_hard_collapse": -1.0,
+          "DCR_td_tdbe_advts": 0.0
+        }
+      },
+      "R-C": {
+        "schema": "aivd340-stage7-phaseA-ablation-1",
+        "mechanism": "R-C",
+        "population": "INDEPENDENT",
+        "n_pairs": 22,
+        "n_gt_dup": 7,
+        "n_gt_distinct": 15,
+        "FDR": 0.0,
+        "MDR": 0.0,
+        "MDR_hard": 0.0,
+        "DPR": 1.0,
+        "DPR_retain": 1.0,
+        "DCR": 1.0,
+        "AR": 0.0,
+        "DCR_td_tdbe_advts": 1.0,
+        "DCR_all_ind_gt_dup": 1.0,
+        "context_family_coverage": 1.0,
+        "adv_ts_collapse": 1.0,
+        "adv_td_hard_collapse": 0.0,
+        "calls_mean": 1.2727272727272727,
+        "calls_median": 1.0,
+        "calls_max": 4,
+        "calls_worst": 4,
+        "calls_p50": 1,
+        "calls_p95": 4,
+        "calls_total": 32,
+        "calls_total_ind": 28,
+        "budget_utilization": 0.0424,
+        "sacred_bh_draws": 0,
+        "degeneracy_flags": [],
+        "target_special_case": false,
+        "related_as_independent": false,
+        "live_integration": false,
+        "diagnostic_conflict": false,
+        "sdiag_hard_collapse": 0,
+        "class_rates_ind": {
+          "ADV_TEXT_DIFF_BEH_SAME": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "ADV_TEXT_SIM_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "COMPOSITION_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "CONTEXT_DEPENDENT": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "KNOWN_NONDUP": {
+            "n_pairs": 4,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 4,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "STATE_CONTEXT_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TEXT_DIFF_BEH_EQ": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "TEXT_EQ_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TRUE_DUP": {
+            "n_pairs": 3,
+            "n_gt_dup": 3,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "U_GOOD": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          }
+        },
+        "side_tables": {
+          "RELATED": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "S6_REPLAY": {
+            "n_pairs": 1,
+            "n_gt_dup": 1,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "S_DIAGNOSTIC": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0,
+            "rows": [
+              {
+                "condition_id": "S7-SDIAG-01",
+                "gt_label": "DISTINCT",
+                "pred": "distinct",
+                "calls": 0
+              }
+            ]
+          }
+        },
+        "full_set_rates": {
+          "n_pairs": 25,
+          "n_gt_dup": 8,
+          "n_gt_distinct": 17,
+          "FDR": 0.0,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "pair_rows": [
+          {
+            "condition_id": "S7-TD-01",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-02",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-03",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-01",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-02",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(SLICE:0,2(TOK))",
+            "body_key_b": "MAPT(SLICE:0,3(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-03",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-04",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-01",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-02",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-01",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-02",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-01",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-02",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-01",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:2)",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-02",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-01",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-02",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+            "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-UG-01",
+            "pair_class": "U_GOOD",
+            "independence": "INDEPENDENT",
+            "population": "P_UG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-01",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-02",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-01",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-02",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 3,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REPLAY-01",
+            "pair_class": "S6_REPLAY",
+            "independence": "S6_REPLAY",
+            "population": "P_REPLAY",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REL-01",
+            "pair_class": "RELATED",
+            "independence": "RELATED",
+            "population": "P_REL",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-SDIAG-01",
+            "pair_class": "S_DIAGNOSTIC",
+            "independence": "S_DIAGNOSTIC",
+            "population": "P_SDIAG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "P0",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          }
+        ],
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+        "gate": "SUCCESS",
+        "delta_vs_baseline": {
+          "FDR": -0.4666666666666667,
+          "MDR": 0.0,
+          "DPR": 0.4666666666666667,
+          "DCR": 0.0,
+          "AR": 0.0,
+          "calls_mean": 0.5,
+          "adv_ts_collapse": 0.0,
+          "adv_td_hard_collapse": -1.0,
+          "DCR_td_tdbe_advts": 0.0
+        }
+      },
+      "R-D": {
+        "schema": "aivd340-stage7-phaseA-ablation-1",
+        "mechanism": "R-D",
+        "population": "INDEPENDENT",
+        "n_pairs": 22,
+        "n_gt_dup": 7,
+        "n_gt_distinct": 15,
+        "FDR": 0.0,
+        "MDR": 0.0,
+        "MDR_hard": 0.0,
+        "DPR": 1.0,
+        "DPR_retain": 1.0,
+        "DCR": 1.0,
+        "AR": 0.0,
+        "DCR_td_tdbe_advts": 1.0,
+        "DCR_all_ind_gt_dup": 1.0,
+        "context_family_coverage": 1.0,
+        "adv_ts_collapse": 1.0,
+        "adv_td_hard_collapse": 0.0,
+        "calls_mean": 1.2727272727272727,
+        "calls_median": 1.0,
+        "calls_max": 4,
+        "calls_worst": 4,
+        "calls_p50": 1,
+        "calls_p95": 4,
+        "calls_total": 32,
+        "calls_total_ind": 28,
+        "budget_utilization": 0.0488,
+        "sacred_bh_draws": 0,
+        "degeneracy_flags": [],
+        "target_special_case": false,
+        "related_as_independent": false,
+        "live_integration": false,
+        "diagnostic_conflict": false,
+        "sdiag_hard_collapse": 0,
+        "class_rates_ind": {
+          "ADV_TEXT_DIFF_BEH_SAME": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "ADV_TEXT_SIM_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "COMPOSITION_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "CONTEXT_DEPENDENT": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "KNOWN_NONDUP": {
+            "n_pairs": 4,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 4,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "STATE_CONTEXT_SENSITIVE": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TEXT_DIFF_BEH_EQ": {
+            "n_pairs": 2,
+            "n_gt_dup": 2,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "TEXT_EQ_BEH_DIFF": {
+            "n_pairs": 2,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 2,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "TRUE_DUP": {
+            "n_pairs": 3,
+            "n_gt_dup": 3,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "U_GOOD": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          }
+        },
+        "side_tables": {
+          "RELATED": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0
+          },
+          "S6_REPLAY": {
+            "n_pairs": 1,
+            "n_gt_dup": 1,
+            "n_gt_distinct": 0,
+            "FDR": null,
+            "MDR": 0.0,
+            "MDR_hard": 0.0,
+            "DPR": null,
+            "DPR_retain": null,
+            "DCR": 1.0,
+            "AR": 0.0
+          },
+          "S_DIAGNOSTIC": {
+            "n_pairs": 1,
+            "n_gt_dup": 0,
+            "n_gt_distinct": 1,
+            "FDR": 0.0,
+            "MDR": null,
+            "MDR_hard": null,
+            "DPR": 1.0,
+            "DPR_retain": 1.0,
+            "DCR": null,
+            "AR": 0.0,
+            "rows": [
+              {
+                "condition_id": "S7-SDIAG-01",
+                "gt_label": "DISTINCT",
+                "pred": "distinct",
+                "calls": 0
+              }
+            ]
+          }
+        },
+        "full_set_rates": {
+          "n_pairs": 25,
+          "n_gt_dup": 8,
+          "n_gt_distinct": 17,
+          "FDR": 0.0,
+          "MDR": 0.0,
+          "MDR_hard": 0.0,
+          "DPR": 1.0,
+          "DPR_retain": 1.0,
+          "DCR": 1.0,
+          "AR": 0.0
+        },
+        "pair_rows": [
+          {
+            "condition_id": "S7-TD-01",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-02",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TD-03",
+            "pair_class": "TRUE_DUP",
+            "independence": "INDEPENDENT",
+            "population": "P_TD",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-01",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:0)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-02",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(SLICE:0,2(TOK))",
+            "body_key_b": "MAPT(SLICE:0,3(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-03",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:-1|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ND-04",
+            "pair_class": "KNOWN_NONDUP",
+            "independence": "INDEPENDENT",
+            "population": "P_ND",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-01",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 1,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(SLICE:0,2(TOK))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CD-02",
+            "pair_class": "CONTEXT_DEPENDENT",
+            "independence": "INDEPENDENT",
+            "population": "P_CD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-01",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 1,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TEBD-02",
+            "pair_class": "TEXT_EQ_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_TEBD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:0)",
+            "body_key_b": "MAPT(AT:1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-01",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-TDBE-02",
+            "pair_class": "TEXT_DIFF_BEH_EQ",
+            "independence": "INDEPENDENT",
+            "population": "P_TDBE",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-01",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:2)",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ST-02",
+            "pair_class": "STATE_CONTEXT_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_ST",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(AT:1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-01",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-CO-02",
+            "pair_class": "COMPOSITION_SENSITIVE",
+            "independence": "INDEPENDENT",
+            "population": "P_CO",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 2,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,2(TOK)|AT:-1))",
+            "body_key_b": "MAPT(CAT(AT:-1|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-UG-01",
+            "pair_class": "U_GOOD",
+            "independence": "INDEPENDENT",
+            "population": "P_UG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "identity_differ"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(CAT(AT:0|AT:0))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-01",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(AT:2|AT:2))",
+            "body_key_b": "MAPT(CAT(AT:2|AT:2))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TS-02",
+            "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TS",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "body_key_b": "MAPT(CAT(SLICE:0,3(TOK)|SLICE:0,3(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-01",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:0|AT:0))",
+            "body_key_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-ADV-TD-02",
+            "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+            "independence": "INDEPENDENT",
+            "population": "P_ADV_TD",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 3,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(AT:1|AT:1))",
+            "body_key_b": "MAPT(CAT(AT:1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REPLAY-01",
+            "pair_class": "S6_REPLAY",
+            "independence": "S6_REPLAY",
+            "population": "P_REPLAY",
+            "gt_label": "DUP",
+            "pred": "duplicate",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "reason": "identical_canonical_key"
+            },
+            "body_key_a": "MAPT(AT:-1)",
+            "body_key_b": "MAPT(AT:-1)",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-REL-01",
+            "pair_class": "RELATED",
+            "independence": "RELATED",
+            "population": "P_REL",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 4,
+            "expansion_calls": 2,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          },
+          {
+            "condition_id": "S7-SDIAG-01",
+            "pair_class": "S_DIAGNOSTIC",
+            "independence": "S_DIAGNOSTIC",
+            "population": "P_SDIAG",
+            "gt_label": "DISTINCT",
+            "pred": "distinct",
+            "apply_micro_calls": 0,
+            "expansion_calls": 0,
+            "evidence": {
+              "stage": "semantic",
+              "contexts": [
+                {
+                  "context_id": "CTX-TR-01",
+                  "family": "TRANSFORMED",
+                  "equal": false
+                }
+              ]
+            },
+            "body_key_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+            "body_key_b": "MAPT(CAT(AT:-1|AT:-1))",
+            "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+            "epistemic": "OFFLINE_GENERALIZATION_BENCH"
+          }
+        ],
+        "autonomous_discovery_credit": false,
+        "claim_label": "OFFLINE_GENERALIZATION_BENCH",
+        "gate": "SUCCESS",
+        "delta_vs_baseline": {
+          "FDR": -0.4666666666666667,
+          "MDR": 0.0,
+          "DPR": 0.4666666666666667,
+          "DCR": 0.0,
+          "AR": 0.0,
+          "calls_mean": 0.5,
+          "adv_ts_collapse": 0.0,
+          "adv_td_hard_collapse": -1.0,
+          "DCR_td_tdbe_advts": 0.0
+        }
+      }
+    },
+    "survivors_for_phase_b": [
+      "R-A",
+      "R-B",
+      "R-C",
+      "R-D"
+    ],
+    "ranking_multi_candidate": [
+      "R-A",
+      "R-C",
+      "R-D"
+    ],
+    "ranking_order": [
+      "R-A",
+      "R-C",
+      "R-D",
+      "R-B"
+    ],
+    "stop_if_no_survivors": false
+  },
+  "phase_b": {
+    "phase": "B_IMPL_VALIDATION",
+    "skipped": false,
+    "claim_label": "IMPL_SPEC_EQUIVALENCE",
+    "phase_b_fixture_hash": "1c34581507b6c2b60d3f04dfcd031e316d3165eaf4f393bb7371db21201b385e",
+    "isolation_audit": {
+      "grow_py_diff_empty": true,
+      "grow_blob": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "grow_blob_4005e66": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "discovery_imports_stage7_repairs": [],
+      "pipeline_mutation": false,
+      "filter_replaced": false,
+      "sacred_bh_draws": 0,
+      "ok": true
+    },
+    "semantic_preservation": {
+      "wraps_stage6_family_algorithms": true,
+      "missing_wraps": [],
+      "no_target_special_case_in_module": true,
+      "forbidden_hits": [],
+      "module_sha256": "14f7efb325c88e61be0a5cbe517bf83400d8e4dfc426609150294b163629d89a",
+      "family_spec_version": "ac152c6",
+      "ok": true
+    },
+    "survivors_tested": [
+      "R-A",
+      "R-B",
+      "R-C",
+      "R-D"
+    ],
+    "mechanisms": {
+      "R-A": {
+        "schema": "aivd340-stage7-phaseB-equivalence-1",
+        "mechanism": "R-A",
+        "n_pairs": 25,
+        "mismatch_rate": 0.0,
+        "label_mismatch_count": 0,
+        "ambiguity_mismatch_count": 0,
+        "provenance_mismatch_count": 0,
+        "cost_mismatch_count": 0,
+        "mismatches": [],
+        "property_tests_passed": {
+          "PT-REFL": true,
+          "PT-DET": true,
+          "PT-TD": true,
+          "PT-ND": true,
+          "PT-COST": true,
+          "PT-PROV": true,
+          "PT-CTX": true
+        },
+        "pipeline_mutation": false,
+        "filter_replaced": false,
+        "grow_py_diff_empty": true,
+        "calls_total_offline": 32,
+        "calls_total_exec": 32,
+        "sacred_bh_draws": 0,
+        "gate": "SUCCESS",
+        "autonomous_discovery_credit": false,
+        "claim_label": "IMPL_SPEC_EQUIVALENCE"
+      },
+      "R-B": {
+        "schema": "aivd340-stage7-phaseB-equivalence-1",
+        "mechanism": "R-B",
+        "n_pairs": 25,
+        "mismatch_rate": 0.0,
+        "label_mismatch_count": 0,
+        "ambiguity_mismatch_count": 0,
+        "provenance_mismatch_count": 0,
+        "cost_mismatch_count": 0,
+        "mismatches": [],
+        "property_tests_passed": {
+          "PT-REFL": true,
+          "PT-DET": true,
+          "PT-TD": true,
+          "PT-ND": true,
+          "PT-COST": true,
+          "PT-PROV": true,
+          "PT-CTX": true
+        },
+        "pipeline_mutation": false,
+        "filter_replaced": false,
+        "grow_py_diff_empty": true,
+        "calls_total_offline": 129,
+        "calls_total_exec": 129,
+        "sacred_bh_draws": 0,
+        "gate": "SUCCESS",
+        "autonomous_discovery_credit": false,
+        "claim_label": "IMPL_SPEC_EQUIVALENCE"
+      },
+      "R-C": {
+        "schema": "aivd340-stage7-phaseB-equivalence-1",
+        "mechanism": "R-C",
+        "n_pairs": 25,
+        "mismatch_rate": 0.0,
+        "label_mismatch_count": 0,
+        "ambiguity_mismatch_count": 0,
+        "provenance_mismatch_count": 0,
+        "cost_mismatch_count": 0,
+        "mismatches": [],
+        "property_tests_passed": {
+          "PT-REFL": true,
+          "PT-DET": true,
+          "PT-TD": true,
+          "PT-ND": true,
+          "PT-COST": true,
+          "PT-PROV": true,
+          "PT-CTX": true
+        },
+        "pipeline_mutation": false,
+        "filter_replaced": false,
+        "grow_py_diff_empty": true,
+        "calls_total_offline": 32,
+        "calls_total_exec": 32,
+        "sacred_bh_draws": 0,
+        "gate": "SUCCESS",
+        "autonomous_discovery_credit": false,
+        "claim_label": "IMPL_SPEC_EQUIVALENCE"
+      },
+      "R-D": {
+        "schema": "aivd340-stage7-phaseB-equivalence-1",
+        "mechanism": "R-D",
+        "n_pairs": 25,
+        "mismatch_rate": 0.0,
+        "label_mismatch_count": 0,
+        "ambiguity_mismatch_count": 0,
+        "provenance_mismatch_count": 0,
+        "cost_mismatch_count": 0,
+        "mismatches": [],
+        "property_tests_passed": {
+          "PT-REFL": true,
+          "PT-DET": true,
+          "PT-TD": true,
+          "PT-ND": true,
+          "PT-COST": true,
+          "PT-PROV": true,
+          "PT-CTX": true
+        },
+        "pipeline_mutation": false,
+        "filter_replaced": false,
+        "grow_py_diff_empty": true,
+        "calls_total_offline": 32,
+        "calls_total_exec": 32,
+        "sacred_bh_draws": 0,
+        "gate": "SUCCESS",
+        "autonomous_discovery_credit": false,
+        "claim_label": "IMPL_SPEC_EQUIVALENCE"
+      }
+    },
+    "global_budget": {
+      "offline_total": 225,
+      "exec_total": 225,
+      "cap": 5000
+    }
+  },
+  "language_stance": {
+    "H7a_genuine_generalization": "supported by Stage-7 evidence",
+    "H7b_benchmark_overfitting": "not supported",
+    "H7c_impl_spec_equivalence": "supported by Stage-7 evidence",
+    "H7d_cost_quality_ranking": "supported by Stage-7 evidence",
+    "H7e_diagnostic_conflict_reportable": "supported by Stage-7 evidence",
+    "H7_REJECT": "not supported",
+    "diagnostic_conflict_observed": "True"
+  },
+  "decision": {
+    "case": 1,
+    "label": "PHASE_A_SUCCESS_AND_PHASE_B_PASS",
+    "recommended_next_authorization": "Authorize a SEPARATE Sacred charter draft ONLY (docs), restating not-make-S-pass, namespace separation, BH48 frozen accounting, and that live FILTER_BEHAVIORAL_DUP replacement requires yet another authorization beyond Sacred. Multi-candidate survivors: ['R-A', 'R-C', 'R-D']. Do NOT merge live filter; do NOT execute Sacred in that design commit."
+  },
+  "stop_reason": null,
+  "final_gate_line": "STAGE-7 COMPLETE: PHASE A/B PASS \u2014 SACRED NOT AUTHORIZED; NEW CHARTER REQUIRED"
+}
