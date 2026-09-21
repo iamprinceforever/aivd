@@ -1,0 +1,479 @@
+{
+  "document": "aivd_3_40_stage7_matrix",
+  "recorded_at_ist": "2026-09-21 19:55 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "STAGE-7 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "implemented": false,
+  "sacred_authorized": false,
+  "live_integration_authorized": false,
+  "filter_replacement_authorized": false,
+  "start_tip": "000a4d8",
+  "start_tip_full": "000a4d81347ebc3b64138100ff7d49da9d6f7722",
+  "parent_commits": {
+    "stage6_complete_tip": "000a4d8",
+    "stage6_design_freeze": "ac152c6",
+    "stage5_complete_tip": "c003e60",
+    "stage5_design_freeze": "2496857",
+    "stage4_complete_tip": "4005e66",
+    "stage4_design_freeze": "27e9e88",
+    "phase2_complete_tip": "f4d7a2b",
+    "phase2_design_freeze": "7be4124",
+    "phase1_result_tip": "a2ab0cc",
+    "stage3_charter": "146915b",
+    "stage2_tip": "dcae889",
+    "r1b_caveat": "7a3457e"
+  },
+  "primary_question": "Before modifying the live AIVD pipeline: which repair mechanism, if any, generalizes beyond Stage-6 benchmark and can be implemented without changing discovery semantics?",
+  "scientific_objective": "Distinguish benchmark overfitting | genuine equivalence-repair generalization | implementation/specification mismatch — NOT make S pass; NOT authorize Sacred; NOT replace FILTER_BEHAVIORAL_DUP",
+  "stage6_priors": {
+    "BASELINE_gate": "INCONCLUSIVE",
+    "BASELINE_FDR": 0.5,
+    "BASELINE_MDR": 0.0,
+    "BASELINE_DCR": 1.0,
+    "BASELINE_crit_hard_collapse": 1,
+    "R_A_gate": "SUCCESS",
+    "R_B_gate": "SUCCESS",
+    "R_C_gate": "SUCCESS",
+    "R_D_gate": "SUCCESS",
+    "repairs_FDR": 0.0,
+    "repairs_MDR": 0.0,
+    "repairs_DCR": 1.0,
+    "repairs_crit_hard_collapse": 0,
+    "degeneracy": false,
+    "within_cost": true,
+    "leakage": false,
+    "pipeline_mutation": false,
+    "held_out_S6_HO_CRIT": {
+      "BASELINE": "duplicate",
+      "R-A": "distinct",
+      "R-B": "distinct",
+      "R-C": "distinct",
+      "R-D": "distinct"
+    },
+    "epistemic_boundary": "Stage-6 offline SUCCESS is NOT autonomous discovery success; do not weaken offline numbers; do not inflate into generalization",
+    "context_bank_hash": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+    "gt_hash": "390c9b5c98cfab0d1a248318765657a8041b8218cbceda733e47d2716019f8ce"
+  },
+  "hypothesis_leaves": {
+    "H7a": "Genuine equivalence-repair generalization on independent Phase-A bench",
+    "H7b": "Stage-6 wins are benchmark overfitting",
+    "H7c": "Offline spec ≡ isolated executable (no impl/spec mismatch)",
+    "H7d": "Cost–quality ranking separates practical from impractical passers",
+    "H7e": "S/critical diagnostic conflict is reportable and must not drive retuning",
+    "H7-REJECT": "Target-specific / contamination / live mutation / silent spec patch"
+  },
+  "conclusion_enum": {
+    "SUCCESS": "Phase-A: P_IND bands met + practical cost; Phase-B: mismatch_rate==0 + isolation",
+    "COST_IMPRACTICAL": "Phase-A accuracy bands met but cost practicality ceiling breached",
+    "PARTIAL": "Material improvement without full threshold set",
+    "FAILED": "H7-REJECT / degeneracy / protocol violation / mismatch",
+    "INCONCLUSIVE": "Cannot honestly separate under frozen matrix",
+    "binding": "exactly one primary gate per phase per mechanism; do not infer from Sacred or S survival; ties retain multiple candidates"
+  },
+  "two_phase": {
+    "order": ["A_GENERALIZATION", "B_IMPL_VALIDATION"],
+    "B_requires_A_pass": true,
+    "A_pass_gates_for_B": ["SUCCESS", "COST_IMPRACTICAL"],
+    "PARTIAL_into_B": "only if EXECUTION charter explicit go-decision"
+  },
+  "live_filter_baseline": {
+    "category": "FILTER_BEHAVIORAL_DUP",
+    "code_anchor": "aivd/science/grow.py::propose_growth._keep",
+    "rule": "got = apply_micro(identity, body2); reject if got in behaviors.values()",
+    "immutable_through_stage7": true,
+    "repair_implementation_in_live_pipeline_authorized": false,
+    "isolated_module_authorized_in_this_design_commit": false
+  },
+  "mechanisms": [
+    {
+      "id": "BASELINE",
+      "name": "FILTER_BEHAVIORAL_DUP identity-only",
+      "phase_A": true,
+      "phase_B": "shadow_optional",
+      "labels": ["duplicate", "distinct"]
+    },
+    {
+      "id": "R-A",
+      "name": "multi-context behavioral signature",
+      "phase_A": true,
+      "phase_B": "if_A_pass",
+      "labels": ["duplicate", "distinct", "ambiguous"],
+      "stage6_gate": "SUCCESS",
+      "stage6_calls_mean": 0.8461538461538461
+    },
+    {
+      "id": "R-B",
+      "name": "context-sensitive equivalence",
+      "phase_A": true,
+      "phase_B": "if_A_pass",
+      "labels": ["duplicate", "distinct", "ambiguous"],
+      "stage6_gate": "SUCCESS",
+      "stage6_calls_mean": 2.076923076923077
+    },
+    {
+      "id": "R-C",
+      "name": "adaptive context expansion",
+      "phase_A": true,
+      "phase_B": "if_A_pass",
+      "labels": ["duplicate", "distinct", "ambiguous"],
+      "stage6_gate": "SUCCESS",
+      "stage6_calls_mean": 0.8461538461538461
+    },
+    {
+      "id": "R-D",
+      "name": "two-stage cheap identity then semantic disambiguation",
+      "phase_A": true,
+      "phase_B": "if_A_pass",
+      "labels": ["duplicate", "distinct", "ambiguous"],
+      "stage6_gate": "SUCCESS",
+      "stage6_calls_mean": 0.8461538461538461
+    }
+  ],
+  "independence_labels": {
+    "INDEPENDENT": "counts toward H7a primary evidence",
+    "RELATED": "critical-class proximity; side table only",
+    "S6_REPLAY": "Stage-6 continuity; not independent evidence",
+    "S_DIAGNOSTIC": "conflict reporting only; never winner selection"
+  },
+  "pair_classes": [
+    "TRUE_DUP",
+    "KNOWN_NONDUP",
+    "CONTEXT_DEPENDENT",
+    "TEXT_EQ_BEH_DIFF",
+    "TEXT_DIFF_BEH_EQ",
+    "STATE_CONTEXT_SENSITIVE",
+    "COMPOSITION_SENSITIVE",
+    "U_GOOD",
+    "ADV_TEXT_DIFF_BEH_SAME",
+    "ADV_TEXT_SIM_BEH_DIFF",
+    "S6_REPLAY",
+    "RELATED",
+    "S_DIAGNOSTIC"
+  ],
+  "condition_id_prefixes": {
+    "S7-TD-*": "TRUE_DUP",
+    "S7-ND-*": "KNOWN_NONDUP",
+    "S7-CD-*": "CONTEXT_DEPENDENT",
+    "S7-TEBD-*": "TEXT_EQ_BEH_DIFF",
+    "S7-TDBE-*": "TEXT_DIFF_BEH_EQ",
+    "S7-ST-*": "STATE_CONTEXT_SENSITIVE",
+    "S7-CO-*": "COMPOSITION_SENSITIVE",
+    "S7-UG-*": "U_GOOD",
+    "S7-ADV-TS-*": "ADV_TEXT_DIFF_BEH_SAME",
+    "S7-ADV-TD-*": "ADV_TEXT_SIM_BEH_DIFF",
+    "S7-REPLAY-*": "S6_REPLAY",
+    "S7-REL-*": "RELATED",
+    "S7-SDIAG-*": "S_DIAGNOSTIC"
+  },
+  "phase_A_min_independent_counts": {
+    "TRUE_DUP": 3,
+    "KNOWN_NONDUP": 4,
+    "CONTEXT_DEPENDENT": 2,
+    "TEXT_EQ_BEH_DIFF": 2,
+    "TEXT_DIFF_BEH_EQ": 2,
+    "STATE_CONTEXT_SENSITIVE": 2,
+    "COMPOSITION_SENSITIVE": 2,
+    "ADV_TEXT_DIFF_BEH_SAME": 2,
+    "ADV_TEXT_SIM_BEH_DIFF": 2,
+    "U_GOOD": 1
+  },
+  "phase_A_side_cells_min": {
+    "S6_REPLAY": 1,
+    "RELATED": 1,
+    "S_DIAGNOSTIC": 1
+  },
+  "condition_sketch": [
+    {
+      "condition_id": "S7-TD-01",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "identical canonical AT micro (non-critical)",
+      "freeze_note": "concrete bodies pinned at EXECUTION freeze before outcomes"
+    },
+    {
+      "condition_id": "S7-TD-02",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "identical CAT-of-AT micro (non-critical keys)"
+    },
+    {
+      "condition_id": "S7-TD-03",
+      "pair_class": "TRUE_DUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "identical SLICE:0,2 self-CAT (avoid odd-stride critical bodies)"
+    },
+    {
+      "condition_id": "S7-ND-01",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "AT:-1 vs AT:0"
+    },
+    {
+      "condition_id": "S7-ND-02",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "SLICE:0,2 vs SLICE:0,3 (non-odd critical)"
+    },
+    {
+      "condition_id": "S7-ND-03",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "CAT(AT:-1|AT:0) vs CAT(AT:0|AT:-1) if bank-distinct; else alternate distinct pair"
+    },
+    {
+      "condition_id": "S7-ND-04",
+      "pair_class": "KNOWN_NONDUP",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "MAPT(AT:1) vs MAPT(SLICE:0,2(TOK)) — must verify bank-distinct and non-critical"
+    },
+    {
+      "condition_id": "S7-CD-01",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "pair that agrees on IDENTITY/ORDERING but diverges on TRANSFORMED/BOUNDARY — bodies MUST NOT be Stage-6 critical pair"
+    },
+    {
+      "condition_id": "S7-CD-02",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "second independent context-dependent pair; novel composition stress"
+    },
+    {
+      "condition_id": "S7-TEBD-01",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "near-textual / structural similarity with validated behavioral divergence on frozen bank"
+    },
+    {
+      "condition_id": "S7-TEBD-02",
+      "pair_class": "TEXT_EQ_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "second valid text-near beh-diff pair"
+    },
+    {
+      "condition_id": "S7-TDBE-01",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "different keys / text; identical bank signature"
+    },
+    {
+      "condition_id": "S7-TDBE-02",
+      "pair_class": "TEXT_DIFF_BEH_EQ",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "second text-diff beh-eq pair"
+    },
+    {
+      "condition_id": "S7-ST-01",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT_OR_MIXED_AS_DISTINCT",
+      "body_sketch": "keep-order / behaviors-map sensitivity pair independent of critical bodies"
+    },
+    {
+      "condition_id": "S7-ST-02",
+      "pair_class": "STATE_CONTEXT_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT_OR_MIXED_AS_DISTINCT",
+      "body_sketch": "identity-alt sensitivity pair"
+    },
+    {
+      "condition_id": "S7-CO-01",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "gt_intent": "per_audit",
+      "body_sketch": "multi-token CAT/glue stress pair A"
+    },
+    {
+      "condition_id": "S7-CO-02",
+      "pair_class": "COMPOSITION_SENSITIVE",
+      "independence": "INDEPENDENT",
+      "gt_intent": "per_audit",
+      "body_sketch": "multi-token CAT/glue stress pair B"
+    },
+    {
+      "condition_id": "S7-UG-01",
+      "pair_class": "U_GOOD",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "U known-good continuity vs clearly distinct partner (non-critical)"
+    },
+    {
+      "condition_id": "S7-ADV-TS-01",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "adversarial text-diff beh-same"
+    },
+    {
+      "condition_id": "S7-ADV-TS-02",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DUP",
+      "body_sketch": "adversarial text-diff beh-same #2"
+    },
+    {
+      "condition_id": "S7-ADV-TD-01",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "adversarial text-sim beh-diff"
+    },
+    {
+      "condition_id": "S7-ADV-TD-02",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "independence": "INDEPENDENT",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "adversarial text-sim beh-diff #2"
+    },
+    {
+      "condition_id": "S7-REPLAY-01",
+      "pair_class": "S6_REPLAY",
+      "independence": "S6_REPLAY",
+      "gt_intent": "from_stage6",
+      "body_sketch": "replay one Stage-6 TRUE_DUP cell for continuity (e.g. S6-TD-01)",
+      "counts_as_independent_evidence": false
+    },
+    {
+      "condition_id": "S7-REL-01",
+      "pair_class": "RELATED",
+      "independence": "RELATED",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "explicit critical-class proximity control (odd CAT-self vs U CAT-self) — NOT independent evidence",
+      "counts_as_independent_evidence": false
+    },
+    {
+      "condition_id": "S7-SDIAG-01",
+      "pair_class": "S_DIAGNOSTIC",
+      "independence": "S_DIAGNOSTIC",
+      "gt_intent": "DISTINCT",
+      "body_sketch": "Stage-6 HO-CRIT / critical S diagnostic cell — conflict reporting only; must NOT determine winner",
+      "counts_as_independent_evidence": false,
+      "selection_forbidden": true
+    }
+  ],
+  "context_bank": {
+    "continuity_families": [
+      "BASELINE_IDENTITY",
+      "TRANSFORMED",
+      "BOUNDARY",
+      "COMPOSITION",
+      "ORDERING",
+      "STATE_CONTEXT"
+    ],
+    "stage6_bank_hash_ref": "bd8cf523e5723d371dec85526199287648a290fc3abde1477ac350b01329c862",
+    "novel_subset_required": true,
+    "novel_subset_min_counts": {
+      "TRANSFORMED": 2,
+      "BOUNDARY": 2,
+      "COMPOSITION": 2,
+      "ORDERING": 1,
+      "BASELINE_IDENTITY": 1,
+      "STATE_CONTEXT": 1
+    },
+    "reserve_max": 8,
+    "concrete_prompts": "PIN_AT_EXECUTION_FREEZE",
+    "posthoc_add_forbidden": true
+  },
+  "budget": {
+    "sacred_BH48": "FROZEN_NOT_CONSUMED",
+    "S7_MAX_APPLY_MICRO_PER_PAIR": 24,
+    "S7_MAX_EXPANSION_CALLS": 8,
+    "S7_RESERVE_CONTEXT_COUNT_MAX": 8,
+    "S7_MAX_TOTAL_APPLY_MICRO_RUN_PHASE_A": 5000,
+    "S7_MAX_TOTAL_APPLY_MICRO_RUN_PHASE_B": 5000,
+    "S7_AMBIGUOUS_AT_BUDGET_EXHAUSTION": true,
+    "cost_practicality": {
+      "calls_mean_max": 4.0,
+      "calls_worst_max": 24,
+      "breach_gate": "COST_IMPRACTICAL"
+    }
+  },
+  "seeds": [0, 1, 2, 3, 4, 7, 11],
+  "representation": {
+    "R1": "frozen",
+    "R1b_auto": false,
+    "R1c": false
+  },
+  "ranking": {
+    "primary_population": "INDEPENDENT",
+    "order": [
+      "gate_rank(SUCCESS>COST_IMPRACTICAL>PARTIAL>others)",
+      "calls_mean ascending",
+      "calls_worst ascending",
+      "AR ascending",
+      "retain_all_ties"
+    ],
+    "forbidden_selection_keys": [
+      "S7-SDIAG-*",
+      "RELATED rates",
+      "S6_REPLAY rates",
+      "Sacred",
+      "S survival",
+      "arbitrary single pick when tied"
+    ]
+  },
+  "phase_B": {
+    "module_location_sketch": "aivd/experiments/aivd340/stage7_repairs/",
+    "grow_py_edits_default": false,
+    "filter_replacement": false,
+    "equivalence_fields": [
+      "label",
+      "ambiguity_state",
+      "provenance",
+      "apply_micro_calls",
+      "budget_exhausted"
+    ],
+    "mismatch_rate_success": 0.0,
+    "property_tests": [
+      "PT-REFL",
+      "PT-DET",
+      "PT-TD",
+      "PT-ND",
+      "PT-CTX",
+      "PT-COST",
+      "PT-PROV"
+    ],
+    "silent_patch_forbidden": true
+  },
+  "future_sacred_preconditions_only": {
+    "stage7_authorizes_sacred": false,
+    "required_all": [
+      "Phase-A SUCCESS or honest PARTIAL go on INDEPENDENT evidence",
+      "Phase-B spec equivalence PASS",
+      "H7-REJECT absent",
+      "cost practical (not only COST_IMPRACTICAL) unless future charter explicitly accepts",
+      "S diagnostic conflict reported if any; no silent retune",
+      "Sacred BH48 still frozen accounting",
+      "Stage-5/6 artifacts untouched",
+      "separate Sacred charter restates not-make-S-pass and namespace separation",
+      "live filter replacement still requires further authorization beyond Sacred"
+    ]
+  },
+  "prohibitions": [
+    "no implementation in this commit",
+    "no Phase-A/B execution in this commit",
+    "no Sacred / TinyLlama",
+    "no FILTER_BEHAVIORAL_DUP replacement",
+    "no grow.py live mutation",
+    "no historical artifact mutation",
+    "no S-driven winner selection",
+    "no retune to recover S",
+    "no R1c / BHexplore / Level-14",
+    "no raise BH48 / invent_cap / REDISCOVERY_FLOOR"
+  ],
+  "final_gate": "STAGE-7 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION"
+}
