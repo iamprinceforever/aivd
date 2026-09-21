@@ -1,0 +1,11 @@
+[2026-09-21 16:19:15 IST] freeze written env_hash=ea822c5536503bc5f95aaf1440f968ddb9cb38fb2940508b42d752034cc07e31
+[2026-09-21 16:19:17 IST] plant_integrity={'U_REPL_evaluator_verify': True, 'U_REPL_existing_space_oracle': True, 'GT_ID': 'AIVD340-REPL-U-ROL1', 'behavioral_family': 'ROL1'}
+[2026-09-21 16:19:17 IST] === REPLICATION BH-R1 U-only budget=48 rep=R1 mode=full_3_39_r1 plant=AIVD340-REPL-U-ROL1 seeds=[0, 1, 2, 3, 4, 7, 11] ===
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=0 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=33.519s -> REPL_BH-R1_seed0_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=1 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.024s -> REPL_BH-R1_seed1_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=2 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.023s -> REPL_BH-R1_seed2_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=3 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.024s -> REPL_BH-R1_seed3_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=4 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.022s -> REPL_BH-R1_seed4_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=7 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.02s -> REPL_BH-R1_seed7_U.json
+[2026-09-21 16:19:51 IST] REPL BH-R1 seed=11 U disc=1 epoch=1 indep_sacred=1 indep_user=1 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.02s -> REPL_BH-R1_seed11_U.json
+[2026-09-21 16:19:51 IST] DONE STAGE1 n_runs=7 verified=7/7 fw=7/7 indep_sacred=7/7 indep_user=7/7 aborted=0 leakage_fail=0 STOP
