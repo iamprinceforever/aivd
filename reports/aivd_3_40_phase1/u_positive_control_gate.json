@@ -1,0 +1,339 @@
+{
+  "aggregate_FIV": {
+    "firewall": 7,
+    "independent_strict": 7,
+    "verified": 7
+  },
+  "gate": "E_u_bhr1_positive_control_reconstruction",
+  "message": "BH-R1\u00d7U F7/I7/V7 reconstructible from OBSERVED fields",
+  "n_fail": 0,
+  "n_pass": 7,
+  "n_seeds_expected": 7,
+  "n_seeds_present": 7,
+  "per_seed": [
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 0,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 1,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 2,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 3,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 4,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 7,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    },
+    {
+      "checks": {
+        "firewall_epoch_ge_1": true,
+        "firewall_event_present": true,
+        "invent_events_present": true,
+        "pipeline_verified": true,
+        "rotate_left_body_in_produced_census": true,
+        "secret_found": true,
+        "strict_independence": true,
+        "terminal_state_VERIFIED": true
+      },
+      "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+      "pass": true,
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": null,
+        "has_finished_required_body": true,
+        "has_required_atom_direction": true,
+        "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+        "role": "U",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": true
+      },
+      "produced_bodies": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "seed": 11,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_U.json",
+      "unknown_fields_not_required": [
+        "full_candidate_pool_snapshots",
+        "candidate_scores",
+        "candidate_ranking_tables",
+        "explicit_selected_candidate_decision_records",
+        "features_used_maps",
+        "rejection_skip_reason_enums_beyond_stop_failure_notes"
+      ]
+    }
+  ],
+  "status": "PASS",
+  "stop_if_fail": true
+}

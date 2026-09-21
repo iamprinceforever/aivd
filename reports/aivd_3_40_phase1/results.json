@@ -1,0 +1,1384 @@
+{
+  "authority": {
+    "phase1_charter": "57c88f9",
+    "r1b_caveat": "7a3457e",
+    "stage2": "dcae889",
+    "stage3": "146915b"
+  },
+  "authorization": "PHASE-1_EXECUTION",
+  "blocked_reason": null,
+  "counterfactual_summary": {
+    "discovery_feedback": false,
+    "n_replay_episodes": 28,
+    "ops_used": [
+      "enumerate_produced_bodies",
+      "path_prefix_check",
+      "what_if_grow",
+      "what_if_select"
+    ],
+    "sacred_credit": false,
+    "statement": "Every CF result is counterfactual and not historical discovery; CF success \u2260 AIVD discovered X"
+  },
+  "diagnosis_distribution": {
+    "BH-R1_S": {
+      "SUPPORTED H1": 7
+    },
+    "BH-R1b_S": {
+      "SUPPORTED H2": 7
+    },
+    "all_S": {
+      "SUPPORTED H1": 7,
+      "SUPPORTED H2": 7
+    },
+    "n_inconclusive": 0,
+    "n_supported_h1": 7,
+    "n_supported_h2": 7,
+    "n_supported_h3": 0
+  },
+  "divergences": [
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_7ad10ebef1044f4b",
+          "gr_ab5d0ead6c1f4872",
+          "gr_1eb3b9eb43b84068",
+          "gr_d7c2294990d348df",
+          "gr_ba87cb4c5845471c",
+          "gr_296acaa1cdc544eb",
+          "gr_000a34a7d5f1487f",
+          "gr_cf7547c3c37d4620",
+          "gr_b5bf773ce3464eae",
+          "gr_710d2eedb3d64989"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 0,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_3607c2bc59114553",
+          "gr_2833bf55f1ce4e8b",
+          "gr_47d13d85ef274238",
+          "gr_07b79d66aff64687",
+          "gr_3e49579ae05e47a7",
+          "gr_08a9ef3a97904d6d",
+          "gr_16fa5629575c423d",
+          "gr_54908a4ace124d45",
+          "gr_7eaae95cfcb44dbf",
+          "gr_de615ad908654487"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 1,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_66823b5ded2e4f73",
+          "gr_290cf86b44d042f5",
+          "gr_174ae8fb1bd840ff",
+          "gr_c5949a16105b46d0",
+          "gr_9945b40a8924479f",
+          "gr_55afe2da0f714a64",
+          "gr_4514bc8183c54338",
+          "gr_9a530d78c2ab4372",
+          "gr_7351a120d97c4a2c",
+          "gr_5fb82ad12e4c47b1"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 2,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_370a103796d040c6",
+          "gr_439b115cd3054a70",
+          "gr_753500db44cb4553",
+          "gr_42a1aae0b7864e9d",
+          "gr_63eed6dcbf244e0c",
+          "gr_e8e152c82c0e494b",
+          "gr_0f0915653e9d41be",
+          "gr_fc180f68a4d54ba0",
+          "gr_03b40d425bd648d4",
+          "gr_8d21fc54cb4b4904"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 3,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_0537e9f17ee5498b",
+          "gr_0241a83a17a640c0",
+          "gr_c0f9ad9309c74539",
+          "gr_4cb277b684784203",
+          "gr_e837b90c13d84f96",
+          "gr_0ce94bee7a404704",
+          "gr_21b1f9774eee42f7",
+          "gr_39f926836ee04583",
+          "gr_28f4726ced724713",
+          "gr_fd421b0ef97f42a1"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 4,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_32e740679d004577",
+          "gr_28ce74ff9a644717",
+          "gr_5a0f58a113044230",
+          "gr_006d04fdbb6349d0",
+          "gr_39485b75af684045",
+          "gr_96c3d0b168254de9",
+          "gr_c0737a1897ba4093",
+          "gr_0f36f8d851fc4a2e",
+          "gr_6feeb3b03e6347a8",
+          "gr_522a08162e304d0e"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 7,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1",
+      "diagnosis_label": "SUPPORTED H1",
+      "earliest_divergence": "H1",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_3a76fb9c99f048d6",
+          "gr_b6e4b05a186e488c",
+          "gr_7b44d646dbaa4475",
+          "gr_7cc5c627a7ad4f3d",
+          "gr_28811e1b9d5e478d",
+          "gr_854f733456aa468f",
+          "gr_a0834f0c069f4dad",
+          "gr_7edc71563bba4dc1",
+          "gr_769e6eeee16242ac",
+          "gr_5a1a14b955504d99"
+        ],
+        "observed_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": false
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent/generation_records lack odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self absent. Earliest bottleneck at representation/invent coverage (H1). H3 not claimable (pool/rank/selected UNKNOWN).",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "invent",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": false,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": false,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_S.json",
+      "s_questions": {
+        "Q1": "no",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 11,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H1"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_U.json",
+      "u_positive_control_reconstructed": "pass"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_31d89aa33e804c1d",
+          "gr_43f0e06417804d9b",
+          "gr_693d033e00e84112",
+          "gr_b42ee3cb37a14b20",
+          "gr_dae93bf9b6bb4587",
+          "gr_217d75b26d5d4388",
+          "gr_5cb3e4e892a043ed",
+          "gr_66a10ab71fc4426e",
+          "gr_179d4ce9738a4890"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed0_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 0,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed0_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_99756bd62c1d4d19",
+          "gr_ec1202751f974ef7",
+          "gr_09aa8a823ed84524",
+          "gr_f73d2320f8c04f6b",
+          "gr_d32a13f904b54fe7",
+          "gr_22242ce4cce94270",
+          "gr_5a46089e20104ea3",
+          "gr_c0f003826c364682",
+          "gr_8b19e292efc2426c"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed1_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 1,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed1_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_83e3221096a34137",
+          "gr_71b18d57a06f4e53",
+          "gr_db28f2172e8645d2",
+          "gr_14125fe85cd944ec",
+          "gr_8b3a391a2903445b",
+          "gr_085bf121fad94d57",
+          "gr_c0acdc5383fd431b",
+          "gr_204f5602d62a430e",
+          "gr_76d43c9a66a24e18"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed2_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 2,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed2_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_c5cabeede0f14421",
+          "gr_ea4b399051d9407b",
+          "gr_787599a0b5ad4a72",
+          "gr_e2b2cb2665b247c1",
+          "gr_55bcd84bc425459a",
+          "gr_d38fa4968fc64378",
+          "gr_038961703fe5428e",
+          "gr_2866442ae9004f5d",
+          "gr_b7c1b541bccd4d4f"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed3_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 3,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed3_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_1f980b221d75427d",
+          "gr_fe40a02f437a4562",
+          "gr_43db3ae22e4946bb",
+          "gr_a7d9a84139374d82",
+          "gr_e114bf17b25a4d8a",
+          "gr_df584a86c74647f1",
+          "gr_3c47431e9931468f",
+          "gr_e06bc70295e8412a",
+          "gr_933a6e55ffac4d59"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed4_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 4,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed4_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_a774677f569e4f57",
+          "gr_fec0f9d0b0f44735",
+          "gr_6486f199f2cd4395",
+          "gr_d807d9bbede54b76",
+          "gr_aecf1099979e4f9c",
+          "gr_e66a8e7f88b74394",
+          "gr_ef531e0d9c124ddf",
+          "gr_8695f9368fe84dc7",
+          "gr_e3773c84284d4abb"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed7_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 7,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed7_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    },
+    {
+      "condition_id": "BH-R1b",
+      "diagnosis_label": "SUPPORTED H2",
+      "earliest_divergence": "H2",
+      "evidence_refs": {
+        "counterfactual_record_ids": [],
+        "even_cat_self_finished_observed": true,
+        "generation_ids": [
+          "gr_1d17906f85f1439d",
+          "gr_b5de83c047a948e9",
+          "gr_7fee66aee7f84e5f",
+          "gr_b035eff4b9fb40cc",
+          "gr_35b58dffae5c4763",
+          "gr_e8cb044290424d62",
+          "gr_f1d0de046c5c4bc2",
+          "gr_30244a6d6cc1481a",
+          "gr_74c86e2086cb49b3"
+        ],
+        "observed_bodies": [
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "odd_cat_self_finished_observed": false,
+        "odd_stride_atom_observed": true
+      },
+      "h3_note": "H3 MAY_REMAIN_INCONCLUSIVE: pool/score/rank/selected UNKNOWN; do not convert even-CAT-self preference into definitive H3",
+      "max_valid_claim": "OBSERVED invent includes odd-stride atom MAPT(SLICE:1,2(TOK)); finished odd CAT-self MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))) NEVER appears in generation_records produced-body census. Even CAT-self may appear \u2014 that is production preference evidence for growth (H2), NOT proof of selection failure (H3) because pool/score/rank/selected remain UNKNOWN. Counterfactual CAT_SELF grow on odd-stride parent is labeled COUNTERFACTUAL only.",
+      "path_prefix": {
+        "explicit_selected_recorded": false,
+        "first_missing_stage": "grow",
+        "has_finished_required_body": false,
+        "has_required_atom_direction": true,
+        "note": "S finished odd CAT-self absent from generation_records",
+        "role": "S",
+        "unknown_stages": [
+          "select",
+          "rank",
+          "pool"
+        ],
+        "verified": false
+      },
+      "r1b_caveat_applies": true,
+      "s_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed11_S.json",
+      "s_questions": {
+        "Q1": "yes",
+        "Q2": "no",
+        "Q3": "no",
+        "Q4": "UNKNOWN",
+        "Q5": "UNKNOWN",
+        "Q6": "no",
+        "Q7": "no",
+        "Q8": "yes"
+      },
+      "s_unresolved_preserved": true,
+      "schema_version": "aivd340.phase1.divergence.v1",
+      "seed": 11,
+      "stop_if_u_fail": true,
+      "supported_hypotheses": [
+        "H2"
+      ],
+      "u_artifact": "reports/aivd_3_40_stage2/runs/BH-R1b_seed11_U.json",
+      "u_positive_control_reconstructed": "not_applicable_r1b_observational"
+    }
+  ],
+  "document": "aivd_3_40_phase1_results",
+  "exit_gates": {
+    "A_trajectories_sufficient": "PASS",
+    "B_instrumentation_observational": "PASS",
+    "C_replay_evaluator_only": "PASS",
+    "D_historical_immutable": "PASS",
+    "E_u_bhr1_positive_control": "PASS",
+    "F_s_earliest_divergence_or_inconclusive": "PASS",
+    "G_no_new_experimental_condition": "PASS"
+  },
+  "field_coverage": {
+    "UNKNOWN": [
+      "full_candidate_pool_snapshots",
+      "candidate_scores",
+      "candidate_ranking_tables",
+      "explicit_selected_candidate_decision_records",
+      "features_used_maps",
+      "rejection_skip_reason_enums_beyond_stop_failure_notes"
+    ],
+    "h3_status": "MAY_REMAIN_INCONCLUSIVE",
+    "note": "Never reconstructed UNKNOWN from downstream evidence"
+  },
+  "final_status": "PHASE-1 COMPLETE: NEW SACRED EXPERIMENT NOT YET AUTHORIZED",
+  "key_observed_findings": [
+    "28/28 Stage-2 trajectories present and normalized with UNKNOWN honesty.",
+    "BH-R1\u00d7U reconstructible: terminal VERIFIED, strict_independence True, firewall_epoch\u22651, rotate-left body in produced-body census (F7/I7/V7).",
+    "BH-R1\u00d7S: odd-stride atom absent from invent/generation_records across all 7 seeds; finished odd CAT-self absent; even CAT-self and rotate-class bodies present.",
+    "BH-R1b\u00d7S (observational, caveat 7a3457e): odd-stride atom invented 7/7; finished odd CAT-self still absent 7/7; even CAT-self grown 7/7.",
+    "pool/score/rank/selected/features_used remain UNKNOWN \u2014 H3 not accepted.",
+    "Counterfactual CAT_SELF grow on odd-stride parent is COUNTERFACTUAL only; CF geometry match \u2260 Sacred VERIFIED / \u2260 AIVD discovered X.",
+    "H5 not supported as primary: leftover_at_firewall_decision > 0 on BH-R1 S while correct finished body never appeared.",
+    "R1b Sacred is observational only (commit 7a3457e); not pure Commit-B prereg."
+  ],
+  "phase": "PHASE-1",
+  "prohibitions_honored": [
+    "No Sacred / Rx / BHexplore",
+    "No budget/representation changes",
+    "No core science module edits",
+    "No Stage-2 artifact mutation",
+    "No UNKNOWN silent fill",
+    "No CF\u2192discovery feedback",
+    "No Phase-2 start",
+    "R1b caveat preserved"
+  ],
+  "r1_vs_r1b": {
+    "BH-R1_S_modal": {
+      "SUPPORTED H1": 7
+    },
+    "BH-R1b_S_modal": {
+      "SUPPORTED H2": 7
+    },
+    "comparison_note": "Under R1, invent lacks odd-stride atom (H1). Under R1b observational, invent gains odd-stride but growth still does not produce finished odd CAT-self in records (H2). Do not claim R1b was preregistered-unchanged.",
+    "r1b_caveat": "Commit 7a3457e trimmed invent basis after smoke before Sacred; R1b measured but not pure Commit-B prereg. Preserve.",
+    "r1b_caveat_commit": "7a3457e"
+  },
+  "recorded_at_ist": "2026-09-21 17:31 IST",
+  "scope": {
+    "bhexplore_authorized": false,
+    "core_science_edits": false,
+    "phase1_only": true,
+    "phase2_authorized": false,
+    "rx_authorized": false,
+    "sacred_authorized": false,
+    "stage2_mutation": false
+  },
+  "tip_sha_after_commit": null,
+  "tip_sha_at_start": "57c88f9",
+  "tooling_valid": true,
+  "trajectory_coverage": {
+    "missing": [],
+    "n_expected": 28,
+    "n_missing": 0,
+    "n_present": 28
+  },
+  "u_positive_control_gate": {
+    "aggregate_FIV": {
+      "firewall": 7,
+      "independent_strict": 7,
+      "verified": 7
+    },
+    "gate": "E_u_bhr1_positive_control_reconstruction",
+    "message": "BH-R1\u00d7U F7/I7/V7 reconstructible from OBSERVED fields",
+    "n_fail": 0,
+    "n_pass": 7,
+    "n_seeds_expected": 7,
+    "n_seeds_present": 7,
+    "per_seed": [
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 0,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 1,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 2,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 3,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 4,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 7,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      },
+      {
+        "checks": {
+          "firewall_epoch_ge_1": true,
+          "firewall_event_present": true,
+          "invent_events_present": true,
+          "pipeline_verified": true,
+          "rotate_left_body_in_produced_census": true,
+          "secret_found": true,
+          "strict_independence": true,
+          "terminal_state_VERIFIED": true
+        },
+        "note": "Reconstruction uses OBSERVED envelope + generation_records only; pool/score/rank/selected NOT used",
+        "pass": true,
+        "path_prefix": {
+          "explicit_selected_recorded": false,
+          "first_missing_stage": null,
+          "has_finished_required_body": true,
+          "has_required_atom_direction": true,
+          "note": "U path reconstructible: rotate-class body OBSERVED and terminal VERIFIED",
+          "role": "U",
+          "unknown_stages": [
+            "select",
+            "rank",
+            "pool"
+          ],
+          "verified": true
+        },
+        "produced_bodies": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "seed": 11,
+        "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_U.json",
+        "unknown_fields_not_required": [
+          "full_candidate_pool_snapshots",
+          "candidate_scores",
+          "candidate_ranking_tables",
+          "explicit_selected_candidate_decision_records",
+          "features_used_maps",
+          "rejection_skip_reason_enums_beyond_stop_failure_notes"
+        ]
+      }
+    ],
+    "status": "PASS",
+    "stop_if_fail": true
+  }
+}

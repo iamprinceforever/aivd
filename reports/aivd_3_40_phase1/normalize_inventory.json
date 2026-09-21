@@ -1,0 +1,288 @@
+{
+  "cells": [
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 0,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_S.json",
+      "source_artifact_sha256": "14b8eb031f8cdaed09fcee9de365e8c41ed500a4e2ce3ee1f8f50ad5b996d87d",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 1,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_S.json",
+      "source_artifact_sha256": "69b5a03d78e4f191dc387e3cc75ae77b07fad81705a8cd53feefab50dbf88d96",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 2,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_S.json",
+      "source_artifact_sha256": "7c46c7f7f806b21d7b0d1bd2d032acef9c81dfa32b210f9fc83219a9b4afb4ed",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 3,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_S.json",
+      "source_artifact_sha256": "68b9d5936511b7271f5be39d12dc0123a6394662356d67bdbf05cd365e7a9e94",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 4,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_S.json",
+      "source_artifact_sha256": "b871cb259f07c07b0c8c712555e5d20cd4da7359a95efecefac389bffca52010",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 7,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_S.json",
+      "source_artifact_sha256": "2ca8b6901d1c4a733a93421e2fe29545a02217e243060db4c74785b7274a65ab",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-S",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 11,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_S.json",
+      "source_artifact_sha256": "bf9cb2542b78b1a2b42aa803f1ddead0a9a66f93efbc87f8e17b8150814b9b1e",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 0,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed0_U.json",
+      "source_artifact_sha256": "3c143ca3aa07b1c90132673309a1954c83be89c282ef85c405afab594c4cf210",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 1,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed1_U.json",
+      "source_artifact_sha256": "48f57cfebc6b14e2b7b6daee7d5f032c9c193d2c2088049b1fa94d9d8163b6cd",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 2,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed2_U.json",
+      "source_artifact_sha256": "2a7996e2e6608a69e5bc4c87550b3c1149160cbf1ec0c2c5c8fb8173bec4ac67",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 3,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed3_U.json",
+      "source_artifact_sha256": "fb406d3440fb3b2dec23fc37169ffb9023421fa37fb9afd41e376679b796a5d6",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 4,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed4_U.json",
+      "source_artifact_sha256": "cd2ff81a0fed91e79864702891e47cafb5599bc5db948846c90a656ae8e5ea2c",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 7,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed7_U.json",
+      "source_artifact_sha256": "1c8553830088246a175e8f959fc761b58df3aa3484bc6ef95fa261ff222a03df",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1-U",
+      "condition_id": "BH-R1",
+      "n_observed_events": 10,
+      "n_produced_bodies": 6,
+      "seed": 11,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1_seed11_U.json",
+      "source_artifact_sha256": "89b1ffe0641fda2cfa441861ba60e4754d0b356de3bd46ac067505a2f1e8de65",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 0,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed0_S.json",
+      "source_artifact_sha256": "800c11b4a61e198179b1633e02e14ef90b19a03f09bffa89a02c1036aff04286",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 1,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed1_S.json",
+      "source_artifact_sha256": "256bc03fcf642bffc41b5e1c4db1912b75947c255c8eadf1e44f544e35618b08",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 2,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed2_S.json",
+      "source_artifact_sha256": "5595d48903a52d7a9349bd96daf905c532bc27800000b80503d4fb0121da9a00",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 3,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed3_S.json",
+      "source_artifact_sha256": "6f28edf8f65ae40702a10f732f97349111ac70ea5c250f4775e2ca00ccd7625b",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 4,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed4_S.json",
+      "source_artifact_sha256": "a0bbc810e78c8ccfdc0aa95169fb204b09c79d54550a7972d072a828cc260556",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 7,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed7_S.json",
+      "source_artifact_sha256": "9345928c43598f0b7f14bd50108bdbcfb0ac261b648c2414c5babc2bb025b888",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-S",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 9,
+      "n_produced_bodies": 4,
+      "seed": 11,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed11_S.json",
+      "source_artifact_sha256": "d971dd2981e47a70900b65e9965f6f372655bd4fc40be7377d2aa3686cd62253",
+      "target_role": "S"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 0,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed0_U.json",
+      "source_artifact_sha256": "2c9e204ef5da4988e28e336ba2f29033bab76cb37cb9305c4b054118f06f1905",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 1,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed1_U.json",
+      "source_artifact_sha256": "79006664d053eedd45054008579c4174cdafd41b8601b83af755781f57e290ba",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 2,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed2_U.json",
+      "source_artifact_sha256": "ee11605d9402caea35424f170aa52dc5c85723b59f71fca9650cc8fbcffc6c94",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 3,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed3_U.json",
+      "source_artifact_sha256": "2fbf6e58b0a398e096ab077d485f17b85bb086c872a47b7c9931def3b2d05424",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 4,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed4_U.json",
+      "source_artifact_sha256": "fac4424ba0e5c00aa552498824deec4a16a911b913e190bca339cd2fe5661da5",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 7,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed7_U.json",
+      "source_artifact_sha256": "6f6c39a3034f9b99f18c334583151ce717bdded6a7c42ce5a6d7b91b625a5c7f",
+      "target_role": "U"
+    },
+    {
+      "audit_cell_id": "AUD-S2-BHR1b-U",
+      "condition_id": "BH-R1b",
+      "n_observed_events": 3,
+      "n_produced_bodies": 3,
+      "seed": 11,
+      "source_artifact_path": "reports/aivd_3_40_stage2/runs/BH-R1b_seed11_U.json",
+      "source_artifact_sha256": "fa692ec1b6ca764c098c607b628457460acef7c6c6e44f7edc70a76724941432",
+      "target_role": "U"
+    }
+  ],
+  "missing": [],
+  "n_expected": 28,
+  "n_missing": 0,
+  "n_present": 28
+}
