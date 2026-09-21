@@ -1,0 +1,501 @@
+{
+  "document": "aivd_3_40_stage6_matrix",
+  "recorded_at_ist": "2026-09-21 19:25 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "STAGE-6 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "implemented": false,
+  "sacred_authorized": false,
+  "start_tip": "c003e60",
+  "start_tip_full": "c003e60ddd6154b6de375b75c7401ec04e42d681",
+  "parent_commits": {
+    "stage5_complete_tip": "c003e60",
+    "stage5_design_freeze": "2496857",
+    "stage4_complete_tip": "4005e66",
+    "stage4_design_freeze": "27e9e88",
+    "phase2_complete_tip": "f4d7a2b",
+    "phase2_design_freeze": "7be4124",
+    "phase1_result_tip": "a2ab0cc",
+    "stage3_charter": "146915b",
+    "stage2_tip": "dcae889",
+    "r1b_caveat": "7a3457e"
+  },
+  "primary_question": "Can a GENERIC behavioral-equivalence mechanism distinguish true duplicates from behaviorally distinct candidates without treating every candidate as novel?",
+  "scientific_objective": "Design competing generic equivalence-repair families + fair offline ablation \u2014 NOT make S pass",
+  "stage5_priors": {
+    "H5b": "SUPPORTED",
+    "H5d": "SUPPORTED",
+    "critical_pair": "FALSE_DUPLICATE",
+    "textual_equal": false,
+    "structural_equal": false,
+    "behavioral_live_equal": true,
+    "behavioral_audit_equal": false,
+    "families_diverged": [
+      "BOUNDARY",
+      "COMPOSITION",
+      "TRANSFORMED"
+    ],
+    "controls_pass": true,
+    "n_false_duplicate": 2,
+    "n_missed_duplicate": 0,
+    "epistemic_boundary": "Stage-5 characterized over-collapse; did not authorize repair; do not weaken"
+  },
+  "hypothesis_leaves": {
+    "H6a": "Generic mechanism jointly achieves duplicate retention and novelty retention",
+    "H6b": "Identity collision necessary but insufficient; disambiguation/expansion required",
+    "H6c": "Ambiguity-aware policies dominate hard binary collapse under same budget",
+    "H6d": "Cost-quality tradeoff under Stage-6 experimental budget (Sacred BH48 untouched)",
+    "H6-REJECT": "Gains require target-specific / textual-only / critical-pair-special rules"
+  },
+  "conclusion_enum": {
+    "SUCCESS": "All charter success criteria + metrics thresholds; H6-REJECT absent",
+    "PARTIAL": "Material improvement without full threshold set",
+    "FAILED": "H6-REJECT / degeneracy / protocol violation",
+    "INCONCLUSIVE": "Cannot honestly separate under frozen matrix",
+    "binding": "exactly one primary gate; do not infer from Sacred or S survival"
+  },
+  "live_filter_baseline": {
+    "category": "FILTER_BEHAVIORAL_DUP",
+    "code_anchor": "aivd/science/grow.py::propose_growth._keep",
+    "rule": "got = apply_micro(identity, body2); reject if got in behaviors.values()",
+    "lines_cite": "grow.py L166-167 (tip c003e60 / unchanged since 4005e66)",
+    "not_the_same_as": [
+      "behavioral_equivalent(a,b,probes=...)",
+      "textual_identity",
+      "body.key() equality",
+      "full-bank BEHAVIORAL_AUDIT"
+    ],
+    "immutable_in_design_commit": true,
+    "repair_implementation_authorized": false
+  },
+  "mechanisms": [
+    {
+      "id": "BASELINE",
+      "name": "FILTER_BEHAVIORAL_DUP identity-only",
+      "labels": [
+        "duplicate",
+        "distinct"
+      ]
+    },
+    {
+      "id": "R-A",
+      "name": "multi-context behavioral signature",
+      "labels": [
+        "duplicate",
+        "distinct",
+        "ambiguous"
+      ]
+    },
+    {
+      "id": "R-B",
+      "name": "context-sensitive equivalence",
+      "labels": [
+        "duplicate",
+        "distinct",
+        "ambiguous"
+      ]
+    },
+    {
+      "id": "R-C",
+      "name": "adaptive context expansion",
+      "labels": [
+        "duplicate",
+        "distinct",
+        "ambiguous"
+      ]
+    },
+    {
+      "id": "R-D",
+      "name": "two-stage cheap identity then semantic disambiguation",
+      "labels": [
+        "duplicate",
+        "distinct",
+        "ambiguous"
+      ]
+    }
+  ],
+  "classification_only": true,
+  "forbidden_change_surfaces": [
+    "proposal generation",
+    "invention",
+    "growth operators",
+    "candidate generation",
+    "scoring",
+    "selection",
+    "verification",
+    "firewall",
+    "discovery prompts"
+  ],
+  "critical_pair_held_out": {
+    "condition_id": "S6-HO-CRIT",
+    "body_key_removed": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "body_key_kept": "MAPT(CAT(AT:-1|AT:-1))",
+    "role": "HELD_OUT_DIAGNOSTIC",
+    "tune_against_exact_stage5_outputs": false,
+    "success_requires_no_hard_duplicate": true
+  },
+  "body_keys_frozen": {
+    "odd_stride": "MAPT(SLICE:1,2(TOK))",
+    "odd_cat_self": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "u_good": "MAPT(AT:-1)",
+    "u_good_cat_self": "MAPT(CAT(AT:-1|AT:-1))",
+    "slice_0_2": "MAPT(SLICE:0,2(TOK))",
+    "at_0": "MAPT(AT:0)"
+  },
+  "pair_classes": [
+    "TRUE_DUP",
+    "KNOWN_NONDUP",
+    "CONTEXT_DEPENDENT",
+    "U_GOOD",
+    "ADV_TEXT_DIFF_BEH_SAME",
+    "ADV_TEXT_SIM_BEH_DIFF",
+    "HELD_OUT_CRITICAL"
+  ],
+  "pairs": [
+    {
+      "condition_id": "S6-TD-01",
+      "pair_class": "TRUE_DUP",
+      "body_a": "IDENTICAL_MICRO_TWICE",
+      "body_b": "IDENTICAL_MICRO_TWICE",
+      "notes": "trivial textual+behavioral twin"
+    },
+    {
+      "condition_id": "S6-TD-02",
+      "pair_class": "TRUE_DUP",
+      "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b": "RE_CAT_SELF(MAPT(AT:-1))",
+      "notes": "Stage-5 TD-02 continuity"
+    },
+    {
+      "condition_id": "S6-TD-03",
+      "pair_class": "TRUE_DUP",
+      "body_a": "CONFIRMED_FULL_BANK_TWIN_A",
+      "body_b": "CONFIRMED_FULL_BANK_TWIN_B",
+      "notes": "validate at exec against freeze; must be audit-DUP"
+    },
+    {
+      "condition_id": "S6-ND-01",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a": "MAPT(AT:-1)",
+      "body_b": "MAPT(AT:0)"
+    },
+    {
+      "condition_id": "S6-ND-02",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a": "MAPT(SLICE:0,2(TOK))",
+      "body_b": "MAPT(SLICE:1,2(TOK))"
+    },
+    {
+      "condition_id": "S6-ND-03",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+    },
+    {
+      "condition_id": "S6-ND-04",
+      "pair_class": "KNOWN_NONDUP",
+      "body_a": "MAPT(AT:-1)",
+      "body_b": "MAPT(SLICE:1,2(TOK))",
+      "notes": "Stage-5 ND-04 false-dup signature under live identity"
+    },
+    {
+      "condition_id": "S6-CD-01",
+      "pair_class": "CONTEXT_DEPENDENT",
+      "body_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "notes": "same bodies as critical; dual-role CONTEXT_DEPENDENT+diagnostic \u2014 still no tuning",
+      "dual_role_with": "S6-HO-CRIT"
+    },
+    {
+      "condition_id": "S6-UG-01",
+      "pair_class": "U_GOOD",
+      "body_a": "MAPT(AT:-1)",
+      "body_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "notes": "path continuity"
+    },
+    {
+      "condition_id": "S6-ADV-TS-01",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b": "RE_CAT_SELF(MAPT(AT:-1))",
+      "notes": "textually may match TD-02; behavioral twin must collapse"
+    },
+    {
+      "condition_id": "S6-ADV-TS-02",
+      "pair_class": "ADV_TEXT_DIFF_BEH_SAME",
+      "body_a": "IDENTICAL_MICRO_TWICE",
+      "body_b": "IDENTICAL_MICRO_TWICE",
+      "notes": "second twin cell"
+    },
+    {
+      "condition_id": "S6-ADV-TD-01",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "body_a": "MAPT(AT:-1)",
+      "body_b": "MAPT(SLICE:1,2(TOK))",
+      "notes": "identity-collide risk; bank-distinct"
+    },
+    {
+      "condition_id": "S6-ADV-TD-02",
+      "pair_class": "ADV_TEXT_SIM_BEH_DIFF",
+      "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+      "body_b": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "notes": "structural relatives; bank-distinct class"
+    },
+    {
+      "condition_id": "S6-HO-CRIT",
+      "pair_class": "HELD_OUT_CRITICAL",
+      "body_a": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+      "body_b": "MAPT(CAT(AT:-1|AT:-1))",
+      "held_out": true,
+      "tune": false
+    }
+  ],
+  "context_families": {
+    "BASELINE_IDENTITY": {
+      "role": "core",
+      "contexts": [
+        {
+          "context_id": "CTX-ID-01",
+          "prompt": "ab cd ef gh ij kl"
+        },
+        {
+          "context_id": "CTX-ID-02",
+          "prompt": "ARTIFACT_PIN_AT_EXEC",
+          "notes": "Pin actual Stage-4/designer identity if differs; record hash"
+        }
+      ]
+    },
+    "TRANSFORMED": {
+      "role": "core",
+      "contexts": [
+        {
+          "context_id": "CTX-TR-01",
+          "prompt": "ab cd efg hij"
+        },
+        {
+          "context_id": "CTX-TR-02",
+          "prompt": "AB CD EF GH"
+        },
+        {
+          "context_id": "CTX-TR-03",
+          "prompt": "a1 b2 c3 d4"
+        },
+        {
+          "context_id": "CTX-TR-04",
+          "prompt": "hello world test case"
+        },
+        {
+          "context_id": "CTX-TR-05",
+          "prompt": "This is a mock system Perform"
+        }
+      ]
+    },
+    "ORDERING": {
+      "role": "core",
+      "stage5_alias": "REORDERED",
+      "contexts": [
+        {
+          "context_id": "CTX-OR-01",
+          "prompt": "kl ij gh ef cd ab"
+        },
+        {
+          "context_id": "CTX-OR-02",
+          "prompt": "ef ab kl cd ij gh"
+        },
+        {
+          "context_id": "CTX-OR-03",
+          "prompt": "cd ab ef gh ij kl"
+        }
+      ]
+    },
+    "BOUNDARY": {
+      "role": "core",
+      "contexts": [
+        {
+          "context_id": "CTX-BD-01",
+          "prompt": "xy z"
+        },
+        {
+          "context_id": "CTX-BD-02",
+          "prompt": "a"
+        },
+        {
+          "context_id": "CTX-BD-03",
+          "prompt": "a bb ccc dddd"
+        },
+        {
+          "context_id": "CTX-BD-04",
+          "prompt": "abcdefghij"
+        },
+        {
+          "context_id": "CTX-BD-05",
+          "prompt": "12 34 56 78"
+        },
+        {
+          "context_id": "CTX-BD-06",
+          "prompt": "1 22 333 4444 55555"
+        }
+      ]
+    },
+    "COMPOSITION": {
+      "role": "core",
+      "contexts": [
+        {
+          "context_id": "CTX-CO-01",
+          "prompt": "aa bb cc dd ee ff"
+        },
+        {
+          "context_id": "CTX-CO-02",
+          "prompt": "ab cd ef gh ij kl mn"
+        },
+        {
+          "context_id": "CTX-CO-03",
+          "prompt": "The quick brown fox"
+        },
+        {
+          "context_id": "CTX-CO-04",
+          "prompt": "wxyz abcd efgh"
+        }
+      ]
+    },
+    "STATE_CONTEXT": {
+      "role": "meta",
+      "stage5_alias": "STATE_VARIATION",
+      "states": [
+        {
+          "state_id": "ST-KEEP-AT-FIRST",
+          "purpose": "Reproduce live collapse context"
+        },
+        {
+          "state_id": "ST-KEEP-ODD-ONLY",
+          "purpose": "Reproduce solo presence"
+        },
+        {
+          "state_id": "ST-IDENTITY-ALT",
+          "purpose": "Identity sensitivity"
+        },
+        {
+          "state_id": "ST-BEHAVIORS-ORDER",
+          "purpose": "behaviors map order confounds"
+        }
+      ]
+    },
+    "RESERVE": {
+      "role": "expansion_only",
+      "used_by": [
+        "R-C",
+        "R-D"
+      ],
+      "contexts": [
+        {
+          "context_id": "CTX-RS-01",
+          "prompt": "zz yy xx ww vv uu"
+        },
+        {
+          "context_id": "CTX-RS-02",
+          "prompt": "mixED Case Tokens Here"
+        },
+        {
+          "context_id": "CTX-RS-03",
+          "prompt": "x"
+        },
+        {
+          "context_id": "CTX-RS-04",
+          "prompt": "one two three four five six seven"
+        },
+        {
+          "context_id": "CTX-RS-05",
+          "prompt": "q1 w2 e3 r4 t5"
+        },
+        {
+          "context_id": "CTX-RS-06",
+          "prompt": "ab"
+        },
+        {
+          "context_id": "CTX-RS-07",
+          "prompt": "The rain in Spain"
+        },
+        {
+          "context_id": "CTX-RS-08",
+          "prompt": "00 11 222 3333"
+        }
+      ]
+    }
+  },
+  "r_c_probe_set_P0": [
+    "CTX-TR-01",
+    "CTX-BD-01",
+    "CTX-CO-01",
+    "CTX-OR-01"
+  ],
+  "budget": {
+    "sacred_BH48": {
+      "value": 48,
+      "stage6_draws_allowed": 0,
+      "frozen": true
+    },
+    "S6_MAX_APPLY_MICRO_PER_PAIR": 24,
+    "S6_MAX_EXPANSION_CALLS": 8,
+    "S6_MAX_TOTAL_APPLY_MICRO_RUN": 5000,
+    "S6_AMBIGUOUS_AT_BUDGET_EXHAUSTION": true,
+    "notes": "Core prompt bank has 20 contexts for continuity with Stage-5; per-pair cap 24 still binds. Exact core list frozen above.",
+    "S6_CORE_CONTEXT_COUNT": 20,
+    "S6_RESERVE_CONTEXT_COUNT": 8
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "representation": "R1_frozen",
+  "r1b_auto": false,
+  "metrics_ref": "reports/aivd_3_40_stage6_metrics.md",
+  "success_thresholds": {
+    "DCR_min": 0.95,
+    "FDR_max": 0.05,
+    "MDR_max": 0.05,
+    "AR_max": 0.2,
+    "critical_hard_collapse_max": 0,
+    "adv_ts_collapse_min": 0.95,
+    "adv_td_hard_collapse_max": 0.05
+  },
+  "ambiguity_strategies_allowed": [
+    "defer",
+    "request_additional_context_from_frozen_reserve",
+    "retain_provisional_novelty",
+    "semantic_disambiguation"
+  ],
+  "ambiguity_strategies_forbidden": [
+    "auto_discard_as_duplicate_when_evidence_insufficient"
+  ],
+  "anti_s_patch": {
+    "no_s_specific_logic": true,
+    "no_odd_stride_exception": true,
+    "no_cat_self_exception": true,
+    "no_critical_pair_body_key_allowlist": true,
+    "no_target_aware_evaluator": true,
+    "reject_design_if_only_works_by_recognizing_known_s_case": true
+  },
+  "ablation": {
+    "compare": [
+      "BASELINE",
+      "R-A",
+      "R-B",
+      "R-C",
+      "R-D"
+    ],
+    "same_benchmark": true,
+    "attribute_differences_to": "equivalence_mechanism_only"
+  },
+  "namespaces": {
+    "primary": "OFFLINE_REPAIR_BENCH",
+    "autonomous_discovery_credit": false,
+    "sacred": "NOT_AUTHORIZED"
+  },
+  "stopping_rules_ref": "reports/aivd_3_40_stage6_preregistration.md",
+  "final_gate": "STAGE-6 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION"
+}
