@@ -1,0 +1,51 @@
+{
+  "document": "aivd_3_40_stage9_hypothesis_scorecard",
+  "recorded_at_ist": "2026-09-21 21:35:57 IST",
+  "design_tip": "97f3804144ad7746dee23d496313d1e2874637aa",
+  "leaves": {
+    "H9a": {
+      "confidence": "SUPPORTED",
+      "status": "SUPPORTED"
+    },
+    "H9b": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9c": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9d": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9D": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9e": {
+      "confidence": "INCONCLUSIVE",
+      "status": "INCONCLUSIVE"
+    },
+    "H9f": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9g": {
+      "confidence": "AGAINST",
+      "status": "AGAINST"
+    },
+    "H9h": {
+      "confidence": "WEAKLY SUPPORTED",
+      "status": "WEAKLY SUPPORTED"
+    },
+    "H9i": {
+      "confidence": "WEAKLY SUPPORTED",
+      "status": "WEAKLY SUPPORTED"
+    },
+    "H9-REJECT": {
+      "confidence": "AGAINST",
+      "status": "not_supported"
+    }
+  }
+}

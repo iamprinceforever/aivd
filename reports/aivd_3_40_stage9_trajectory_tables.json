@@ -1,0 +1,751 @@
+{
+  "document": "aivd_3_40_stage9_trajectory_tables",
+  "recorded_at_ist": "2026-09-21 21:35:57 IST",
+  "design_tip": "97f3804144ad7746dee23d496313d1e2874637aa",
+  "per_cell_earliest": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 0
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "earliest": "INVENTION",
+      "S_ATOM": "NOT_OBSERVED",
+      "S_CAT": "NOT_OBSERVED",
+      "S_DIAG": "NOT_OBSERVED",
+      "D": 0,
+      "n_selected": 0,
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "repair_calls": 5
+    }
+  ],
+  "per_seed_summary": {
+    "0": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "1": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "2": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "3": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "4": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "7": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    },
+    "11": {
+      "earliest_s_disappearance_waypoint": "INVENTION",
+      "s_predicates": {
+        "S-ATOM": "NOT_OBSERVED",
+        "S-CAT": "NOT_OBSERVED",
+        "S-DIAG": "NOT_OBSERVED",
+        "S-VER": "NOT_OBSERVED"
+      },
+      "fate_counts": {
+        "E": 2,
+        "H": 4
+      },
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED",
+      "baseline_vs": {
+        "S8-RA": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RC": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        },
+        "S8-RD": {
+          "earliest_diff_waypoint": null,
+          "diff_kind": "ledger_only",
+          "notes": "repair_calls 0\u21925; equiv label retain\u2192distinct / family tag; no S-trajectory change"
+        }
+      },
+      "conditions_identical_s_trajectory": true
+    }
+  }
+}
