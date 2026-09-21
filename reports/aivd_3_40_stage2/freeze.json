@@ -1,0 +1,33 @@
+{
+  "document": "aivd_3_40_stage2_freeze",
+  "stage": 2,
+  "head": "7a3457e7de6ae308cb39e1f02e9532a9ce454d1e",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "conditions": [
+    "BH-R1",
+    "BH-R1b"
+  ],
+  "plants": {
+    "S": "AIVD340-S2-S",
+    "U": "AIVD340-S2-U"
+  },
+  "plant_hashes": {
+    "S": "01f800b6008ece723cf405d17cc364cecd62f0f85a3257b9ec63930c2249fbc5",
+    "U": "82713ca768f9dc71b7443fc89ba691955a4ec656c1d6a8384db1aa39b01ec1e1"
+  },
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "BH": 48,
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "n_runs": 28,
+  "recorded_at_ist": "2026-09-21 16:42:35 IST",
+  "note": "STAGE-2 Sacred BH48-R1 vs BH48-R1b. No Stage 3. No retune."
+}

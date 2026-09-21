@@ -138,3 +138,20 @@ NORMAL-R0/R1, NO-FIREWALL, NO-LANGUAGE-GROWTH, NO-OPEN-SELECTION, LEAKAGE-CANARY
 | **n_leakage_failures** | 0 |
 | **ARTIFACTS** | `reports/aivd_3_40_sacred_results.md`, `reports/aivd_3_40_llama/`, independence/budget/representation/reproducibility reports |
 | **DECISION** | Data surprise: joint BH×R1 sufficient for U; S unresolved. Next: replicate U; design-only R1b for odd CAT-self growth — no floor retune. |
+
+
+---
+
+# AIVD 3.40 — Stage 2 R1b Generic Representation Frontier (COMPLETE)
+
+**Recorded:** 2026-09-21 16:43:15 IST  
+**Branch tip (pre-push):** Stage-2 Commit F  
+
+| Field | Content |
+|-------|---------|
+| **OBJECTIVE** | Audit R1; preregister+implement R1b geometric coverage; mock; Sacred BH48-R1 vs BH48-R1b × S/U (28) on fresh AIVD340-S2 plants. |
+| **R1b** | geo_stride_s0/s1 + geo_order invent basis≤3; growth max_cands=6; mode `full_3_39_r1b`; no plant GT |
+| **RESULT** | BH-R1 U **7/7** strict-independent VERIFIED (preserved). BH-R1 S **0/7**. BH-R1b S **0/7**. BH-R1b U VERIFIED 7/7 but Independent **0/7** (pre-firewall early invent). **Case D**. |
+| **ARTIFACTS** | `reports/aivd_3_40_R1_representation_audit.*`, `R1b_spec/preregistration`, `reports/aivd_3_40_stage2/*`, Stage-2 tests |
+| **DECISION** | **STOP.** No Stage 3 / R1c / budget raise / feature chase without new charter. |
+

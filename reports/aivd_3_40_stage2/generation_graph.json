@@ -1,0 +1,386 @@
+{
+  "document": "aivd_3_40_stage2_generation_graph",
+  "nodes": {
+    "MAPT(SLICE:0,2(TOK))": 49,
+    "MAPT(CAT(TOK|AT:-1))": 28,
+    "MAPT(AT:-1)": 28,
+    "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))": 21,
+    "MAPT(CAT(AT:-1|AT:-1))": 14,
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 35,
+    "MAPT(SLICE:1,2(TOK))": 21
+  },
+  "by_cell": {
+    "BH-R1:S": [
+      {
+        "seed": 0,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 1,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 2,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 3,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 4,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 7,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 11,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": false
+      }
+    ],
+    "BH-R1:U": [
+      {
+        "seed": 0,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 1,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 2,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 3,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 4,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 7,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 11,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      }
+    ],
+    "BH-R1b:S": [
+      {
+        "seed": 0,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 1,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 2,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 3,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 4,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 7,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      },
+      {
+        "seed": 11,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ],
+        "verified": false
+      }
+    ],
+    "BH-R1b:U": [
+      {
+        "seed": 0,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 1,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 2,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 3,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 4,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 7,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      },
+      {
+        "seed": 11,
+        "bodies": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        ],
+        "verified": true
+      }
+    ]
+  }
+}

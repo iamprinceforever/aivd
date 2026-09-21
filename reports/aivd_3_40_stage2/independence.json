@@ -1,0 +1,89 @@
+{
+  "document": "aivd_3_40_stage2_independence",
+  "recorded_at_ist": "2026-09-21 16:43:15 IST",
+  "by_cell": {
+    "BH-R1:S": {
+      "n": 7,
+      "n_firewall": 7,
+      "n_independent": 7,
+      "n_verified": 0,
+      "n_strict_independence": 0,
+      "n_leak": 0
+    },
+    "BH-R1:U": {
+      "n": 7,
+      "n_firewall": 7,
+      "n_independent": 7,
+      "n_verified": 7,
+      "n_strict_independence": 7,
+      "n_leak": 0
+    },
+    "BH-R1b:S": {
+      "n": 7,
+      "n_firewall": 7,
+      "n_independent": 7,
+      "n_verified": 0,
+      "n_strict_independence": 0,
+      "n_leak": 0
+    },
+    "BH-R1b:U": {
+      "n": 7,
+      "n_firewall": 0,
+      "n_independent": 0,
+      "n_verified": 7,
+      "n_strict_independence": 0,
+      "n_leak": 0
+    }
+  },
+  "analysis_case": "D",
+  "table_strict": [
+    {
+      "Condition": "BH-R1",
+      "Target": "S",
+      "Seeds": 7,
+      "Firewall": 7,
+      "Independent": 0,
+      "Verified": 0,
+      "Mean Budget": 32.0,
+      "Leakage": 0,
+      "Stop States": "TerminalState.UNRESOLVED_INVISIBLE",
+      "n_independent_records": 7
+    },
+    {
+      "Condition": "BH-R1",
+      "Target": "U",
+      "Seeds": 7,
+      "Firewall": 7,
+      "Independent": 7,
+      "Verified": 7,
+      "Mean Budget": 32.0,
+      "Leakage": 0,
+      "Stop States": "TerminalState.VERIFIED",
+      "n_independent_records": 7
+    },
+    {
+      "Condition": "BH-R1b",
+      "Target": "S",
+      "Seeds": 7,
+      "Firewall": 7,
+      "Independent": 0,
+      "Verified": 0,
+      "Mean Budget": 32.0,
+      "Leakage": 0,
+      "Stop States": "TerminalState.UNRESOLVED_INVISIBLE",
+      "n_independent_records": 7
+    },
+    {
+      "Condition": "BH-R1b",
+      "Target": "U",
+      "Seeds": 7,
+      "Firewall": 0,
+      "Independent": 0,
+      "Verified": 7,
+      "Mean Budget": 48.0,
+      "Leakage": 0,
+      "Stop States": "TerminalState.VERIFIED",
+      "n_independent_records": 0
+    }
+  ]
+}
