@@ -1,0 +1,244 @@
+{
+  "document": "aivd_3_40_stage8_matrix",
+  "recorded_at_ist": "2026-09-21 20:45 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "STAGE-8 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "implemented": false,
+  "sacred_authorized": false,
+  "live_integration_authorized": false,
+  "filter_replacement_authorized": false,
+  "single_winner_authorized": false,
+  "start_tip": "079d66f",
+  "start_tip_full": "079d66f949991b6adbc000b85d0f01fe33bf609a",
+  "parent_commits": {
+    "stage7_complete_tip": "079d66f",
+    "stage7_design_freeze": "d0ef7b6",
+    "stage6_complete_tip": "000a4d8",
+    "stage6_design_freeze": "ac152c6",
+    "stage5_complete_tip": "c003e60",
+    "stage5_design_freeze": "2496857",
+    "stage4_complete_tip": "4005e66",
+    "stage4_design_freeze": "27e9e88",
+    "phase2_complete_tip": "f4d7a2b",
+    "phase2_design_freeze": "7be4124",
+    "phase1_result_tip": "a2ab0cc",
+    "stage3_charter": "146915b",
+    "stage2_tip": "dcae889",
+    "r1b_caveat": "7a3457e"
+  },
+  "primary_question": "Determine whether a Stage-7 validated generic equivalence repair changes autonomous discovery behavior on a fresh real-model plant while preserving all other discovery semantics.",
+  "scientific_objective": "Measure live-integration mechanism change (A-I) under semantic preservation \u2014 NOT make S pass; NOT select single winner; NOT retune R-A/R-C/R-D; NOT revive R-B; NOT raise BH/invent_cap; NOT lower REDISCOVERY_FLOOR",
+  "stage7_priors": {
+    "case": 1,
+    "label": "PHASE_A_SUCCESS_AND_PHASE_B_PASS",
+    "practical_survivors": [
+      "R-A",
+      "R-C",
+      "R-D"
+    ],
+    "excluded": [
+      {
+        "id": "R-B",
+        "reason": "STAGE7_PHASE_A_COST_IMPRACTICAL"
+      }
+    ],
+    "BASELINE_phase_a_gate": "INCONCLUSIVE",
+    "filter_replaced": false,
+    "sacred_authorized": false,
+    "autonomous_discovery_credit": false,
+    "context_bank_hash": "d1a68addba695c7d31adef6fb731fcd21b9bdc3907d2e5bffe5d4a12897e7d4f",
+    "pair_list_hash": "aa46cb386d53534ff28353d1521ead19c1302d2a1e72d010a9d504c7166cc4cf",
+    "gt_hash": "c18227598fd0acaa46bcf7cf36e92279b5cb1f2faca772ee2882990b7fcbba09"
+  },
+  "hypothesis_leaves": {
+    "H8a": "Integration validity + discovery-semantics preservation",
+    "H8b": "Measurable mechanism change (A-I) vs BASELINE",
+    "H8c": "Real-model discovery outcome shift attributable to repair",
+    "H8d": "Independent rediscovery honesty under repaired filter",
+    "H8e": "Recursive generation when survivors pass equivalence",
+    "H8f": "S-diagnostic null despite real mechanism change (report; no retune)",
+    "H8-REJECT": "Target-specific / combined / budget cheat / leak / beyond-equiv mutation / post-hoc seeds / winner coercion"
+  },
+  "success_axes": [
+    "INTEGRATION_VALIDITY",
+    "DISCOVERY_SEMANTICS_PRESERVATION",
+    "MECHANISM_CHANGE",
+    "REAL_MODEL_DISCOVERY_OUTCOME",
+    "INDEPENDENT_REDISCOVERY",
+    "RECURSIVE_GENERATION"
+  ],
+  "conclusion_enum": {
+    "SUCCESS": "Axes 1+2 PASS and axis 3 PASS for >=1 of R-A/R-C/R-D; axes 4-6 reported under prereg; controls clean; H8-REJECT not supported",
+    "PARTIAL": "Axes 1+2 PASS with weak/null axis 3, or axis 3 PASS with null axis 4, or mixed survivors",
+    "FAILED": "H8-REJECT / integration invalid / semantics breach / protocol violation",
+    "INCONCLUSIVE": "UNOBSERVED instrumentation blocks honest separation under frozen matrix",
+    "binding": "do not define success solely as S VERIFIED; preserve multi-candidate ties; no post-hoc seeds"
+  },
+  "live_filter_baseline": {
+    "category": "FILTER_BEHAVIORAL_DUP",
+    "code_anchor": "aivd/science/grow.py::propose_growth._keep",
+    "lines": "L166-167",
+    "rule": "got = apply_micro(identity, body2); reject if got in behaviors.values()",
+    "stage4_label_anchor": "aivd/experiments/aivd340/stage4_audit.py L113-117",
+    "named_helper_NOT_live": "behavioral_equivalent (grow.py L72-90) \u2014 must not be confused with singleton identity rule",
+    "immutable_in_this_design_commit": true,
+    "replacement_requires": "SEPARATE_STAGE8_EXECUTION_AUTHORIZATION"
+  },
+  "conditions": [
+    {
+      "id": "S8-BASELINE",
+      "plant": "AIVD340-S8-BASELINE",
+      "equivalence": "FILTER_BEHAVIORAL_DUP",
+      "mechanism_family": "BASELINE",
+      "role": "control",
+      "stage7_phase_a_gate": "INCONCLUSIVE"
+    },
+    {
+      "id": "S8-RA",
+      "plant": "AIVD340-S8-RA",
+      "equivalence": "R-A",
+      "mechanism_family": "multi-context behavioral signature",
+      "role": "practical_survivor",
+      "stage7_phase_a_gate": "SUCCESS",
+      "stage7_phase_b_gate": "SUCCESS",
+      "source_module": "aivd/experiments/aivd340/stage7_repairs/classifiers.py::classify_r_a"
+    },
+    {
+      "id": "S8-RC",
+      "plant": "AIVD340-S8-RC",
+      "equivalence": "R-C",
+      "mechanism_family": "adaptive context expansion",
+      "role": "practical_survivor",
+      "stage7_phase_a_gate": "SUCCESS",
+      "stage7_phase_b_gate": "SUCCESS",
+      "source_module": "aivd/experiments/aivd340/stage7_repairs/classifiers.py::classify_r_c"
+    },
+    {
+      "id": "S8-RD",
+      "plant": "AIVD340-S8-RD",
+      "equivalence": "R-D",
+      "mechanism_family": "two-stage identity to semantic",
+      "role": "practical_survivor",
+      "stage7_phase_a_gate": "SUCCESS",
+      "stage7_phase_b_gate": "SUCCESS",
+      "source_module": "aivd/experiments/aivd340/stage7_repairs/classifiers.py::classify_r_d"
+    }
+  ],
+  "mechanisms_excluded": [
+    {
+      "id": "R-B",
+      "reason": "STAGE7_PHASE_A_COST_IMPRACTICAL",
+      "calls_mean_phase_a": 5.0455,
+      "calls_worst_phase_a": 18,
+      "revival_requires": "new Stage-8 design revision"
+    }
+  ],
+  "combined_repairs": false,
+  "differ_only_in": "equivalence_implementation_at_keep_step_6",
+  "frozen_experimental_variables": {
+    "model": "TinyLlama-1.1B-Chat-v1.0",
+    "model_path_expected": "/workspace/models/tinyllama",
+    "decoding": "greedy_fp16_cpu",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      11
+    ],
+    "seed_policy": "preregistered_before_execution_no_post_outcome_selection",
+    "BH": 48,
+    "INVENT_CAP": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "force_firewall": false,
+    "representation": "R1",
+    "r1b_auto": false,
+    "discovery_mode": "sacred_default_stage2_continuity",
+    "investigation_mode": "sacred_default_stage2_continuity",
+    "verification_rules": "unchanged",
+    "provenance_rules": "unchanged",
+    "independence_rules": "unchanged",
+    "stopping_rules": "unchanged",
+    "propose_atoms_8set": "IMMUTABLE",
+    "family_hyperparameters": "frozen_from_stage6_spec_ac152c6_and_stage7_phase_b"
+  },
+  "plants": {
+    "fresh_only": true,
+    "reuse_prior_sacred_plants": false,
+    "preload_prior_discoveries": false,
+    "ids": [
+      "AIVD340-S8-BASELINE",
+      "AIVD340-S8-RA",
+      "AIVD340-S8-RC",
+      "AIVD340-S8-RD"
+    ],
+    "suggested_diagnostic_target": "S_stress_optional",
+    "odd_stride_atom_injection": false,
+    "propose_atoms_for_S": false
+  },
+  "mechanism_trace": {
+    "pipeline": [
+      "INVENTION",
+      "COMPOSITION",
+      "CANDIDATE_POOL",
+      "EQUIVALENCE_DECISION",
+      "SURVIVAL_OR_REMOVAL",
+      "SELECTION",
+      "VERIFICATION",
+      "REDISCOVERY",
+      "RECURSIVE_GENERATION"
+    ],
+    "fates": {
+      "A": "never_invented",
+      "B": "invented_but_composition_failed",
+      "C": "composed_but_absent_from_pool",
+      "D": "entered_pool_but_removed_by_equivalence",
+      "E": "survived_equiv_but_not_selected",
+      "F": "selected_but_failed_verification",
+      "G": "verified",
+      "H": "independently_rediscovered",
+      "I": "produced_another_generation"
+    },
+    "missing_state_policy": "record_UNOBSERVED_never_infer"
+  },
+  "audit_modes": [
+    "INTEGRATION_FIXTURE_REPLAY",
+    "LIVE_INTEGRATION_DISCOVERY",
+    "S_DIAGNOSTIC",
+    "SEMANTIC_PRESERVATION_BATTERY",
+    "LEAKAGE_BATTERY"
+  ],
+  "claim_namespaces": {
+    "AUTONOMOUS": "fresh-plant Sacred discovery metrics \u2014 only after EXECUTION authorization",
+    "INTEGRATION_VALIDATION": "fixture replay vs Stage-7 Phase-B module",
+    "OFFLINE_EVAL": "cite Stage-6/7 only; not Stage-8 primary",
+    "S_DIAGNOSTIC": "S stress cells; not sole success bit",
+    "CONTROLLED_INPUT": "not primary"
+  },
+  "replication": {
+    "primary_matrix": "4 conditions x 7 seeds",
+    "n_runs_primary": 28,
+    "additional_seeds_require_prereg_before_outcomes": true,
+    "preserve_ties_among": [
+      "R-A",
+      "R-C",
+      "R-D"
+    ],
+    "ranking_without_prereg_basis": false
+  },
+  "budgets": {
+    "sacred_BH48": "FROZEN_consumed_only_under_execution_authorization",
+    "repair_evaluator_ledger": "SEPARATE_apply_micro_during_equiv",
+    "do_not_raise_BH": true,
+    "do_not_raise_invent_cap": true,
+    "do_not_lower_floor": true
+  },
+  "reference_only": {
+    "aivd_3_38_sacred": "frozen_reference_do_not_modify_or_rerun_as_current_control",
+    "aivd_3_39": "immutable"
+  },
+  "final_gate": "STAGE-8 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION"
+}
