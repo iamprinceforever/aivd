@@ -1,0 +1,28 @@
+{
+  "propose_atoms_n": 8,
+  "R0_identical_to_propose_atoms": true,
+  "INVENT_CAP": 48,
+  "REDISCOVERY_FLOOR": 5,
+  "sacred_artifacts": [
+    {
+      "path": "reports/aivd_3_38_llama/first_run.json",
+      "match": true,
+      "head": "ffaee90d99d5",
+      "pinned": "ffaee90d99d5"
+    },
+    {
+      "path": "reports/aivd_3_39_llama/first_run.json",
+      "match": true,
+      "head": "89b7beb02f6e",
+      "pinned": "89b7beb02f6e"
+    },
+    {
+      "path": "reports/aivd_3_39_llama/REPORT.md",
+      "match": true,
+      "head": "a0802cf37c89",
+      "pinned": "a0802cf37c89"
+    }
+  ],
+  "pytest_aivd340": "61 passed",
+  "pytest_338_339": "55 passed"
+}

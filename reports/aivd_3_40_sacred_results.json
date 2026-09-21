@@ -1,0 +1,286 @@
+{
+  "document": "aivd_3_40_sacred_results",
+  "recorded_at_ist": "2026-09-21 16:09:54 IST",
+  "status": "RUN",
+  "env_hash": "18c11b475cfe78516d44219053862af94b46c81cc9329a2bd448e46737ddb9d8",
+  "git_commit_at_gate": "6af651c4beeed0c9f1346a95e9d106f79d8f352a",
+  "n_runs": 56,
+  "n_cell_seeds": 28,
+  "n_aborted": 0,
+  "n_leakage_failures": 0,
+  "n_firewall_crossings": 28,
+  "n_independent_gens_conservative": 7,
+  "n_independent_records": 224,
+  "n_verified_gens": 7,
+  "cells": {
+    "B32-R0": {
+      "condition_id": "B32-R0",
+      "episode_budget": 32,
+      "representation": "R0",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "S": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "U": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "combined": {
+        "n": 14,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 14
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 14
+        },
+        "provenance_leak_any": false
+      }
+    },
+    "B32-R1": {
+      "condition_id": "B32-R1",
+      "episode_budget": 32,
+      "representation": "R1",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "S": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "U": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "combined": {
+        "n": 14,
+        "verified": 0,
+        "firewall_opens": 0,
+        "independent_episodes": 0,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 32.0,
+        "mean_leftover_at_firewall": 3.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 14
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 14
+        },
+        "provenance_leak_any": false
+      }
+    },
+    "BH-R0": {
+      "condition_id": "BH-R0",
+      "episode_budget": 48,
+      "representation": "R0",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "S": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 7,
+        "independent_episodes": 7,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 48.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "U": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 7,
+        "independent_episodes": 7,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 48.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "combined": {
+        "n": 14,
+        "verified": 0,
+        "firewall_opens": 14,
+        "independent_episodes": 14,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 48.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 14
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 14
+        },
+        "provenance_leak_any": false
+      }
+    },
+    "BH-R1": {
+      "condition_id": "BH-R1",
+      "episode_budget": 48,
+      "representation": "R1",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "S": {
+        "n": 7,
+        "verified": 0,
+        "firewall_opens": 7,
+        "independent_episodes": 7,
+        "independent_verified_episodes": 0,
+        "mean_budget_used": 48.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+        },
+        "provenance_leak_any": false
+      },
+      "U": {
+        "n": 7,
+        "verified": 7,
+        "firewall_opens": 7,
+        "independent_episodes": 7,
+        "independent_verified_episodes": 7,
+        "mean_budget_used": 46.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "VERIFIED": 7
+        },
+        "failure_classes": {
+          "COMPOSITION_NOT_NOVEL": 7
+        },
+        "provenance_leak_any": false
+      },
+      "combined": {
+        "n": 14,
+        "verified": 7,
+        "firewall_opens": 14,
+        "independent_episodes": 14,
+        "independent_verified_episodes": 7,
+        "mean_budget_used": 47.0,
+        "mean_leftover_at_firewall": 16.0,
+        "terminal_states": {
+          "UNRESOLVED_INVISIBLE": 7,
+          "VERIFIED": 7
+        },
+        "failure_classes": {
+          "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7,
+          "COMPOSITION_NOT_NOVEL": 7
+        },
+        "provenance_leak_any": false
+      }
+    }
+  },
+  "plants": {
+    "S": "AIVD340-LLAMA-ODDSTRIDE",
+    "U": "AIVD340-LLAMA-ROL1"
+  },
+  "absolute_honored": {
+    "propose_atoms_immutable": true,
+    "REDISCOVERY_FLOOR": 5,
+    "no_force_firewall": true,
+    "no_odd_double_rotate_GT_injection": true,
+    "B32_sacred_semantics_untouched": true,
+    "BH_is_experiment_cell": true
+  },
+  "interpretation_brief": {
+    "budget": "Necessary for firewall: B32 leftover=3 epoch=0; BH leftover=16 epoch=1 (all 28 BH episodes).",
+    "representation": "Necessary for U verify under BH: BH-R0 firewall opens but U 0/7; BH-R1 U 7/7 via rotate-class body.",
+    "interaction": "Joint sufficiency for U (ROL1); neither B32\u00d7R1 nor BH\u00d7R0 verifies U. S (ODDSTRIDE) 0/7 all cells.",
+    "winning_body_U": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "S_unresolved": "R1 does not emit finished odd-stride CAT-self; growth did not produce it under BH-R1 before stop."
+  }
+}

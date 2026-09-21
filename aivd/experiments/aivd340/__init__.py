@@ -1,7 +1,7 @@
 """AIVD 3.40 budget × representation experiment framework (Step 1+).
 
-Sacred TinyLlama factorial is NOT executed from this package at Step 1+.
-Absolute 3.38/3.39 sacred semantics remain immutable.
+Sacred TinyLlama factorial requires ConditionRunner.from_id(..., allow_sacred=True).
+Default condition_from_id() keeps allow_sacred=False. Absolute 3.38/3.39 sacred immutable.
 """
 from __future__ import annotations
 

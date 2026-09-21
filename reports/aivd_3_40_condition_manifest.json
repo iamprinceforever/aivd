@@ -1,6 +1,6 @@
 {
   "document": "aivd_3_40_condition_manifest",
-  "sacred_tinyllama_matrix_executed": false,
+  "sacred_tinyllama_matrix_executed": true,
   "B32": 32,
   "BH": 48,
   "REDISCOVERY_FLOOR": 5,
@@ -332,5 +332,12 @@
     "no_force_firewall": true,
     "no_lower_floor": true,
     "no_sacred_run_step1plus": true
+  },
+  "sacred_execution": {
+    "recorded_at_ist": "2026-09-21 16:09:54 IST",
+    "env_hash": "18c11b475cfe78516d44219053862af94b46c81cc9329a2bd448e46737ddb9d8",
+    "n_runs": 56,
+    "n_verified_gens": 7,
+    "n_firewall_crossings": 28
   }
 }

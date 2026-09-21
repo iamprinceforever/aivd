@@ -119,3 +119,22 @@ Absolute constraints: 3.38/3.39 sacred IMMUTABLE; no propose_atoms rewrite; no f
 ### Controls proven offline
 
 NORMAL-R0/R1, NO-FIREWALL, NO-LANGUAGE-GROWTH, NO-OPEN-SELECTION, LEAKAGE-CANARY, BEHAVIORAL-EQUIVALENCE, TEXTUAL-DIFFERENCE
+
+---
+
+# AIVD 3.40 — Sacred TinyLlama Factorial (AUTHORIZED EXECUTION)
+
+**Recorded:** 2026-09-21 16:09:54 IST  
+**Env hash:** `18c11b475cfe78516d44219053862af94b46c81cc9329a2bd448e46737ddb9d8`  
+**n_runs:** 56  
+
+| Field | Content |
+|-------|---------|
+| **OBJECTIVE** | Execute preregistered B32/BH48 × R0/R1 × 7-seed Sacred factorial on TinyLlama with AIVD340 plants. |
+| **RESULT** | B32-*: firewall 0/14, verified 0/14 (leftover wall). BH-R0: firewall 14/14, verified 0/14. BH-R1: firewall 14/14; S 0/7; **U 7/7 VERIFIED** with independent_rediscovery. |
+| **n_firewall_crossings** | 28 |
+| **n_independent_gens (conservative)** | 7 |
+| **n_verified_gens** | 7 |
+| **n_leakage_failures** | 0 |
+| **ARTIFACTS** | `reports/aivd_3_40_sacred_results.md`, `reports/aivd_3_40_llama/`, independence/budget/representation/reproducibility reports |
+| **DECISION** | Data surprise: joint BH×R1 sufficient for U; S unresolved. Next: replicate U; design-only R1b for odd CAT-self growth — no floor retune. |

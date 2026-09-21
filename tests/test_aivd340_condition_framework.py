@@ -107,21 +107,29 @@ def test_runner_mock_single_condition():
     assert out["ok"] is True
 
 
-def test_runner_blocks_sacred_flag():
+def test_runner_default_not_sacred():
+    """condition_from_id keeps allow_sacred=False; mock path is non-sacred."""
     c = condition_from_id("B32-R0")
-    # frozen dataclass — build a sacred-attempt via object.__setattr__ not allowed;
-    # simulate by constructing runner and flipping allow_sacred on a copy path:
-    bad = ExperimentCondition(
-        condition_id="B32-R0",
-        budget_level="B32",
-        representation="R0",
-        episode_budget=32,
-        invention_mode="full_3_39",
-        allow_sacred=True,
-    )
-    r = ConditionRunner(condition=bad)
-    with pytest.raises(RuntimeError, match="Sacred"):
-        r.begin_episode(seed=0, plant_id="AIVD340-LLAMA-ODDSTRIDE")
+    assert c.allow_sacred is False
+    r = ConditionRunner(condition=c)
+    ctx = r.begin_episode(seed=0, plant_id="AIVD340-LLAMA-ODDSTRIDE")
+    assert ctx["sacred"] is False
+    r.end_episode({})
+
+
+def test_runner_authorized_sacred_sets_flag():
+    """Charter path: from_id(..., allow_sacred=True) enables sacred episodes."""
+    r = ConditionRunner.from_id("B32-R0", allow_sacred=True)
+    assert r.condition.allow_sacred is True
+    ctx = r.begin_episode(seed=0, plant_id="AIVD340-LLAMA-ODDSTRIDE")
+    assert ctx["sacred"] is True
+    r.end_episode({})
+
+
+def test_run_sacred_requires_authorization():
+    r = ConditionRunner.from_id("B32-R0")  # allow_sacred=False
+    with pytest.raises(RuntimeError, match="allow_sacred"):
+        r.run_sacred(seed=0, plant_id="AIVD340-LLAMA-ODDSTRIDE", episode_fn=lambda ctx: {})
 
 
 def test_manifest_roundtrip(tmp_path: Path):

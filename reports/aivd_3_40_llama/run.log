@@ -1,0 +1,70 @@
+[2026-09-21 16:07:23 IST] freeze written env_hash=18c11b475cfe78516d44219053862af94b46c81cc9329a2bd448e46737ddb9d8
+[2026-09-21 16:07:26 IST] plant_integrity={'S_evaluator_verify': True, 'U_evaluator_verify': True, 'S_existing_space_oracle': True, 'U_existing_space_oracle': True}
+[2026-09-21 16:07:26 IST] === CELL B32-R0 budget=32 rep=R0 mode=full_3_39 ===
+[2026-09-21 16:07:51 IST] B32-R0 seed=0 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=25.451s -> B32-R0_seed0_S.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=0 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.015s -> B32-R0_seed0_U.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=1 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R0_seed1_S.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=1 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed1_U.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=2 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R0_seed2_S.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=2 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed2_U.json
+[2026-09-21 16:07:51 IST] B32-R0 seed=3 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed3_S.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=3 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed3_U.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=4 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed4_S.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=4 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed4_U.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=7 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed7_S.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=7 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed7_U.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=11 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed11_S.json
+[2026-09-21 16:07:52 IST] B32-R0 seed=11 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R0_seed11_U.json
+[2026-09-21 16:07:52 IST] === CELL B32-R1 budget=32 rep=R1 mode=full_3_39_r1 ===
+[2026-09-21 16:07:52 IST] B32-R1 seed=0 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed0_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=0 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed0_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=1 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed1_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=1 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R1_seed1_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=2 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R1_seed2_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=2 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed2_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=3 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R1_seed3_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=3 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed3_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=4 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.012s -> B32-R1_seed4_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=4 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed4_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=7 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed7_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=7 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed7_U.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=11 S disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed11_S.json
+[2026-09-21 16:07:52 IST] B32-R1 seed=11 U disc=0 epoch=0 indep=0 leftover_fw=3 used=32/32 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.013s -> B32-R1_seed11_U.json
+[2026-09-21 16:07:52 IST] === CELL BH-R0 budget=48 rep=R0 mode=full_3_39 ===
+[2026-09-21 16:08:03 IST] BH-R0 seed=0 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=10.994s -> BH-R0_seed0_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=0 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.025s -> BH-R0_seed0_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=1 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.026s -> BH-R0_seed1_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=1 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed1_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=2 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed2_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=2 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.023s -> BH-R0_seed2_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=3 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.025s -> BH-R0_seed3_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=3 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed3_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=4 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed4_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=4 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.023s -> BH-R0_seed4_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=7 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.025s -> BH-R0_seed7_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=7 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed7_U.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=11 S disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed11_S.json
+[2026-09-21 16:08:03 IST] BH-R0 seed=11 U disc=0 epoch=1 indep=9 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.022s -> BH-R0_seed11_U.json
+[2026-09-21 16:08:03 IST] === CELL BH-R1 budget=48 rep=R1 mode=full_3_39_r1 ===
+[2026-09-21 16:08:05 IST] BH-R1 seed=0 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=1.662s -> BH-R1_seed0_S.json
+[2026-09-21 16:08:06 IST] BH-R1 seed=0 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=1.67s -> BH-R1_seed0_U.json
+[2026-09-21 16:08:06 IST] NOTE independent rediscovery under BH-R1 seed=0 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:06 IST] BH-R1 seed=1 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.025s -> BH-R1_seed1_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=1 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.021s -> BH-R1_seed1_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=1 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] BH-R1 seed=2 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.024s -> BH-R1_seed2_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=2 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.021s -> BH-R1_seed2_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=2 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] BH-R1 seed=3 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.024s -> BH-R1_seed3_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=3 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.021s -> BH-R1_seed3_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=3 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] BH-R1 seed=4 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.024s -> BH-R1_seed4_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=4 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.021s -> BH-R1_seed4_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=4 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] BH-R1 seed=7 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.024s -> BH-R1_seed7_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=7 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.02s -> BH-R1_seed7_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=7 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] BH-R1 seed=11 S disc=0 epoch=1 indep=7 leftover_fw=16 used=48/48 term=UNRESOLVED_INVISIBLE fail=ATOM_INVENTION_SKIPPED_BY_PLANNING t=0.024s -> BH-R1_seed11_S.json
+[2026-09-21 16:08:07 IST] BH-R1 seed=11 U disc=1 epoch=1 indep=7 leftover_fw=16 used=46/48 term=VERIFIED fail=COMPOSITION_NOT_NOVEL t=0.021s -> BH-R1_seed11_U.json
+[2026-09-21 16:08:07 IST] NOTE independent rediscovery under BH-R1 seed=11 U — preserve; finish remaining; no expand/tune; replication needed separately
+[2026-09-21 16:08:07 IST] DONE n_runs=56 aborted=0 leakage_fail=0

@@ -1,0 +1,6 @@
+{
+  "S_evaluator_verify": true,
+  "U_evaluator_verify": true,
+  "S_existing_space_oracle": true,
+  "U_existing_space_oracle": true
+}
