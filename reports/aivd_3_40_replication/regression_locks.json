@@ -1,0 +1,49 @@
+{
+  "document": "aivd_3_40_replication_regression_locks",
+  "recorded_at_ist": "2026-09-21 16:20:35 IST",
+  "propose_atoms_n": 8,
+  "INVENT_CAP": 48,
+  "REDISCOVERY_FLOOR": 5,
+  "BH_BUDGET": 48,
+  "sacred_artifacts": [
+    {
+      "path": "reports/aivd_3_38_llama/first_run.json",
+      "sha256": "09a4d21e8ad109f208ee0dbec0fcec8d0e742ef1ea4eb8dd47e5df87559ae242",
+      "match": true,
+      "pinned": "09a4d21e8ad109f208ee0dbec0fcec8d0e742ef1ea4eb8dd47e5df87559ae242"
+    },
+    {
+      "path": "reports/aivd_3_39_llama/first_run.json",
+      "sha256": "35ab758ef87fbf67c5c70ec3f8670aaa56e13ea876a66da0762d163c6349208c",
+      "match": true,
+      "pinned": "35ab758ef87fbf67c5c70ec3f8670aaa56e13ea876a66da0762d163c6349208c"
+    },
+    {
+      "path": "reports/aivd_3_39_llama/REPORT.md",
+      "sha256": "99826c197281de501fecf14d3f04db4da19c14c3ac4cd5596bb200990e8cd12f",
+      "match": true,
+      "pinned": "99826c197281de501fecf14d3f04db4da19c14c3ac4cd5596bb200990e8cd12f"
+    },
+    {
+      "path": "reports/aivd_3_40_sacred_results.json",
+      "sha256": "16b45481d430ded3f35bb304323bb4bd6a53c521f62518d15c8c0715044a79d6",
+      "role": "ORIGINAL_SACRED_340_PIN"
+    },
+    {
+      "path": "reports/aivd_3_40_llama/runs/BH-R1_seed0_U.json",
+      "sha256": "adadd811d6bcd6315a59571c8c89327e6ec08abf7e7ffe1d0c7ecf5c1ecc00f7",
+      "role": "ORIGINAL_SACRED_BH_R1_U0_PIN"
+    }
+  ],
+  "pytest_aivd340": {
+    "returncode": 0,
+    "summary": "61 passed in 0.36s",
+    "tail": ".............................................................            [100%]\n61 passed in 0.36s"
+  },
+  "pytest_338_339": {
+    "returncode": 0,
+    "summary": "64 passed in 10.41s",
+    "tail": "................................................................         [100%]\n64 passed in 10.41s"
+  },
+  "note": "ORIGINAL Sacred blobs not rewritten; REPLICATION artifacts under reports/aivd_3_40_replication/"
+}

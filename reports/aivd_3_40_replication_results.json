@@ -1,0 +1,366 @@
+{
+  "document": "aivd_3_40_replication_results",
+  "stage": 1,
+  "recorded_at_ist": "2026-09-21 16:20:35 IST",
+  "condition": "BH-R1",
+  "budget": 48,
+  "representation": "R1",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "ORIGINAL_Sacred_U": {
+    "plant_id": "AIVD340-LLAMA-ROL1",
+    "verified": "7/7",
+    "firewall_opens": "7/7",
+    "independent_gens_sacred_def": "7/7",
+    "source": "reports/aivd_3_40_sacred_results.md (untouched)"
+  },
+  "REPLICATION_U": {
+    "plant_id": "AIVD340-REPL-U-ROL1",
+    "verified": "7/7",
+    "firewall_opens": "7/7",
+    "independent_gens_sacred_def": "7/7",
+    "independent_gens_user_charter_def": "7/7",
+    "provenance_leak_count": 0,
+    "n_aborted": 0,
+    "n_leakage_failures": 0,
+    "env_hash": "ea822c5536503bc5f95aaf1440f968ddb9cb38fb2940508b42d752034cc07e31",
+    "credited_body": "atom_rd5_mapt_cat_slice_1_1_tok_at_0 (= MAPT(CAT(SLICE:1,1(TOK)|AT:0)))"
+  },
+  "never_combine": true,
+  "per_seed": [
+    {
+      "seed": 0,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 33.519,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 1,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.024,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 2,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.023,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 3,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.024,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 4,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.022,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 7,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.02,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    },
+    {
+      "seed": 11,
+      "ORIGINAL": {
+        "plant_id": "AIVD340-LLAMA-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7
+      },
+      "REPLICATION": {
+        "plant_id": "AIVD340-REPL-U-ROL1",
+        "verified": true,
+        "firewall_epoch": 1,
+        "leftover_fw": 16,
+        "budget_used": 46,
+        "terminal": "VERIFIED",
+        "provenance_leak": false,
+        "invented_atom": [
+          "atom_rd5_mapt_cat_slice_1_1_tok_at_0"
+        ],
+        "n_independent": 7,
+        "episode_independent_sacred_def": true,
+        "episode_independent_user_def": true,
+        "n_user_charter_records": 4,
+        "n_sacred_style_records": 7,
+        "verifying_candidate": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+        "elapsed_s": 0.02,
+        "failure_class": "COMPOSITION_NOT_NOVEL"
+      },
+      "metric_match_vs_original": {
+        "verified": true,
+        "firewall_epoch": true,
+        "leftover_fw": true,
+        "budget_used": true,
+        "terminal": true,
+        "invented_atom": true,
+        "provenance_leak": true
+      }
+    }
+  ],
+  "all_behavioral_metrics_match_original": true,
+  "differences_from_original_sacred": [
+    "Plant ID: ORIGINAL AIVD340-LLAMA-ROL1 vs REPLICATION AIVD340-REPL-U-ROL1 (intentional fresh ID)",
+    "env_hash: ORIGINAL Sacred gate 18c11b47\u2026 vs REPLICATION ea822c55\u2026 (replication material includes tip+REPL plant+stage markers; TinyLlama weights sha identical)",
+    "run_kind / original_sacred markers differ (REPLICATION vs Sacred)",
+    "Wall-clock elapsed_s differs (seed0 ~33.5s cold load vs Sacred ~1.67s warm); subsequent seeds ~0.02s both \u2014 protocol/cache identical pattern",
+    "GenerationRecord record_id / timestamps differ (fresh episodes)",
+    "Behavioral/telemetry metrics (verified, epoch, leftover, used, terminal, invented_atom, leak): IDENTICAL across all 7 seeds"
+  ],
+  "STOP_AFTER_STAGE_1": true,
+  "stage_2_r1b_executed": false,
+  "stage_3_recursive_executed": false
+}
