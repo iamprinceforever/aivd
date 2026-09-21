@@ -1,0 +1,136 @@
+{
+  "document": "aivd_3_40_preflight",
+  "status": "PREFLIGHT_ONLY_STOP_BEFORE_IMPLEMENTATION",
+  "recorded_at_ist": "2026-09-21 10:09:29 IST",
+  "repo": "/workspace/aivd-3.38.0-frozen",
+  "branch": "research/aivd-3.40-budget-representation-frontier",
+  "base_sha": "9e1ad91f6a8d0dffa215dad033e7fc2445d265e6",
+  "identifiers_verified": {
+    "sacred_339_completion": "9e1ad91f6a8d0dffa215dad033e7fc2445d265e6",
+    "impl_338_freeze": "34bc665233a32a8a6f3b1f760fd65e99a37c232b",
+    "pin_338": "6547502c4895ac0ab879359a14350cb077b28676",
+    "sacred_338_first_run": "358ea693abdd286e3451b973877c36b7077612a5",
+    "impl_339_freeze": "f86ebdf19403554be30e3545ee3c402dec04bb04",
+    "pin_339": "b07b58920b42140ea1d2cecb137b29cdad7e1c8f",
+    "propose_atoms_diff_vs_34bc665_lines": 0,
+    "sacred_338_first_run_blob_at_head": "ffaee90d99d5cbad634dfe6ecf12fc6a592d8721",
+    "sacred_339_first_run_blob_at_head": "89b7beb02f6ec2a63cb0f31e8fb617d01a47d4ec"
+  },
+  "sacred_339_stop": {
+    "params": {
+      "budget": 32,
+      "invent_cap": 48,
+      "mode": "full_3_39",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "plants": {
+        "S": "AIVD339-LLAMA-ODDDOUBLE",
+        "U": "AIVD339-LLAMA-ROTATE"
+      }
+    },
+    "pipeline_verified": {
+      "S": "0/7",
+      "U": "0/7"
+    },
+    "interaction_used": 32,
+    "invent_cap_binding": false,
+    "leftover_at_firewall_decision": 3,
+    "rediscovery_floor": 5,
+    "firewall_epoch": 0,
+    "firewalled": false,
+    "generations": 4,
+    "origins_per_seed": {
+      "invented_atom": 3,
+      "language_growth": 1
+    },
+    "grown_program": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+    "grown_body_key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+    "stop_reason": "BUDGET_EXHAUSTED",
+    "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+    "budget_events": [
+      "REDISCOVERY_BUDGET_FAILURE",
+      "RECURSIVE_BUDGET_FAILURE"
+    ],
+    "offline_class": "LEFTOVER_WALL_PRE_FIREWALL",
+    "independence_verdict": {
+      "exists": true,
+      "independently_discovered": false
+    },
+    "provenance_leak": false,
+    "sources": [
+      "reports/aivd_3_39_llama/REPORT.md",
+      "reports/aivd_3_39_llama/first_run.json",
+      "reports/aivd_3_39_llama/generation_ledgers.json",
+      "reports/aivd339_budget_frontier.md"
+    ]
+  },
+  "limit_answers": {
+    "budget_limitation": {
+      "answer": "YES",
+      "role": "primary_for_firewall_independence_path"
+    },
+    "representation_limitation": {
+      "answer": "YES",
+      "role": "for_these_plants_joint_with_budget"
+    },
+    "invent_cap_limitation": {
+      "answer": "NO",
+      "binding": false
+    },
+    "unresolved": [
+      "TinyLlama capability once correct prompt exists (evaluator triggers succeed)",
+      "Level-14 / independent rediscovery possibility (firewall never opened on Sacred)",
+      "Whether budget raise alone would verify odd-double/rotate",
+      "Whether representation expansion alone would verify under budget 32",
+      "Factor sufficiency vs necessity (requires factorial)",
+      "Algorithm falsification of 3.39 independence machinery (untested post-firewall, not disproven)"
+    ]
+  },
+  "design_preview_factorial": {
+    "executed": false,
+    "cells": [
+      "B32xR0",
+      "B32xR1",
+      "BHxR0",
+      "BHxR1"
+    ],
+    "B32": "sacred budget 32, floors unchanged",
+    "BH": "chartered higher leftover headroom at firewall decision without lowering REDISCOVERY_FLOOR or force-firewall",
+    "R0": "frozen propose_atoms 8-set + current growth priors",
+    "R1": "representation expansion for odd-stride CAT-self / rotate-class geometry without plant GT injection"
+  },
+  "absolute_constraints_honored": {
+    "no_propose_atoms_odd_double_rotate": true,
+    "no_force_firewall": true,
+    "no_lower_rediscovery_floor": true,
+    "no_raise_sacred_budget": true,
+    "no_rewrite_sacred_338_339": true,
+    "no_discovery_algorithm_commits": true,
+    "no_experiment_matrix_implementation": true
+  },
+  "architecture_map_summary": {
+    "GenerationRecord": "aivd/science/generation_record.py",
+    "CandidateOrigin": "aivd/science/generation_record.py",
+    "firewall": "aivd/science/language.py::ExperimentLanguage.firewall; designer._maybe_firewall",
+    "leftover_accounting": "designer remaining_steps; grow/lifecycle floors; failures REDISCOVERY/RECURSIVE_BUDGET",
+    "language_growth": "aivd/science/grow.py",
+    "propose_atoms": "aivd/science/atom_synth.py (8-set)",
+    "discovery": "aivd/science/designer.py; aivd/discovery/discovery_controller.py",
+    "evaluator_isolation": "aivd37/unknowns/llama_339.py evaluator-only; not imported by aivd/discovery",
+    "fresh_plants": "AIVD339-LLAMA-ODDDOUBLE / AIVD339-LLAMA-ROTATE",
+    "budget_accounting": "INVENT_CAP=48 methods.py; episode budget 32",
+    "tests": [
+      "tests/test_aivd339_independent_generations.py",
+      "tests/test_aivd339_llama.py",
+      "tests/test_aivd338_lang.py",
+      "tests/test_aivd338_llama.py"
+    ]
+  }
+}
