@@ -1,0 +1,407 @@
+{
+  "document": "aivd_3_40_stage5_matrix",
+  "recorded_at_ist": "2026-09-21 19:10 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "STAGE-5 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "sacred_authorized": false,
+  "start_tip": "4005e66",
+  "start_tip_full": "4005e66740e478a9c3adfea0c1ac3528cbf593f0",
+  "parent_commits": {
+    "stage4_complete_tip": "4005e66",
+    "stage4_design_freeze": "27e9e88",
+    "phase2_complete_tip": "f4d7a2b",
+    "phase2_exec": "d1e31b5",
+    "phase2_design_freeze": "7be4124",
+    "phase1_result_tip": "a2ab0cc",
+    "stage3_charter": "146915b",
+    "stage2_tip": "dcae889",
+    "r1b_caveat": "7a3457e"
+  },
+  "primary_question": "Does FILTER_BEHAVIORAL_DUP correctly establish behavioral equivalence between the odd CAT-self and the candidate it removes, or is the equivalence relation too coarse?",
+  "scientific_objective": "Characterize FILTER_BEHAVIORAL_DUP equivalence relation (false dup + missed dup) \u2014 NOT make S pass",
+  "stage4_priors": {
+    "H2c": "SUPPORTED",
+    "full_promote_set_odd_cat_in_pool": "0/7",
+    "solo_odd_only_odd_cat_in_pool": "7/7",
+    "filter_evidence": "FILTER_BEHAVIORAL_DUP vs MAPT(CAT(AT:-1|AT:-1)) for body MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "epistemic_boundary": "Stage-4 located structural behavioral-dup filter; did not establish semantic equivalence of collapsed pair"
+  },
+  "hypothesis_leaves": {
+    "H5a": "FILTER_BEHAVIORAL_DUP is a valid semantic-equivalence filter",
+    "H5b": "FILTER_BEHAVIORAL_DUP is over-collapsing behaviorally distinct candidates",
+    "H5c": "Stage-4 odd CAT-self vs AT:-1 CAT-self pair are genuinely behaviorally equivalent (removing odd correct)",
+    "H5d": "Apparent distinction depends on unmeasured context/sequence/state"
+  },
+  "conclusion_enum": {
+    "A": "H5a SUPPORTED",
+    "B": "H5b SUPPORTED",
+    "C": "H5c SUPPORTED",
+    "D": "H5d SUPPORTED",
+    "E": "INCONCLUSIVE",
+    "binding": "exactly one of A-E; do not infer from candidate survival alone; do not assume H5b from pool absence"
+  },
+  "live_filter": {
+    "category": "FILTER_BEHAVIORAL_DUP",
+    "code_anchor": "aivd/science/grow.py::propose_growth._keep",
+    "rule": "got = apply_micro(identity, body2); reject if got in behaviors.values()",
+    "not_the_same_as": [
+      "behavioral_equivalent(a,b,probes=...)",
+      "textual_identity",
+      "semantic_distance",
+      "body.key() equality"
+    ],
+    "immutable": true,
+    "repair_authorized": false
+  },
+  "equality_kinds": [
+    "TEXTUAL",
+    "STRUCTURAL",
+    "BEHAVIORAL_LIVE",
+    "BEHAVIORAL_AUDIT",
+    "FILTER_CLASSIFIED_DUP"
+  ],
+  "critical_pair": {
+    "condition_id": "S5-EQ-CRIT-ODD-AT",
+    "body_key_removed": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "body_key_kept": "MAPT(CAT(AT:-1|AT:-1))",
+    "parent_odd": "MAPT(SLICE:1,2(TOK))",
+    "parent_at": "MAPT(AT:-1)"
+  },
+  "body_keys_frozen": {
+    "odd_stride": "MAPT(SLICE:1,2(TOK))",
+    "odd_cat_self": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "u_good": "MAPT(AT:-1)",
+    "u_good_cat_self": "MAPT(CAT(AT:-1|AT:-1))",
+    "slice_0_2": "MAPT(SLICE:0,2(TOK))",
+    "at_0": "MAPT(AT:0)"
+  },
+  "context_families": {
+    "BASELINE_IDENTITY": {
+      "contexts": [
+        {
+          "context_id": "CTX-ID-01",
+          "prompt": "ab cd ef gh ij kl"
+        },
+        {
+          "context_id": "CTX-ID-02",
+          "prompt": "ARTIFACT_PIN_AT_EXEC",
+          "notes": "Pin actual Stage-4/designer identity if differs; record hash"
+        }
+      ]
+    },
+    "TRANSFORMED": {
+      "contexts": [
+        {
+          "context_id": "CTX-TR-01",
+          "prompt": "ab cd efg hij"
+        },
+        {
+          "context_id": "CTX-TR-02",
+          "prompt": "AB CD EF GH"
+        },
+        {
+          "context_id": "CTX-TR-03",
+          "prompt": "a1 b2 c3 d4"
+        },
+        {
+          "context_id": "CTX-TR-04",
+          "prompt": "hello world test case"
+        },
+        {
+          "context_id": "CTX-TR-05",
+          "prompt": "This is a mock system Perform"
+        }
+      ]
+    },
+    "REORDERED": {
+      "contexts": [
+        {
+          "context_id": "CTX-RO-01",
+          "prompt": "kl ij gh ef cd ab"
+        },
+        {
+          "context_id": "CTX-RO-02",
+          "prompt": "ef ab kl cd ij gh"
+        },
+        {
+          "context_id": "CTX-RO-03",
+          "prompt": "cd ab ef gh ij kl"
+        }
+      ]
+    },
+    "BOUNDARY": {
+      "contexts": [
+        {
+          "context_id": "CTX-BD-01",
+          "prompt": "xy z"
+        },
+        {
+          "context_id": "CTX-BD-02",
+          "prompt": "a"
+        },
+        {
+          "context_id": "CTX-BD-03",
+          "prompt": "a bb ccc dddd"
+        },
+        {
+          "context_id": "CTX-BD-04",
+          "prompt": "abcdefghij"
+        },
+        {
+          "context_id": "CTX-BD-05",
+          "prompt": "12 34 56 78"
+        },
+        {
+          "context_id": "CTX-BD-06",
+          "prompt": "1 22 333 4444 55555"
+        }
+      ]
+    },
+    "COMPOSITION": {
+      "contexts": [
+        {
+          "context_id": "CTX-CO-01",
+          "prompt": "aa bb cc dd ee ff"
+        },
+        {
+          "context_id": "CTX-CO-02",
+          "prompt": "ab cd ef gh ij kl mn"
+        },
+        {
+          "context_id": "CTX-CO-03",
+          "prompt": "The quick brown fox"
+        },
+        {
+          "context_id": "CTX-CO-04",
+          "prompt": "wxyz abcd efgh"
+        }
+      ]
+    },
+    "STATE_VARIATION": {
+      "states": [
+        {
+          "state_id": "ST-KEEP-AT-FIRST",
+          "role": "full promote-set keep order (Stage-4 full)"
+        },
+        {
+          "state_id": "ST-KEEP-ODD-ONLY",
+          "role": "solo odd-only promote set"
+        },
+        {
+          "state_id": "ST-KEEP-ODD-BEFORE-AT",
+          "role": "attempt odd-first keep; NOT_APPLICABLE if impossible under frozen loop order"
+        },
+        {
+          "state_id": "ST-IDENTITY-ALT",
+          "role": "classify under each BASELINE_IDENTITY as identity"
+        }
+      ]
+    }
+  },
+  "target_injection": {
+    "allowed": false,
+    "rule": "Contexts must be generic; useful for S => applicable to U and controls; do not encode secret target into evaluator"
+  },
+  "control_pairs": {
+    "true_duplicates": [
+      {
+        "pair_id": "TD-01",
+        "description": "identical Micro / identical key"
+      },
+      {
+        "pair_id": "TD-02",
+        "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+        "body_b": "cat_self_body(MAPT(AT:-1))",
+        "description": "re-constructed U CAT-self"
+      },
+      {
+        "pair_id": "TD-03",
+        "description": "artifact-confirmed same got on CTX-ID-01 and full-bank equivalent"
+      }
+    ],
+    "known_nonduplicates": [
+      {
+        "pair_id": "ND-01",
+        "body_a": "MAPT(AT:-1)",
+        "body_b": "MAPT(AT:0)"
+      },
+      {
+        "pair_id": "ND-02",
+        "body_a": "MAPT(SLICE:0,2(TOK))",
+        "body_b": "MAPT(SLICE:1,2(TOK))"
+      },
+      {
+        "pair_id": "ND-03",
+        "body_a": "MAPT(CAT(AT:-1|AT:-1))",
+        "body_b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+      },
+      {
+        "pair_id": "ND-04",
+        "body_a": "MAPT(AT:-1)",
+        "body_b": "MAPT(SLICE:1,2(TOK))"
+      }
+    ],
+    "u_known_good": {
+      "condition_id": "S5-EQ-U-GOOD",
+      "parent": "MAPT(AT:-1)",
+      "cat_self": "MAPT(CAT(AT:-1|AT:-1))"
+    },
+    "critical": {
+      "condition_id": "S5-EQ-CRIT-ODD-AT"
+    }
+  },
+  "error_metrics": {
+    "false_duplicate": "filter_classified_dup && !behavioral_audit_equal",
+    "missed_duplicate": "not filter_classified_dup relative to partner under declared state && behavioral_audit_equal",
+    "goal": "characterize equivalence relation; not merely prove odd should survive"
+  },
+  "budget": {
+    "episode": "BH48",
+    "raise_budget": false,
+    "raise_invent_cap": false,
+    "raise_rediscovery_floor": false,
+    "rationale": "Stage-5 is offline equivalence audit; not a budget-factor experiment"
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "representation": {
+    "primary": "R1",
+    "r1b_auto": false
+  },
+  "immutable": {
+    "FILTER_BEHAVIORAL_DUP": true,
+    "propose_growth": true,
+    "propose_atoms_8set": true,
+    "growth_operators": true,
+    "selection": true,
+    "verification": true,
+    "firewall": true,
+    "invent_cap": true,
+    "REDISCOVERY_FLOOR": true,
+    "stage4_artifacts": true,
+    "phase2_artifacts": true,
+    "aivd_338_339": true,
+    "promote_set_manual_edit": false
+  },
+  "audit_modes": [
+    {
+      "id": "OFFLINE_EQUIV",
+      "primary": true,
+      "claim_label": "OFFLINE_EQUIV_AUDIT",
+      "autonomous_discovery_credit": false,
+      "counterfactual_status": "OFFLINE_EVALUATION"
+    },
+    {
+      "id": "ARTIFACT_REPLAY",
+      "primary": false,
+      "role": "Reproduce/explain Stage-4 0/7 vs 7/7 from frozen artifacts without fixture mutation"
+    }
+  ],
+  "cells_minimum": [
+    {
+      "condition_id": "S5-EQ-CRIT-ODD-AT",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "ODD_CAT_SELF_STAGE4_PAIR",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-TRUE-DUP-TD01",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "TRUE_DUP",
+      "pair_id": "TD-01",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-TRUE-DUP-TD02",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "TRUE_DUP",
+      "pair_id": "TD-02",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-NONDUP-ND01",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "KNOWN_NONDUP",
+      "pair_id": "ND-01",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-NONDUP-ND02",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "KNOWN_NONDUP",
+      "pair_id": "ND-02",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-NONDUP-ND03",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "KNOWN_NONDUP",
+      "pair_id": "ND-03",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-NONDUP-ND04",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "KNOWN_NONDUP",
+      "pair_id": "ND-04",
+      "required": true
+    },
+    {
+      "condition_id": "S5-EQ-U-GOOD",
+      "audit_mode": "OFFLINE_EQUIV",
+      "pair_class": "U_GOOD_PATH",
+      "required": true
+    },
+    {
+      "condition_id": "S5-ART-POOL-FULL",
+      "audit_mode": "ARTIFACT_REPLAY",
+      "role": "explain full promote-set 0/7",
+      "required": true
+    },
+    {
+      "condition_id": "S5-ART-POOL-SOLO",
+      "audit_mode": "ARTIFACT_REPLAY",
+      "role": "explain solo odd-only 7/7",
+      "required": true
+    }
+  ],
+  "seed_cells": {
+    "note": "OFFLINE_EQUIV primary cells are deterministic w.r.t. apply_micro; record seed dimension for matrix continuity with Stage-4 seeds; agreement 7/7 expected unless STATE_VARIATION introduces nondeterminism (should not).",
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      11
+    ],
+    "artifact_replay_seeds": "all Stage-4 S4-OBS-B-S seeds"
+  },
+  "prohibitions": [
+    "implement filter changes",
+    "execute Sacred",
+    "modify historical Stage-4/Phase-2/1/Stage-2/3/3.38/3.39 artifacts",
+    "redesign FILTER_BEHAVIORAL_DUP",
+    "make S pass",
+    "R1b/R1c/BHexplore/Level-14",
+    "target-injected contexts",
+    "manual promote-set edit",
+    "infer H5b from pool absence alone",
+    "infer conclusion from candidate survival alone",
+    "merge OFFLINE_EVAL into AUTONOMOUS"
+  ],
+  "schema_ref": "reports/aivd_3_40_stage5_equivalence_spec.md",
+  "prereg_ref": "reports/aivd_3_40_stage5_preregistration.md",
+  "hypothesis_ref": "reports/aivd_3_40_stage5_hypothesis_tree.md",
+  "charter_ref": "reports/aivd_3_40_stage5_charter.md",
+  "final_gate": "STAGE-5 DESIGN READY: EXECUTION REQUIRES SEPARATE AUTHORIZATION"
+}
