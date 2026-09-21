@@ -1,0 +1,10 @@
+{
+  "executed": true,
+  "executed_at_ist": "2026-09-21 18:57:46 IST",
+  "execution_head_before_commit": "27e9e8897f19665819743d16aed61cc6cf220671",
+  "design_tip": "27e9e88",
+  "sacred_authorized": false,
+  "sacred_executed": false,
+  "n_obs_cells": 28,
+  "n_offline_ir": 14
+}

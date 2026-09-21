@@ -1,0 +1,27 @@
+{
+  "start_body_key": "MAPT(SLICE:1,2(TOK))",
+  "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+  "operators_allowed": [
+    "cat_self_body",
+    "compose"
+  ],
+  "path_found": true,
+  "path_steps": [
+    {
+      "op": "cat_self_body",
+      "input_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+    }
+  ],
+  "single_step_cat_self": true,
+  "inserted_into_autonomous": false,
+  "claim_label": "OFFLINE_IR",
+  "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+  "behavior_on_prompt": "bb dd ff hh jj ll",
+  "autonomous_discovery_credit": false,
+  "seed": 0,
+  "control_id": "B",
+  "condition_id": "S4-IR-B"
+}

@@ -1,0 +1,779 @@
+{
+  "cell_id": "S4-OBS-B-S_S_seed3",
+  "condition_id": "S4-OBS-B-S",
+  "control_id": "B",
+  "audit_mode": "OBS_ONLINE",
+  "target_role": "S",
+  "seed": 3,
+  "sacred": false,
+  "autonomous_discovery_credit": false,
+  "mode_namespace": "CONTROLLED_INPUT",
+  "trail": {
+    "atom_id": "atom_mapt_slice_1_2_tok",
+    "origin": "atom_synth",
+    "provenance": "AUTONOMOUS_OR_OTHER",
+    "generation": null,
+    "parent": [
+      "MAPT",
+      "SLICE"
+    ],
+    "body_key": "MAPT(SLICE:1,2(TOK))",
+    "representation": "R1",
+    "semantic_class": "char_stride",
+    "admissible": true,
+    "admissibility_reason": null,
+    "compatibility_tests": [
+      {
+        "gate_id": "PROMOTED_STATE",
+        "passed": true,
+        "detail": "PROMOTED"
+      },
+      {
+        "gate_id": "LEFTOVER_GE_3",
+        "passed": true,
+        "detail": "48"
+      },
+      {
+        "gate_id": "TOKENS_SHORTER",
+        "passed": true,
+        "detail": "'b d f h j l'"
+      },
+      {
+        "gate_id": "CAT_SELF_SHAPE",
+        "passed": true,
+        "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+      },
+      {
+        "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+        "passed": true,
+        "detail": "semantic_class=char_stride; R1 any_class path"
+      },
+      {
+        "gate_id": "COMPOSE_DISTINCT_CLASS",
+        "passed": false,
+        "detail": "pair_exists_elsewhere=(MAPT(CAT(AT:0|AT:-1))|MAPT(SLICE:0,3(TOK)))"
+      }
+    ],
+    "applicable_operators": [
+      "CAT_SELF"
+    ],
+    "compositions": [
+      {
+        "op": "CAT_SELF",
+        "parent_body_keys": [
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "status": "attempted",
+        "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+        "rejection_category": "FILTER_BEHAVIORAL_DUP",
+        "pre_kept_behaviors_from": [
+          "MAPT(CAT(AT:-1|AT:-1))",
+          "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+        ]
+      }
+    ],
+    "structural_filter_results": [
+      {
+        "op": "CAT_SELF",
+        "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "rejection_category": "FILTER_BEHAVIORAL_DUP",
+        "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+        "duplicate_of": [
+          "MAPT(CAT(AT:-1|AT:-1))"
+        ]
+      }
+    ],
+    "in_candidate_pool": false,
+    "pool_body_keys": [
+      "MAPT(CAT(AT:-1|AT:-1))",
+      "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+    ],
+    "relevant_product_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "score": "UNKNOWN",
+    "rank": "UNKNOWN",
+    "selected": "UNKNOWN",
+    "action": "grow",
+    "remaining_budget": 48,
+    "stop_stage": "STRUCTURAL_FILTERS",
+    "h2_leaf_hint": "H2c",
+    "transitions": {
+      "INPUT": {
+        "status": "CONTROLLED",
+        "detail": {
+          "body_key": "MAPT(SLICE:1,2(TOK))",
+          "present_in_language": true,
+          "provenance": "CONTROLLED_INPUT",
+          "origin": "atom_synth",
+          "semantic_class": "char_stride"
+        }
+      },
+      "ADMISSIBILITY": {
+        "status": "OBSERVED",
+        "detail": {
+          "admissible": true,
+          "reason": null,
+          "gates": [
+            {
+              "gate_id": "PROMOTED_STATE",
+              "passed": true,
+              "detail": "PROMOTED"
+            },
+            {
+              "gate_id": "LEFTOVER_GE_3",
+              "passed": true,
+              "detail": "48"
+            }
+          ]
+        }
+      },
+      "COMPATIBILITY": {
+        "status": "OBSERVED",
+        "detail": {
+          "passed": true,
+          "tests": [
+            {
+              "gate_id": "PROMOTED_STATE",
+              "passed": true,
+              "detail": "PROMOTED"
+            },
+            {
+              "gate_id": "LEFTOVER_GE_3",
+              "passed": true,
+              "detail": "48"
+            },
+            {
+              "gate_id": "TOKENS_SHORTER",
+              "passed": true,
+              "detail": "'b d f h j l'"
+            },
+            {
+              "gate_id": "CAT_SELF_SHAPE",
+              "passed": true,
+              "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            },
+            {
+              "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+              "passed": true,
+              "detail": "semantic_class=char_stride; R1 any_class path"
+            },
+            {
+              "gate_id": "COMPOSE_DISTINCT_CLASS",
+              "passed": false,
+              "detail": "pair_exists_elsewhere=(MAPT(CAT(AT:0|AT:-1))|MAPT(SLICE:0,3(TOK)))"
+            }
+          ]
+        }
+      },
+      "APPLICABLE_OPERATORS": {
+        "status": "OBSERVED",
+        "detail": {
+          "operators": [
+            "CAT_SELF"
+          ]
+        }
+      },
+      "COMPOSITION_ATTEMPTS": {
+        "status": "OBSERVED",
+        "detail": {
+          "attempts": [
+            {
+              "op": "CAT_SELF",
+              "parent_body_keys": [
+                "MAPT(SLICE:1,2(TOK))"
+              ],
+              "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+              "status": "attempted",
+              "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+              "rejection_category": "FILTER_BEHAVIORAL_DUP",
+              "pre_kept_behaviors_from": [
+                "MAPT(CAT(AT:-1|AT:-1))",
+                "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+              ]
+            }
+          ]
+        }
+      },
+      "SUCCESSFUL_COMPOSITIONS": {
+        "status": "OBSERVED",
+        "detail": {
+          "successful": []
+        }
+      },
+      "STRUCTURAL_FILTERS": {
+        "status": "OBSERVED",
+        "detail": {
+          "filters": [
+            {
+              "op": "CAT_SELF",
+              "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+              "rejection_category": "FILTER_BEHAVIORAL_DUP",
+              "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+              "duplicate_of": [
+                "MAPT(CAT(AT:-1|AT:-1))"
+              ]
+            }
+          ]
+        }
+      },
+      "CANDIDATE_POOL": {
+        "status": "OBSERVED",
+        "detail": {
+          "pool_body_keys": [
+            "MAPT(CAT(AT:-1|AT:-1))",
+            "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+          ],
+          "relevant_in_pool": false,
+          "parent_products_in_pool": [],
+          "n_growth_cands": 2
+        }
+      },
+      "SCORE": {
+        "status": "NOT_APPLICABLE",
+        "detail": "relevant_product_absent_from_pool"
+      },
+      "RANK": {
+        "status": "NOT_APPLICABLE",
+        "detail": "relevant_product_absent_from_pool"
+      },
+      "SELECTION": {
+        "status": "NOT_APPLICABLE",
+        "detail": "relevant_product_absent_from_pool"
+      },
+      "VERIFICATION": {
+        "status": "NOT_APPLICABLE",
+        "detail": "stage4_observational_audit_no_sacred_verification"
+      }
+    },
+    "claim_label": "OBSERVED"
+  },
+  "trail_solo_odd_only": {
+    "atom_id": "atom_mapt_slice_1_2_tok",
+    "origin": "CONTROLLED_INPUT",
+    "provenance": "CONTROLLED_INPUT",
+    "generation": null,
+    "parent": [
+      "MAPT",
+      "SLICE"
+    ],
+    "body_key": "MAPT(SLICE:1,2(TOK))",
+    "representation": "R1",
+    "semantic_class": "char_stride",
+    "admissible": true,
+    "admissibility_reason": null,
+    "compatibility_tests": [
+      {
+        "gate_id": "PROMOTED_STATE",
+        "passed": true,
+        "detail": "PROMOTED"
+      },
+      {
+        "gate_id": "LEFTOVER_GE_3",
+        "passed": true,
+        "detail": "48"
+      },
+      {
+        "gate_id": "TOKENS_SHORTER",
+        "passed": true,
+        "detail": "'b d f h j l'"
+      },
+      {
+        "gate_id": "CAT_SELF_SHAPE",
+        "passed": true,
+        "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+      },
+      {
+        "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+        "passed": true,
+        "detail": "semantic_class=char_stride; R1 any_class path"
+      },
+      {
+        "gate_id": "COMPOSE_DISTINCT_CLASS",
+        "passed": false,
+        "detail": "no distinct-class pair involving this parent"
+      }
+    ],
+    "applicable_operators": [
+      "CAT_SELF"
+    ],
+    "compositions": [
+      {
+        "op": "CAT_SELF",
+        "parent_body_keys": [
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "status": "constructed",
+        "rejection_reason": null,
+        "rejection_category": null,
+        "pre_kept_behaviors_from": []
+      }
+    ],
+    "structural_filter_results": [],
+    "in_candidate_pool": true,
+    "pool_body_keys": [
+      "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+    ],
+    "relevant_product_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "score": 0.0,
+    "rank": 1,
+    "selected": true,
+    "action": "grow",
+    "remaining_budget": 48,
+    "stop_stage": "CANDIDATE_POOL",
+    "h2_leaf_hint": "POST_POOL",
+    "transitions": {
+      "INPUT": {
+        "status": "CONTROLLED",
+        "detail": {
+          "body_key": "MAPT(SLICE:1,2(TOK))",
+          "present_in_language": true,
+          "provenance": "CONTROLLED_INPUT",
+          "origin": "controlled_availability_mode_b",
+          "semantic_class": "char_stride"
+        }
+      },
+      "ADMISSIBILITY": {
+        "status": "OBSERVED",
+        "detail": {
+          "admissible": true,
+          "reason": null,
+          "gates": [
+            {
+              "gate_id": "PROMOTED_STATE",
+              "passed": true,
+              "detail": "PROMOTED"
+            },
+            {
+              "gate_id": "LEFTOVER_GE_3",
+              "passed": true,
+              "detail": "48"
+            }
+          ]
+        }
+      },
+      "COMPATIBILITY": {
+        "status": "OBSERVED",
+        "detail": {
+          "passed": true,
+          "tests": [
+            {
+              "gate_id": "PROMOTED_STATE",
+              "passed": true,
+              "detail": "PROMOTED"
+            },
+            {
+              "gate_id": "LEFTOVER_GE_3",
+              "passed": true,
+              "detail": "48"
+            },
+            {
+              "gate_id": "TOKENS_SHORTER",
+              "passed": true,
+              "detail": "'b d f h j l'"
+            },
+            {
+              "gate_id": "CAT_SELF_SHAPE",
+              "passed": true,
+              "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            },
+            {
+              "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+              "passed": true,
+              "detail": "semantic_class=char_stride; R1 any_class path"
+            },
+            {
+              "gate_id": "COMPOSE_DISTINCT_CLASS",
+              "passed": false,
+              "detail": "no distinct-class pair involving this parent"
+            }
+          ]
+        }
+      },
+      "APPLICABLE_OPERATORS": {
+        "status": "OBSERVED",
+        "detail": {
+          "operators": [
+            "CAT_SELF"
+          ]
+        }
+      },
+      "COMPOSITION_ATTEMPTS": {
+        "status": "OBSERVED",
+        "detail": {
+          "attempts": [
+            {
+              "op": "CAT_SELF",
+              "parent_body_keys": [
+                "MAPT(SLICE:1,2(TOK))"
+              ],
+              "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+              "status": "constructed",
+              "rejection_reason": null,
+              "rejection_category": null,
+              "pre_kept_behaviors_from": []
+            }
+          ]
+        }
+      },
+      "SUCCESSFUL_COMPOSITIONS": {
+        "status": "OBSERVED",
+        "detail": {
+          "successful": [
+            "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          ]
+        }
+      },
+      "STRUCTURAL_FILTERS": {
+        "status": "OBSERVED",
+        "detail": {
+          "filters": [],
+          "note": "constructed_passed_keep_checks"
+        }
+      },
+      "CANDIDATE_POOL": {
+        "status": "OBSERVED",
+        "detail": {
+          "pool_body_keys": [
+            "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          ],
+          "relevant_in_pool": true,
+          "parent_products_in_pool": [
+            "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          ],
+          "n_growth_cands": 1
+        }
+      },
+      "SCORE": {
+        "status": "OBSERVED",
+        "detail": {
+          "score": 0.0
+        }
+      },
+      "RANK": {
+        "status": "OBSERVED",
+        "detail": {
+          "rank": 1
+        }
+      },
+      "SELECTION": {
+        "status": "OBSERVED",
+        "detail": {
+          "selected": true,
+          "action": "grow",
+          "selected_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+        }
+      },
+      "VERIFICATION": {
+        "status": "NOT_APPLICABLE",
+        "detail": "stage4_observational_audit_no_sacred_verification"
+      }
+    },
+    "claim_label": "OBSERVED"
+  },
+  "causal_trace": "INPUT[CONTROLLED] \u2192 ADMISSIBILITY[OBSERVED] \u2192 COMPATIBILITY[OBSERVED] \u2192 APPLICABLE_OPERATORS[OBSERVED] \u2192 COMPOSITION_ATTEMPTS[OBSERVED] \u2192 SUCCESSFUL_COMPOSITIONS[OBSERVED] \u2192 STRUCTURAL_FILTERS[OBSERVED] \u2192 CANDIDATE_POOL[OBSERVED] \u2192 SCORE[NOT_APPLICABLE] \u2192 RANK[NOT_APPLICABLE] \u2192 SELECTION[NOT_APPLICABLE] \u2192 VERIFICATION[NOT_APPLICABLE]",
+  "causal_trace_solo": "INPUT[CONTROLLED] \u2192 ADMISSIBILITY[OBSERVED] \u2192 COMPATIBILITY[OBSERVED] \u2192 APPLICABLE_OPERATORS[OBSERVED] \u2192 COMPOSITION_ATTEMPTS[OBSERVED] \u2192 SUCCESSFUL_COMPOSITIONS[OBSERVED] \u2192 STRUCTURAL_FILTERS[OBSERVED] \u2192 CANDIDATE_POOL[OBSERVED] \u2192 SCORE[OBSERVED] \u2192 RANK[OBSERVED] \u2192 SELECTION[OBSERVED] \u2192 VERIFICATION[NOT_APPLICABLE]",
+  "instrumentation": {
+    "record_schema_version": "aivd340-stage4-growth-audit-1",
+    "audit_id": "s4-S4-OBS-B-S_S_seed3",
+    "episode_id": "S4-OBS-B-S_S_seed3",
+    "condition_id": "S4-OBS-B-S",
+    "control_id": "B",
+    "mode_namespace": "CONTROLLED_INPUT",
+    "autonomous_discovery_credit": false,
+    "target_role": "S",
+    "seed": 3,
+    "audit_mode": "OBS_ONLINE",
+    "representation_id": "R1",
+    "integrity_ok": true,
+    "integrity_notes": [],
+    "controlled_injected": true,
+    "controlled_body_key": "MAPT(SLICE:1,2(TOK))",
+    "n_records": 2,
+    "records": [
+      {
+        "record_schema_version": "aivd340-stage4-growth-audit-1",
+        "audit_id": "s4-S4-OBS-B-S_S_seed3",
+        "pool_snapshot_id": "S4-OBS-B-S_S_seed3:s4:1:87ee4743",
+        "episode_id": "S4-OBS-B-S_S_seed3",
+        "condition_id": "S4-OBS-B-S",
+        "control_id": "B",
+        "mode_namespace": "CONTROLLED_INPUT",
+        "autonomous_discovery_credit": false,
+        "target_role": "S",
+        "seed": 3,
+        "audit_mode": "OBS_ONLINE",
+        "representation_id": "R1",
+        "firewall_epoch": 0,
+        "remaining_budget": 48,
+        "snapshot_phase": "controlled_atom_presence",
+        "event_kind": "controlled_presence",
+        "claim_label": "CONTROLLED",
+        "leakage_flag": false,
+        "recorded_at_unix": 1789997266.5993714,
+        "body_key": "MAPT(SLICE:1,2(TOK))"
+      },
+      {
+        "record_schema_version": "aivd340-stage4-growth-audit-1",
+        "audit_id": "s4-S4-OBS-B-S_S_seed3",
+        "pool_snapshot_id": "S4-OBS-B-S_S_seed3:s4:2:08825c1d",
+        "episode_id": "S4-OBS-B-S_S_seed3",
+        "condition_id": "S4-OBS-B-S",
+        "control_id": "B",
+        "mode_namespace": "CONTROLLED_INPUT",
+        "autonomous_discovery_credit": false,
+        "target_role": "S",
+        "seed": 3,
+        "audit_mode": "OBS_ONLINE",
+        "representation_id": "R1",
+        "firewall_epoch": 0,
+        "remaining_budget": 48,
+        "snapshot_phase": "terminal_record",
+        "event_kind": "terminal",
+        "claim_label": "OBSERVED",
+        "leakage_flag": false,
+        "recorded_at_unix": 1789997266.5999331,
+        "trail": {
+          "atom_id": "atom_mapt_slice_1_2_tok",
+          "origin": "atom_synth",
+          "provenance": "AUTONOMOUS_OR_OTHER",
+          "generation": null,
+          "parent": [
+            "MAPT",
+            "SLICE"
+          ],
+          "body_key": "MAPT(SLICE:1,2(TOK))",
+          "representation": "R1",
+          "semantic_class": "char_stride",
+          "admissible": true,
+          "admissibility_reason": null,
+          "compatibility_tests": [
+            {
+              "gate_id": "PROMOTED_STATE",
+              "passed": true,
+              "detail": "PROMOTED"
+            },
+            {
+              "gate_id": "LEFTOVER_GE_3",
+              "passed": true,
+              "detail": "48"
+            },
+            {
+              "gate_id": "TOKENS_SHORTER",
+              "passed": true,
+              "detail": "'b d f h j l'"
+            },
+            {
+              "gate_id": "CAT_SELF_SHAPE",
+              "passed": true,
+              "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+            },
+            {
+              "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+              "passed": true,
+              "detail": "semantic_class=char_stride; R1 any_class path"
+            },
+            {
+              "gate_id": "COMPOSE_DISTINCT_CLASS",
+              "passed": false,
+              "detail": "pair_exists_elsewhere=(MAPT(CAT(AT:0|AT:-1))|MAPT(SLICE:0,3(TOK)))"
+            }
+          ],
+          "applicable_operators": [
+            "CAT_SELF"
+          ],
+          "compositions": [
+            {
+              "op": "CAT_SELF",
+              "parent_body_keys": [
+                "MAPT(SLICE:1,2(TOK))"
+              ],
+              "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+              "status": "attempted",
+              "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+              "rejection_category": "FILTER_BEHAVIORAL_DUP",
+              "pre_kept_behaviors_from": [
+                "MAPT(CAT(AT:-1|AT:-1))",
+                "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+              ]
+            }
+          ],
+          "structural_filter_results": [
+            {
+              "op": "CAT_SELF",
+              "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+              "rejection_category": "FILTER_BEHAVIORAL_DUP",
+              "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+              "duplicate_of": [
+                "MAPT(CAT(AT:-1|AT:-1))"
+              ]
+            }
+          ],
+          "in_candidate_pool": false,
+          "pool_body_keys": [
+            "MAPT(CAT(AT:-1|AT:-1))",
+            "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+          ],
+          "relevant_product_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+          "score": "UNKNOWN",
+          "rank": "UNKNOWN",
+          "selected": "UNKNOWN",
+          "action": "grow",
+          "remaining_budget": 48,
+          "stop_stage": "STRUCTURAL_FILTERS",
+          "h2_leaf_hint": "H2c",
+          "transitions": {
+            "INPUT": {
+              "status": "CONTROLLED",
+              "detail": {
+                "body_key": "MAPT(SLICE:1,2(TOK))",
+                "present_in_language": true,
+                "provenance": "CONTROLLED_INPUT",
+                "origin": "atom_synth",
+                "semantic_class": "char_stride"
+              }
+            },
+            "ADMISSIBILITY": {
+              "status": "OBSERVED",
+              "detail": {
+                "admissible": true,
+                "reason": null,
+                "gates": [
+                  {
+                    "gate_id": "PROMOTED_STATE",
+                    "passed": true,
+                    "detail": "PROMOTED"
+                  },
+                  {
+                    "gate_id": "LEFTOVER_GE_3",
+                    "passed": true,
+                    "detail": "48"
+                  }
+                ]
+              }
+            },
+            "COMPATIBILITY": {
+              "status": "OBSERVED",
+              "detail": {
+                "passed": true,
+                "tests": [
+                  {
+                    "gate_id": "PROMOTED_STATE",
+                    "passed": true,
+                    "detail": "PROMOTED"
+                  },
+                  {
+                    "gate_id": "LEFTOVER_GE_3",
+                    "passed": true,
+                    "detail": "48"
+                  },
+                  {
+                    "gate_id": "TOKENS_SHORTER",
+                    "passed": true,
+                    "detail": "'b d f h j l'"
+                  },
+                  {
+                    "gate_id": "CAT_SELF_SHAPE",
+                    "passed": true,
+                    "detail": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+                  },
+                  {
+                    "gate_id": "SEMANTIC_CLASS_ELIGIBLE",
+                    "passed": true,
+                    "detail": "semantic_class=char_stride; R1 any_class path"
+                  },
+                  {
+                    "gate_id": "COMPOSE_DISTINCT_CLASS",
+                    "passed": false,
+                    "detail": "pair_exists_elsewhere=(MAPT(CAT(AT:0|AT:-1))|MAPT(SLICE:0,3(TOK)))"
+                  }
+                ]
+              }
+            },
+            "APPLICABLE_OPERATORS": {
+              "status": "OBSERVED",
+              "detail": {
+                "operators": [
+                  "CAT_SELF"
+                ]
+              }
+            },
+            "COMPOSITION_ATTEMPTS": {
+              "status": "OBSERVED",
+              "detail": {
+                "attempts": [
+                  {
+                    "op": "CAT_SELF",
+                    "parent_body_keys": [
+                      "MAPT(SLICE:1,2(TOK))"
+                    ],
+                    "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+                    "status": "attempted",
+                    "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+                    "rejection_category": "FILTER_BEHAVIORAL_DUP",
+                    "pre_kept_behaviors_from": [
+                      "MAPT(CAT(AT:-1|AT:-1))",
+                      "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+                    ]
+                  }
+                ]
+              }
+            },
+            "SUCCESSFUL_COMPOSITIONS": {
+              "status": "OBSERVED",
+              "detail": {
+                "successful": []
+              }
+            },
+            "STRUCTURAL_FILTERS": {
+              "status": "OBSERVED",
+              "detail": {
+                "filters": [
+                  {
+                    "op": "CAT_SELF",
+                    "result_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+                    "rejection_category": "FILTER_BEHAVIORAL_DUP",
+                    "rejection_reason": "behavioral duplicate of ['MAPT(CAT(AT:-1|AT:-1))']",
+                    "duplicate_of": [
+                      "MAPT(CAT(AT:-1|AT:-1))"
+                    ]
+                  }
+                ]
+              }
+            },
+            "CANDIDATE_POOL": {
+              "status": "OBSERVED",
+              "detail": {
+                "pool_body_keys": [
+                  "MAPT(CAT(AT:-1|AT:-1))",
+                  "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))"
+                ],
+                "relevant_in_pool": false,
+                "parent_products_in_pool": [],
+                "n_growth_cands": 2
+              }
+            },
+            "SCORE": {
+              "status": "NOT_APPLICABLE",
+              "detail": "relevant_product_absent_from_pool"
+            },
+            "RANK": {
+              "status": "NOT_APPLICABLE",
+              "detail": "relevant_product_absent_from_pool"
+            },
+            "SELECTION": {
+              "status": "NOT_APPLICABLE",
+              "detail": "relevant_product_absent_from_pool"
+            },
+            "VERIFICATION": {
+              "status": "NOT_APPLICABLE",
+              "detail": "stage4_observational_audit_no_sacred_verification"
+            }
+          },
+          "claim_label": "OBSERVED"
+        }
+      }
+    ]
+  },
+  "recorded_at_ist": "2026-09-21 18:57:46 IST"
+}

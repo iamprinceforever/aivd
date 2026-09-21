@@ -1,0 +1,659 @@
+{
+  "document": "aivd_3_40_stage4_results",
+  "recorded_at_ist": "2026-09-21 18:57:46 IST",
+  "design_tip": "27e9e88",
+  "execution_head": "27e9e8897f19665819743d16aed61cc6cf220671",
+  "version": "3.39.0",
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "record_schema_version": "aivd340-stage4-growth-audit-1",
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "BH": 48,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "sacred_authorized": false,
+  "sacred_executed": false,
+  "r1b_executed": false,
+  "freeze_verification": {
+    "design_tip": "27e9e88",
+    "files_match_tip": true,
+    "files": [
+      {
+        "path": "reports/aivd_3_40_stage4_charter.md",
+        "match": true,
+        "tip_blob": "ec4b3eb04ef78c7af39943ca85c160382d5f2125",
+        "work_blob": "ec4b3eb04ef78c7af39943ca85c160382d5f2125"
+      },
+      {
+        "path": "reports/aivd_3_40_stage4_hypothesis_tree.md",
+        "match": true,
+        "tip_blob": "7784d789acf63b64fe5bffbd092d8bac765b8503",
+        "work_blob": "7784d789acf63b64fe5bffbd092d8bac765b8503"
+      },
+      {
+        "path": "reports/aivd_3_40_stage4_matrix.json",
+        "match": true,
+        "tip_blob": "419c79e9e887c8fb1ad5b6d86f193e8ae4c36481",
+        "work_blob": "419c79e9e887c8fb1ad5b6d86f193e8ae4c36481"
+      },
+      {
+        "path": "reports/aivd_3_40_stage4_instrumentation_spec.md",
+        "match": true,
+        "tip_blob": "2840af972936854c44514be60672b7f8f82e47ed",
+        "work_blob": "2840af972936854c44514be60672b7f8f82e47ed"
+      },
+      {
+        "path": "reports/aivd_3_40_stage4_preregistration.md",
+        "match": true,
+        "tip_blob": "c6210731341f32096810035a68c1f47fba8dcb07",
+        "work_blob": "c6210731341f32096810035a68c1f47fba8dcb07"
+      }
+    ],
+    "matrix_executed_at_start": false,
+    "REDISCOVERY_FLOOR": 5,
+    "INVENT_CAP": 48,
+    "BH": 48
+  },
+  "shadow_hooks_identity_ok": true,
+  "control_a": {
+    "n": 7,
+    "positive_control_pool_ok_all": true,
+    "note": "U known-good CAT-self reaches pool under R1 (solo and/or full). Phase-2 Mode A\u00d7U F7/I7/V7 cited as historical continuity."
+  },
+  "control_b": {
+    "n": 7,
+    "full_context_odd_cat_in_pool": 0,
+    "solo_odd_only_in_pool": 7,
+    "hint_counts": {
+      "H2c": 7
+    },
+    "note": "CONTROLLED_INPUT only; no autonomous invent credit"
+  },
+  "control_c": {
+    "n_u": 7,
+    "n_s_optional": 7,
+    "note": "null injection; instrumentation side-effect baseline"
+  },
+  "offline_ir": {
+    "control_b": [
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 0,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 1,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 2,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 3,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 4,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 7,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      },
+      {
+        "start_body_key": "MAPT(SLICE:1,2(TOK))",
+        "target_body_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(SLICE:1,2(TOK))"
+            ],
+            "output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 11,
+        "control_id": "B",
+        "condition_id": "S4-IR-B"
+      }
+    ],
+    "control_a": [
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 0,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 1,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 2,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 3,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 4,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 7,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      },
+      {
+        "start_body_key": "MAPT(AT:-1)",
+        "target_body_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "operators_allowed": [
+          "cat_self_body",
+          "compose"
+        ],
+        "path_found": true,
+        "path_steps": [
+          {
+            "op": "cat_self_body",
+            "input_keys": [
+              "MAPT(AT:-1)"
+            ],
+            "output_key": "MAPT(CAT(AT:-1|AT:-1))"
+          }
+        ],
+        "single_step_cat_self": true,
+        "inserted_into_autonomous": false,
+        "claim_label": "OFFLINE_IR",
+        "cat_self_output_key": "MAPT(CAT(AT:-1|AT:-1))",
+        "behavior_on_prompt": "bb dd ff hh jj ll",
+        "autonomous_discovery_credit": false,
+        "seed": 11,
+        "control_id": "A",
+        "condition_id": "S4-IR-A"
+      }
+    ],
+    "b_single_step_rate": 1.0,
+    "a_single_step_rate": 1.0
+  },
+  "h2_decomposition": {
+    "hint_counts": {
+      "H2c": 7
+    },
+    "leaf_matrix": {
+      "H2a": {
+        "leaf": "H2a",
+        "FOR": [],
+        "AGAINST": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "UNKNOWN": [],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 7,
+        "n_unknown": 0
+      },
+      "H2b": {
+        "leaf": "H2b",
+        "FOR": [],
+        "AGAINST": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B"
+        ],
+        "UNKNOWN": [],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 14,
+        "n_unknown": 0
+      },
+      "H2c": {
+        "leaf": "H2c",
+        "FOR": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "AGAINST": [],
+        "UNKNOWN": [],
+        "verdict": "FOR",
+        "n_for": 7,
+        "n_against": 0,
+        "n_unknown": 0
+      },
+      "H2d": {
+        "leaf": "H2d",
+        "FOR": [],
+        "AGAINST": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "UNKNOWN": [],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 7,
+        "n_unknown": 0
+      },
+      "H2e": {
+        "leaf": "H2e",
+        "FOR": [],
+        "AGAINST": [
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B",
+          "S4-IR-B"
+        ],
+        "UNKNOWN": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 7,
+        "n_unknown": 7
+      },
+      "H2f": {
+        "leaf": "H2f",
+        "FOR": [],
+        "AGAINST": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "UNKNOWN": [],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 7,
+        "n_unknown": 0
+      },
+      "POST_POOL": {
+        "leaf": "POST_POOL",
+        "FOR": [],
+        "AGAINST": [
+          "S4-OBS-B-S_S_seed0",
+          "S4-OBS-B-S_S_seed1",
+          "S4-OBS-B-S_S_seed2",
+          "S4-OBS-B-S_S_seed3",
+          "S4-OBS-B-S_S_seed4",
+          "S4-OBS-B-S_S_seed7",
+          "S4-OBS-B-S_S_seed11"
+        ],
+        "UNKNOWN": [],
+        "verdict": "AGAINST",
+        "n_for": 0,
+        "n_against": 7,
+        "n_unknown": 0
+      }
+    },
+    "conclusion": "H2c SUPPORTED"
+  },
+  "final_conclusion": "H2c SUPPORTED",
+  "elapsed_s": 0.041,
+  "episodes_index": [
+    "S4-OBS-A-U_U_seed0",
+    "S4-OBS-A-U_U_seed1",
+    "S4-OBS-A-U_U_seed2",
+    "S4-OBS-A-U_U_seed3",
+    "S4-OBS-A-U_U_seed4",
+    "S4-OBS-A-U_U_seed7",
+    "S4-OBS-A-U_U_seed11",
+    "S4-OBS-B-S_S_seed0",
+    "S4-OBS-B-S_S_seed1",
+    "S4-OBS-B-S_S_seed2",
+    "S4-OBS-B-S_S_seed3",
+    "S4-OBS-B-S_S_seed4",
+    "S4-OBS-B-S_S_seed7",
+    "S4-OBS-B-S_S_seed11",
+    "S4-OBS-C-U_U_seed0",
+    "S4-OBS-C-U_U_seed1",
+    "S4-OBS-C-U_U_seed2",
+    "S4-OBS-C-U_U_seed3",
+    "S4-OBS-C-U_U_seed4",
+    "S4-OBS-C-U_U_seed7",
+    "S4-OBS-C-U_U_seed11",
+    "S4-OBS-C-S_S_seed0",
+    "S4-OBS-C-S_S_seed1",
+    "S4-OBS-C-S_S_seed2",
+    "S4-OBS-C-S_S_seed3",
+    "S4-OBS-C-S_S_seed4",
+    "S4-OBS-C-S_S_seed7",
+    "S4-OBS-C-S_S_seed11"
+  ],
+  "status_line": "STAGE-4 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED",
+  "immutability": {
+    "phase2_untouched": true,
+    "stage2_untouched": true,
+    "stage3_untouched": true,
+    "phase1_untouched": true,
+    "note": "Stage-4 writes only reports/aivd_3_40_stage4* new artifacts"
+  }
+}
