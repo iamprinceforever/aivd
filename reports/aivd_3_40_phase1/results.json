@@ -1033,7 +1033,8 @@
     "sacred_authorized": false,
     "stage2_mutation": false
   },
-  "tip_sha_after_commit": null,
+  "tip_sha_after_commit": "26ec383",
+  "tip_sha_after_commit_full": "26ec383242731a1b26fbcc1806619f718a33c46e",
   "tip_sha_at_start": "57c88f9",
   "tooling_valid": true,
   "trajectory_coverage": {

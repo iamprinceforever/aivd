@@ -2,6 +2,7 @@
 
 **Recorded:** 2026-09-21 17:31 IST
 **Start tip:** `57c88f9`
+**Commit tip:** `26ec383`
 **Authority:** Phase-1 charter `57c88f9`; Stage-3 `146915b`; Stage-2 `dcae889`; R1b caveat `7a3457e`
 
 ---
