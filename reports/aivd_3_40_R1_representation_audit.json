@@ -1,0 +1,191 @@
+{
+  "document": "aivd_3_40_R1_representation_audit",
+  "stage": "2_commit_A",
+  "tip": "1eb2a39",
+  "module": "aivd/science/representation.py",
+  "r0_equals_frozen": true,
+  "r0_invent": [
+    {
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "semantic_class": "char_index_glue",
+      "proposal_index": 0
+    },
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "semantic_class": "char_stride",
+      "proposal_index": 1
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|TOK))",
+      "semantic_class": "char_index_glue",
+      "proposal_index": 2
+    },
+    {
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "semantic_class": "char_stride",
+      "proposal_index": 3
+    },
+    {
+      "key": "MAPT(AT:-1)",
+      "semantic_class": "char_project",
+      "proposal_index": 4
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "semantic_class": "char_index_glue",
+      "proposal_index": 5
+    },
+    {
+      "key": "MAPT(CAT(AT:0|AT:-1))",
+      "semantic_class": "char_index_glue",
+      "proposal_index": 6
+    },
+    {
+      "key": "MAPT(SLICE:0,3(TOK))",
+      "semantic_class": "char_stride",
+      "proposal_index": 7
+    }
+  ],
+  "r1_invent": [
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "semantic_class": "char_stride",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 1
+    },
+    {
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "semantic_class": "char_stride",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 3
+    },
+    {
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "semantic_class": "char_stride",
+      "why": "order coverage: suffix then index-0 char",
+      "proposal_index": 1
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "semantic_class": "char_stride",
+      "why": "order coverage: last char then prefix",
+      "proposal_index": 2
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "semantic_class": "char_index_glue",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 0
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|TOK))",
+      "semantic_class": "char_index_glue",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 2
+    },
+    {
+      "key": "MAPT(AT:-1)",
+      "semantic_class": "char_project",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 4
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "semantic_class": "char_index_glue",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 5
+    },
+    {
+      "key": "MAPT(CAT(AT:0|AT:-1))",
+      "semantic_class": "char_index_glue",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 6
+    },
+    {
+      "key": "MAPT(SLICE:0,3(TOK))",
+      "semantic_class": "char_stride",
+      "why": "discriminate residual after 3.32 operators exhausted",
+      "proposal_index": 7
+    },
+    {
+      "key": "MAPT(AT:0)",
+      "semantic_class": "char_project",
+      "why": "position coverage: index-0 char projection",
+      "proposal_index": 3
+    }
+  ],
+  "r1_extras_vs_r0": [
+    "MAPT(AT:0)",
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+  ],
+  "r1_class_collapse": {
+    "char_stride": [
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(SLICE:1,2(TOK))",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "MAPT(SLICE:0,3(TOK))"
+    ],
+    "char_index_glue": [
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(CAT(AT:-1|TOK))",
+      "MAPT(CAT(TOK|AT:0))",
+      "MAPT(CAT(AT:0|AT:-1))"
+    ],
+    "char_project": [
+      "MAPT(AT:-1)",
+      "MAPT(AT:0)"
+    ]
+  },
+  "stride_siblings_same_class": true,
+  "expressible_as_micro": {
+    "odd_stride_atom": "MAPT(SLICE:1,2(TOK))",
+    "odd_cat_self": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+    "rotate_class_order_micro": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+  },
+  "r1_emits_odd_stride_atom": true,
+  "r1_emits_finished_odd_cat_self": false,
+  "r1_emits_rotate_class": true,
+  "information_loss": [
+    "semantic_class_of collapses all SLICE-bearing bodies to char_stride (even/odd/order share one class)",
+    "rank_atoms deprioritizes remaining same-class atoms after one char_stride is promoted/rejected",
+    "_untried_atom_classes treats odd-stride remaining as tried once even-stride is PROMOTED",
+    "firewall can arm while odd-stride atom still sits uninvented in board.remaining",
+    "propose_growth CAT-self only over PROMOTED parents \u2014 uninvented odd never yields odd CAT-self",
+    "open-generation post-firewall prefers grow/compose; leftover often exhausts before late-ranked odd invent"
+  ],
+  "missing_generic_dimensions": [
+    "within-class geometric coverage: stride-start parity (SLICE start index) as separately coverable",
+    "growth coverage across distinct stride-start parents (not only first shortening class winners)",
+    "invent diversity key that does not equate geometrically distinct stride siblings"
+  ],
+  "implications": {
+    "candidate_generation": "R1 lists odd-stride early, but lifecycle ranking/untried collapse drops it behind glue/project after even promotes",
+    "verification": "U-class rotate micro is inventable post-firewall under BH\u00d7R1; S-class odd CAT-self never appears in Sacred/replication BH-R1 records",
+    "language_growth": "R1 any_class=True enables non-project CAT-self, but only for promoted parents \u2014 even CAT-self dominates; odd CAT-self absent"
+  },
+  "sacred_bh_r1_evidence": {
+    "source": "reports/aivd_3_40_llama/runs/BH-R1_seed0_S.json + U",
+    "pre_firewall_bodies": [
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)"
+    ],
+    "post_firewall_notable": [
+      "even CAT-self",
+      "AT:-1 CAT-self",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+    ],
+    "odd_stride_atom_invented": false,
+    "odd_cat_self_grown": false,
+    "U_verified_via_rotate_invent": true
+  },
+  "r1_wiring": {
+    "designer_mode_marker": "full_3_39_r1 \u2192 representation R1 via '_r1' in mode",
+    "atom_synth": "plan() \u2192 propose_atom_candidates(policy=representation)",
+    "growth": "propose_growth_candidates \u2192 propose_growth(any_class=True) under R1",
+    "propose_atoms_frozen": true
+  },
+  "r1b_coding_status": "STOPPED \u2014 Commit A audit only; no R1b implementation in this commit"
+}
