@@ -1,0 +1,106 @@
+{
+  "document": "aivd_3_40_stage3_experimental_matrix",
+  "recorded_ist": "2026-09-21 17:05:55 IST",
+  "base_tip": "dcae889",
+  "authorization": "phase0_docs_only",
+  "objective": "Localize earliest S-fail/U-pass bottleneck; not make S pass",
+  "r1b_integrity_caveat": "7a3457e trimmed invent basis after smoke before Sacred; R1b Sacred NOT pure Commit-B prereg",
+  "stage2_immutable_cite": "reports/aivd_3_40_stage2_results.md",
+  "stage2_summary": {
+    "BH-R1_S": {
+      "F": 7,
+      "I": 0,
+      "V": 0
+    },
+    "BH-R1_U": {
+      "F": 7,
+      "I": 7,
+      "V": 7
+    },
+    "BH-R1b_S": {
+      "F": 7,
+      "I": 0,
+      "V": 0
+    },
+    "BH-R1b_U": {
+      "F": 0,
+      "I": 0,
+      "V": 7
+    },
+    "leakage": 0
+  },
+  "phases": [
+    {
+      "id": "phase0",
+      "name": "charter_freeze",
+      "authorized_now": true,
+      "actions": [
+        "docs_under_reports_only"
+      ]
+    },
+    {
+      "id": "phase1",
+      "name": "instrumentation_offline_counterfactual_replay",
+      "authorized_now": false,
+      "recommended_first": true,
+      "requires": "execution_charter",
+      "audit_cells": [
+        "AUD-S2-BHR1-S",
+        "AUD-S2-BHR1-U",
+        "AUD-S2-BHR1b-S",
+        "AUD-S2-BHR1b-U"
+      ],
+      "new_sacred": false
+    },
+    {
+      "id": "phase2",
+      "name": "minimal_sacred_if_ambiguous",
+      "authorized_now": false,
+      "requires": "execution_charter_after_phase1",
+      "factors": {
+        "representation": [
+          "R1_frozen",
+          "Rx_placeholder_requires_separate_prereg"
+        ],
+        "selection_audit_mode": [
+          "baseline_live",
+          "audit_only_offline"
+        ],
+        "budget": [
+          "BH48_frozen",
+          "BHexplore_only_if_phase1_starvation"
+        ]
+      },
+      "rx_status": "REQUIRES_SEPARATE_PREREG_AFTER_PHASE1",
+      "rx_forbidden_encodings": [
+        "S",
+        "ODDSTRIDE",
+        "odd-double",
+        "CAT-self plant GT",
+        "ROL1",
+        "plant secrets"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "plants": "fresh_stage3_ids_not_S2",
+      "positive_control": "BH-R1_U_or_equivalent"
+    }
+  ],
+  "hypotheses": [
+    "H1",
+    "H2",
+    "H3",
+    "H4",
+    "H5",
+    "H6"
+  ],
+  "first_recommended_phase": "phase1",
+  "final_decision_gate": "STOP \u2014 Stage-3 implementation requires a separate explicit EXECUTION charter."
+}
