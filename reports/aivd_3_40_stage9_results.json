@@ -7639,5 +7639,37 @@
   "strongest_supported_conclusion": "H9a SUPPORTED: autonomous S-direction progress is NOT_OBSERVED at INVENTION across all 28 Stage-8 cells; invent pathway OBSERVED for non-S atoms; H9D AGAINST scoped (D=0).",
   "weakest_unresolved_conclusion": "H9e INCONCLUSIVE (selection reason NOT_RECORDED despite fate E dominance for non-S survivors); H9a subtype never-proposed vs planning-skipped unresolved (invent-reject ledger NOT_RECORDED); H9h only WEAKLY SUPPORTED as terminal envelope.",
   "next_information_requirement": "Instrument and record (under a SEPARATE future design authorization \u2014 not Stage-9): (1) per-invent proposal/reject ledger including whether odd-stride S-ATOM keys were proposed and why skipped by planning; (2) rank/score/select ledger for pool survivors. Do not execute that instrumentation or any new Sacred plant under Stage-9.",
-  "final_gate": "STAGE-9 EXECUTION COMPLETE: NEW INTERVENTION REQUIRES SEPARATE AUTHORIZATION"
+  "final_gate": "STAGE-9 EXECUTION COMPLETE: NEW INTERVENTION REQUIRES SEPARATE AUTHORIZATION",
+  "execution_commit": "56dbc81f2712b610c852e03d87cd02eb706c2da1",
+  "execution_commit_short": "56dbc81",
+  "parent_relay": {
+    "A_execution_commit": "56dbc81f2712b610c852e03d87cd02eb706c2da1",
+    "B_design_commit": "97f3804144ad7746dee23d496313d1e2874637aa",
+    "C_integrity": "PASS \u2014 Stage-8 aggregates+28 runs match a447649",
+    "D_all_28_cells_analyzed": true,
+    "E_per_seed_trajectory": "INVENTION stop; S-ATOM/S-CAT/S-DIAG NOT_OBSERVED; identical 7/7",
+    "F_cross_seed": "Matrix-wide invariants; no seed exceptions; ledger-only repair diffs",
+    "G_fate_distribution": "Per condition E:14 H:28; D:0; no A/B/C/F/G/I",
+    "H_D0_verification": true,
+    "I_earliest_disappearance": "INVENTION (SUPPORTED)",
+    "J_repair_induced_divergence": "NO OBSERVED REPAIR-INDUCED TRAJECTORY DIVERGENCE",
+    "K_H9a_to_H9i": {
+      "H9a": "SUPPORTED",
+      "H9b": "AGAINST",
+      "H9c": "AGAINST",
+      "H9d": "AGAINST",
+      "H9D": "AGAINST (scoped)",
+      "H9e": "INCONCLUSIVE",
+      "H9f": "AGAINST",
+      "H9g": "AGAINST",
+      "H9h": "WEAKLY SUPPORTED",
+      "H9i": "WEAKLY SUPPORTED"
+    },
+    "L_H9_REJECT": "not_supported",
+    "M_controlled_vs_autonomous": "No causal connection supported; H5b preserved; H9D AGAINST scoped",
+    "N_missing_data": "Invent-reject ledger + rank/score/select ledger NOT_RECORDED",
+    "O_strongest": "H9a SUPPORTED + H9D AGAINST scoped + null repair S-divergence",
+    "P_weakest": "H9e INCONCLUSIVE; H9a invent-subtype; H9h envelope-only",
+    "Q_next_info_requirement": "Instrument and record (under a SEPARATE future design authorization \u2014 not Stage-9): (1) per-invent proposal/reject ledger including whether odd-stride S-ATOM keys were proposed and why skipped by planning; (2) rank/score/select ledger for pool survivors. Do not execute that instrumentation or any new Sacred plant under Stage-9."
+  }
 }

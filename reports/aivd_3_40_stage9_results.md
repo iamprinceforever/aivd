@@ -2,6 +2,7 @@
 
 **Document type:** Stage-9 EXECUTION RESULTS (OFFLINE TRAJECTORY AUDIT ONLY)  
 **Recorded:** 2026-09-21 21:35:57 IST  
+**Execution tip:** `56dbc81` / `56dbc81f2712b610c852e03d87cd02eb706c2da1`  
 **Design tip (frozen):** `97f3804` / `97f3804144ad7746dee23d496313d1e2874637aa`  
 **Stage-8 COMPLETE tip (immutable evidence):** `a447649` / `a447649cd2b9cc09860106ce3645d8712d51f239`  
 **Authorization:** `STAGE-9 EXECUTION AUTHORIZATION — OFFLINE TRAJECTORY AUDIT ONLY`  
@@ -362,7 +363,7 @@ Instrument and record (under a SEPARATE future design authorization — not Stag
 
 | ID | Content |
 |----|---------|
-| A execution commit | *(filled at commit time — see git tip after push)* |
+| A execution commit | `56dbc81f2712b610c852e03d87cd02eb706c2da1` (`56dbc81`) |
 | B design commit | `97f3804144ad7746dee23d496313d1e2874637aa` (`97f3804`) |
 | C integrity | PASS — Stage-8 aggregates+28 runs match `a447649` |
 | D 28 cells | YES — all analyzed |
