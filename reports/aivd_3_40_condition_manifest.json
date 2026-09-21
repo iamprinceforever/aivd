@@ -1,0 +1,336 @@
+{
+  "document": "aivd_3_40_condition_manifest",
+  "sacred_tinyllama_matrix_executed": false,
+  "B32": 32,
+  "BH": 48,
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "plants": {
+    "S": "AIVD340-LLAMA-ODDSTRIDE",
+    "U": "AIVD340-LLAMA-ROL1",
+    "canary": "AIVD340-LLAMA-CANARY"
+  },
+  "factorial_cell_ids": [
+    "B32-R0",
+    "B32-R1",
+    "BH-R0",
+    "BH-R1"
+  ],
+  "control_ids": [
+    "NORMAL-R0",
+    "NORMAL-R1",
+    "NO-FIREWALL",
+    "NO-LANGUAGE-GROWTH",
+    "NO-OPEN-SELECTION",
+    "LEAKAGE-CANARY",
+    "BEHAVIORAL-EQUIVALENCE",
+    "TEXTUAL-DIFFERENCE"
+  ],
+  "factorial": [
+    {
+      "condition_id": "B32-R0",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": null,
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "B32-R1",
+      "budget_level": "B32",
+      "representation": "R1",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39_r1",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": null,
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "BH-R0",
+      "budget_level": "BH",
+      "representation": "R0",
+      "episode_budget": 48,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": null,
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "BH-R1",
+      "budget_level": "BH",
+      "representation": "R1",
+      "episode_budget": 48,
+      "invention_mode": "full_3_39_r1",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": null,
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    }
+  ],
+  "controls": [
+    {
+      "condition_id": "NORMAL-R0",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "NORMAL-R0",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "NORMAL-R1",
+      "budget_level": "B32",
+      "representation": "R1",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39_r1",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "NORMAL-R1",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "NO-FIREWALL",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39_nofirewall",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "NO-FIREWALL",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "NO-LANGUAGE-GROWTH",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39_nogrow",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "NO-LANGUAGE-GROWTH",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "NO-OPEN-SELECTION",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39_noopen",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "NO-OPEN-SELECTION",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "LEAKAGE-CANARY",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-CANARY"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "LEAKAGE-CANARY",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "BEHAVIORAL-EQUIVALENCE",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "BEHAVIORAL-EQUIVALENCE",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    },
+    {
+      "condition_id": "TEXTUAL-DIFFERENCE",
+      "budget_level": "B32",
+      "representation": "R0",
+      "episode_budget": 32,
+      "invention_mode": "full_3_39",
+      "plant_ids": [
+        "AIVD340-LLAMA-ODDSTRIDE",
+        "AIVD340-LLAMA-ROL1"
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        7,
+        11
+      ],
+      "control": "TEXTUAL-DIFFERENCE",
+      "allow_sacred": false,
+      "notes": "Step1+ framework; Sacred TinyLlama matrix not authorized",
+      "meta": {}
+    }
+  ],
+  "runner_invariant": "one ExperimentCondition per episode; mix raises ConditionMixError",
+  "absolute": {
+    "propose_atoms_immutable": true,
+    "no_force_firewall": true,
+    "no_lower_floor": true,
+    "no_sacred_run_step1plus": true
+  }
+}
