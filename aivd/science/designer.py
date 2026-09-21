@@ -21,6 +21,7 @@ from aivd.science.ext_synth import ExtensionSynthesizer
 from aivd.science.atom_synth import AtomSynthesizer
 from aivd.science.language import ExperimentLanguage
 from aivd.science.grow import propose_growth, pick_compose_pair, pick_generation_action, REDISCOVERY_FLOOR, MAX_RUNTIME_GENERATIONS
+from aivd.science.representation import propose_growth_candidates
 from aivd.science.generation_record import build_record, assign_discovery_origin, CandidateOrigin
 from aivd.science.atom import make_fn
 from aivd.science.escalate import (
@@ -107,6 +108,8 @@ class ScienceDesigner:
         self.allow_open = ("3_38" in self.mode or "3_39" in self.mode) and "noopen" not in self.mode
         self.allow_anycat = ("3_38" in self.mode or "3_39" in self.mode) and "noanycat" not in self.mode
         self.allow_gen_record = "3_39" in self.mode and "norecord" not in self.mode
+        # AIVD 3.40 representation policy (default R0 = sacred-identical path)
+        self.representation = "R1" if "_r1" in self.mode else "R0"
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
@@ -119,6 +122,7 @@ class ScienceDesigner:
         self.atom_synth = AtomSynthesizer(
             filter_novelty=self.allow_atom_novelty,
             require_question=self.allow_atom_question,
+            representation=self.representation,
         )
         self.language = ExperimentLanguage()
         self.firewall_vault: dict | None = None
@@ -1242,7 +1246,7 @@ class ScienceDesigner:
                 })
             return
         ident = self.identity_prompt or self.seed_prompt
-        cands = propose_growth(self.language, identity=ident, leftover=leftover)
+        cands = propose_growth_candidates(self.language, identity=ident, leftover=leftover, policy=getattr(self, "representation", "R0"))
         if not cands:
             return
         self._register_growth(cands[0])
@@ -1274,8 +1278,9 @@ class ScienceDesigner:
         ident = self.identity_prompt or self.seed_prompt
         cands = []
         if self.allow_grow and self.allow_langext:
-            cands = propose_growth(
+            cands = propose_growth_candidates(
                 self.language, identity=ident, leftover=leftover, any_class=self.allow_anycat,
+                policy=getattr(self, "representation", "R0"),
             )
         pair = pick_compose_pair(self.language) if self.allow_compose else None
         action = pick_generation_action(

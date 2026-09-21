@@ -108,12 +108,14 @@ class AtomSynthesizer:
         *,
         filter_novelty: bool = True,
         require_question: bool = True,
+        representation: str = "R0",
     ) -> None:
         self.board = AtomInventory()
         self.op_of: dict[str, InventedAtom] = {}
         self.family_id = "synth.atom"
         self.filter_novelty = bool(filter_novelty)
         self.require_question = bool(require_question)
+        self.representation = str(representation or "R0")
 
     def plan(
         self,
@@ -133,7 +135,10 @@ class AtomSynthesizer:
         if self.board.remaining or self.board.materialized:
             return list(self.board.remaining)
         self.board.language_hypotheses += 1
-        raw = propose_atoms(prompt=prompt, question=True)
+        from aivd.science.representation import propose_atom_candidates
+        raw = propose_atom_candidates(
+            prompt=prompt, question=True, policy=self.representation,
+        )
         n = len(split_prompt(prompt))
         kept: list[InventedAtom] = []
         known_keys = set(self.board.seen)
