@@ -1,0 +1,11 @@
+{
+  "n": 7,
+  "verified": 7,
+  "firewall": 7,
+  "independent_strict": 7,
+  "expect": "F7/I7/V7",
+  "pass": true,
+  "label": "OBSERVED",
+  "historical_reference": "Stage-2 BH-R1\u00d7U F7/I7/V7 on S2-U plant",
+  "note": "Phase-2 uses fresh P2-U plant; same behavioral family"
+}
