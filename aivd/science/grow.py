@@ -122,11 +122,13 @@ def propose_growth(
     identity: str,
     leftover: int,
     any_class: bool = False,
+    max_cands: int | None = None,
 ) -> list[InventedAtom]:
     """At most a few programs. Original promoted order is the tie-break.
 
     Project CAT-self stays first so 3.36 cands[0] is unchanged. any_class
     appends CAT-self of other shortening classes; 3.38 picks among them.
+    max_cands: optional cap (default 4 if any_class else 2). R1b may pass 6.
     """
     if leftover < 3:
         return []
@@ -206,9 +208,11 @@ def propose_growth(
             cls="char_index_glue",
             idx=int(getattr(atom, "proposal_index", 0) or 0),
         )
-        if len(out) >= 2 and not any_class:
+        cap = int(max_cands) if max_cands is not None else (4 if any_class else 2)
+        if len(out) >= (2 if not any_class else cap) and not any_class:
             break
 
+    cap = int(max_cands) if max_cands is not None else (4 if any_class else 2)
     if any_class:
         for i, atom in enumerate(promoted):
             if atom.semantic_class == "char_project":
@@ -229,10 +233,10 @@ def propose_growth(
                 cls=atom.semantic_class or semantic_class_of(body),
                 idx=i,
             )
-            if len(out) >= 4:
+            if len(out) >= cap:
                 break
 
-    return out[: 4 if any_class else 2]
+    return out[:cap]
 
 
 def pick_generation_action(

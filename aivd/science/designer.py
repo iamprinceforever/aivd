@@ -109,7 +109,13 @@ class ScienceDesigner:
         self.allow_anycat = ("3_38" in self.mode or "3_39" in self.mode) and "noanycat" not in self.mode
         self.allow_gen_record = "3_39" in self.mode and "norecord" not in self.mode
         # AIVD 3.40 representation policy (default R0 = sacred-identical path)
-        self.representation = "R1" if "_r1" in self.mode else "R0"
+        # Check _r1b BEFORE _r1 (substring).
+        if "_r1b" in self.mode:
+            self.representation = "R1b"
+        elif "_r1" in self.mode:
+            self.representation = "R1"
+        else:
+            self.representation = "R0"
         self.remaining_steps = 32
         self.wave2_compiled = False
         self.families = FamilyInventory()
