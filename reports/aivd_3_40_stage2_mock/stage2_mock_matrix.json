@@ -1,7 +1,7 @@
 {
   "document": "aivd_3_40_stage2_mock",
   "sacred_tinyllama_executed": false,
-  "elapsed_s": 0.34,
+  "elapsed_s": 0.361,
   "stage1_controls_all_pass": true,
   "stage2": {
     "seeds": [
