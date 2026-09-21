@@ -105,7 +105,7 @@ def run_stage2_mock_report(out_dir: Path | None = None) -> dict[str, Any]:
             ident["r1b_has_geo_s0"]
             and ident["r1b_has_geo_s1"]
             and ident["r1b_has_geo_order"]
-            and ident["r1b_n"] <= 8
+            and ident["r1b_n"] <= 3
         ),
     }
     summary_rows = []

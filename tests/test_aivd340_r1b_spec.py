@@ -43,7 +43,7 @@ def test_r0_r1_unchanged():
 
 def test_r1b_geo_classes_and_basis():
     r1b = propose_atom_candidates(prompt=PROMPT, question=True, policy=R1B)
-    assert len(r1b) <= 8
+    assert len(r1b) <= 3
     classes = {a.semantic_class for a in r1b}
     assert "geo_stride_s0_t2" in classes
     assert "geo_stride_s1_t2" in classes

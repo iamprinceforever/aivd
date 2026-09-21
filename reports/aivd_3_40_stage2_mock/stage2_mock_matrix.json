@@ -1,7 +1,7 @@
 {
   "document": "aivd_3_40_stage2_mock",
   "sacred_tinyllama_executed": false,
-  "elapsed_s": 0.357,
+  "elapsed_s": 0.34,
   "stage1_controls_all_pass": true,
   "stage2": {
     "seeds": [
@@ -17,7 +17,7 @@
     "representation_identity": {
       "r0_equals_frozen": true,
       "r1_n": 11,
-      "r1b_n": 7,
+      "r1b_n": 3,
       "r1b_has_geo_s0": true,
       "r1b_has_geo_s1": true,
       "r1b_has_geo_order": true,
@@ -25,11 +25,7 @@
       "r1b_keys": [
         "MAPT(SLICE:0,2(TOK))",
         "MAPT(SLICE:1,2(TOK))",
-        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
-        "MAPT(CAT(TOK|AT:-1))",
-        "MAPT(AT:-1)",
-        "MAPT(AT:0)",
-        "MAPT(CAT(AT:-1|TOK))"
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
       ],
       "r1_keys_head": [
         "MAPT(SLICE:0,2(TOK))",
@@ -45,11 +41,11 @@
       "episode_budget": 48,
       "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
       "verified": false,
-      "firewall_epoch": 0,
-      "firewalled": false,
+      "firewall_epoch": 1,
+      "firewalled": true,
       "provenance_leak": false,
-      "n_records": 4,
-      "n_independent": 0,
+      "n_records": 9,
+      "n_independent": 6,
       "independence_verdicts": [
         {
           "exists": true,
@@ -83,13 +79,51 @@
         },
         {
           "exists": true,
-          "independently_discovered": false,
-          "origin": "invented_atom",
-          "generation_epoch": 0,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
+          "reasons": []
+        },
+        {
+          "exists": true,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
           "reasons": [
-            "origin_not_independent:invented_atom",
-            "independent_claim_without_firewall_epoch"
+            "textual_identity_to_hidden_noted"
           ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
+          "reasons": [
+            "textual_identity_to_hidden_noted"
+          ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
+          "reasons": [
+            "textual_identity_to_hidden_noted"
+          ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
+          "reasons": []
+        },
+        {
+          "exists": true,
+          "independently_discovered": true,
+          "origin": "independent_rediscovery",
+          "generation_epoch": 1,
+          "reasons": []
         }
       ],
       "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
@@ -117,7 +151,7 @@
       "condition": "BH-R1b",
       "target": "S",
       "seeds": 3,
-      "firewall": 0,
+      "firewall": 3,
       "verified": 0
     },
     {

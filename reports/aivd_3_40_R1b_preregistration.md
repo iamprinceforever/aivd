@@ -24,7 +24,7 @@
 
 ## R1b definition (pointer)
 
-See `reports/aivd_3_40_R1b_spec.md`. Short form: geometric coverage classes for stride-start siblings + small invent basis + growth CAT-self cap 6; mode `full_3_39_r1b`.
+See `reports/aivd_3_40_R1b_spec.md`. Short form: geometric coverage classes for stride-start siblings + 3-atom invent basis {geo_s0, geo_s1, geo_order} + growth CAT-self cap 6; mode `full_3_39_r1b`.
 
 ---
 

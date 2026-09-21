@@ -13,7 +13,7 @@
 {
   "r0_equals_frozen": true,
   "r1_n": 11,
-  "r1b_n": 7,
+  "r1b_n": 3,
   "r1b_has_geo_s0": true,
   "r1b_has_geo_s1": true,
   "r1b_has_geo_order": true,
@@ -21,11 +21,7 @@
   "r1b_keys": [
     "MAPT(SLICE:0,2(TOK))",
     "MAPT(SLICE:1,2(TOK))",
-    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
-    "MAPT(CAT(TOK|AT:-1))",
-    "MAPT(AT:-1)",
-    "MAPT(AT:0)",
-    "MAPT(CAT(AT:-1|TOK))"
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
   ],
   "r1_keys_head": [
     "MAPT(SLICE:0,2(TOK))",
@@ -42,7 +38,7 @@
 |-----------|--------|-------|------------|----------|
 | BH-R1 | S | 3 | 3 | 0 |
 | BH-R1 | U | 3 | 3 | 3 |
-| BH-R1b | S | 3 | 0 | 0 |
+| BH-R1b | S | 3 | 3 | 0 |
 | BH-R1b | U | 3 | 0 | 3 |
 
 STOP before Sacred Stage-2 until env gate + A–E green.

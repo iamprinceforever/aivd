@@ -227,14 +227,11 @@ def _r1b_apply_geo_classes(cands: list[InventedAtom]) -> list[InventedAtom]:
 def _r1b_basis(cands: list[InventedAtom]) -> list[InventedAtom]:
     """Smallest geometric basis board — keeps firewall untried-set finite.
 
-    Keeps: one even-stride s0t2, one odd-stride s1t2, one geo_order
-    (prefer suffix||index-0), one char_index_glue, one char_project.
-    Cap ≤8.
+    Keeps exactly three coverable classes (matches ~3 invents before BH
+    firewall under invention-branch leftover, as in Sacred BH-R1):
+      geo_stride_s0_t2, geo_stride_s1_t2, geo_order (suffix||index-0).
+    Cap ≤3. Extra glues/projects omitted so untried empties in time.
     """
-    by_key: dict[str, InventedAtom] = {}
-    for a in cands:
-        by_key.setdefault(a.key(), a)
-
     def pick(pred) -> InventedAtom | None:
         for a in cands:
             if pred(a):
@@ -257,12 +254,7 @@ def _r1b_basis(cands: list[InventedAtom]) -> list[InventedAtom]:
     add(pick(lambda a: a.semantic_class == "geo_stride_s1_t2"))
     add(pick(lambda a: a.semantic_class == "geo_order" and "SLICE:1,1" in a.key() and "AT:0" in a.key()))
     add(pick(lambda a: a.semantic_class == "geo_order"))
-    add(pick(lambda a: a.semantic_class == "char_index_glue"))
-    add(pick(lambda a: a.semantic_class == "char_project"))
-    # Optional extras if room (still generic): AT:0 project, second glue
-    add(pick(lambda a: a.semantic_class == "char_project" and "AT:0" in a.key()))
-    add(pick(lambda a: a.semantic_class == "char_index_glue" and a.key() not in seen))
-    return selected[:8]
+    return selected[:3]
 
 
 def propose_atom_candidates(

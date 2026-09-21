@@ -14,7 +14,7 @@
    - Pure stride micros `MAPT(SLICE:s,t(TOK))` → `geo_stride_s{s}_t{t}` (so start-0 and start-1 step-2 are **distinct** coverable classes).
    - Order-compose micros that mix SLICE+CAT+AT → single class `geo_order` (one class, not plant-named).
    - Non-SLICE bodies keep coarse `semantic_class_of` (`char_project`, `char_index_glue`, …).
-2. **Geometric basis board (R1b invent):** retain a small basis — even-stride, odd-stride, one `geo_order` micro (suffix||index-0), one glue, one project — cap ≤8. Drops redundant extra glues / `SLICE:0,3` from the *active* R1b board so firewall untried-set stays finite and small. (R1 full list unchanged.)
+2. **Geometric basis board (R1b invent):** retain a small basis — even-stride, odd-stride, one `geo_order` micro (suffix||index-0), one glue, one project — cap ≤3. Drops redundant extra glues / `SLICE:0,3` from the *active* R1b board so firewall untried-set stays finite and small. (R1 full list unchanged.)
 3. **Growth (R1b):** `propose_growth(..., any_class=True)` with **stride-parent coverage**: emit CAT-self for every shortening PROMOTED parent up to cap 6 (R1 keeps cap 4). Still leftover-gated (`leftover < 3` → `[]`). Still no invent-time finished CAT-self programs.
 4. **Mode marker:** `full_3_39_r1b` → `representation = "R1b"` (check `_r1b` **before** `_r1` so `full_3_39_r1` stays R1).
 

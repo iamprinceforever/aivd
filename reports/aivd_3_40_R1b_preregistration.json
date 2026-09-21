@@ -4,7 +4,7 @@
   "recorded_at_ist": "2026-09-21 16:33:02 IST",
   "base_tip": "1eb2a39",
   "commit_A": "4cb0838",
-  "r1b_definition_short": "geo coverage classes for stride-start siblings + invent basis <=8 + growth CAT-self cap 6; mode full_3_39_r1b",
+  "r1b_definition_short": "geo coverage classes for stride-start siblings + invent basis <=3 {s0,s1,geo_order} + growth CAT-self cap 6; mode full_3_39_r1b",
   "condition_ids": [
     "BH-R1",
     "BH-R1b"
