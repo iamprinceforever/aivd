@@ -35,7 +35,7 @@
 ### Mode A × S
 
 - n=7 verified=0
-- Mechanism aggregate: `{"1": 7, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0}` → **H2 SUPPORTED**
+- Mechanism aggregate: `{"1": 7, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0}` → **H1_CONTINUITY_ODD_ABSENT** (H1 invent continuity under R1; not H2 localization)
 - Claim namespace: `AUTONOMOUS` (autonomous invent credit allowed for invent path)
 - Odd-stride in produced generation_records: absent in 7/7 (H1 continuity expectation under R1) — label OBSERVED
 

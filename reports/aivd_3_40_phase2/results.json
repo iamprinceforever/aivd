@@ -198,7 +198,7 @@
           "growth_snapshot_count": 11
         }
       ],
-      "cell_conclusion": "H2 SUPPORTED",
+      "cell_conclusion": "H1_CONTINUITY_ODD_ABSENT",
       "claim_namespace": "AUTONOMOUS",
       "autonomous_discovery_credit": true
     },
