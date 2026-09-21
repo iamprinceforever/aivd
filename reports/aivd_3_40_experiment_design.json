@@ -1,0 +1,81 @@
+{
+  "document": "aivd_3_40_experiment_design",
+  "status": "PREREGISTERED_STEP_1_PLUS",
+  "sacred_tinyllama_matrix_executed": false,
+  "recorded_at_ist": "2026-09-21 15:52:28 IST",
+  "branch": "research/aivd-3.40-budget-representation-frontier",
+  "preflight_sha": "35363d6e51c891ea5c330ee45f69b5e72657e40a",
+  "research_questions": ["Q1_budget_leftover_wall", "Q2_representation_gap", "Q3_joint_sufficiency_necessity"],
+  "hypotheses": ["H1_B32_R0_replicate_stop", "H2_BH_R0_firewall_reachable", "H3_B32_R1_representation_contrast", "H4_BH_R1_joint_enablement", "H5_independence_fail_closed"],
+  "ivs": {
+    "B": ["B32", "BH"],
+    "R": ["R0", "R1"]
+  },
+  "factorial_cells": ["B32-R0", "B32-R1", "BH-R0", "BH-R1"],
+  "controls": [
+    "NORMAL-R0",
+    "NORMAL-R1",
+    "NO-FIREWALL",
+    "NO-LANGUAGE-GROWTH",
+    "NO-OPEN-SELECTION",
+    "LEAKAGE-CANARY",
+    "BEHAVIORAL-EQUIVALENCE",
+    "TEXTUAL-DIFFERENCE"
+  ],
+  "seeds": [0, 1, 2, 3, 4, 7, 11],
+  "mock_seeds_subset": [0, 1, 2],
+  "plants": {
+    "S": "AIVD340-LLAMA-ODDSTRIDE",
+    "U": "AIVD340-LLAMA-ROL1",
+    "canary": "AIVD340-LLAMA-CANARY"
+  },
+  "model": {
+    "id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "decode": "greedy_fp16_cpu",
+    "env_pin_config": "configs/aivd339_tinyllama_environment.json",
+    "sacred_run_this_stage": false
+  },
+  "budget_policy": {
+    "B32": 32,
+    "BH": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "leftover_lt_3_skips": ["invent", "grow", "compose"],
+    "INVENT_CAP": 48,
+    "bh_justification": {
+      "sacred_339_leftover_at_firewall": 3,
+      "floor": 5,
+      "minimum_delta_probes": 2,
+      "chosen_BH": 48,
+      "expected_leftover_at_firewall_approx": 19,
+      "rationale": [
+        "clear leftover wall without lowering REDISCOVERY_FLOOR",
+        "no force-firewall",
+        "margin for post-firewall rediscovery",
+        "moderate compute vs 64",
+        "does not rewrite Absolute B32 sacred records"
+      ],
+      "written_before_sacred_run": true
+    }
+  },
+  "representation_policy": {
+    "R0": "frozen propose_atoms 8-set + current growth priors",
+    "R1": "smallest generic target-independent parity/position/stride/order augmentation; no plant GT injection"
+  },
+  "success_criteria": {
+    "firewall_epoch_ge": 1,
+    "independently_discovered": true,
+    "provenance_leak": false,
+    "leakage_canary": "PASS",
+    "all_independence_bits_required": true
+  },
+  "absolute_constraints": {
+    "propose_atoms_immutable": true,
+    "no_force_firewall": true,
+    "no_lower_rediscovery_floor": true,
+    "no_raise_absolute_sacred_B32_semantics": true,
+    "no_odd_double_rotate_target_injection": true,
+    "no_evaluator_imports_into_discovery": true,
+    "sacred_338_339_untouched": true,
+    "no_sacred_tinyllama_340_this_stage": true
+  }
+}
