@@ -1,8 +1,8 @@
 # AIVD 3.40 Phase-2 Results — H2/H3 Mechanism Localization
 
-**Recorded:** 2026-09-21 17:50:42 IST
+**Recorded:** 2026-09-21 17:51:30 IST
 **Design tip (frozen):** `7be4124`
-**Execution HEAD:** `66b5a979542e0e5255ad4cae22f7d588f5bd658c`
+**Execution HEAD:** `d1e31b51d9048790b8bd459ba55d353a381d3f13`
 **Status:** `PHASE-2 COMPLETE: NEW EXPERIMENT NOT YET AUTHORIZED`
 
 ## Manifest
@@ -49,12 +49,12 @@
 - Outcome counts 1–6: `{"1": 7, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0}`
 - Cell conclusion: **H2 SUPPORTED**
   - seed 0: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
+  - seed 11: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
   - seed 1: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
   - seed 2: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
   - seed 3: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
   - seed 4: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
   - seed 7: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
-  - seed 11: outcome=1 reading=H2/earlier growth present=False ranks=[] selected=False — relevant candidate absent from growth pools (looking for MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK))))
 
 ### Mode B × U (null-injection control)
 
@@ -95,22 +95,6 @@ Compare Stage-2 BH-R1 S, BH-R1b S, Phase-2 Mode-A S/U, Mode-B S **without** trea
 - Episodes written under `reports/aivd_3_40_phase2/runs/`.
 - Labels used: OBSERVED | CONTROLLED | COUNTERFACTUAL | UNKNOWN as applicable.
 - No COUNTERFACTUAL claims in primary conclusion.
-
-
-## Mode B pool/score/rank/select evidence (detail)
-
-Label: **CONTROLLED** (availability) + **OBSERVED** (pool/rank/select).
-
-- Injection: `MAPT(SLICE:1,2(TOK))` with `origin=controlled_availability_mode_b`, language PROMOTED, **invent_cap untouched**.
-- Growth pre_selection pools (Mode B×S, all seeds): even CAT-self / `MAPT(CAT(AT:-1|AT:-1))` / compose pairs appear; **`MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))` absent from all pools**.
-- Selection: selector chose among non-odd growth/compose candidates; odd CAT-self never selected because never pooled.
-- Verify: N/A for odd CAT-self (never selected).
-- Outcome classification: **1 absent from pool → H2** on 7/7 Mode B×S seeds.
-- Final conclusion: **H2 SUPPORTED** (Mode B primary). Not H3 (would require present+low-rank).
-
-## R1b optional continuity
-
-`P2-R1b-SACRED-AS-EXECUTED` **not executed**. Mode A vs Mode B already distinguish invent-absence (H1 continuity) from growth-pool-absence given availability (H2). No auto-launch.
 
 ## Conclusion
 

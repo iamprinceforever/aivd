@@ -247,6 +247,16 @@ def aggregate_outcomes(episodes: list[dict[str, Any]], *, mode: str, role: str) 
         else:
             final = "INCONCLUSIVE"
 
+    # Mode A × S with invent-absent odd-stride is H1 continuity, not H2 localization.
+    if mode == "A" and role == "S":
+        odd_absent = sum(
+            1
+            for e in subset
+            if not (e.get("mechanism") or {}).get("odd_stride_in_produced")
+        )
+        if odd_absent == len(subset) and len(subset) > 0:
+            final = "H1_CONTINUITY_ODD_ABSENT"
+
     return {
         "mode": mode,
         "target_role": role,
