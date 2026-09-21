@@ -1,0 +1,131 @@
+{
+  "document": "aivd_3_40_stage2_mock",
+  "sacred_tinyllama_executed": false,
+  "elapsed_s": 0.357,
+  "stage1_controls_all_pass": true,
+  "stage2": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "cell_ids": [
+      "BH-R1",
+      "BH-R1b"
+    ],
+    "n_episodes": 12,
+    "representation_identity": {
+      "r0_equals_frozen": true,
+      "r1_n": 11,
+      "r1b_n": 7,
+      "r1b_has_geo_s0": true,
+      "r1b_has_geo_s1": true,
+      "r1b_has_geo_order": true,
+      "r1_no_geo_prefix": true,
+      "r1b_keys": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(AT:0)",
+        "MAPT(CAT(AT:-1|TOK))"
+      ],
+      "r1_keys_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    "r1b_smoke": {
+      "mode": "full_3_39_r1b",
+      "seed": 0,
+      "plant": "AIVD340-HX8-ODDSTRIDE",
+      "episode_budget": 48,
+      "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+      "verified": false,
+      "firewall_epoch": 0,
+      "firewalled": false,
+      "provenance_leak": false,
+      "n_records": 4,
+      "n_independent": 0,
+      "independence_verdicts": [
+        {
+          "exists": true,
+          "independently_discovered": false,
+          "origin": "invented_atom",
+          "generation_epoch": 0,
+          "reasons": [
+            "origin_not_independent:invented_atom",
+            "independent_claim_without_firewall_epoch"
+          ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": false,
+          "origin": "invented_atom",
+          "generation_epoch": 0,
+          "reasons": [
+            "origin_not_independent:invented_atom",
+            "independent_claim_without_firewall_epoch"
+          ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": false,
+          "origin": "invented_atom",
+          "generation_epoch": 0,
+          "reasons": [
+            "origin_not_independent:invented_atom",
+            "independent_claim_without_firewall_epoch"
+          ]
+        },
+        {
+          "exists": true,
+          "independently_discovered": false,
+          "origin": "invented_atom",
+          "generation_epoch": 0,
+          "reasons": [
+            "origin_not_independent:invented_atom",
+            "independent_claim_without_firewall_epoch"
+          ]
+        }
+      ],
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "stop_reason": "BUDGET_EXHAUSTED"
+    }
+  },
+  "r1_unchanged": true,
+  "r1b_per_spec": true,
+  "summary_table": [
+    {
+      "condition": "BH-R1",
+      "target": "S",
+      "seeds": 3,
+      "firewall": 3,
+      "verified": 0
+    },
+    {
+      "condition": "BH-R1",
+      "target": "U",
+      "seeds": 3,
+      "firewall": 3,
+      "verified": 3
+    },
+    {
+      "condition": "BH-R1b",
+      "target": "S",
+      "seeds": 3,
+      "firewall": 0,
+      "verified": 0
+    },
+    {
+      "condition": "BH-R1b",
+      "target": "U",
+      "seeds": 3,
+      "firewall": 0,
+      "verified": 3
+    }
+  ]
+}
