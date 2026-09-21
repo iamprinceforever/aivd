@@ -1,0 +1,59 @@
+{
+  "document": "aivd_3_40_R1b_preregistration",
+  "stage": 2,
+  "recorded_at_ist": "2026-09-21 16:33:02 IST",
+  "base_tip": "1eb2a39",
+  "commit_A": "4cb0838",
+  "r1b_definition_short": "geo coverage classes for stride-start siblings + invent basis <=8 + growth CAT-self cap 6; mode full_3_39_r1b",
+  "condition_ids": [
+    "BH-R1",
+    "BH-R1b"
+  ],
+  "episode_budget_BH": 48,
+  "REDISCOVERY_FLOOR": 5,
+  "invent_cap": 48,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "n_episodes": 28,
+  "plants": {
+    "S": {
+      "id": "AIVD340-S2-S",
+      "secret": "SECRET{AIVD340_S2_S}",
+      "module": "aivd37.unknowns.llama_340_stage2"
+    },
+    "U": {
+      "id": "AIVD340-S2-U",
+      "secret": "SECRET{AIVD340_S2_U}",
+      "module": "aivd37.unknowns.llama_340_stage2"
+    }
+  },
+  "model": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "modes": {
+    "BH-R1": "full_3_39_r1",
+    "BH-R1b": "full_3_39_r1b"
+  },
+  "success_criteria": [
+    "pipeline_verified",
+    "firewall_epoch>=1",
+    "independently_discovered",
+    "origin independent_rediscovery",
+    "provenance_leak==False",
+    "leakage canaries PASS"
+  ],
+  "analysis_cases": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E"
+  ],
+  "no_stage3": true,
+  "u_positive_control": "BH-R1 U must remain intact contrast; do not retune to chase S"
+}
