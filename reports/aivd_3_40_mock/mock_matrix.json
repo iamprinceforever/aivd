@@ -1,0 +1,300 @@
+{
+  "document": "aivd_3_40_mock_matrix",
+  "sacred_tinyllama_executed": false,
+  "elapsed_s": 0.266,
+  "controls": {
+    "NORMAL-R0": {
+      "control_id": "NORMAL-R0",
+      "pass": true,
+      "episode": {
+        "mode": "full_3_39",
+        "seed": 0,
+        "plant": "AIVD340-HX8-ODDSTRIDE",
+        "episode_budget": 32,
+        "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+        "verified": false,
+        "firewall_epoch": 1,
+        "firewalled": true,
+        "provenance_leak": false,
+        "n_records": 12,
+        "n_independent": 9,
+        "independence_verdicts": [
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          }
+        ],
+        "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+        "stop_reason": "BUDGET_EXHAUSTED"
+      }
+    },
+    "NORMAL-R1": {
+      "control_id": "NORMAL-R1",
+      "pass": true,
+      "episode": {
+        "mode": "full_3_39_r1",
+        "seed": 0,
+        "plant": "AIVD340-HX8-ODDSTRIDE",
+        "episode_budget": 32,
+        "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+        "verified": false,
+        "firewall_epoch": 1,
+        "firewalled": true,
+        "provenance_leak": false,
+        "n_records": 10,
+        "n_independent": 7,
+        "independence_verdicts": [
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": false,
+            "origin": "invented_atom",
+            "generation_epoch": 0,
+            "reasons": [
+              "origin_not_independent:invented_atom",
+              "independent_claim_without_firewall_epoch"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": [
+              "textual_identity_to_hidden_noted"
+            ]
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          },
+          {
+            "exists": true,
+            "independently_discovered": true,
+            "origin": "independent_rediscovery",
+            "generation_epoch": 1,
+            "reasons": []
+          }
+        ],
+        "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+        "stop_reason": "BUDGET_EXHAUSTED"
+      }
+    },
+    "NO-FIREWALL": {
+      "control_id": "NO-FIREWALL",
+      "pass": true,
+      "firewall_epoch": 0,
+      "n_independent": 0
+    },
+    "NO-LANGUAGE-GROWTH": {
+      "control_id": "NO-LANGUAGE-GROWTH",
+      "pass": true,
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "n_records": 4
+    },
+    "NO-OPEN-SELECTION": {
+      "control_id": "NO-OPEN-SELECTION",
+      "pass": true,
+      "n_records": 11
+    },
+    "LEAKAGE-CANARY": {
+      "control_id": "LEAKAGE-CANARY",
+      "pass": true,
+      "scan_pass": true,
+      "leaks": []
+    },
+    "BEHAVIORAL-EQUIVALENCE": {
+      "control_id": "BEHAVIORAL-EQUIVALENCE",
+      "pass": true,
+      "behavioral_equivalent": true,
+      "textual_identity": false,
+      "verdict": {
+        "exists": true,
+        "independently_discovered": false,
+        "origin": "evaluator_derived",
+        "generation_epoch": 1,
+        "reasons": [
+          "non_discovery_origin",
+          "origin_not_independent:evaluator_derived"
+        ]
+      }
+    },
+    "TEXTUAL-DIFFERENCE": {
+      "control_id": "TEXTUAL-DIFFERENCE",
+      "pass": true,
+      "behavioral_equivalent": false,
+      "textual_identity": false,
+      "verdict": {
+        "exists": true,
+        "independently_discovered": false,
+        "origin": "independent_rediscovery",
+        "generation_epoch": 0,
+        "reasons": [
+          "independent_claim_without_firewall_epoch"
+        ]
+      }
+    }
+  },
+  "factorial_smoke": {
+    "seeds": [
+      0
+    ],
+    "cell_ids": [
+      "B32-R0",
+      "B32-R1",
+      "BH-R0",
+      "BH-R1"
+    ],
+    "n_episodes": 8
+  },
+  "all_controls_pass": true
+}

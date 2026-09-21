@@ -1,4 +1,4 @@
-# AIVD Research Roadmap — 3.39 Independent Generations
+# AIVD Research Roadmap — 3.39 Independent Generations → 3.40 Budget×Representation
 
 **Branch:** `research/aivd-3.39-independent-generations`  
 **Base pin:** `f86ebdf` (implementation freeze for Sacred)  
@@ -78,3 +78,44 @@ Absolute constraints for all stages: no U retune; no budget/cap raise; no `propo
 | **HYPOTHESIS** | Conservative measurement will show leftover/REDISCOVERY_FLOOR as the binding constraint for U-class plants (as in 3.38), not invent_cap. |
 | **RESULT** | Confirmed: leftover wall primary; representation gap (even program vs odd/rotate plants); invent_cap not binding; model unlikely primary. Algorithm independence path untested post-firewall, not falsified. |
 | **DECISION** | **STOP Stage 7+.** Evidence does not justify deeper gens under Absolute constraints. |
+
+---
+
+# AIVD 3.40 — Budget × Representation Frontier (Step 1+)
+
+**Branch:** `research/aivd-3.40-budget-representation-frontier`  
+**Preflight:** `35363d6`  
+**Timezone:** Asia/Kolkata (IST)
+
+Absolute constraints: 3.38/3.39 sacred IMMUTABLE; no propose_atoms rewrite; no force-firewall; no lower REDISCOVERY_FLOOR; no raise Absolute B32 sacred semantics; no evaluator imports into discovery; no Sacred TinyLlama 3.40 matrix this stage.
+
+---
+
+## Step 0 — Preflight audit
+
+| Field | Content |
+|-------|---------|
+| **RESULT** | Budget YES + representation YES (joint); invent_cap not binding; factorial design preview only |
+| **ARTIFACTS** | `reports/aivd_3_40_preflight.md` / `.json` |
+| **DECISION** | STOP before implementation (completed); parent re-chartered Step 1+ |
+
+---
+
+## Step 1+ — Experiment design + matrix framework + mocks + tests
+
+| Field | Content |
+|-------|---------|
+| **OBJECTIVE** | Preregister B×R factorial; ship condition/manifest/runner; R0/R1 abstraction; budget docs/tests; AIVD340 plants + leakage; mock matrix + controls; regression locks. **No Sacred TinyLlama matrix.** |
+| **BH** | **48** — leftover-wall justification: Sacred 3.39 leftover=3 at firewall; need ≥5 without lowering floor; BH=48 ⇒ expected leftover≈19 |
+| **R1** | Generic parity/position/stride/order augmentation via `representation.py`; R0 bit-identical to frozen propose_atoms/growth |
+| **RESULT** | Framework + mocks + unit/leakage/regression tests green; Sacred TinyLlama **NOT RUN** |
+| **ARTIFACTS** | `reports/aivd_3_40_experiment_design.{md,json}`, `condition_manifest.json`, `representation_spec.md`, `budget_semantics.md`, `leakage_audit.md`, `reports/aivd_3_40_mock/*`, `aivd/experiments/aivd340/*` |
+| **DECISION** | **STOP** before Sacred TinyLlama 3.40 factorial. Remaining blockers listed in Step 1+ closeout. |
+
+### Factorial (preregistered, not sacred-run)
+
+`B32-R0`, `B32-R1`, `BH-R0`, `BH-R1`
+
+### Controls proven offline
+
+NORMAL-R0/R1, NO-FIREWALL, NO-LANGUAGE-GROWTH, NO-OPEN-SELECTION, LEAKAGE-CANARY, BEHAVIORAL-EQUIVALENCE, TEXTUAL-DIFFERENCE
