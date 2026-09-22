@@ -1,0 +1,41 @@
+{
+  "document": "aivd_3_45_regression_repair",
+  "recorded": "2026-09-22 13:50:10 IST",
+  "branch": "research/aivd-3.45-adaptive-exploration-materialization",
+  "broken_freeze": "6671788",
+  "baseline_good": "72edfad",
+  "pre_sacred_tip": "418c97f",
+  "sacred": false,
+  "earliest_divergence_field": "n_mat",
+  "root_mechanism": "first-window/same-call n_mat=2 explore displaced sequential second-atom\u2192compose (exploitation displacement)",
+  "repaired_policy": {
+    "primary": "exploit_n rank head",
+    "secondary": "at most +1 skip-pressure explore when no untried classes remain",
+    "removed": "first_window_diversity"
+  },
+  "counterfactuals": {
+    "CF-A": "baseline productive remains primary",
+    "CF-B": "exploration secondary without displacing primary",
+    "CF-C": "exploration delayed until untried classes cleared"
+  },
+  "seven_tests": [
+    "test_ex8_even_then_last_337_vs_336",
+    "test_ex8_seed0_provenance",
+    "test_dx9_on_337_same_fire_as_ex8",
+    "test_ex10_transfer",
+    "test_ex12_independent_rediscovery_env",
+    "test_ablation_nolangext_compose_still_works",
+    "test_ex8_even_then_last_still_verified_on_338"
+  ],
+  "anti_starvation_demonstrated": true,
+  "recursive_growth_preserved": true,
+  "PRODUCTION_LOGIC_SCAN": "CLEAN",
+  "pytest": {
+    "passed": 1272,
+    "failed": 0,
+    "duration_s": 93.21,
+    "summary": "1272 passed in 93.21s"
+  },
+  "sacred_authorized": false,
+  "commit_pending": true
+}

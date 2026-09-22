@@ -929,15 +929,33 @@ class ScienceDesigner:
             except Exception:
                 pass
             return
-        # AIVD 3.45: adaptive EXPLOIT+EXPLORE width (general anti-starvation).
-        # Replaces fixed lazy n_mat=1 that permanently starved lower-ranked valids.
+        # AIVD 3.45: PRIMARY productive + SECONDARY bounded explore.
+        # Untried classes are owned by rank→PRIMARY (second-atom path). Secondary
+        # explore is withheld while any untried class remains on the board so
+        # skip-pressure cannot displace sequential invent/compose.
         _board_before = list(self.atom_synth.board.remaining)
         _board_keys_before = [a.key() for a in _board_before]
+        _promoted_cls = {
+            x.semantic_class for x in self.language.invented
+            if self.language.state_of(x.name()) == "PROMOTED"
+            and not str(x.name()).startswith("cmp_")
+            and x.semantic_class
+        }
+        _class_gate = set(_promoted_cls)
+        _class_gate.update(self.language.general_knowledge.get("rejected_classes") or [])
+        # Include lease-revoked classes already gathered for rank_atoms (same scope).
+        _class_gate.update(rejected_cls)
+        _untried = [
+            a for a in _board_before
+            if a.semantic_class and a.semantic_class not in _class_gate
+        ]
+        _productive_continuation = bool(_untried)
         _alloc = self.atom_explore.decide(
             _board_before,
             lazy=self.allow_atom_lazy,
             invent_slots_left=max(0, INVENT_CAP - self.inventor.occupancy()),
             leftover=int(leftover),
+            productive_continuation=_productive_continuation,
         )
         self.atom_synth.board.remaining = list(_alloc.ordered)
         n_mat = int(_alloc.n_mat)
@@ -955,6 +973,9 @@ class ScienceDesigner:
             "explore_n": str(_alloc.explore_n),
             "reason": _alloc.reason,
             "explore_keys": ",".join(_alloc.explore_keys),
+            "primary_keys": ",".join(getattr(_alloc, "primary_keys", []) or []),
+            "secondary_keys": ",".join(getattr(_alloc, "secondary_keys", []) or []),
+            "productive_continuation": str(bool(getattr(_alloc, "productive_continuation", False))),
             "epoch": str(_alloc.epoch),
         })
         _materialized_keys: list[str] = []

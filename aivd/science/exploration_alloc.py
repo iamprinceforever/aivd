@@ -3,6 +3,12 @@
 Bounded anti-starvation for atom materialization under lazy width.
 Candidate-identity agnostic: keys are opaque structural ids (e.g. body keys).
 Does not bypass novelty, firewall, invent_cap, equivalence, or verification.
+
+Repair (regression): separate PRIMARY productive slot from SECONDARY exploration
+slot. Exploration must not displace productive recursive continuation
+(promoted classes + untried classes still on the board). First-window
+max-diversity is intentionally NOT used — objective is exploitation safety +
+bounded exploration, not max first-window diversity.
 """
 from __future__ import annotations
 
@@ -29,7 +35,15 @@ class CandidateExploreState:
 
 @dataclass
 class AllocationDecision:
-    """Result of one EXPLOIT+EXPLORE decision. Deterministic for identical inputs."""
+    """Result of one EXPLOIT+EXPLORE decision. Deterministic for identical inputs.
+
+    Semantics:
+      - PRIMARY (exploit): ordered[:exploit_n] — productive continuation slot.
+      - SECONDARY (explore): ordered[exploit_n:n_mat] / explore_keys — bounded
+        anti-starvation only; never displaces primary; withheld while a
+        productive recursive path is active.
+    n_mat == exploit_n + explore_n; explore_n is NOT "treat top-two equally".
+    """
 
     n_mat: int
     exploit_n: int
@@ -38,6 +52,9 @@ class AllocationDecision:
     explore_keys: list[str]
     reason: str
     epoch: int
+    primary_keys: list[str] = field(default_factory=list)
+    secondary_keys: list[str] = field(default_factory=list)
+    productive_continuation: bool = False
 
 
 @dataclass
@@ -47,6 +64,11 @@ class ExplorationAllocator:
     Invariant: low rank ≠ permanent invisibility unless an explicit terminal reason
     applies (rejected / duplicate / invalid / budget exhausted / novelty exhausted /
     already explored / opportunity budget spent).
+
+    Invariant (P1/P9/P10): while a productive recursive continuation is active
+    (prior promoted classes + untried classes still among candidates), only the
+    PRIMARY slot materializes — exploration is delayed (CF-C) so it cannot
+    displace sequential second-atom / compose paths.
     """
 
     skip_threshold: int = DEFAULT_SKIP_THRESHOLD
@@ -79,16 +101,10 @@ class ExplorationAllocator:
         )
 
     def _starvation_pressure(self, st: CandidateExploreState) -> bool:
-        """True when repeatedly skipped (or never given a chance) with insufficient exploration."""
+        """True when repeatedly skipped with insufficient exploration (P2)."""
         if not self._is_under_explored(st):
             return False
         return st.skip_count >= self.skip_threshold
-
-    def _first_window_diversity(self, *, n_beyond: int, any_materialized: bool) -> bool:
-        """Bounded first-call diversity when many valid candidates sit beyond exploit cut."""
-        if any_materialized:
-            return False
-        return n_beyond > 0 and self.epoch == 0
 
     def decide(
         self,
@@ -98,13 +114,20 @@ class ExplorationAllocator:
         invent_slots_left: int,
         leftover: int,
         rejected_keys: set[str] | None = None,
+        productive_continuation: bool = False,
     ) -> AllocationDecision:
         """Compute adaptive n_mat and an ordered materialization queue.
 
-        EXPLOIT: preserve rank-driven top selection (width 1 lazy / 4 eager).
-        EXPLORE: at most max_explore_slots extra when anti-starvation fires and
-        budget/cap allow. Explore opportunity ≠ guaranteed invention (downstream
-        gates still apply).
+        PRIMARY (EXPLOIT): preserve rank-driven top selection (width 1 lazy / 4 eager).
+        SECONDARY (EXPLORE): at most max_explore_slots extra when skip-pressure
+        anti-starvation fires, budget/cap allow, AND productive_continuation is
+        False. Explore opportunity ≠ guaranteed invention (downstream gates apply).
+
+        productive_continuation: True when untried semantic classes still remain
+        among candidates. Rank→PRIMARY sequencing owns those (second-atom path);
+        secondary explore is withheld so it cannot displace that path. Explore
+        resumes only after classes are exhausted and skip-pressure anti-starvation
+        applies to demoted leftovers.
         """
         rejected_keys = rejected_keys or set()
         n = len(candidates)
@@ -118,6 +141,9 @@ class ExplorationAllocator:
                 explore_keys=[],
                 reason="empty_or_no_cap",
                 epoch=self.epoch,
+                primary_keys=[],
+                secondary_keys=[],
+                productive_continuation=bool(productive_continuation),
             )
 
         affordable = max(0, int(leftover) // max(1, self.chain_floor))
@@ -125,7 +151,7 @@ class ExplorationAllocator:
         exploit_n = min(base, affordable)
 
         keys = [self._key_of(c) for c in candidates]
-        any_mat = any(self.state_of(k).materialization_count > 0 for k in keys)
+        primary_keys = keys[:exploit_n]
         beyond = [
             (i, c, keys[i])
             for i, c in enumerate(candidates)
@@ -133,33 +159,31 @@ class ExplorationAllocator:
         ]
 
         starved: list[tuple[int, int, int, Any, str]] = []
+        # Anti-starvation only via skip pressure (no first-window max-diversity).
         for i, c, k in beyond:
             st = self.state_of(k)
             if not self._is_under_explored(st):
                 continue
-            if not (
-                self._starvation_pressure(st)
-                or self._first_window_diversity(n_beyond=len(beyond), any_materialized=any_mat)
-            ):
+            if not self._starvation_pressure(st):
                 continue
-            # Higher skip_count first; then earlier proposal_index; then board index.
             prop = int(getattr(c, "proposal_index", i) or 0)
             starved.append((st.skip_count, prop, i, c, k))
         starved.sort(key=lambda t: (-t[0], t[1], t[2]))
 
         explore_budget = max(0, affordable - exploit_n)
         want_explore = min(self.max_explore_slots, explore_budget, len(starved))
+        # CF-C / P9 / P10: withhold secondary while productive recursive path active.
+        if productive_continuation:
+            want_explore = 0
         explore_n = int(want_explore)
 
         ordered = list(candidates)
         explore_keys: list[str] = []
         if explore_n > 0 and starved:
-            # Surface up to explore_n starved candidates just after the exploit cut.
+            # Surface secondary after primary cut — not equal top-two selection.
             picks = starved[:explore_n]
-            pick_keys = {k for *_, k in picks}
             head = [c for i, c in enumerate(candidates) if i < exploit_n]
             head_keys = {self._key_of(c) for c in head}
-            # Do not pull someone already in the exploit window.
             surfaced = [c for *_, c, k in picks if k not in head_keys]
             mid_keys = {self._key_of(c) for c in surfaced}
             explore_keys = [self._key_of(c) for c in surfaced]
@@ -169,13 +193,14 @@ class ExplorationAllocator:
                 if self._key_of(c) not in head_keys and self._key_of(c) not in mid_keys
             ]
             ordered = head + surfaced + tail
-            # Record opportunities (not inventions).
             for k in explore_keys:
                 self.state_of(k).exploration_opportunities += 1
 
         n_mat = min(exploit_n + explore_n, affordable, n)
         if explore_n > 0:
             reason = "exploit_plus_bounded_explore"
+        elif productive_continuation and exploit_n > 0:
+            reason = "exploit_only_productive_continuation"
         elif exploit_n > 0:
             reason = "exploit_only"
         else:
@@ -189,6 +214,9 @@ class ExplorationAllocator:
             explore_keys=explore_keys,
             reason=reason,
             epoch=self.epoch,
+            primary_keys=list(primary_keys),
+            secondary_keys=list(explore_keys),
+            productive_continuation=bool(productive_continuation),
         )
 
     def observe_call(
@@ -221,7 +249,6 @@ class ExplorationAllocator:
         st.exploration_opportunities = max(
             st.exploration_opportunities, self.max_opportunities_per_candidate
         )
-        # Keep reason discoverable for audits without affecting selection.
         setattr(st, "terminal_reason", reason)
 
 

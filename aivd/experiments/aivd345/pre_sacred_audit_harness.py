@@ -75,12 +75,14 @@ def scenario_checks() -> list[Check]:
     out.append(Check("1", "high_ranked_exploit_preserved", "PASS" if ok else "FAIL",
                      f"ordered0={d.ordered[0].key()} exploit={d.exploit_n}"))
 
-    # 2 lower-ranked novel — first-window explore surfaces next
+    # 2 lower-ranked novel — skip-pressure explore surfaces next (no first-window blast)
     a = ExplorationAllocator()
-    d = a.decide(_board(["L0", "L1", "L2", "L3"]), lazy=True, invent_slots_left=4, leftover=12)
-    ok = d.explore_n == 1 and d.n_mat == 2 and d.ordered[1].key() == "L1"
+    d0 = a.decide(_board(["L0", "L1", "L2", "L3"]), lazy=True, invent_slots_left=4, leftover=12)
+    a.observe_call(board_keys_before=["L0", "L1", "L2", "L3"], materialized_keys=["L0"], decision=d0)
+    d = a.decide(_board(["L0b", "L1", "L2", "L3"]), lazy=True, invent_slots_left=4, leftover=12)
+    ok = d0.n_mat == 1 and d.explore_n == 1 and d.n_mat == 2 and "L1" in d.explore_keys
     out.append(Check("2", "lower_ranked_novel_bounded_explore", "PASS" if ok else "FAIL",
-                     f"n_mat={d.n_mat} explore={d.explore_keys}"))
+                     f"d0_n_mat={d0.n_mat} n_mat={d.n_mat} explore={d.explore_keys}"))
 
     # 3 permanently demoted — one opportunity then saturated
     a = ExplorationAllocator()
@@ -116,12 +118,14 @@ def scenario_checks() -> list[Check]:
     ok = d.n_mat == 0 and d.reason == "empty_or_no_cap"
     out.append(Check("6", "null_empty_board", "PASS" if ok else "FAIL", f"reason={d.reason}"))
 
-    # 7 multiple families — bounded +1
+    # 7 multiple families — after skip, bounded +1 (not first-window)
     a = ExplorationAllocator()
+    d0 = a.decide(_board([f"F{i}" for i in range(12)]), lazy=True, invent_slots_left=8, leftover=30)
+    a.observe_call(board_keys_before=[f"F{i}" for i in range(12)], materialized_keys=["F0"], decision=d0)
     d = a.decide(_board([f"F{i}" for i in range(12)]), lazy=True, invent_slots_left=8, leftover=30)
-    ok = d.explore_n == DEFAULT_MAX_EXPLORE_SLOTS and d.n_mat == 2
+    ok = d0.n_mat == 1 and d.explore_n == DEFAULT_MAX_EXPLORE_SLOTS and d.n_mat == 2
     out.append(Check("7", "multiple_families_bounded", "PASS" if ok else "FAIL",
-                     f"n_mat={d.n_mat} explore_n={d.explore_n}"))
+                     f"d0={d0.n_mat} n_mat={d.n_mat} explore_n={d.explore_n}"))
 
     # 8 budget-near-exhaustion (leftover == chain_floor → afford 1, no explore)
     a = ExplorationAllocator()
