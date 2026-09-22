@@ -1,0 +1,122 @@
+{
+  "document": "aivd_3_45_final_pre_sacred",
+  "recorded": "2026-09-22 13:55:12 IST",
+  "branch": "research/aivd-3.45-adaptive-exploration-materialization",
+  "worktree": "/workspace/aivd-340-replication",
+  "implementation": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "implementation_short": "52394b8",
+  "docs_stamp": "92321ab27af95dd7c26a23c3ed038e79c9cb7162",
+  "docs_stamp_short": "92321ab",
+  "tip_note": "92321ab (docs stamp) on 52394b8; science unchanged after impl",
+  "push_remote": "aivd",
+  "sacred": false,
+  "sacred_authorized": false,
+  "policy": {
+    "PRIMARY": "rank head; exploit_n (1 lazy / 4 eager)",
+    "SECONDARY": "<=+1 skip-pressure explore only when no untried classes remain",
+    "no_first_window_max_diversity": true,
+    "explicit_primary_secondary_keys": true
+  },
+  "adversarial_validations": [
+    {
+      "id": "\u00a71",
+      "name": "PRIMARY invariant",
+      "result": "PASS",
+      "detail": "secondary never implicit co-primary; primary_keys/secondary_keys disjoint; exploit_n=1 lazy / 4 eager under explore"
+    },
+    {
+      "id": "\u00a72",
+      "name": "Anti-starvation",
+      "result": "PASS",
+      "detail": "bounded explore (max_explore_slots=1); not every skipped candidate explores; opportunity cap; no identity predicates"
+    },
+    {
+      "id": "\u00a73",
+      "name": "Untried-class eligibility",
+      "result": "PASS",
+      "detail": "productive_continuation=True withholds explore (A+B/C and A/B+C cases); resumes when False"
+    },
+    {
+      "id": "\u00a74",
+      "name": "Starvation pressure loop",
+      "result": "PASS",
+      "detail": "PROPOSED\u2192SCORED\u2192RANKED\u2192SKIPPED builds skip pressure; bounded explore without displacing PRIMARY"
+    },
+    {
+      "id": "\u00a75",
+      "name": "Regression EX8/DX9/EX10/EX12/337/338",
+      "result": "PASS",
+      "detail": "7/7 family collected+green; full suite 1291 passed 0 failed"
+    },
+    {
+      "id": "\u00a76",
+      "name": "Controls",
+      "result": "PASS",
+      "detail": "S-like explore possible; U primary; POS2/5 later escape; POS6/7 terminal-only suppression; null/dup/invalid rejected"
+    },
+    {
+      "id": "\u00a77",
+      "name": "Candidate-independence",
+      "result": "PASS",
+      "detail": "same attributes different ids \u2192 identical decision shape"
+    },
+    {
+      "id": "\u00a78",
+      "name": "Determinism",
+      "result": "PASS",
+      "detail": "twin trajectories identical AllocationDecision snapshots"
+    },
+    {
+      "id": "\u00a79",
+      "name": "Budget / no bypass",
+      "result": "PASS",
+      "detail": "leftover//chain_floor + invent_slots_left; no invent_cap/firewall/novelty/equivalence bypass in allocator"
+    }
+  ],
+  "adversarial_module": "tests/test_aivd345_final_pre_sacred_adversarial.py",
+  "pytest": {
+    "passed": 1291,
+    "failed": 0,
+    "duration_s": 93.13,
+    "summary": "1291 passed in 93.13s",
+    "prior_repair_baseline": 1272,
+    "adversarial_added": 19
+  },
+  "ex8_family": {
+    "passed": 7,
+    "failed": 0,
+    "tests": [
+      "test_ex8_even_then_last_337_vs_336",
+      "test_ex8_seed0_provenance",
+      "test_dx9_on_337_same_fire_as_ex8",
+      "test_ex10_transfer",
+      "test_ex12_independent_rediscovery_env",
+      "test_ablation_nolangext_compose_still_works",
+      "test_ex8_even_then_last_still_verified_on_338"
+    ]
+  },
+  "PRODUCTION_LOGIC_SCAN": "CLEAN",
+  "science_changed_after_52394b8": false,
+  "acceptance": {
+    "PRIMARY": "PASS",
+    "bounded_explore": "PASS",
+    "anti_starve": "PASS",
+    "recursive_growth": "PASS",
+    "budget": "PASS",
+    "novelty_equivalence_firewall": "PASS",
+    "determinism": "PASS",
+    "candidate_independence": "PASS",
+    "S_success_required": false
+  },
+  "gate_result": "PASS",
+  "first_failure_invariant": null,
+  "parent_relay": {
+    "A_tip_verified": "92321ab docs on 52394b8; science unchanged",
+    "B_full_pytest": "1291 passed, 0 failed (93.13s)",
+    "C_adversarial": "\u00a71\u2013\u00a79 all PASS",
+    "D_PRODUCTION_LOGIC_SCAN": "CLEAN",
+    "E_result": "PASS",
+    "F_commit_push": "pending",
+    "G_sacred": "NO"
+  }
+}
