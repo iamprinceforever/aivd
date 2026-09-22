@@ -1,0 +1,993 @@
+{
+  "condition": "FIX",
+  "condition_id": "B48-R1",
+  "budget_level": "B48",
+  "representation": "R1",
+  "invention_mode": "full_3_39_r1",
+  "episode_budget": 48,
+  "plant_family": "AIVD346-FRONTIER-ODDSTRIDE",
+  "plant_id": "AIVD346-FRONTIER-ODDSTRIDE-B48-FIX-S4",
+  "seed": 4,
+  "sacred": true,
+  "implementation_commit": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "elapsed_s": 0.029,
+  "recorded_at_ist": "2026-09-22 15:09:29 IST",
+  "terminal_state": "UNRESOLVED_INVISIBLE",
+  "discovered": false,
+  "pipeline_verified": false,
+  "secret_found": false,
+  "budget_used": 48,
+  "budget_remaining": 0,
+  "firewall_epoch": 1,
+  "firewalled": true,
+  "provenance_leak": false,
+  "leftover_at_firewall_decision": 16,
+  "firewall_skipped": false,
+  "firewall_armed": true,
+  "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+  "stop_reason": "BUDGET_EXHAUSTED",
+  "occupancy": 48,
+  "invented_atom": [],
+  "invented_cmp": [],
+  "n_generation_records": 12,
+  "n_independent": 9,
+  "n_independent_rediscovery_origin": 9,
+  "independence_verdicts": [
+    {
+      "exists": true,
+      "independently_discovered": false,
+      "origin": "invented_atom",
+      "generation_epoch": 0,
+      "reasons": [
+        "origin_not_independent:invented_atom",
+        "independent_claim_without_firewall_epoch"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": false,
+      "origin": "invented_atom",
+      "generation_epoch": 0,
+      "reasons": [
+        "origin_not_independent:invented_atom",
+        "independent_claim_without_firewall_epoch"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": false,
+      "origin": "invented_atom",
+      "generation_epoch": 0,
+      "reasons": [
+        "origin_not_independent:invented_atom",
+        "independent_claim_without_firewall_epoch"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": [
+        "textual_identity_to_hidden_noted"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": [
+        "textual_identity_to_hidden_noted"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": [
+        "textual_identity_to_hidden_noted"
+      ]
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    },
+    {
+      "exists": true,
+      "independently_discovered": true,
+      "origin": "independent_rediscovery",
+      "generation_epoch": 1,
+      "reasons": []
+    }
+  ],
+  "generation_record_summaries": [
+    {
+      "body_key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "invented_atom",
+      "parent": null,
+      "generation_epoch": 0
+    },
+    {
+      "body_key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "invented_atom",
+      "parent": null,
+      "generation_epoch": 0
+    },
+    {
+      "body_key": "MAPT(AT:-1)",
+      "origin": "invented_atom",
+      "parent": null,
+      "generation_epoch": 0
+    },
+    {
+      "body_key": "",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(AT:-1)",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(CAT(AT:-1|AT:-1))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    },
+    {
+      "body_key": "",
+      "origin": "independent_rediscovery",
+      "parent": null,
+      "generation_epoch": 1
+    }
+  ],
+  "body_directions": [
+    "MAPT(AT:-1)",
+    "MAPT(CAT(AT:-1|AT:-1))",
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+    "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "MAPT(CAT(TOK|AT:-1))",
+    "MAPT(SLICE:0,2(TOK))"
+  ],
+  "candidates_materialized": [
+    {
+      "name": "MAPT(SLICE:0,2(TOK))",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(CAT(TOK|AT:-1))",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(AT:-1)",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(SLICE:0,2(TOK))",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(CAT(TOK|AT:-1))",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(AT:-1)",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "body_key": null
+    },
+    {
+      "name": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "body_key": null
+    }
+  ],
+  "exploration": {
+    "n_alloc_events": 12,
+    "sum_explore_n": 3,
+    "sum_exploit_n": 12,
+    "reasons": {
+      "exploit_only_productive_continuation": 6,
+      "exploit_plus_bounded_explore": 3,
+      "exploit_only": 3
+    },
+    "sample_events": [
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "primary_keys": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "secondary_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "productive_continuation": "False",
+        "epoch": "3"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(TOK|AT:0))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(TOK|AT:0))",
+        "productive_continuation": "False",
+        "epoch": "4"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "productive_continuation": "False",
+        "epoch": "5"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "6"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "7"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "8"
+      }
+    ],
+    "skip_pressure_samples": [],
+    "alloc_events_full": [
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "primary_keys": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "secondary_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "productive_continuation": "False",
+        "epoch": "3"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(TOK|AT:0))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(TOK|AT:0))",
+        "productive_continuation": "False",
+        "epoch": "4"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "productive_continuation": "False",
+        "epoch": "5"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "6"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "7"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "8"
+      }
+    ]
+  },
+  "explore_n": 3,
+  "exploit_n": 12,
+  "axes": {
+    "1_proposal": {
+      "n_generation_records": 12,
+      "n_propose_events": 0
+    },
+    "2_scoring": {
+      "occupancy": 48
+    },
+    "3_ranking": {
+      "board_order_proxy_body_keys": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+        "MAPT(CAT(AT:-1|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    "4_selection": {
+      "explore_alloc_events": 12,
+      "sum_exploit_n": 12,
+      "sum_explore_n": 3
+    },
+    "5_materialization": {
+      "n_atom_materialize": 8,
+      "invented_atoms": []
+    },
+    "6_invention": {
+      "invented_atom": [],
+      "invented_cmp": [],
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING"
+    },
+    "7_verification": {
+      "pipeline_verified": false,
+      "terminal_state": "TerminalState.UNRESOLVED_INVISIBLE",
+      "secret_hit_observational": false
+    },
+    "8_recursive_growth": {
+      "n_cmp": 0,
+      "n_language_grow": 2,
+      "programs": [
+        "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+        "cmp_mapt_cat_at_-1_at_-1",
+        "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_"
+      ]
+    },
+    "9_independence": {
+      "n_independent": 9,
+      "origins": {
+        "invented_atom": 3,
+        "independent_rediscovery": 9
+      },
+      "firewall_epoch": 1,
+      "provenance_leak": false
+    }
+  },
+  "s_odd_fate": {
+    "namespace": "S_ODD_FATE_OBSERVATIONAL",
+    "secret_ever_hit": false,
+    "secret_last_hit": false,
+    "odd_related_body_keys_observed": [],
+    "n_odd_related_bodies": 0,
+    "note": "Observation only; S/ODD hit is NOT acceptance criterion; no injection"
+  },
+  "isolation": {
+    "plant_family": "AIVD346-FRONTIER-ODDSTRIDE",
+    "plant_id": "AIVD346-FRONTIER-ODDSTRIDE-B48-FIX-S4",
+    "target_id": "llama://tinyllama-1.1b-frontier-oddstride-346-b48-fix-s4",
+    "fresh_instance": true,
+    "preload_discoveries": false,
+    "shared_language_store": false,
+    "no_reuse_338_345_artifacts": true,
+    "new_plant_id_per_cell": true
+  },
+  "REDISCOVERY_FLOOR": 5,
+  "INVENT_CAP": 48,
+  "stop_hits": [],
+  "methods_log_compact": [
+    {
+      "event": "generation_decision",
+      "action": "none",
+      "leftover": "19",
+      "growth_count": "0",
+      "n_growth_cands": "0",
+      "has_compose": "False"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:0,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "0"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_slice_0_2_tok",
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "0",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "1"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_index_glue",
+      "generation": "1",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(AT:-1)",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "2"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_at_-1",
+      "key": "MAPT(AT:-1)",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_project",
+      "generation": "2",
+      "occupancy": "46"
+    },
+    {
+      "event": "provenance_firewall",
+      "leftover": "16",
+      "useful_classes": "char_index_glue,char_project,char_stride",
+      "hidden": "3",
+      "firewall_epoch": "1"
+    },
+    {
+      "event": "generation_decision",
+      "action": "none",
+      "leftover": "16",
+      "growth_count": "0",
+      "n_growth_cands": "0",
+      "has_compose": "False"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:0,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "0"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd0_mapt_slice_0_2_tok",
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "3",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "1"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_index_glue",
+      "generation": "4",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(AT:-1)",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "2"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd2_mapt_at_-1",
+      "key": "MAPT(AT:-1)",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_project",
+      "generation": "5",
+      "occupancy": "46"
+    },
+    {
+      "event": "generation_decision",
+      "action": "grow",
+      "leftover": "13",
+      "growth_count": "0",
+      "n_growth_cands": "2",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_grow",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "origin": "independent_rediscovery",
+      "novelty": "NEW_PROGRAM",
+      "level": "PROGRAM",
+      "semantic_class": "char_stride",
+      "parent": "atom_rd0_mapt_slice_0_2_tok",
+      "generation": "7",
+      "leftover": "13"
+    },
+    {
+      "event": "generation_decision",
+      "action": "grow",
+      "leftover": "12",
+      "growth_count": "1",
+      "n_growth_cands": "1",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_grow",
+      "op": "cmp_mapt_cat_at_-1_at_-1",
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "origin": "independent_rediscovery",
+      "novelty": "NEW_PROGRAM",
+      "level": "PROGRAM",
+      "semantic_class": "char_index_glue",
+      "parent": "atom_rd2_mapt_at_-1",
+      "generation": "8",
+      "leftover": "12"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "11",
+      "growth_count": "2",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "2",
+      "exploit_n": "1",
+      "explore_n": "1",
+      "reason": "exploit_plus_bounded_explore",
+      "explore_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "primary_keys": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "secondary_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "productive_continuation": "False",
+      "epoch": "3"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "8",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "8",
+      "occupancy": "47"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "9",
+      "growth_count": "2",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "8",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "2",
+      "exploit_n": "1",
+      "explore_n": "1",
+      "reason": "exploit_plus_bounded_explore",
+      "explore_keys": "MAPT(CAT(TOK|AT:0))",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "MAPT(CAT(TOK|AT:0))",
+      "productive_continuation": "False",
+      "epoch": "4"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "8",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "2",
+      "exploit_n": "1",
+      "explore_n": "1",
+      "reason": "exploit_plus_bounded_explore",
+      "explore_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "productive_continuation": "False",
+      "epoch": "5"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "7",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "6"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "6",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "7"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "5",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "8"
+    }
+  ],
+  "error": null
+}

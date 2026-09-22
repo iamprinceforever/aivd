@@ -1,0 +1,255 @@
+{
+  "document": "aivd_3_46_matrix",
+  "preregistered_at_ist": "2026-09-22 15:08:44 IST",
+  "authorization": "AIVD 3.46 BUDGET-FRONTIER VALIDATION \u2014 AUTHORIZED: frontier B32/B40/B48/B64; R1 TinyLlama; seeds[0,1,2,3,4,7,11]; invent_cap=48; REDISCOVERY_FLOOR=5; BASELINE@72edfad vs FIX science@52394b8; fresh plant family AIVD346-FRONTIER-ODDSTRIDE (new plant_ids per cell); no retune; no 3.45 science edits; no S/ODD/MAPT injection; primary metric explore_n; freeze at first activation.",
+  "primary_question": "Does explore_n become >0 under larger envelope?",
+  "secondary_question": "Does increased exploration produce genuinely new behavioral directions?",
+  "tertiary_question": "Does it preserve successful recursive path?",
+  "s_success_is_primary_acceptance": false,
+  "cf_discoveries_are_not_real": true,
+  "no_s_injection": true,
+  "no_retune_between_budgets_or_seeds": true,
+  "no_unlimited_budget": true,
+  "no_invent_cap_forcing": true,
+  "no_345_science_edits": true,
+  "impl_freeze_fix": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "baseline_tip": "72edfadeda87c0ea6ac966487c49b9526099c613",
+  "frontier_budgets": [
+    {
+      "level": "B32",
+      "episode_budget": 32,
+      "justification": "3.45 Sacred wall: leftover 3 < floor 5"
+    },
+    {
+      "level": "B40",
+      "episode_budget": 40,
+      "justification": "intermediate above wall"
+    },
+    {
+      "level": "B48",
+      "episode_budget": 48,
+      "justification": "Stage-8 BH envelope"
+    },
+    {
+      "level": "B64",
+      "episode_budget": 64,
+      "justification": "upper bound; not unlimited"
+    }
+  ],
+  "invent_cap": 48,
+  "REDISCOVERY_FLOOR": 5,
+  "representation": "R1",
+  "invention_mode": "full_3_39_r1",
+  "model_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+  "model_path": "/workspace/models/tinyllama",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    11
+  ],
+  "plant_family": "AIVD346-FRONTIER-ODDSTRIDE",
+  "plant_id_pattern": "AIVD346-FRONTIER-ODDSTRIDE-{budget}-{condition}-S{seed}",
+  "conditions": [
+    "FIX",
+    "BASELINE"
+  ],
+  "execution_order": [
+    "1. Preregister (this document)",
+    "2. Ascend FIX: B32\u2192B40\u2192B48\u2192B64, all 7 seeds each",
+    "3. Primary metric: explore_n (sum secondary explore) + reasons",
+    "4. Freeze at first (budget,seed) or first budget with explore_n>0",
+    "5. At activation (+ B32 continuity): matched BASELINE 7 seeds",
+    "6. If no activation through B64: report limiting condition; do NOT raise invent_cap"
+  ],
+  "per_cell_record_fields": [
+    "used",
+    "leftover",
+    "firewall",
+    "exploit_allocs",
+    "explore_allocs",
+    "explore_n",
+    "skip_pressure",
+    "candidates_exposed_materialized",
+    "inventions",
+    "verification",
+    "recursive_growth",
+    "independence",
+    "s_odd_fate",
+    "terminal"
+  ],
+  "cells_planned_fix_full_frontier": [
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 0
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 1
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 2
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 3
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 4
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 7
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B32",
+      "episode_budget": 32,
+      "seed": 11
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 0
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 1
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 2
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 3
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 4
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 7
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B40",
+      "episode_budget": 40,
+      "seed": 11
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 0
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 1
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 2
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 3
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 4
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 7
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B48",
+      "episode_budget": 48,
+      "seed": 11
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 0
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 1
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 2
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 3
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 4
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 7
+    },
+    {
+      "condition": "FIX",
+      "budget_level": "B64",
+      "episode_budget": 64,
+      "seed": 11
+    }
+  ],
+  "cells_planned_baseline_conditional": "B32 all 7 seeds for continuity; activation budget all 7 seeds if activation occurs"
+}

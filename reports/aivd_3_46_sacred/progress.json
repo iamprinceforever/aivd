@@ -1,0 +1,165 @@
+{
+  "phase": "DONE",
+  "n_done": 35,
+  "activation": {
+    "budget_level": "B48",
+    "episode_budget": 48,
+    "seed": 0,
+    "explore_n": 3,
+    "reasons": {
+      "exploit_only_productive_continuation": 6,
+      "exploit_plus_bounded_explore": 3,
+      "exploit_only": 3
+    },
+    "plant_id": "AIVD346-FRONTIER-ODDSTRIDE-B48-FIX-S0",
+    "leftover_at_firewall_decision": 16,
+    "sample_events": [
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:0,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "0"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "1"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only_productive_continuation",
+        "explore_keys": "",
+        "primary_keys": "MAPT(AT:-1)",
+        "secondary_keys": "",
+        "productive_continuation": "True",
+        "epoch": "2"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "primary_keys": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "secondary_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "productive_continuation": "False",
+        "epoch": "3"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(TOK|AT:0))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(TOK|AT:0))",
+        "productive_continuation": "False",
+        "epoch": "4"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "2",
+        "exploit_n": "1",
+        "explore_n": "1",
+        "reason": "exploit_plus_bounded_explore",
+        "explore_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "MAPT(CAT(AT:0|AT:-1))",
+        "productive_continuation": "False",
+        "epoch": "5"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "6"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "7"
+      },
+      {
+        "event": "atom_explore_alloc",
+        "n_mat": "1",
+        "exploit_n": "1",
+        "explore_n": "0",
+        "reason": "exploit_only",
+        "explore_keys": "",
+        "primary_keys": "MAPT(SLICE:1,2(TOK))",
+        "secondary_keys": "",
+        "productive_continuation": "False",
+        "epoch": "8"
+      }
+    ]
+  },
+  "elapsed_s": 123.469,
+  "recorded_at_ist": "2026-09-22 15:10:55 IST"
+}
