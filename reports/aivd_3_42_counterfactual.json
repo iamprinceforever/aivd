@@ -1,0 +1,22 @@
+{
+  "status": "RAN",
+  "mode": "offline_what_if_on_recorded_rows_only",
+  "forbidden_note": "Did not modify planner or execute repaired Sacred run",
+  "CF1_n_mat_ge2_on_first_window": {
+    "description": "If first invent call materialized 2 candidates from recorded board0 order instead of 1, board0[1]==ODD would be the second SELECT.",
+    "cells_where_board0_1_is_odd": 28,
+    "n_cells": 28,
+    "implication": "ODD would reach SELECTED/INVENTED on first window in those cells (recorded order)."
+  },
+  "CF2_odd_at_rank0_any_block": {
+    "description": "If any recorded rank block had odd_rank==0, n_mat=1 would select ODD.",
+    "recorded_rank0_odd_blocks": 0,
+    "implication": "No such recorded block; counterfactual requires alternate ranking outcome not present in ledger."
+  },
+  "CF3_odd_board0_pos0": {
+    "description": "If ODD occupied board0 position 0, first SELECT would be ODD under recorded n_mat=1.",
+    "cells_with_odd_at_pos0": 0,
+    "implication": "Not observed; board order is stably EVEN then ODD."
+  },
+  "sufficiency_gate": "Phase1_sufficient_for_offline_CF"
+}

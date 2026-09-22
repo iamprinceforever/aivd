@@ -1,0 +1,292 @@
+{
+  "document": "aivd_3_42_n_mat_analysis",
+  "recorded_at_ist": "2026-09-22 13:00:57 IST",
+  "headline": "Inferred lazy n_mat=1 from recorded events: exactly one SELECT before any RANK in every cell (counter={1: 28}). Code path (read-only confirmation): designer._maybe_invent_atom uses n_mat=1 if allow_atom_lazy else 4 \u2014 not modified.",
+  "n_mat_inferred_counter": {
+    "1": 28
+  },
+  "H11e": "SUPPORTED",
+  "H11f": "SUPPORTED",
+  "per_cell": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "n_mat_inferred_pre_rank": 1,
+      "selects_before_rank": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "odd_best_rank": 1,
+      "odd_selected": false
+    }
+  ]
+}

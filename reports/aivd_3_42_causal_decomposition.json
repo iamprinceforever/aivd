@@ -1,0 +1,70 @@
+{
+  "document": "aivd_3_42_causal_decomposition",
+  "recorded_at_ist": "2026-09-22 13:00:57 IST",
+  "A_E": {
+    "A_score_alone": {
+      "classification": "AGAINST",
+      "evidence": "First SELECT of EVEN precedes all score events in 28/28 cells (scores_before_first_select_always_0=True); EVEN score recorded in 0/28 cells (=0). Score alone cannot explain first materialization preference."
+    },
+    "B_rank_alone": {
+      "classification": "AGAINST",
+      "evidence": "First SELECT precedes all rank events in 28/28 cells (ranks_before_first_select_always_0=True). Later ODD best_rank>=1 is consequential but not the sole first-cut cause."
+    },
+    "C_board_order_alone": {
+      "classification": "INCONCLUSIVE",
+      "evidence": "Board order explains first SELECT: EVEN at board0 pos 0, ODD at pos 1 in 28/28. Alone it does not explain why ODD never later reaches SELECTED after re-rank (requires demotion + n_mat=1 cut)."
+    },
+    "D_n_mat_1_alone": {
+      "classification": "INCONCLUSIVE",
+      "evidence": "n_mat_inferred_pre_rank=1 in {1: 28} cells. Necessary for single-slot cut but insufficient alone without board-order placing EVEN first and later rank demotion keeping ODD off rank-0."
+    },
+    "E_interaction_B_C_D": {
+      "classification": "SUPPORTED",
+      "evidence": "(C) plan-board order materializes EVEN first under (D) n_mat=1; then char_stride enters rejected_classes; (B) subsequent rank_atoms keeps ODD best_rank>=1 in 28/28 so lazy n_mat=1 never selects ODD."
+    }
+  },
+  "H11": {
+    "H11a": {
+      "claim": "intrinsic score disadvantage",
+      "classification": "AGAINST",
+      "evidence": "EVEN has no recorded intrinsic score (0/28). ODD recorded scores are exclusively demoted-class values [0.038148] after char_stride rejection; not an odd-stride-intrinsic prior vs EVEN pre-score."
+    },
+    "H11b": {
+      "claim": "score-component disadvantage",
+      "classification": "WEAKLY SUPPORTED",
+      "evidence": "When scored, ODD components match demoted same-class pattern (p_discovery=0.12, causal_value=0.55, reuse_value=0.8) vs U untried [0.2781625]. Component gap is class-demotion, not odd-specific."
+    },
+    "H11c": {
+      "claim": "relative ranking disadvantage",
+      "classification": "SUPPORTED",
+      "evidence": "odd_best_rank_counter={1: 28}; odd_ever_rank0_count=0/28; never SELECTED."
+    },
+    "H11d": {
+      "claim": "plan-board ordering/materialization priority",
+      "classification": "SUPPORTED",
+      "evidence": "even_board_pos={0: 28}, odd_board_pos={1: 28}; first_select_always_even=True."
+    },
+    "H11e": {
+      "claim": "lazy n_mat=1 allocation bottleneck",
+      "classification": "SUPPORTED",
+      "evidence": "n_mat_inferred_pre_rank counter={1: 28} (exactly one SELECT before any RANK in every cell)."
+    },
+    "H11f": {
+      "claim": "interaction between ranking and n_mat=1",
+      "classification": "SUPPORTED",
+      "evidence": "After first EVEN invent, rejected_classes includes char_stride; ODD best_rank stays >=1 while n_mat=1 selects only rank-0 \u2192 odd_selected_count=0."
+    },
+    "H11g": {
+      "claim": "novelty/identity effects after selection",
+      "classification": "AGAINST",
+      "evidence": "ODD never reaches SELECTED/INVENTED; novelty/identity-after-selection cannot be the disappearance mechanism. Natural invents (EVEN/U) succeed."
+    },
+    "H11-REJECT": {
+      "claim": "evidence insufficient to localize further",
+      "classification": "AGAINST",
+      "evidence": "E_interaction SUPPORTED=SUPPORTED; deterministic 28/28 ON replay localizes beyond H11-REJECT."
+    }
+  },
+  "first_localization": "Odd-stride MAPT(SLICE:1,2(TOK)) is PROPOSED (proposal_index=3) and later SCORED/RANKED, but never SELECTED/INVENTED because (1) plan-board order places even-stride MAPT(SLICE:0,2(TOK)) at board0 position 0 and lazy n_mat=1 materializes only that slot before any score/rank, and (2) after EVEN invent, rejected_classes includes char_stride so subsequent rank_atoms keep ODD best_rank>=1 below the n_mat=1 cut \u2014 interaction of board order + rank demotion + n_mat=1 (E SUPPORTED; A/B AGAINST as sole causes).",
+  "no_repair_recommendation": true
+}

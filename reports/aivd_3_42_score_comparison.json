@@ -1,0 +1,412 @@
+{
+  "document": "aivd_3_42_score_comparison",
+  "recorded_at_ist": "2026-09-22 13:00:57 IST",
+  "headline": "ODD scored exclusively at demoted value [0.038148] (components p_discovery=0.12/causal=0.55/reuse=0.8); EVEN score=NOT_RECORDED in 28/28 (SELECTED pre-score); U control scored [0.2781625].",
+  "odd": {
+    "key": "MAPT(SLICE:1,2(TOK))",
+    "score_unique_union": [
+      0.038148
+    ],
+    "components_sample": {
+      "p_discovery": 0.12,
+      "p_reproduction": 0.85,
+      "p_verification": 0.85,
+      "causal_value": 0.55,
+      "reuse_value": 0.8,
+      "cost": 1.0
+    },
+    "even_comparison": "EVEN has no recorded score events (NOT_RECORDED)"
+  },
+  "even": {
+    "key": "MAPT(SLICE:0,2(TOK))",
+    "score_recorded_cells": 0,
+    "score": "NOT_RECORDED"
+  },
+  "u_control": {
+    "key": "MAPT(CAT(TOK|AT:-1))",
+    "score_unique_union": [
+      0.2781625
+    ],
+    "components_sample": {
+      "p_discovery": 0.35,
+      "p_reproduction": 0.85,
+      "p_verification": 0.85,
+      "causal_value": 1.0,
+      "reuse_value": 1.1,
+      "cost": 1.0
+    }
+  },
+  "null_control": {
+    "key": "MAPT(CAT(AT:-1|TOK))",
+    "note": "Rejected pre-select; no score events required for null path",
+    "rejected_pre_select_cells": 28
+  },
+  "H11a": "AGAINST",
+  "H11b": "WEAKLY SUPPORTED",
+  "per_cell": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "odd_scores": [
+        0.038148
+      ],
+      "even_scores": [
+        "NOT_RECORDED"
+      ],
+      "u_scores": [
+        0.2781625
+      ]
+    }
+  ]
+}

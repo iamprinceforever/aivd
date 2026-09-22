@@ -1,0 +1,481 @@
+{
+  "document": "aivd_3_42_plan_board_comparison",
+  "recorded_at_ist": "2026-09-22 13:00:57 IST",
+  "headline": "Recorded post-plan board0 is stably [EVEN@{0: 28}, ODD@{1: 28}, ...]; first_select_always_even=True.",
+  "even_board_pos_counter": {
+    "0": 28
+  },
+  "odd_board_pos_counter": {
+    "1": 28
+  },
+  "first_select_always_even": true,
+  "H11d": "SUPPORTED",
+  "exemplar_board0": [
+    "MAPT(SLICE:0,2(TOK))",
+    "MAPT(SLICE:1,2(TOK))",
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+    "MAPT(CAT(TOK|AT:-1))",
+    "MAPT(AT:-1)",
+    "MAPT(CAT(TOK|AT:0))",
+    "MAPT(CAT(AT:0|AT:-1))",
+    "MAPT(SLICE:0,3(TOK))",
+    "MAPT(AT:0)"
+  ],
+  "exemplar_board0_meta": [
+    {
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "candidate_family": "char_stride",
+      "seq": 1
+    },
+    {
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "candidate_family": "char_stride",
+      "seq": 2
+    },
+    {
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "candidate_family": "char_stride",
+      "seq": 3
+    },
+    {
+      "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "proposal_index": 2,
+      "candidate_family": "char_stride",
+      "seq": 4
+    },
+    {
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "candidate_family": "char_index_glue",
+      "seq": 5
+    },
+    {
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "candidate_family": "char_project",
+      "seq": 7
+    },
+    {
+      "candidate_key": "MAPT(CAT(TOK|AT:0))",
+      "proposal_index": 5,
+      "candidate_family": "char_index_glue",
+      "seq": 8
+    },
+    {
+      "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+      "proposal_index": 6,
+      "candidate_family": "char_index_glue",
+      "seq": 9
+    },
+    {
+      "candidate_key": "MAPT(SLICE:0,3(TOK))",
+      "proposal_index": 7,
+      "candidate_family": "char_stride",
+      "seq": 10
+    },
+    {
+      "candidate_key": "MAPT(AT:0)",
+      "proposal_index": 3,
+      "candidate_family": "char_project",
+      "seq": 11
+    }
+  ],
+  "per_cell": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "even_board_pos": 0,
+      "odd_board_pos": 1,
+      "u_board_pos": 4,
+      "first_selected": "MAPT(SLICE:0,2(TOK))",
+      "board0_head": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ]
+    }
+  ]
+}
