@@ -1,0 +1,7 @@
+{
+  "document": "aivd_3_43_counterfactual",
+  "recorded_at_ist": "2026-09-22 13:06:36 IST",
+  "status": "SKIPPED",
+  "reason": "Phase 1 offline replay of 28 ON cells with identical 10-slot board0 already provides multi-key contrast sufficient to score H12a\u2013H12e and H12-REJECT. Additional controlled offline CF would only restate 3.42 CF1\u2013CF3 (n_mat>=2 would select board0[1]=ODD; no recorded ODD rank0; no ODD@pos0) without introducing new candidate configurations. No production/Sacred run.",
+  "reference_3_42_counterfactual": "reports/aivd_3_42_counterfactual.json"
+}

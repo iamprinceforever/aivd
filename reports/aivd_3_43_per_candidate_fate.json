@@ -1,0 +1,1299 @@
+{
+  "document": "aivd_3_43_per_candidate_fate",
+  "recorded_at_ist": "2026-09-22 13:06:36 IST",
+  "source_ledger": "reports/aivd_3_41_audit_ledger.json",
+  "source_fate": "reports/aivd_3_41_audit_candidate_fate.json",
+  "phase1_342_crosscheck": {
+    "source": "reports/aivd_3_42_phase1_replay.json",
+    "recorded_at_ist": "2026-09-22 13:00:57 IST",
+    "n_cells": 28,
+    "first_select_always_even": true
+  },
+  "mode": "OFFLINE_REPLAY_ONLY",
+  "sacred": false,
+  "fields_policy": "existing observations only; NOT_RECORDED if missing; no inference",
+  "aggregate_by_board_position": [
+    {
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "board_position": 0,
+      "n_cells": 28,
+      "selected_cells": 28,
+      "invented_cells": 28,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {},
+      "score_unique_union": "NOT_RECORDED",
+      "score_components_sample": "NOT_RECORDED",
+      "mechanism_tag_counter": {
+        "FIRST_WINDOW_BOARD0_NMAT1": 28
+      },
+      "control_role": "S_EVEN_first_window"
+    },
+    {
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "board_position": 1,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {
+        "1": 28
+      },
+      "score_unique_union": [
+        0.038148
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "SUPPRESSED_RANK_DEMOTION_NMAT1": 28
+      },
+      "control_role": "S_ODD_suppressed"
+    },
+    {
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "board_position": 2,
+      "n_cells": 28,
+      "selected_cells": 28,
+      "invented_cells": 28,
+      "ever_rank0_cells": 28,
+      "best_rank_counter": {
+        "0": 28
+      },
+      "score_unique_union": [
+        0.038148
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "ESCAPED_VIA_LATER_RANK0": 28
+      },
+      "control_role": "positive_escape_pos2"
+    },
+    {
+      "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "board_position": 3,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 28,
+      "best_rank_counter": {
+        "0": 28
+      },
+      "score_unique_union": [
+        0.038148
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "RANK0_AFTER_INVENT_STOPPED": 28
+      },
+      "control_role": "rank0_after_invent_stopped"
+    },
+    {
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "board_position": 4,
+      "n_cells": 28,
+      "selected_cells": 28,
+      "invented_cells": 28,
+      "ever_rank0_cells": 28,
+      "best_rank_counter": {
+        "0": 28
+      },
+      "score_unique_union": [
+        0.2781625
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.35,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 1.0,
+        "reuse_value": 1.1,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "ESCAPED_VIA_LATER_RANK0": 28
+      },
+      "control_role": "U_natural_success"
+    },
+    {
+      "candidate_key": "MAPT(AT:-1)",
+      "board_position": 5,
+      "n_cells": 28,
+      "selected_cells": 28,
+      "invented_cells": 28,
+      "ever_rank0_cells": 28,
+      "best_rank_counter": {
+        "0": 28
+      },
+      "score_unique_union": [
+        0.2781625
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.35,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 1.0,
+        "reuse_value": 1.1,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "ESCAPED_VIA_LATER_RANK0": 28
+      },
+      "control_role": "positive_escape_pos5"
+    },
+    {
+      "candidate_key": "MAPT(CAT(TOK|AT:0))",
+      "board_position": 6,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {
+        "2": 28
+      },
+      "score_unique_union": [
+        0.038148,
+        0.2781625
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.35,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 1.0,
+        "reuse_value": 1.1,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "SUPPRESSED_RANK_DEMOTION_NMAT1": 28
+      },
+      "control_role": "demotion_suppress_sibling"
+    },
+    {
+      "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+      "board_position": 7,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {
+        "3": 28
+      },
+      "score_unique_union": [
+        0.038148,
+        0.2781625
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.35,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 1.0,
+        "reuse_value": 1.1,
+        "cost": 1.0
+      },
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "SUPPRESSED_RANK_DEMOTION_NMAT1": 28
+      },
+      "control_role": "demotion_suppress_sibling"
+    },
+    {
+      "candidate_key": "MAPT(SLICE:0,3(TOK))",
+      "board_position": 8,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {},
+      "score_unique_union": "NOT_RECORDED",
+      "score_components_sample": "NOT_RECORDED",
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "NEVER_SCORED_AFTER_SKIP": 28
+      },
+      "control_role": "never_scored_after_skip"
+    },
+    {
+      "candidate_key": "MAPT(AT:0)",
+      "board_position": 9,
+      "n_cells": 28,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "ever_rank0_cells": 0,
+      "best_rank_counter": {},
+      "score_unique_union": "NOT_RECORDED",
+      "score_components_sample": "NOT_RECORDED",
+      "mechanism_tag_counter": {
+        "SKIPPED_FIRST_WINDOW_NMAT1": 28,
+        "NEVER_SCORED_AFTER_SKIP": 28
+      },
+      "control_role": "never_scored_after_skip"
+    }
+  ],
+  "exemplar_S8_BASELINE_seed0": {
+    "condition_id": "S8-BASELINE",
+    "seed": 0,
+    "terminal": "TerminalState.UNRESOLVED_INVISIBLE",
+    "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+    "stop_reason": "BUDGET_EXHAUSTED",
+    "BH": 48,
+    "INVENT_CAP": 48,
+    "board0": [
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(SLICE:1,2(TOK))",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)",
+      "MAPT(CAT(TOK|AT:0))",
+      "MAPT(CAT(AT:0|AT:-1))",
+      "MAPT(SLICE:0,3(TOK))",
+      "MAPT(AT:0)"
+    ],
+    "board0_meta": [
+      {
+        "candidate_key": "MAPT(SLICE:0,2(TOK))",
+        "board_position": 0,
+        "proposal_index": 1,
+        "candidate_family": "char_stride",
+        "seq": 1
+      },
+      {
+        "candidate_key": "MAPT(SLICE:1,2(TOK))",
+        "board_position": 1,
+        "proposal_index": 3,
+        "candidate_family": "char_stride",
+        "seq": 2
+      },
+      {
+        "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "board_position": 2,
+        "proposal_index": 1,
+        "candidate_family": "char_stride",
+        "seq": 3
+      },
+      {
+        "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "board_position": 3,
+        "proposal_index": 2,
+        "candidate_family": "char_stride",
+        "seq": 4
+      },
+      {
+        "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+        "board_position": 4,
+        "proposal_index": 0,
+        "candidate_family": "char_index_glue",
+        "seq": 5
+      },
+      {
+        "candidate_key": "MAPT(AT:-1)",
+        "board_position": 5,
+        "proposal_index": 4,
+        "candidate_family": "char_project",
+        "seq": 7
+      },
+      {
+        "candidate_key": "MAPT(CAT(TOK|AT:0))",
+        "board_position": 6,
+        "proposal_index": 5,
+        "candidate_family": "char_index_glue",
+        "seq": 8
+      },
+      {
+        "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+        "board_position": 7,
+        "proposal_index": 6,
+        "candidate_family": "char_index_glue",
+        "seq": 9
+      },
+      {
+        "candidate_key": "MAPT(SLICE:0,3(TOK))",
+        "board_position": 8,
+        "proposal_index": 7,
+        "candidate_family": "char_stride",
+        "seq": 10
+      },
+      {
+        "candidate_key": "MAPT(AT:0)",
+        "board_position": 9,
+        "proposal_index": 3,
+        "candidate_family": "char_project",
+        "seq": 11
+      }
+    ],
+    "null_rejected_pre_select": true,
+    "null_reject_reason": "novelty:ATOM_SEMANTIC_DUPLICATE",
+    "rejected_pre_select": [
+      "MAPT(CAT(AT:-1|TOK))"
+    ],
+    "first_selected": "MAPT(SLICE:0,2(TOK))",
+    "n_mat_inferred_pre_rank": 1,
+    "selects": [
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)",
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+    ],
+    "invents": [
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)",
+      "MAPT(SLICE:0,2(TOK))",
+      "MAPT(CAT(TOK|AT:-1))",
+      "MAPT(AT:-1)",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+    ],
+    "last_invent_seq": 101,
+    "rank_blocks": [
+      {
+        "block_index": 0,
+        "leftover": 28,
+        "rejected_classes": [
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(TOK|AT:-1))",
+        "ordered_keys": [
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))"
+        ]
+      },
+      {
+        "block_index": 1,
+        "leftover": 27,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_stride"
+        ],
+        "rank0": "MAPT(AT:-1)",
+        "ordered_keys": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 2,
+        "leftover": 25,
+        "rejected_classes": [
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(TOK|AT:-1))",
+        "ordered_keys": [
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))"
+        ]
+      },
+      {
+        "block_index": 3,
+        "leftover": 24,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_stride"
+        ],
+        "rank0": "MAPT(AT:-1)",
+        "ordered_keys": [
+          "MAPT(AT:-1)",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 4,
+        "leftover": 21,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "ordered_keys": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 5,
+        "leftover": 20,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 6,
+        "leftover": 20,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 7,
+        "leftover": 19,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 8,
+        "leftover": 18,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 9,
+        "leftover": 17,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 10,
+        "leftover": 16,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 11,
+        "leftover": 15,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 12,
+        "leftover": 14,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 13,
+        "leftover": 13,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 14,
+        "leftover": 12,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 15,
+        "leftover": 11,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 16,
+        "leftover": 10,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 17,
+        "leftover": 9,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 18,
+        "leftover": 8,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 19,
+        "leftover": 7,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 20,
+        "leftover": 6,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 21,
+        "leftover": 5,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 22,
+        "leftover": 4,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      },
+      {
+        "block_index": 23,
+        "leftover": 3,
+        "rejected_classes": [
+          "char_index_glue",
+          "char_project",
+          "char_stride"
+        ],
+        "rank0": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "ordered_keys": [
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))"
+        ]
+      }
+    ],
+    "per_candidate": [
+      {
+        "candidate_key": "MAPT(SLICE:0,2(TOK))",
+        "board_position": 0,
+        "proposal_index": 1,
+        "candidate_family": "char_stride",
+        "score": "NOT_RECORDED",
+        "score_components": "NOT_RECORDED",
+        "ranks": [],
+        "best_rank": "NOT_RECORDED",
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": true,
+        "select_ordinals": [
+          0,
+          3
+        ],
+        "invented": true,
+        "invention_attempts": 2,
+        "invention_results": [
+          {
+            "budget_before": 29,
+            "budget_after": 29,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          },
+          {
+            "budget_before": 26,
+            "budget_after": 26,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          }
+        ],
+        "remaining_budget_at_first_invent": 29,
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "INVENTED_ATOM",
+        "mechanism_tags": [
+          "FIRST_WINDOW_BOARD0_NMAT1"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(SLICE:1,2(TOK))",
+        "board_position": 1,
+        "proposal_index": 3,
+        "candidate_family": "char_stride",
+        "score": [
+          0.038148
+        ],
+        "score_components": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        },
+        "ranks": [
+          6,
+          3,
+          6,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "best_rank": 1,
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "SUPPRESSED_RANK_DEMOTION_NMAT1"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "board_position": 2,
+        "proposal_index": 1,
+        "candidate_family": "char_stride",
+        "score": [
+          0.038148
+        ],
+        "score_components": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        },
+        "ranks": [
+          4,
+          1,
+          4,
+          1,
+          0
+        ],
+        "best_rank": 0,
+        "ever_rank0": true,
+        "first_rank0_seq": 95,
+        "n_mat": 1,
+        "selected": true,
+        "select_ordinals": [
+          6
+        ],
+        "invented": true,
+        "invention_attempts": 1,
+        "invention_results": [
+          {
+            "budget_before": 21,
+            "budget_after": 21,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          }
+        ],
+        "remaining_budget_at_first_invent": 21,
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "INVENTED_ATOM",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "ESCAPED_VIA_LATER_RANK0"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "board_position": 3,
+        "proposal_index": 2,
+        "candidate_family": "char_stride",
+        "score": [
+          0.038148
+        ],
+        "score_components": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        },
+        "ranks": [
+          5,
+          2,
+          5,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "best_rank": 0,
+        "ever_rank0": true,
+        "first_rank0_seq": 106,
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "RANK0_AFTER_INVENT_STOPPED"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+        "board_position": 4,
+        "proposal_index": 0,
+        "candidate_family": "char_index_glue",
+        "score": [
+          0.2781625
+        ],
+        "score_components": {
+          "p_discovery": 0.35,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 1.0,
+          "reuse_value": 1.1,
+          "cost": 1.0
+        },
+        "ranks": [
+          0,
+          0
+        ],
+        "best_rank": 0,
+        "ever_rank0": true,
+        "first_rank0_seq": 22,
+        "n_mat": 1,
+        "selected": true,
+        "select_ordinals": [
+          1,
+          4
+        ],
+        "invented": true,
+        "invention_attempts": 2,
+        "invention_results": [
+          {
+            "budget_before": 28,
+            "budget_after": 28,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          },
+          {
+            "budget_before": 25,
+            "budget_after": 25,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          }
+        ],
+        "remaining_budget_at_first_invent": 28,
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "INVENTED_ATOM",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "ESCAPED_VIA_LATER_RANK0"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(AT:-1)",
+        "board_position": 5,
+        "proposal_index": 4,
+        "candidate_family": "char_project",
+        "score": [
+          0.2781625
+        ],
+        "score_components": {
+          "p_discovery": 0.35,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 1.0,
+          "reuse_value": 1.1,
+          "cost": 1.0
+        },
+        "ranks": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "best_rank": 0,
+        "ever_rank0": true,
+        "first_rank0_seq": 37,
+        "n_mat": 1,
+        "selected": true,
+        "select_ordinals": [
+          2,
+          5
+        ],
+        "invented": true,
+        "invention_attempts": 2,
+        "invention_results": [
+          {
+            "budget_before": 27,
+            "budget_after": 27,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          },
+          {
+            "budget_before": 24,
+            "budget_after": 24,
+            "novelty_state": "INVENTED_ATOM",
+            "selection_state": "SELECTED"
+          }
+        ],
+        "remaining_budget_at_first_invent": 27,
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "INVENTED_ATOM",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "ESCAPED_VIA_LATER_RANK0"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(CAT(TOK|AT:0))",
+        "board_position": 6,
+        "proposal_index": 5,
+        "candidate_family": "char_index_glue",
+        "score": [
+          0.038148,
+          0.2781625
+        ],
+        "score_components": {
+          "p_discovery": 0.35,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 1.0,
+          "reuse_value": 1.1,
+          "cost": 1.0
+        },
+        "ranks": [
+          2,
+          4,
+          2,
+          4,
+          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "best_rank": 2,
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "SUPPRESSED_RANK_DEMOTION_NMAT1"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+        "board_position": 7,
+        "proposal_index": 6,
+        "candidate_family": "char_index_glue",
+        "score": [
+          0.038148,
+          0.2781625
+        ],
+        "score_components": {
+          "p_discovery": 0.35,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 1.0,
+          "reuse_value": 1.1,
+          "cost": 1.0
+        },
+        "ranks": [
+          3,
+          5,
+          3,
+          5,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "best_rank": 3,
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "SUPPRESSED_RANK_DEMOTION_NMAT1"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(SLICE:0,3(TOK))",
+        "board_position": 8,
+        "proposal_index": 7,
+        "candidate_family": "char_stride",
+        "score": "NOT_RECORDED",
+        "score_components": "NOT_RECORDED",
+        "ranks": [],
+        "best_rank": "NOT_RECORDED",
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "NEVER_SCORED_AFTER_SKIP"
+        ]
+      },
+      {
+        "candidate_key": "MAPT(AT:0)",
+        "board_position": 9,
+        "proposal_index": 3,
+        "candidate_family": "char_project",
+        "score": "NOT_RECORDED",
+        "score_components": "NOT_RECORDED",
+        "ranks": [],
+        "best_rank": "NOT_RECORDED",
+        "ever_rank0": false,
+        "first_rank0_seq": "NOT_RECORDED",
+        "n_mat": 1,
+        "selected": false,
+        "select_ordinals": [],
+        "invented": false,
+        "invention_attempts": 0,
+        "invention_results": [],
+        "remaining_budget_at_first_invent": "NOT_RECORDED",
+        "firewall_state": {
+          "firewall_epoch_cell": 1,
+          "firewalled_cell": true,
+          "n_firewall_events": 1
+        },
+        "novelty_state": "NOT_RECORDED",
+        "mechanism_tags": [
+          "SKIPPED_FIRST_WINDOW_NMAT1",
+          "NEVER_SCORED_AFTER_SKIP"
+        ]
+      }
+    ],
+    "firewall_epoch": 1,
+    "firewalled": true
+  },
+  "fate_odd_crosscheck": {
+    "fate_candidate_key": "MAPT(SLICE:1,2(TOK))",
+    "fate_selected_any": false,
+    "fate_invented_any": false
+  }
+}

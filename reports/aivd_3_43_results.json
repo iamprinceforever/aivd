@@ -1,0 +1,66 @@
+{
+  "document": "aivd_3_43_results",
+  "recorded_at_ist": "2026-09-22 13:06:36 IST",
+  "baseline_tip": "3a07abe1e370f3328be33a3ad93e5fb7972a65eb",
+  "branch": "research/aivd-3.43-selection-budget-generalization",
+  "parent_branch": "research/aivd-3.42-selection-causal-audit @ 3a07abe",
+  "phase1": "COMPLETE",
+  "phase2": "SKIPPED",
+  "phase2_reason": "Phase 1 offline replay of 28 ON cells with identical 10-slot board0 already provides multi-key contrast sufficient to score H12a\u2013H12e and H12-REJECT. Additional controlled offline CF would only restate 3.42 CF1\u2013CF3 (n_mat>=2 would select board0[1]=ODD; no recorded ODD rank0; no ODD@pos0) without introducing new candidate configurations. No production/Sacred run.",
+  "H12": {
+    "H12a": "AGAINST",
+    "H12b": "SUPPORTED",
+    "H12c": "SUPPORTED",
+    "H12d": "AGAINST",
+    "H12e": "SUPPORTED",
+    "H12-REJECT": "AGAINST"
+  },
+  "H12_detail": {
+    "H12a": {
+      "claim": "n_mat=1 generally sufficient to suppress board-position >0 candidates",
+      "classification": "AGAINST",
+      "evidence": "n_mat=1 skips all pos>0 on the FIRST window (9/9 keys \u00d7 28 cells), but is NOT generally sufficient for permanent suppression: 3 keys ESCAPE via later rank-0 (['MAPT(CAT(SLICE:1,1(TOK)|AT:0))', 'MAPT(CAT(TOK|AT:-1))', 'MAPT(AT:-1)']) including U@4."
+    },
+    "H12b": {
+      "claim": "suppression only when rank demotion interacts with n_mat=1",
+      "classification": "SUPPORTED",
+      "evidence": "Permanent non-selection among scored/ranked pos>0 keys that stay best_rank>=1 under demotion: 3 keys (['MAPT(SLICE:1,2(TOK))', 'MAPT(CAT(TOK|AT:0))', 'MAPT(CAT(AT:0|AT:-1))']) including S/ODD. Keys that attain rank-0 during active invent windows escape (['MAPT(CAT(SLICE:1,1(TOK)|AT:0))', 'MAPT(CAT(TOK|AT:-1))', 'MAPT(AT:-1)']). Therefore lasting suppression requires demotion\u00d7n_mat=1, not n_mat=1 alone."
+    },
+    "H12c": {
+      "claim": "plan-board ordering is the dominant prerequisite",
+      "classification": "SUPPORTED",
+      "evidence": "first_select_always_board0_pos0=True; board0 identical True; board order is the prerequisite for which key occupies the single n_mat=1 first-window slot. Alone it does not determine permanent fate (escape via re-rank)."
+    },
+    "H12d": {
+      "claim": "mechanism specific to S/EVEN \u2014 does not generalize",
+      "classification": "AGAINST",
+      "evidence": "First-window n_mat=1 skip applies to ALL 9 pos>0 keys, not only ODD. Demotion\u00d7n_mat=1 permanent suppress also hits non-S keys ['MAPT(CAT(TOK|AT:0))', 'MAPT(CAT(AT:0|AT:-1))']. Escape pattern hits non-S keys ['MAPT(CAT(SLICE:1,1(TOK)|AT:0))', 'MAPT(CAT(TOK|AT:-1))', 'MAPT(AT:-1)']. Mechanism is not S/EVEN-specific."
+    },
+    "H12e": {
+      "claim": "mechanism broader than S \u2014 generic exploration/materialization tradeoff",
+      "classification": "SUPPORTED",
+      "evidence": "Observed generic pattern under lazy n_mat=1: (1) board-order first cut; (2) class demotion after invent updates rejected_classes; (3) only current rank-0 materializes on later windows; (4) non-rank-0 remain unmaterialized \u2014 applies to ODD plus POS6/POS7; escapees U/POS5/POS2 confirm the rank-0 gate is the materialization valve."
+    },
+    "H12-REJECT": {
+      "claim": "existing evidence insufficient for generalization",
+      "classification": "AGAINST",
+      "evidence": "Deterministic 28/28 ON cells with identical board0 provide multi-key contrast (S suppress, U/POS2/POS5 escape, POS6/POS7 demotion suppress, null reject, POS3 post-window rank0). Sufficient to score H12a\u2013H12e; residual: board-pos1 positive control never observed (pos1_selected=0/28)."
+    }
+  },
+  "mechanism_frequency_headline": "Across 28/28 identical board0 trajectories: lazy n_mat=1 skips ALL 9 board-position>0 candidates on the first invent window; 3 later ESCAPE via attaining rank-0 (['MAPT(CAT(SLICE:1,1(TOK)|AT:0))', 'MAPT(CAT(TOK|AT:-1))', 'MAPT(AT:-1)']); 3 remain SUPPRESSED by rank demotion\u00d7n_mat=1 (['MAPT(SLICE:1,2(TOK))', 'MAPT(CAT(TOK|AT:0))', 'MAPT(CAT(AT:0|AT:-1))']); 1 attain rank-0 only after invent stops (['MAPT(CAT(AT:-1|SLICE:0,1(TOK)))']); 2 never scored after first-window skip (['MAPT(SLICE:0,3(TOK))', 'MAPT(AT:0)']).",
+  "positive_control_board_pos1": "NOT_OBSERVED",
+  "positive_control_pos_gt0_escape": "OBSERVED",
+  "null_control_finding": "NULL rejected pre-first-select in 28/28 cells (reason={'novelty:ATOM_SEMANTIC_DUPLICATE': 28}); never on board0; never selected/invented.",
+  "S_vs_U": {
+    "S_ODD": "board@1; never selected; demotion\u00d7n_mat=1 suppress",
+    "U": "board@4; selected+invented 28/28 via later rank-0 escape",
+    "contrast": "Same first-window n_mat=1 skip; divergent permanent fate determined by whether the key later attains rank-0 under class demotion."
+  },
+  "does_mechanism_generalize": {
+    "answer": "partial",
+    "sentence": "First-window board-order\u00d7n_mat=1 skip generalizes to all pos>0 keys; permanent suppression generalizes only where rank demotion keeps the key off rank-0 (ODD/POS6/POS7), while U/POS2/POS5 escape \u2014 not S-specific."
+  },
+  "sacred": false,
+  "planner_changed": false,
+  "n_mat_changed": false
+}

@@ -1,0 +1,91 @@
+{
+  "document": "aivd_3_43_controls",
+  "recorded_at_ist": "2026-09-22 13:06:36 IST",
+  "S_odd_even": {
+    "EVEN": {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "board_position": 0,
+      "selected_cells": 28,
+      "invented_cells": 28,
+      "role": "first-window materialization under board0@0 + n_mat=1"
+    },
+    "ODD": {
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "board_position": 1,
+      "selected_cells": 0,
+      "invented_cells": 0,
+      "best_rank_counter": {
+        "1": 28
+      },
+      "role": "S suppressed: skipped first window + demotion keeps best_rank>=1"
+    }
+  },
+  "U_natural_success": {
+    "key": "MAPT(CAT(TOK|AT:-1))",
+    "board_position": 4,
+    "selected_cells": 28,
+    "invented_cells": 28,
+    "ever_rank0_cells": 28,
+    "score_unique_union": [
+      0.2781625
+    ],
+    "role": "naturally successful: skipped first window but ESCAPES via later rank-0"
+  },
+  "positive_control_board_pos1": {
+    "definition": "A case where the candidate at board position 1 is known to become selected/materialized under existing machinery",
+    "board_pos1_identity_always": "MAPT(SLICE:1,2(TOK))",
+    "board_pos1_selected_cells": 0,
+    "finding": "NOT_OBSERVED",
+    "note": "In all 28 recorded cells board0[1]==ODD and is never selected. No alternate configuration places a different key at pos1.",
+    "broader_positive_control_pos_gt0_escape": {
+      "status": "OBSERVED",
+      "keys": [
+        {
+          "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "selected_cells": 28
+        },
+        {
+          "key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "selected_cells": 28
+        },
+        {
+          "key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "selected_cells": 28
+        }
+      ],
+      "exemplars": [
+        {
+          "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "selected_cells": 28
+        },
+        {
+          "key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "selected_cells": 28
+        },
+        {
+          "key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "selected_cells": 28
+        }
+      ],
+      "implication": "Board-position >0 is not an absolute barrier; escape requires attaining rank-0 under n_mat=1 on a later invent window."
+    }
+  },
+  "null_control": {
+    "key": "MAPT(CAT(AT:-1|TOK))",
+    "definition": "no valid second candidate (rejected pre-select)",
+    "rejected_pre_select_cells": 28,
+    "reject_reason_counter": {
+      "novelty:ATOM_SEMANTIC_DUPLICATE": 28
+    },
+    "selected_cells": 0,
+    "invented_cells": 0,
+    "on_board0_cells": 0,
+    "finding": "NULL rejected pre-first-select in 28/28 cells (reason={'novelty:ATOM_SEMANTIC_DUPLICATE': 28}); never on board0; never selected/invented."
+  }
+}
