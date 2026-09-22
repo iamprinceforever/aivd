@@ -88,7 +88,7 @@ Science tree unchanged after `52394b8`.
 | **C. adversarial results** | §1–§9 all PASS (table above) |
 | **D. PRODUCTION_LOGIC_SCAN** | CLEAN |
 | **E. PASS or FIRST FAILURE** | **PASS** |
-| **F. commit + push** | (filled after commit) |
+| **F. commit + push** | `73087ef` (`73087ef4c077a666d5635143597641ac07431432`); remote `aivd` branch `research/aivd-3.45-adaptive-exploration-materialization` |
 | **G. Sacred?** | **NO** |
 
 ---

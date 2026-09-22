@@ -116,7 +116,10 @@
     "C_adversarial": "\u00a71\u2013\u00a79 all PASS",
     "D_PRODUCTION_LOGIC_SCAN": "CLEAN",
     "E_result": "PASS",
-    "F_commit_push": "pending",
+    "F_commit_push": "73087ef \u2192 aivd/research/aivd-3.45-adaptive-exploration-materialization",
     "G_sacred": "NO"
-  }
+  },
+  "commit": "73087ef4c077a666d5635143597641ac07431432",
+  "commit_short": "73087ef",
+  "push_branch": "research/aivd-3.45-adaptive-exploration-materialization"
 }
