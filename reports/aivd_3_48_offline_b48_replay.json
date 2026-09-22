@@ -1,0 +1,541 @@
+{
+  "title": "AIVD 3.48 offline B48 replay (BASELINE / 3.45 / 3.48)",
+  "sacred": false,
+  "tinyllama": false,
+  "invent_cap": 48,
+  "impl_commit": "b1b7106",
+  "baseline_science_lineage": "52394b8",
+  "frozen_source": "reports/aivd_3_47_sacred/runs/*_B48_*.json",
+  "headline": {
+    "question": "Does invent-cap saturation block a never-materialized PRIMARY under B48, and does 3.48 reclaim exactly one eligible slot without raising invent_cap?",
+    "BASELINE": "analyzed 7 frozen BASELINE B48 cells; wall_signal=0; selection-era lineage",
+    "3.45": "analyzed 7 frozen FIX B48 cells; wall_signal=7/7; dominant_never_mat=[('MAPT(SLICE:1,2(TOK))', 7)]",
+    "3.48": "harness reclaim=True delta=1 primary_registered=True invent_cap_unchanged=True",
+    "answer": "YES \u2014 frozen 3.45 FIX B48 shows occupancy=INVENT_CAP with never-materialized PRIMARY keys and rediscovery present; 3.48 offline harness reclaims exactly one eligible slot so PRIMARY can invent. No Sacred re-run."
+  },
+  "lineage_comparison": {
+    "BASELINE": {
+      "science_commit": "72edfad (pre-3.45 allocator)",
+      "n_cells_analyzed": 7,
+      "cells_with_occupancy_full_and_never_mat_primary": 0,
+      "interpretation": "Pre-3.45 selection often starves never-tried board directions; invent-cap wall may co-occur but PRIMARY selection itself was unreliable.",
+      "sample_failure_classes": {
+        "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+      }
+    },
+    "3.45": {
+      "science_commit": "52394b8",
+      "n_cells_analyzed": 7,
+      "cells_with_occupancy_full_and_never_mat_primary": 7,
+      "dominant_never_mat_primary_keys": [
+        [
+          "MAPT(SLICE:1,2(TOK))",
+          7
+        ]
+      ],
+      "interpretation": "3.45 makes never-tried directions PRIMARY, but invent_cap=48 filled with independent_rediscovery / redundant atoms blocks materialization (_release_nonlease_slot skips atom_*). Frozen FIX B48 shows occupancy=48 with PRIMARY keys absent from body_directions.",
+      "sample_failure_classes": {
+        "ATOM_INVENTION_SKIPPED_BY_PLANNING": 7
+      },
+      "eligible_rediscovery_present": true
+    },
+    "3.48": {
+      "science_commit": "b1b7106",
+      "policy": "IF invent_cap full AND next PRIMARY never-materialized AND eligible non-lease rediscovery/redundant exists \u2192 release exactly one slot \u2192 PRIMARY may invent. RECLAIM not INCREASE invent_cap.",
+      "harness_mock": {
+        "invent_cap": 48,
+        "occupancy_before": 48,
+        "primary_never_materialized": true,
+        "released": true,
+        "occupancy_after_release": 47,
+        "primary_registered": true,
+        "antistarve_events": [
+          {
+            "event": "capacity_release",
+            "op": "atom_rd_fill_0",
+            "why": "slot for never-materialized primary atom",
+            "antistarve_kind": "rediscovery_redundant",
+            "occupancy": "47"
+          }
+        ],
+        "delta_occupancy": 1,
+        "verdict": "PASS"
+      },
+      "interpretation": "Offline harness shows exactly-one reclaim enables never-mat PRIMARY registration without raising invent_cap. Frozen Sacred cells are NOT re-executed; wall question answered by (frozen 3.45 symptom) + (3.48 predicate mock)."
+    }
+  },
+  "fix_cells": [
+    {
+      "cell": "FIX_B48_seed0.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed1.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed11.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed2.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed3.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed4.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    },
+    {
+      "cell": "FIX_B48_seed7.json",
+      "condition": "FIX",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 48,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 9,
+      "n_alloc_events": 12,
+      "primary_key_counter": {
+        "MAPT(SLICE:0,2(TOK))": 2,
+        "MAPT(CAT(TOK|AT:-1))": 2,
+        "MAPT(AT:-1)": 2,
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))": 1,
+        "MAPT(SLICE:1,2(TOK))": 5
+      },
+      "never_materialized_primary_keys": [
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "never_materialized_primary_hits": [
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "4",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "5",
+          "reason": "exploit_plus_bounded_explore",
+          "n_mat": "2"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "6",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "7",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        },
+        {
+          "primary_key": "MAPT(SLICE:1,2(TOK))",
+          "epoch": "8",
+          "reason": "exploit_only",
+          "n_mat": "1"
+        }
+      ],
+      "wall_signal": true
+    }
+  ],
+  "baseline_cells": [
+    {
+      "cell": "BASELINE_B48_seed0.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed1.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed11.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed2.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed3.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed4.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    },
+    {
+      "cell": "BASELINE_B48_seed7.json",
+      "condition": "BASELINE",
+      "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "occupancy": 47,
+      "invent_cap": 48,
+      "budget_remaining": 0,
+      "n_independent_rediscovery_origin": 7,
+      "n_alloc_events": 0,
+      "primary_key_counter": {},
+      "never_materialized_primary_keys": [],
+      "never_materialized_primary_hits": [],
+      "wall_signal": false
+    }
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,192 @@
+{
+  "title": "AIVD 3.48 FINAL INVENT-CAP INTEGRITY GATE",
+  "recorded_ist": "2026-09-22 16:11:22 IST",
+  "branch": "research/aivd-3.48-invent-cap-antistarve",
+  "worktree": "/workspace/aivd-340-replication",
+  "tip_at_gate_start": "b1390837a0f1ec54be93b568779b272250c69f1f",
+  "tip_short": "b139083",
+  "impl_commit": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+  "impl_commit_short": "b1b7106",
+  "baseline_science_lineage": "52394b8",
+  "sacred": false,
+  "production_code_changed": false,
+  "policy": {
+    "trigger": "occupancy >= INVENT_CAP AND primary_target_never_materialized(board.remaining)",
+    "action": "release exactly one invent slot (RECLAIM not INCREASE invent_cap)",
+    "pass_order": [
+      "rediscovery_redundant (independent_rediscovery AND class_redundant, non-lease)",
+      "independent_rediscovery (non-lease)",
+      "class_redundant (promoted same-class peer exists, non-lease)",
+      "fallback _release_nonlease_slot"
+    ],
+    "classifications": {
+      "ACTIVE_LEASE": "excluded from release (L.state not REVOKED)",
+      "REDISCOVERY": "_is_independent_rediscovery_op via origin/provenance",
+      "REDUNDANT": "_class_redundant via promoted same-class peers",
+      "VERIFIED": "NOT a release-eligibility input",
+      "UNVERIFIED": "NOT a release-eligibility input",
+      "PRIMARY": "rank head / board.remaining[0] at call site",
+      "NEVER_MATERIALIZED": "materialization_count <= 0",
+      "PENDING": "NOT a release-eligibility input",
+      "HISTORICAL_ONLY": "archived + GenerationRecord/language preserved; not deleted"
+    },
+    "protect": [
+      "active leases",
+      "productive continuation withhold (3.45)",
+      "firewall flag",
+      "provenance tuples",
+      "GenerationRecord ledger",
+      "ops callability after release"
+    ],
+    "no_special_case": [
+      "ODD",
+      "S",
+      "char_stride",
+      "MAPT",
+      "EX8",
+      "POS6",
+      "POS7"
+    ]
+  },
+  "gates": [
+    {
+      "id": "\u00a71\u2013\u00a72",
+      "name": "inventory \u2260 scientific record",
+      "result": "PASS",
+      "evidence": "test_s1_s2_release_preserves_scientific_record; release\u2192archived; ops/language/GenerationRecord/firewall/provenance/history intact"
+    },
+    {
+      "id": "\u00a73",
+      "name": "exact predicate audit + classifications",
+      "result": "PASS",
+      "evidence": "test_s3_exact_predicate_structure; test_s3_call_site_gate_requires_never_mat_primary"
+    },
+    {
+      "id": "\u00a74",
+      "name": "PRIMARY protection + lease/productive/firewall/provenance",
+      "result": "PASS",
+      "evidence": "test_s4_*"
+    },
+    {
+      "id": "\u00a75",
+      "name": "invent_cap not increased; occupancy \u2264 cap",
+      "result": "PASS",
+      "evidence": "test_s5_invent_cap_constant_and_occupancy_bounded; INVENT_CAP=48"
+    },
+    {
+      "id": "\u00a76",
+      "name": "budget unchanged; no hidden budget",
+      "result": "PASS",
+      "evidence": "test_s6_release_does_not_mutate_budget_fields"
+    },
+    {
+      "id": "\u00a77",
+      "name": "rediscovery/provenance recoverable after release",
+      "result": "PASS",
+      "evidence": "test_s7_rediscovery_metadata_recoverable_after_release"
+    },
+    {
+      "id": "\u00a78",
+      "name": "no reinflation loop",
+      "result": "PASS",
+      "evidence": "test_s8_released_name_cannot_reregister_same_op_to_reinflate"
+    },
+    {
+      "id": "\u00a79",
+      "name": "EX8/DX9/EX10/EX12/337/338 + PRIMARY productive",
+      "result": "PASS",
+      "evidence": "EX8-family 24+1+5 green; test_s9_primary_productive_protected_under_cap_pressure"
+    },
+    {
+      "id": "\u00a710",
+      "name": "generic A\u2013E release eligibility",
+      "result": "PASS",
+      "evidence": "test_s10_generic_eligibility_A_through_E"
+    },
+    {
+      "id": "\u00a711",
+      "name": "candidate-independence; PRODUCTION_LOGIC_SCAN",
+      "result": "PASS",
+      "evidence": "test_s11_*; PRODUCTION_LOGIC_SCAN CLEAN"
+    },
+    {
+      "id": "\u00a712",
+      "name": "stress mixed categories \u2192 exactly one reclaim",
+      "result": "PASS",
+      "evidence": "test_s12_exactly_one_reclaim_under_mixed_categories"
+    },
+    {
+      "id": "\u00a713",
+      "name": "repeated saturation churn bounds",
+      "result": "PASS",
+      "evidence": "test_s13_repeated_saturation_churn_bounded"
+    },
+    {
+      "id": "\u00a714\u2013\u00a715",
+      "name": "firewall + independence unchanged for historical",
+      "result": "PASS",
+      "evidence": "test_s14_s15_firewall_and_independence_unchanged_for_historical"
+    },
+    {
+      "id": "\u00a716",
+      "name": "FULL PYTEST PASS",
+      "result": "PASS",
+      "evidence": "1326 passed, 0 failed in 93.80s"
+    },
+    {
+      "id": "\u00a717",
+      "name": "Offline B48 replay BASELINE/3.45/3.48",
+      "result": "PASS",
+      "evidence": "reports/aivd_3_48_offline_b48_replay.json verdict=PASS; wall_signal FIX 7/7; harness delta=1"
+    },
+    {
+      "id": "\u00a718",
+      "name": "Acceptance A\u2013M (S success NOT required)",
+      "result": "PASS",
+      "evidence": "test_s18_acceptance_A_to_M_locks"
+    }
+  ],
+  "acceptance_A_to_M": {
+    "A_inventory_ne_history": "PASS",
+    "B_exact_predicate_ordered": "PASS",
+    "C_primary_never_mat_gate": "PASS",
+    "D_lease_guard": "PASS",
+    "E_cap_not_increased": "PASS",
+    "F_no_hidden_budget": "PASS",
+    "G_exactly_one_slot_reclaim": "PASS",
+    "H_no_identity_special_case": "PASS",
+    "I_fallback_nonlease": "PASS",
+    "J_no_safe_keeps_INVENTORY_CAPACITY_FAILURE": "PASS",
+    "K_productive_withhold_intact": "PASS",
+    "L_impl_b1b7106_ancestor_no_science_drift": "PASS",
+    "M_s_success_not_required": "PASS (explicit)"
+  },
+  "inventory_vs_history": "PASS",
+  "pytest": {
+    "passed": 1326,
+    "failed": 0,
+    "duration_s": 93.8
+  },
+  "ex8_family": {
+    "result": "PASS",
+    "337_family_selected": "24 passed",
+    "338_ex8": "1 passed",
+    "340_338_regression_lock": "5 passed"
+  },
+  "production_logic_scan": "CLEAN",
+  "offline_b48": {
+    "artifact": "reports/aivd_3_48_offline_b48_replay.json",
+    "verdict": "PASS",
+    "headline": {
+      "question": "Does invent-cap saturation block a never-materialized PRIMARY under B48, and does 3.48 reclaim exactly one eligible slot without raising invent_cap?",
+      "BASELINE": "analyzed 7 frozen BASELINE B48 cells; wall_signal=0; selection-era lineage",
+      "3.45": "analyzed 7 frozen FIX B48 cells; wall_signal=7/7; dominant_never_mat=[('MAPT(SLICE:1,2(TOK))', 7)]",
+      "3.48": "harness reclaim=True delta=1 primary_registered=True invent_cap_unchanged=True",
+      "answer": "YES \u2014 frozen 3.45 FIX B48 shows occupancy=INVENT_CAP with never-materialized PRIMARY keys and rediscovery present; 3.48 offline harness reclaims exactly one eligible slot so PRIMARY can invent. No Sacred re-run."
+    }
+  },
+  "integrity_tests": "tests/test_aivd348_final_integrity.py",
+  "freeze_note": "Updated test_adv_freeze_implementation_ancestor to keep 52394b8 ancestry and freeze science against b1b7106 when present (obsolete forever-freeze at 3.45).",
+  "verdict": "PASS",
+  "sacred_authorized": false
+}

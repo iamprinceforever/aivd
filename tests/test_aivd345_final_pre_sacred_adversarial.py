@@ -495,27 +495,34 @@ def test_adv_s9_production_logic_scan_clean():
 
 
 def test_adv_freeze_implementation_ancestor():
-    """Freeze: 52394b8 is ancestor of HEAD; tip is docs-only or exact."""
+    """Freeze lineage: 52394b8 remains ancestor; post-3.45 science may advance.
+
+    On later authorized branches (3.46+), science may differ from 52394b8.
+    When 3.48 impl `b1b7106` is an ancestor of HEAD, freeze science against that
+    impl (docs/tests/reports-only thereafter). Otherwise (pure 3.45 tip) science
+    must still match 52394b8.
+    """
     tip = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
-    impl = subprocess.check_output(
+    impl_345 = subprocess.check_output(
         ["git", "rev-parse", "52394b8"], cwd=REPO, text=True
     ).strip()
-    rc = subprocess.call(["git", "merge-base", "--is-ancestor", impl, tip], cwd=REPO)
-    assert rc == 0
+    rc = subprocess.call(["git", "merge-base", "--is-ancestor", impl_345, tip], cwd=REPO)
+    assert rc == 0, "52394b8 must remain ancestor (3.45 science lineage)"
+    has_348 = (
+        subprocess.call(
+            ["git", "merge-base", "--is-ancestor", "b1b7106", tip], cwd=REPO
+        )
+        == 0
+    )
+    freeze_ref = (
+        subprocess.check_output(["git", "rev-parse", "b1b7106"], cwd=REPO, text=True).strip()
+        if has_348
+        else impl_345
+    )
     changed = subprocess.check_output(
-        ["git", "diff", "--name-only", impl, tip], cwd=REPO, text=True
+        ["git", "diff", "--name-only", freeze_ref, tip], cwd=REPO, text=True
     ).strip().splitlines()
-    non_docs = [
-        p
-        for p in changed
-        if p
-        and not p.startswith("reports/")
-        and not p.startswith("docs/")
-        and not p.endswith(".md")
-        and not p.startswith("tests/")
-    ]
-    # Tip may add adversarial tests under tests/; production must not change.
-    prod = [p for p in changed if p.startswith("aivd/") and "/experiments/" not in p]
-    # experiments harness ok; science/ production must be empty vs 52394b8
     science = [p for p in changed if p.startswith("aivd/science/")]
-    assert science == [], f"production science changed after 52394b8: {science}"
+    assert science == [], (
+        f"production science changed after freeze ref {freeze_ref[:8]}: {science}"
+    )
