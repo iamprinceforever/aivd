@@ -6,6 +6,8 @@
 **Impl:** `b1b7106` (`b1b71068a79944341fb23540c4f1f19386eb4d50`) — ancestor of tip  
 **Tip at gate start:** `b139083` (`b1390837a0f1ec54be93b568779b272250c69f1f`) — docs stamp; science unchanged since impl  
 **Baseline science lineage:** `52394b8`  
+**Gate commit:** `da0ce85` (`da0ce8555a8fe1ba2b281ff7f00f8c1f814f2a35`)  
+**Push remote:** `aivd`  
 **Sacred:** **NO**
 
 ---
@@ -153,7 +155,7 @@ Offline B48: `scripts/aivd_3_48_offline_b48_replay.py` → `reports/aivd_3_48_of
 | **F. offline B48 headline** | 3.45 wall 7/7; 3.48 harness exactly-one reclaim PASS |
 | **G. PRODUCTION_LOGIC_SCAN** | CLEAN |
 | **H. PASS or FIRST FAILURE** | **PASS** |
-| **I. commit+push** | (filled after push) |
+| **I. commit+push** | `da0ce85` (`da0ce8555a8fe1ba2b281ff7f00f8c1f814f2a35`); remote `aivd` branch `research/aivd-3.48-invent-cap-antistarve` |
 | **J. Sacred?** | **NO** |
 
 ---

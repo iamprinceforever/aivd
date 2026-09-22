@@ -1,6 +1,6 @@
 {
   "title": "AIVD 3.48 FINAL INVENT-CAP INTEGRITY GATE",
-  "recorded_ist": "2026-09-22 16:11:22 IST",
+  "recorded_ist": "2026-09-22 16:11:38 IST",
   "branch": "research/aivd-3.48-invent-cap-antistarve",
   "worktree": "/workspace/aivd-340-replication",
   "tip_at_gate_start": "b1390837a0f1ec54be93b568779b272250c69f1f",
@@ -188,5 +188,9 @@
   "integrity_tests": "tests/test_aivd348_final_integrity.py",
   "freeze_note": "Updated test_adv_freeze_implementation_ancestor to keep 52394b8 ancestry and freeze science against b1b7106 when present (obsolete forever-freeze at 3.45).",
   "verdict": "PASS",
-  "sacred_authorized": false
+  "sacred_authorized": false,
+  "gate_commit": "da0ce8555a8fe1ba2b281ff7f00f8c1f814f2a35",
+  "gate_commit_short": "da0ce85",
+  "push_remote": "aivd",
+  "push_branch": "research/aivd-3.48-invent-cap-antistarve"
 }
