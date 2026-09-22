@@ -1,6 +1,6 @@
 # AIVD 3.45 REGRESSION REPAIR
 
-**Recorded:** 2026-09-22 13:50:10 IST  
+**Recorded:** 2026-09-22 13:50:27 IST  
 **Branch:** `research/aivd-3.45-adaptive-exploration-materialization`  
 **Broken freeze:** `6671788`  
 **Baseline good:** `72edfad`  
@@ -97,7 +97,9 @@ EX8-family 7/7 green; BX2/CX1 starvation ablations green; P1–P10 green.
 
 ## I. Commit + push
 
-(pending)
+- Commit: `52394b8` (`52394b8f5f802047ffc9029910e0b0de5d110f01`)
+- Remote: `aivd` → `research/aivd-3.45-adaptive-exploration-materialization`
+- Pushed: YES
 
 ---
 

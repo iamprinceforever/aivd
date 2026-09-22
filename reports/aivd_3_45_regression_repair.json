@@ -1,6 +1,6 @@
 {
   "document": "aivd_3_45_regression_repair",
-  "recorded": "2026-09-22 13:50:10 IST",
+  "recorded": "2026-09-22 13:50:27 IST",
   "branch": "research/aivd-3.45-adaptive-exploration-materialization",
   "broken_freeze": "6671788",
   "baseline_good": "72edfad",
@@ -37,5 +37,9 @@
     "summary": "1272 passed in 93.21s"
   },
   "sacred_authorized": false,
-  "commit_pending": true
+  "commit_pending": false,
+  "commit": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "commit_short": "52394b8",
+  "push_remote": "aivd",
+  "push_branch": "research/aivd-3.45-adaptive-exploration-materialization"
 }
