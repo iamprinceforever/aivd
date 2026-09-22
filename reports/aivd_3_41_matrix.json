@@ -1,0 +1,274 @@
+{
+  "document": "aivd_3_41_matrix",
+  "recorded_at_ist": "2026-09-22 12:35 IST",
+  "authorization": "DESIGN_ONLY_NOT_EXECUTED",
+  "status": "AIVD 3.41 DESIGN READY: IMPLEMENTATION REQUIRES SEPARATE AUTHORIZATION",
+  "executed": false,
+  "implemented": false,
+  "sacred_authorized": false,
+  "instrumentation_authorized": false,
+  "filter_replacement_authorized": false,
+  "s_injection_authorized": false,
+  "baseline_tip": "a380e3c",
+  "baseline_tip_full": "a380e3ce0be2bb1b456c38a0213cde12feef8f45",
+  "baseline_branch": "research/aivd-3.40-budget-representation-frontier",
+  "design_branch": "research/aivd-3.41-invention-planner-audit",
+  "parent_commit": "56dbc81",
+  "parent_commit_full": "56dbc81f2712b610c852e03d87cd02eb706c2da1",
+  "mode": "AIVD41_PLANNER_AUDIT",
+  "primary_question": "Why does the autonomous invention planner fail to produce the S behavioral direction? How does it propose/reject/score/rank/select/invent?",
+  "scientific_objective": "Design behavior-preserving planner visibility ledger to causally localize propose/reject/score/rank/select/invent/budget failure modes for S-direction \u2014 NOT make S pass; NOT seed S; NOT merge controlled FALSE_DUPLICATE with autonomous invisibility; NOT assume H10a from Stage-9 alone",
+  "stage8_priors": {
+    "conditions": [
+      "S8-BASELINE",
+      "S8-RA",
+      "S8-RC",
+      "S8-RD"
+    ],
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      11
+    ],
+    "BH": 48,
+    "invent_cap": 48,
+    "REDISCOVERY_FLOOR": 5,
+    "cells": "28/28 UNRESOLVED_INVISIBLE",
+    "S_verified": "0/7",
+    "D": 0,
+    "axis2_pass": true,
+    "axis5_pass": true,
+    "axis3_null": true,
+    "no_repair_induced_trajectory_divergence": true
+  },
+  "stage9_priors": {
+    "earliest_disappearance": "INVENTION",
+    "S_ATOM": "NOT_OBSERVED",
+    "S_CAT": "NOT_OBSERVED",
+    "S_DIAG": "NOT_OBSERVED",
+    "H9a": "SUPPORTED",
+    "H9D": "AGAINST_scoped",
+    "H9e": "INCONCLUSIVE",
+    "controlled_FALSE_DUPLICATE_ne_autonomous_invisibility": true,
+    "invent_attempt_reject_ledger": "NOT_RECORDED",
+    "rank_score_select_ledger": "NOT_RECORDED"
+  },
+  "hypothesis_leaves": {
+    "H10a": "NEVER_PROPOSED \u2014 proposal generation omits S-direction (do not assume from Stage-9 alone)",
+    "H10b": "PROPOSED then REJECTED before score",
+    "H10c": "SCORED/RANKED but demoted below materialization cut",
+    "H10d": "Planning-gate SKIP before materialization",
+    "H10e": "Capacity / invent_cap / register block",
+    "H10f": "NOT_REACHED_BEFORE_BUDGET_EXHAUSTION (distinct from NEVER_PROPOSED)",
+    "H10g": "Firewall / behavioral-identity / novelty collapse",
+    "H10h": "Instrumentation insufficiency residual",
+    "H10-REJECT": "Protocol violation / S-injection / filter-merge / Sacred / history mutation"
+  },
+  "confidence_enum": [
+    "SUPPORTED",
+    "WEAKLY SUPPORTED",
+    "INCONCLUSIVE",
+    "AGAINST"
+  ],
+  "ledger_fields": [
+    "candidate_key",
+    "candidate_family",
+    "candidate_origin",
+    "candidate_generation_method",
+    "proposal_index",
+    "proposal_epoch",
+    "proposal_state",
+    "rejection_state",
+    "rejection_reason",
+    "score",
+    "score_components",
+    "rank",
+    "selection_state",
+    "selection_reason",
+    "budget_before",
+    "budget_after",
+    "firewall_epoch",
+    "novelty_state",
+    "behavioral_identity",
+    "body_key",
+    "language_key",
+    "parent_key",
+    "provenance",
+    "seed",
+    "plant_id"
+  ],
+  "ledger_states": [
+    "PROPOSED",
+    "REJECTED",
+    "SCORED",
+    "RANKED",
+    "SELECTED",
+    "INVENTED",
+    "SKIPPED",
+    "NOT_RECORDED"
+  ],
+  "budget_distinction": [
+    "NEVER_PROPOSED",
+    "NOT_REACHED_BEFORE_BUDGET_EXHAUSTION"
+  ],
+  "s_queries": {
+    "S_ATOM": "observational_only",
+    "S_CAT": "observational_only",
+    "S_DIAG": "observational_only",
+    "seed_into_propose_atoms": false
+  },
+  "planner_components": [
+    {
+      "stage": "proposal_generation",
+      "path": "aivd/science/atom_synth.py",
+      "symbols": [
+        "propose_atoms",
+        "AtomSynthesizer.plan"
+      ]
+    },
+    {
+      "stage": "representation_wrapper",
+      "path": "aivd/science/representation.py",
+      "symbols": [
+        "propose_atom_candidates",
+        "propose_growth_candidates"
+      ]
+    },
+    {
+      "stage": "rejection_novelty_validation",
+      "path": "aivd/science/atom_synth.py",
+      "symbols": [
+        "AtomSynthesizer.plan (atom_duplicate / validation_fail)",
+        "classify_atom (aivd/science/atom.py)"
+      ]
+    },
+    {
+      "stage": "scoring",
+      "path": "aivd/science/lifecycle.py",
+      "symbols": [
+        "expected_verified_value"
+      ]
+    },
+    {
+      "stage": "ranking",
+      "path": "aivd/science/lifecycle.py",
+      "symbols": [
+        "rank_atoms"
+      ]
+    },
+    {
+      "stage": "selection_materialization_order",
+      "path": "aivd/science/atom_synth.py",
+      "symbols": [
+        "AtomSynthesizer.next_atom"
+      ]
+    },
+    {
+      "stage": "invention_orchestration",
+      "path": "aivd/science/designer.py",
+      "symbols": [
+        "ScienceDesigner._maybe_invent_atom"
+      ]
+    },
+    {
+      "stage": "capacity_gate",
+      "path": "aivd/science/methods.py",
+      "symbols": [
+        "MethodInventor._register",
+        "INVENT_CAP"
+      ]
+    },
+    {
+      "stage": "growth_compose_selection",
+      "path": "aivd/science/grow.py",
+      "symbols": [
+        "propose_growth",
+        "pick_compose_pair",
+        "pick_generation_action",
+        "_keep (nested in propose_growth)"
+      ]
+    },
+    {
+      "stage": "budget_planning_skip",
+      "path": "aivd/science/designer.py",
+      "symbols": [
+        "ScienceDesigner._maybe_invent_atom (leftover<3 \u2192 ATOM_INVENTION_SKIPPED_BY_PLANNING)",
+        "REDISCOVERY_FLOOR (grow.py)"
+      ]
+    },
+    {
+      "stage": "firewall_provenance",
+      "path": "aivd/science/language.py",
+      "symbols": [
+        "ExperimentLanguage.firewall",
+        "ScienceDesigner._maybe_firewall"
+      ]
+    },
+    {
+      "stage": "behavioral_identity",
+      "path": "aivd/science/grow.py",
+      "symbols": [
+        "behavioral_equivalent",
+        "textual_identity"
+      ]
+    },
+    {
+      "stage": "generation_records_partial",
+      "path": "aivd/science/generation_record.py",
+      "symbols": [
+        "GenerationRecord"
+      ]
+    },
+    {
+      "stage": "stage8_capture_partial",
+      "path": "aivd/experiments/aivd340/stage8_recorder.py",
+      "symbols": [
+        "Stage8Recorder.note_invent",
+        "ingest_generation_records"
+      ]
+    }
+  ],
+  "field_availability_preview": {
+    "candidate_key": "PARTIAL \u2014 available as body_key after invent in generation_record_summaries; NOT for rejected/unmaterialized",
+    "candidate_family": "PARTIAL \u2014 semantic_class on in-memory InventedAtom / occasional methods_log; NOT in Stage-8 summary schema",
+    "candidate_origin": "ALREADY_AVAILABLE \u2014 generation_record_summaries.origin for invented bodies",
+    "candidate_generation_method": "NOT_RECORDED as explicit ledger field",
+    "proposal_index": "NOT_RECORDED in Stage-8 artifacts (InventedAtom.proposal_index exists in-memory only)",
+    "proposal_epoch": "NOT_RECORDED",
+    "proposal_state": "NOT_RECORDED \u2014 invent-attempt ledger missing (Stage-9 gap)",
+    "rejection_state": "NOT_RECORDED \u2014 invent-reject ledger missing (Stage-9 gap)",
+    "rejection_reason": "NOT_RECORDED on invent path; FILTER_BEHAVIORAL_DUP is Stage-4/5 CONTROLLED category, not Stage-8 invent ledger",
+    "score": "NOT_RECORDED \u2014 rank/score/select ledger missing (Stage-9 H9e INCONCLUSIVE)",
+    "score_components": "NOT_RECORDED",
+    "rank": "NOT_RECORDED in Stage-8 run JSON (methods_log atom_rank before/after truncated, not exported)",
+    "selection_state": "PARTIAL \u2014 n_selected / fate E OBSERVED for non-S pool survivors; reason NOT_RECORDED; S N/A at invent",
+    "selection_reason": "NOT_RECORDED",
+    "budget_before": "PARTIAL \u2014 budget_used / leftover_at_firewall_decision AVAILABLE; per-candidate budget_before NOT_RECORDED",
+    "budget_after": "PARTIAL \u2014 same",
+    "firewall_epoch": "ALREADY_AVAILABLE \u2014 Stage-8 firewall_epoch / firewalled",
+    "novelty_state": "NOT_RECORDED in Stage-8 summaries",
+    "behavioral_identity": "NOT_RECORDED at invent ledger; Stage-8 equiv_decisions are post-pool only",
+    "body_key": "ALREADY_AVAILABLE \u2014 generation_record_summaries.body_key for invented",
+    "language_key": "NOT_RECORDED",
+    "parent_key": "PARTIAL \u2014 generation_record_summaries.parent (often null)",
+    "provenance": "NOT_RECORDED in Stage-8 summaries",
+    "seed": "ALREADY_AVAILABLE",
+    "plant_id": "ALREADY_AVAILABLE"
+  },
+  "forbidden": [
+    "S injection / odd-stride heuristics / seed S into propose_atoms",
+    "filter merge / live FILTER_BEHAVIORAL_DUP replacement / R-A/R-C/R-D merge",
+    "Sacred / TinyLlama / plant discovery in design phase",
+    "grow.py / invent_cap / novelty / firewall / planner math changes in design phase",
+    "rewrite Stage-7/8/9 historical results",
+    "fabricate NOT_RECORDED",
+    "post-hoc favorable selection outside preregistered controls"
+  ],
+  "test_matrix_size": 16,
+  "success_does_not_require_S_discovery": true,
+  "next_authorization_required": "AIVD 3.41 IMPLEMENTATION AUTHORIZATION \u2014 BEHAVIOR-PRESERVING PLANNER LEDGER ONLY (no Sacred; no S injection; no grow.py / FILTER / propose_atoms / R-A/R-C/R-D / invent_cap / novelty / firewall / planner score-rank-select math changes)"
+}
