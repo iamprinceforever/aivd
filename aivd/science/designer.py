@@ -800,6 +800,44 @@ class ScienceDesigner:
                     "after": ",".join(after[:8]),
                     "leftover": str(leftover),
                 })
+            # AIVD 3.41: observe score/rank (side-channel; does not alter ranked list)
+            try:
+                from aivd.science.planner_audit_ledger import (
+                    audit_enabled, observe_score, observe_rank,
+                )
+                from aivd.science.lifecycle import expected_verified_value
+                if audit_enabled():
+                    inv_ready = self.ledger.invariant_ready()
+                    for a in ranked:
+                        cls = str(getattr(a, "semantic_class", "") or "")
+                        same = cls in rejected_cls
+                        p_disc = 0.12 if same else 0.35
+                        if leftover >= 3:
+                            p_ver = 0.85
+                        elif leftover >= 2 and inv_ready:
+                            p_ver = 0.7
+                        else:
+                            p_ver = 0.05
+                        comps = {
+                            "p_discovery": p_disc,
+                            "p_reproduction": 0.85,
+                            "p_verification": p_ver,
+                            "causal_value": 0.55 if same else 1.0,
+                            "reuse_value": 1.1 if not same else 0.8,
+                            "cost": 1.0,
+                        }
+                        sc = expected_verified_value(
+                            p_discovery=comps["p_discovery"],
+                            p_reproduction=comps["p_reproduction"],
+                            p_verification=comps["p_verification"],
+                            causal_value=comps["causal_value"],
+                            reuse_value=comps["reuse_value"],
+                            cost=comps["cost"],
+                        )
+                        observe_score(a, score=sc, score_components=comps)
+                    observe_rank(ranked, rejected_classes=rejected_cls, leftover=leftover)
+            except Exception:
+                pass
         if self.allow_esc and leftover < 3:
             act = STOP
             self.atom_synth.board.budget_skips += 1
@@ -819,6 +857,16 @@ class ScienceDesigner:
                     "why": "planner: leftover below complete-chain floor",
                     "leftover": str(leftover),
                 })
+            try:
+                from aivd.science.planner_audit_ledger import audit_enabled, observe_skip
+                if audit_enabled():
+                    observe_skip(
+                        selection_reason="ATOM_INVENTION_SKIPPED_BY_PLANNING",
+                        budget_before=leftover,
+                        budget_after=leftover,
+                    )
+            except Exception:
+                pass
             return
         if self.allow_atom_budget and leftover < 3:
             self.atom_synth.board.budget_skips += 1
@@ -829,6 +877,16 @@ class ScienceDesigner:
                     "why": "atom invention skipped; leftover insufficient for verification",
                     "leftover": str(leftover),
                 })
+            try:
+                from aivd.science.planner_audit_ledger import audit_enabled, observe_skip
+                if audit_enabled():
+                    observe_skip(
+                        selection_reason="BUDGET_ALLOCATION_FAILURE",
+                        budget_before=leftover,
+                        budget_after=leftover,
+                    )
+            except Exception:
+                pass
             return
         fam = self.families.families.get("record.field_delim")
         if fam is not None and fam.remaining and fam.generated < fam.max_generated:
@@ -858,6 +916,16 @@ class ScienceDesigner:
                 "occupancy": str(self.inventor.occupancy()),
             })
             self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+            try:
+                from aivd.science.planner_audit_ledger import audit_enabled, observe_skip
+                if audit_enabled():
+                    observe_skip(
+                        selection_reason="INVENTORY_CAPACITY_FAILURE",
+                        budget_before=leftover,
+                        budget_after=leftover,
+                    )
+            except Exception:
+                pass
             return
         n_mat = 1 if self.allow_atom_lazy else 4
         for _ in range(n_mat):
@@ -938,6 +1006,18 @@ class ScienceDesigner:
                 "generation": str(self.language.generation),
                 "occupancy": str(self.inventor.occupancy()),
             })
+            try:
+                from aivd.science.planner_audit_ledger import audit_enabled, observe_invent
+                if audit_enabled():
+                    observe_invent(
+                        atom,
+                        body_key=atom.key(),
+                        budget_before=leftover,
+                        budget_after=leftover,
+                        firewall_epoch=getattr(self.language, "firewall_epoch", None),
+                    )
+            except Exception:
+                pass
             hidden_keys = set()
             if self.firewall_vault:
                 from aivd.science.language import _dict_to_micro
@@ -1049,6 +1129,15 @@ class ScienceDesigner:
             "hidden": str(len(self.language.hidden_ids)),
             "firewall_epoch": str(self.language.firewall_epoch),
         })
+        try:
+            from aivd.science.planner_audit_ledger import audit_enabled, observe_firewall
+            if audit_enabled():
+                observe_firewall(
+                    firewall_epoch=self.language.firewall_epoch,
+                    reason="independent_rediscovery",
+                )
+        except Exception:
+            pass
         self._emit_gen_record(
             kind="firewall",
             action="firewall",

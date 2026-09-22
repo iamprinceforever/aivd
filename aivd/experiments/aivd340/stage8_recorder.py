@@ -167,6 +167,54 @@ class Stage8Recorder:
             self.unobserved_reasons[bk] = "insufficient_instrumentation"
         return fates
 
+
+    # --- AIVD 3.41 Stage-8 invent recorder gap completion (observation only) ---
+    invent_attempt_rows: list[dict[str, Any]] = field(default_factory=list)
+    invent_reject_rows: list[dict[str, Any]] = field(default_factory=list)
+    score_rank_select_rows: list[dict[str, Any]] = field(default_factory=list)
+
+    def note_invent_attempt(self, row: dict[str, Any]) -> None:
+        """Record an invent-attempt / propose observation (Stage-9 gap close)."""
+        payload = dict(row)
+        payload.setdefault("event", "invent_attempt")
+        self.invent_attempt_rows.append(payload)
+        self.emit(**payload)
+
+    def note_invent_reject(self, row: dict[str, Any]) -> None:
+        """Record invent-path reject (validation/novelty/duplicate)."""
+        payload = dict(row)
+        payload["event"] = "invent_reject"
+        self.invent_reject_rows.append(payload)
+        self.emit(**payload)
+
+    def note_score_rank_select(self, row: dict[str, Any]) -> None:
+        """Record score/rank/select/skip on invent orchestration path."""
+        payload = dict(row)
+        payload.setdefault("event", "score_rank_select")
+        self.score_rank_select_rows.append(payload)
+        self.emit(**payload)
+
+    def ingest_planner_audit_ledger(self, ledger_events: list[dict[str, Any]] | None) -> None:
+        """Project AIVD41 planner-audit ledger rows into Stage-8 invent gap ledgers."""
+        for ev in ledger_events or []:
+            et = ev.get("event")
+            if et == "propose":
+                self.note_invent_attempt(ev)
+            elif et == "reject":
+                self.note_invent_reject(ev)
+            elif et in ("score", "rank", "select", "skip", "invent"):
+                self.note_score_rank_select(ev)
+
+    def invent_gap_summary(self) -> dict[str, Any]:
+        return {
+            "n_invent_attempts": len(self.invent_attempt_rows),
+            "n_invent_rejects": len(self.invent_reject_rows),
+            "n_score_rank_select": len(self.score_rank_select_rows),
+            "invent_attempt_rows": list(self.invent_attempt_rows),
+            "invent_reject_rows": list(self.invent_reject_rows),
+            "score_rank_select_rows": list(self.score_rank_select_rows),
+        }
+
     def summary(self) -> dict[str, Any]:
         fates = self.assign_primary_fates()
         from collections import Counter
@@ -196,4 +244,5 @@ class Stage8Recorder:
             "repair_calls_total": self.repair_calls_total,
             "recursive_edges": list(self.recursive_edges),
             "equiv_decisions": self.equiv_decisions,
+            "invent_gap": self.invent_gap_summary(),
         }

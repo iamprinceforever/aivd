@@ -139,6 +139,13 @@ class AtomSynthesizer:
         raw = propose_atom_candidates(
             prompt=prompt, question=True, policy=self.representation,
         )
+        # AIVD 3.41: observe raw proposal set (includes odd-stride at index 3 under R0)
+        try:
+            from aivd.science.planner_audit_ledger import audit_enabled, observe_propose
+            if audit_enabled():
+                observe_propose(raw, generation_method="propose_atom_candidates")
+        except Exception:
+            pass
         n = len(split_prompt(prompt))
         kept: list[InventedAtom] = []
         known_keys = set(self.board.seen)
@@ -149,26 +156,92 @@ class AtomSynthesizer:
             k = atom.key()
             if k in self.board.seen:
                 self.board.duplicates += 1
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="duplicate_key",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             if validate_micro(atom.body, n_tokens=n) is not None:
                 self.board.validation_fail += 1
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="validate_micro",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             try:
                 got = apply_micro(prompt, atom.body)
             except Exception:
                 self.board.validation_fail += 1
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="apply_micro_error",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             if got == prompt:
                 self.board.validation_fail += 1
                 self.board.seen.add(k)
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="identity_noop",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             try:
                 g2 = apply_micro(probes[1], atom.body)
             except Exception:
                 self.board.validation_fail += 1
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="probe_apply_error",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             if not g2:
                 self.board.validation_fail += 1
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason="empty_probe_output",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             nov = classify_atom(
                 atom,
@@ -183,6 +256,17 @@ class AtomSynthesizer:
                 self.board.duplicates += 1
                 self.board.seen.add(k)
                 self.board.events.append({"event": "atom_duplicate", "key": k, "novelty": nov})
+                try:
+                    from aivd.science.planner_audit_ledger import audit_enabled, observe_reject
+                    if audit_enabled():
+                        observe_reject(
+                            atom,
+                            candidate_key=k,
+                            rejection_reason=f"novelty:{nov}",
+                            proposal_index=getattr(atom, "proposal_index", None),
+                        )
+                except Exception:
+                    pass
                 continue
             level = LEVEL_LANGUAGE_EXTENSION if nov == "INVENTED_ATOM" else LEVEL_INVENTED_ATOM
             atom = InventedAtom(
@@ -226,7 +310,14 @@ class AtomSynthesizer:
             return None
         if not self.board.remaining:
             return None
-        return self.board.remaining.pop(0)
+        atom = self.board.remaining.pop(0)
+        try:
+            from aivd.science.planner_audit_ledger import audit_enabled, observe_select
+            if audit_enabled():
+                observe_select(atom, selection_state="SELECTED", selection_reason="next_atom")
+        except Exception:
+            pass
+        return atom
 
     def make_fn(self, atom: InventedAtom):
         return make_fn(atom)
