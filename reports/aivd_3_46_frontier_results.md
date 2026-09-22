@@ -2,7 +2,7 @@
 
 **Recorded:** 2026-09-22 15:10:55 IST
 **Authorization:** `AIVD 3.46 BUDGET-FRONTIER VALIDATION — AUTHORIZED: frontier B32/B40/B48/B64; R1 TinyLlama; seeds[0,1,2,3,4,7,11]; invent_cap=48; REDISCOVERY_FLOOR=5; BASELINE@72edfad vs FIX science@52394b8; fresh plant family AIVD346-FRONTIER-ODDSTRIDE (new plant_ids per cell); no retune; no 3.45 science edits; no S/ODD/MAPT injection; primary metric explore_n; freeze at first activation.`
-**Branch tip:** `b2a4aa46c673`
+**Branch tip:** `826836af3c75`
 **IMPL freeze (FIX science):** `52394b8` / `52394b8f5f802047ffc9029910e0b0de5d110f01`
 **BASELINE tip:** `72edfad` / `72edfadeda87c0ea6ac966487c49b9526099c613`
 **Science freeze still 52394b8?** `True`
@@ -708,9 +708,15 @@ Activation envelope: **B48**
 
 - plant_ids (unique): 35
 
-## J. Commit + push
 
-- see JSON `commit_push`
+
+## J. Commit + push (stamped)
+
+- commit: `826836af3c751849809533f075732c32055b4adf`
+- branch: `research/aivd-3.46-budget-frontier-validation`
+- remote: `aivd`
+- science@52394b8 unchanged: **YES**
+- 3.45 modified: **NO**
 
 ## K. 3.45 modified?
 
