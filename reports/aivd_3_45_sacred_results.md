@@ -304,7 +304,7 @@ Axes are separate observational slices; **no combined score**.
 
 ## L. Commit + push
 
-- commit `8c2e0a1` (`8c2e0a1d9d3d940b3b53cb052c7cecc80bd8ad67`) → remote `aivd` branch `research/aivd-3.45-adaptive-exploration-materialization`
+- results `8c2e0a1`; docs stamp / push HEAD `9b92764` → remote `aivd` branch `research/aivd-3.45-adaptive-exploration-materialization`
 
 ## M. Retuned?
 

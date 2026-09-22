@@ -5328,9 +5328,13 @@
     "commit_short": "8c2e0a1",
     "branch": "research/aivd-3.45-adaptive-exploration-materialization",
     "remote": "aivd",
-    "recorded_at_ist": "2026-09-22 14:22:06 IST",
+    "recorded_at_ist": "2026-09-22 14:22:15 IST",
     "science_unchanged_vs_52394b8": true,
-    "retuned": false
+    "retuned": false,
+    "results_commit": "8c2e0a1d9d3d940b3b53cb052c7cecc80bd8ad67",
+    "docs_stamp_commit": "9b92764ff81db43e180859c405c01babbf08e69e",
+    "push_head": "9b92764ff81db43e180859c405c01babbf08e69e",
+    "pushed": true
   },
   "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
   "version": "3.39.0",
