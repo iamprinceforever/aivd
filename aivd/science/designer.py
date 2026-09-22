@@ -34,6 +34,7 @@ from aivd.science.escalate import (
 )
 from aivd.science.ledger import EvidenceLedger
 from aivd.science.lifecycle import rank_atoms
+from aivd.science.exploration_alloc import ExplorationAllocator
 from aivd.science.gap import (
     compile_from_harvest,
     compile_from_structure,
@@ -130,6 +131,7 @@ class ScienceDesigner:
             require_question=self.allow_atom_question,
             representation=self.representation,
         )
+        self.atom_explore = ExplorationAllocator()  # AIVD 3.45 adaptive EXPLOIT+EXPLORE
         self.language = ExperimentLanguage()
         self.firewall_vault: dict | None = None
         self.planner = EscalationPlanner(
@@ -927,7 +929,35 @@ class ScienceDesigner:
             except Exception:
                 pass
             return
-        n_mat = 1 if self.allow_atom_lazy else 4
+        # AIVD 3.45: adaptive EXPLOIT+EXPLORE width (general anti-starvation).
+        # Replaces fixed lazy n_mat=1 that permanently starved lower-ranked valids.
+        _board_before = list(self.atom_synth.board.remaining)
+        _board_keys_before = [a.key() for a in _board_before]
+        _alloc = self.atom_explore.decide(
+            _board_before,
+            lazy=self.allow_atom_lazy,
+            invent_slots_left=max(0, INVENT_CAP - self.inventor.occupancy()),
+            leftover=int(leftover),
+        )
+        self.atom_synth.board.remaining = list(_alloc.ordered)
+        n_mat = int(_alloc.n_mat)
+        if n_mat <= 0:
+            self.atom_explore.observe_call(
+                board_keys_before=_board_keys_before,
+                materialized_keys=[],
+                decision=_alloc,
+            )
+            return
+        self.methods_log.append({
+            "event": "atom_explore_alloc",
+            "n_mat": str(n_mat),
+            "exploit_n": str(_alloc.exploit_n),
+            "explore_n": str(_alloc.explore_n),
+            "reason": _alloc.reason,
+            "explore_keys": ",".join(_alloc.explore_keys),
+            "epoch": str(_alloc.epoch),
+        })
+        _materialized_keys: list[str] = []
         for _ in range(n_mat):
             if self.inventor.occupancy() >= INVENT_CAP:
                 break
@@ -953,6 +983,11 @@ class ScienceDesigner:
             )
             if not ok:
                 self.failure_class = "INVENTORY_CAPACITY_FAILURE"
+                self.atom_explore.observe_call(
+                    board_keys_before=_board_keys_before,
+                    materialized_keys=_materialized_keys,
+                    decision=_alloc,
+                )
                 return
             self.atom_synth.op_of[name] = atom
             self.atom_synth.board.materialized.append(name)
@@ -1045,8 +1080,16 @@ class ScienceDesigner:
                 parent_eids=tuple(atom.parent or ()),
                 capability_delta=1,
             )
-            if self.allow_atom_lazy:
+            _materialized_keys.append(atom.key())
+            # AIVD 3.45: stop at adaptive n_mat (not unconditional lazy-1 break).
+            if len(_materialized_keys) >= n_mat:
                 break
+
+        self.atom_explore.observe_call(
+            board_keys_before=_board_keys_before,
+            materialized_keys=_materialized_keys,
+            decision=_alloc,
+        )
 
     def _untried_atom_classes(self) -> list:
         rejected = {
@@ -1111,6 +1154,7 @@ class ScienceDesigner:
         self.atom_synth.board.remaining = []
         self.atom_synth.board.materialized = []
         self.atom_synth.board.seen = set()
+        self.atom_explore.reset()  # AIVD 3.45: fresh exploration state post-firewall
         self.atom_synth.board.generated = 0
         self.atom_synth.board.executed = 0
         self.atom_synth.board.successes = 0

@@ -1,0 +1,125 @@
+{
+  "document": "aivd_3_45_intervention",
+  "title": "AIVD 3.45 GENERAL PLANNER EXPLORATION FIX (intervention)",
+  "recorded": "2026-09-22 13:32:22 IST",
+  "baseline_tip": "72edfadeda87c0ea6ac966487c49b9526099c613",
+  "baseline_short": "72edfad",
+  "branch": "research/aivd-3.45-adaptive-exploration-materialization",
+  "push_remote": "aivd",
+  "sacred": false,
+  "stop_conditions_hit": [],
+  "insertion_point": {
+    "path": "aivd/science/designer.py",
+    "symbol": "ScienceDesigner._maybe_invent_atom",
+    "secondary_module": "aivd/science/exploration_alloc.py",
+    "rationale": "Atom lazy n_mat=1 + allow_atom_lazy early break is the established starvation site (3.41\u20133.44). Prim/ext lazy paths left unchanged (smallest insertion)."
+  },
+  "policy": {
+    "name": "EXPLOIT_PLUS_BOUNDED_EXPLORE",
+    "exploit": "lazy base width 1 (eager 4); always preserves rank-0 / board head",
+    "explore": "at most +1 slot when (a) first-window diversity with unexplored beyond cut OR (b) skip_count>=threshold with under-explored candidate; budget-gated by leftover//chain_floor and invent_slots_left",
+    "anti_starvation": "skip_count / materialization_count / exploration_opportunities / last_materialized_epoch; surface starved candidate just after exploit cut",
+    "not": [
+      "fixed n_mat=2 as sole policy",
+      "round-robin",
+      "bypass novelty/firewall/equivalence/invent_cap/verification",
+      "auto-increase invent_cap or experiment budget",
+      "candidate-specific boosts"
+    ]
+  },
+  "fields_added": [
+    "CandidateExploreState.skip_count",
+    "CandidateExploreState.materialization_count",
+    "CandidateExploreState.exploration_opportunities",
+    "CandidateExploreState.last_materialized_epoch",
+    "ExplorationAllocator.epoch",
+    "ExplorationAllocator.states",
+    "ScienceDesigner.atom_explore"
+  ],
+  "requirements_checklist": {
+    "1_high_value_exploit_possible": true,
+    "2_behavioral_diversity_not_permanently_starved": true,
+    "3_lower_ranked_bounded_explore": true,
+    "4_budget_aware": true,
+    "5_no_invention_explosion": true,
+    "6_no_repeated_known_equivalent": "deferred_to_existing_novelty_gates",
+    "7_works_for_arbitrary_candidates": true,
+    "8_no_candidate_specific_knowledge": true,
+    "9_U_behavior_remains_valid": "offline_observation_U_still_in_board_order_exploit_path; live Sacred NOT_RECORDED",
+    "10_deterministic": true,
+    "11_candidates_gt_width": true,
+    "12_useful_when_ordering_changes": true,
+    "13_opportunity_ne_guaranteed_invention": true
+  },
+  "tests": {
+    "file": "tests/test_aivd345_exploration_alloc.py",
+    "matrix_A_H": "PASS",
+    "properties_P1_P7": "PASS",
+    "regression_guards": "PASS",
+    "aivd341_planner_audit": "PASS",
+    "n_passed": 38
+  },
+  "offline_replay": {
+    "artifact": "reports/aivd_3_45_offline_replay.json",
+    "n_cells": 28,
+    "baseline_mean_first_window_diversity": 1.0,
+    "fix_a_mean_first_window_diversity": 2.0,
+    "fix_a_first_window_diversity_lift": 1.0,
+    "fix_b_mean_first_window_diversity": 2.0,
+    "note": "CF inventions are NOT real inventions. S-key exposure is observation only."
+  },
+  "ablation": {
+    "BASELINE": "lazy n_mat=1",
+    "FIX_A": "adaptive EXPLOIT+EXPLORE (chosen)",
+    "FIX_B": "fixed n_mat=2",
+    "selection_rule": "breadth + bounded cost + exploitation preservation; NOT single-candidate success",
+    "winner": "FIX_A",
+    "why": "Matches FIX_B first-window diversity lift (+1) while remaining adaptive under tight leftover (explore withheld when leftover<6) and capping opportunities per candidate \u2014 avoids unconditional width inflation."
+  },
+  "candidate_specific_grep": {
+    "scope": "aivd/science/exploration_alloc.py + added lines of designer.py vs 72edfad",
+    "tokens": [
+      "ODD",
+      "EVEN",
+      "MAPT(SLICE:1,2(TOK))",
+      "char_stride",
+      "POS6",
+      "POS7",
+      "Sacred",
+      "TinyLlama"
+    ],
+    "result": "CLEAN"
+  },
+  "success_criteria": {
+    "A_general_anti_starvation": true,
+    "B_preserved_exploitation": true,
+    "C_novelty_intact": true,
+    "D_firewall_intact": true,
+    "E_budget_intact": true,
+    "F_determinism": true,
+    "G_no_candidate_specific_code": true,
+    "H_increased_exploration_opportunity": true,
+    "I_no_uncontrolled_explosion": true,
+    "S_improvement": "OBSERVATION_ONLY_NOT_ACCEPTANCE"
+  },
+  "known_limitations": [
+    "Offline replay does not fully resimulate post-invent rank demotion trajectories (NOT_RECORDED).",
+    "Verification / Sacred uplift NOT_RECORDED.",
+    "Prim/ext lazy n_mat paths unchanged (atom path only).",
+    "Exploration opportunity does not guarantee invention (by design).",
+    "max_opportunities_per_candidate=1 may underserve after firewall reset until reset() \u2014 allocator resets on firewall board clear."
+  ],
+  "not_recorded": [
+    "Live Sacred outcomes under FIX-A",
+    "Exact invent unit cost beyond chain_floor=3 proxy",
+    "Full post-window CF trajectories under demotion\u00d7explore interaction"
+  ],
+  "deliverables": [
+    "aivd/science/exploration_alloc.py",
+    "aivd/science/designer.py (patched _maybe_invent_atom)",
+    "tests/test_aivd345_exploration_alloc.py",
+    "aivd/experiments/aivd345/offline_replay.py",
+    "reports/aivd_3_45_offline_replay.md/.json",
+    "reports/aivd_3_45_intervention.md/.json"
+  ]
+}

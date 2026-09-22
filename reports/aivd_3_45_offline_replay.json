@@ -1,0 +1,296 @@
+{
+  "document": "aivd_3_45_offline_replay",
+  "recorded": "2026-09-22 13:31:49 IST",
+  "n_cells": 28,
+  "headlines": {
+    "baseline_mean_first_window_diversity": 1.0,
+    "fix_a_mean_first_window_diversity": 2.0,
+    "fix_b_mean_first_window_diversity": 2.0,
+    "baseline_mean_total_diversity": 4.0,
+    "fix_a_mean_total_diversity": 4.0,
+    "fix_b_mean_total_diversity": 4.0,
+    "baseline_mean_materializations": 4.0,
+    "fix_a_mean_materializations": 4.0,
+    "fix_b_mean_materializations": 4.0,
+    "fix_a_first_window_diversity_lift": 1.0,
+    "keys_newly_exposed_first_window_by_fix_a": {
+      "MAPT(SLICE:1,2(TOK))": 28
+    },
+    "baseline_persistent_suppress_counts": {
+      "MAPT(CAT(TOK|AT:-1))": 28,
+      "MAPT(AT:-1)": 28,
+      "MAPT(CAT(TOK|AT:0))": 28,
+      "MAPT(CAT(AT:0|AT:-1))": 28,
+      "MAPT(SLICE:0,3(TOK))": 28,
+      "MAPT(AT:0)": 28
+    }
+  },
+  "ablation_note": "FIX-A (adaptive) preferred over FIX-B (fixed n_mat=2) when equal diversity at equal or lower unnecessary cost under tight leftover; winner NOT chosen by any single candidate success. CF inventions are NOT real inventions.",
+  "limitations": [
+    "Offline replay approximates first/subsequent windows from board0 order only.",
+    "Rank demotion dynamics after invent are NOT fully resimulated (NOT_RECORDED).",
+    "Verification/Sacred outcomes NOT_RECORDED.",
+    "Budget unit costs beyond chain_floor=3 proxy NOT_RECORDED."
+  ],
+  "rows_sample": [
+    {
+      "cell_id": "NOT_RECORDED",
+      "board0_len": 10,
+      "baseline": {
+        "policy": "BASELINE_n_mat1",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 1,
+        "diversity_first": 1,
+        "diversity_total": 4
+      },
+      "fix_a": {
+        "policy": "FIX_A_adaptive",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4,
+        "explore_events": 2
+      },
+      "fix_b": {
+        "policy": "FIX_B_fixed_n_mat2",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4
+      }
+    },
+    {
+      "cell_id": "NOT_RECORDED",
+      "board0_len": 10,
+      "baseline": {
+        "policy": "BASELINE_n_mat1",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 1,
+        "diversity_first": 1,
+        "diversity_total": 4
+      },
+      "fix_a": {
+        "policy": "FIX_A_adaptive",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4,
+        "explore_events": 2
+      },
+      "fix_b": {
+        "policy": "FIX_B_fixed_n_mat2",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4
+      }
+    },
+    {
+      "cell_id": "NOT_RECORDED",
+      "board0_len": 10,
+      "baseline": {
+        "policy": "BASELINE_n_mat1",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 1,
+        "diversity_first": 1,
+        "diversity_total": 4
+      },
+      "fix_a": {
+        "policy": "FIX_A_adaptive",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4,
+        "explore_events": 2
+      },
+      "fix_b": {
+        "policy": "FIX_B_fixed_n_mat2",
+        "first_window": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))"
+        ],
+        "first_window_skipped": [
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(TOK|AT:0))",
+          "MAPT(CAT(AT:0|AT:-1))",
+          "MAPT(SLICE:0,3(TOK))",
+          "MAPT(AT:0)"
+        ],
+        "materialized": [
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(SLICE:1,2(TOK))",
+          "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        ],
+        "n_materialized": 4,
+        "n_first_window": 2,
+        "diversity_first": 2,
+        "diversity_total": 4
+      }
+    }
+  ],
+  "n_rows": 28
+}
