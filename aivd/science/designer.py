@@ -537,6 +537,107 @@ class ScienceDesigner:
                 return True
         return False
 
+    def _atom_lookup(self, name: str):
+        """Resolve registered invented-atom metadata by executable name (general)."""
+        atom = self.atom_synth.op_of.get(name)
+        if atom is not None:
+            return atom
+        for a in self.language.invented:
+            if a.name() == name:
+                return a
+        return None
+
+    def _is_independent_rediscovery_op(self, name: str) -> bool:
+        """GENERAL signal: origin/provenance marks independent rediscovery."""
+        atom = self._atom_lookup(name)
+        if atom is None:
+            return False
+        if str(getattr(atom, "origin", "") or "") == "independent_rediscovery":
+            return True
+        prov = getattr(atom, "provenance", ()) or ()
+        return "independent_rediscovery" in prov
+
+    def _promoted_class_peers(self) -> dict[str, list[str]]:
+        """Map semantic_class → names of PROMOTED non-compose atoms (general)."""
+        out: dict[str, list[str]] = {}
+        for a in self.language.invented:
+            nm = a.name()
+            if str(nm).startswith("cmp_"):
+                continue
+            if self.language.state_of(nm) != "PROMOTED":
+                continue
+            cls = str(a.semantic_class or "")
+            if not cls:
+                continue
+            out.setdefault(cls, []).append(nm)
+        return out
+
+    def _release_invent_cap_antistarve_slot(self, why: str) -> bool:
+        """AIVD 3.48: free exactly one invent slot for a never-materialized PRIMARY.
+
+        Prefer releasing least-valuable registered ops under GENERAL rules:
+          1. independent_rediscovery origin that is also class-redundant
+          2. independent_rediscovery origin (non-lease)
+          3. non-lease ops already represented by another promoted same-class atom
+        Never releases active leases. Falls back to `_release_nonlease_slot`.
+        If no safe release exists, returns False (caller keeps invent_cap failure).
+        """
+        leased = {L.op for L in self.commitments.leases if L.state not in ("REVOKED",)}
+        peers = self._promoted_class_peers()
+
+        def _class_redundant(name: str) -> bool:
+            atom = self._atom_lookup(name)
+            if atom is None:
+                return False
+            cls = str(getattr(atom, "semantic_class", "") or "")
+            if not cls:
+                return False
+            others = [p for p in peers.get(cls, []) if p != name]
+            return bool(others)
+
+        def _try_release(name: str, kind: str) -> bool:
+            if name in leased:
+                return False
+            if name not in self.inventor.invented:
+                return False
+            if not self.inventor.release(name):
+                return False
+            self.families.capacity_releases += 1
+            self.methods_log.append({
+                "event": "capacity_release",
+                "op": name,
+                "why": why,
+                "antistarve_kind": kind,
+                "occupancy": str(self.inventor.occupancy()),
+            })
+            return True
+
+        # Pass 1: rediscovery + redundant (least valuable)
+        for name in list(self.inventor.invented):
+            if not self._is_independent_rediscovery_op(name):
+                continue
+            if not _class_redundant(name):
+                continue
+            if _try_release(name, "rediscovery_redundant"):
+                return True
+
+        # Pass 2: any independent_rediscovery (non-lease)
+        for name in list(self.inventor.invented):
+            if not self._is_independent_rediscovery_op(name):
+                continue
+            if _try_release(name, "independent_rediscovery"):
+                return True
+
+        # Pass 3: non-lease class-redundant (already represented by promoted peer)
+        for name in list(self.inventor.invented):
+            if not _class_redundant(name):
+                continue
+            if _try_release(name, "class_redundant"):
+                return True
+
+        # Pass 4: existing pad/intra non-lease release
+        return self._release_nonlease_slot(why)
+
     def _maybe_synthesize_primitive(self) -> None:
         if not self.allow_prim:
             return
@@ -912,6 +1013,14 @@ class ScienceDesigner:
         )
         if self.inventor.occupancy() >= INVENT_CAP:
             self._release_nonlease_slot("slot for question-justified invented atom")
+        # AIVD 3.48: when invent_cap is still full, free one low-value slot iff the
+        # next PRIMARY (rank head) has never successfully materialized.
+        if self.inventor.occupancy() >= INVENT_CAP:
+            _primary_board = list(self.atom_synth.board.remaining)
+            if self.atom_explore.primary_target_never_materialized(_primary_board):
+                self._release_invent_cap_antistarve_slot(
+                    "slot for never-materialized primary atom"
+                )
         if self.inventor.occupancy() >= INVENT_CAP:
             self.methods_log.append({
                 "event": "atom_capacity_wait",
@@ -981,7 +1090,17 @@ class ScienceDesigner:
         _materialized_keys: list[str] = []
         for _ in range(n_mat):
             if self.inventor.occupancy() >= INVENT_CAP:
-                break
+                # AIVD 3.48: mid-loop antistarve for never-materialized next PRIMARY
+                _peek = list(self.atom_synth.board.remaining)
+                if self.atom_explore.primary_target_never_materialized(_peek):
+                    if not self._release_invent_cap_antistarve_slot(
+                        "slot for never-materialized primary atom"
+                    ):
+                        break
+                else:
+                    break
+                if self.inventor.occupancy() >= INVENT_CAP:
+                    break
             atom = self.atom_synth.next_atom()
             if atom is None:
                 break

@@ -1,0 +1,20 @@
+{
+  "invent_cap": 48,
+  "occupancy_before": 48,
+  "primary_never_materialized": true,
+  "released": true,
+  "occupancy_after_release": 47,
+  "primary_registered": true,
+  "primary_key": "MAPT(CAT(TOK|AT:0))",
+  "primary_name": "atom_primary_nm",
+  "antistarve_events": [
+    {
+      "event": "capacity_release",
+      "op": "atom_rd_fill_3",
+      "why": "slot for never-materialized primary atom",
+      "antistarve_kind": "rediscovery_redundant",
+      "occupancy": "47"
+    }
+  ],
+  "verdict": "PASS"
+}

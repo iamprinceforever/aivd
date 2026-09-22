@@ -238,6 +238,19 @@ class ExplorationAllocator:
                 st.skip_count += 1
         self.epoch += 1
 
+    def is_never_materialized(self, key: str) -> bool:
+        """True when candidate has never successfully materialized (general signal)."""
+        return self.state_of(key).materialization_count <= 0
+
+    def primary_target_never_materialized(self, candidates: list[Any]) -> bool:
+        """True iff rank-head / next PRIMARY target has never materialized.
+
+        Candidate-identity agnostic: uses opaque keys only. Empty board → False.
+        """
+        if not candidates:
+            return False
+        return self.is_never_materialized(self._key_of(candidates[0]))
+
     def note_terminal(self, key: str, *, reason: str) -> None:
         """Mark a candidate as no longer eligible for exploration pressure.
 

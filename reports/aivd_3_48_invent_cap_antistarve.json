@@ -1,0 +1,50 @@
+{
+  "title": "AIVD 3.48 invent-cap anti-starvation",
+  "recorded_ist": "2026-09-22 15:59:38 IST",
+  "branch": "research/aivd-3.48-invent-cap-antistarve",
+  "base_tip": "9cce56e77a385675fd3c3be7ca7d5d507d0a6b28",
+  "sacred": false,
+  "diagnosis": {
+    "summary": "Selection starvation fixed by 3.45; invent_cap=48 filled with rediscovery/redundant atom_* blocks never-materialized PRIMARY invent because _release_nonlease_slot skips atom_ prefixes.",
+    "terminals": [
+      "UNRESOLVED_INVISIBLE",
+      "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "BUDGET_EXHAUSTED"
+    ],
+    "occupancy": 48,
+    "invent_cap": 48
+  },
+  "policy": {
+    "trigger": "occupancy>=INVENT_CAP and primary_target_never_materialized",
+    "action": "release exactly one least-valuable non-lease invent slot",
+    "prefer": [
+      "rediscovery_redundant",
+      "independent_rediscovery",
+      "class_redundant",
+      "fallback _release_nonlease_slot"
+    ],
+    "protect": [
+      "active leases",
+      "productive continuation paths (no lease break)"
+    ],
+    "on_no_safe_release": "INVENTORY_CAPACITY_FAILURE (unchanged)"
+  },
+  "insertion": {
+    "designer": "aivd/science/designer.py::_release_invent_cap_antistarve_slot + _maybe_invent_atom",
+    "alloc": "aivd/science/exploration_alloc.py::primary_target_never_materialized"
+  },
+  "pytest": {
+    "passed": 1305,
+    "failed": 0,
+    "duration_s": 94.1,
+    "new_tests": "tests/test_aivd348_invent_cap_antistarve.py"
+  },
+  "production_logic_scan": "CLEAN",
+  "offline_mock": {
+    "script": "scripts/aivd_3_48_offline_antistarve_mock.py",
+    "artifact": "reports/aivd_3_48_offline_mock.json",
+    "verdict": "PASS"
+  },
+  "invent_cap_unchanged": true,
+  "sacred_authorized": false
+}
