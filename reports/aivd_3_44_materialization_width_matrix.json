@@ -1,0 +1,1570 @@
+{
+  "document": "aivd_3_44_materialization_width_matrix",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "source_ledger": "aivd_3_41_audit_ledger.json",
+  "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+  "sacred": false,
+  "planner_changed": false,
+  "n_mat_live_changed": false,
+  "board0": [
+    "MAPT(SLICE:0,2(TOK))",
+    "MAPT(SLICE:1,2(TOK))",
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+    "MAPT(CAT(TOK|AT:-1))",
+    "MAPT(AT:-1)",
+    "MAPT(CAT(TOK|AT:0))",
+    "MAPT(CAT(AT:0|AT:-1))",
+    "MAPT(SLICE:0,3(TOK))",
+    "MAPT(AT:0)"
+  ],
+  "observed_n_mat": 1,
+  "rows": [
+    {
+      "n_mat": 1,
+      "mode": "OBSERVED",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "first_window_skipped": [
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 1,
+      "n_skipped": 9,
+      "coverage_of_board0": 0.1,
+      "families_materialized": [
+        "char_stride"
+      ],
+      "n_families_materialized": 1,
+      "marginal_first_window_invent_slots_vs_nmat1": 0,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "BUDGET_EXHAUSTED",
+      "cf_post_window_trajectory": "OBSERVED",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "OBSERVED_TRAJECTORY"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 2,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))"
+      ],
+      "first_window_skipped": [
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 2,
+      "n_skipped": 8,
+      "coverage_of_board0": 0.2,
+      "families_materialized": [
+        "char_stride"
+      ],
+      "n_families_materialized": 1,
+      "marginal_first_window_invent_slots_vs_nmat1": 1,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 3,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+      ],
+      "first_window_skipped": [
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 3,
+      "n_skipped": 7,
+      "coverage_of_board0": 0.3,
+      "families_materialized": [
+        "char_stride"
+      ],
+      "n_families_materialized": 1,
+      "marginal_first_window_invent_slots_vs_nmat1": 2,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 4,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "first_window_skipped": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 4,
+      "n_skipped": 6,
+      "coverage_of_board0": 0.4,
+      "families_materialized": [
+        "char_stride"
+      ],
+      "n_families_materialized": 1,
+      "marginal_first_window_invent_slots_vs_nmat1": 3,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 5,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))"
+      ],
+      "first_window_skipped": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 5,
+      "n_skipped": 5,
+      "coverage_of_board0": 0.5,
+      "families_materialized": [
+        "char_index_glue",
+        "char_stride"
+      ],
+      "n_families_materialized": 2,
+      "marginal_first_window_invent_slots_vs_nmat1": 4,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 6,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)"
+      ],
+      "first_window_skipped": [
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 6,
+      "n_skipped": 4,
+      "coverage_of_board0": 0.6,
+      "families_materialized": [
+        "char_index_glue",
+        "char_project",
+        "char_stride"
+      ],
+      "n_families_materialized": 3,
+      "marginal_first_window_invent_slots_vs_nmat1": 5,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 7,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))"
+      ],
+      "first_window_skipped": [
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 7,
+      "n_skipped": 3,
+      "coverage_of_board0": 0.7,
+      "families_materialized": [
+        "char_index_glue",
+        "char_project",
+        "char_stride"
+      ],
+      "n_families_materialized": 3,
+      "marginal_first_window_invent_slots_vs_nmat1": 6,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 8,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))"
+      ],
+      "first_window_skipped": [
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 8,
+      "n_skipped": 2,
+      "coverage_of_board0": 0.8,
+      "families_materialized": [
+        "char_index_glue",
+        "char_project",
+        "char_stride"
+      ],
+      "n_families_materialized": 3,
+      "marginal_first_window_invent_slots_vs_nmat1": 7,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 9,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))"
+      ],
+      "first_window_skipped": [
+        "MAPT(AT:0)"
+      ],
+      "n_materialized": 9,
+      "n_skipped": 1,
+      "coverage_of_board0": 0.9,
+      "families_materialized": [
+        "char_index_glue",
+        "char_project",
+        "char_stride"
+      ],
+      "n_families_materialized": 3,
+      "marginal_first_window_invent_slots_vs_nmat1": 8,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": false,
+          "fw_fate": "CF_FIRST_WINDOW_SKIPPED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "STILL_SKIPPED_FIRST_WINDOW; LATER_FATE_UNDER_ALTERED_HISTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    },
+    {
+      "n_mat": 10,
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW",
+      "first_window_materialized": [
+        "MAPT(SLICE:0,2(TOK))",
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(SLICE:0,3(TOK))",
+        "MAPT(AT:0)"
+      ],
+      "first_window_skipped": [],
+      "n_materialized": 10,
+      "n_skipped": 0,
+      "coverage_of_board0": 1.0,
+      "families_materialized": [
+        "char_index_glue",
+        "char_project",
+        "char_stride"
+      ],
+      "n_families_materialized": 3,
+      "marginal_first_window_invent_slots_vs_nmat1": 9,
+      "ledger_invent_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "cf_post_window_trajectory": "NOT_RECORDED_REQUIRES_REEXECUTION",
+      "per_key": [
+        {
+          "candidate_key": "MAPT(SLICE:0,2(TOK))",
+          "board_position": 0,
+          "control_role": "S_EVEN_first_window",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "SAME_AS_OBSERVED_FIRST_SLOT"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:1,2(TOK))",
+          "board_position": 1,
+          "control_role": "S_ODD_suppressed",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+          "board_position": 2,
+          "control_role": "POS2_escape",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+          "board_position": 3,
+          "control_role": "POS3_rank0_after_invent_stopped",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+          "board_position": 4,
+          "control_role": "U_successful",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:-1)",
+          "board_position": 5,
+          "control_role": "POS5_escape",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": true,
+          "observed_invented_all_cells": true,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(TOK|AT:0))",
+          "board_position": 6,
+          "control_role": "POS6_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))",
+          "board_position": 7,
+          "control_role": "POS7_suppressed",
+          "family": "char_index_glue",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(SLICE:0,3(TOK))",
+          "board_position": 8,
+          "control_role": "POS8_never_scored",
+          "family": "char_stride",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        },
+        {
+          "candidate_key": "MAPT(AT:0)",
+          "board_position": 9,
+          "control_role": "POS9_never_scored",
+          "family": "char_project",
+          "in_first_window_cf": true,
+          "fw_fate": "CF_FIRST_WINDOW_MATERIALIZED",
+          "observed_selected_all_cells": false,
+          "observed_invented_all_cells": false,
+          "downstream_claim": "CF_WOULD_SELECT_INVENT_FIRST_WINDOW_FROM_RECORDED_BOARD0; POST_WINDOW_TRAJECTORY_NOT_RECORDED"
+        }
+      ],
+      "limitation": "First-window only; downstream after alternate materialization NOT_RECORDED."
+    }
+  ],
+  "metrics_observed_n_mat1": {
+    "1_candidate_coverage": {
+      "first_window": "1/10",
+      "eventual_unique_invented": "4/10"
+    },
+    "2_unique_behavioral_directions_materialized": {
+      "first_window_families": 1,
+      "eventual_families": 3,
+      "eventual_unique_keys": 4,
+      "behavioral_identity_field": "NOT_RECORDED"
+    },
+    "3_inventions_attempted": {
+      "per_cell": 7,
+      "total_across_cells": 196
+    },
+    "4_successful_inventions": {
+      "per_cell_novelty_INVENTED_ATOM": 7,
+      "unique_keys_per_cell": 4,
+      "verified": false
+    },
+    "5_duplicate_redundant_inventions": {
+      "per_cell_redundant_re_invents": 3
+    },
+    "6_budget_consumed": {
+      "BH": 48,
+      "INVENT_CAP": 48,
+      "invent_budget_before_series_exemplar": [
+        29,
+        28,
+        27,
+        26,
+        25,
+        24,
+        21
+      ],
+      "budget_series_twin": [
+        10,
+        1,
+        1,
+        0
+      ],
+      "invent_ledger_delta_sum": 0
+    },
+    "7_remaining_budget": {
+      "at_first_invent": {
+        "29": 28
+      },
+      "at_last_invent": {
+        "21": 28
+      },
+      "at_stop": "NOT_RECORDED",
+      "stop_reason": "BUDGET_EXHAUSTED"
+    },
+    "8_firewall_interactions": {
+      "firewall_epoch_firewalled": {
+        "(1, True)": 28
+      },
+      "n_firewall_events_per_cell": {
+        "1": 28
+      }
+    },
+    "9_verification_opportunities": {
+      "verified_cells": {
+        "False": 28
+      }
+    },
+    "10_recursive_growth_opportunities": "NOT_RECORDED",
+    "11_first_window_diversity": {
+      "n_keys": 1,
+      "keys": [
+        "MAPT(SLICE:0,2(TOK))"
+      ],
+      "n_families": 1
+    },
+    "12_persistent_suppression": {
+      "keys": [
+        "MAPT(SLICE:1,2(TOK))",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))"
+      ],
+      "n_keys": 3,
+      "rate_among_pos_gt0": 0.3333333333333333,
+      "rate_among_scored_skipped": 0.42857142857142855
+    },
+    "13_discovery_depth": {
+      "escape_via_later_rank0_keys": [
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)"
+      ],
+      "rank0_after_invent_stopped": [
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "max_select_ordinal_span": 7
+    },
+    "14_discovery_breadth": {
+      "unique_invented_keys_per_cell": 4,
+      "unique_families_per_cell": 3,
+      "keys": [
+        "MAPT(AT:-1)",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(SLICE:0,2(TOK))"
+      ]
+    }
+  }
+}

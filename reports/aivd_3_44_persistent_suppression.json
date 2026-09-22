@@ -1,0 +1,28 @@
+{
+  "document": "aivd_3_44_persistent_suppression",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "definition": "PERSISTENT SUPPRESSION = FIRST-WINDOW-SKIPPED AND never selected/invented, with SUPPRESSED_RANK_DEMOTION_NMAT1 (best_rank>=1 while n_mat=1 takes rank-0).",
+  "keys": [
+    "MAPT(SLICE:1,2(TOK))",
+    "MAPT(CAT(TOK|AT:0))",
+    "MAPT(CAT(AT:0|AT:-1))"
+  ],
+  "n_keys": 3,
+  "n_pos_gt0": 9,
+  "rate_among_pos_gt0": 0.3333333333333333,
+  "rate_among_scored_skipped_pos_gt0": 0.42857142857142855,
+  "escape_keys": [
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "MAPT(CAT(TOK|AT:-1))",
+    "MAPT(AT:-1)"
+  ],
+  "rank0_after_invent_stopped": [
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+  ],
+  "never_scored_after_skip": [
+    "MAPT(SLICE:0,3(TOK))",
+    "MAPT(AT:0)"
+  ],
+  "headline": "Persistent suppression: 3/9 pos>0 keys (33%) \u2014 ['MAPT(SLICE:1,2(TOK))', 'MAPT(CAT(TOK|AT:0))', 'MAPT(CAT(AT:0|AT:-1))']; among scored/ranked skipped keys 3/7 (43%).",
+  "not_undiscoverable_claim": "Audit does NOT claim these keys are undiscoverable in principle \u2014 only that under recorded n_mat=1\u00d7demotion they were never selected. CF n_mat>=2 would first-window materialize ODD from board0 order; verification/Sacred uplift NOT_RECORDED."
+}

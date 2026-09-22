@@ -1,0 +1,25 @@
+{
+  "document": "aivd_3_44_breadth_depth_tradeoff",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "observed_n_mat": 1,
+  "first_window_breadth": 1,
+  "eventual_breadth_unique_keys": 4,
+  "persistent_suppression_n": 3,
+  "escape_n": 3,
+  "one_sentence": "Under recorded n_mat=1, first-window breadth collapses to 1/10 while eventual breadth recovers to 4 unique invented keys via later rank-0 escapes, but demotion\u00d7n_mat=1 permanently suppresses 3 scored keys (ODD/POS6/POS7) \u2014 breadth cut is partial-recoverable; suppression is not.",
+  "cf_would_add_first_window": {
+    "2": [
+      "MAPT(SLICE:1,2(TOK))"
+    ],
+    "3": [
+      "MAPT(SLICE:1,2(TOK))",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+    ],
+    "4": [
+      "MAPT(SLICE:1,2(TOK))",
+      "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+    ]
+  },
+  "limitation": "Post-first-window discovery under CF n_mat>=2 is NOT_RECORDED; do not label suppressed keys discoverable beyond first-window SELECT/INVENT from recorded board0 order."
+}

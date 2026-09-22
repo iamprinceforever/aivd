@@ -1,0 +1,65 @@
+{
+  "document": "aivd_3_44_results",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "baseline_tip": "9810aea5efe14fe4b8786eedc94a7710ecdbbe0e",
+  "branch": "research/aivd-3.44-exploration-allocation",
+  "parent_branch": "research/aivd-3.43-selection-budget-generalization @ 9810aea",
+  "H13": {
+    "H13a": "SUPPORTED",
+    "H13b": "SUPPORTED",
+    "H13c": "PARTIAL",
+    "H13d": "SUPPORTED",
+    "H13e": "PARTIAL",
+    "H13f": "AGAINST",
+    "H13-REJECT": "AGAINST"
+  },
+  "H13_detail": {
+    "H13a": {
+      "claim": "n_mat=1 is primarily a cost-control policy",
+      "classification": "SUPPORTED",
+      "evidence": "Observed lazy n_mat=1 in 28/28 cells (exactly 1 SELECT before any RANK). First-window materialization capped at 1/10 board slots. Code path (read-only, 3.42): designer._maybe_invent_atom uses n_mat=1 if allow_atom_lazy else 4. Invent attempts stay finite (mode 7/cell); all cells hit BUDGET_EXHAUSTED. Primary first-window role is slot-cost control; secondary effects on diversity/suppression also present (H13b/d)."
+    },
+    "H13b": {
+      "claim": "n_mat=1 materially reduces behavioral diversity",
+      "classification": "SUPPORTED",
+      "evidence": "First-window diversity under n_mat=1: 1 key / 1 family vs board0 of 10 keys. Eventual unique invented keys = 4/cell spanning 3 families; 9 pos>0 keys skipped every cell. CF n_mat=2 would add board0[1]=ODD in first window (28/28). Material first-window diversity reduction established; eventual diversity partially recovered via later rank-0 escapes."
+    },
+    "H13c": {
+      "claim": "n_mat=1 primarily affects breadth, not eventual discovery",
+      "classification": "PARTIAL",
+      "evidence": "For escapees POS2/U/POS5: first-window skip is temporary; they attain rank-0 and are invented 28/28 \u2014 breadth/timing effect only. For ODD/POS6/POS7: demotion\u00d7n_mat=1 yields persistent non-selection (0/28 invented) \u2014 eventual discovery IS blocked for that set. POS3 attains rank-0 only after invent stops (never selected). POS8/POS9 never scored after skip. Therefore 'breadth only' is false as a universal claim; true for escapees, false for suppressed."
+    },
+    "H13d": {
+      "claim": "rank demotion converts temporary skips into persistent suppression",
+      "classification": "SUPPORTED",
+      "evidence": "All 9 pos>0 keys are FIRST-WINDOW-SKIPPED. Of scored/ranked pos>0 keys that never attain rank-0 (ODD best_rank=1, POS6 best_rank=2, POS7 best_rank=3), all remain unselected 0/28 \u2014 persistent suppression. Keys that later reach rank-0 during invent windows escape (POS2/U/POS5). Same first-window skip; divergent permanent fate via demotion gate."
+    },
+    "H13e": {
+      "claim": "increasing materialization breadth produces additional behavioral directions but at measurable budget cost",
+      "classification": "PARTIAL",
+      "evidence": "Directions: CF n_mat=2 first-window adds ODD; CF n_mat=3 adds ODD+POS2; coverage 0.20/0.30. Budget cost: marginal first-window invent slots = n_mat-1 are countable; ledger invent budget_delta is 0 on all 196 invent events (before==after), so unit invent cost NOT_RECORDED. CF remaining-budget under wider n_mat NOT_RECORDED. Directions SUPPORTED; measurable budget cost only at slot-count proxy level."
+    },
+    "H13f": {
+      "claim": "the observed tradeoff is negligible outside the S-family",
+      "classification": "AGAINST",
+      "evidence": "First-window n_mat=1 skip hits ALL 9 pos>0 keys (not only ODD). Persistent demotion\u00d7n_mat=1 suppression also hits non-S POS6 and POS7 (0/28 selected). Escape pattern hits non-S POS2/POS5 and U. Mechanism and tradeoff are generic on this board \u2014 not S-family-local."
+    },
+    "H13-REJECT": {
+      "claim": "existing data cannot establish the allocation tradeoff",
+      "classification": "AGAINST",
+      "evidence": "28/28 identical board0 trajectories establish first-window skip rate 9/9 pos>0, persistent suppression set {ODD,POS6,POS7}, escape set {POS2,U,POS5}, and honest CF first-window materialization under n_mat=2..10 from recorded board0. Residual NOT_RECORDED items do not justify H13-REJECT; they bound intervention claims."
+    }
+  },
+  "first_window_skip_headline": "First-window skip rate: 9/9 pos>0 keys \u00d7 28/28 cells = 252/252 (100% of pos>0; 90% of board0 slots).",
+  "persistent_suppression_headline": "Persistent suppression: 3/9 pos>0 keys (33%) \u2014 ['MAPT(SLICE:1,2(TOK))', 'MAPT(CAT(TOK|AT:0))', 'MAPT(CAT(AT:0|AT:-1))']; among scored/ranked skipped keys 3/7 (43%).",
+  "cf_n_mat_2_3_headline": "CF n_mat=2 would first-window SELECT/INVENT board0[1]=ODD in 28/28 (currently persistently suppressed); CF n_mat=3 also adds POS2 (already escapes later \u2014 timing only). Marginal cost: +1/+2 first-window invent slots; ledger unit cost NOT_RECORDED; post-window CF trajectory NOT_RECORDED.",
+  "breadth_vs_depth_sentence": "Under recorded n_mat=1, first-window breadth collapses to 1/10 while eventual breadth recovers to 4 unique invented keys via later rank-0 escapes, but demotion\u00d7n_mat=1 permanently suppresses 3 scored keys (ODD/POS6/POS7) \u2014 breadth cut is partial-recoverable; suppression is not.",
+  "cost_control_vs_diversity_sentence": "n_mat=1 is an effective first-window cost-control valve (1 slot) that also materially cuts first-window diversity and, via demotion interaction, permanently suppresses a subset of skipped keys \u2014 cost-control and diversity loss are coupled, not alternatives.",
+  "outside_S_family": {
+    "H13f": "AGAINST",
+    "sentence": "Tradeoff is not negligible outside S-family: POS6/POS7 also persistently suppressed; POS2/POS5/U show the escape path."
+  },
+  "sacred": false,
+  "planner_changed": false,
+  "n_mat_live_changed": false
+}

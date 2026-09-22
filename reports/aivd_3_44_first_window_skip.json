@@ -1,0 +1,23 @@
+{
+  "document": "aivd_3_44_first_window_skip",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "definition": "FIRST-WINDOW-SKIPPED = board_position > 0 under observed n_mat=1.",
+  "n_cells": 28,
+  "n_pos_gt0_keys": 9,
+  "skip_events": 252,
+  "skip_rate_among_pos_gt0": 1.0,
+  "skip_rate_among_all_board0_slots": 0.9,
+  "skipped_keys": [
+    "MAPT(SLICE:1,2(TOK))",
+    "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+    "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+    "MAPT(CAT(TOK|AT:-1))",
+    "MAPT(AT:-1)",
+    "MAPT(CAT(TOK|AT:0))",
+    "MAPT(CAT(AT:0|AT:-1))",
+    "MAPT(SLICE:0,3(TOK))",
+    "MAPT(AT:0)"
+  ],
+  "headline": "First-window skip rate: 9/9 pos>0 keys \u00d7 28/28 cells = 252/252 (100% of pos>0; 90% of board0 slots).",
+  "critical_distinction": "FIRST-WINDOW-SKIPPED \u2260 undiscoverable. Escapees POS2/U/POS5 are skipped then later SELECTED/INVENTED. Only demotion\u00d7n_mat=1 persistent suppression blocks eventual selection among scored keys."
+}

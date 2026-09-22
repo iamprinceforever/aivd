@@ -1,0 +1,122 @@
+{
+  "document": "aivd_3_44_budget_cost_curve",
+  "recorded_at_ist": "2026-09-22 13:20:03 IST",
+  "observed": {
+    "n_mat": 1,
+    "invent_attempts_per_cell": 7,
+    "invent_budget_before_series_exemplar": [
+      29,
+      28,
+      27,
+      26,
+      25,
+      24,
+      21
+    ],
+    "invent_ledger_deltas": {
+      "0": 196
+    },
+    "twin_budget_series_exemplar": [
+      10,
+      1,
+      1,
+      0
+    ],
+    "stop_reason": "BUDGET_EXHAUSTED",
+    "BH": 48,
+    "INVENT_CAP": 48
+  },
+  "counterfactual_proxy": [
+    {
+      "n_mat": 1,
+      "marginal_first_window_slots_vs_1": 0,
+      "proxy_extra_first_window_invent_attempts": 0,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "BUDGET_EXHAUSTED",
+      "mode": "OBSERVED"
+    },
+    {
+      "n_mat": 2,
+      "marginal_first_window_slots_vs_1": 1,
+      "proxy_extra_first_window_invent_attempts": 1,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 3,
+      "marginal_first_window_slots_vs_1": 2,
+      "proxy_extra_first_window_invent_attempts": 2,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 4,
+      "marginal_first_window_slots_vs_1": 3,
+      "proxy_extra_first_window_invent_attempts": 3,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 5,
+      "marginal_first_window_slots_vs_1": 4,
+      "proxy_extra_first_window_invent_attempts": 4,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 6,
+      "marginal_first_window_slots_vs_1": 5,
+      "proxy_extra_first_window_invent_attempts": 5,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 7,
+      "marginal_first_window_slots_vs_1": 6,
+      "proxy_extra_first_window_invent_attempts": 6,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 8,
+      "marginal_first_window_slots_vs_1": 7,
+      "proxy_extra_first_window_invent_attempts": 7,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 9,
+      "marginal_first_window_slots_vs_1": 8,
+      "proxy_extra_first_window_invent_attempts": 8,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    },
+    {
+      "n_mat": 10,
+      "marginal_first_window_slots_vs_1": 9,
+      "proxy_extra_first_window_invent_attempts": 9,
+      "ledger_unit_cost": "NOT_RECORDED",
+      "cf_remaining_budget": "NOT_RECORDED",
+      "cf_stop_reason": "NOT_RECORDED",
+      "mode": "OFFLINE_COUNTERFACTUAL_FIRST_WINDOW"
+    }
+  ],
+  "headline": "Slot-count proxy: each +1 n_mat adds +1 first-window invent attempt from recorded board0; ledger invent unit-cost is NOT_RECORDED (delta=0 on 196/196 invents); full CF budget trajectory NOT_RECORDED."
+}
