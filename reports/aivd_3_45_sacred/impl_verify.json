@@ -1,0 +1,37 @@
+{
+  "condition": "AIVD345",
+  "primary_head": "32b69442600ddcdfbc4e2c48024faff53f9c1775",
+  "impl_freeze": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "fix_science_match_52394b8": true,
+  "baseline_head": "72edfadeda87c0ea6ac966487c49b9526099c613",
+  "baseline_ok": true,
+  "file_checks": [
+    {
+      "path": "aivd/science/designer.py",
+      "ok": true,
+      "tip": "664fb09dff335b6743d7343502f225cf4d0d9fca",
+      "work": "664fb09dff335b6743d7343502f225cf4d0d9fca"
+    },
+    {
+      "path": "aivd/science/exploration_alloc.py",
+      "ok": true,
+      "tip": "ecc7361b6e6aee61e4f03d65a429f1a7a5a7eff8",
+      "work": "ecc7361b6e6aee61e4f03d65a429f1a7a5a7eff8"
+    },
+    {
+      "path": "aivd/science/grow.py",
+      "ok": true,
+      "tip": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "work": "93b297c73227734f5eac7485e955d3bd8ec63f51"
+    },
+    {
+      "path": "aivd/science/methods.py",
+      "ok": true,
+      "tip": "dcb2f487eb29c9901c77158c7792645b18806cfc",
+      "work": "dcb2f487eb29c9901c77158c7792645b18806cfc"
+    }
+  ],
+  "failures": [],
+  "ok": true,
+  "recorded_at_ist": "2026-09-22 14:20:20 IST"
+}

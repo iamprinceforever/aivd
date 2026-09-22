@@ -1,1 +1,1 @@
-"""AIVD 3.45 — offline BASELINE vs adaptive EXPLOIT+EXPLORE replay (no Sacred)."""
+"""AIVD 3.45 — adaptive EXPLOIT+EXPLORE + Sacred validation (authorized)."""
