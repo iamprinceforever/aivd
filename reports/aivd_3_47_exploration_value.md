@@ -2,7 +2,7 @@
 
 **Recorded:** 2026-09-22 15:47:27 IST
 **Authorization:** `AIVD 3.47 EXPLORATION-VALUE VALIDATION — AUTHORIZED: Sacred TinyLlama matched B48 only; invent_cap=48; REDISCOVERY_FLOOR=5; R1; seeds[0,1,2,3,4,7,11]; BASELINE@72edfad vs FIX science@52394b8; fresh plant family AIVD347-EXPLVAL-ODDSTRIDE (new plant_ids per cell); no retune; no B64; no 3.45/3.46 science edits; no S/ODD/MAPT injection; primary question: useful behavioral coverage vs number of constructions; separate A/B/C/D (never collapse).`
-**Branch tip:** `af727fb94ef6`
+**Branch tip:** `25ba9d0`
 **IMPL freeze (FIX science):** `52394b8` / `52394b8f5f802047ffc9029910e0b0de5d110f01`
 **BASELINE tip:** `72edfad` / `72edfadeda87c0ea6ac966487c49b9526099c613`
 **Science freeze still 52394b8?** `True`
@@ -609,7 +609,7 @@ Does B48 exploration increase USEFUL BEHAVIORAL COVERAGE vs merely NUMBER OF CON
 
 ## J. Commit + push
 
-- see JSON `commit_push`
+- commit `25ba9d08ce9c26f8a8d79d5a12d3da7c8f242b5c` pushed to `aivd/research/aivd-3.47-exploration-value-validation`
 
 ## K. 3.45 modified?
 

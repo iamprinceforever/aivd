@@ -2,7 +2,7 @@
   "document": "aivd_3_47_exploration_value",
   "recorded_at_ist": "2026-09-22 15:47:27 IST",
   "authorization": "AIVD 3.47 EXPLORATION-VALUE VALIDATION \u2014 AUTHORIZED: Sacred TinyLlama matched B48 only; invent_cap=48; REDISCOVERY_FLOOR=5; R1; seeds[0,1,2,3,4,7,11]; BASELINE@72edfad vs FIX science@52394b8; fresh plant family AIVD347-EXPLVAL-ODDSTRIDE (new plant_ids per cell); no retune; no B64; no 3.45/3.46 science edits; no S/ODD/MAPT injection; primary question: useful behavioral coverage vs number of constructions; separate A/B/C/D (never collapse).",
-  "primary_head": "af727fb94ef60e09b133cf0840b4bb72248d7a7e",
+  "primary_head": "25ba9d08ce9c26f8a8d79d5a12d3da7c8f242b5c",
   "impl_freeze": "52394b8f5f802047ffc9029910e0b0de5d110f01",
   "baseline_tip": "72edfadeda87c0ea6ac966487c49b9526099c613",
   "env_gate": {
@@ -12661,7 +12661,14 @@
   "retuned": false,
   "science_345_modified": false,
   "b64_used": false,
-  "commit_push": null,
+  "commit_push": {
+    "commit": "25ba9d08ce9c26f8a8d79d5a12d3da7c8f242b5c",
+    "short": "25ba9d0",
+    "branch": "research/aivd-3.47-exploration-value-validation",
+    "remote": "aivd",
+    "pushed": true,
+    "stamped_at_ist": "2026-09-22 15:48:02 IST"
+  },
   "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
   "version": "3.39.0",
   "behavioral_equivalent_helper": "aivd.science.grow.behavioral_equivalent",
