@@ -4,6 +4,7 @@
 **Branch:** `research/aivd-3.48-invent-cap-antistarve`  
 **Base tip:** `9cce56e` (research/aivd-3.47-exploration-value-validation)  
 **Sacred:** NO  
+**Impl commit:** `b1b7106` / `b1b71068a79944341fb23540c4f1f19386eb4d50`  
 
 ---
 

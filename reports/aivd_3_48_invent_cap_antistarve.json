@@ -46,5 +46,7 @@
     "verdict": "PASS"
   },
   "invent_cap_unchanged": true,
-  "sacred_authorized": false
+  "sacred_authorized": false,
+  "impl_commit": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+  "impl_commit_short": "b1b7106"
 }
