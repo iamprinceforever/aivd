@@ -1,0 +1,5694 @@
+{
+  "document": "aivd_3_41_audit_candidate_fate",
+  "recorded_at_ist": "2026-09-22 12:57:05 IST",
+  "candidate_key": "MAPT(SLICE:1,2(TOK))",
+  "proposal_index_expected": 3,
+  "table": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:1,2(TOK))",
+      "proposal_index": 3,
+      "proposed": true,
+      "rejected": false,
+      "rejection_reason": "NOT_RECORDED",
+      "scored": true,
+      "scores": [
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148,
+        0.038148
+      ],
+      "ranked": true,
+      "ranks": [
+        6,
+        3,
+        6,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "best_rank": 1,
+      "worst_rank": 6,
+      "outranked_by_first_rank_block": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "selected": false,
+      "invent_attempted": false,
+      "invented": false,
+      "skipped": false,
+      "selection_reasons": [],
+      "disappearance_state": "RANKED",
+      "Q1_proposed": true,
+      "Q2_rejected": false,
+      "Q3_scored": true,
+      "Q4_score_components": {
+        "scores": [
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148,
+          0.038148
+        ],
+        "components_sample": {
+          "p_discovery": 0.12,
+          "p_reproduction": 0.85,
+          "p_verification": 0.85,
+          "causal_value": 0.55,
+          "reuse_value": 0.8,
+          "cost": 1.0
+        }
+      },
+      "Q5_ranked": true,
+      "Q6_outranked_by": [
+        "MAPT(CAT(TOK|AT:-1))",
+        "MAPT(AT:-1)",
+        "MAPT(CAT(TOK|AT:0))",
+        "MAPT(CAT(AT:0|AT:-1))",
+        "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+        "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+      ],
+      "Q7_selected": false,
+      "Q8_invent_attempted": false,
+      "Q9_invent_success": false,
+      "Q10_disappearance_state": "RANKED",
+      "first_rank_block": [
+        {
+          "rank": 0,
+          "candidate_key": "MAPT(CAT(TOK|AT:-1))"
+        },
+        {
+          "rank": 1,
+          "candidate_key": "MAPT(AT:-1)"
+        },
+        {
+          "rank": 2,
+          "candidate_key": "MAPT(CAT(TOK|AT:0))"
+        },
+        {
+          "rank": 3,
+          "candidate_key": "MAPT(CAT(AT:0|AT:-1))"
+        },
+        {
+          "rank": 4,
+          "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))"
+        },
+        {
+          "rank": 5,
+          "candidate_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))"
+        },
+        {
+          "rank": 6,
+          "candidate_key": "MAPT(SLICE:1,2(TOK))"
+        }
+      ],
+      "score_components_sample": {
+        "p_discovery": 0.12,
+        "p_reproduction": 0.85,
+        "p_verification": 0.85,
+        "causal_value": 0.55,
+        "reuse_value": 0.8,
+        "cost": 1.0
+      }
+    }
+  ],
+  "natural_success_controls": [
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-BASELINE",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RA",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RC",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 0,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 1,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 2,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 3,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 4,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 7,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "candidate_key": "MAPT(SLICE:0,2(TOK))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": "NOT_RECORDED",
+      "selected": true,
+      "invented": true,
+      "scores_head": []
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(TOK|AT:-1))",
+      "proposal_index": 0,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "candidate_key": "MAPT(AT:-1)",
+      "proposal_index": 4,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.2781625,
+        0.2781625
+      ]
+    },
+    {
+      "condition_id": "S8-RD",
+      "seed": 11,
+      "candidate_key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "proposal_index": 1,
+      "disappearance_state": "INVENTED",
+      "best_rank": 0,
+      "selected": true,
+      "invented": true,
+      "scores_head": [
+        0.038148,
+        0.038148
+      ]
+    }
+  ]
+}

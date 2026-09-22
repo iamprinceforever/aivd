@@ -1,0 +1,50 @@
+{
+  "document": "aivd_3_41_audit_rng_integrity",
+  "recorded_at_ist": "2026-09-22 12:57:05 IST",
+  "pass": true,
+  "rows": [
+    {
+      "seed": 0,
+      "equal": true,
+      "off_digest": "4952de304a98fb80499518a0e4ff279311e1cebef7cc4dc791ec55ae36c2633a",
+      "on_digest": "4952de304a98fb80499518a0e4ff279311e1cebef7cc4dc791ec55ae36c2633a"
+    },
+    {
+      "seed": 1,
+      "equal": true,
+      "off_digest": "a184d530aabf981ea34827d75c55b58aecf74adfca23d27528f03dc7ba8c62f0",
+      "on_digest": "a184d530aabf981ea34827d75c55b58aecf74adfca23d27528f03dc7ba8c62f0"
+    },
+    {
+      "seed": 2,
+      "equal": true,
+      "off_digest": "9b6996b1d71ad5b79b1fd810412928b980cafdd45859008ff8891bb00cf1ff1c",
+      "on_digest": "9b6996b1d71ad5b79b1fd810412928b980cafdd45859008ff8891bb00cf1ff1c"
+    },
+    {
+      "seed": 3,
+      "equal": true,
+      "off_digest": "2848b204cc4a51bafbc2ba010ed2d4256f35a30bda762d13b2cf982900e93d3e",
+      "on_digest": "2848b204cc4a51bafbc2ba010ed2d4256f35a30bda762d13b2cf982900e93d3e"
+    },
+    {
+      "seed": 4,
+      "equal": true,
+      "off_digest": "ab728c33038e0ca27daf55f5156acc43cfc52c84b0cbdd5d1f1c6bfd5225aea6",
+      "on_digest": "ab728c33038e0ca27daf55f5156acc43cfc52c84b0cbdd5d1f1c6bfd5225aea6"
+    },
+    {
+      "seed": 7,
+      "equal": true,
+      "off_digest": "486c6c50443e61c9d4aeb8494207367a31a5b50c763d3a00eacc4f5e14a2138a",
+      "on_digest": "486c6c50443e61c9d4aeb8494207367a31a5b50c763d3a00eacc4f5e14a2138a"
+    },
+    {
+      "seed": 11,
+      "equal": true,
+      "off_digest": "3c6097975a77fb729cae4b8e20d8ceb4635b65da2f040f771b4a67fc916c5aca",
+      "on_digest": "3c6097975a77fb729cae4b8e20d8ceb4635b65da2f040f771b4a67fc916c5aca"
+    }
+  ],
+  "method": "32-draw random.random() stream after enable/disable audit + reset_ledger; require equality"
+}

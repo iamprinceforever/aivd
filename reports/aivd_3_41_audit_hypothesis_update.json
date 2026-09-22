@@ -1,0 +1,95 @@
+{
+  "document": "aivd_3_41_audit_hypothesis_update",
+  "recorded_at_ist": "2026-09-22 12:57:05 IST",
+  "leaves": {
+    "H10a": {
+      "claim": "NEVER_PROPOSED \u2014 proposal generation omits S-direction",
+      "classification": "AGAINST",
+      "evidence": {
+        "n_cells": 28,
+        "n_proposed": 28,
+        "n_never_proposed": 0,
+        "note": "MAPT(SLICE:1,2(TOK)) observed PROPOSED at proposal_index=3 in ON ledgers"
+      }
+    },
+    "H10b": {
+      "claim": "PROPOSED then REJECTED before score",
+      "classification": "AGAINST",
+      "evidence": {
+        "n_rejected": 0,
+        "n_scored": 28,
+        "note": "Odd-stride reaches SCORED/RANKED; reject rows for this key not observed"
+      }
+    },
+    "H10c": {
+      "claim": "SCORED/RANKED but systematically demoted below materialization cut",
+      "classification": "SUPPORTED",
+      "evidence": {
+        "n_ranked": 28,
+        "n_selected": 0,
+        "n_invented": 0,
+        "n_best_rank_gt0": 28,
+        "note": "First materialization selects MAPT(SLICE:0,2(TOK)) ahead of odd-stride; subsequent rank_atoms calls include rejected_classes=['char_stride'] demoting odd-stride; best observed rank for odd-stride is 1 (never 0) across audited cells."
+      }
+    },
+    "H10d": {
+      "claim": "Planning-gate SKIP before materialization",
+      "classification": "INCONCLUSIVE",
+      "evidence": {
+        "note": "After odd-stride reaches best_rank=1, further invent calls occur with rank but no select; early-return gates (leases/family remaining/ext) do not emit observe_skip \u2192 residual NOT_RECORDED for those gate reasons."
+      }
+    },
+    "H10e": {
+      "claim": "Capacity / invent_cap / register block",
+      "classification": "AGAINST",
+      "evidence": {
+        "note": "Natural non-S invents succeed under same occupancy; no INVENTORY_CAPACITY_FAILURE skip observed for odd-stride selection",
+        "n_natural_invents": 112
+      }
+    },
+    "H10f": {
+      "claim": "NOT_REACHED_BEFORE_BUDGET_EXHAUSTION (distinct from NEVER_PROPOSED)",
+      "classification": "INCONCLUSIVE",
+      "evidence": {
+        "n_budget_label": 0,
+        "n_proposed": 28,
+        "note": "Candidate is PROPOSED early with budget headroom (invents at leftover\u224821\u201329); failure_class ATOM_INVENTION_SKIPPED_BY_PLANNING appears episode-level but per-candidate observe_skip for odd-stride not emitted \u2192 cannot equate to H10f alone."
+      }
+    },
+    "H10g": {
+      "claim": "Firewall / behavioral-identity / novelty collapse",
+      "classification": "AGAINST",
+      "evidence": {
+        "note": "Firewall epoch fires and even-stride rediscovery invents succeed; odd-stride absence precedes firewall identity collapse. behavioral_identity still NOT_RECORDED on invent ledger (grow.py frozen)."
+      }
+    },
+    "H10h": {
+      "claim": "Instrumentation insufficiency residual",
+      "classification": "WEAKLY SUPPORTED",
+      "evidence": {
+        "note": "Stage-9 invent-attempt + rank/score/select gaps CLOSED for hooked path; residual NOT_RECORDED: grow._keep behavioral_identity, language_key, and early-return planning gates inside _maybe_invent_atom that lack observe_skip."
+      }
+    },
+    "H10-REJECT": {
+      "claim": "Protocol violation / S-injection / filter-merge / Sacred / history mutation",
+      "classification": "AGAINST",
+      "evidence": {
+        "sacred": false,
+        "s_injection": false,
+        "r_integration": false,
+        "twin_equality_pass": true,
+        "rng_integrity_pass": true
+      }
+    }
+  },
+  "counts": {
+    "n_cells": 28,
+    "n_proposed": 28,
+    "n_rejected": 0,
+    "n_scored": 28,
+    "n_ranked": 28,
+    "n_selected": 0,
+    "n_invented": 0,
+    "n_demoted_best_rank_gt0": 28
+  }
+}
