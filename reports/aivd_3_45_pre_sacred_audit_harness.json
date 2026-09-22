@@ -1,0 +1,121 @@
+{
+  "document": "aivd_3_45_pre_sacred_audit_harness",
+  "recorded": "2026-09-22 13:37:00 IST",
+  "sacred": "NO",
+  "scenario_checks": [
+    {
+      "scenario": "1",
+      "name": "high_ranked_exploit_preserved",
+      "status": "PASS",
+      "detail": "ordered0=H0 exploit=1"
+    },
+    {
+      "scenario": "2",
+      "name": "lower_ranked_novel_bounded_explore",
+      "status": "PASS",
+      "detail": "n_mat=2 explore=['L1']"
+    },
+    {
+      "scenario": "3",
+      "name": "permanently_demoted_one_opportunity",
+      "status": "PASS",
+      "detail": "d1=['D1'] d2=[]"
+    },
+    {
+      "scenario": "4",
+      "name": "duplicate_terminal_suppressed",
+      "status": "PASS",
+      "detail": "explore=['T2']"
+    },
+    {
+      "scenario": "5",
+      "name": "rejected_excluded",
+      "status": "PASS",
+      "detail": "explore=['R2']"
+    },
+    {
+      "scenario": "6",
+      "name": "null_empty_board",
+      "status": "PASS",
+      "detail": "reason=empty_or_no_cap"
+    },
+    {
+      "scenario": "7",
+      "name": "multiple_families_bounded",
+      "status": "PASS",
+      "detail": "n_mat=2 explore_n=1"
+    },
+    {
+      "scenario": "8",
+      "name": "budget_near_exhaustion",
+      "status": "PASS",
+      "detail": "n_mat=1 explore_n=0 leftover=3"
+    },
+    {
+      "scenario": "9",
+      "name": "firewall_near_floor_budget_proxy",
+      "status": "PASS",
+      "detail": "n_mat=1; allocator_has_firewall_api=False"
+    },
+    {
+      "scenario": "10",
+      "name": "invent_cap_near_limit",
+      "status": "PASS",
+      "detail": "slots1=1 slots0=0 slots2=2 INVENT_CAP=48"
+    },
+    {
+      "scenario": "DET",
+      "name": "identical_seed_config_trajectory",
+      "status": "PASS",
+      "detail": "len=3"
+    },
+    {
+      "scenario": "ID",
+      "name": "identity_rename_invariant",
+      "status": "PASS",
+      "detail": ""
+    }
+  ],
+  "n_pass": 12,
+  "n_fail": 0,
+  "harness_status": "PASS",
+  "offline_metrics": {
+    "status": "OK",
+    "headlines": {
+      "baseline_mean_first_window_diversity": 1.0,
+      "fix_a_mean_first_window_diversity": 2.0,
+      "fix_b_mean_first_window_diversity": 2.0,
+      "baseline_mean_total_diversity": 4.0,
+      "fix_a_mean_total_diversity": 4.0,
+      "fix_b_mean_total_diversity": 4.0,
+      "baseline_mean_materializations": 4.0,
+      "fix_a_mean_materializations": 4.0,
+      "fix_b_mean_materializations": 4.0,
+      "fix_a_first_window_diversity_lift": 1.0,
+      "keys_newly_exposed_first_window_by_fix_a": {
+        "MAPT(SLICE:1,2(TOK))": 28
+      },
+      "baseline_persistent_suppress_counts": {
+        "MAPT(CAT(TOK|AT:-1))": 28,
+        "MAPT(AT:-1)": 28,
+        "MAPT(CAT(TOK|AT:0))": 28,
+        "MAPT(CAT(AT:0|AT:-1))": 28,
+        "MAPT(SLICE:0,3(TOK))": 28,
+        "MAPT(AT:0)": 28
+      }
+    },
+    "n_cells": 28,
+    "limitations": [
+      "Offline replay approximates first/subsequent windows from board0 order only.",
+      "Rank demotion dynamics after invent are NOT fully resimulated (NOT_RECORDED).",
+      "Verification/Sacred outcomes NOT_RECORDED.",
+      "Budget unit costs beyond chain_floor=3 proxy NOT_RECORDED."
+    ]
+  },
+  "constants": {
+    "DEFAULT_MAX_EXPLORE_SLOTS": 1,
+    "DEFAULT_MAX_OPPORTUNITIES_PER_CANDIDATE": 1,
+    "DEFAULT_CHAIN_FLOOR": 3,
+    "INVENT_CAP": 48
+  }
+}

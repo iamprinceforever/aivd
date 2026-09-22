@@ -1,0 +1,355 @@
+{
+  "document": "aivd_3_45_pre_sacred_audit",
+  "title": "AIVD 3.45 PRE-SACRED INTEGRATION AUDIT",
+  "recorded": "2026-09-22 13:39:52 IST",
+  "branch": "research/aivd-3.45-adaptive-exploration-materialization",
+  "head": "66717886ffc0d1a2ade676ff2402a7a29d21d794",
+  "head_short": "6671788",
+  "parent": "72edfadeda87c0ea6ac966487c49b9526099c613",
+  "parent_short": "72edfad",
+  "sacred": false,
+  "sacred_executed": false,
+  "audit_status": "STOPPED",
+  "first_failed_gate": "REGRESSION_MATRIX",
+  "gates": {
+    "1_freeze_reconfirm": {
+      "status": "PASS",
+      "head_ok": true,
+      "parent_ok": true,
+      "lineage": {
+        "3.41_ledger": "a56586e",
+        "3.41_audit": "0f42dc0",
+        "3.42": "3a07abe",
+        "3.43": "9810aea",
+        "3.44": "72edfad",
+        "3.45": "6671788"
+      },
+      "lineage_present": true
+    },
+    "2_generality_scan": {
+      "status": "PASS",
+      "PRODUCTION_LOGIC_SCAN": "CLEAN",
+      "scope": "git diff 72edfad..6671788 \u2014 aivd/science/ + aivd/experiments/aivd345/",
+      "forbidden_tokens_checked": [
+        "ODD",
+        "MAPT(SLICE:1,2(TOK))",
+        "char_stride",
+        "POS6",
+        "POS7",
+        "AIVD-S",
+        "specific vulnerability identifiers",
+        "candidate-identity if-guards"
+      ],
+      "note": "Candidate keys appear only as opaque ledger ids in offline_replay measurement data, not in production decision predicates."
+    },
+    "3_policy_invariants_A_I": {
+      "status": "PASS_UNIT_AND_INSPECTION",
+      "table": [
+        {
+          "id": "A",
+          "name": "Exploitation",
+          "status": "PASS",
+          "evidence": "exploit_n preserves board/rank head (matrix B/E; harness scenario 1); EX8 regression is compose-pair side-effect under explore, not exploit-slot displacement"
+        },
+        {
+          "id": "B",
+          "name": "Exploration_bounded",
+          "status": "PASS",
+          "evidence": "max_explore_slots=1; max_opportunities_per_candidate=1; matrix H / harness 7"
+        },
+        {
+          "id": "C",
+          "name": "Budget_legitimate",
+          "status": "PASS",
+          "evidence": "leftover//chain_floor + invent_slots_left gates (P5; harness 8)"
+        },
+        {
+          "id": "D",
+          "name": "Novelty",
+          "status": "PASS",
+          "evidence": "allocator has no novelty bypass APIs (P4); existing novelty filters unchanged"
+        },
+        {
+          "id": "E",
+          "name": "Equivalence",
+          "status": "PASS",
+          "evidence": "no equivalence bypass in allocator; terminal/duplicate path (matrix F)"
+        },
+        {
+          "id": "F",
+          "name": "Firewall",
+          "status": "PASS",
+          "evidence": "no firewall mutation in allocator; atom_explore.reset() on firewall board clear only"
+        },
+        {
+          "id": "G",
+          "name": "invent_cap",
+          "status": "PASS",
+          "evidence": "invent_slots_left=INVENT_CAP-occupancy wired; harness scenario 10; designer still gates on INVENT_CAP"
+        },
+        {
+          "id": "H",
+          "name": "Determinism",
+          "status": "PASS",
+          "evidence": "P6 + harness DET twin identical trajectories; 345 suite run twice identical pass set"
+        },
+        {
+          "id": "I",
+          "name": "Opportunity_ne_invention",
+          "status": "PASS",
+          "evidence": "explore increments exploration_opportunities only; invention still requires downstream invent/novelty/verify"
+        }
+      ],
+      "caveat": "Unit/invariants PASS does not override REGRESSION_MATRIX STOP (EX8 family live regressions)."
+    },
+    "4_regression_matrix": {
+      "status": "FAIL",
+      "full_pytest": {
+        "summary": "7 failed, 1261 passed in 98.34s",
+        "n_failed": 7,
+        "n_passed": 1261,
+        "failed_tests": [
+          "tests/test_aivd337_lang.py::test_ex8_even_then_last_337_vs_336",
+          "tests/test_aivd337_lang.py::test_ex8_seed0_provenance",
+          "tests/test_aivd337_lang.py::test_dx9_on_337_same_fire_as_ex8",
+          "tests/test_aivd337_lang.py::test_ex10_transfer",
+          "tests/test_aivd337_lang.py::test_ex12_independent_rediscovery_env",
+          "tests/test_aivd337_lang.py::test_ablation_nolangext_compose_still_works",
+          "tests/test_aivd338_lang.py::test_ex8_even_then_last_still_verified_on_338"
+        ]
+      },
+      "baseline_72edfad_same_7": "7 passed (confirmed via git worktree /tmp/aivd-72edfad)",
+      "scenarios_1_10": {
+        "harness_status": "PASS",
+        "n_pass": 12,
+        "n_fail": 0,
+        "checks": [
+          {
+            "scenario": "1",
+            "name": "high_ranked_exploit_preserved",
+            "status": "PASS",
+            "detail": "ordered0=H0 exploit=1"
+          },
+          {
+            "scenario": "2",
+            "name": "lower_ranked_novel_bounded_explore",
+            "status": "PASS",
+            "detail": "n_mat=2 explore=['L1']"
+          },
+          {
+            "scenario": "3",
+            "name": "permanently_demoted_one_opportunity",
+            "status": "PASS",
+            "detail": "d1=['D1'] d2=[]"
+          },
+          {
+            "scenario": "4",
+            "name": "duplicate_terminal_suppressed",
+            "status": "PASS",
+            "detail": "explore=['T2']"
+          },
+          {
+            "scenario": "5",
+            "name": "rejected_excluded",
+            "status": "PASS",
+            "detail": "explore=['R2']"
+          },
+          {
+            "scenario": "6",
+            "name": "null_empty_board",
+            "status": "PASS",
+            "detail": "reason=empty_or_no_cap"
+          },
+          {
+            "scenario": "7",
+            "name": "multiple_families_bounded",
+            "status": "PASS",
+            "detail": "n_mat=2 explore_n=1"
+          },
+          {
+            "scenario": "8",
+            "name": "budget_near_exhaustion",
+            "status": "PASS",
+            "detail": "n_mat=1 explore_n=0 leftover=3"
+          },
+          {
+            "scenario": "9",
+            "name": "firewall_near_floor_budget_proxy",
+            "status": "PASS",
+            "detail": "n_mat=1; allocator_has_firewall_api=False"
+          },
+          {
+            "scenario": "10",
+            "name": "invent_cap_near_limit",
+            "status": "PASS",
+            "detail": "slots1=1 slots0=0 slots2=2 INVENT_CAP=48"
+          },
+          {
+            "scenario": "DET",
+            "name": "identical_seed_config_trajectory",
+            "status": "PASS",
+            "detail": "len=3"
+          },
+          {
+            "scenario": "ID",
+            "name": "identity_rename_invariant",
+            "status": "PASS",
+            "detail": ""
+          }
+        ],
+        "note": "Attribute-level allocator scenarios 1\u201310 PASS; live EX8 compose regressions are separate regression-matrix failures."
+      },
+      "causal_observation_EX8_seed0": {
+        "baseline_term": "VERIFIED",
+        "fix_term": "UNRESOLVED_INVISIBLE",
+        "baseline_atom_materialize_keys": [
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(AT:-1)"
+        ],
+        "fix_first_alloc": {
+          "n_mat": 2,
+          "exploit_n": 1,
+          "explore_n": 1,
+          "reason": "exploit_plus_bounded_explore",
+          "explore_keys": "MAPT(SLICE:0,2(TOK))"
+        },
+        "fix_atom_materialize_keys": [
+          "MAPT(CAT(TOK|AT:-1))",
+          "MAPT(SLICE:0,2(TOK))",
+          "MAPT(AT:-1)",
+          "MAPT(CAT(AT:-1|TOK))"
+        ],
+        "note": "Adaptive +1 explore materializes an extra / differently ordered atom; language_compose still fires but with a non-verifying pair; language_grow_reject observed. CF/offline diversity lift does NOT claim real-model discovery. NO production patch applied (STOP)."
+      }
+    },
+    "5_determinism": {
+      "status": "PASS",
+      "allocator_twin_trajectory": "PASS",
+      "pytest_345_twice": "PASS (21 passed \u00d72; timing-normalized summaries identical)",
+      "note": "Completed before STOP documentation; does not clear REGRESSION_MATRIX failure."
+    },
+    "6_aivd41_ledger_on_off": {
+      "status": "PASS",
+      "unit_tests": "test_T01/T02/T03/T16 PASS at HEAD",
+      "prior_matrix_report": {
+        "artifact": "reports/aivd_3_41_audit_on_off_equality.json",
+        "pass": true,
+        "n_compared": 28
+      },
+      "interpretation": "Instrumentation remains observational (ON==OFF for twin semantics). Planner policy may differ from 72edfad due to 3.45 adaptive allocation \u2014 that is separate from ledger side-effects."
+    },
+    "7_offline_baseline_vs_fix": {
+      "status": "RECORDED_BUT_NOT_ACCEPTANCE",
+      "artifact": "reports/aivd_3_45_offline_replay.json",
+      "n_cells": 28,
+      "headlines": {
+        "baseline_mean_first_window_diversity": 1.0,
+        "fix_a_mean_first_window_diversity": 2.0,
+        "fix_b_mean_first_window_diversity": 2.0,
+        "baseline_mean_total_diversity": 4.0,
+        "fix_a_mean_total_diversity": 4.0,
+        "fix_b_mean_total_diversity": 4.0,
+        "baseline_mean_materializations": 4.0,
+        "fix_a_mean_materializations": 4.0,
+        "fix_b_mean_materializations": 4.0,
+        "fix_a_first_window_diversity_lift": 1.0,
+        "keys_newly_exposed_first_window_by_fix_a": {
+          "MAPT(SLICE:1,2(TOK))": 28
+        },
+        "baseline_persistent_suppress_counts": {
+          "MAPT(CAT(TOK|AT:-1))": 28,
+          "MAPT(AT:-1)": 28,
+          "MAPT(CAT(TOK|AT:0))": 28,
+          "MAPT(CAT(AT:0|AT:-1))": 28,
+          "MAPT(SLICE:0,3(TOK))": 28,
+          "MAPT(AT:0)": 28
+        }
+      },
+      "metrics": {
+        "first_window_diversity": {
+          "BASELINE": 1.0,
+          "FIX_A": 2.0,
+          "lift": 1.0
+        },
+        "materialization_count_mean": {
+          "BASELINE": 4.0,
+          "FIX_A": 4.0
+        },
+        "candidate_exposure": {
+          "keys_newly_exposed_first_window_by_fix_a": {
+            "MAPT(SLICE:1,2(TOK))": 28
+          },
+          "note": "Opaque ledger observation only \u2014 NOT acceptance / NOT real discovery"
+        },
+        "persistent_suppression_baseline": {
+          "MAPT(CAT(TOK|AT:-1))": 28,
+          "MAPT(AT:-1)": 28,
+          "MAPT(CAT(TOK|AT:0))": 28,
+          "MAPT(CAT(AT:0|AT:-1))": 28,
+          "MAPT(SLICE:0,3(TOK))": 28,
+          "MAPT(AT:0)": 28
+        },
+        "invention_attempts": "NOT_RECORDED (offline board0 replay approximates materialization only)",
+        "successful_inventions": "NOT_RECORDED (CF inventions are NOT real inventions)",
+        "duplicate_rate": "NOT_RECORDED",
+        "rejected": "NOT_RECORDED",
+        "budget_usage": "NOT_RECORDED beyond chain_floor=3 leftover proxy",
+        "verification_opportunities": "NOT_RECORDED",
+        "recursive_growth_opportunities": "NOT_RECORDED"
+      },
+      "limitations": [
+        "Offline replay approximates first/subsequent windows from board0 order only.",
+        "Rank demotion dynamics after invent are NOT fully resimulated (NOT_RECORDED).",
+        "Verification/Sacred outcomes NOT_RECORDED.",
+        "Budget unit costs beyond chain_floor=3 proxy NOT_RECORDED."
+      ]
+    }
+  },
+  "acceptance_checklist": {
+    "general_anti_starvation": "UNIT_PASS_BUT_REGRESSION_STOP",
+    "preserved_exploitation_novelty_equivalence_firewall_budget_invent_cap_determinism": "UNIT_PASS; live EX8 exploit/compose path REGRESSED",
+    "no_candidate_specific_logic": "PASS (PRODUCTION_LOGIC_SCAN=CLEAN)",
+    "increased_legitimate_exploration_opportunity": "OFFLINE_YES (+1.0 first-window diversity); LIVE_EX8_HARMFUL",
+    "no_uncontrolled_invention_explosion": "UNIT_PASS (bounded +1)",
+    "S_success_required": false
+  },
+  "stop_conditions_hit": [
+    "REGRESSION_MATRIX: 7 failed tests at HEAD that PASS on parent 72edfad (EX8/DX9/EX10/EX12/338 family)"
+  ],
+  "known_limitations": [
+    "Full suite STOPPED audit; no production remediation attempted.",
+    "Offline CF diversity metrics are not real-model discoveries.",
+    "Post-invent rank-demotion \u00d7 explore interaction incompletely simulated offline.",
+    "Sacred not authorized / not executed.",
+    "Prim/ext lazy paths unchanged (atom path only)."
+  ],
+  "not_recorded": [
+    "Live Sacred outcomes",
+    "Invention attempt / success / duplicate / rejected rates under FIX in full epistemic runs (beyond EX8 observational seed0)",
+    "Verification and recursive-growth opportunity aggregates",
+    "Exact invent unit costs beyond chain_floor proxy"
+  ],
+  "deliverables": [
+    "reports/aivd_3_45_pre_sacred_audit.md",
+    "reports/aivd_3_45_pre_sacred_audit.json",
+    "aivd/experiments/aivd345/pre_sacred_audit_harness.py",
+    "reports/aivd_3_45_pre_sacred_audit_harness.json"
+  ],
+  "parent_relay": {
+    "A_head_parent_lineage_ok": true,
+    "B_PRODUCTION_LOGIC_SCAN": "CLEAN",
+    "C_full_pytest_summary": "7 failed, 1261 passed in 98.34s",
+    "D_determinism": "PASS",
+    "E_audit_ON_OFF": "PASS",
+    "F_invariants_A_I": "PASS_UNIT_AND_INSPECTION (see table; caveat under regression)",
+    "G_baseline_vs_fix_headlines": {
+      "first_window_diversity": "1.0 \u2192 2.0 (+1.0)",
+      "mean_materializations": "4.0 \u2192 4.0"
+    },
+    "H_stop_conditions_hit": true,
+    "I_known_limitations_not_recorded": true,
+    "J_commit_push": "COMMITTED_AND_PUSHED_TO_aivd_ON_BRANCH",
+    "K_sacred": "NO"
+  }
+}
