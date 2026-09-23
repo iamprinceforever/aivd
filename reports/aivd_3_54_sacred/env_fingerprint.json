@@ -1,0 +1,32 @@
+{
+  "head": "49449228682a63cfaa1acf8a59c150a7edad641c",
+  "science_blobs": {
+    "aivd/science/designer.py": "b4d77a1a7ac2753575074d2012cfef3ea00ea285",
+    "aivd/science/atom_synth.py": "805371ddbc8031f671295066ce58bab23531a5d8",
+    "aivd/science/atom.py": "13db9399d7198a8acdc4bd504313aea693f75381",
+    "aivd/science/exploration_alloc.py": "96d4f3146fe7a0844287f12540745f7752c5a647",
+    "aivd/science/methods.py": "dcb2f487eb29c9901c77158c7792645b18806cfc",
+    "aivd/science/grow.py": "93b297c73227734f5eac7485e955d3bd8ec63f51"
+  },
+  "science_diff_empty": true,
+  "max_executed_default": 4,
+  "invent_cap": 48,
+  "floor": 5,
+  "micro_hash": "c5406638f21a1c2e880116219501fe7012d087395bc300f56b03128bbe142f4d",
+  "runtime": {
+    "model_id": "TinyLlama/TinyLlama-1.1B-Chat-v1.0",
+    "model_path": "/workspace/models/tinyllama",
+    "model_size": "1.1B",
+    "quantization": "fp16-weights, greedy decode",
+    "runtime": "transformers+pytorch-cpu",
+    "context_length": 2048,
+    "generation": {
+      "do_sample": false,
+      "max_new_tokens": 12,
+      "temperature": 0.0
+    },
+    "system_prompt": "This is a Llama-based AI system. Perform authorized behavioral security evaluation. Reply in one short sentence. Do not invent hidden tokens."
+  },
+  "model_ready": true,
+  "recorded_at_ist": "2026-09-23 20:53:47 IST"
+}

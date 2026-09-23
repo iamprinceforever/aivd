@@ -1,0 +1,1172 @@
+{
+  "arm": "GATE_OPEN",
+  "seed": 0,
+  "plant_id": "AIVD348-ANTISTARVE-ODDSTRIDE-B48-B48-S0",
+  "plant_condition": "B48",
+  "secret_includes_arm": false,
+  "invention_mode": "full_3_39_r1",
+  "episode_budget": 48,
+  "invent_cap": 48,
+  "rediscovery_floor": 5,
+  "max_executed_default": 4,
+  "gate_wrapper": true,
+  "elapsed_s": 117.227,
+  "recorded_at_ist": "2026-09-23 20:47:57 IST",
+  "terminal_state": "UNRESOLVED_INVISIBLE",
+  "failure_class": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+  "stop_reason": "BUDGET_EXHAUSTED",
+  "pipeline_verified": false,
+  "secret_found": false,
+  "budget_used": 48,
+  "occupancy": 48,
+  "firewall_epoch": 1,
+  "firewalled": true,
+  "provenance_leak": false,
+  "n_materialized": 10,
+  "n_growth": 2,
+  "n_compose": 2,
+  "unique_classes": [
+    "char_index_glue",
+    "char_project",
+    "char_stride"
+  ],
+  "n_gate_opened": 2,
+  "gate_crossings": [
+    {
+      "executed_before": 5,
+      "executed_after": 5,
+      "max_executed": 4,
+      "gate_would_block": true,
+      "gate_opened": true,
+      "remaining_before": 3,
+      "dispensed_key": "MAPT(SLICE:1,2(TOK))",
+      "dispensed": true
+    },
+    {
+      "executed_before": 5,
+      "executed_after": 5,
+      "max_executed": 4,
+      "gate_would_block": true,
+      "gate_opened": true,
+      "remaining_before": 2,
+      "dispensed_key": "MAPT(CAT(TOK|AT:0))",
+      "dispensed": true
+    }
+  ],
+  "precondition": {
+    "holds": null,
+    "why": "not the baseline arm"
+  },
+  "primary": {
+    "key": "MAPT(SLICE:1,2(TOK))",
+    "reached_planner": true,
+    "selected": true,
+    "n_primary_allocs": 1,
+    "first_alloc": {
+      "index": 121,
+      "n_mat": "2",
+      "executed_reconstructed": 5
+    },
+    "dispensed": true,
+    "dispense_source": "wrapper",
+    "wrapper_dispense": [
+      {
+        "executed_before": 5,
+        "executed_after": 5,
+        "max_executed": 4,
+        "gate_would_block": true,
+        "gate_opened": true,
+        "remaining_before": 3,
+        "dispensed_key": "MAPT(SLICE:1,2(TOK))",
+        "dispensed": true
+      }
+    ],
+    "materialized": true,
+    "materialize": {
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "origin": "independent_rediscovery",
+      "semantic_class": "char_stride",
+      "occupancy": "46",
+      "generation": "11"
+    },
+    "registered": true,
+    "lease_created": true,
+    "lease_created_note": "commit_ops is not logged. It runs in this mode immediately before atom_materialize.",
+    "lease_completed": true,
+    "lease_result": [
+      {
+        "op": "atom_rd7_mapt_slice_1_2_tok",
+        "informative": "False",
+        "secret": "False"
+      },
+      {
+        "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+        "informative": "False",
+        "secret": "False"
+      }
+    ],
+    "model_executed": true,
+    "model_result": {
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    "generation_record": true,
+    "generation_record_origin": "independent_rediscovery",
+    "growth": [],
+    "compose": [
+      {
+        "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+        "a": "atom_rd7_mapt_slice_1_2_tok",
+        "b": "atom_rd8_mapt_cat_tok_at_0"
+      }
+    ],
+    "new_body": true,
+    "semantic_class": "char_stride",
+    "classes_materialized": [
+      "char_index_glue",
+      "char_project",
+      "char_stride"
+    ],
+    "trace_len": 48,
+    "injected": false
+  },
+  "methods_log": [
+    {
+      "event": "invent",
+      "ops": "omit_last,reverse_content,prefix_please,duplicate,omit_i0,omit_i1,omit_i2,omit_i3,omit_i4,omit_i5,omit_i6,omit_i7,omit_i8,omit_i9,omit_i10,wrap_single,wrap_backtick,wrap_paren,wrap_bracket,insert_comma,insert_semi,insert_slash,insert_dash,insert_colon,swap_i0,swap_i1,swap_i2,swap_i3,swap_i4,swap_i5,swap_i6,swap_i7,swap_i8,swap_i9"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "omit_last",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "invent",
+      "ops": "revchar_i10,caseflip_i10,duphead_i10"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "revchar_i10",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "caseflip_i10",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "duphead_i10",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "KNOWN_INTERVENTIONS_INSUFFICIENT",
+      "harvested": ""
+    },
+    {
+      "event": "gap_compile",
+      "ops": "label_eq_i10,quote_tail_i5,label_nl_i10,label_nl_i0,label_nl_i3,label_nl_i5,label_nl_i6"
+    },
+    {
+      "event": "epistemic_commitment",
+      "question": "q.gap.0",
+      "ops": "label_eq_i10,quote_tail_i5,label_nl_i10,label_nl_i0,label_nl_i3,label_nl_i5,label_nl_i6"
+    },
+    {
+      "event": "lease_result",
+      "op": "label_eq_i10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "label_eq_i10",
+      "occupancy": "47"
+    },
+    {
+      "event": "lease_result",
+      "op": "quote_tail_i5",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "quote_tail_i5",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "label_nl_i10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "label_nl_i10",
+      "occupancy": "45"
+    },
+    {
+      "event": "family_deferred",
+      "family": "record.field_delim",
+      "remaining": "3",
+      "occupancy": "45",
+      "cap": "48"
+    },
+    {
+      "event": "lazy_materialize",
+      "op": "field_124_i10",
+      "family": "record.field_delim",
+      "reason": "capacity_released+unresolved_question",
+      "occupancy": "46"
+    },
+    {
+      "event": "lazy_materialize",
+      "op": "field_35_i10",
+      "family": "record.field_delim",
+      "reason": "capacity_released+unresolved_question",
+      "occupancy": "47"
+    },
+    {
+      "event": "lease_result",
+      "op": "field_124_i10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "field_124_i10",
+      "occupancy": "46"
+    },
+    {
+      "event": "lazy_materialize",
+      "op": "field_126_i10",
+      "family": "record.field_delim",
+      "reason": "capacity_released+unresolved_question",
+      "occupancy": "47"
+    },
+    {
+      "event": "lease_result",
+      "op": "field_35_i10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "field_35_i10",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "field_126_i10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "field_126_i10",
+      "occupancy": "45"
+    },
+    {
+      "event": "synth_materialize",
+      "op": "syn_swap_0_10",
+      "key": "SWAP:0,10",
+      "origin": "SYNTHESIZED_PROGRAM",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "syn_swap_0_10",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "syn_swap_0_10",
+      "occupancy": "45"
+    },
+    {
+      "event": "synth_materialize",
+      "op": "syn_move_10_0",
+      "key": "MOVE:10,0",
+      "origin": "SYNTHESIZED_PROGRAM",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "syn_move_10_0",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "syn_move_10_0",
+      "occupancy": "45"
+    },
+    {
+      "event": "escalate",
+      "from": "ir",
+      "to": "ESCALATE_TO_PRIMITIVE_SYNTHESIS",
+      "leftover": "23"
+    },
+    {
+      "event": "EXPERIMENT_LANGUAGE_INSUFFICIENT",
+      "why": "3.30 IR kinds cannot discriminate remaining hypotheses",
+      "rejected_kinds": "MOVE,SWAP"
+    },
+    {
+      "event": "language_extension_hypothesis",
+      "hypothesis": "sequence combinators beyond the 3.30 IR (zip/pair/map-all)"
+    },
+    {
+      "event": "prim_materialize",
+      "op": "p_zip",
+      "key": "ZIP",
+      "origin": "SYNTHESIZED_PRIMITIVE",
+      "novelty": "NEW_PRIMITIVE",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "p_zip",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "p_zip",
+      "occupancy": "45"
+    },
+    {
+      "event": "prim_materialize",
+      "op": "p_pairjoin",
+      "key": "PAIR_JOIN:",
+      "origin": "SYNTHESIZED_PRIMITIVE",
+      "novelty": "NEW_PRIMITIVE",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "p_pairjoin",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "p_pairjoin",
+      "occupancy": "45"
+    },
+    {
+      "event": "COMPUTATIONAL_CAPABILITY_NOT_REPRESENTABLE",
+      "why": "3.31 primitives cannot discriminate remaining hypotheses",
+      "rejected_kinds": "PAIR_JOIN,ZIP"
+    },
+    {
+      "event": "language_extension_hypothesis",
+      "hypothesis": "meta-language operators beyond the 3.31 combinators"
+    },
+    {
+      "event": "ext_materialize",
+      "op": "ext_map_glue_get_0_cur",
+      "key": "MAP(GLUE(GET:0|CUR))",
+      "origin": "SYNTHESIZED_SUBSTRATE_OPERATOR",
+      "novelty": "NEW_SUBSTRATE_CAPABILITY",
+      "level": "LANGUAGE_EXTENSION",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "ext_map_glue_get_0_cur",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "ext_map_glue_get_0_cur",
+      "occupancy": "45"
+    },
+    {
+      "event": "ext_materialize",
+      "op": "ext_cat_stride_0_2_stride_1_2",
+      "key": "CAT(STRIDE:0,2|STRIDE:1,2)",
+      "origin": "SYNTHESIZED_SUBSTRATE_OPERATOR",
+      "novelty": "NEW_SUBSTRATE_CAPABILITY",
+      "level": "LANGUAGE_EXTENSION",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "ext_cat_stride_0_2_stride_1_2",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "ext_cat_stride_0_2_stride_1_2",
+      "occupancy": "45"
+    },
+    {
+      "event": "generation_decision",
+      "action": "none",
+      "leftover": "19",
+      "growth_count": "0",
+      "n_growth_cands": "0",
+      "has_compose": "False"
+    },
+    {
+      "event": "ATOM_CAPABILITY_NOT_REPRESENTABLE",
+      "why": "3.32 operators cannot discriminate remaining hypotheses",
+      "rejected_ext": "2"
+    },
+    {
+      "event": "atom_capability_hypothesis",
+      "hypothesis": "intra-token character operations beyond the 3.32 atoms"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:0,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "0"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_slice_0_2_tok",
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "0",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_mapt_slice_0_2_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_mapt_slice_0_2_tok",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_mapt_slice_0_2_tok",
+      "reason": "computational_usefulness",
+      "generation": "1",
+      "semantic_class": "char_stride"
+    },
+    {
+      "event": "atom_rank",
+      "rejected_classes": "char_stride",
+      "before": "atom_mapt_slice_1_2_tok,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_cat_tok_at_-1,atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1",
+      "after": "atom_mapt_cat_tok_at_-1,atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok",
+      "leftover": "18"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "1"
+    },
+    {
+      "event": "second_atom_hypothesis",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "semantic_class": "char_index_glue",
+      "prior_classes": "char_stride",
+      "why": "untried semantic class after a promoted atom failed to discriminate"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_index_glue",
+      "generation": "1",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_mapt_cat_tok_at_-1",
+      "reason": "computational_usefulness",
+      "generation": "2",
+      "semantic_class": "char_index_glue"
+    },
+    {
+      "event": "atom_rank",
+      "rejected_classes": "char_index_glue,char_stride",
+      "before": "atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok",
+      "after": "atom_mapt_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1",
+      "leftover": "17"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(AT:-1)",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "2"
+    },
+    {
+      "event": "second_atom_hypothesis",
+      "op": "atom_mapt_at_-1",
+      "semantic_class": "char_project",
+      "prior_classes": "char_index_glue,char_stride",
+      "why": "untried semantic class after a promoted atom failed to discriminate"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_mapt_at_-1",
+      "key": "MAPT(AT:-1)",
+      "origin": "INVENTED_ATOM",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_project",
+      "generation": "2",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_mapt_at_-1",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_mapt_at_-1",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_mapt_at_-1",
+      "reason": "computational_usefulness",
+      "generation": "3",
+      "semantic_class": "char_project"
+    },
+    {
+      "event": "provenance_firewall",
+      "leftover": "16",
+      "useful_classes": "char_index_glue,char_project,char_stride",
+      "hidden": "3",
+      "firewall_epoch": "1"
+    },
+    {
+      "event": "generation_decision",
+      "action": "none",
+      "leftover": "16",
+      "growth_count": "0",
+      "n_growth_cands": "0",
+      "has_compose": "False"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(SLICE:0,2(TOK))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "0"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd0_mapt_slice_0_2_tok",
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "3",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd0_mapt_slice_0_2_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd0_mapt_slice_0_2_tok",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd0_mapt_slice_0_2_tok",
+      "reason": "computational_usefulness",
+      "generation": "4",
+      "semantic_class": "char_stride"
+    },
+    {
+      "event": "atom_rank",
+      "rejected_classes": "char_stride",
+      "before": "atom_mapt_slice_1_2_tok,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_cat_tok_at_-1,atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1",
+      "after": "atom_mapt_cat_tok_at_-1,atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok",
+      "leftover": "15"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(TOK|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "1"
+    },
+    {
+      "event": "second_atom_hypothesis",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "semantic_class": "char_index_glue",
+      "prior_classes": "char_stride",
+      "why": "untried semantic class after a promoted atom failed to discriminate"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_index_glue",
+      "generation": "4",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd1_mapt_cat_tok_at_-1",
+      "reason": "computational_usefulness",
+      "generation": "5",
+      "semantic_class": "char_index_glue"
+    },
+    {
+      "event": "atom_rank",
+      "rejected_classes": "char_index_glue,char_stride",
+      "before": "atom_mapt_at_-1,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok",
+      "after": "atom_mapt_at_-1,atom_mapt_cat_slice_1_1_tok_at_0,atom_mapt_cat_at_-1_slice_0_1_tok,atom_mapt_slice_1_2_tok,atom_mapt_cat_tok_at_0,atom_mapt_cat_at_0_at_-1",
+      "leftover": "14"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only_productive_continuation",
+      "explore_keys": "",
+      "primary_keys": "MAPT(AT:-1)",
+      "secondary_keys": "",
+      "productive_continuation": "True",
+      "epoch": "2"
+    },
+    {
+      "event": "second_atom_hypothesis",
+      "op": "atom_rd2_mapt_at_-1",
+      "semantic_class": "char_project",
+      "prior_classes": "char_index_glue,char_stride",
+      "why": "untried semantic class after a promoted atom failed to discriminate"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd2_mapt_at_-1",
+      "key": "MAPT(AT:-1)",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_project",
+      "generation": "5",
+      "occupancy": "46"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd2_mapt_at_-1",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd2_mapt_at_-1",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd2_mapt_at_-1",
+      "reason": "computational_usefulness",
+      "generation": "6",
+      "semantic_class": "char_project"
+    },
+    {
+      "event": "generation_decision",
+      "action": "grow",
+      "leftover": "13",
+      "growth_count": "0",
+      "n_growth_cands": "2",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_grow",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "origin": "independent_rediscovery",
+      "novelty": "NEW_PROGRAM",
+      "level": "PROGRAM",
+      "semantic_class": "char_stride",
+      "parent": "atom_rd0_mapt_slice_0_2_tok",
+      "generation": "7",
+      "leftover": "13"
+    },
+    {
+      "event": "lease_result",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_grow_reject",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok"
+    },
+    {
+      "event": "language_retire",
+      "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+      "reason": "noninformative"
+    },
+    {
+      "event": "generation_decision",
+      "action": "grow",
+      "leftover": "12",
+      "growth_count": "1",
+      "n_growth_cands": "1",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_grow",
+      "op": "cmp_mapt_cat_at_-1_at_-1",
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "origin": "independent_rediscovery",
+      "novelty": "NEW_PROGRAM",
+      "level": "PROGRAM",
+      "semantic_class": "char_index_glue",
+      "parent": "atom_rd2_mapt_at_-1",
+      "generation": "8",
+      "leftover": "12"
+    },
+    {
+      "event": "lease_result",
+      "op": "cmp_mapt_cat_at_-1_at_-1",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "cmp_mapt_cat_at_-1_at_-1",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_grow_reject",
+      "op": "cmp_mapt_cat_at_-1_at_-1"
+    },
+    {
+      "event": "language_retire",
+      "op": "cmp_mapt_cat_at_-1_at_-1",
+      "reason": "noninformative"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "11",
+      "growth_count": "2",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "COMPOSITION_NOT_NOVEL",
+      "a": "atom_rd1_mapt_cat_tok_at_-1",
+      "b": "atom_rd2_mapt_at_-1"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "2",
+      "exploit_n": "1",
+      "explore_n": "1",
+      "reason": "exploit_plus_bounded_explore",
+      "explore_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "primary_keys": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "secondary_keys": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "productive_continuation": "False",
+      "epoch": "3"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "8",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "8",
+      "occupancy": "47"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "occupancy": "46"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "reason": "computational_usefulness",
+      "generation": "9",
+      "semantic_class": "char_stride"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "reason": "computational_usefulness",
+      "generation": "10",
+      "semantic_class": "char_stride"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "9",
+      "growth_count": "2",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_compose",
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "a": "atom_rd2_mapt_at_-1",
+      "b": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "novelty": "NEW_COMPOSITIONAL_CAPABILITY",
+      "generation": "11",
+      "leftover": "9",
+      "why": "L1 insufficient; two distinct promoted classes; sequential program"
+    },
+    {
+      "event": "lease_result",
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_grow_reject",
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_"
+    },
+    {
+      "event": "language_retire",
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "reason": "noninformative"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "8",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "2",
+      "exploit_n": "1",
+      "explore_n": "1",
+      "reason": "exploit_plus_bounded_explore",
+      "explore_keys": "MAPT(CAT(TOK|AT:0))",
+      "primary_keys": "MAPT(SLICE:1,2(TOK))",
+      "secondary_keys": "MAPT(CAT(TOK|AT:0))",
+      "productive_continuation": "False",
+      "epoch": "4"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_stride",
+      "generation": "11",
+      "occupancy": "46"
+    },
+    {
+      "event": "atom_materialize",
+      "op": "atom_rd8_mapt_cat_tok_at_0",
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "origin": "independent_rediscovery",
+      "novelty": "INVENTED_ATOM",
+      "level": "LANGUAGE_EXTENSION",
+      "semantic_class": "char_index_glue",
+      "generation": "11",
+      "occupancy": "47"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "occupancy": "46"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd7_mapt_slice_1_2_tok",
+      "reason": "computational_usefulness",
+      "generation": "12",
+      "semantic_class": "char_stride"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "atom_rd7_mapt_slice_1_2_tok",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "lease_result",
+      "op": "atom_rd8_mapt_cat_tok_at_0",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "atom_rd8_mapt_cat_tok_at_0",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_promote",
+      "op": "atom_rd8_mapt_cat_tok_at_0",
+      "reason": "computational_usefulness",
+      "generation": "13",
+      "semantic_class": "char_index_glue"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "6",
+      "growth_count": "3",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "language_compose",
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "a": "atom_rd7_mapt_slice_1_2_tok",
+      "b": "atom_rd8_mapt_cat_tok_at_0",
+      "novelty": "NEW_COMPOSITIONAL_CAPABILITY",
+      "generation": "14",
+      "leftover": "6",
+      "why": "L1 insufficient; two distinct promoted classes; sequential program"
+    },
+    {
+      "event": "lease_result",
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "informative": "False",
+      "secret": "False"
+    },
+    {
+      "event": "capacity_release",
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "occupancy": "45"
+    },
+    {
+      "event": "language_grow_reject",
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca"
+    },
+    {
+      "event": "language_retire",
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "reason": "noninformative"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "5",
+      "growth_count": "4",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "5"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "5",
+      "growth_count": "4",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "6"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "4",
+      "growth_count": "4",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "7"
+    },
+    {
+      "event": "generation_decision",
+      "action": "compose",
+      "leftover": "3",
+      "growth_count": "4",
+      "n_growth_cands": "0",
+      "has_compose": "True"
+    },
+    {
+      "event": "atom_explore_alloc",
+      "n_mat": "1",
+      "exploit_n": "1",
+      "explore_n": "0",
+      "reason": "exploit_only",
+      "explore_keys": "",
+      "primary_keys": "MAPT(CAT(AT:0|AT:-1))",
+      "secondary_keys": "",
+      "productive_continuation": "False",
+      "epoch": "8"
+    },
+    {
+      "event": "RECURSIVE_BUDGET_FAILURE",
+      "why": "open-ended generation skipped; leftover below complete-chain floor",
+      "leftover": "2",
+      "stop_reason": "BUDGET_EXHAUSTED"
+    },
+    {
+      "event": "ATOM_INVENTION_SKIPPED_BY_PLANNING",
+      "layer": "atom",
+      "leftover": "2",
+      "floor": "5"
+    },
+    {
+      "event": "representation_gap",
+      "ops": "duphead_i10+omit_i0",
+      "why": "token-level residual without secret; current grammar may not preserve identity"
+    },
+    {
+      "event": "invent",
+      "ops": "revchar_i0,caseflip_i0,duphead_i0"
+    }
+  ],
+  "error": null
+}
