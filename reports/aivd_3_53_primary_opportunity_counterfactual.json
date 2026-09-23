@@ -1,0 +1,79 @@
+{
+  "label": "AIVD 3.53 PRIMARY-OPPORTUNITY COUNTERFACTUAL",
+  "production_modified": false,
+  "sacred_rerun": false,
+  "model_output_invented": false,
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "executive_summary": "The execution gate is the first blocker. Opening it on a fresh board pops the logged PRIMARY and, because n_mat is 2, the logged secondary. Local registration is not blocked at occupancy 45. Lease completion needs an unrecorded model result and was not replayed. Dispense is not discovery.",
+  "control": {
+    "status": "OBSERVED",
+    "cells": 14,
+    "mode": "full_3_39_r1",
+    "event_index": 121,
+    "primary": "MAPT(SLICE:1,2(TOK))",
+    "secondary": "MAPT(CAT(TOK|AT:0))",
+    "n_mat": 2,
+    "exploit_n": 1,
+    "explore_n": 1,
+    "executed": 5,
+    "executed_logged": false,
+    "max_executed": 4,
+    "occupancy": 45,
+    "invent_cap": 48,
+    "leftover": 8,
+    "firewall_epoch": 1,
+    "next_atom": null,
+    "materialized": false,
+    "verified": false
+  },
+  "replayability_boundary": "after local register and commit_ops; due/_apply/model evaluation was not recorded",
+  "first_blocker": "AtomSynthesizer.next_atom executed >= max_executed",
+  "downstream_recorded_blocker": null,
+  "counterfactuals": {
+    "A_gate_open": {
+      "kind": "COUNTERFACTUAL",
+      "primary_dispensed": true,
+      "secondary_dispensed_same_loop": true,
+      "executed_after_pops": 5,
+      "registered": true,
+      "occupancy_after_primary_register": 46,
+      "exact_op_id": "NOT_RECORDED",
+      "lease_created": true,
+      "lease_completed": "NOT_REPLAYABLE",
+      "generation_record_call_reached": true,
+      "generation_record_body": "NOT_RECORDED",
+      "language_growth": "NOT_REPLAYABLE",
+      "new_behavior": "NOT_REPLAYABLE",
+      "security_relevant": "NOT_REPLAYABLE",
+      "verified": "NOT_REPLAYABLE"
+    },
+    "B_max_executed_6": {
+      "kind": "OFFLINE COUNTERFACTUAL",
+      "recommended": false,
+      "fixes_anything": false,
+      "first_loop_same_as_A": true,
+      "meaning": "one more lease completion before a later next_atom closes; not one pop",
+      "later_allocs": "NOT_REPLAYED",
+      "verified": "NOT_REPLAYABLE"
+    },
+    "C_gate_open_no_lease": {
+      "kind": "OFFLINE COUNTERFACTUAL",
+      "sacred_mode": false,
+      "dispensed": true,
+      "registered": true,
+      "lease_created": false,
+      "lease_completed": false,
+      "verified": false
+    }
+  },
+  "security_relevance": "NOT_REPLAYABLE",
+  "hypotheses": {
+    "H20a": "SUPPORTED",
+    "H20b": "SUPPORTED for the pop only. Not a discovery.",
+    "H20c": "NOT_SUPPORTED",
+    "H20d": "SUPPORTED past the lease object",
+    "H20e": "NECESSARY for this missed pop. NOT shown sufficient for discovery.",
+    "H20f": "First transition is isolated. Downstream effects are absent from the trace.",
+    "H20-REJECT": "NOT the result"
+  }
+}
