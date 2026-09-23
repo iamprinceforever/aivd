@@ -1,0 +1,2181 @@
+{
+  "label": "AIVD 3.56 MULTI-CONTEXT BEHAVIORAL DISCRIMINATOR",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "production_modified": false,
+  "model_called": false,
+  "model_completion_equivalence": "NOT_RECORDED",
+  "absent_body": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+  "absent_body_state": "NOT_GENERATED",
+  "plant_metric_used_as_equivalence": false,
+  "stage5_relationship": "SEPARATE. This run does not call the identity filter.",
+  "class_interpretation": "family label. Not an equivalence relation. Not a behavioral-identity label.",
+  "probes": [
+    "",
+    "a",
+    "ab",
+    "abc",
+    "aaaa",
+    "a,b",
+    "ab cd efg hij",
+    "x yy zzz",
+    "z",
+    "abcd e",
+    "hi!",
+    "aa bb"
+  ],
+  "n_probes": 12,
+  "bodies": [
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "role": "P0",
+      "source": "3.45, 3.46, 3.47, 3.54 baseline and gate",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "a",
+        "a",
+        "ac",
+        "aa",
+        "ab",
+        "a c eg hj",
+        "x y zz",
+        "z",
+        "ac e",
+        "h!",
+        "a b"
+      ]
+    },
+    {
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "role": "P1",
+      "source": "3.54 gate-open materialize",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "a",
+        "b",
+        "b",
+        "aa",
+        ",",
+        "b d f i",
+        "y z",
+        "z",
+        "bd",
+        "i",
+        "a b"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "role": "index_glue",
+      "source": "3.45, 3.46, 3.47, 3.54",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "abb",
+        "abcc",
+        "aaaaa",
+        "a,bb",
+        "abb cdd efgg hijj",
+        "xx yyy zzzz",
+        "zz",
+        "abcdd ee",
+        "hi!!",
+        "aaa bbb"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "role": "index_glue",
+      "source": "3.47 key; 3.54 gate-open materialize",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "aba",
+        "abca",
+        "aaaaa",
+        "a,ba",
+        "aba cdc efge hijh",
+        "xx yyy zzzz",
+        "zz",
+        "abcda ee",
+        "hi!h",
+        "aaa bbb"
+      ]
+    },
+    {
+      "key": "MAPT(AT:-1)",
+      "role": "project",
+      "source": "3.45, 3.46, 3.47, 3.54",
+      "label": "char_project",
+      "signature": [
+        "",
+        "a",
+        "b",
+        "c",
+        "a",
+        "b",
+        "b d g j",
+        "x y z",
+        "z",
+        "d e",
+        "!",
+        "a b"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "role": "explore_347",
+      "source": "3.46 and 3.47 explore body",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "aa",
+        "bab",
+        "cabc",
+        "aaaaa",
+        "ba,b",
+        "bab dcd gefg jhij",
+        "xx yyy zzzz",
+        "zz",
+        "dabcd ee",
+        "!hi!",
+        "aaa bbb"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "role": "even_double",
+      "source": "3.45, 3.46, 3.47, 3.54 growth",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "aa",
+        "aa",
+        "acac",
+        "aaaa",
+        "abab",
+        "aa cc egeg hjhj",
+        "xx yy zzzz",
+        "zz",
+        "acac ee",
+        "h!h!",
+        "aa bb"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "role": "hybrid_stride",
+      "source": "3.46, 3.47, 3.54 materialize",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "a",
+        "ba",
+        "bca",
+        "aaaa",
+        ",ba",
+        "ba dc fge ijh",
+        "x yy zzz",
+        "z",
+        "bcda e",
+        "i!h",
+        "aa bb"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "role": "project_double",
+      "source": "3.46, 3.47, 3.54 growth",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "bb",
+        "cc",
+        "aa",
+        "bb",
+        "bb dd gg jj",
+        "xx yy zz",
+        "zz",
+        "dd ee",
+        "!!",
+        "aa bb"
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:0|AT:-1))",
+      "role": "glue_ends",
+      "source": "3.47 key only; class field was absent",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "ab",
+        "ac",
+        "aa",
+        "ab",
+        "ab cd eg hj",
+        "xx yy zz",
+        "zz",
+        "ad ee",
+        "h!",
+        "aa bb"
+      ]
+    },
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "role": "true_duplicate_of_P0",
+      "source": "3.54 rediscovery of the same key",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "a",
+        "a",
+        "ac",
+        "aa",
+        "ab",
+        "a c eg hj",
+        "x y zz",
+        "z",
+        "ac e",
+        "h!",
+        "a b"
+      ]
+    }
+  ],
+  "n_body_rows": 11,
+  "n_distinct_keys": 10,
+  "output_matrix": [
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "role": "P0",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "ac",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "ab",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "a c eg hj",
+          "output_length": 9,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "x y zz",
+          "output_length": 6,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "z",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "ac e",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "h!",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "a b",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(SLICE:1,2(TOK))",
+      "role": "P1",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "b",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "b",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": ",",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "b d f i",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "y z",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "z",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "bd",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "i",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "a b",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "role": "index_glue",
+      "label": "char_index_glue",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "abb",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "abcc",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaaaa",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "a,bb",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "abb cdd efgg hijj",
+          "output_length": 17,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yyy zzzz",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "abcdd ee",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "hi!!",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aaa bbb",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "role": "index_glue",
+      "label": "char_index_glue",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "aba",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "abca",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaaaa",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "a,ba",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "aba cdc efge hijh",
+          "output_length": 17,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yyy zzzz",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "abcda ee",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "hi!h",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aaa bbb",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(AT:-1)",
+      "role": "project",
+      "label": "char_project",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "b",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "c",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "b",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "b d g j",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "x y z",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "z",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "d e",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "!",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "a b",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "role": "explore_347",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "bab",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "cabc",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaaaa",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "ba,b",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "bab dcd gefg jhij",
+          "output_length": 17,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yyy zzzz",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "dabcd ee",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "!hi!",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aaa bbb",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "role": "even_double",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "acac",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaaa",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "abab",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "aa cc egeg hjhj",
+          "output_length": 15,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yy zzzz",
+          "output_length": 10,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "acac ee",
+          "output_length": 7,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "h!h!",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "role": "hybrid_stride",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "ba",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "bca",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaaa",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": ",ba",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "ba dc fge ijh",
+          "output_length": 13,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "x yy zzz",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "z",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "bcda e",
+          "output_length": 6,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "i!h",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "role": "project_double",
+      "label": "char_index_glue",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "cc",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "bb dd gg jj",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yy zz",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "dd ee",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "!!",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(CAT(AT:0|AT:-1))",
+      "role": "glue_ends",
+      "label": "char_index_glue",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "ab",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "ac",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "ab",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "ab cd eg hj",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yy zz",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "ad ee",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "h!",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    },
+    {
+      "key": "MAPT(SLICE:0,2(TOK))",
+      "role": "true_duplicate_of_P0",
+      "label": "char_stride",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "a",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "ac",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "ab",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "a c eg hj",
+          "output_length": 9,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "x y zz",
+          "output_length": 6,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "z",
+          "output_length": 1,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "ac e",
+          "output_length": 4,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "h!",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "a b",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        }
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(SLICE:1,2(TOK))",
+      "b_role": "P1",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 7,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(TOK|AT:-1))",
+      "b_role": "index_glue",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(TOK|AT:0))",
+      "b_role": "index_glue",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(AT:-1)",
+      "b_role": "project",
+      "label_a": "char_stride",
+      "label_b": "char_project",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 8,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b_role": "explore_347",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 7,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "a_role": "P0",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": true,
+      "n_differing_probes": 0,
+      "first_differing_probe": null,
+      "classification": "LABEL_SAME_BEHAVIOR_SAME",
+      "wording": "no observed distinction under these probes"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(TOK|AT:-1))",
+      "b_role": "index_glue",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(TOK|AT:0))",
+      "b_role": "index_glue",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(AT:-1)",
+      "b_role": "project",
+      "label_a": "char_stride",
+      "label_b": "char_project",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 7,
+      "first_differing_probe": "abc",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b_role": "explore_347",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "a_role": "P1",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 7,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(TOK|AT:0))",
+      "b_role": "index_glue",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 6,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(AT:-1)",
+      "b_role": "project",
+      "label_a": "char_index_glue",
+      "label_b": "char_project",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b_role": "explore_347",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 6,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "a_role": "index_glue",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(AT:-1)",
+      "b_role": "project",
+      "label_a": "char_index_glue",
+      "label_b": "char_project",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b_role": "explore_347",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 6,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "a_role": "index_glue",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b_role": "explore_347",
+      "label_a": "char_project",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_project",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_project",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_project",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_project",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(AT:-1)",
+      "a_role": "project",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_project",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 8,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_role": "explore_347",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b_role": "even_double",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_role": "explore_347",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_role": "explore_347",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_role": "explore_347",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_role": "explore_347",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "a_role": "even_double",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b_role": "hybrid_stride",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "a_role": "even_double",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 8,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "a_role": "even_double",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 8,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "a_role": "even_double",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 11,
+      "first_differing_probe": "a",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "a_role": "hybrid_stride",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "b_role": "project_double",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "a_role": "hybrid_stride",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_stride",
+      "label_b": "char_index_glue",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "a_role": "hybrid_stride",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_stride",
+      "label_b": "char_stride",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 9,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|AT:-1))",
+      "a_role": "project_double",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "b_role": "glue_ends",
+      "label_a": "char_index_glue",
+      "label_b": "char_index_glue",
+      "same_label": true,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 6,
+      "first_differing_probe": "ab",
+      "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|AT:-1))",
+      "a_role": "project_double",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 10,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    },
+    {
+      "a": "MAPT(CAT(AT:0|AT:-1))",
+      "a_role": "glue_ends",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "b_role": "true_duplicate_of_P0",
+      "label_a": "char_index_glue",
+      "label_b": "char_stride",
+      "same_label": false,
+      "same_output_on_every_probe": false,
+      "n_differing_probes": 7,
+      "first_differing_probe": "a",
+      "classification": "LABEL_DIFFERENT_BEHAVIOR_DIFFERENT",
+      "wording": "observably distinguishable under the frozen probe bank"
+    }
+  ],
+  "primary_pair": {
+    "a": "MAPT(SLICE:0,2(TOK))",
+    "a_role": "P0",
+    "b": "MAPT(SLICE:1,2(TOK))",
+    "b_role": "P1",
+    "label_a": "char_stride",
+    "label_b": "char_stride",
+    "same_label": true,
+    "same_output_on_every_probe": false,
+    "n_differing_probes": 7,
+    "first_differing_probe": "ab",
+    "classification": "LABEL_SAME_BEHAVIOR_DIFFERENT",
+    "wording": "observably distinguishable under the frozen probe bank"
+  },
+  "n_same_label_behavior_different": 20,
+  "same_label_behavior_different": [
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "b": "MAPT(SLICE:1,2(TOK))",
+      "n_differing_probes": 7,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "b": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(SLICE:1,2(TOK))",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "n_differing_probes": 7,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "b": "MAPT(CAT(TOK|AT:0))",
+      "n_differing_probes": 6,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:-1))",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "b": "MAPT(CAT(AT:-1|AT:-1))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(TOK|AT:0))",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "n_differing_probes": 9,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "n_differing_probes": 11,
+      "first": "a"
+    },
+    {
+      "a": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "n_differing_probes": 9,
+      "first": "ab"
+    },
+    {
+      "a": "MAPT(CAT(AT:-1|AT:-1))",
+      "b": "MAPT(CAT(AT:0|AT:-1))",
+      "n_differing_probes": 6,
+      "first": "ab"
+    }
+  ],
+  "same_output_pairs": [
+    {
+      "a": "MAPT(SLICE:0,2(TOK))",
+      "b": "MAPT(SLICE:0,2(TOK))",
+      "classification": "LABEL_SAME_BEHAVIOR_SAME"
+    }
+  ],
+  "known_probe_validated": true,
+  "hypotheses": {
+    "H23a": "SUPPORTED",
+    "H23b": "SUPPORTED",
+    "H23c": "SUPPORTED as too coarse for behavioral identity under this bank. Not a universal claim.",
+    "H23d": "SUPPORTED. The code bins by operator names. The bank shows those bins are families.",
+    "H23e": "SUPPORTED only for the recorded rediscovery of the same key. No two distinct keys with the same label matched on every probe.",
+    "H23f": "NOT_SUPPORTED. No different-label pair matched on every probe.",
+    "H23-REJECT": "NOT the result"
+  },
+  "limitation": "Finite probe bank. Signatures are apply_micro outputs, which return the original prompt when a transform yields no tokens, so some raw character differences are not visible. A difference is observed distinguishability, not a proof about every string. Matching outputs are no observed distinction under these probes, not a proof of semantic equivalence. TinyLlama completions were not compared."
+}
