@@ -626,13 +626,25 @@ def test_s16_impl_ancestor_and_no_science_drift_after_impl():
         ["git", "merge-base", "--is-ancestor", IMPL, "HEAD"], cwd=str(REPO)
     )
     assert anc == 0
-    # Science tree must match impl commit (docs-only tip allowed)
+    # Science tree must match the impl commit. The 3.54 research harness
+    # lives under aivd/experiments and is the only later aivd/ delta.
     diff = subprocess.check_output(
-        ["git", "diff", IMPL, "HEAD", "--", "aivd/"],
+        ["git", "diff", IMPL, "HEAD", "--", "aivd/science"],
         cwd=str(REPO),
         text=True,
     )
     assert diff.strip() == "", f"science drift after {IMPL}:\n{diff[:500]}"
+    names = subprocess.check_output(
+        ["git", "diff", "--name-only", IMPL, "HEAD", "--", "aivd/"],
+        cwd=str(REPO),
+        text=True,
+    ).split()
+    allowed = {
+        "aivd/experiments/aivd354/__init__.py",
+        "aivd/experiments/aivd354/gate.py",
+        "aivd/experiments/aivd354/sacred_run.py",
+    }
+    assert set(names) <= allowed, names
 
 
 # ---------------------------------------------------------------------------

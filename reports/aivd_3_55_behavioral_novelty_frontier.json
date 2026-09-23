@@ -1,0 +1,41 @@
+{
+  "label": "AIVD 3.55 BEHAVIORAL-NOVELTY FRONTIER AUDIT",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "production_modified": false,
+  "sacred_rerun": false,
+  "model_called": false,
+  "answer": "C. The 3.54 'no new class' count is the semantic_class_of op-set label. It is not a behavioral equivalence result.",
+  "counts": {
+    "population": "3.45 sacred + 3.46 frontier + 3.47 matrix + 3.54 seed-0 arms",
+    "unique_mapt_keys": 10,
+    "unique_recorded_class_labels": 3,
+    "class_labels": ["char_index_glue", "char_project", "char_stride"],
+    "keys_with_class_not_recorded": ["MAPT(CAT(AT:0|AT:-1))"],
+    "aivd_3_41_3_43_3_44_body_census": "NOT_RECORDED",
+    "aivd_3_54_baseline_unique_materialized_keys": 5,
+    "aivd_3_54_gate_unique_materialized_keys": 7,
+    "aivd_3_54_gate_new_keys": 2,
+    "aivd_3_54_new_keys_new_class": 0,
+    "aivd_3_54_security_relevant": 0,
+    "aivd_3_54_verified": 0,
+    "aivd_3_47_unique_explore_bodies": 1,
+    "aivd_3_47_explore_ledger_rows": 21,
+    "aivd_3_47_new_classes": 0,
+    "effective_model_trajectories_3_54": 2,
+    "effective_class_set_trajectories_3_54": 1,
+    "seeds_are_independent_model_samples": false
+  },
+  "stage5_relationship": "INDEPENDENT",
+  "hypotheses": {
+    "H22a": "SUPPORTED",
+    "H22b": "NOT the whole result. The missed secret is the unbuilt doubled-odd body.",
+    "H22c": "SUPPORTED for the label. Not a model-text claim.",
+    "H22d": "NOT_SUPPORTED. Model-output equality is NOT_RECORDED.",
+    "H22e": "NOT_SUPPORTED for the class count.",
+    "H22f": "SUPPORTED for the class bin.",
+    "H22g": "SUPPORTED",
+    "H22h": "SUPPORTED for model completions only.",
+    "H22-REJECT": "NOT the result"
+  },
+  "next_discriminator": "Multi-context program outputs of the recorded stride pair, reported beside semantic_class_of. Not a quota change."
+}
