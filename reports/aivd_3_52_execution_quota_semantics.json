@@ -1,0 +1,124 @@
+{
+  "label": "AIVD 3.52 EXECUTION-QUOTA SEMANTICS AUDIT",
+  "production_modified": false,
+  "sacred_rerun": false,
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "design_intent_of_max_executed_4": "NOT_RECORDED",
+  "architectural_meaning_if_documented": "NOT_RECORDED",
+  "operational_role": "per-atom-board stop: next_atom returns None once completed atom_* lease results since construction or the firewall wipe are at least max_executed",
+  "primary_block_is_a_bug": false,
+  "executive_summary": "The call graph is known. Every qualifying atom_* lease increments one board counter, next_atom stops at 4, and the firewall zeroes the counter. No commit, test, comment, or doc says which resource that 4 is supposed to bound. The observed PRIMARY refusal is not a bug finding.",
+  "meanings_not_selected": {
+    "A_total_atom_lease_operations": "OBSERVED_BEHAVIOR. Intent NOT_RECORDED.",
+    "B_atom_exploration_attempts": "NOT this allocator. n_mat is separate.",
+    "C_expensive_model_calls": "Counted step is inventor.apply, not a model call. Expensive NOT_RECORDED.",
+    "D_materialization_attempts": "Counter moves after lease_result, not at materialize.",
+    "E_firewall_rediscovery_work": "Pre-firewall leases count. Firewall zeroes the counter.",
+    "F_recursion_bound": "next_atom is not recursive. AtomInventory.max_depth is unread.",
+    "G_legacy_safety_bound": "Original meaning unknown. The word safety is not in the record.",
+    "H_combination": "NOT_ESTABLISHED"
+  },
+  "call_graph": {
+    "owner": "one AtomInventory per AtomSynthesizer per ScienceDesigner",
+    "init": "AtomInventory defaults executed=0 max_executed=4",
+    "check": "AtomSynthesizer.next_atom: executed >= max_executed then empty remaining",
+    "increment_site": "designer result path, op startswith atom_",
+    "increment_requires": ["allow_commit", "matching ExperimentLease", "allow_lazy", "allow_synth"],
+    "increment_ignores": ["origin", "body novelty", "informative", "secret", "semantic_class"],
+    "reset_site": "_maybe_firewall atom_synth.board.executed = 0",
+    "runtime_assignment_to_max_executed": false,
+    "atom_kinds_exhausted_helper": false
+  },
+  "lifecycle": {
+    "scope": "one atom board on one designer",
+    "per_generation": false,
+    "per_firewall_epoch_by_wipe": true,
+    "wipe_documented_as_quota_refresh": false,
+    "shared_with_ir_prim_ext": false,
+    "shared_with_episode_budget": false
+  },
+  "lineage": {
+    "parent_branch": "research/aivd-3.51-execution-quota-accounting-audit",
+    "parent_commit": "98298335482fb955b1f36c598891855007671df4",
+    "ir_introduced": "56ca5fe max_executed=6 next_program",
+    "ir_escalation_use": "3ad5d9d _ir_kinds_exhausted",
+    "primitive_introduced": "3ad5d9d max_executed=4",
+    "extension_introduced": "8607b48 max_executed=4",
+    "atom_introduced": "468994ef8bc4c882005a6a2a5a7bacabd6537ddf",
+    "atom_reset_introduced": "34bc665233a32a8a6f3b1f760fd65e99a37c232b",
+    "commit_message_explains_atom_4": false,
+    "comment_or_doc_explains_atom_4": false
+  },
+  "siblings_not_the_atom_quota": {
+    "ir_max_executed": 6,
+    "primitive_max_executed": 4,
+    "extension_max_executed": 4,
+    "commitment_max_leases_executed": 3,
+    "micro_MAX_DEPTH": 4,
+    "atom_inventory_max_depth_read": false
+  },
+  "tests": [
+    {
+      "id": "test_aivd330_synth.py::test_7_family_continuation_programs",
+      "protects": "next_program pops two distinct remaining programs",
+      "executed_role": "not consulted; stays at default 0"
+    },
+    {
+      "id": "test_aivd341_planner_audit.py plan/select",
+      "protects": "deterministic drain of remaining and a select audit row",
+      "executed_role": "not incremented; None means remaining empty"
+    },
+    {
+      "id": "test_aivd338_lang.py and test_aivd339_independent_generations.py",
+      "protects": "firewall epoch, origin, rediscovery floor",
+      "executed_role": "not read"
+    },
+    {
+      "id": "test_aivd351_execution_quota_accounting.py",
+      "protects": "3.51 accounting report",
+      "executed_role": "observed arithmetic only; intent explicitly NOT_RECORDED"
+    }
+  ],
+  "lease_equivalence": {
+    "observed": "first-seen, repeated body, and independent_rediscovery all hit startswith atom_",
+    "design_intent": "NOT_RECORDED"
+  },
+  "successful_vs_blocked": {
+    "gate_names_a_candidate": false,
+    "waiting_primary": "MAPT(SLICE:1,2(TOK))",
+    "reconstructed_executed_at_refusal": 5,
+    "max_executed": 4,
+    "occupancy": 45,
+    "invent_cap": 48,
+    "leftover": 8,
+    "score": "NOT_RECORDED"
+  },
+  "counterfactuals": {
+    "preferred": null,
+    "reason": "no semantic model was established",
+    "observed_gate": "CLOSED",
+    "rediscovery_exclusion_model": "NOT_RECORDED",
+    "hard_safety_total_model": "NOT_RECORDED",
+    "materialization_if_gate_open": "NOT_REPLAYED"
+  },
+  "hypotheses": {
+    "H19a": "NOT_SUPPORTED",
+    "H19b": "NOT_SUPPORTED",
+    "H19c": "NOT_SUPPORTED",
+    "H19d": "NOT_SUPPORTED",
+    "H19e": "SUPPORTED",
+    "H19f": "NOT_ESTABLISHED",
+    "H19g": "NOT_ESTABLISHED",
+    "H19-REJECT": "NOT the result. Mechanism is characterized. Intended resource is not."
+  },
+  "not_recorded": [
+    "why max_executed is 4",
+    "why the atom path has no kinds-exhausted use of the counter",
+    "whether the firewall zero was meant as a quota refresh",
+    "logged board.executed",
+    "score",
+    "numeric rank",
+    "select reason",
+    "discovery consequence of an open gate"
+  ]
+}
