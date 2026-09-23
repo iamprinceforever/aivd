@@ -1,0 +1,169 @@
+{
+  "label": "AIVD 3.49 PRIMARY-MATERIALIZATION FORENSIC AUDIT",
+  "production_modified": false,
+  "sacred_rerun": false,
+  "repair_authorized": false,
+  "precise_statement": "PRIMARY reaches atom_explore_alloc with n_mat>0, then AtomSynthesizer.next_atom returns None because board.executed >= board.max_executed (4) and that prevents atom_materialize, while occupancy is 45 (below invent_cap 48) and leftover is 8 (at or above chain floor 3).",
+  "lineage": {
+    "repository": "https://github.com/iamprinceforever/aivd",
+    "diagnostic_branch": "research/aivd-3.49-primary-materialization-audit",
+    "parent_head": "0da689e78691302f8ef922a307cf6aa0b879f114",
+    "implementation": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+    "science_freeze_baseline": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+    "integrity_gate": "da0ce8555a8fe1ba2b281ff7f00f8c1f814f2a35",
+    "sacred_runs": "reports/aivd_3_48_sacred/runs/",
+    "sacred_results": "reports/aivd_3_48_sacred_results.json",
+    "invention_mode": "full_3_39_r1",
+    "episode_budget": 48,
+    "invent_cap": 48,
+    "firewall_floor": 5,
+    "seeds": [0, 1, 2, 3, 4, 7, 11],
+    "cells": 14,
+    "cells_trace_identical": true
+  },
+  "representative_cell": "reports/aivd_3_48_sacred/runs/FIX_B48_seed0.json",
+  "timing": {
+    "T0_odd_primary_index": 121,
+    "T0_event": "atom_explore_alloc",
+    "T0_primary_keys": "MAPT(SLICE:1,2(TOK))",
+    "T0_n_mat": 2,
+    "T0_reason": "exploit_plus_bounded_explore",
+    "T1_occupancy": 45,
+    "T1_occupancy_source": "methods_log[117] capacity_release",
+    "T2_leftover": 8,
+    "T2_leftover_source": "methods_log[120] generation_decision",
+    "T3_next_event": "methods_log[122] generation_decision leftover 8",
+    "T4_atom_materialize": false,
+    "T5_registry_full_index": 133,
+    "T5_registry_family": "record.field_delim",
+    "T5_registry_occupancy": 48,
+    "T6_recursive_budget_failure_index": 134,
+    "T6_invention_skipped_index": 135,
+    "T6_leftover": 1,
+    "later_odd_primary_indexes": [123, 126, 128, 130],
+    "odd_primary_count": 5,
+    "atom_materialize_after_any_odd_primary": false
+  },
+  "reconstruction": {
+    "board_executed_logged": false,
+    "board_executed_at_T0": 5,
+    "max_executed": 4,
+    "max_executed_source": "aivd/science/atom.py AtomInventory.max_executed default; no other assignment",
+    "rule": "executed is set to 0 immediately before provenance_firewall and incremented by 1 immediately after each post-firewall atom_* lease_result when allow_lazy and allow_synth are on. full_3_39_r1 enables both. Five such leases precede index 121.",
+    "post_firewall_atom_leases_before_T0": [
+      "atom_rd0_mapt_slice_0_2_tok",
+      "atom_rd1_mapt_cat_tok_at_-1",
+      "atom_rd2_mapt_at_-1",
+      "atom_rd5_mapt_cat_slice_1_1_tok_at_0",
+      "atom_rd6_mapt_cat_at_-1_slice_0_1_tok"
+    ],
+    "last_successful_atom_materialize_executed": 3,
+    "code_sites": {
+      "loop": "aivd/science/designer.py _maybe_invent_atom after atom_explore_alloc",
+      "next_atom": "aivd/science/atom_synth.py AtomSynthesizer.next_atom",
+      "reset": "aivd/science/designer.py _maybe_firewall board.executed = 0",
+      "increment": "aivd/science/designer.py lease_result atom_ branch board.executed += 1"
+    }
+  },
+  "first_blocking_predicate": {
+    "class": "E. materialization eligibility",
+    "function": "AtomSynthesizer.next_atom",
+    "predicate": "board.executed >= board.max_executed",
+    "while": {
+      "occupancy": 45,
+      "invent_cap": 48,
+      "leftover": 8,
+      "chain_floor_constant": 3,
+      "n_mat": 2,
+      "primary_never_materialized": true
+    }
+  },
+  "eliminated_at_T0": [
+    {"class": "A", "predicate": "occupancy >= invent_cap", "why": "occupancy 45; no atom_capacity_wait; no antistarve why"},
+    {"class": "B", "predicate": "leftover < 3", "why": "leftover 8; alloc is logged only after that return"},
+    {"class": "C", "predicate": "chain_floor unaffordable", "why": "n_mat=2 was emitted"},
+    {"class": "D", "predicate": "planner early return", "why": "those returns precede atom_explore_alloc"},
+    {"class": "F", "predicate": "name already in inventor.ops", "why": "next_atom returns None before that test"},
+    {"class": "G", "predicate": "firewall blocks materialize", "why": "firewall already completed at leftover 16; alloc still logged"},
+    {"class": "H", "predicate": "register failure", "why": "INVENTORY_CAPACITY_FAILURE absent; register not reached"},
+    {"class": "I", "predicate": "registry_full", "why": "index 133 is after the miss"},
+    {"class": "remaining-empty", "predicate": "board.remaining empty", "why": "decide() just assigned a non-empty ordered; n_mat>0 excludes empty board"}
+  ],
+  "later_predicates": [
+    {"index": 133, "event": "registry_full", "note": "field family full at occupancy 48; not the first miss"},
+    {"index": 134, "event": "RECURSIVE_BUDGET_FAILURE", "leftover": 1},
+    {"index": 135, "event": "ATOM_INVENTION_SKIPPED_BY_PLANNING", "leftover": 1, "note": "terminal budget/chain-floor skip, not the first miss"}
+  ],
+  "successful_comparison": [
+    {"key": "MAPT(SLICE:0,2(TOK))", "role": "even-stride", "post_firewall_executed_before": 0, "leftover": 16, "materialized": true, "note": "rediscovery; pre-firewall copy also materialized"},
+    {"key": "MAPT(CAT(TOK|AT:-1))", "role": "index-glue", "post_firewall_executed_before": 1, "leftover": 15, "materialized": true},
+    {"key": "MAPT(AT:-1)", "role": "project", "post_firewall_executed_before": 2, "leftover": 14, "materialized": true},
+    {"key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))", "role": "later stride glue", "post_firewall_executed_before": 3, "leftover": 11, "materialized": true},
+    {"key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))", "role": "secondary of that alloc", "post_firewall_executed_before": 3, "leftover": 11, "materialized": true},
+    {"key": "MAPT(SLICE:1,2(TOK))", "role": "diagnostic PRIMARY", "post_firewall_executed_before": 5, "leftover": 8, "occupancy": 45, "materialized": false},
+    {"key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))", "role": "growth", "path": "language_grow", "materialized_as_atom": false, "registered_via_growth": true},
+    {"key": "MAPT(CAT(AT:-1|AT:-1))", "role": "growth", "path": "language_grow", "materialized_as_atom": false, "registered_via_growth": true}
+  ],
+  "hypotheses": {
+    "H16a": "NOT the first gap. Planner STOP fires only at leftover 1 after the misses.",
+    "H16b": "NOT the first gap. Leftover at T0 is 8. Budget/chain-floor is the terminal skip.",
+    "H16c": "SUPPORTED. PRIMARY does not guarantee materialization eligibility.",
+    "H16d": "NOT SUPPORTED. Gate is general max_executed. No candidate-specific branch.",
+    "H16e": "NOT the first gap. Occupancy 45 < 48. Registration not reached.",
+    "H16f": "NOT SUPPORTED. Allocator emitted n_mat=2 and named this PRIMARY.",
+    "H16g": "SUPPORTED. Blocker is next_atom, downstream of decide().",
+    "H16h": "SUPPORTED for the episode. First transition is a single predicate; leftover<3 and registry_full fire later.",
+    "H16-REJECT": "NOT needed. First predicate is localized."
+  },
+  "not_recorded": [
+    "numeric score",
+    "score_components",
+    "numeric rank",
+    "observe_select / selection_reason=next_atom",
+    "per-candidate materialization-eligibility boolean",
+    "per-candidate invention-eligibility boolean",
+    "audit budget_before",
+    "audit budget_after",
+    "logged chain_floor",
+    "logged invent_slots_left",
+    "logged board.executed",
+    "logged board.max_executed",
+    "logged board.remaining length",
+    "name-in-ops result",
+    "per-candidate skip reason at T0",
+    "distinct atom_materialize attempt event"
+  ],
+  "recorded": [
+    "atom_explore_alloc.primary_keys",
+    "atom_explore_alloc.n_mat",
+    "atom_explore_alloc.reason",
+    "generation_decision.leftover",
+    "atom_rank.leftover",
+    "occupancy on atom_materialize and capacity_release",
+    "registry_full",
+    "provenance_firewall",
+    "ATOM_INVENTION_SKIPPED_BY_PLANNING leftover"
+  ],
+  "aivd_348": {
+    "anti_starve_eligible_at_T0": false,
+    "because": "occupancy 45 < invent_cap 48",
+    "n_antistarve_releases": 0,
+    "atom_capacity_wait": false,
+    "baseline_equals_fix_on_this_trace": true,
+    "status": "VALID AS A NON-ACTIVATION OBSERVATION. NOT VALID AS EVIDENCE THAT ANTI-STARVE WORKS.",
+    "invent_cap_was_not_the_first_blocker": true
+  },
+  "next_experiment": {
+    "authorized_now": false,
+    "repair": false,
+    "required_observation": "Log the next_atom return reason (executed, max_executed, remaining_empty) without changing the predicate, rank, score, budget, or invent_cap.",
+    "forbidden": [
+      "production behavior change",
+      "candidate-specific logic",
+      "S/ODD injection or re-rank",
+      "budget increase",
+      "invent_cap increase",
+      "sacred rerun as a behavior test"
+    ]
+  }
+}
