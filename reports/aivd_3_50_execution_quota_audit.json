@@ -1,0 +1,117 @@
+{
+  "label": "AIVD 3.50 ATOM-EXPLORATION EXECUTION-QUOTA AUDIT",
+  "production_modified": false,
+  "sacred_rerun": false,
+  "repair_authorized": false,
+  "precise_statement": "The design intent of the constant 4 remains NOT_RECORDED. Operationally, board.executed counts atom_* lease results since the firewall reset. The fourth such result makes executed >= max_executed. A fifth atom_* lease also lands before the next next_atom, so that call returns None at executed=5 while PRIMARY candidate MAPT(SLICE:1,2(TOK)) is waiting, occupancy is 45, and leftover is 8. The gate does not read the candidate key.",
+  "lineage": {
+    "parent_branch": "research/aivd-3.49-primary-materialization-audit",
+    "parent_commit": "98fa0d4b4712ed1c6c58ef1902b79318b5a9bf1e",
+    "diagnostic_branch": "research/aivd-3.50-atom-execution-quota-audit",
+    "implementation": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+    "science_freeze": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+    "introduced_in": "468994ef8bc4c882005a6a2a5a7bacabd6537ddf",
+    "introduced_message_mentions_max_executed": false,
+    "sacred_cells": 14,
+    "cells_identical": true
+  },
+  "purpose": {
+    "design_intent_of_constant_4": "NOT_RECORDED",
+    "operational_effect": "After four atom_* lease results since reset, next_atom returns None and no further atom body is dispensed.",
+    "not_used_as": [
+      "atom-layer escalation flag (unlike IR/prim/ext exhaustion helpers)",
+      "per-candidate or per-class quota",
+      "invent_cap",
+      "episode budget",
+      "firewall floor"
+    ],
+    "sibling_caps": {
+      "ir_max_executed": 6,
+      "prim_max_executed": 4,
+      "ext_max_executed": 4,
+      "atom_max_executed": 4,
+      "note": "Siblings also mark the layer exhausted. The atom path only stops next_atom."
+    },
+    "unread_fields": ["max_depth"],
+    "different_bound": {"max_generated": 8, "effect": "caps how many bodies plan() keeps; not the next_atom gate"}
+  },
+  "code_path": {
+    "init": "AtomInventory.executed=0, max_executed=4",
+    "reset": "designer._maybe_firewall sets atom_synth.board.executed=0 immediately before provenance_firewall",
+    "increment": "designer lease_result: if op startswith atom_, executed += 1, informative or not, no origin test",
+    "does_not_increment": ["atom_materialize", "language_grow", "language_compose", "cmp_* lease", "capacity_release", "non-atom lease"],
+    "read": "AtomSynthesizer.next_atom returns None if executed >= max_executed"
+  },
+  "resources": {
+    "experiment_budget_at_block": {"leftover": 8, "episode_budget": 48, "exhausted": false},
+    "invent_cap_at_block": {"occupancy": 45, "cap": 48, "exhausted": false},
+    "firewall_floor": {"value": 5, "firewall_already_ran": true, "resets_executed": true},
+    "max_executed": {"value": 4, "reconstructed_executed_at_refusal": 5, "exhausted": true},
+    "materialization_slots": {"n_mat_at_first_refusal": 2, "allocator_reads_executed": false, "grant_voided_by_next_atom": true},
+    "independent": true,
+    "coupling": "only inside next_atom, which consults executed and not budget, invent_cap, or the allocator"
+  },
+  "consumption_post_firewall": [
+    {"n": 1, "executed_after": 1, "body": "MAPT(SLICE:0,2(TOK))", "class": "char_stride", "origin": "independent_rediscovery", "informative": false, "secret": false, "verified": false, "materialized_before_lease": true, "counts_as": "rediscovery lease of even-stride"},
+    {"n": 2, "executed_after": 2, "body": "MAPT(CAT(TOK|AT:-1))", "class": "char_index_glue", "origin": "independent_rediscovery", "informative": false, "secret": false, "verified": false, "materialized_before_lease": true, "counts_as": "rediscovery lease of index-glue"},
+    {"n": 3, "executed_after": 3, "body": "MAPT(AT:-1)", "class": "char_project", "origin": "independent_rediscovery", "informative": false, "secret": false, "verified": false, "materialized_before_lease": true, "counts_as": "rediscovery lease of project"},
+    {"n": 4, "executed_after": 4, "body": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))", "class": "char_stride", "origin": "independent_rediscovery", "informative": false, "secret": false, "verified": false, "materialized_before_lease": true, "counts_as": "lease that first makes executed >= max_executed"},
+    {"n": 5, "executed_after": 5, "body": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))", "class": "char_stride", "origin": "independent_rediscovery", "informative": false, "secret": false, "verified": false, "materialized_before_lease": true, "counts_as": "dispensed in the same batch while executed was 3, so its lease precedes the next next_atom"}
+  ],
+  "consumption_pre_firewall": {
+    "count": 3,
+    "hit_cap": false,
+    "reset_by_firewall": true,
+    "bodies": ["MAPT(SLICE:0,2(TOK))", "MAPT(CAT(TOK|AT:-1))", "MAPT(AT:-1)"]
+  },
+  "blocked_primary": {
+    "key": "MAPT(SLICE:1,2(TOK))",
+    "alloc_count": 5,
+    "n_mat_first": 2,
+    "atom_materialize": false,
+    "executed_at_refusal": 5,
+    "occupancy": 45,
+    "leftover": 8
+  },
+  "comparison": [
+    {"role": "even-stride", "key": "MAPT(SLICE:0,2(TOK))", "executed_before_successful_dispense": 0, "materialized": true},
+    {"role": "index-glue", "key": "MAPT(CAT(TOK|AT:-1))", "executed_before_successful_dispense": 1, "materialized": true},
+    {"role": "project", "key": "MAPT(AT:-1)", "executed_before_successful_dispense": 2, "materialized": true},
+    {"role": "later stride glue", "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))", "executed_before_successful_dispense": 3, "materialized": true},
+    {"role": "secondary of that batch", "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))", "executed_before_successful_dispense": 3, "materialized": true},
+    {"role": "waiting PRIMARY", "key": "MAPT(SLICE:1,2(TOK))", "executed_before_attempt": 5, "next_atom_returned_body": false, "materialized": false, "score": "NOT_RECORDED", "numeric_rank": "NOT_RECORDED"}
+  ],
+  "hypotheses": {
+    "H17a": "PARTLY SUPPORTED as an effect. The cap left a later PRIMARY unmaterialized. It is not an exploration-versus-exploitation quota; every atom_* lease counts.",
+    "H17b": "NOT ESTABLISHED. No safety rationale for the constant. Not increased.",
+    "H17c": "COUPLING OBSERVED. n_mat can be voided by a counter the allocator does not read. 'Incorrect' is not concluded.",
+    "H17d": "CONSUMPTION OBSERVED. The leases that fill the cap are rediscoveries. No reserve exists for a never-materialized PRIMARY. No repair.",
+    "H17e": "NOT SUPPORTED. The increment does not distinguish productive, rediscovery, or redundant work.",
+    "H17f": "NOT A CONCLUSION. Necessity and a new policy are not established.",
+    "H17g": "SUPPORTED. Five ceilings. Only max_executed is spent at the refusal.",
+    "H17-REJECT": "Not needed for the operational effect. Required for the design intent of the literal 4."
+  },
+  "counterfactuals": {
+    "method": "arithmetic on the observed lease list; not a planner replay; no model calls",
+    "CF1_max_executed_5": {"gate_at_observed_refusal": "still closed", "because": "executed is already 5", "materialization_claimed": false},
+    "CF2_max_executed_6": {"gate_at_observed_refusal": "open", "materialization_claimed": false},
+    "CF3_reserve_one_for_never_materialized_primary": {"simulated": false, "reservation_exists": false, "materialization_claimed": false},
+    "CF4_ignore_rediscovery_leases": {"gate_at_observed_refusal": "open", "because": "all five post-firewall consumers are independent_rediscovery", "materialization_claimed": false}
+  },
+  "generality": {
+    "increment_predicate": "op.startswith('atom_')",
+    "reads_candidate_key": false,
+    "already_explored_work_can_fill_the_window": true,
+    "unexplored_primary_can_be_waiting": true,
+    "specific_to_MAPT_SLICE_1_2": false
+  },
+  "not_recorded": [
+    "design intent of max_executed=4",
+    "logged board.executed",
+    "logged board.max_executed",
+    "numeric score",
+    "numeric rank",
+    "outcome of name-in-ops and _register had next_atom returned a body"
+  ],
+  "first_blocking_predicate": "AtomSynthesizer.next_atom: board.executed >= board.max_executed after post-firewall atom_* leases 1-5. Crossing lease is #4. Observed refusal is after #5."
+}
