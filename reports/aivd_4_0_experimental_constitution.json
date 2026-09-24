@@ -1,0 +1,113 @@
+{
+  "label": "AIVD 4.0 EXPERIMENTAL CONSTITUTION",
+  "frozen_at": "afe3acdf83be4427e76d82f4537880ddf4eb99e6",
+  "status": "RESEARCH PROTOCOL ONLY",
+  "production_modified": false,
+  "engine_implemented": false,
+  "corpus_generated": false,
+  "bank_executed": false,
+  "doubled_odd_body": "NOT_GENERATED",
+  "implementation": "NOT AUTHORIZED",
+  "bank_execution": "NOT AUTHORIZED",
+  "sacred_execution": "NOT AUTHORIZED",
+  "production_intervention": "NOT AUTHORIZED",
+  "repository_may_manufacture_corpus": false,
+  "next_prerequisite": "An independently existing corpus from a provider who is not the experimenter, under this seal.",
+  "roles": ["PROVIDER", "EXPERIMENTER", "EVALUATOR"],
+  "one_person_one_role": true,
+  "experimenter_may_observe_plaintext": false,
+  "seal": {
+    "body_hash_is_sufficient": false,
+    "signature_hash_is_sufficient": false,
+    "commitment_binds": "ciphertext",
+    "content_id": "hash(bank_hash + sealed_signature)",
+    "content_id_location": "inside the seal only",
+    "receipt_dimension_reference": "opaque handle, not the content id"
+  },
+  "sources": {
+    "A_preexisting_unfiltered": "INDEPENDENT-SOURCE DISCOVERY",
+    "B_commissioned_for_this_study": "SCIENTIST-BLIND DISCOVERY",
+    "C_sampled_inside_this_project": "SYNTHETIC DIVERSITY",
+    "C_is_independent_phenomenon": false
+  },
+  "provider_forbidden_instructions": [
+    "find doubled-odd",
+    "avoid doubled-odd",
+    "find vulnerabilities",
+    "find novel behavior",
+    "find security-relevant behavior",
+    "reproduce historical AIVD targets",
+    "avoid historical AIVD targets"
+  ],
+  "neutrality_statement_is_proof_of_intent": false,
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "historical_3_56_bank": "replay only",
+  "executor": "apply_micro",
+  "second_executor": false,
+  "output_equals_input": "AMBIGUOUS_COPY",
+  "valid_empty_output_observable": false,
+  "ambiguous_copy_is_not": ["OBSERVED_EQUIVALENT", "OBSERVED_DISTINCT", "NEW_DIMENSION"],
+  "signature_excludes": ["model text", "informative", "secret", "representation_gap", "semantic_class_of", "body key"],
+  "content_id_excludes": ["body key", "operator name", "family", "generation id", "target id", "provider id"],
+  "novelty": {
+    "results": ["OBSERVED_EQUIVALENT", "OBSERVED_DISTINCT", "INSUFFICIENT"],
+    "new_dimension_requires": "distinct from every stored dimension and no insufficient comparison",
+    "bank_edited_to_resolve_collision": false
+  },
+  "memory": {
+    "starts_empty": true,
+    "cleared_at_firewall": true,
+    "crosses_firewall": false,
+    "published_bodies_as_parents": false
+  },
+  "recursion": {
+    "rule_frozen_before_opening": true,
+    "uses": ["opaque handles", "precommitted order"],
+    "inspects_body_key": false,
+    "depth_target": false
+  },
+  "budget": {
+    "apply_micro_calls": 256,
+    "unevaluated_pairs": 128,
+    "remainder": 128,
+    "episode_budget": "untouched",
+    "max_executed": "untouched",
+    "invent_cap": "untouched",
+    "starvation_exception": false
+  },
+  "security": {
+    "discovery_sets_secret": false,
+    "discovery_sets_informative": false,
+    "discovery_sets_verified": false,
+    "engine_calls_verifier": false
+  },
+  "receipt_may_contain": ["opaque handle", "decision code", "opaque dimension handle", "bank hash", "protocol version"],
+  "receipt_must_not_contain": ["plaintext body", "body key", "content id", "plaintext signature", "evaluator label"],
+  "claims": [
+    "FIXTURE VALIDATION",
+    "HISTORICAL REPLAY",
+    "SYNTHETIC DIVERSITY",
+    "SCIENTIST-BLIND DISCOVERY",
+    "INDEPENDENT-SOURCE DISCOVERY",
+    "BLIND RECURSIVE DISCOVERY",
+    "SECURITY DISCOVERY",
+    "VERIFIED FINDING"
+  ],
+  "weaker_claim_inherits_stronger_name": false,
+  "never_report_as_unknown_discovery": [
+    "3.56 replay",
+    "3.58 replay",
+    "same-family stride separation",
+    "hidden labels",
+    "hidden expected answers",
+    "target-directed model candidates",
+    "current-planner candidates",
+    "internal random programs",
+    "controlled mock recursion",
+    "synthetic recursion",
+    "known-body compositions",
+    "doubled-odd reconstruction",
+    "post-hoc probes",
+    "target-derived generation"
+  ]
+}
