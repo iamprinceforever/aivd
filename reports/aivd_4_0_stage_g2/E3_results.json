@@ -1,0 +1,35 @@
+{
+  "acquired": true,
+  "acquisition_date": "2026-09-24",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "classification": [
+    "NO COMPATIBLE CANDIDATES"
+  ],
+  "commit": "c56409093597c4c1f358b42a9b0db8dfefe52040",
+  "commitment": "e06f7faf3c0aa1e8b71654ace5a60c42ba2c36297acfd32c4170fb9616bb2e7d",
+  "compatible_files": 0,
+  "incompatible_files": 2066,
+  "incompatible_reasons": {
+    "BINARY": 1,
+    "EMPTY": 41,
+    "NOT_MICRO_KEY": 452,
+    "TOO_LARGE": 1572
+  },
+  "license": "NOT_RECORDED",
+  "measurement": {
+    "ran": false
+  },
+  "pin": "master at acquisition",
+  "plaintext_keys_included": false,
+  "repository": "https://github.com/rishabhs/sygus-comp14",
+  "sample_cap": 16,
+  "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+  "selected_count": 0,
+  "selected_key_sha256": [],
+  "source_id": "E3",
+  "source_name": "SyGuS-Comp14",
+  "total_files": 2066,
+  "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+  "translator_version": "identity-micro-key-v0",
+  "unique_programs": 0
+}

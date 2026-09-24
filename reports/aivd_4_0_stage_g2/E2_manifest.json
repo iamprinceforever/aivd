@@ -1,0 +1,27 @@
+{
+  "acquired": true,
+  "acquisition_date": "2026-09-24",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "commit": "13c8deb68a873635879c9a69bc78caebd340f646",
+  "commitment": "8ad336fe6bdc34fec3728ea34392a13e7fa130005325bd1a371a96fca0d9f34d",
+  "compatible_files": 0,
+  "incompatible_files": 9755,
+  "incompatible_reasons": {
+    "NOT_MICRO_KEY": 2190,
+    "TOO_LARGE": 7565
+  },
+  "license": "NOT_RECORDED",
+  "pin": "master at acquisition",
+  "plaintext_keys_included": false,
+  "repository": "https://github.com/SyGuS-Org/benchmarks",
+  "sample_cap": 16,
+  "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+  "selected_count": 0,
+  "selected_key_sha256": [],
+  "source_id": "E2",
+  "source_name": "SyGuS Competition",
+  "total_files": 9755,
+  "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+  "translator_version": "identity-micro-key-v0",
+  "unique_programs": 0
+}

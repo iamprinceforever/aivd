@@ -1,0 +1,162 @@
+{
+  "acquisition_date": "2026-09-24",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "claim": "NO COMPATIBLE CANDIDATE WAS PRESENT UNDER THE FROZEN MICRO-KEY RULE",
+  "cross_source": {
+    "complete_signatures": 0,
+    "dimensions_by_source": {
+      "E1": 0,
+      "E2": 0,
+      "E3": 0,
+      "E4": 0
+    },
+    "observation": "No complete signature was observed, so cross-source identity, collapse, and absence questions were not evaluable.",
+    "pooled": false
+  },
+  "protocol_version": "aivd-4.0-stage-g2-1",
+  "sample_cap": 16,
+  "security_finding": false,
+  "source_a": false,
+  "source_class": "SOURCE-E",
+  "sources": [
+    {
+      "acquired": true,
+      "acquisition_date": "2026-09-24",
+      "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+      "classification": [
+        "NO COMPATIBLE CANDIDATES"
+      ],
+      "commit": "c02d18c3608b164ff09cc5cad3c02f98f9c1ef21",
+      "commitment": "ccc0e23309ac42a6ea360cd152d695c1b3122dec24edab7b4e433b471f0b001a",
+      "compatible_files": 0,
+      "incompatible_files": 207,
+      "incompatible_reasons": {
+        "BINARY": 93,
+        "NOT_MICRO_KEY": 31,
+        "TOO_LARGE": 83
+      },
+      "license": "FILE:LICENSE",
+      "measurement": {
+        "ran": false
+      },
+      "pin": "tag v1.2",
+      "plaintext_keys_included": false,
+      "repository": "https://github.com/thelmuth/program-synthesis-benchmark-datasets",
+      "sample_cap": 16,
+      "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+      "selected_count": 0,
+      "selected_key_sha256": [],
+      "source_id": "E1",
+      "source_name": "General Program Synthesis Benchmark",
+      "total_files": 207,
+      "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+      "translator_version": "identity-micro-key-v0",
+      "unique_programs": 0
+    },
+    {
+      "acquired": true,
+      "acquisition_date": "2026-09-24",
+      "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+      "classification": [
+        "NO COMPATIBLE CANDIDATES"
+      ],
+      "commit": "13c8deb68a873635879c9a69bc78caebd340f646",
+      "commitment": "8ad336fe6bdc34fec3728ea34392a13e7fa130005325bd1a371a96fca0d9f34d",
+      "compatible_files": 0,
+      "incompatible_files": 9755,
+      "incompatible_reasons": {
+        "NOT_MICRO_KEY": 2190,
+        "TOO_LARGE": 7565
+      },
+      "license": "NOT_RECORDED",
+      "measurement": {
+        "ran": false
+      },
+      "pin": "master at acquisition",
+      "plaintext_keys_included": false,
+      "repository": "https://github.com/SyGuS-Org/benchmarks",
+      "sample_cap": 16,
+      "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+      "selected_count": 0,
+      "selected_key_sha256": [],
+      "source_id": "E2",
+      "source_name": "SyGuS Competition",
+      "total_files": 9755,
+      "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+      "translator_version": "identity-micro-key-v0",
+      "unique_programs": 0
+    },
+    {
+      "acquired": true,
+      "acquisition_date": "2026-09-24",
+      "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+      "classification": [
+        "NO COMPATIBLE CANDIDATES"
+      ],
+      "commit": "c56409093597c4c1f358b42a9b0db8dfefe52040",
+      "commitment": "e06f7faf3c0aa1e8b71654ace5a60c42ba2c36297acfd32c4170fb9616bb2e7d",
+      "compatible_files": 0,
+      "incompatible_files": 2066,
+      "incompatible_reasons": {
+        "BINARY": 1,
+        "EMPTY": 41,
+        "NOT_MICRO_KEY": 452,
+        "TOO_LARGE": 1572
+      },
+      "license": "NOT_RECORDED",
+      "measurement": {
+        "ran": false
+      },
+      "pin": "master at acquisition",
+      "plaintext_keys_included": false,
+      "repository": "https://github.com/rishabhs/sygus-comp14",
+      "sample_cap": 16,
+      "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+      "selected_count": 0,
+      "selected_key_sha256": [],
+      "source_id": "E3",
+      "source_name": "SyGuS-Comp14",
+      "total_files": 2066,
+      "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+      "translator_version": "identity-micro-key-v0",
+      "unique_programs": 0
+    },
+    {
+      "acquired": true,
+      "acquisition_date": "2026-09-24",
+      "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+      "classification": [
+        "NO COMPATIBLE CANDIDATES"
+      ],
+      "commit": "50cc38f602fffe14073953cf128825ea8d92b188",
+      "commitment": "050bcfcd44f6ae371e351138db4ba24005138524144e760770588e06e5825af8",
+      "compatible_files": 0,
+      "incompatible_files": 9570,
+      "incompatible_reasons": {
+        "BINARY": 1,
+        "EMPTY": 2,
+        "NOT_MICRO_KEY": 9359,
+        "TOO_LARGE": 208
+      },
+      "license": "FILE:LICENSE",
+      "measurement": {
+        "ran": false
+      },
+      "pin": "HEAD at acquisition",
+      "plaintext_keys_included": false,
+      "repository": "https://github.com/microsoft/prose",
+      "sample_cap": 16,
+      "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+      "selected_count": 0,
+      "selected_key_sha256": [],
+      "source_id": "E4",
+      "source_name": "Microsoft PROSE",
+      "total_files": 9570,
+      "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+      "translator_version": "identity-micro-key-v0",
+      "unique_programs": 0
+    }
+  ],
+  "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+  "translator_version": "identity-micro-key-v0"
+}

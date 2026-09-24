@@ -25,7 +25,7 @@ from aivd.experiments.aivd40.stage_g2.constants import (
     TRANSLATOR_VERSION,
 )
 from aivd.experiments.aivd40.stage_g2.micro_key import parse_micro_key
-from aivd.experiments.aivd40.stage_g2.sample import enumerate_checkout, select_population
+from aivd.experiments.aivd40.stage_g2.sample import enumerate_git, select_population
 
 ROOT = Path(__file__).resolve().parents[4]
 OUT = ROOT / "reports" / "aivd_4_0_stage_g2"
@@ -85,7 +85,7 @@ def _one(source: dict[str, str], out_dir: Path, translator_hash: str) -> dict[st
         _write(out_dir / f"{source['source_id']}_manifest.json", base)
         _write(out_dir / f"{source['source_id']}_results.json", base)
         return base
-    inventory = enumerate_checkout(dest)
+    inventory = enumerate_git(dest)
     selected = select_population(inventory["population"], SAMPLING_SEED, source["source_id"], SAMPLE_CAP)
     selected_hashes = [row["key_sha256"] for row in selected]
     preimage = selection_preimage(
@@ -215,17 +215,18 @@ def _checkout(url: str, commit: str, dest: Path) -> tuple[bool, str]:
         subprocess.run(["git", "init"], cwd=dest, check=True, capture_output=True)
         subprocess.run(["git", "remote", "add", "origin", url], cwd=dest, check=True, capture_output=True)
         fetched = subprocess.run(
-            ["git", "fetch", "--depth", "1", "origin", commit],
+            ["git", "fetch", "--filter=blob:limit=1024", "--depth", "1", "origin", commit],
             cwd=dest,
             check=False,
             capture_output=True,
             text=True,
+            timeout=180,
         )
         if fetched.returncode != 0:
             return False, fetched.stderr.strip()[:500]
         subprocess.run(["git", "checkout", "--detach", "FETCH_HEAD"], cwd=dest, check=True, capture_output=True)
         head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=dest, text=True).strip()
-    except (OSError, subprocess.CalledProcessError) as exc:
+    except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
         return False, str(exc)[:500]
     if head != commit:
         return False, f"checkout {head} did not match pin {commit}"

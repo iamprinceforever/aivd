@@ -1,0 +1,35 @@
+{
+  "acquired": true,
+  "acquisition_date": "2026-09-24",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "classification": [
+    "NO COMPATIBLE CANDIDATES"
+  ],
+  "commit": "50cc38f602fffe14073953cf128825ea8d92b188",
+  "commitment": "050bcfcd44f6ae371e351138db4ba24005138524144e760770588e06e5825af8",
+  "compatible_files": 0,
+  "incompatible_files": 9570,
+  "incompatible_reasons": {
+    "BINARY": 1,
+    "EMPTY": 2,
+    "NOT_MICRO_KEY": 9359,
+    "TOO_LARGE": 208
+  },
+  "license": "FILE:LICENSE",
+  "measurement": {
+    "ran": false
+  },
+  "pin": "HEAD at acquisition",
+  "plaintext_keys_included": false,
+  "repository": "https://github.com/microsoft/prose",
+  "sample_cap": 16,
+  "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+  "selected_count": 0,
+  "selected_key_sha256": [],
+  "source_id": "E4",
+  "source_name": "Microsoft PROSE",
+  "total_files": 9570,
+  "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+  "translator_version": "identity-micro-key-v0",
+  "unique_programs": 0
+}

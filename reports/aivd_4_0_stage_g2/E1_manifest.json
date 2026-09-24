@@ -1,0 +1,28 @@
+{
+  "acquired": true,
+  "acquisition_date": "2026-09-24",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "commit": "c02d18c3608b164ff09cc5cad3c02f98f9c1ef21",
+  "commitment": "ccc0e23309ac42a6ea360cd152d695c1b3122dec24edab7b4e433b471f0b001a",
+  "compatible_files": 0,
+  "incompatible_files": 207,
+  "incompatible_reasons": {
+    "BINARY": 93,
+    "NOT_MICRO_KEY": 31,
+    "TOO_LARGE": 83
+  },
+  "license": "FILE:LICENSE",
+  "pin": "tag v1.2",
+  "plaintext_keys_included": false,
+  "repository": "https://github.com/thelmuth/program-synthesis-benchmark-datasets",
+  "sample_cap": 16,
+  "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+  "selected_count": 0,
+  "selected_key_sha256": [],
+  "source_id": "E1",
+  "source_name": "General Program Synthesis Benchmark",
+  "total_files": 207,
+  "translator_hash": "5db2a7223a09a31aebb64f6192945fe608be4255509ed45e62ea6e630971dd26",
+  "translator_version": "identity-micro-key-v0",
+  "unique_programs": 0
+}
