@@ -1,0 +1,317 @@
+{
+  "label": "AIVD 3.58 ADMITTED COMPOSITION MEASUREMENT",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "production_modified": false,
+  "model_called": false,
+  "model_completion_equivalence": "NOT_RECORDED",
+  "probe_bank_hash": "4238cefe4c7ea07ebeefd9527fa26d17aa5cfd044678b577602b1ad30afcb91c",
+  "probes": [
+    "",
+    "a",
+    "ab",
+    "abc",
+    "aaaa",
+    "a,b",
+    "ab cd efg hij",
+    "x yy zzz",
+    "z",
+    "abcd e",
+    "hi!",
+    "aa bb"
+  ],
+  "n_probes": 12,
+  "programs": [
+    {
+      "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "a_op": "atom_rd2_mapt_at_-1",
+      "b_op": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok",
+      "a_key": "MAPT(AT:-1)",
+      "b_key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "a_label": "char_project",
+      "b_label": "char_stride",
+      "a_origin": "independent_rediscovery",
+      "b_origin": "independent_rediscovery",
+      "compose_generation": "11",
+      "compose_novelty": "NEW_COMPOSITIONAL_CAPABILITY",
+      "joined_label": "char_project+char_stride",
+      "joined_label_source": "code joins the two recorded component classes; the compose event did not store semantic_class",
+      "body_key_logged": false,
+      "body_key_from_code": "MAPT(AT:-1)|MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "cc",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "bb dd gg jj",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "xx yy zz",
+          "output_length": 8,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "dd ee",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "!!",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ],
+      "versus_identity": {
+        "n_equal": 2,
+        "n_differ": 10,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "versus_a": {
+        "n_equal": 1,
+        "n_differ": 11,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "versus_b": {
+        "n_equal": 3,
+        "n_differ": 9,
+        "first_differing_probe": "ab",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "identity_string": "NOT_RECORDED",
+      "a_of_identity": "NOT_RECORDED",
+      "b_of_a_of_identity": "NOT_RECORDED",
+      "admission": "admitted. The language_compose event is in the log, and COMPOSITION_NOT_NOVEL is not.",
+      "admission_observed": "one unstored identity string. The check passed, so that string was nonempty and different from the identity, from a(identity), and from b(identity). It did not observe these 12 probes."
+    },
+    {
+      "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+      "a_op": "atom_rd7_mapt_slice_1_2_tok",
+      "b_op": "atom_rd8_mapt_cat_tok_at_0",
+      "a_key": "MAPT(SLICE:1,2(TOK))",
+      "b_key": "MAPT(CAT(TOK|AT:0))",
+      "a_label": "char_stride",
+      "b_label": "char_index_glue",
+      "a_origin": "independent_rediscovery",
+      "b_origin": "independent_rediscovery",
+      "compose_generation": "14",
+      "compose_novelty": "NEW_COMPOSITIONAL_CAPABILITY",
+      "joined_label": "char_stride+char_index_glue",
+      "joined_label_source": "code joins the two recorded component classes; the compose event did not store semantic_class",
+      "body_key_logged": false,
+      "body_key_from_code": "MAPT(SLICE:1,2(TOK))|MAPT(CAT(TOK|AT:0))",
+      "cells": [
+        {
+          "input": "",
+          "output": "",
+          "output_length": 0,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a",
+          "output": "aa",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abc",
+          "output": "bb",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aaaa",
+          "output": "aaa",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "a,b",
+          "output": ",,",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "ab cd efg hij",
+          "output": "bb dd ff ii",
+          "output_length": 11,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "x yy zzz",
+          "output": "yy zz",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "z",
+          "output": "zz",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "abcd e",
+          "output": "bdb",
+          "output_length": 3,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "hi!",
+          "output": "ii",
+          "output_length": 2,
+          "ok": true,
+          "exception": null
+        },
+        {
+          "input": "aa bb",
+          "output": "aa bb",
+          "output_length": 5,
+          "ok": true,
+          "exception": null
+        }
+      ],
+      "versus_identity": {
+        "n_equal": 2,
+        "n_differ": 10,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "versus_a": {
+        "n_equal": 1,
+        "n_differ": 11,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "versus_b": {
+        "n_equal": 3,
+        "n_differ": 9,
+        "first_differing_probe": "ab",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "identity_string": "NOT_RECORDED",
+      "a_of_identity": "NOT_RECORDED",
+      "b_of_a_of_identity": "NOT_RECORDED",
+      "admission": "admitted. The language_compose event is in the log, and COMPOSITION_NOT_NOVEL is not.",
+      "admission_observed": "one unstored identity string. The check passed, so that string was nonempty and different from the identity, from a(identity), and from b(identity). It did not observe these 12 probes."
+    }
+  ],
+  "sequential_vs_sequential": {
+    "n_equal": 5,
+    "n_differ": 7,
+    "first_differing_probe": "abc",
+    "wording": "OBSERVED_DISTINCTION under the frozen probe bank",
+    "classification": "different label / different outputs"
+  },
+  "live_metric": {
+    "terminal_state": "UNRESOLVED_INVISIBLE",
+    "firewall_epoch": 1,
+    "secret_found": false,
+    "pipeline_verified": false,
+    "n_composition_not_novel": 1,
+    "leases": [
+      {
+        "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+        "informative": "False",
+        "secret": "False"
+      },
+      {
+        "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+        "informative": "False",
+        "secret": "False"
+      }
+    ],
+    "informative_is_not_equivalence": true
+  },
+  "absent_body": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+  "absent_body_state": "NOT_GENERATED",
+  "hypotheses": {
+    "H25a": "SUPPORTED",
+    "H25b": "SUPPORTED as fewer contexts, not as an invalid test. Admission saw one unstored string. The bank distinctions are on probes it did not inspect.",
+    "H25c": "SUPPORTED. The compose label is the join of the two existing component labels. No new operator family is created.",
+    "H25d": "SUPPORTED. Both leases are informative false and secret false, while the bank shows output differences.",
+    "H25e": "SUPPORTED",
+    "H25f": "NOT_SUPPORTED",
+    "H25g": "NOT_SUPPORTED. A pass means one string differed from the identity and from each component. That is not behavioral equivalence.",
+    "H25-REJECT": "NOT the result. Both programs were recovered from the compose event plus the matching materialize keys."
+  },
+  "limitation": "The 12-probe differences are observed distinguishability, not a proof about every string. apply_micro returns the original prompt when a transform yields no tokens. The identity string used at admission was not stored, so its three outputs stay NOT_RECORDED. TinyLlama completions were not compared."
+}
