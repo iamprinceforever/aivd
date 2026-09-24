@@ -1,0 +1,42 @@
+{
+  "protocol_version": "aivd-4.0-stage-g2-1",
+  "source_class": "SOURCE-E",
+  "status": "SELECTION_FREEZE",
+  "measurement": "NOT_RUN",
+  "seed_name": "aivd-4.0-stage-g2-source-e-v1",
+  "sample_cap": 16,
+  "max_candidate_bytes": 1024,
+  "translator_version": "identity-micro-key-v0",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "compatibility": "entire file is one canonical Micro key; no cross-language translator",
+  "population": "every regular file except .git; sources stay separate",
+  "dedup": "unique canonical key",
+  "order": "sha256 of the canonical key",
+  "replacement_of_incompatible": false,
+  "sources": [
+    {
+      "source_id": "E1",
+      "repository": "https://github.com/thelmuth/program-synthesis-benchmark-datasets",
+      "commit": "c02d18c3608b164ff09cc5cad3c02f98f9c1ef21",
+      "pin": "tag v1.2"
+    },
+    {
+      "source_id": "E2",
+      "repository": "https://github.com/SyGuS-Org/benchmarks",
+      "commit": "13c8deb68a873635879c9a69bc78caebd340f646",
+      "pin": "master at acquisition"
+    },
+    {
+      "source_id": "E3",
+      "repository": "https://github.com/rishabhs/sygus-comp14",
+      "commit": "c56409093597c4c1f358b42a9b0db8dfefe52040",
+      "pin": "master at acquisition"
+    },
+    {
+      "source_id": "E4",
+      "repository": "https://github.com/microsoft/prose",
+      "commit": "50cc38f602fffe14073953cf128825ea8d92b188",
+      "pin": "HEAD at acquisition"
+    }
+  ]
+}
