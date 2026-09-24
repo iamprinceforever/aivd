@@ -1,0 +1,91 @@
+{
+  "label": "AIVD 4.1 BLIND EXTERNAL CORPUS PROTOCOL",
+  "commit_audited": "33ae45f51b1348c413916c30e26d21468030f0ac",
+  "production_modified": false,
+  "engine_implemented": false,
+  "corpus_generated": false,
+  "discovery_bank_executed": false,
+  "doubled_odd_body": "NOT_GENERATED",
+  "provider_selected": false,
+  "repository_can_be_the_provider": false,
+  "blind_corpus_implementation": "NOT AUTHORIZED",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "roles": {
+    "corpus_provider": "holds candidates and the decryption key",
+    "discovery_experimenter": "sees commitment and receipt only",
+    "evaluator": "holds a sealed copy and reveals after the receipt; no writeback",
+    "same_person_may_hold_two_roles": false,
+    "experimenter_may_operate_decryption": false
+  },
+  "commitment": {
+    "binds": ["ciphertext hash", "order", "count", "provider timestamp", "generator hash", "environment hash"],
+    "per_candidate_hashes_on_the_receipt": false,
+    "reason": "The bounded Micro grammar can be enumerated. A body hash is invertible. A content id is also invertible.",
+    "experimenter_receives": "ciphertext commitment only"
+  },
+  "public_receipt": ["opaque handle", "decision code", "budget consumed", "hash of the sealed log"],
+  "public_receipt_excludes": ["body key", "program text", "probe output", "AMBIGUOUS_COPY marks", "content id", "family label", "target id"],
+  "content_id": "hash(bank hash + sealed signature), inside the seal only",
+  "sources": {
+    "preexisting_unfiltered": "can support independent-source discovery",
+    "commissioned_sample_from_a_separated_party": "scientist-blind only; produced for the study",
+    "experimenter_generated": "not an external source",
+    "same_AIVD_grammar": "a draw from a published hypothesis class, not an independent phenomenon"
+  },
+  "provider_must_not_be_asked": [
+    "find doubled-odd",
+    "avoid doubled-odd",
+    "find security bugs",
+    "find novel behavior",
+    "reproduce historical AIVD targets"
+  ],
+  "seed_available_to_experimenter_before_reveal": false,
+  "order": "committed before opening; prefix until the characterization budget is spent",
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "bank_revised": false,
+  "ambiguous_copy": {
+    "stored_in": "sealed log",
+    "counts_as_distinction": false,
+    "mints_dimension": false,
+    "second_executor": false
+  },
+  "budget": {
+    "apply_micro_calls": 256,
+    "characterization": 128,
+    "unevaluated_pairs": 128,
+    "adaptive_increase": false,
+    "episode_budget": "untouched",
+    "max_executed": "untouched",
+    "invent_cap": "untouched"
+  },
+  "pair_rule": "lexicographic order of opaque handles among dimensions committed in this run",
+  "published_bodies_as_parents": false,
+  "independence_claim": "Bytes were bound before the experimenter could read them, and the provider states the request was target-neutral. This does not prove the provider's intent.",
+  "breakthrough_requires": [
+    "commitment before the experimenter sees bodies",
+    "measurement on the frozen bank",
+    "new dimension under the ambiguity rule",
+    "no semantic name on the receipt",
+    "second dimension only by the frozen pair rule",
+    "security unset"
+  ],
+  "claim_hierarchy": [
+    "fixture validation",
+    "historical replay",
+    "synthetic diversity",
+    "sealed-corpus discovery",
+    "scientist-blind discovery",
+    "independent-source discovery",
+    "recursive blind discovery",
+    "security discovery",
+    "verified vulnerability"
+  ],
+  "weaker_claim_inherits_stronger_name": false,
+  "prerequisites": [
+    "a provider who is not the experimenter",
+    "a ciphertext commitment before the experimenter can read bodies",
+    "a discovery process the experimenter does not observe",
+    "the frozen rules in this protocol"
+  ],
+  "prerequisites_met": false
+}
