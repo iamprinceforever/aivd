@@ -1,0 +1,26 @@
+{
+  "F1": {
+    "question": "Is actual blind behavioral discovery demonstrated?",
+    "status": "NOT_DEMONSTRATED",
+    "claim_can_be_made": false
+  },
+  "F2": {
+    "question": "Is generic cross-language behavioral discovery implemented?",
+    "status": "EXPERIMENT_BLOCKED",
+    "claim_can_be_made": false
+  },
+  "F3": {
+    "question": "Is genuine unknown vulnerability discovery demonstrated?",
+    "status": "NOT_DEMONSTRATED",
+    "claim_can_be_made": false
+  },
+  "F4": {
+    "question": "Is verified unknown vulnerability discovery demonstrated?",
+    "status": "NOT_DEMONSTRATED",
+    "claim_can_be_made": false
+  },
+  "science_modified": false,
+  "bank_modified": false,
+  "ambiguous_copy_modified": false,
+  "next_experiments_started": false
+}

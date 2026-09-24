@@ -1,0 +1,12 @@
+{
+  "capability": "F2",
+  "status": "EXPERIMENT_BLOCKED",
+  "claim_can_be_made": false,
+  "executor": "apply_micro",
+  "assumes_micro_syntax": true,
+  "generic_execute_interface": false,
+  "languages_executed": ["Micro"],
+  "source_e_compatible_programs": 0,
+  "adapters_added": false,
+  "missing": "a deterministic executor for a second language that returns only an input/output trace"
+}

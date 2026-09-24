@@ -1,0 +1,20 @@
+{
+  "capability": "F1",
+  "status": "NOT_DEMONSTRATED",
+  "claim_can_be_made": false,
+  "stage_g1": "NOT_PRESENT",
+  "stage_g": {
+    "measured": 16,
+    "complete_signatures": 0,
+    "ambiguous_copy_probes": 70,
+    "dimensions": 0,
+    "reveal_after_lock": true,
+    "separate_measurement_machine": false
+  },
+  "missing": [
+    "a complete signature from a sealed candidate",
+    "a dimension stored before reveal",
+    "a measurement process that cannot decrypt for the experimenter"
+  ],
+  "next_experiment": "A new pre-registration. Same bank. Same completeness rule. Ledger only. No in-experiment retune."
+}
