@@ -1,0 +1,13 @@
+{
+  "label": "AIVD 4.0 SOURCE-A REQUEST",
+  "status": "ISSUED_UNFILLED",
+  "frozen_against": "473f6f092e5af4ed3be65e1ff984d29e50d3aee0",
+  "this_repository_is_the_provider": false,
+  "corpus_attached": false,
+  "candidates_generated": 0,
+  "plaintext_inspected": false,
+  "discovery_performed": false,
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "protocol_version": "aivd-4.0-ee51c4f",
+  "why_unfilled": "The party recording this request is the experimenter. Supplying a corpus from here would collapse the provider and experimenter roles."
+}
