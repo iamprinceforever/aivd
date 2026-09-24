@@ -1,0 +1,10 @@
+{
+  "freeze_commit": "11357bf",
+  "bank_hash": "e417e460fcc050b8ee7cf44c891e3ae44dda0b7bf4348c9b045430b9972d223c",
+  "corpus_size": 64,
+  "measure_cap": 16,
+  "seed_in_protocol_file": false,
+  "memory_preloaded": false,
+  "security_called": false,
+  "isolation": "discovery and evaluator are separate processes; the seed crosses a pipe after the lock; one machine"
+}

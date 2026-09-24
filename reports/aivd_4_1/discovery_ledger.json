@@ -1,0 +1,791 @@
+{
+  "bank_hash": "e417e460fcc050b8ee7cf44c891e3ae44dda0b7bf4348c9b045430b9972d223c",
+  "commitment_sha256": "e8005ca442009dd79cf2e56f79fb44f262af2da6b1ec29c12bde840698a2242b",
+  "measured": [
+    {
+      "complete": true,
+      "dimension_handle": "de101e526a553463b",
+      "dimension_id": "e101e526a553463b0610c4aa3029c54e0dc5b00257bd8be1468b3069217e7e76",
+      "handle": "h0000",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "ba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "dcba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "hgfedcba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "ba dc",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "ba dc fe hg",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "2b1a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b,a",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0001",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": "c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "d1972b621729bf93a",
+      "dimension_id": "1972b621729bf93a120ec50b0f13c6cb6645a2a51056ad500485ff4975fe9a44",
+      "handle": "h0002",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "ab",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 2,
+          "output": "abcd",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 3,
+          "output": "abcdefgh",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 4,
+          "output": "ab cd",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 5,
+          "output": "ab cd ef gh",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 6,
+          "output": "a1b2",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 7,
+          "output": "a,b",
+          "status": "VALID_IDENTITY"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0003",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": "d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": "2",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "de101e526a553463b",
+      "dimension_id": "e101e526a553463b0610c4aa3029c54e0dc5b00257bd8be1468b3069217e7e76",
+      "handle": "h0004",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "ba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "dcba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "hgfedcba",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "ba dc",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "ba dc fe hg",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "2b1a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b,a",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "KNOWN_OBSERVATION"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "d681fbde073d35c55",
+      "dimension_id": "681fbde073d35c55a51fa1590f695260793424737a737ecf8a16e36eb3481830",
+      "handle": "h0005",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "bab",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "dcbab",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "hgfedcbab",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "bab dcd",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "bab dcd fef hgh",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "2b1a1",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b,a,",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "df141a15b998f515f",
+      "dimension_id": "f141a15b998f515f488a69f144614093c6cc5efb6c928177e94d7937efda0bb3",
+      "handle": "h0006",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "bab",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "bdabcd",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "bdfhabcdefgh",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "bab dcd",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "bab dcd fef hgh",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "12a1b2",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": ",a,b",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0007",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 3,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 7,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0008",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": "d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": "2",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0009",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": "c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "ceg",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "d4688e61337f5bda8",
+      "dimension_id": "4688e61337f5bda8cf1abb432f74bea0ea47b53270ca909317248524e3d29fde",
+      "handle": "h0010",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "a c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "a c e g",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0011",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "e",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0012",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": "a",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "g",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "a c",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "a c e g",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": ",",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": false,
+      "dimension_handle": null,
+      "dimension_id": null,
+      "handle": "h0013",
+      "observations": [
+        {
+          "index": 0,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 1,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 2,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 3,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 4,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 5,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 6,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        },
+        {
+          "index": 7,
+          "output": null,
+          "status": "INVALID_EXECUTION"
+        }
+      ],
+      "state": "INSUFFICIENT"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "d9ff742b8c2a16705",
+      "dimension_id": "9ff742b8c2a167057b84f10a0b3e9d226ae476130ba4e362956e1a84bc74f42f",
+      "handle": "h0014",
+      "observations": [
+        {
+          "index": 0,
+          "output": "aa",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 1,
+          "output": "baab",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "dcbacabcd",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "hgfedcbacabcdefgh",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "baab dccd",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "baab dccd feef hggh",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "2b1aba1b2",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b,aba,b",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "complete": true,
+      "dimension_handle": "d856004862b2b4e0a",
+      "dimension_id": "856004862b2b4e0a85e93030f749f34de91a312c81f78c1881a45aa101a18844",
+      "handle": "h0015",
+      "observations": [
+        {
+          "index": 0,
+          "output": "a",
+          "status": "VALID_IDENTITY"
+        },
+        {
+          "index": 1,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 2,
+          "output": "d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 3,
+          "output": "h",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 4,
+          "output": "b d",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 5,
+          "output": "b d f h",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 6,
+          "output": "2",
+          "status": "VALID_OUTPUT"
+        },
+        {
+          "index": 7,
+          "output": "b",
+          "status": "VALID_OUTPUT"
+        }
+      ],
+      "state": "NEW_DIMENSION"
+    }
+  ],
+  "protocol": "aivd-4.1-f1-1"
+}

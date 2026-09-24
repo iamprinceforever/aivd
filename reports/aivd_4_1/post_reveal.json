@@ -1,0 +1,49 @@
+{
+  "confirmed": true,
+  "dimensions": [
+    {
+      "body_key": "REV(TOK)",
+      "handle": "h0000",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "TOK",
+      "handle": "h0002",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "CAT(REV(MAPT(AT:-3))|AT:1)",
+      "handle": "h0005",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "CAT(SLICE:1,2(TOK)|MAPT(MAPT(AT:0)))",
+      "handle": "h0006",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "AT:0",
+      "handle": "h0010",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "CAT(CAT(REV(TOK)|AT:2)|TOK)",
+      "handle": "h0014",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    },
+    {
+      "body_key": "AT:-1",
+      "handle": "h0015",
+      "replay_matches": true,
+      "state": "NEW_DIMENSION"
+    }
+  ],
+  "ledger_unchanged": true,
+  "measured": 16
+}

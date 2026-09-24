@@ -1,0 +1,8 @@
+{
+  "bank_hash": "e417e460fcc050b8ee7cf44c891e3ae44dda0b7bf4348c9b045430b9972d223c",
+  "ciphertext_sha256": "df20321c6803f9a6ad1f0b0f7bbda8176af150052e3e26ceddf937c98ce8c550",
+  "corpus_size": 64,
+  "measure_cap": 16,
+  "protocol": "aivd-4.1-f1-1",
+  "seed_sha256": "df236817abb5a09328ba56c918a9f25e1359cd8e1d55efcdc7c6e87af80ad7bc"
+}

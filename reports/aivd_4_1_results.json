@@ -1,0 +1,29 @@
+{
+  "status": "F1 DEMONSTRATED",
+  "bank_hash": "e417e460fcc050b8ee7cf44c891e3ae44dda0b7bf4348c9b045430b9972d223c",
+  "measured": 16,
+  "complete_signatures": 8,
+  "incomplete_signatures": 8,
+  "dimensions_created": 7,
+  "known_repeat": 1,
+  "post_reveal_confirmed": true,
+  "seed_retained_on_disk": false,
+  "checklist": {
+    "candidate_sealed_before_experiment": "PASS",
+    "candidate_body_hidden": "PASS",
+    "experimenter_lacked_decryption_key": "PASS",
+    "candidate_not_target_selected": "PASS",
+    "target_not_provided": "PASS",
+    "probe_bank_frozen_before_reveal": "PASS",
+    "complete_signature": "PASS",
+    "signature_distinct": "PASS",
+    "new_dimension_before_reveal": "PASS",
+    "semantic_name_absent": "PASS",
+    "discovery_lock_before_reveal": "PASS",
+    "post_reveal_confirmation": "PASS",
+    "no_target_leakage": "PASS"
+  },
+  "f2_claimed": false,
+  "f3_claimed": false,
+  "f4_claimed": false
+}
