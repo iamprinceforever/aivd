@@ -1,0 +1,15 @@
+{
+  "label": "AIVD 4.0 STAGE F HARNESS",
+  "status": "STAGE F WAITING FOR INDEPENDENT SEALED SOURCE-A CORPUS",
+  "execution_enabled": false,
+  "discovery_performed": false,
+  "apply_micro_calls": 0,
+  "corpus_generated": false,
+  "source_b_accepted": false,
+  "source_c_accepted": false,
+  "historical_bodies_accepted": false,
+  "discovery_bank_executed": false,
+  "doubled_odd_body": "NOT_GENERATED",
+  "claim": null,
+  "full_regression_passed": 1387
+}
