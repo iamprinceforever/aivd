@@ -1,0 +1,148 @@
+{
+  "label": "AIVD 4.0 PHASE-1 BENCHMARK INTEGRITY AUDIT",
+  "commit_audited": "caf205e1937b81113cc9bcdf3f68610ed7a685c1",
+  "science_baseline": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+  "production_modified": false,
+  "engine_implemented": false,
+  "model_called": false,
+  "doubled_odd_body": "NOT_GENERATED",
+  "discovery_bank_executed": false,
+  "phase1_implementation": "NOT AUTHORIZED",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "reason": "Every proposed case has a published expected relation. Matching it tests fixtures. It does not test discovery of an unknown dimension.",
+  "leakage": [
+    {
+      "case": "own-body rediscovery",
+      "inputs": ["MAPT(SLICE:0,2(TOK))", "MAPT(SLICE:0,2(TOK))"],
+      "expected_relation": "one dimension",
+      "source": "same body",
+      "leakage": "expected id equality is known before the run",
+      "allowed": "development fixture only"
+    },
+    {
+      "case": "same-family stride pair",
+      "inputs": ["MAPT(SLICE:0,2(TOK))", "MAPT(SLICE:1,2(TOK))"],
+      "expected_relation": "distinct on the 3.56 bank; both char_stride",
+      "source": "3.56",
+      "leakage": "high for a discovery claim; the pair is the historical question",
+      "allowed": "historical fixture, not a discovery input"
+    },
+    {
+      "case": "even-stride double",
+      "inputs": ["MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))", "MAPT(SLICE:0,2(TOK))"],
+      "expected_relation": "distinct on 11 of 12; same family",
+      "source": "3.57",
+      "leakage": "high; the difference is published",
+      "allowed": "historical fixture"
+    },
+    {
+      "case": "two sequential programs",
+      "inputs": ["cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_", "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca"],
+      "expected_relation": "distinct from their components and from each other",
+      "source": "3.58",
+      "leakage": "high; those outputs are the previous measurement",
+      "allowed": "historical fixture"
+    },
+    {
+      "case": "informative=false lease",
+      "inputs": ["the two 3.54 compose leases"],
+      "expected_relation": "signature remains; the flag does not merge or split",
+      "source": "3.54 and 3.58",
+      "leakage": "the false flag is the negative control, not a behavior",
+      "allowed": "contamination fixture"
+    }
+  ],
+  "fixture_versus_discovery": {
+    "development_fixture": "known expected relation, held outside the engine",
+    "discovery_input": "no expected relation, and the signature is not already published",
+    "phase1_has_discovery_inputs": false
+  },
+  "phase1_can_establish": {
+    "signature_correctness": "fixture only",
+    "observed_equivalence": "fixture only",
+    "observed_distinction": "historical replay only",
+    "new_dimension_creation": "rule test on a known distinction, not discovery",
+    "unknown_recursive_discovery": false
+  },
+  "recursion_label": "CONTROLLED RECURSION DEMONSTRATION",
+  "unknown_behavior_discovery": false,
+  "blind_holdout": {
+    "code_blind": "possible if expected metadata stays out of the engine and the evaluator does not write back",
+    "scientist_blind": "not possible on the recorded set; signatures are published",
+    "doubled_odd_eligible": false
+  },
+  "banks": {
+    "historical_3_56": {
+      "hash_prefix": "4238cefe4c7ea07e",
+      "historical_replay": true,
+      "autonomous_discovery": false
+    },
+    "discovery": {
+      "probes": ["", "q", "mn", "zzzz", "token", "one two", "hello, world", "alpha beta gamma delta"],
+      "hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+      "executed": false,
+      "overlap_with_historical": ["empty string only"],
+      "chosen_because_a_pair_collided": false
+    }
+  },
+  "executor": {
+    "primitive": "apply_micro",
+    "fallback_visible_from_return_value": false,
+    "status_when_output_equals_probe": "AMBIGUOUS_COPY",
+    "second_executor": "not allowed",
+    "exception": "probe incomparable; not a dimension"
+  },
+  "collisions": {
+    "sealed_bank_agreement": "OBSERVED_EQUIVALENT",
+    "universal_equivalence": false,
+    "recorded_distinct_keys_sharing_a_3_56_signature": 0,
+    "remeasured_on_discovery_bank": false,
+    "post_hoc_probe": "forbidden"
+  },
+  "memory": {
+    "one_signature_one_id": true,
+    "id_hash_includes": ["bank hash", "ordered outputs", "statuses"],
+    "id_hash_excludes": ["body key", "operator name", "family label", "target id"],
+    "cleared_on_firewall": true
+  },
+  "family": {
+    "same_family_distinct_fixture": "MAPT(SLICE:0,2(TOK)) vs MAPT(SLICE:1,2(TOK))",
+    "design_consults_label": false,
+    "different_family_equivalent_recorded_pair": "NOT_RECORDED",
+    "synthesize_a_pair": false
+  },
+  "contamination": {
+    "informative_secret_gap_are_signature_inputs": false,
+    "negative_fixture": "3.54 compose lease informative=false with a 3.58 signature"
+  },
+  "security": {
+    "new_dimension_to_verified": false,
+    "new_dimension_to_secret": false,
+    "new_dimension_to_informative": false,
+    "engine_calls_verifier": false,
+    "phase1_runs_security_stage": false
+  },
+  "resources": {
+    "episode_budget": "untouched",
+    "max_executed": "untouched",
+    "invent_cap": "untouched",
+    "firewall_floor": "untouched",
+    "behavior_call_budget": 256,
+    "unevaluated_pair_share": 0.5,
+    "frozen_before_execution": true,
+    "may_edit_after_outputs": false
+  },
+  "stop": ["no unevaluated in-memory pair", "behavior budget exhausted"],
+  "depth_parameter": false,
+  "starvation_is_not_a_reason_to_retune": true,
+  "redesign_required": [
+    "name Phase 1 tests as fixtures or historical replays",
+    "discovery bank is the unexecuted structural bank, not the 3.56 list",
+    "AMBIGUOUS_COPY instead of a claimed fallback bit",
+    "stride pair, even double, and sequential programs are not discovery evidence",
+    "recursion tests say controlled demonstration",
+    "do not synthesize a different-family equivalent pair",
+    "keep budget 256 and share one half",
+    "dimension ids hash only the bank and the signature"
+  ]
+}
