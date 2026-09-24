@@ -1,0 +1,433 @@
+{
+  "label": "AIVD 3.57 BEHAVIORAL-COMPOSITION AUDIT",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "production_modified": false,
+  "model_called": false,
+  "model_completion_equivalence": "NOT_RECORDED",
+  "absent_body": "MAPT(CAT(SLICE:1,2(TOK)|SLICE:1,2(TOK)))",
+  "absent_body_state": "NOT_GENERATED",
+  "probe_bank": "reports/aivd_3_56_multicontext_behavior.json",
+  "n_probes": 12,
+  "compositions": [
+    {
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "kind": "cat_self",
+      "source": "3.45-3.47 growth and 3.54 language_grow",
+      "status": "RECORDED",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "aa",
+        "aa",
+        "acac",
+        "aaaa",
+        "abab",
+        "aa cc egeg hjhj",
+        "xx yy zzzz",
+        "zz",
+        "acac ee",
+        "h!h!",
+        "aa bb"
+      ],
+      "versus_identity": {
+        "n_differ": 9,
+        "n_equal": 3,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": "MAPT(SLICE:0,2(TOK))",
+          "status": "RECORDED",
+          "label": "char_stride",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        },
+        {
+          "key": "MAPT(SLICE:0,2(TOK))",
+          "status": "RECORDED",
+          "label": "char_stride",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        }
+      ],
+      "same_label_as_every_recorded_component": true,
+      "differs_from_every_recorded_component": true
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "kind": "cat_self",
+      "source": "3.46, 3.47, 3.54 language_grow. DX8-shaped body.",
+      "status": "RECORDED",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "bb",
+        "cc",
+        "aa",
+        "bb",
+        "bb dd gg jj",
+        "xx yy zz",
+        "zz",
+        "dd ee",
+        "!!",
+        "aa bb"
+      ],
+      "versus_identity": {
+        "n_differ": 10,
+        "n_equal": 2,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": "MAPT(AT:-1)",
+          "status": "RECORDED",
+          "label": "char_project",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        },
+        {
+          "key": "MAPT(AT:-1)",
+          "status": "RECORDED",
+          "label": "char_project",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": true
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:-1))",
+      "kind": "cat",
+      "source": "3.45-3.54 materialize",
+      "status": "RECORDED",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "abb",
+        "abcc",
+        "aaaaa",
+        "a,bb",
+        "abb cdd efgg hijj",
+        "xx yyy zzzz",
+        "zz",
+        "abcdd ee",
+        "hi!!",
+        "aaa bbb"
+      ],
+      "versus_identity": {
+        "n_differ": 11,
+        "n_equal": 1,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        },
+        {
+          "key": "MAPT(AT:-1)",
+          "status": "RECORDED",
+          "label": "char_project",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": true
+    },
+    {
+      "key": "MAPT(CAT(TOK|AT:0))",
+      "kind": "cat",
+      "source": "3.54 gate-open materialize",
+      "status": "RECORDED",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "aba",
+        "abca",
+        "aaaaa",
+        "a,ba",
+        "aba cdc efge hijh",
+        "xx yyy zzzz",
+        "zz",
+        "abcda ee",
+        "hi!h",
+        "aaa bbb"
+      ],
+      "versus_identity": {
+        "n_differ": 11,
+        "n_equal": 1,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        },
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": false
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|SLICE:0,1(TOK)))",
+      "kind": "cat",
+      "source": "3.46 and 3.47 explore body",
+      "status": "RECORDED",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "aa",
+        "bab",
+        "cabc",
+        "aaaaa",
+        "ba,b",
+        "bab dcd gefg jhij",
+        "xx yyy zzzz",
+        "zz",
+        "dabcd ee",
+        "!hi!",
+        "aaa bbb"
+      ],
+      "versus_identity": {
+        "n_differ": 11,
+        "n_equal": 1,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": "MAPT(AT:-1)",
+          "status": "RECORDED",
+          "label": "char_project",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        },
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": true
+    },
+    {
+      "key": "MAPT(CAT(SLICE:1,1(TOK)|AT:0))",
+      "kind": "cat",
+      "source": "3.46, 3.47, 3.54 materialize",
+      "status": "RECORDED",
+      "label": "char_stride",
+      "signature": [
+        "",
+        "a",
+        "ba",
+        "bca",
+        "aaaa",
+        ",ba",
+        "ba dc fge ijh",
+        "x yy zzz",
+        "z",
+        "bcda e",
+        "i!h",
+        "aa bb"
+      ],
+      "versus_identity": {
+        "n_differ": 6,
+        "n_equal": 6,
+        "first_differing_probe": "ab",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        },
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": false
+    },
+    {
+      "key": "MAPT(CAT(AT:0|AT:-1))",
+      "kind": "cat",
+      "source": "3.47 key. Class field was absent there.",
+      "status": "RECORDED",
+      "label": "char_index_glue",
+      "signature": [
+        "",
+        "aa",
+        "ab",
+        "ac",
+        "aa",
+        "ab",
+        "ab cd eg hj",
+        "xx yy zz",
+        "zz",
+        "ad ee",
+        "h!",
+        "aa bb"
+      ],
+      "versus_identity": {
+        "n_differ": 9,
+        "n_equal": 3,
+        "first_differing_probe": "a",
+        "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+      },
+      "components": [
+        {
+          "key": null,
+          "status": "NOT_RECORDED",
+          "reason": "standalone body was not in the recorded set"
+        },
+        {
+          "key": "MAPT(AT:-1)",
+          "status": "RECORDED",
+          "label": "char_project",
+          "versus": {
+            "n_differ": 11,
+            "n_equal": 1,
+            "first_differing_probe": "a",
+            "wording": "OBSERVED_DISTINCTION under the frozen probe bank"
+          }
+        }
+      ],
+      "same_label_as_every_recorded_component": false,
+      "differs_from_every_recorded_component": true
+    }
+  ],
+  "n_recorded_compositions": 7,
+  "family_label_case": {
+    "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+    "label": "char_stride",
+    "component_label": "char_stride",
+    "differs_from_component": true,
+    "n_differ_from_component": 11
+  },
+  "sequential_354": {
+    "n_language_compose": 2,
+    "ops": [
+      "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+      "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca"
+    ],
+    "pairs": [
+      {
+        "a": "atom_rd2_mapt_at_-1",
+        "b": "atom_rd6_mapt_cat_at_-1_slice_0_1_tok"
+      },
+      {
+        "a": "atom_rd7_mapt_slice_1_2_tok",
+        "b": "atom_rd8_mapt_cat_tok_at_0"
+      }
+    ],
+    "output_signatures": "NOT_RECORDED",
+    "n_composition_not_novel": 1,
+    "cmp_leases": [
+      {
+        "op": "cmp_mapt_cat_slice_0_2_tok_slice_0_2_tok",
+        "informative": "False",
+        "secret": "False"
+      },
+      {
+        "op": "cmp_mapt_cat_at_-1_at_-1",
+        "informative": "False",
+        "secret": "False"
+      },
+      {
+        "op": "cmp_atom_rd2_mapt_at_-1_atom_rd6_mapt_cat_at_-1_",
+        "informative": "False",
+        "secret": "False"
+      },
+      {
+        "op": "cmp_atom_rd7_mapt_slice_1_2_tok_atom_rd8_mapt_ca",
+        "informative": "False",
+        "secret": "False"
+      }
+    ]
+  },
+  "growth_354": [
+    {
+      "key": "MAPT(CAT(SLICE:0,2(TOK)|SLICE:0,2(TOK)))",
+      "semantic_class": "char_stride"
+    },
+    {
+      "key": "MAPT(CAT(AT:-1|AT:-1))",
+      "semantic_class": "char_index_glue"
+    }
+  ],
+  "ex8": {
+    "status": "PLANT_PREDICATE_ONLY",
+    "predicate": "last character of the even-index characters of each anchor token",
+    "program_body_in_recorded_keys": false,
+    "output_signature": "NOT_RECORDED"
+  },
+  "dx8": {
+    "shaped_body": "MAPT(CAT(AT:-1|AT:-1))",
+    "in_recorded_keys": true,
+    "note": "Historical mock DX8 verification is a different plant. The 3.54 llama leases are a different channel."
+  },
+  "novelty_criterion": {
+    "semantic_class_of": "operator names. No outputs. Lossy. Deterministic.",
+    "growth_keep": "one apply_micro on the identity string. Drops the body if that string was already produced. Not the 12-probe bank.",
+    "sequential_compose": "one identity string. Rejects when b(a(identity)) is empty or equal to the identity, a(identity), or b(identity). Pairs are chosen by distinct family labels.",
+    "behavioral_equivalent": "defined in grow.py on two fixed probes. Not called by live discovery.",
+    "informative": "plant metric: secret, or metric at least 0.28 with an error. Not a pairwise output test.",
+    "verification": "terminal secret hit. Not a composition-equivalence test.",
+    "general_multicontext_composition_criterion": false
+  },
+  "hypotheses": {
+    "H24a": "SUPPORTED",
+    "H24b": "NOT_SUPPORTED as the general rule. Sequential compose and growth admission each use one identity string, not a probe bank.",
+    "H24c": "PARTIAL. Keys and family labels choose candidates. Acceptance also checks one identity string.",
+    "H24d": "SUPPORTED. informative and secret are plant metrics.",
+    "H24e": "SUPPORTED. There is no general multi-context composition novelty criterion.",
+    "H24f": "SUPPORTED",
+    "H24g": "NOT_SUPPORTED. The even-stride double is a recorded case, and the acceptance rule is in the code.",
+    "H24-REJECT": "NOT the result. The live checks are single-string, not a general output-sensitive bank."
+  },
+  "limitation": "Differences are observed on the frozen 12-probe bank, not proofs about every string. Sequential compose outputs from 3.54 were not stored and were not reconstructed. Component programs that were never recorded as their own bodies stay NOT_RECORDED. TinyLlama completions were not compared.",
+  "next_discriminator": "Record the already-admitted 3.54 sequential programs on this same probe bank. Do not add the doubled-odd body. Do not change the quota or the class function."
+}
