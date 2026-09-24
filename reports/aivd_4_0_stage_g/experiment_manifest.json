@@ -1,0 +1,12 @@
+{
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "behavior_budget": 256,
+  "characterization_limit": 128,
+  "corpus_size": 64,
+  "grammar_version": "micro-ops-3.33",
+  "pair_reserve": 128,
+  "pair_rule": "lexicographic opaque handles already in memory; second after first; no depth cap",
+  "protocol_version": "aivd-4.0-stage-g-1",
+  "seed_in_this_file": false,
+  "source_class": "SOURCE-D"
+}

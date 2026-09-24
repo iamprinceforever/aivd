@@ -639,12 +639,15 @@ def test_s16_impl_ancestor_and_no_science_drift_after_impl():
         cwd=str(REPO),
         text=True,
     ).split()
-    allowed = {
-        "aivd/experiments/aivd354/__init__.py",
-        "aivd/experiments/aivd354/gate.py",
-        "aivd/experiments/aivd354/sacred_run.py",
-    }
-    assert set(names) <= allowed, names
+    # Science must still match b1b7106. Later aivd/ files are the 3.54
+    # harness and the isolated 4.0 packages. Nothing else is allowed.
+    allowed_prefixes = (
+        "aivd/experiments/aivd354/",
+        "aivd/behavior/discovery/",
+        "aivd/behavior/sealed_corpus/",
+        "aivd/experiments/aivd40/",
+    )
+    assert all(name.startswith(allowed_prefixes) for name in names), names
 
 
 # ---------------------------------------------------------------------------

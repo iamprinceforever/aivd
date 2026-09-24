@@ -1,0 +1,1307 @@
+{
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "candidates": [
+    {
+      "body_key": "TOK",
+      "body_sha256": "ca36cd3eaf5a3a9419dbb02b08f508fa1536a0aaa9a08628227ccf79deebb5c4",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000001",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "token",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "hello, world",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 7,
+          "output": "alpha beta gamma delta",
+          "status": "AMBIGUOUS_COPY"
+        }
+      ]
+    },
+    {
+      "body_key": "CAT(REV(TOK)|REV(AT:2))",
+      "body_sha256": "13285713cff12b1981f287dcd00ee375033616d3622a608934c27d7089eb66b6",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000002",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "nm",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "zzzzz",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "nekotk",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "enoe owto",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": ",ollehl dlrowr",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "ahplap atebt ammagm atledl",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "REV(TOK)",
+      "body_sha256": "17038ad24612377cdf0bcd30004fb4c6577f831b10ab952c9332d7dce2abab8a",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000003",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "nm",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "nekot",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "eno owt",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": ",olleh dlrow",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "ahpla ateb ammag atled",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:4",
+      "body_sha256": "38997bb33cee1f08964b360d41ffa67b7dc43a6e1d001750be5bed8bdf012886",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000004",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "n",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "o d",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "a a a",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:1",
+      "body_sha256": "de5797de657a5813dd3214fc3027c8a278b405ba319b0d80ccbd07ca28aedf10",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000005",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "n",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "z",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "o",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "n w",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "e o",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "l e a e",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "MAPT(MAPT(CAT(AT:-4|AT:0)))",
+      "body_sha256": "a3d4c30e6d29fd7c5e495b6596ea2eaf06ecbd5ba23eda8f68bbdff0c7ee3615",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000006",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "token",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "hello, world",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 7,
+          "output": "alpha beta gamma delta",
+          "status": "AMBIGUOUS_COPY"
+        }
+      ]
+    },
+    {
+      "body_key": "MAPT(CAT(TOK|CAT(TOK|TOK)))",
+      "body_sha256": "59afdca35ae4054cc7a79fc836ff3d9593c201425f0ae77238b89955f6afb9bb",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000007",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "qqq",
+          "status": "NORMAL"
+        },
+        {
+          "index": 2,
+          "output": "mnmnmn",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "zzzzzzzzzzzz",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "tokentokentoken",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "oneoneone twotwotwo",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "hello,hello,hello, worldworldworld",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "alphaalphaalpha betabetabeta gammagammagamma deltadeltadelta",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "MAPT(REV(MAPT(AT:-1)))",
+      "body_sha256": "63c517390d4ea2e5f6270f8a36fb883976981662cbce083045eb15b7b8671bd5",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000008",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "nm",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "nekot",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "eno owt",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": ",olleh dlrow",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "ahpla ateb ammag atled",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "MAPT(AT:0)",
+      "body_sha256": "2434b0650a52173dbbadb7608728583f3f84b47f349b0884278e21ad76ee2305",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000009",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "m",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "z",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "t",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "o t",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "h w",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "a b g d",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "MAPT(MAPT(AT:3))",
+      "body_sha256": "f247f5c378a553a43f42c9af9473ec6768e815c036ea5779591a642d9c508396",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000010",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "token",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "hello, world",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 7,
+          "output": "alpha beta gamma delta",
+          "status": "AMBIGUOUS_COPY"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:2",
+      "body_sha256": "b2d92a7724840763db67df0ca5cbabfaf15ebdea2c4401aad6094187f3eab1be",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000011",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "z",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "k",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "e o",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "l r",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "p t m l",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:-2",
+      "body_sha256": "85ef0993b28888ddf9c9eaa33708379a3f098a8d1cb35873a16d5cfec264cdbf",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000012",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "m",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "z",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "e",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "n w",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "o l",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "h t m t",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:0",
+      "body_sha256": "7ba8e3ee1abbd491ba789ec65e84f2d94b2b52d29aa71cca648f17a0387acdc0",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000013",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "m",
+          "status": "NORMAL"
+        },
+        {
+          "index": 3,
+          "output": "z",
+          "status": "NORMAL"
+        },
+        {
+          "index": 4,
+          "output": "t",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "o t",
+          "status": "NORMAL"
+        },
+        {
+          "index": 6,
+          "output": "h w",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "a b g d",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "REV(SLICE:3,2(AT:-2))",
+      "body_sha256": "bf48614afbf0f9e02bac394730873ebad14df684b82ff08a987535fd742d597d",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000014",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "token",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "hello, world",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 7,
+          "output": "alpha beta gamma delta",
+          "status": "AMBIGUOUS_COPY"
+        }
+      ]
+    },
+    {
+      "body_key": "CAT(AT:4|SLICE:1,1(REV(AT:2)))",
+      "body_sha256": "236fc00cd1f09709650d5ab4659daf8fbc7094dcd9000a991e972dfd92ce0bd7",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000015",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "n",
+          "status": "NORMAL"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "o d",
+          "status": "NORMAL"
+        },
+        {
+          "index": 7,
+          "output": "a a a",
+          "status": "NORMAL"
+        }
+      ]
+    },
+    {
+      "body_key": "SLICE:1,3(SLICE:0,3(SLICE:1,2(AT:2)))",
+      "body_sha256": "bcd74b2ecbcc26f2e74655af2f3ab484d2b71164d0c8df4cabd37968e052f61d",
+      "content_id": null,
+      "discovery_state": "INSUFFICIENT",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000016",
+      "security": "UNEVALUATED",
+      "signature": [
+        {
+          "index": 0,
+          "output": "",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 1,
+          "output": "q",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 2,
+          "output": "mn",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 3,
+          "output": "zzzz",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 4,
+          "output": "token",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 5,
+          "output": "one two",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 6,
+          "output": "hello, world",
+          "status": "AMBIGUOUS_COPY"
+        },
+        {
+          "index": 7,
+          "output": "alpha beta gamma delta",
+          "status": "AMBIGUOUS_COPY"
+        }
+      ]
+    },
+    {
+      "body_key": "AT:-1",
+      "body_sha256": "9bc72135bf33f68a1dcc4977a333ef270269d508b3d898e04f233db443474d21",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000017",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(REV(CAT(TOK|TOK)))",
+      "body_sha256": "8bf7db13e5dc92df4d42cf80d8bb53440b4083a37ab750e218c7700cf5f7f339",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000018",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(MAPT(AT:0))",
+      "body_sha256": "ce7955cf56df4496834f69ef2bf026ce160e9b15b94ad8436056630664abef49",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000019",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(AT:-4)",
+      "body_sha256": "74696b6ad644934203442e571ef4a8b565b8f657548d251e3f3bca643481cfeb",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000020",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(TOK|MAPT(SLICE:0,2(TOK)))",
+      "body_sha256": "5a5cd7166f345a861e4fe4823d8a998057ae210fccc10e00b18a0f1991cf295e",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000021",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:1,1(REV(TOK))",
+      "body_sha256": "897c9174d0632694dab210d9949d40d908c044d72ec2db08076055e743c36be6",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000022",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(REV(TOK))",
+      "body_sha256": "1cac62fcea223420d6e987412d331c17e4b8deaf57306c6af8b733db0228e15a",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000023",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:3,3(AT:0)",
+      "body_sha256": "490e4c33d4958e33fca4608e3a5bdbb70d9175791d918e493753de12d5f134c6",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000024",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(SLICE:2,3(SLICE:1,3(AT:3)))",
+      "body_sha256": "cd6355282837b94f0fc13a54997115c2c15ddda69d6aa88e76eec535545e0f82",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000025",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(MAPT(MAPT(AT:1)))",
+      "body_sha256": "0a47478c00ce0f3ffdebce13307cf6c07a324c33efd4b1a2cfe4e033450250d8",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000026",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "AT:3",
+      "body_sha256": "204c640c1d7decd1d03eddf970ff6024697e7ecd3236c5523dc057ee820ac7a9",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000027",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(CAT(SLICE:3,2(AT:4)|REV(AT:2)))",
+      "body_sha256": "9c5c4768f0e649e02c2bfa462218cba1f65701e86cdce1b522f6e65bf016f75c",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000028",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(AT:2|SLICE:2,3(SLICE:2,1(TOK)))",
+      "body_sha256": "936ad8eeb3d024b93477bc08cd4a510da30aa218d8fb101103bcb900585e3f99",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000029",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(MAPT(SLICE:1,1(TOK))|TOK)",
+      "body_sha256": "d764870a667b2354dca2f4bb906892fb6c232853dbabffbae0e367f3f77b9e5b",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000030",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(AT:2)",
+      "body_sha256": "6629a4abc635686f6cf861817f42ac7c15826f3ee02edd7f0d16d33f672341f5",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000031",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(CAT(TOK|TOK)|SLICE:1,1(TOK))",
+      "body_sha256": "2a23193426e958cd05578e20588262081c496e0184921a9bd9988232072e03bd",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000032",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "AT:-4",
+      "body_sha256": "c14c63f2e1190d130d9c3dc039283aac3ee58d5c23354c0dabd39234e80a2a12",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000033",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(SLICE:0,1(TOK)|SLICE:3,2(TOK))",
+      "body_sha256": "bb75466751e13b3e253f8016f36c06d49083e03900ab80339806742d14f0825b",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000034",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(MAPT(CAT(AT:-2|TOK))|TOK)",
+      "body_sha256": "8e1a4570e90dc9f1d7244791d730f6d29695862088e291a99a4291c3b24f562d",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000035",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(TOK|AT:-2)",
+      "body_sha256": "cb216221a8e0093ce082491928b3389b2634ae78f5cf3041d53f89fc53f03f7c",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000036",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(TOK|SLICE:2,3(TOK))",
+      "body_sha256": "740bce3c4ec972ae8bbbf7aac253c9812ce67973715d32c3cf7f349fec92512e",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000037",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "AT:-3",
+      "body_sha256": "900b7947d338f10d4f88645648e27d34a9026e4c5aba730a5e4c3b3b74a6cfd3",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000038",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:3,1(CAT(AT:-4|CAT(AT:3|AT:4)))",
+      "body_sha256": "5fee0e4253f3a509c527dbbc506f6f939382362768e53424cfec8f53767c0d8e",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000039",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:2,3(AT:-3)",
+      "body_sha256": "602de59a8279944f9631f99313c9051194e90fbe4b131405bc90e1d1e278656a",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000040",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(CAT(TOK|TOK))",
+      "body_sha256": "244a8c3fc080623e0477016f38154545f70667180c6673e9a5b3bd7761eb975c",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000041",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:1,3(TOK)",
+      "body_sha256": "33f1f7ec4620e40cf4c300e87f4c13ac165e667c7e98d59c5c37e791fc99a43f",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000042",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(CAT(CAT(TOK|TOK)|CAT(TOK|TOK)))",
+      "body_sha256": "aa84b2597e42d8b09f0476c210aa4707f69895964d9816eb41cf676cfa746782",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000043",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:3,2",
+      "body_sha256": "49e556048f2d3cc560f70aeb8953735b6611c1cec2afe33e3b2a6c1235bb0332",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000044",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(REV(MAPT(AT:0)))",
+      "body_sha256": "d13159682cf6b801901f646343b292ba56f92c31488e99e634568e902f7ba7ed",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000045",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(MAPT(REV(TOK)))",
+      "body_sha256": "cc68cbd43595bf6d47c2a66dd538e1e976a6344b0e18cdfee1b9dbe37cad511c",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000046",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(AT:3)",
+      "body_sha256": "9a9343906a61fd251edee0ab205c5b112712e462b699d68705145bd8ba687b49",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000047",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(MAPT(SLICE:3,2(TOK)))",
+      "body_sha256": "34aada7ff48569c456871886f67f5dc865b7110cd736589a9e0ad2725df15b75",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000048",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(REV(SLICE:2,2(AT:-3)))",
+      "body_sha256": "f6cebaa4f0fb76985c8d2de9b6f3114d5b9e2e1657d72b1ec9bf0037c5f7a08b",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000049",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:0,3(MAPT(AT:-1))",
+      "body_sha256": "10fc50de3850bd8857a507c7d44d5492e4161fc24ad976a1f422478ac8ef4c10",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000050",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(SLICE:0,1(REV(AT:-3)))",
+      "body_sha256": "6b76a8a56827d35142b2b6f76d6f9d26a28ac82d89a880bc64e6b4e9ea8d0d56",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000051",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(CAT(AT:3|AT:-2))",
+      "body_sha256": "83967d4663f20ce4a8e65a4bffa25e2bd0e6f48fb5b3d482be7c7a9dbd3bfea2",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000052",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(AT:-2)",
+      "body_sha256": "fa183d85f11ee87694dea133f40076240c8cba0bc055f8f09312189ce6b55482",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000053",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:0,2(TOK)",
+      "body_sha256": "bff2250ac3145fc2d10cbaa57c28db8d477f3cf2f20a1908c808b9991758bc1d",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000054",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(MAPT(REV(TOK))|REV(AT:4))",
+      "body_sha256": "bca4154bc465459c88c502859e7886be9bcb4b64d8986c334c810b40061f90d5",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000055",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(REV(SLICE:2,3(TOK)))",
+      "body_sha256": "f5a39b5ee1590a58aa451b783f4e2f56abfc5b0249cb9f82fd0f61211184b55d",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000056",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:2,1(CAT(REV(AT:1)|AT:-4))",
+      "body_sha256": "f50613bb2bd7796e2311133a376460b6fc9190fcf4ea69764df3379f51e7c7fc",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000057",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(AT:-1|CAT(CAT(AT:-4|AT:-2)|TOK))",
+      "body_sha256": "5eb47ed1d339aec4b76bbb0800d6c658265c8943a377f53ac8635cd4811fcc5d",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000058",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(SLICE:0,1(MAPT(AT:0)))",
+      "body_sha256": "c1a0d0cf961fe9646b2f84d0e159852843d31236386a3c62d932a9c8f4b0b0f2",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000059",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "REV(MAPT(REV(TOK)))",
+      "body_sha256": "15fee77878dc9fb773278f91c3371fc3f26b834a253f2d60c5b42f30994e80c7",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000060",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "CAT(AT:-3|CAT(AT:0|AT:2))",
+      "body_sha256": "cacd52ae732ed340dcab16ab5480eb609e8cfb156a07f1130f689a613bbca967",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000061",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(CAT(MAPT(AT:1)|AT:3))",
+      "body_sha256": "da4670b448d7796a69c9ec4b304b5e246db4134ba305fac4045400474ddd6859",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000062",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "MAPT(SLICE:1,1(REV(AT:0)))",
+      "body_sha256": "8a494600a9656511bdc7d4a7744a34edf0672fa24ec61205dbb26fb5af755c76",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000063",
+      "security": "UNEVALUATED",
+      "signature": null
+    },
+    {
+      "body_key": "SLICE:1,2(SLICE:0,2(CAT(AT:2|TOK)))",
+      "body_sha256": "396b70d25294e0ba4ead1fe06ebaf8d680e982731eaff97180b612e307256aa1",
+      "content_id": null,
+      "discovery_state": "NOT_MEASURED",
+      "opaque_dimension_handle": null,
+      "opaque_handle": "sd_000064",
+      "security": "UNEVALUATED",
+      "signature": null
+    }
+  ],
+  "commitment": "56419042008a7558a3be6f5690610d898965646438a3cba869c321a6b7c274ef",
+  "compositions": [],
+  "corpus_size": 64,
+  "ledger_sha256": "8d4fd39c4ae840c6b0ab7e169d018156df9e497a536dd2a9d585e00b68e9ee5b",
+  "protocol_version": "aivd-4.0-stage-g-1",
+  "source_class": "SOURCE-D"
+}

@@ -1,0 +1,39 @@
+{
+  "ambiguous_or_incomplete": 16,
+  "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+  "budget": {
+    "characterization_used": 128,
+    "pair_used": 0,
+    "total_used": 128
+  },
+  "candidates_measured": 16,
+  "candidates_never_measured": 48,
+  "claim": "SOURCE-D DISCOVERY FRONTIER NOT REACHED",
+  "commitment": "56419042008a7558a3be6f5690610d898965646438a3cba869c321a6b7c274ef",
+  "complete_signatures": 0,
+  "corpus_size": 64,
+  "dimension_order": [],
+  "dimensions_discovered": 0,
+  "discovery_executed": true,
+  "experimenter_api_can_decrypt": false,
+  "grammar_version": "micro-ops-3.33",
+  "known_observations": 0,
+  "ledger_sha256": "8d4fd39c4ae840c6b0ab7e169d018156df9e497a536dd2a9d585e00b68e9ee5b",
+  "new_dimensions_from_candidates": 0,
+  "pair_rule": "lexicographic opaque handles already in memory; second after first; no depth cap",
+  "probe_status": {
+    "AMBIGUOUS_COPY": 70,
+    "EXECUTION_FAILURE": 0,
+    "NORMAL": 58
+  },
+  "protocol_version": "aivd-4.0-stage-g-1",
+  "reveal_after_lock": true,
+  "same_process_holds_sealed_corpus": true,
+  "security_finding": false,
+  "source_a": false,
+  "source_class": "SOURCE-D",
+  "stage_e_engine_modified": false,
+  "unique_bodies": 64,
+  "unique_measured_signatures": 9,
+  "verifier_called": false
+}

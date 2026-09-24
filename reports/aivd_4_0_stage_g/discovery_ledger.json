@@ -1,0 +1,1250 @@
+[
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000001",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0001",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 7,
+        "status": "AMBIGUOUS_COPY"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000002",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0002",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000003",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0003",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000004",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0004",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000005",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0005",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000006",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0006",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 7,
+        "status": "AMBIGUOUS_COPY"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000007",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0007",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "NORMAL"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000008",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0008",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000009",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0009",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000010",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0010",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 7,
+        "status": "AMBIGUOUS_COPY"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000011",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0011",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000012",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0012",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000013",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0013",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "NORMAL"
+      },
+      {
+        "index": 3,
+        "status": "NORMAL"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "NORMAL"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000014",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0014",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 7,
+        "status": "AMBIGUOUS_COPY"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000015",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0015",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "NORMAL"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "NORMAL"
+      },
+      {
+        "index": 7,
+        "status": "NORMAL"
+      }
+    ]
+  },
+  {
+    "bank_hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "corpus_handle": "sd_000016",
+    "discovery_state": "INSUFFICIENT",
+    "event": "characterize",
+    "opaque_dimension_handle": null,
+    "opaque_handle": "c-0016",
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED",
+    "signature": [
+      {
+        "index": 0,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 1,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 2,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 3,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 4,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 5,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 6,
+        "status": "AMBIGUOUS_COPY"
+      },
+      {
+        "index": 7,
+        "status": "AMBIGUOUS_COPY"
+      }
+    ]
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000017",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000018",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000019",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000020",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000021",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000022",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000023",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000024",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000025",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000026",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000027",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000028",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000029",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000030",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000031",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000032",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000033",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000034",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000035",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000036",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000037",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000038",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000039",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000040",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000041",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000042",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000043",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000044",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000045",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000046",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000047",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000048",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000049",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000050",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000051",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000052",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000053",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000054",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000055",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000056",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000057",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000058",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000059",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000060",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000061",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000062",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000063",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  },
+  {
+    "bank_hash": null,
+    "corpus_handle": "sd_000064",
+    "discovery_state": "NOT_MEASURED",
+    "event": "not_measured",
+    "opaque_dimension_handle": null,
+    "opaque_handle": null,
+    "protocol_version": "aivd-4.0-ee51c4f",
+    "purpose": "SOURCE-D",
+    "security": "UNEVALUATED"
+  }
+]
