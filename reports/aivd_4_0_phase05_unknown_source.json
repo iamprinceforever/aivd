@@ -1,0 +1,71 @@
+{
+  "label": "AIVD 4.0 PHASE 0.5 UNKNOWN-BEHAVIOR ACQUISITION DESIGN",
+  "commit_audited": "adc4ac9e3ec5437d3736f28828880fb4c741000d",
+  "production_modified": false,
+  "engine_implemented": false,
+  "discovery_bank_executed": false,
+  "doubled_odd_body": "NOT_GENERATED",
+  "repository_contains_unpublished_behavior": false,
+  "phase1_ready": false,
+  "unknown_source_implementation": "NOT AUTHORIZED",
+  "intervention": "NO PRODUCTION INTERVENTION AUTHORIZED",
+  "required_unknown_level": "UNKNOWN_TO_EXPERIMENTER",
+  "insufficient_level": "UNKNOWN_TO_ENGINE",
+  "evaluator_may_hold_a_sealed_reference": true,
+  "evaluator_may_write_back": false,
+  "sources": {
+    "model_body_if_sealed_and_context_has_no_target": "unread signature only; key must stay sealed",
+    "composition_of_published_bodies": "not discovery",
+    "mutation_of_a_published_body": "not discovery",
+    "stochastic_grammar_sample_sealed": "UNKNOWN_TO_EXPERIMENTER inside the known grammar; not an external phenomenon",
+    "current_planner": "not a clean source",
+    "external_corpus_experimenter_has_read": "not discovery",
+    "corpus_sealed_by_someone_else": "not in this repository; would be a legitimate later source",
+    "synthetic_hidden_target": "forbidden; it manufactures the result",
+    "human_author_is_the_experimenter": "not unknown"
+  },
+  "selection": {
+    "random_valid": "defensible for a sealed measurement",
+    "unlike_existing_before_execution": "target-directed if a human judges it",
+    "unexplored_operators_frozen_order": "defensible only if the order is not aimed at a known shape",
+    "might_expose_new_behavior": "not defensible",
+    "current_planner_next": "not defensible"
+  },
+  "blindness_boundary": "before any human reads a body key or an output",
+  "bank": {
+    "hash": "12df0f9376639650fe8386deb99532c62efef629fa8ac596cfe65e35db5761e5",
+    "revised": false,
+    "limitation": "eight probes can collapse or cheaply split; that is not grounds to edit this bank",
+    "future_revision": "a new hash, frozen before use, only after a pre-registered all-ambiguous run"
+  },
+  "ambiguous_copy": {
+    "counts_as_distinction": false,
+    "counts_as_agreement": false,
+    "mints_a_dimension": false,
+    "clean_difference_elsewhere": "OBSERVED_DISTINCT"
+  },
+  "dimension_id": "hash(bank hash + sealed signature)",
+  "dimension_id_excludes": ["body key", "family", "target", "generation id"],
+  "blind_recursion": "sealed parents, frozen pair rule, no published 3.56 or 3.58 parent",
+  "compose_any_new_dimension_by_human_choice": "not sufficient",
+  "terms": {
+    "CONTROLLED_RECURSION": "expected parent or child known before commit",
+    "BLIND_RECURSION": "sealed parents, frozen pair rule",
+    "UNKNOWN_BEHAVIOR_DISCOVERY": "first commit while UNKNOWN_TO_EXPERIMENTER",
+    "HELD_OUT_EVALUATION": "evaluator opens a reference after commit, no writeback"
+  },
+  "budget": {
+    "apply_micro_calls": 256,
+    "characterization": 128,
+    "unevaluated_pairs": 128,
+    "retune": false,
+    "max_executed": "untouched",
+    "invent_cap": "untouched",
+    "episode_budget": "untouched"
+  },
+  "narrow_claim_achievable_from": "a sealed grammar sample the experimenter does not read",
+  "strong_claim_requires": "a corpus sealed by someone other than the experimenter",
+  "strong_claim_source_in_repository": false,
+  "legitimate_source": "A stream the experimenter cannot read before the commit, generated without a target, and not filtered because a difference is suspected. A sealed grammar sample meets the unread-signature bar only. An independent phenomenon needs a corpus this repository does not have.",
+  "remaining_blocker": "The repository contains published fixtures only. It has no sealed unread stream and no separated corpus."
+}
