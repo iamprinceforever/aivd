@@ -1,0 +1,8 @@
+{
+  "bank_hash": "e417e460fcc050b8ee7cf44c891e3ae44dda0b7bf4348c9b045430b9972d223c",
+  "probes": ["a", "ab", "abcd", "abcdefgh", "ab cd", "ab cd ef gh", "a1b2", "a,b"],
+  "empty_probe_included": false,
+  "corpus_size": 64,
+  "measure_cap": 16,
+  "chosen_from_candidate_outputs": false
+}

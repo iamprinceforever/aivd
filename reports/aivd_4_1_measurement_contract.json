@@ -1,0 +1,7 @@
+{
+  "stage_e_ambiguous_copy_unchanged": true,
+  "complete_statuses": ["VALID_IDENTITY", "VALID_OUTPUT"],
+  "blocking_statuses": ["INVALID_EXECUTION", "EXECUTOR_FAILURE", "AMBIGUOUS"],
+  "dimension_id": "sha256(bank_hash + canonical observations)",
+  "uses_body_key": false
+}

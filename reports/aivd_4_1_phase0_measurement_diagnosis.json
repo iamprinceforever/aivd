@@ -1,0 +1,13 @@
+{
+  "cause": "I",
+  "cause_label": "multiple causes",
+  "ambiguous_copy_total": 70,
+  "empty_probe_short_circuit": 16,
+  "evaluated_identity": 28,
+  "empty_output_fallback": 26,
+  "executor_exceptions": 0,
+  "replay_mismatches": 0,
+  "stage_e_modified": false,
+  "complete_signature_possible_on_stage_g_bank": false,
+  "reason": "the empty probe is returned before evaluation, and one AMBIGUOUS_COPY blocks completeness"
+}
