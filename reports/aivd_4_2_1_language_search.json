@@ -1,0 +1,47 @@
+{
+  "status": "READY_FOR_LANGUAGE_B_DESIGN",
+  "adapter_implemented": false,
+  "experiment_ran": false,
+  "toy_language_created": false,
+  "accepted": [
+    {
+      "name": "CEL",
+      "repository": "https://github.com/google/cel-go",
+      "commit": "97611dc314dd41c9a4827b79f5196489f8a14201",
+      "pin": "v0.29.2",
+      "spec_repository": "https://github.com/google/cel-spec",
+      "spec_commit": "ba58ae5007845f3a1279b488cdeb79645ce958bb",
+      "spec_pin": "v0.25.3",
+      "license": "Apache-2.0",
+      "executes_directly": true,
+      "solver": false,
+      "translates_to_micro": false,
+      "decision": "ACCEPT"
+    },
+    {
+      "name": "JMESPath",
+      "repository": "https://github.com/jmespath/jmespath.py",
+      "commit": "6ff419a8b171d055a9bfc6904605bceb8b7a80ef",
+      "pin": "1.1.0",
+      "license": "MIT",
+      "executes_directly": true,
+      "solver": false,
+      "translates_to_micro": false,
+      "decision": "ACCEPT"
+    },
+    {
+      "name": "Starlark",
+      "repository": "https://github.com/google/starlark-go",
+      "commit": "89a6a09411d5c7a33409dc050c2fecdf8f4eca8f",
+      "pin": "HEAD at 2026-09-25",
+      "license": "BSD-3-Clause",
+      "executes_directly": true,
+      "solver": false,
+      "translates_to_micro": false,
+      "decision": "ACCEPT"
+    }
+  ],
+  "rejected": ["E1", "E2", "E3", "E4", "jq", "Jsonnet", "Brainfuck", "CPython", "Dafny"],
+  "probe_bank_frozen": false,
+  "ranked": false
+}
