@@ -1,0 +1,12 @@
+{
+  "status": "EXPERIMENT_BLOCKED",
+  "implementation": false,
+  "language_independent": ["BehavioralSignature", "compare", "content_id", "BehavioralMemory"],
+  "micro_specific": ["experiment.py", "engine.py", "f1/contract.py", "stage G generator", "stage G.2 compatibility", "both probe banks"],
+  "signature_can_hold_generic_observations": true,
+  "generic_producer_exists": false,
+  "memory_partitioned_by_language": false,
+  "second_language_inserted": false,
+  "must_not_cross_adapter": ["ast", "operator_names", "benchmark_name", "dataset_name", "semantic_class", "target_identity"],
+  "language_id_may_be_provenance_only": true
+}

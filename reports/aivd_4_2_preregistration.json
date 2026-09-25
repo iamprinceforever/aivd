@@ -1,0 +1,13 @@
+{
+  "authorized": false,
+  "ready_for_implementation": false,
+  "status": "F2 EXPERIMENT_BLOCKED",
+  "seed": null,
+  "probe_bank_hash": null,
+  "controls_built": false,
+  "x1_ran": false,
+  "x2_ran": false,
+  "x3_ran": false,
+  "f1_modified": false,
+  "science_modified": false
+}

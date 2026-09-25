@@ -1,0 +1,7 @@
+{
+  "status": "EXPERIMENT_BLOCKED",
+  "ready_for_implementation": false,
+  "record_is_language_blind": true,
+  "only_executor": "apply_micro",
+  "adapter_added": false
+}

@@ -1,0 +1,12 @@
+{
+  "language_b": null,
+  "toy_language_invented": false,
+  "translation_into_micro": false,
+  "extension_recount": "NOT_RECORDED",
+  "sources": [
+    {"id": "E1", "commit": "c02d18c3608b164ff09cc5cad3c02f98f9c1ef21", "suitable": false, "reason": "dataset, no recorded interpreter"},
+    {"id": "E2", "commit": "13c8deb68a873635879c9a69bc78caebd340f646", "suitable": false, "reason": "synthesis specifications, not an interpreter"},
+    {"id": "E3", "commit": "c56409093597c4c1f358b42a9b0db8dfefe52040", "suitable": false, "reason": "specifications plus search solvers"},
+    {"id": "E4", "commit": "50cc38f602fffe14073953cf128825ea8d92b188", "suitable": false, "reason": "SDK samples, not a small interpreter"}
+  ]
+}

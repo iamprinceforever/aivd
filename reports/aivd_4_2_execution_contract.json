@@ -1,0 +1,9 @@
+{
+  "implemented": false,
+  "statuses": ["VALID_OUTPUT", "VALID_IDENTITY", "EXECUTION_FAILURE", "INVALID_EXECUTION", "AMBIGUOUS"],
+  "ambiguous_means_stage_e_ambiguous_copy": false,
+  "complete_statuses": ["VALID_OUTPUT", "VALID_IDENTITY"],
+  "engine_sees": ["probe_index", "status", "output"],
+  "engine_must_not_see": ["ast", "operators", "semantic_class", "benchmark", "target"],
+  "probe_bank_frozen": false
+}
