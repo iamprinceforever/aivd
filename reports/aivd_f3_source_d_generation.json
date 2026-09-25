@@ -1,0 +1,22 @@
+{
+  "status": "SOURCE-D CORPUS SEALED",
+  "f3_experiment_executed": false,
+  "f4_started": false,
+  "tests_passed": 1445,
+  "provider_name": "box-grammar",
+  "provider_version": "1",
+  "model_name": null,
+  "provider_history_isolation": "NOT_VERIFIED",
+  "provider_isolation": "FILESYSTEM_ISOLATED",
+  "claim": "CORPUS_SEALED_HISTORY_UNVERIFIED",
+  "corpus_size": 8,
+  "request_sha256": "5b08118ca64b383fde67d83dd6e3a8a3236f270d54c677421f7747f470bb44c4",
+  "script_sha256": "90685d649050d26a63efa68d6e1932276769dbbaa4811288b76f7cb4ab3ead06",
+  "corpus_commitment": "d5be0e73a96e458330030f7b2292a9360bd4e66d596d70d5751cfb457c424ee0",
+  "ledger_sha256": "782d2412131cfe230945bc952d28f0105348d733d0feadc33200345a70129e92",
+  "discovery_firewall": "CLOSED",
+  "vault_invisible_to_discovery": true,
+  "real_corpus_decrypted": false,
+  "relation_outcomes_computed": false,
+  "strongest_limitation": "the generator was written by a session that had already read AIVD history, and the seed plus generator in the repository can rebuild the artifacts"
+}

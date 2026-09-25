@@ -1,0 +1,84 @@
+{
+  "artifacts": [
+    {
+      "ciphertext_commitment": "fccb127b31d92f8d3aeff8e41fb9305f288eb02fd4d79042f3679165d5d8bcfa",
+      "handle": "14c1aaf8b4f4c039",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "cde7899998d0cac4ee2d3a3b25032f14091554571b8c15d710b7bf42fe76a5af",
+      "handle": "17c8582f6eb616cb",
+      "language": "box-v1",
+      "policy_present": false,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "2b24722042b75edb6b309e7b04e35a946571025e1c127d435c69d461592d94c0",
+      "handle": "1d75ed2ded123635",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "23b57575d02dac762d5499edc89747f0a069b8d6cd3ac35007ca9329011b8663",
+      "handle": "3d32a2c0ed9df497",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "27f889a626e7ebc5efe8edddc55838aceefc5bee0ccc30f08e28a865551579ee",
+      "handle": "65557e99b50c20d6",
+      "language": "box-v1",
+      "policy_present": false,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "2a30033a9213dea45e27a7c6a2d68f27774799cff7414d4efa492650a9e60bfe",
+      "handle": "78b745f3652dac8f",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "ba6b8c8e6cd36fa2dd5c5ec9b293a023a8ce0eb1f2885db9a7004a2f91d5491d",
+      "handle": "c39ae45b0a00aaae",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    },
+    {
+      "ciphertext_commitment": "495686a6c13a143e59d4e1f08d2db55b2be923a07cdff235295b01a2bab501dc",
+      "handle": "c568406330625029",
+      "language": "box-v1",
+      "policy_present": true,
+      "private_channel_present": true
+    }
+  ],
+  "corpus_commitment": "d5be0e73a96e458330030f7b2292a9360bd4e66d596d70d5751cfb457c424ee0",
+  "corpus_size": 8,
+  "discovery_firewall": "CLOSED",
+  "protocol": "aivd-source-d-1",
+  "provider": {
+    "executable_sha256": "415b48c5f62e9184695faa59e061e04c15901324f83d82b0da3c8ef51c3fa3d0",
+    "fresh_session": "NOT_VERIFIED",
+    "generation_end": "2026-09-25T16:59:47Z",
+    "generation_start": "2026-09-25T16:59:47Z",
+    "history": "NOT_VERIFIED",
+    "image_hash": "NOT_RECORDED",
+    "model_name": null,
+    "model_version": null,
+    "name": "box-grammar",
+    "request_sha256": "5b08118ca64b383fde67d83dd6e3a8a3236f270d54c677421f7747f470bb44c4",
+    "runtime": "python3",
+    "script_sha256": "90685d649050d26a63efa68d6e1932276769dbbaa4811288b76f7cb4ab3ead06",
+    "seed": "source-d-box-v1",
+    "version": "1"
+  },
+  "provider_commitment": "c51052e62c5a2b694a2c5e28ab24131a4f2e61881839a01fb37751d581eda69e",
+  "relation_version": "f3-relations-bbf5c12",
+  "schema_version": "source-d-schema-1",
+  "specification_hash": "5b08118ca64b383fde67d83dd6e3a8a3236f270d54c677421f7747f470bb44c4"
+}
