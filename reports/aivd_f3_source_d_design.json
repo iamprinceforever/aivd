@@ -1,0 +1,23 @@
+{
+  "status": "F3 SOURCE-D DESIGN COMPLETE",
+  "corpus_generated": false,
+  "f3_implementation_authorized": false,
+  "f3_experiment_authorized": false,
+  "relations_modified": false,
+  "source_class": "D",
+  "is_source_a": false,
+  "strongest_claim": "engine-blind generation under a pre-registered target-neutral specification",
+  "cannot_claim": [
+    "pre-existing vulnerability",
+    "public vulnerability",
+    "provider had no design choices"
+  ],
+  "seal": "ciphertext, not a plaintext hash",
+  "discovery_sees_plaintext": false,
+  "violation_quota": false,
+  "verifier_order": "V2 recomputation before V1 label comparison",
+  "open_limits": [
+    "same operator collapses the claim to engine isolation",
+    "a public model's exposure to AIVD history is NOT_RECORDED unless evidenced"
+  ]
+}
