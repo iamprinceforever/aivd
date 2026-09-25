@@ -1,0 +1,54 @@
+{
+  "cel": [
+    {
+      "handle": "c00",
+      "source": "(input + input) + input"
+    },
+    {
+      "handle": "c01",
+      "source": "input"
+    },
+    {
+      "handle": "c02",
+      "source": "input + (input + input)"
+    },
+    {
+      "handle": "c03",
+      "source": "input + input"
+    }
+  ],
+  "micro": [
+    {
+      "handle": "m00",
+      "source": "TOK"
+    },
+    {
+      "handle": "m01",
+      "source": "CAT(TOK|TOK)"
+    },
+    {
+      "handle": "m02",
+      "source": "AT:-4"
+    },
+    {
+      "handle": "m03",
+      "source": "CAT(CAT(SLICE:1,1(TOK)|AT:3)|SLICE:0,3(AT:3))"
+    },
+    {
+      "handle": "m04",
+      "source": "REV(SLICE:3,1(AT:3))"
+    },
+    {
+      "handle": "m05",
+      "source": "CAT(REV(AT:3)|REV(TOK))"
+    },
+    {
+      "handle": "m06",
+      "source": "SLICE:3,3(REV(TOK))"
+    },
+    {
+      "handle": "m07",
+      "source": "AT:0"
+    }
+  ]
+}

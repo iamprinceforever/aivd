@@ -1,0 +1,15 @@
+{
+  "bank_hash": "984ebf8a66a7d6695c03d7fef75e89f20b1a839626a1337be02adabece4243a5",
+  "cel_commit": "97611dc314dd41c9a4827b79f5196489f8a14201",
+  "cel_sample_hash": "33999336c21e9bf5891214ba57596df1403b9e0d0acfec782df7bc92e31e838e",
+  "cel_version": "v0.29.2",
+  "design_commit": "3cedb97a853a71bad8d0b4289bf82cd1d12d32b7",
+  "f1_diff": "empty",
+  "firewall": "authorized for this process only",
+  "implementation_commit": "e3ae322832cb704ecdd8226f1a80b8927935a5cb",
+  "micro_sample_hash": "df13d301cf88249720d20f27017ca8946b59529115a70ca370271ce5f49ac862",
+  "parent_head": "e3ae322832cb704ecdd8226f1a80b8927935a5cb",
+  "probe_count": 8,
+  "science_diff": "empty",
+  "selection_hash": "3327aa65e688f4dac151c59c8fa0d17cda219a2a47487f689e3d7f7b06f6bcbf"
+}
