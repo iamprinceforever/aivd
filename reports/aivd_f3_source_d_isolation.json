@@ -1,0 +1,16 @@
+{
+  "status": "SOURCE-D ISOLATION IMPLEMENTATION COMPLETE",
+  "corpus_generated": false,
+  "external_provider_called": false,
+  "f3_implementation_authorized": false,
+  "f3_experiment_authorized": false,
+  "separation": "LOGICAL_ONLY_SEPARATION",
+  "tests_passed": 1435,
+  "science_diff": "empty",
+  "history_isolation": "NOT_VERIFIED",
+  "this_process_claim": "SOURCE_D_INVALID",
+  "seal": "hmac-sha256 counter mode then hmac",
+  "hash_only_rejected": true,
+  "strongest_open_attack": "same-process import of the vault",
+  "strongest_limitation": "no physical role separation and no provider history"
+}
