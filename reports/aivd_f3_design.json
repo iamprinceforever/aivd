@@ -1,0 +1,20 @@
+{
+  "status": "F3 DESIGN COMPLETE",
+  "implementation_authorized": false,
+  "experiment_authorized": false,
+  "f2_reinterpreted": false,
+  "relations": ["non-interference", "policy-equality"],
+  "violation_requires_all_pairs": 4,
+  "missing_structure": "NOT_APPLICABLE",
+  "legacy_marker_oracle": "rejected",
+  "f2_corpus_applicable": false,
+  "sources": {
+    "A": "only source for the strong claim; not in this repository",
+    "B": "commissioned; not independent of the study",
+    "C": "self-generated; unknown to the engine only",
+    "D": "other model; same limit unless it already existed and was not prompted"
+  },
+  "success_requires": 10,
+  "strongest_blocker": "no independently sealed artifact with pre-assigned channels or policy",
+  "adversarial_question_changed": false
+}
