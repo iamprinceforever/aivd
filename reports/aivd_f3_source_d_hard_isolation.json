@@ -1,0 +1,15 @@
+{
+  "status": "SOURCE-D HARD ISOLATION COMPLETE",
+  "corpus_generated": false,
+  "external_provider_called": false,
+  "tests_passed": 1441,
+  "mechanism": "unshare mount+pid+net+ipc+uts, bind interpreter, pivot_root, detach old root",
+  "isolation_level": "FILESYSTEM_ISOLATED",
+  "claim_status": "HISTORY_ISOLATION_UNVERIFIED",
+  "distinct_uid": "NOT_VERIFIED",
+  "image_hash": "NOT_RECORDED",
+  "provider_history_isolation": "NOT_VERIFIED",
+  "same_interpreter": "SAME_INTERPRETER_INVALID",
+  "malicious_discovery": "PASS",
+  "strongest_limitation": "provider history is unverified and the sandboxed uid is still root"
+}

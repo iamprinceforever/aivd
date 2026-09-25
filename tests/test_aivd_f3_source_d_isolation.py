@@ -187,13 +187,13 @@ def test_manifest_missing_evidence_is_not_verified_and_claim_downgrades():
     mounted = qualify(_snapshot(filesystem_aivd_mount=False, aivd_env=False))
     assert mounted["environment"]["filesystem_aivd_mount"] == "NOT_VERIFIED"
     claim = evaluate(qualify(_snapshot()), leakage_clean=True, corpus_valid=True, sealed=True)
-    assert claim["status"] == "ENGINE_ISOLATED_ONLY"
+    assert claim["status"] == "SAME_INTERPRETER_INVALID"
     ready = evaluate(
         qualify(_snapshot(**{name: "TRUE" for name in HISTORY_FIELDS})),
         leakage_clean=True,
         corpus_valid=True,
         sealed=True,
-        physical_separation=True,
+        architecture="filesystem",
     )
     assert ready["status"] == "SOURCE_D_READY"
     logical = evaluate(
@@ -201,10 +201,13 @@ def test_manifest_missing_evidence_is_not_verified_and_claim_downgrades():
         leakage_clean=True,
         corpus_valid=True,
         sealed=True,
+        architecture="logical_only",
     )
-    assert logical["status"] == "PROVIDER_ISOLATED"
-    assert "physical_separation" in logical["missing"]
-    assert evaluate(mounted, leakage_clean=True, corpus_valid=True, sealed=True)["status"] == "SOURCE_D_INVALID"
+    assert logical["status"] == "LOGICAL_ONLY_SEPARATION"
+    assert "provider_history" not in logical["missing"]
+    refused = evaluate(qualify(_snapshot()), leakage_clean=True, corpus_valid=True, sealed=True, architecture="filesystem")
+    assert refused["status"] == "HISTORY_ISOLATION_UNVERIFIED"
+    assert evaluate(mounted, leakage_clean=True, corpus_valid=True, sealed=True, architecture="filesystem")["status"] == "HISTORY_ISOLATION_UNVERIFIED"
 
 
 def test_scanner_detects_tokens_but_a_clean_scan_is_not_isolation():
