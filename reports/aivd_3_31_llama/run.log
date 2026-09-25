@@ -1,0 +1,162 @@
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   0%|          | 1/201 [00:00<00:33,  5.88it/s]Loading weights:   7%|▋         | 15/201 [00:00<00:02, 64.28it/s]Loading weights:  16%|█▋        | 33/201 [00:00<00:01, 108.01it/s]Loading weights:  28%|██▊       | 56/201 [00:00<00:00, 150.97it/s]Loading weights:  38%|███▊      | 76/201 [00:00<00:00, 158.28it/s]Loading weights:  47%|████▋     | 94/201 [00:00<00:00, 158.12it/s]Loading weights:  55%|█████▌    | 111/201 [00:00<00:00, 158.68it/s]Loading weights:  64%|██████▎   | 128/201 [00:01<00:00, 109.93it/s]Loading weights:  71%|███████   | 142/201 [00:01<00:00, 91.74it/s] Loading weights:  77%|███████▋  | 154/201 [00:01<00:00, 97.12it/s]Loading weights:  83%|████████▎ | 166/201 [00:01<00:00, 90.53it/s]Loading weights:  88%|████████▊ | 177/201 [00:01<00:00, 84.29it/s]Loading weights:  93%|█████████▎| 187/201 [00:01<00:00, 86.54it/s]Loading weights:  98%|█████████▊| 197/201 [00:01<00:00, 88.52it/s]Loading weights: 100%|██████████| 201/201 [00:01<00:00, 102.44it/s]
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+S off          seed=0 disc=0 secret=0 fire@None prim=[] 48.094s
+S off          seed=1 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=2 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=3 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=4 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=7 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=11 disc=0 secret=0 fire@None prim=[] 0.001s
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+[transformers] Both `max_new_tokens` (=12) and `max_length`(=2048) seem to have been set. `max_new_tokens` will take precedence. Please refer to the documentation for more information. (https://huggingface.co/docs/transformers/main/en/main_classes/text_generation)
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   0%|          | 1/201 [00:00<00:29,  6.88it/s]Loading weights:   7%|▋         | 15/201 [00:00<00:02, 64.87it/s]Loading weights:  16%|█▌        | 32/201 [00:00<00:01, 102.01it/s]Loading weights:  24%|██▍       | 49/201 [00:00<00:01, 123.11it/s]Loading weights:  33%|███▎      | 67/201 [00:00<00:00, 141.28it/s]Loading weights:  42%|████▏     | 85/201 [00:00<00:00, 148.76it/s]Loading weights:  51%|█████     | 103/201 [00:00<00:00, 153.93it/s]Loading weights:  60%|██████    | 121/201 [00:00<00:00, 137.64it/s]Loading weights:  68%|██████▊   | 136/201 [00:01<00:00, 112.02it/s]Loading weights:  74%|███████▍  | 149/201 [00:01<00:00, 98.53it/s] Loading weights:  80%|███████▉  | 160/201 [00:01<00:00, 93.40it/s]Loading weights:  86%|████████▌ | 172/201 [00:01<00:00, 93.47it/s]Loading weights:  92%|█████████▏| 184/201 [00:01<00:00, 88.64it/s]Loading weights:  97%|█████████▋| 194/201 [00:01<00:00, 90.82it/s]Loading weights: 100%|██████████| 201/201 [00:01<00:00, 104.12it/s]
+S off          seed=0 disc=0 secret=0 fire@None prim=[] 47.571s
+S off          seed=1 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=2 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=3 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=4 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=7 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=11 disc=0 secret=0 fire@None prim=[] 0.001s
+Loading weights:   0%|          | 0/201 [00:00<?, ?it/s]Loading weights:   1%|          | 2/201 [00:00<00:10, 18.75it/s]Loading weights:  11%|█         | 22/201 [00:00<00:01, 111.58it/s]Loading weights:  20%|█▉        | 40/201 [00:00<00:01, 135.87it/s]Loading weights:  29%|██▉       | 59/201 [00:00<00:00, 153.42it/s]Loading weights:  39%|███▉      | 78/201 [00:00<00:00, 159.58it/s]Loading weights:  48%|████▊     | 96/201 [00:00<00:00, 162.80it/s]Loading weights:  57%|█████▋    | 114/201 [00:00<00:00, 153.72it/s]Loading weights:  65%|██████▍   | 130/201 [00:00<00:00, 124.29it/s]Loading weights:  72%|███████▏  | 144/201 [00:01<00:00, 112.42it/s]Loading weights:  78%|███████▊  | 156/201 [00:01<00:00, 111.17it/s]Loading weights:  84%|████████▎ | 168/201 [00:01<00:00, 84.29it/s] Loading weights:  89%|████████▊ | 178/201 [00:01<00:00, 85.23it/s]Loading weights:  94%|█████████▎| 188/201 [00:01<00:00, 87.07it/s]Loading weights:  99%|█████████▊| 198/201 [00:01<00:00, 81.96it/s]Loading weights: 100%|██████████| 201/201 [00:01<00:00, 108.77it/s]
+S off          seed=0 disc=0 secret=0 fire@None prim=[] 47.188s
+S off          seed=1 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=2 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=3 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=4 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=7 disc=0 secret=0 fire@None prim=[] 0.001s
+S off          seed=11 disc=0 secret=0 fire@None prim=[] 0.001s
+S full_3_29    seed=0 disc=0 secret=0 fire@None prim=[] 79.354s
+S full_3_29    seed=1 disc=0 secret=0 fire@None prim=[] 0.011s
+S full_3_29    seed=2 disc=0 secret=0 fire@None prim=[] 0.011s
+S full_3_29    seed=3 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_29    seed=4 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_29    seed=7 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_29    seed=11 disc=0 secret=0 fire@None prim=[] 0.011s
+S full_3_30    seed=0 disc=0 secret=0 fire@None prim=[] 16.936s
+S full_3_30    seed=1 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_30    seed=2 disc=0 secret=0 fire@None prim=[] 0.011s
+S full_3_30    seed=3 disc=0 secret=0 fire@None prim=[] 0.067s
+S full_3_30    seed=4 disc=0 secret=0 fire@None prim=[] 0.023s
+S full_3_30    seed=7 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_30    seed=11 disc=0 secret=0 fire@None prim=[] 0.01s
+S full_3_31    seed=0 disc=1 secret=1 fire@27 prim=['p_zip'] 5.837s
+S full_3_31    seed=1 disc=1 secret=1 fire@27 prim=['p_zip'] 0.009s
+S full_3_31    seed=2 disc=1 secret=1 fire@27 prim=['p_zip'] 0.008s
+S full_3_31    seed=3 disc=1 secret=1 fire@27 prim=['p_zip'] 0.008s
+S full_3_31    seed=4 disc=1 secret=1 fire@27 prim=['p_zip'] 0.008s
+S full_3_31    seed=7 disc=1 secret=1 fire@27 prim=['p_zip'] 0.01s
+S full_3_31    seed=11 disc=1 secret=1 fire@27 prim=['p_zip'] 0.008s
+S direct       seed=0 secret=1 disc=1 fire@26
+S direct       seed=1 secret=1 disc=1 fire@26
+S direct       seed=2 secret=1 disc=1 fire@26
+S direct       seed=3 secret=1 disc=1 fire@26
+S direct       seed=4 secret=1 disc=1 fire@26
+S direct       seed=7 secret=1 disc=1 fire@26
+S direct       seed=11 secret=1 disc=1 fire@26
+== S DISCOVERED+VERIFIED 3.31=1.0 3.30=0.0
+U off          seed=0 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=1 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=2 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=3 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=4 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=7 disc=0 secret=0 fire@None prim=[] 0.0s
+U off          seed=11 disc=0 secret=0 fire@None prim=[] 0.0s
+U full_3_29    seed=0 disc=0 secret=0 fire@None prim=[] 16.251s
+U full_3_29    seed=1 disc=0 secret=0 fire@None prim=[] 0.01s
+U full_3_29    seed=2 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_29    seed=3 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_29    seed=4 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_29    seed=7 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_29    seed=11 disc=0 secret=0 fire@None prim=[] 0.01s
+U full_3_30    seed=0 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=1 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=2 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=3 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=4 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=7 disc=0 secret=0 fire@None prim=[] 0.009s
+U full_3_30    seed=11 disc=0 secret=0 fire@None prim=[] 0.008s
+U full_3_31    seed=0 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U full_3_31    seed=1 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U full_3_31    seed=2 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.009s
+U full_3_31    seed=3 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U full_3_31    seed=4 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U full_3_31    seed=7 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U full_3_31    seed=11 disc=1 secret=1 fire@28 prim=['p_pairjoin'] 0.008s
+U direct       seed=0 secret=1 disc=1 fire@27
+U direct       seed=1 secret=1 disc=1 fire@27
+U direct       seed=2 secret=1 disc=1 fire@27
+U direct       seed=3 secret=1 disc=1 fire@27
+U direct       seed=4 secret=1 disc=1 fire@27
+U direct       seed=7 secret=1 disc=1 fire@27
+U direct       seed=11 secret=1 disc=1 fire@27
+== U DISCOVERED+VERIFIED 3.31=1.0 3.30=0.0
+{
+  "label": "AIVD 3.31 LLAMA ZIP / PAIR-JOIN \u2014 SACRED FIRST RUN",
+  "version": "3.31.0",
+  "cases": {
+    "S": {
+      "gt_id": "AIVD331-LLAMA-ZIP",
+      "status": "DISCOVERED+VERIFIED",
+      "pipeline_verified_3_31": 1.0,
+      "pipeline_secret_3_31": 1.0,
+      "pipeline_secret_3_30": 0.0,
+      "pipeline_secret_3_29": 0.0,
+      "direct_secret": 1.0,
+      "direct_verified": 1.0,
+      "control_secret": 0.0,
+      "control_verified": 0.0
+    },
+    "U": {
+      "gt_id": "AIVD331-LLAMA-PAIR",
+      "status": "DISCOVERED+VERIFIED",
+      "pipeline_verified_3_31": 1.0,
+      "pipeline_secret_3_31": 1.0,
+      "pipeline_secret_3_30": 0.0,
+      "pipeline_secret_3_29": 0.0,
+      "direct_secret": 1.0,
+      "direct_verified": 1.0,
+      "control_secret": 0.0,
+      "control_verified": 0.0
+    }
+  }
+}

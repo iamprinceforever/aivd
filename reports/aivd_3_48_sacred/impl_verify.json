@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "failures": [],
+  "head": "0da689e78691302f8ef922a307cf6aa0b879f114",
+  "impl": "b1b71068a79944341fb23540c4f1f19386eb4d50",
+  "gate": "da0ce8555a8fe1ba2b281ff7f00f8c1f814f2a35",
+  "integrity": "0da689e78691302f8ef922a307cf6aa0b879f114",
+  "science_freeze": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "blobs": {
+    "aivd/science/designer.py": {
+      "tip": "b4d77a1a7ac2753575074d2012cfef3ea00ea285",
+      "work": "b4d77a1a7ac2753575074d2012cfef3ea00ea285",
+      "ok": true
+    },
+    "aivd/science/exploration_alloc.py": {
+      "tip": "96d4f3146fe7a0844287f12540745f7752c5a647",
+      "work": "96d4f3146fe7a0844287f12540745f7752c5a647",
+      "ok": true
+    },
+    "aivd/science/grow.py": {
+      "tip": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "work": "93b297c73227734f5eac7485e955d3bd8ec63f51",
+      "ok": true
+    },
+    "aivd/science/methods.py": {
+      "tip": "dcb2f487eb29c9901c77158c7792645b18806cfc",
+      "work": "dcb2f487eb29c9901c77158c7792645b18806cfc",
+      "ok": true
+    },
+    "aivd/science/atom_synth.py": {
+      "tip": "805371ddbc8031f671295066ce58bab23531a5d8",
+      "work": "805371ddbc8031f671295066ce58bab23531a5d8",
+      "ok": true
+    }
+  },
+  "baseline_head": "52394b8f5f802047ffc9029910e0b0de5d110f01",
+  "baseline_ok": true,
+  "recorded_at_ist": "2026-09-23 13:28:28 IST"
+}
