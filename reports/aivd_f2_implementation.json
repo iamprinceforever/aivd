@@ -1,0 +1,15 @@
+{
+  "status": "F2 IMPLEMENTATION COMPLETE",
+  "experiment_executed": false,
+  "experiment_authorized": false,
+  "tests_passed": 1423,
+  "tests_failed": 0,
+  "science_diff": "empty",
+  "f1_diff": "empty",
+  "bank_hash": "984ebf8a66a7d6695c03d7fef75e89f20b1a839626a1337be02adabece4243a5",
+  "selection_hash": "3327aa65e688f4dac151c59c8fa0d17cda219a2a47487f689e3d7f7b06f6bcbf",
+  "cel_commit": "97611dc314dd41c9a4827b79f5196489f8a14201",
+  "cel_version": "v0.29.2",
+  "firewall": "named conditions and the frozen samples raise",
+  "stage_e_signature_modified": false
+}
