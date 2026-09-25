@@ -1,0 +1,41 @@
+{
+  "status": "NO-QUALIFYING-SOURCE-FOUND",
+  "f3_implementation_authorized": false,
+  "f3_experiment_authorized": false,
+  "relations_modified": false,
+  "benchmarks_executed": false,
+  "candidates": [
+    {
+      "name": "IFSpec",
+      "class": "A",
+      "pin": "d1c7f3bed6bed734268bf36bdcb9cf5f89af78d7",
+      "repository": "https://github.com/HarvardPL/Co-InflowPrototype",
+      "canonical_release_commit": "NOT_RECORDED",
+      "publication_doi": "10.1007/978-3-030-03638-6_27",
+      "publication_date": "2018-11-02",
+      "classification": "INSUFFICIENT_RELATION",
+      "family": "noninterference",
+      "frozen_four_pair_relation_present": false,
+      "labels_public": true,
+      "genuinely_unknown": false
+    },
+    {
+      "name": "Securibench Micro",
+      "class": "D",
+      "pin": "6a5a72488ea830d99f9464fc1f0562c4f864214b",
+      "repository": "https://github.com/too4words/securibench-micro",
+      "license": "Apache-2.0",
+      "classification": "NOT_APPLICABLE"
+    },
+    {
+      "name": "DroidBench",
+      "class": "D",
+      "pin": "a57fa6f42f278591695672f1aa8b37c275139370",
+      "repository": "https://github.com/secure-software-engineering/DroidBench",
+      "license": "NOT_RECORDED",
+      "classification": "NOT_APPLICABLE"
+    }
+  ],
+  "contamination_beyond_one_schema": "NOT_RECORDED",
+  "next_step": "do not implement F3 and do not relabel a public suite as unknown"
+}
