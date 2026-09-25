@@ -1,0 +1,14 @@
+{
+  "status": "F2 EXPERIMENT READY",
+  "execution_authorized": false,
+  "bank_hash": "984ebf8a66a7d6695c03d7fef75e89f20b1a839626a1337be02adabece4243a5",
+  "selection_hash": "3327aa65e688f4dac151c59c8fa0d17cda219a2a47487f689e3d7f7b06f6bcbf",
+  "cel_commit": "97611dc314dd41c9a4827b79f5196489f8a14201",
+  "conditions": ["X1", "X2", "X3", "C1", "C2", "C3", "C4", "C5", "C6"],
+  "x3_order": ["micro sample", "cel sample"],
+  "memory": "empty at the start of each condition",
+  "language_in_comparison": false,
+  "blind_samples": true,
+  "controls_public": true,
+  "security": false
+}

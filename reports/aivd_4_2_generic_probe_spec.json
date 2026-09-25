@@ -1,0 +1,22 @@
+{
+  "bank_hash": "984ebf8a66a7d6695c03d7fef75e89f20b1a839626a1337be02adabece4243a5",
+  "canonical_without_hash": {
+    "excluded": [
+      {"class": "empty_string", "reason": "Micro returns it before evaluation"},
+      {"class": "integer", "reason": "Micro has no integer input or output"},
+      {"class": "boolean", "reason": "Micro has no boolean input or output"},
+      {"class": "list", "reason": "Micro has no list value"}
+    ],
+    "probes": [
+      {"id": "p01", "type": "string", "value": "a"},
+      {"id": "p02", "type": "string", "value": "aa"},
+      {"id": "p03", "type": "string", "value": "ab"},
+      {"id": "p04", "type": "string", "value": "abcd"},
+      {"id": "p05", "type": "string", "value": "ab cd"},
+      {"id": "p06", "type": "string", "value": "ab ab"},
+      {"id": "p07", "type": "string", "value": "a1"},
+      {"id": "p08", "type": "string", "value": "zz zz zz"}
+    ],
+    "version": "aivd-4.2-bank-1"
+  }
+}

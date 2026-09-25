@@ -1,0 +1,15 @@
+{
+  "status": "F2 EXPERIMENT READY",
+  "executed": false,
+  "cel": {
+    "repository": "https://github.com/google/cel-go",
+    "tag": "v0.29.2",
+    "commit": "97611dc314dd41c9a4827b79f5196489f8a14201",
+    "license": "Apache-2.0",
+    "module_requirement": "cel.dev/expr v0.25.1",
+    "prose_spec_version": "NOT_STATED"
+  },
+  "translated_to_micro": false,
+  "jmespath_and_starlark": "remain valid, not ranked",
+  "f1_modified": false
+}

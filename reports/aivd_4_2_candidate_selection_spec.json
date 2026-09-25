@@ -1,0 +1,28 @@
+{
+  "selection_hash": "3327aa65e688f4dac151c59c8fa0d17cda219a2a47487f689e3d7f7b06f6bcbf",
+  "canonical_without_hash": {
+    "cel": {
+      "binding": "input",
+      "enumeration": "complete",
+      "grammar": "E ::= input | E + E",
+      "max_nodes": 5,
+      "order": "lexicographic canonical source",
+      "seed_changes_membership": false,
+      "sources": [
+        "(input + input) + input",
+        "input",
+        "input + (input + input)",
+        "input + input"
+      ],
+      "type": "string"
+    },
+    "micro": {
+      "dedup": "canonical key",
+      "grammar": "aivd.behavior.sealed_corpus.grammar.generate_bodies",
+      "order": "generator order",
+      "seed_utf8": "aivd-4.2-micro-v1",
+      "size": 8
+    },
+    "version": "aivd-4.2-select-1"
+  }
+}
