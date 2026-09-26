@@ -1,0 +1,9 @@
+{
+  "status": "STOPPED_BEFORE_INFERENCE",
+  "reason": "frozen template does not render the developer role that carries the private partition",
+  "model_called": false,
+  "execution_authorized": false,
+  "trials": [],
+  "hypotheses": [],
+  "public_record_comparison": "NOT_PERFORMED"
+}
