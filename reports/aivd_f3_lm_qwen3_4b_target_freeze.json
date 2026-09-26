@@ -1,0 +1,23 @@
+{
+  "phase": "QWEN3_4B_TARGET_FREEZE",
+  "status": "NOT_ADMITTED",
+  "qwen3_8b_result": "5a615e14fca5f7816c1c7d5bae86d6e0c8b042f5",
+  "qwen3_8b_classification": "F3-LM-1.1 EXPERIMENT INVALIDATED",
+  "qwen3_8b_retried": false,
+  "model_executed": false,
+  "execution_authorized": false,
+  "admission": "DENIED",
+  "denial_reasons": [
+    "thinking mode cannot be disabled",
+    "insufficient RAM"
+  ],
+  "manifest_sha256": "514cbf836c1c58c8cc93b6fb55f9ec7275c4e29220d8999c5f2209f7fc86a574",
+  "target_manifest": "reports/aivd_f3_lm_qwen3_4b_target.json",
+  "f4_started": false,
+  "statements": [
+    "QWEN3 8B REMAINS INVALIDATED",
+    "QWEN3 4B NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ]
+}
