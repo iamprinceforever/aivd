@@ -3,6 +3,7 @@ import json
 import pytest
 
 from aivd_f3_lm.f3lm2 import firewall
+from aivd_f3_lm.f3lm2.authorize import authorize_execution
 from aivd_f3_lm.f3lm2.bridge import (
     FROZEN_PLAN_SHA256,
     DispatchFailure,
@@ -51,10 +52,22 @@ def _run(tmp_path, transport, **overrides):
         "contract": DENIED,
     }
     arguments.update(overrides)
-    firewall.EXECUTION_AUTHORIZED = arguments["authorized"]
+    authorization = None
+    if arguments["authorized"]:
+        authorization = authorize_execution(
+            explicit=True,
+            plan_hash=FROZEN_PLAN_SHA256,
+            model="qwen3:1.7b",
+            model_digest=OLLAMA_DIGEST,
+            baseline=64,
+            mutations=192,
+            total=256,
+        )
     try:
-        return execute_trial(_trial(), **arguments)
+        return execute_trial(_trial(), authorization=authorization, **arguments)
     finally:
+        if authorization is not None:
+            authorization.revoke()
         firewall.EXECUTION_AUTHORIZED = False
 
 

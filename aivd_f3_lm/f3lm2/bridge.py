@@ -3,7 +3,6 @@
 import json
 import urllib.request
 
-from aivd_f3_lm.f3lm2 import firewall as firewall_gate
 from aivd_f3_lm.f3lm2.explore import plan_sha256
 from aivd_f3_lm.f3lm2.firewall import ExecutionRefused
 from aivd_f3_lm.f3lm2.semantics import assess
@@ -96,8 +95,11 @@ def execute_trial(
     recorder: Recorder,
     contract: dict | None = None,
     sequence: int = 1,
+    authorization=None,
 ) -> dict:
-    if not authorized or not firewall_gate.EXECUTION_AUTHORIZED:
+    from aivd_f3_lm.f3lm2.authorize import capability_ok
+
+    if not authorized or not capability_ok(authorization):
         raise ExecutionRefused("F3-LM-2 execution is not authorized")
     if plan_hash != FROZEN_PLAN_SHA256 or plan_sha256() != FROZEN_PLAN_SHA256:
         raise PlanMismatch("plan hash does not match the frozen F3-LM-2 plan")
