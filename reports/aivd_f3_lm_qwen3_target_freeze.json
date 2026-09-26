@@ -1,0 +1,57 @@
+{
+  "phase": "QWEN3_TARGET_FREEZE",
+  "new_target": true,
+  "is_llama_4_scout": false,
+  "model_executed": false,
+  "execution_authorized": false,
+  "f4_started": false,
+  "target": {
+    "family": "Qwen3",
+    "distribution": "Ollama",
+    "repository": "library/qwen3",
+    "tag": "8b",
+    "quantization": "Q4_K_M",
+    "gguf_file_type": 15,
+    "ollama_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "local_byte_commitment": "e56d3bf948b1809641c48913c2a86d25277580ce1983e8904a9a3d6b6220feb1",
+    "model_blob_sha256": "a3de86cd1c132c822487ededd47a324c50491393e6565cd14bafa40d0b8e686f",
+    "model_blob_size": 5225374496,
+    "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+    "context_length": 40960,
+    "second_pass": "PASS"
+  },
+  "runtime_hash": "d01ff8f2ff1184b3390206042c87d761d29b94e2205fc55be0e5e6b70baa06f0",
+  "ollama_cli": "NOT_INSTALLED",
+  "generation_configuration": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": null,
+    "repeat_penalty": 1.0,
+    "num_ctx": null,
+    "stop": ["<|im_start|>", "<|im_end|>"],
+    "seed_policy": "no seed in the published params blob",
+    "thinking_mode": "not forced",
+    "tools": false
+  },
+  "public_record_baseline_sha256": "8b7e2a597262ac4069e37e6a5de91c70ac2643bee972477155b052c99802c3e6",
+  "public_record_baseline_path": "evaluator_only/qwen3_public_record_baseline.json",
+  "llama_baseline_modified": false,
+  "grammar_modified": false,
+  "relations_modified": false,
+  "execution_firewall": "REFUSING",
+  "weights_in_git": false,
+  "migration_rationale": "Llama 4 Scout remains gated and too large to byte-verify here. Qwen3 8B Q4_K_M is a separate, smaller, publicly fetchable artifact.",
+  "limitations": [
+    "Ollama CLI version is not frozen because the CLI is not installed",
+    "Published temperature 0.6 is not deterministic",
+    "No GPU on this host"
+  ],
+  "statements": [
+    "THIS IS A NEW F3-LM TARGET",
+    "IT IS NOT LLAMA 4 SCOUT",
+    "QWEN3 NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ]
+}
