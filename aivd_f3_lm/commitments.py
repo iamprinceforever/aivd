@@ -21,3 +21,9 @@ TOKENIZER_CONTENT_SHA256 = None
 DTYPE = "bfloat16"
 QUANTIZATION = "NONE"
 PRECISION = "BF16"
+
+# Independent byte verification of weight and tokenizer artifacts.
+# None until every file's bytes have been hashed. Metadata commitment stays above.
+BYTE_VERIFICATION_COMPLETE = False
+BYTE_VERIFIED_COMMITMENT = None
+TOKENIZER_BYTE_MANIFEST_HASH = None

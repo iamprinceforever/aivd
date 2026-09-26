@@ -1,0 +1,47 @@
+{
+  "phase": "BYTE_ACQUISITION",
+  "status": "NOT_VERIFIED",
+  "prior_freeze_commit": "f6cbb68edd5c5c1a260bfb66e7b50647212f10b1",
+  "repository": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+  "revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+  "file_count": 64,
+  "declared_total_bytes": 217315712145,
+  "independently_hashed_files": 2,
+  "independently_hashed_bytes": 40401,
+  "weight_bytes_hashed": 0,
+  "tokenizer_files_hashed": 0,
+  "excluded_files": 0,
+  "first_pass": "NOT_RUN_FOR_GATED_ARTIFACTS",
+  "second_pass": "NOT_RUN",
+  "lfs_oids": "NOT_VERIFIED",
+  "metadata_commitment_sha256": "08be530165840f946a01f5981f4818542a090a7b889c050ab0ff85cd6c13b721",
+  "byte_manifest_sha256": "44912591028c3c4d48bf03a324f340ac127e068521d629c69bc232fd261551e6",
+  "byte_verified_commitment_sha256": null,
+  "tokenizer_byte_manifest_hash": null,
+  "runtime_hash_sha256": "0ecef2eac17c8ac047a69efd4481226f2e252d4c4ff5140c02e94e0bac038dcf",
+  "public_record_baseline_sha256": "7ba12804b29cea2c3949368d9117c9aa7ff5d12be340263cd7972633d15583f4",
+  "public_record_baseline_modified": false,
+  "storage": {
+    "root": "/dev/vdc ext4 50G",
+    "aux_block": "/dev/vdb 20G unused",
+    "null_block_not_used": "/dev/nullb0 250G",
+    "external_or_object_storage": false,
+    "huggingface_token_present": false,
+    "download_tool": "curl 7.88.1",
+    "hash_tool": "Python 3.10.21 hashlib.sha256"
+  },
+  "execution_firewall": {
+    "F3_LM_EXECUTION_AUTHORIZED": false,
+    "BYTE_VERIFICATION_COMPLETE": false,
+    "status": "REFUSING"
+  },
+  "model_executed": false,
+  "f4_started": false,
+  "statements": [
+    "MODEL BYTES NOT VERIFIED",
+    "TOKENIZER BYTES NOT VERIFIED",
+    "LLAMA 4 SCOUT NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ]
+}

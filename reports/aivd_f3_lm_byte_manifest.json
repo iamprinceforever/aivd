@@ -1,0 +1,1107 @@
+{
+  "repository": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+  "revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+  "created_utc": "2026-09-26T06:40:32Z",
+  "byte_verification_complete": false,
+  "second_pass": "NOT_RUN",
+  "expected_file_count": 64,
+  "files_with_independent_byte_hash": 2,
+  "files_not_verified": 64,
+  "declared_total_bytes": 217315712145,
+  "independently_hashed_bytes": 40401,
+  "weight_bytes_hashed": 0,
+  "metadata_commitment_sha256": "08be530165840f946a01f5981f4818542a090a7b889c050ab0ff85cd6c13b721",
+  "byte_verified_commitment_sha256": null,
+  "tokenizer_byte_manifest_hash": null,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 1570,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "LICENSE",
+      "size": 7815,
+      "sha256": "f95172ae8c823aebb14f73810fc71ce026e27555a17134d4720233caf8c2b2f0",
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "PASS_PUBLIC_SIDECAR_ONLY",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "Unauthenticated download of this non-weight file. SHA-256 computed locally. Not a substitute for weight or tokenizer verification.",
+      "passes": {
+        "first": "PASS",
+        "second": "PASS"
+      }
+    },
+    {
+      "path": "README.md",
+      "size": 32586,
+      "sha256": "19659e477d9e582b5cdd9a2bac1658d5e5e7a2722b2efdd4248c06398c87882f",
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "PASS_PUBLIC_SIDECAR_ONLY",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "Unauthenticated download of this non-weight file. SHA-256 computed locally. Not a substitute for weight or tokenizer verification.",
+      "passes": {
+        "first": "PASS",
+        "second": "PASS"
+      }
+    },
+    {
+      "path": "USE_POLICY.md",
+      "size": 5991,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "chat_template.jinja",
+      "size": 7346,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "config.json",
+      "size": 2182,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "generation_config.json",
+      "size": 215,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00001-of-00050.safetensors",
+      "size": 3938735392,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00002-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00003-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00004-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00005-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00006-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00007-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00008-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00009-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00010-of-00050.safetensors",
+      "size": 4404205216,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00011-of-00050.safetensors",
+      "size": 4404205208,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00012-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00013-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00014-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00015-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00016-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00017-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00018-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00019-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00020-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00021-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00022-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00023-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00024-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00025-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00026-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00027-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00028-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00029-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00030-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00031-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00032-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00033-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00034-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00035-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00036-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00037-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00038-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00039-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00040-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00041-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00042-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00043-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00044-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00045-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00046-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00047-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00048-of-00050.safetensors",
+      "size": 4404205232,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00049-of-00050.safetensors",
+      "size": 4278385928,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model-00050-of-00050.safetensors",
+      "size": 2068971664,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "model.safetensors.index.json",
+      "size": 112288,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "preprocessor_config.json",
+      "size": 636,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "processor_config.json",
+      "size": 128,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "special_tokens_map.json",
+      "size": 106,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "tokenizer.json",
+      "size": 27948578,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "tokenizer.model",
+      "size": 3622230,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_VERIFIED",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    },
+    {
+      "path": "tokenizer_config.json",
+      "size": 231754,
+      "sha256": null,
+      "source_revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+      "source": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+      "lfs_oid": null,
+      "lfs_oid_status": "NOT_LFS",
+      "verification_status": "NOT_VERIFIED",
+      "included": true,
+      "exclusion_justification": null,
+      "note": "GatedRepo HTTP 401 without an access token. LFS content OID redacted in the Hub tree response. Bytes were not downloaded, so no independent SHA-256 was computed.",
+      "passes": {
+        "first": "NOT_RUN",
+        "second": "NOT_RUN"
+      }
+    }
+  ],
+  "byte_manifest_sha256": "44912591028c3c4d48bf03a324f340ac127e068521d629c69bc232fd261551e6"
+}

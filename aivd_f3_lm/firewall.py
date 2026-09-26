@@ -1,11 +1,14 @@
 """Fail-closed execution firewall. No weight loading."""
 
 from aivd_f3_lm.commitments import (
+    BYTE_VERIFICATION_COMPLETE,
+    BYTE_VERIFIED_COMMITMENT,
     CHECKPOINT_COMMITMENT,
     DESIGN_COMMIT,
     DTYPE,
     QUANTIZATION,
     REVISION,
+    TOKENIZER_BYTE_MANIFEST_HASH,
     TOKENIZER_CONTENT_SHA256,
 )
 from aivd_f3_lm.relations import POLICY_SHA256
@@ -58,6 +61,14 @@ def firewall_reasons(env: dict) -> list:
         reasons.append("chat template hash mismatch")
     if env.get("do_sample") is not False or env.get("temperature") != 0.0:
         reasons.append("generation sampling is not the frozen deterministic setting")
+    if not BYTE_VERIFICATION_COMPLETE:
+        reasons.append("byte verification is incomplete")
+    if BYTE_VERIFIED_COMMITMENT is None or env.get("byte_verified_commitment") != BYTE_VERIFIED_COMMITMENT:
+        reasons.append("byte-verified checkpoint commitment is not frozen")
+    if TOKENIZER_BYTE_MANIFEST_HASH is None or env.get("tokenizer_byte_manifest_hash") != TOKENIZER_BYTE_MANIFEST_HASH:
+        reasons.append("tokenizer byte commitment is not frozen")
+    if env.get("second_pass") != "PASS":
+        reasons.append("second-pass byte verification is not PASS")
     return reasons
 
 

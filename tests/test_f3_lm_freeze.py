@@ -198,13 +198,77 @@ def test_forced_match_still_cannot_execute(monkeypatch):
 
     monkeypatch.setattr(firewall, "F3_LM_EXECUTION_AUTHORIZED", True)
     monkeypatch.setattr(firewall, "TOKENIZER_CONTENT_SHA256", "a" * 64)
+    monkeypatch.setattr(firewall, "BYTE_VERIFICATION_COMPLETE", True)
+    monkeypatch.setattr(firewall, "BYTE_VERIFIED_COMMITMENT", "b" * 64)
+    monkeypatch.setattr(firewall, "TOKENIZER_BYTE_MANIFEST_HASH", "c" * 64)
     env = _env(
         execution_lock=True,
         experiment_authorized=True,
         tokenizer_sha256="a" * 64,
+        byte_verified_commitment="b" * 64,
+        tokenizer_byte_manifest_hash="c" * 64,
+        second_pass="PASS",
     )
     with pytest.raises(ExecutionIntegrityFailure):
         firewall.guarded_generate(env, {"trial_id": "t"})
+
+
+def test_byte_gate_rejects_incomplete_and_altered_records():
+    from aivd_f3_lm.byte_gate import reject_altered_bytes, validate_byte_manifest
+    from aivd_f3_lm.commitments import BYTE_VERIFICATION_COMPLETE, BYTE_VERIFIED_COMMITMENT
+
+    assert BYTE_VERIFICATION_COMPLETE is False
+    assert BYTE_VERIFIED_COMMITMENT is None
+    with pytest.raises(ExecutionRefused) as refused:
+        guarded_generate(_env(execution_lock=True, experiment_authorized=True), {"trial_id": "t"})
+    text = " ".join(refused.value.reasons)
+    assert "byte verification is incomplete" in text
+    assert "byte-verified checkpoint commitment" in text
+    assert "tokenizer byte commitment" in text
+
+    def row(path, sha="ab" * 32, size=4, status="PASS"):
+        return {
+            "path": path,
+            "size": size,
+            "sha256": sha,
+            "verification_status": status,
+            "included": True,
+        }
+
+    good_files = [
+        row("tokenizer.json"),
+        row("tokenizer.model"),
+        row("tokenizer_config.json"),
+        row("special_tokens_map.json"),
+        row("model-00001-of-00050.safetensors"),
+    ]
+    base = {
+        "revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+        "second_pass": "PASS",
+        "expected_file_count": 5,
+        "files": good_files,
+    }
+    assert validate_byte_manifest(base) == []
+    missing = json.loads(json.dumps(base))
+    missing["files"] = [r for r in missing["files"] if "model-" not in r["path"]]
+    assert any("verified file count" in r for r in validate_byte_manifest(missing))
+    truncated = reject_altered_bytes("ab" * 32, "ab" * 32, 4, 3)
+    assert truncated.startswith("truncated")
+    altered = reject_altered_bytes("ab" * 32, "cd" * 32, 4, 4)
+    assert altered == "hash mismatch"
+    stale = json.loads(json.dumps(base))
+    stale["revision"] = "0" * 40
+    assert any("revision" in r for r in validate_byte_manifest(stale))
+    dup = json.loads(json.dumps(base))
+    dup["files"].append(dict(dup["files"][0]))
+    dup["expected_file_count"] = 6
+    assert any("duplicate" in r for r in validate_byte_manifest(dup))
+    bad_status = json.loads(json.dumps(base))
+    bad_status["files"][0]["verification_status"] = "NOT_VERIFIED"
+    assert any("not verified" in r for r in validate_byte_manifest(bad_status))
+    bad_pass = json.loads(json.dumps(base))
+    bad_pass["second_pass"] = "NOT_RUN"
+    assert any("second pass" in r for r in validate_byte_manifest(bad_pass))
 
 
 def test_harness_refuses_and_verifier_rejects_labels():
