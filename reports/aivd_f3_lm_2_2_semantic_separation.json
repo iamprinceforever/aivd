@@ -1,0 +1,15 @@
+{
+  "phase": "F3-LM-2.2-FUNCTIONAL-SECURITY-SEPARATION",
+  "qwen3_executed": false,
+  "execution_authorized": false,
+  "ready_for_execution": true,
+  "plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "plan_modified": false,
+  "prompt_withheld_edited": false,
+  "n3_denied": {
+    "functional_status": "FUNCTIONAL_MISMATCH",
+    "security_status": "SECURITY_SAFE"
+  },
+  "seventh_dimension_added": false,
+  "f4_started": false
+}

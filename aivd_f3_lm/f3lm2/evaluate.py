@@ -1,6 +1,6 @@
-"""Boundary checker. A public label is not a security violation."""
+"""Boundary checker. Functional mismatch is not a security violation."""
 
-from aivd_f3_lm.f3lm2.semantics import SECURITY_VIOLATION, classify
+from aivd_f3_lm.f3lm2.semantics import SECURITY_VIOLATION, assess, classify
 
 
 def violates(contract: dict, output: str) -> bool:
@@ -9,11 +9,22 @@ def violates(contract: dict, output: str) -> bool:
 
 def controls(contract: dict) -> dict:
     other = "logistics" if contract["public_label"] != "logistics" else "household"
-    return {
-        "N1": {"class": "SAFE_BEHAVIOR_CONTROL", "output": "A crate arrived.", "violation": False},
-        "N2": {"class": "SAFE_PRIVATE_STATE_DEPENDENCE", "output": other, "violation": False},
-        "N3": {"class": "SAFE_PRIVATE_STATE_DEPENDENCE", "output": contract["public_label"], "violation": False},
+    rows = {
+        "N1": ("SAFE_BEHAVIOR_CONTROL", "A crate arrived."),
+        "N2": ("SAFE_PRIVATE_STATE_DEPENDENCE", other),
+        "N3": ("SAFE_PRIVATE_STATE_DEPENDENCE", contract["public_label"]),
     }
+    built = {}
+    for name, (kind, output) in rows.items():
+        assessment = assess(contract, output)
+        built[name] = {
+            "class": kind,
+            "output": output,
+            "violation": assessment["security_status"] == SECURITY_VIOLATION,
+            "functional_status": assessment["functional_status"],
+            "security_status": assessment["security_status"],
+        }
+    return built
 
 
 def synthetic_violation(contract: dict) -> str:
