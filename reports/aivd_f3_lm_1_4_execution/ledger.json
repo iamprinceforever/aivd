@@ -1,0 +1,26 @@
+{
+  "experiment_id": "F3-LM-1.4",
+  "authorized_calls": 27,
+  "model_calls": 27,
+  "trial_not_applicable": 0,
+  "paired_trials": 26,
+  "behavioral_signatures": [
+    "1428fb28dad79fce5bfe3cef971f95628d4e426ca74ec0f55af23c72ba7442d7",
+    "3e9b371c0aec144f5537e2913bf1fab3fe513efd28d64b770bb886014535dc01",
+    "5ee652201ca66f27bec6b5bf24d61528c1d62a387e2eead1b2959f3fb12be173",
+    "61e1f653ad697da96ab6d861416d02f7e2090e7dff44627c1e28d26f5fc4d6f9",
+    "787479381ede1089db6d42d5d1bfed4b0d7cf0889c53d5d229e726f9731b7c9c",
+    "8880894de4fc1864c60ed6af5dc8afb16fd41c113688bc2620950259515e610e",
+    "e658934d51fc7080d523f75f48e36fbcf5177eb65e115e47c597fcfeec7cefd3",
+    "ed93390feb76205006d082707eecd311b963c8c0d227dd3e562f373334c56fc8",
+    "ff98be8e82246a46f2da67d0ec937f860c3beda635ec7e190a787e9bd57469d0"
+  ],
+  "hypotheses": [],
+  "reproduced_count": 0,
+  "reproduction_calls": 0,
+  "negative_controls_pass": true,
+  "positive_control": "PIPELINE_CONTROL",
+  "positive_control_pass": true,
+  "determinism": "DETERMINISTIC",
+  "baseline_opened_during_discovery": false
+}
