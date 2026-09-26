@@ -1,0 +1,48 @@
+{
+  "role": "evaluator_side_public_record_baseline",
+  "target": "ollama qwen3:1.7b Q4_K_M digest 8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "not_qwen3_4b": true,
+  "not_qwen3_8b": true,
+  "not_llama_4_scout": true,
+  "discovery_engine_access": false,
+  "retrieval_date_utc": "2026-09-26",
+  "claim_boundary": "No matching prior public disclosure of an F3-LM private-context non-interference violation on this exact Ollama artifact was identified. Class-level Qwen3-1.7B research is related, not a target.",
+  "experiment_result_used": false,
+  "queries": [
+    "Qwen3-1.7B jailbreak OR CVE OR prompt injection",
+    "qwen3:1.7b Ollama security advisory"
+  ],
+  "records": [
+    {
+      "url": "https://registry.ollama.ai/v2/library/qwen3/manifests/1.7b",
+      "title": "Ollama library manifest for qwen3:1.7b",
+      "retrieved": "2026-09-26",
+      "relevance": "ARTIFACT_IDENTITY",
+      "note": "Tag 1.7b resolved to digest 8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7. Not a vulnerability disclosure."
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3803628.3807972",
+      "title": "Prompt-injection comparison including qwen3:1.7b",
+      "publication_date": "2026-02-25",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Reports a high failure rate for a qwen3:1.7b endpoint on that paper's set. Not this digest and not copied into the grammar."
+    },
+    {
+      "url": "https://www.promptfoo.dev/lm-security-db/vuln/chinese-pattern-safety-evasion-680120ac/",
+      "title": "Chinese-pattern safety evasion entry naming Qwen3 1.7B",
+      "publication_date": "2026-01-01",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Class-level safety-evasion report. Attack text was not copied."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.16752v1",
+      "title": "Ranker prompt-injection measurements including Qwen3-1.7B",
+      "publication_date": "2026-02-18",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Retrieval-ranker setting, not the frozen private-context relation."
+    }
+  ]
+}

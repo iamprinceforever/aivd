@@ -1,0 +1,14 @@
+{
+  "experiment": "F4",
+  "status": "DESIGN_ONLY",
+  "preregistration_sha256": "48d9cc748a551ea8a710f90a473ff8a7c7cbe969277a3ae9af7c7134a5e6223b",
+  "corpus_commitment": "2b882a9c3cd8dc33fc46c7c75b13a383a4d0206215d65764dbf5bd0be9bc2f3d",
+  "contracts": 24,
+  "max_calls": 72,
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "f3_plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "f3_candidate_list_sha256": "56bef42e5c091c557bdff3d2ae41c41a7f3a88c40280ff52888386c28a0c5f57",
+  "qwen_executed": false,
+  "f5_started": false
+}

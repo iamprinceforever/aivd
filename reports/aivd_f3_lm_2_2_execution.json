@@ -1,0 +1,15 @@
+{
+  "phase": "F3-LM-2-EXECUTION-ATTEMPT",
+  "head": "f551295634397023737709bc387e486036fac338",
+  "plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "authorized_trials": 256,
+  "executed_trials": 0,
+  "qwen3_executed": false,
+  "stop_reason": "frozen dispatch refuses and does not implement a model call",
+  "harness": "aivd_f3_lm/f3lm2/firewall.py",
+  "source_modified": false,
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "security_discovery_classification": null,
+  "f4_started": false
+}

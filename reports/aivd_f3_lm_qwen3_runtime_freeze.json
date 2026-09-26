@@ -1,0 +1,39 @@
+{
+  "phase": "QWEN3_RUNTIME_FREEZE",
+  "model_executed": false,
+  "execution_authorized": false,
+  "f4_started": false,
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "model_byte_commitment": "e56d3bf948b1809641c48913c2a86d25277580ce1983e8904a9a3d6b6220feb1",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "ollama_version": "0.34.4",
+  "ollama_release_commit": "b2da9e468af2479058ae18c6d908ed29de410684",
+  "ollama_executable_sha256": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "ollama_archive_sha256": "c238986e61d40c0cc5f4a9b9e40b9eea104350b77efa34741fc134e105cb9533",
+  "thinking": "DISABLED",
+  "think_request": false,
+  "sampling": {
+    "temperature": 0.0,
+    "top_k": 1,
+    "top_p": 1.0,
+    "min_p": 0.0,
+    "repeat_penalty": 1.0,
+    "model_seed": 20260926,
+    "discovery_seed": 748193
+  },
+  "num_ctx": 8192,
+  "num_predict": 256,
+  "stop": ["<|im_start|>", "<|im_end|>"],
+  "network": false,
+  "tools": false,
+  "modelfile_created": false,
+  "runtime_manifest_hash": "692c71f71f721a410d74928e681db92939566c6a22055944a56533c7bc3a6b82",
+  "prior_runtime_hash_not_execution_identity": "d01ff8f2ff1184b3390206042c87d761d29b94e2205fc55be0e5e6b70baa06f0",
+  "public_baseline_sha256": "8b7e2a597262ac4069e37e6a5de91c70ac2643bee972477155b052c99802c3e6",
+  "execution_firewall": "REFUSING",
+  "statements": [
+    "QWEN3 NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "role": "evaluator_side_public_record_baseline",
+  "target": "ollama qwen3:4b Q4_K_M digest 359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "not_qwen3_8b": true,
+  "not_llama_4_scout": true,
+  "discovery_engine_access": false,
+  "retrieval_date_utc": "2026-09-26",
+  "claim_boundary": "No matching prior public disclosure of an F3-LM private-context non-interference violation on this exact Ollama artifact was identified. Class-level Qwen3-4B research is related, not a target. This artifact's GGUF name is Qwen3 4B Thinking 2507, which may not be the checkpoint those papers measured.",
+  "experiment_result_used": false,
+  "queries": [
+    "Qwen3-4B security jailbreak OR CVE OR prompt injection",
+    "qwen3:4b Ollama Q4_K_M advisory"
+  ],
+  "records": [
+    {
+      "url": "https://registry.ollama.ai/v2/library/qwen3/manifests/4b",
+      "title": "Ollama library manifest for qwen3:4b",
+      "retrieved": "2026-09-26",
+      "relevance": "ARTIFACT_IDENTITY",
+      "note": "Tag 4b resolved to digest 359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7. Not a vulnerability disclosure."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.03870",
+      "title": "Indirect injection study including Qwen3-4B",
+      "publication_date": "2026-04-03",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Agent hijack rates for a Qwen3-4B model. Not this Ollama digest and not copied into the grammar."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.22242v1",
+      "title": "Prompt-injection comparison including qwen3:4b",
+      "publication_date": "2026-02-25",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Reports zero successes for a qwen3:4b endpoint on that paper's set. Different protocol. Attack text was not copied."
+    },
+    {
+      "url": "https://arxiv.org/html/2508.10032v1",
+      "title": "Thinking-mode jailbreak measurements including Qwen3 4B",
+      "publication_date": "2025-08-13",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Class-level thinking-mode result. Not an F3-LM instance on this digest."
+    },
+    {
+      "url": "https://arxiv.org/html/2602.04653v4",
+      "title": "Chat-template backdoor study including Qwen3-4B",
+      "publication_date": "2026-02-04",
+      "retrieved": "2026-09-26",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Supply-chain template patching, not the frozen private-context relation. Payloads were not copied."
+    }
+  ]
+}

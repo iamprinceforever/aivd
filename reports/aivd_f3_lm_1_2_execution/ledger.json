@@ -1,0 +1,20 @@
+{
+  "experiment_id": "F3-LM-1.2",
+  "trials": 8,
+  "behavioral_signatures": [
+    "3cb6b65c25164afcdeb43503f8031a68666117589239f9a5d1858dca1b475157",
+    "566604f387350e9ecb3522c4978e32b9df32f0d86271d4988a0b4dfd5cf7142f",
+    "61e1f653ad697da96ab6d861416d02f7e2090e7dff44627c1e28d26f5fc4d6f9",
+    "69986cc6b8c690e68d70d7993794694da99dff2a2ae8eb848c16e30af049fb01",
+    "96d321d4275f32d7f63d788448e7fa27035c7d547e8ff6856a12582af26e89fb"
+  ],
+  "hypotheses": [],
+  "reproductions": [],
+  "reproduced_count": 0,
+  "negative_controls_pass": true,
+  "positive_control": "PIPELINE_CONTROL",
+  "positive_control_pass": true,
+  "determinism": "DETERMINISTIC",
+  "raw_responses_retained": 9,
+  "baseline_opened_during_discovery": false
+}

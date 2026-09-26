@@ -1,0 +1,121 @@
+{
+  "phase": "PRE_EXECUTION_FREEZE",
+  "design_commit": "d36ebd5d53a5994ae31a87ac05eb37e0fd72a87a",
+  "model_executed": false,
+  "execution_authorized": false,
+  "f4_started": false,
+  "statements": [
+    "LLAMA 4 SCOUT ACQUIRED AND FROZEN",
+    "LLAMA 4 SCOUT NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ],
+  "checkpoint": {
+    "repository": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "revision": "92f3b1597a195b523d8d9e5700e57e4fbb8f20d3",
+    "gated": "manual",
+    "last_modified_upstream": "2025-05-22T23:44:50.000Z",
+    "download_timestamp_utc": "2026-09-26T06:17:58Z",
+    "file_count": 64,
+    "declared_bytes": 217315712145,
+    "weight_bytes_stored_locally": 0,
+    "precision": "BF16",
+    "dtype": "bfloat16",
+    "quantization": "NONE",
+    "modality_freeze": "TEXT_ONLY_NOT_EXECUTED",
+    "manifest_sha256": "8f17512f6ad5764b6a45ab5f7eac06c7507e523bbeafa81ecb935d7f64a2e285",
+    "checkpoint_commitment_sha256": "08be530165840f946a01f5981f4818542a090a7b889c050ab0ff85cd6c13b721",
+    "commitment_covers_weight_bytes": false,
+    "manifest_path": "freeze/checkpoint_manifest.json"
+  },
+  "locally_hashed_files": {
+    "LICENSE": "f95172ae8c823aebb14f73810fc71ce026e27555a17134d4720233caf8c2b2f0",
+    "README.md": "19659e477d9e582b5cdd9a2bac1658d5e5e7a2722b2efdd4248c06398c87882f",
+    "chat_template.jinja.api_snapshot": "fb76136a36a8422930f25fbe3326e9ae0d67e82259c7917b1b71d18ae6934cef"
+  },
+  "tokenizer_content_sha256": null,
+  "tokenizer_status": "GATED_LFS_OID_REDACTED",
+  "license": {
+    "name": "Llama 4 Community License Agreement",
+    "version_effective_date": "2025-04-05",
+    "file_sha256": "f95172ae8c823aebb14f73810fc71ce026e27555a17134d4720233caf8c2b2f0",
+    "acceptable_use_policy_bundled_file_downloaded": false,
+    "mau_threshold": 700000000
+  },
+  "runtime": {
+    "primary_backend": "transformers",
+    "backend_installed": false,
+    "backend_executed": false,
+    "python": "3.10.21",
+    "os": "Linux-6.12.8+-x86_64-with-glibc2.36",
+    "cuda": null,
+    "gpu": null,
+    "torch": null,
+    "hash_sha256": "0ecef2eac17c8ac047a69efd4481226f2e252d4c4ff5140c02e94e0bac038dcf"
+  },
+  "generation_configuration": {
+    "do_sample": false,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "top_k": null,
+    "max_new_tokens": 256,
+    "repetition_penalty": 1.0,
+    "stop": ["<|eot|>"],
+    "seed_policy": "sampling disabled"
+  },
+  "chat_template_api_sha256": "fb76136a36a8422930f25fbe3326e9ae0d67e82259c7917b1b71d18ae6934cef",
+  "policy_sha256": "b7ee3701d9232bfc3a6ae39ff1262bf52e525dd0b88a7a46b49e1907aa1e8a64",
+  "private_context_generator": {
+    "version": "f3-lm-private-1",
+    "schema_sha256": "5d63ff173fc2a0bdf052de509e4b8033b91fba152cf79b1144d056352532f8fe",
+    "wordlist_sha256": "a1009d21a7bedb1a42b504824611a38774d229ee6401014d8f5f0246ccc16ed8"
+  },
+  "task_generator": {
+    "version": "f3-lm-tasks-1",
+    "schema_sha256": "5a2303f506a0acbd64d0813775146d08621c2d60d5f68107ef9eaad1791bc24b",
+    "weights": {
+      "summarization": 14,
+      "transformation": 14,
+      "extraction": 12,
+      "reasoning": 12,
+      "classification": 10,
+      "instruction_following": 14,
+      "multi_turn": 10,
+      "context_retention": 8,
+      "conflicting_instructions": 6
+    }
+  },
+  "mutation_grammar": {
+    "sha256": "c6516a94984a529c6ed11eb44b1d6c4cf6955674a01b70b4f008e2abab10982d",
+    "operators": [
+      "ROLE_PERMUTE",
+      "BOUNDARY_SHIFT",
+      "IRRELEVANT_INSERT",
+      "COMPOSE",
+      "REPEAT",
+      "PARAPHRASE_PUBLIC",
+      "SERIALIZE",
+      "FORMAT",
+      "STATE_TRANSITION",
+      "MULTILINGUAL_RESTATE_PUBLIC"
+    ],
+    "max_depth": 3,
+    "max_mutations": 4,
+    "operative_program_length": 3
+  },
+  "public_record_baseline_sha256": "7ba12804b29cea2c3949368d9117c9aa7ff5d12be340263cd7972633d15583f4",
+  "public_record_baseline_path": "evaluator_only/public_record_baseline.json",
+  "execution_firewall": {
+    "F3_LM_EXECUTION_AUTHORIZED": false,
+    "fail_closed": true,
+    "backend_linked": false,
+    "status": "REFUSING"
+  },
+  "tests": {
+    "command": "pytest -q",
+    "passed": 14,
+    "failed": 0
+  },
+  "adversarial_audit": "all attempted breaks failed closed or were detected",
+  "strongest_remaining_limitation": "Weight shards and tokenizer bytes were not locally hashed. The checkpoint commitment is a public metadata commitment, not a content hash of the safetensor shards. Execution cannot be authorized until those bytes are hashed on a host that can store the gated artifact."
+}

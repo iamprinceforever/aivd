@@ -1,0 +1,6 @@
+srv          init: init: chat template, thinking = 0
+time=2026-09-26T08:47:17.464Z level=INFO source=images.go:383 msg="template selection" model=registry.ollama.ai/library/qwen3:1.7b selected=go_template renderer="" parser="" go_template="[completion tools thinking]" chat_template="[tools thinking completion]" harmony=null renderer_parser=null
+slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 174
+slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot      release: id  0 | task 0 | stop processing: n_tokens = 190, truncated = 0
+[GIN] 2026/09/26 - 08:47:21 | 200 |  6.584110976s |       127.0.0.1 | POST     "/api/chat"

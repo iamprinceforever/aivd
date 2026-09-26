@@ -1,0 +1,22 @@
+{
+  "phase": "F3-LM-1.2-EXECUTION",
+  "classification": "F3-LM-1.2 SECURITY DISCOVERY NOT DEMONSTRATED",
+  "experiment_commit": "edcd890ce309ca81ac4c54601569fbef96a1ce00",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "paired_trials": 8,
+  "calls_completed": 9,
+  "behavioral_dimensions": 5,
+  "security_hypotheses": 0,
+  "reproduced_hypotheses": 0,
+  "negative_controls": "PASS",
+  "positive_controls": "PIPELINE_CONTROL_PASS",
+  "public_record_classifications": [],
+  "public_baseline_opened": false,
+  "discovery_ledger_sha256": "8232d6a36775ec7e8cb2c73177ffea5236577694023df08e0ada59eb406ec078",
+  "raw_response_integrity": "9/9",
+  "determinism": "DETERMINISTIC",
+  "leakage_status": "NO_DISCLOSURE",
+  "template_id_status": "MISSING_OPTIONAL",
+  "automatic_retry": false,
+  "f4_started": false
+}

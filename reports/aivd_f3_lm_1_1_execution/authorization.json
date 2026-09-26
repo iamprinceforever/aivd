@@ -1,0 +1,15 @@
+{
+  "experiment_commit": "17c3dc400f553ea751110c783d05c52c582ed43b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "runtime_manifest_hash": "692c71f71f721a410d74928e681db92939566c6a22055944a56533c7bc3a6b82",
+  "executable_sha256": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "interface_contract_sha256": "ff87dbadee3b332d6a9ace66f08bee58c61698f0f51245783f5b3b53927d8e2c",
+  "public_baseline_sha256": "8b7e2a597262ac4069e37e6a5de91c70ac2643bee972477155b052c99802c3e6",
+  "policy_sha256": "b7ee3701d9232bfc3a6ae39ff1262bf52e525dd0b88a7a46b49e1907aa1e8a64",
+  "timestamp": "2026-09-26T08:30:02.466712+00:00",
+  "authorized": true,
+  "tools": false,
+  "network": false,
+  "think": false,
+  "authorization_sha256": "d22f824f3e3d10562f55f0049da67be53199c690529a13f27e2c46fac6a9f818"
+}

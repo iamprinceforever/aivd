@@ -1,0 +1,70 @@
+{
+  "role": "evaluator_side_public_record_baseline",
+  "target": "ollama qwen3:8b Q4_K_M",
+  "not_llama_4_scout": true,
+  "discovery_engine_access": false,
+  "retrieval_date_utc": "2026-09-26",
+  "claim_boundary": "No matching prior public disclosure of an F3-LM private-context non-interference violation on this exact Ollama artifact was identified. This does not prove that nobody knows a related issue. Class-level Qwen3 research is recorded as related, not as a target.",
+  "experiment_result_used": false,
+  "queries": [
+    "Qwen3 8B CVE OR vulnerability OR jailbreak OR prompt injection",
+    "qwen3:8b Ollama security advisory",
+    "Qwen3-8B NVD OR GitHub advisory"
+  ],
+  "records": [
+    {
+      "url": "https://registry.ollama.ai/v2/library/qwen3/manifests/8b",
+      "title": "Ollama library manifest for qwen3:8b",
+      "publication_date": null,
+      "retrieved": "2026-09-26",
+      "query": "exact artifact identity",
+      "relevance": "ARTIFACT_IDENTITY",
+      "note": "Manifest digest matches the published digest. Not a vulnerability disclosure."
+    },
+    {
+      "url": "https://arxiv.org/html/2604.03870",
+      "title": "Indirect injection vulnerabilities in agentic LLMs, includes Qwen3-8B",
+      "publication_date": "2026-04-03",
+      "retrieved": "2026-09-26",
+      "query": "Qwen3 8B prompt injection",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Reports hijack rates for Qwen3-8B in an agent setting. Not the frozen private-context relation and not copied into the grammar."
+    },
+    {
+      "url": "https://www.promptfoo.dev/lm-security-db/vuln/llm-ranker-jailbreak-87f99b10/",
+      "title": "LLM ranker jailbreak database entry naming Qwen 3 8B",
+      "publication_date": "2026-02-01",
+      "retrieved": "2026-09-26",
+      "query": "Qwen3 8B jailbreak",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Ranker prompt-injection research. Attack text was not copied."
+    },
+    {
+      "url": "https://www.promptfoo.dev/lm-security-db/vuln/chinese-pattern-safety-evasion-680120ac/",
+      "title": "Chinese-pattern safety evasion entry naming Qwen3-8B",
+      "publication_date": "2026-01-01",
+      "retrieved": "2026-09-26",
+      "query": "Qwen3-8B safety evasion",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Class-level safety-evasion report. Not used as a discovery seed."
+    },
+    {
+      "url": "https://arxiv.org/html/2601.03868",
+      "title": "What Matters For Safety Alignment, includes Qwen3-8B",
+      "publication_date": "2026-01-07",
+      "retrieved": "2026-09-26",
+      "query": "Qwen3-8B jailbreak",
+      "relevance": "PUBLICLY_RELATED_CLASS_LEVEL",
+      "note": "Published safety-alignment measurements. Not an F3-LM instance."
+    },
+    {
+      "url": "https://www.penligent.ai/hackinglabs/qwen3-8-jailbreak/",
+      "title": "Commentary distinguishing Qwen3.8 from Qwen3-8B",
+      "publication_date": "2026-07-20",
+      "retrieved": "2026-09-26",
+      "query": "Qwen3 8 jailbreak",
+      "relevance": "NOT_THIS_ARTIFACT",
+      "note": "Discusses a different Qwen3.8 preview, not Ollama qwen3:8b."
+    }
+  ]
+}

@@ -7,6 +7,15 @@ Primary targets are **local mock benchmarks** with hidden vulnerabilities (used 
 > **Safety:** no destructive infrastructure actions, malware, network scanning, or traditional cyber exploits.  
 > **Language:** *previously unseen behavior* · *candidate novel vulnerability* · *confirmed novel finding* · *unresolved anomaly* — never claim a “zero-day” from unusualness alone.
 
+## Version notes
+
+Changes, tests, and findings for each version are in [`docs/versions/README.md`](docs/versions/README.md).
+
+- v2.0 through the platform v4.2 notes quote reports already on `research/aivd-4.0-autonomous-behavioral-discovery`. They are not new runs.
+- This branch adds the Qwen **F3-LM** track and the **F4 design** (not executed). See [`docs/versions/v4.0-f3-lm-qwen3.md`](docs/versions/v4.0-f3-lm-qwen3.md) and [`docs/versions/v4.0-f4-design.md`](docs/versions/v4.0-f4-design.md).
+- `main` is not updated. The sealed F4 plaintext file is not in this branch.
+
+
 ---
 
 ---

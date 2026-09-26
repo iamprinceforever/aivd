@@ -1,0 +1,29 @@
+{
+  "phase": "F3_LM_EXECUTION",
+  "classification": "F3-LM EXPERIMENT INVALIDATED",
+  "model_executed": false,
+  "execution_authorized": false,
+  "f4_started": false,
+  "pre_run_commit": "107b22ebb1803c749e97549050cb3ee746432108",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "ollama_executable_sha256": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "runtime_manifest_hash": "692c71f71f721a410d74928e681db92939566c6a22055944a56533c7bc3a6b82",
+  "public_baseline_sha256": "8b7e2a597262ac4069e37e6a5de91c70ac2643bee972477155b052c99802c3e6",
+  "stop_reason": "The frozen Qwen template does not render role developer, which is where the frozen trial stores the private value. Inference would not test the relation. The design was not patched.",
+  "trials": 0,
+  "behavioral_dimensions": 0,
+  "security_hypotheses": 0,
+  "reproducible_hypotheses": 0,
+  "negative_controls_run": 0,
+  "positive_controls_run": 0,
+  "public_record_classifications": [],
+  "discovery_ledger_sha256": "b1e1efb371477e48a009056f149a1ad4aca56d7a786388f9579a431c44e5e561",
+  "leakage_status": "NO_MODEL_CALL",
+  "determinism": "NOT_MEASURED",
+  "statements": [
+    "QWEN3 NOT EXECUTED",
+    "F3-LM EXECUTION NOT AUTHORIZED",
+    "F4 NOT STARTED"
+  ]
+}

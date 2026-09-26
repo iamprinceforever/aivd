@@ -1,0 +1,14 @@
+{
+  "status": "STOPPED_MODEL_LOAD_KILLED",
+  "model_output_produced": false,
+  "calls_attempted": 1,
+  "calls_completed": 0,
+  "error": "llama-server process has terminated: signal: killed during tensor load",
+  "host_memory_total_kib": 4024496,
+  "declared_cpu_buffers_mib": [
+    1818.62,
+    3159.0
+  ],
+  "hypotheses": [],
+  "public_record_comparison": "NOT_PERFORMED"
+}

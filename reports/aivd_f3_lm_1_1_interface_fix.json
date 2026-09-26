@@ -1,0 +1,27 @@
+{
+  "phase": "F3-LM-1.1-INTERFACE-FREEZE",
+  "status": "DESIGNED_BUT_NOT_EXECUTED",
+  "previous_run": {
+    "commit": "19615fe712869bac2c9f24ce37f4d77543be675a",
+    "classification": "F3-LM EXPERIMENT INVALIDATED",
+    "modified": false
+  },
+  "root_cause": "developer role was not emitted by the frozen template, so the private partition would have been dropped",
+  "old_role_mapping": {"private": "developer", "public": "user", "policy": "system"},
+  "new_role_mapping": {"private": "system", "policy": "system", "public": "user", "response": "assistant"},
+  "contract_sha256": "ff87dbadee3b332d6a9ace66f08bee58c61698f0f51245783f5b3b53927d8e2c",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "preflight": "PASS_STATIC_RENDER",
+  "stub_executor": "PASS_NO_MODEL_CALL",
+  "execution_firewall": "CLOSED",
+  "execution_authorized": false,
+  "model_executed": false,
+  "f4_started": false,
+  "statements": [
+    "ORIGINAL F3-LM RUN REMAINS INVALIDATED",
+    "QWEN3 NOT EXECUTED",
+    "F3-LM-1.1 NOT EXECUTED",
+    "F4 NOT STARTED"
+  ]
+}

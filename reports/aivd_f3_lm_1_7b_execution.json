@@ -1,0 +1,23 @@
+{
+  "phase": "F3-LM-QWEN3-1.7B-EXECUTION",
+  "classification": "F3-LM QWEN3 1.7B EXPERIMENT INVALIDATED",
+  "freeze_commit": "49a98cce4eb01e75555086edd6753b260d8b2356",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "calls_completed": 1,
+  "retained_outputs": 0,
+  "stop_reason": "recorder crashed on a missing template_id field after the first HTTP 200 and before the response was stored",
+  "rerun_after_defect": false,
+  "parameters_changed": false,
+  "trials_scored": 0,
+  "behavioral_dimensions": 0,
+  "security_hypotheses": 0,
+  "reproduced_hypotheses": 0,
+  "negative_controls": "NOT_RUN",
+  "positive_controls": "NOT_RUN",
+  "public_record_classifications": [],
+  "public_baseline_opened": false,
+  "discovery_ledger_sha256": null,
+  "leakage_status": "NOT_CLASSIFIED",
+  "determinism": "NOT_MEASURED",
+  "f4_started": false
+}

@@ -1,0 +1,33 @@
+{
+  "phase": "F3-LM-1.4-COVERAGE-DESIGN",
+  "execution_authorized": false,
+  "qwen3_executed": false,
+  "source_result": "5e8c5d88e3473ed42897c39642a3345fc843e3ef",
+  "forensic_audit": "0a909dfc436f620e19a9fb2e044c2f295ef2561a",
+  "missing_categories": [
+    "transformation",
+    "extraction",
+    "classification",
+    "multi_turn",
+    "context_retention"
+  ],
+  "undrawn_operators": [
+    "BOUNDARY_SHIFT",
+    "IRRELEVANT_INSERT",
+    "PARAPHRASE_PUBLIC",
+    "SERIALIZE",
+    "MULTILINGUAL_RESTATE_PUBLIC"
+  ],
+  "noop_repairs": {
+    "FORMAT": "param 1 list",
+    "REPEAT": "param 1 repeat twice",
+    "ROLE_PERMUTE": "baseline has two public user messages"
+  },
+  "pairs": 13,
+  "planned_calls": 27,
+  "matrix_sha256": "9fcedaff8d2181471b0031edc17baf4532ef67a172d8a13ad14094ed3d8d372a",
+  "strongest_adversarial_concern": "post-hoc task substitution",
+  "next_execution_scope": "the 13 registered pairs and one determinism repeat, only after a separate authorization",
+  "hypotheses_selected": false,
+  "f4_started": false
+}

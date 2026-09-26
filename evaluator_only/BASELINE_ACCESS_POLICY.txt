@@ -1,0 +1,3 @@
+EVALUATOR ONLY.
+The F3-LM discovery package must not import, mount, or read this directory.
+This baseline is not an input to task generation, mutation, or scoring.

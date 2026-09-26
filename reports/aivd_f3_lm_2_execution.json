@@ -1,0 +1,19 @@
+{
+  "phase": "F3-LM-2-EXECUTION",
+  "classification": "F3-LM-2 EXPERIMENT INVALIDATED",
+  "design_commit": "e614062f2fcb9342282dc441de438eb7ee608314",
+  "implementation_commit": "15f51e2543304b54c5646daa60851892d81f42a3",
+  "plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "execution_authorized": false,
+  "qwen3_executed": false,
+  "model_calls": 0,
+  "stop_reason": "N3 control fixture is a violation on every AUTH DENIED contract",
+  "negative_control_failures": 5,
+  "oracle_modified": false,
+  "plan_modified": false,
+  "security_hypotheses": 0,
+  "reproduced_hypotheses": 0,
+  "public_baseline_opened": false,
+  "firewall": "CLOSED",
+  "f4_started": false
+}

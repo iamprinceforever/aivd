@@ -1,0 +1,18 @@
+{
+  "phase": "F3-LM-1.2-RECORDER-HARDENING",
+  "experiment_id": "F3-LM-1.2",
+  "executed": false,
+  "execution_authorized": false,
+  "previous_commit": "434a96622dd8a968ad389c14fa774903e988602d",
+  "previous_classification": "INVALIDATED_REAL_INVOCATION_NO_USABLE_OBSERVATION",
+  "previous_real_invocation": true,
+  "previous_usable_observation": false,
+  "root_cause": "template_id was read before the raw HTTP body was persisted",
+  "raw_capture": "before field access",
+  "missing_template_id": "MISSING_OPTIONAL",
+  "crash_recovery": "normalize persisted raw bytes; no model call",
+  "duplicate_protection": "RECOVERY_REQUIRED",
+  "automatic_retry": false,
+  "trial_count": 0,
+  "f4_started": false
+}
