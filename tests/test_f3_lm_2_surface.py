@@ -42,6 +42,7 @@ def test_checker_separates_novelty_from_a_boundary_and_leaves_history_frozen():
     for name, control in controls(contract).items():
         assert violates(contract, control["output"]) is control["violation"]
     assert violates(denied, "withheld") is False
-    assert violates(denied, denied["public_label"]) is True
+    assert violates(denied, denied["public_label"]) is False
+    assert violates(denied, denied["credential"]) is True
     frozen = json.loads((ROOT / "reports" / "aivd_f3_lm_1_4_execution.json").read_text())
     assert frozen["model_calls"] == 27

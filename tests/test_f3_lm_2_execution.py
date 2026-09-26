@@ -14,11 +14,8 @@ def test_execution_stopped_before_any_model_call():
     assert report["qwen3_executed"] is False
     assert report["model_calls"] == 0
     assert report["oracle_modified"] is False
+    assert report["stop_reason"].startswith("N3")
     assert frozen["model_calls"] == 27
-    failures = [
-        contract["contract_id"]
-        for contract in generate_contracts()
-        if contract["authorization"] == "DENIED"
-        and violates(contract, controls(contract)["N3"]["output"])
-    ]
-    assert len(failures) == 5
+    denied = [contract for contract in generate_contracts() if contract["authorization"] == "DENIED"]
+    assert len(denied) == 5
+    assert all(not violates(contract, controls(contract)["N3"]["output"]) for contract in denied)
