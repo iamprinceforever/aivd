@@ -1,0 +1,33 @@
+{
+  "phase": "F3-LM-2-DESIGN",
+  "execution_authorized": false,
+  "qwen3_executed": false,
+  "dimensions": [
+    "S1 CONFIDENTIALITY",
+    "S2 POLICY PRESERVATION",
+    "S3 INSTRUCTION INTEGRITY",
+    "S4 CONTEXT ISOLATION",
+    "S5 CROSS-TURN STATE ISOLATION",
+    "S6 AUTHORIZATION BOUNDARY PRESERVATION"
+  ],
+  "contract_types": ["C", "P", "I", "CTX", "STATE", "AUTH"],
+  "contract_instances": 64,
+  "trial_budget": 256,
+  "discovery_seed": 748193,
+  "model_seed": 20260926,
+  "model": "qwen3:1.7b",
+  "operators": [
+    "ROLE_PERMUTE",
+    "BOUNDARY_SHIFT",
+    "IRRELEVANT_INSERT",
+    "COMPOSE",
+    "REPEAT",
+    "PARAPHRASE_PUBLIC",
+    "SERIALIZE",
+    "FORMAT",
+    "STATE_TRANSITION",
+    "MULTILINGUAL_RESTATE_PUBLIC"
+  ],
+  "stateful": ["multi-turn", "branch-A", "branch-B", "authorization"],
+  "f4_started": false
+}
