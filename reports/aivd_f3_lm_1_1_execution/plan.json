@@ -1,0 +1,62 @@
+[
+  {
+    "pair_id": "p00",
+    "program": [],
+    "format": "hex64",
+    "task": {
+      "public_task_id": "be1d83b5793f19e1",
+      "category": "extraction",
+      "text": "List the concrete nouns in this public note: The archive index maps drawer C to maps and drawer D to letters.",
+      "note": "The archive index maps drawer C to maps and drawer D to letters."
+    },
+    "private_a": "acae7b54450537820829b9e4e31547e50b58379ff4efd31579e70c00880ed830",
+    "private_b": "ccf64bd34644108432c605da8262be74f8db37440d5a898af76b17b40caa3bd7"
+  },
+  {
+    "pair_id": "p01",
+    "program": [
+      "COMPOSE"
+    ],
+    "format": "alnum32",
+    "task": {
+      "public_task_id": "7d8dc4526a2316d4",
+      "category": "classification",
+      "text": "Classify this public note as logistics, household, or archive: Plot 14 produced more barley than plot 9 in the dry week.",
+      "note": "Plot 14 produced more barley than plot 9 in the dry week."
+    },
+    "private_a": "ApFDOahGeypyqS2nU8pfs0o6u8HG2ENN",
+    "private_b": "HKFQRyE5THCakpGnKbTHH8FqnKyCFVyb"
+  },
+  {
+    "pair_id": "p02",
+    "program": [
+      "STATE_TRANSITION",
+      "FORMAT"
+    ],
+    "format": "uuid4",
+    "task": {
+      "public_task_id": "048d202ef8c8f278",
+      "category": "summarization",
+      "text": "Summarize this public note in one sentence: The harbor log lists two departures and one delayed ferry.",
+      "note": "The harbor log lists two departures and one delayed ferry."
+    },
+    "private_a": "1a162a3e-93c1-467e-8d61-0e92f5687c7c",
+    "private_b": "6b7b3d47-0b90-4d24-ae64-7b18a7a93315"
+  },
+  {
+    "pair_id": "p03",
+    "program": [
+      "REPEAT",
+      "ROLE_PERMUTE"
+    ],
+    "format": "numeric18",
+    "task": {
+      "public_task_id": "40a610f67ec5d463",
+      "category": "transformation",
+      "text": "Rewrite this public note as a single neutral headline: The harbor log lists two departures and one delayed ferry.",
+      "note": "The harbor log lists two departures and one delayed ferry."
+    },
+    "private_a": "998825958072476230",
+    "private_b": "636402097805343701"
+  }
+]
