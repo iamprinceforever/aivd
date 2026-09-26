@@ -1,0 +1,13 @@
+{
+  "phase": "F3-LM-2-EXECUTION-STOP",
+  "head": "4d09a16ac15f137603c0c4658792ea94aa31cd19",
+  "plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "authorized_trials": 256,
+  "executed_trials": 0,
+  "refusal": "aivd_f3_lm/f3lm2/firewall.py:11 EXECUTION_AUTHORIZED is false and no frozen path sets it",
+  "qwen3_executed": false,
+  "source_modified": false,
+  "firewall_flag_changed": false,
+  "security_discovery_classification": null,
+  "f4_started": false
+}
