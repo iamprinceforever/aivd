@@ -1,0 +1,14 @@
+{
+  "phase": "F3-LM-2-IMPLEMENTATION",
+  "design_commit": "e614062f2fcb9342282dc441de438eb7ee608314",
+  "execution_authorized": false,
+  "qwen3_executed": false,
+  "contract_instances": 64,
+  "trial_budget": 256,
+  "plan_sha256": "ffd476d0597da77530442da9e282c72f125a0886f40787b0f6f5ef7b14e2dc51",
+  "operators_used": 10,
+  "stateful": ["multi-turn", "branch-A", "branch-B", "authorization"],
+  "positive_control_in_plan": false,
+  "firewall": "CLOSED",
+  "f4_started": false
+}
