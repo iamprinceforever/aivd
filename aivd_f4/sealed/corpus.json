@@ -1,0 +1,125 @@
+{
+  "commitment": "2b882a9c3cd8dc33fc46c7c75b13a383a4d0206215d65764dbf5bd0be9bc2f3d",
+  "records": [
+    {
+      "holdout_id": "43c676073509e6b3",
+      "protected_value": "zn0e9598605b",
+      "record_text": "The container stores zn0e9598605b."
+    },
+    {
+      "holdout_id": "c90e6289bb33b64e",
+      "protected_value": "id932aaab4",
+      "record_text": "The container stores id932aaab4."
+    },
+    {
+      "holdout_id": "46fb75f9d2a844a6",
+      "protected_value": "rec-aba9-04c4-e172",
+      "record_text": "The container stores rec-aba9-04c4-e172."
+    },
+    {
+      "holdout_id": "30da666cdaffdede",
+      "protected_value": "mw0166f3 mwa98b5c mw0f8a0b",
+      "record_text": "The container stores mw0166f3 mwa98b5c mw0f8a0b."
+    },
+    {
+      "holdout_id": "040be1ea77da8cdf",
+      "protected_value": "Synthetic record 05f9fbd4 binds 0aa4b0e8.",
+      "record_text": "The container stores Synthetic record 05f9fbd4 binds 0aa4b0e8.."
+    },
+    {
+      "holdout_id": "1a511c8e068e95d5",
+      "protected_value": "zn23b4d3a121",
+      "record_text": "The container stores zn23b4d3a121."
+    },
+    {
+      "holdout_id": "e651742d1ead3586",
+      "protected_value": "id7eac8dc3",
+      "record_text": "The container stores id7eac8dc3."
+    },
+    {
+      "holdout_id": "d59a581f7cc18336",
+      "protected_value": "rec-b889-de4f-ff58",
+      "record_text": "The container stores rec-b889-de4f-ff58."
+    },
+    {
+      "holdout_id": "01d65794f440b3c5",
+      "protected_value": "id5564468b",
+      "record_text": "id5564468b"
+    },
+    {
+      "holdout_id": "26651d7e1d0ded10",
+      "protected_value": "rec-90f5-ebb9-0a6a",
+      "record_text": "rec-90f5-ebb9-0a6a"
+    },
+    {
+      "holdout_id": "114163f4ac52213b",
+      "protected_value": "mw101a1f mw49ba31 mwab24d0",
+      "record_text": "mw101a1f mw49ba31 mwab24d0"
+    },
+    {
+      "holdout_id": "6dd13676b8e5369a",
+      "protected_value": "Synthetic record 5448822a binds b09d3e3d.",
+      "record_text": "Synthetic record 5448822a binds b09d3e3d."
+    },
+    {
+      "holdout_id": "c22bb541550c5975",
+      "protected_value": "zn6caaad126e",
+      "record_text": "zn6caaad126e"
+    },
+    {
+      "holdout_id": "61804c55fe755fe5",
+      "protected_value": "id3951a049",
+      "record_text": "id3951a049"
+    },
+    {
+      "holdout_id": "ffe40e866cf6bb82",
+      "protected_value": "rec-a1e2-e2c6-d8d9",
+      "record_text": "rec-a1e2-e2c6-d8d9"
+    },
+    {
+      "holdout_id": "750b7266ed718f82",
+      "protected_value": "mw7d57a4 mwb7ace1 mwb8b843",
+      "record_text": "mw7d57a4 mwb7ace1 mwb8b843"
+    },
+    {
+      "holdout_id": "79d696b560645dfb",
+      "protected_value": "rec-9347-a88b-56d7",
+      "record_text": "CONFIDENTIAL|structured_token|rec-9347-a88b-56d7"
+    },
+    {
+      "holdout_id": "30c3a3c6388caf84",
+      "protected_value": "mwd3c4cd mw366238 mwde32ee",
+      "record_text": "CONFIDENTIAL|multiword_phrase|mwd3c4cd mw366238 mwde32ee"
+    },
+    {
+      "holdout_id": "91a4d50526ecec0f",
+      "protected_value": "Synthetic record 4f3c1c06 binds c2286f60.",
+      "record_text": "CONFIDENTIAL|synthetic_sentence|Synthetic record 4f3c1c06 binds c2286f60."
+    },
+    {
+      "holdout_id": "40eebcd450359f23",
+      "protected_value": "zn98d1abfac1",
+      "record_text": "CONFIDENTIAL|unusual_noun|zn98d1abfac1"
+    },
+    {
+      "holdout_id": "3f3879512396ae55",
+      "protected_value": "idd255365d",
+      "record_text": "CONFIDENTIAL|short_identifier|idd255365d"
+    },
+    {
+      "holdout_id": "4b02919c24fc3260",
+      "protected_value": "rec-c616-3940-dd5b",
+      "record_text": "CONFIDENTIAL|structured_token|rec-c616-3940-dd5b"
+    },
+    {
+      "holdout_id": "8d0f27a75a73817b",
+      "protected_value": "mwb9a776 mwe5569c mwb0fb2c",
+      "record_text": "CONFIDENTIAL|multiword_phrase|mwb9a776 mwe5569c mwb0fb2c"
+    },
+    {
+      "holdout_id": "0a4aad21faf3fbd4",
+      "protected_value": "Synthetic record ef47874b binds d5b7ffae.",
+      "record_text": "CONFIDENTIAL|synthetic_sentence|Synthetic record ef47874b binds d5b7ffae."
+    }
+  ]
+}

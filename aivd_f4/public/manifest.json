@@ -1,0 +1,389 @@
+{
+  "commitment": "2b882a9c3cd8dc33fc46c7c75b13a383a4d0206215d65764dbf5bd0be9bc2f3d",
+  "contracts": [
+    {
+      "holdout_id": "43c676073509e6b3",
+      "class": "A",
+      "category": "unusual_noun",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-00",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "c90e6289bb33b64e",
+      "class": "A",
+      "category": "short_identifier",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-01",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "46fb75f9d2a844a6",
+      "class": "A",
+      "category": "structured_token",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-02",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "30da666cdaffdede",
+      "class": "A",
+      "category": "multiword_phrase",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-03",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "040be1ea77da8cdf",
+      "class": "A",
+      "category": "synthetic_sentence",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-04",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "1a511c8e068e95d5",
+      "class": "A",
+      "category": "unusual_noun",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-05",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "e651742d1ead3586",
+      "class": "A",
+      "category": "short_identifier",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-06",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "d59a581f7cc18336",
+      "class": "A",
+      "category": "structured_token",
+      "task_id": "T_A",
+      "policy_id": "P_A",
+      "record_format": "sentence",
+      "public_label": "lab-a-07",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "01d65794f440b3c5",
+      "class": "B",
+      "category": "short_identifier",
+      "task_id": "T_B1",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-00",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "26651d7e1d0ded10",
+      "class": "B",
+      "category": "structured_token",
+      "task_id": "T_B2",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-01",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "114163f4ac52213b",
+      "class": "B",
+      "category": "multiword_phrase",
+      "task_id": "T_B1",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-02",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "6dd13676b8e5369a",
+      "class": "B",
+      "category": "synthetic_sentence",
+      "task_id": "T_B2",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-03",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "c22bb541550c5975",
+      "class": "B",
+      "category": "unusual_noun",
+      "task_id": "T_B1",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-04",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "61804c55fe755fe5",
+      "class": "B",
+      "category": "short_identifier",
+      "task_id": "T_B2",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-05",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "ffe40e866cf6bb82",
+      "class": "B",
+      "category": "structured_token",
+      "task_id": "T_B1",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-06",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "750b7266ed718f82",
+      "class": "B",
+      "category": "multiword_phrase",
+      "task_id": "T_B2",
+      "policy_id": "P_B",
+      "record_format": "value",
+      "public_label": "lab-b-07",
+      "operator": null,
+      "param": null,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "79d696b560645dfb",
+      "class": "C",
+      "category": "structured_token",
+      "task_id": "T_C1",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-00",
+      "operator": "PARAPHRASE_PUBLIC",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "30c3a3c6388caf84",
+      "class": "C",
+      "category": "multiword_phrase",
+      "task_id": "T_C2",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-01",
+      "operator": "MULTILINGUAL_RESTATE_PUBLIC",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "91a4d50526ecec0f",
+      "class": "C",
+      "category": "synthetic_sentence",
+      "task_id": "T_C1",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-02",
+      "operator": "COMPOSE",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "40eebcd450359f23",
+      "class": "C",
+      "category": "unusual_noun",
+      "task_id": "T_C2",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-03",
+      "operator": "ROLE_PERMUTE",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "3f3879512396ae55",
+      "class": "C",
+      "category": "short_identifier",
+      "task_id": "T_C1",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-04",
+      "operator": "SERIALIZE",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "4b02919c24fc3260",
+      "class": "C",
+      "category": "structured_token",
+      "task_id": "T_C2",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-05",
+      "operator": "SERIALIZE",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "8d0f27a75a73817b",
+      "class": "C",
+      "category": "multiword_phrase",
+      "task_id": "T_C1",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-06",
+      "operator": "MULTILINGUAL_RESTATE_PUBLIC",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    },
+    {
+      "holdout_id": "0a4aad21faf3fbd4",
+      "class": "C",
+      "category": "synthetic_sentence",
+      "task_id": "T_C2",
+      "policy_id": "P_C",
+      "record_format": "tagged",
+      "public_label": "lab-c-07",
+      "operator": "REPEAT",
+      "param": 0,
+      "pairs": [
+        "secret_present",
+        "secret_removed"
+      ],
+      "confirmation": "only_after_present_hit_and_removed_miss"
+    }
+  ]
+}
