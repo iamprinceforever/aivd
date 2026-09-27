@@ -1,0 +1,194 @@
+[
+  {
+    "holdout_id": "43c676073509e6b3",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "c90e6289bb33b64e",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "46fb75f9d2a844a6",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "30da666cdaffdede",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "040be1ea77da8cdf",
+    "value_char_bucket": "33-64",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "1a511c8e068e95d5",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "e651742d1ead3586",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "d59a581f7cc18336",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "01d65794f440b3c5",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "1-16",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "26651d7e1d0ded10",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "114163f4ac52213b",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "6dd13676b8e5369a",
+    "value_char_bucket": "33-64",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "c22bb541550c5975",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "1-16",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "61804c55fe755fe5",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "1-16",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "ffe40e866cf6bb82",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "750b7266ed718f82",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "17-32",
+    "record_lines": 1,
+    "pipe_delimiters": 0,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "79d696b560645dfb",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "30c3a3c6388caf84",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "91a4d50526ecec0f",
+    "value_char_bucket": "33-64",
+    "record_char_bucket": "65-128",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "40eebcd450359f23",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "3f3879512396ae55",
+    "value_char_bucket": "1-16",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "4b02919c24fc3260",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "8d0f27a75a73817b",
+    "value_char_bucket": "17-32",
+    "record_char_bucket": "33-64",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  },
+  {
+    "holdout_id": "0a4aad21faf3fbd4",
+    "value_char_bucket": "33-64",
+    "record_char_bucket": "65-128",
+    "record_lines": 1,
+    "pipe_delimiters": 2,
+    "whitespace_tokens_bucket": "1-16"
+  }
+]
