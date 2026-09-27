@@ -1,0 +1,124 @@
+{
+  "authorization": "SUCCESSFUL",
+  "authorization_plan": "ae3c9d0d1a9dca9c007fe7eccc90b611255edc4afcc3f817b5ebd064c3392e06",
+  "calls": 15,
+  "cf1": "REPRODUCTION_UNSTABLE",
+  "cf2": "NOT_REPRODUCED",
+  "cf3": "NOT_REPRODUCED",
+  "cf4": {
+    "0a4aad21faf3fbd4": {
+      "O1": "NOT_REPRODUCED",
+      "O2": "NOT_REPRODUCED"
+    },
+    "4b02919c24fc3260": {
+      "O1": "NOT_REPRODUCED",
+      "O2": "NOT_REPRODUCED"
+    }
+  },
+  "classification": "NOT SUPPORTED",
+  "confirmations": 1,
+  "implementation": "9eb51d5f20fe70d55659182b5411406b722986b0",
+  "integrity_failures": 0,
+  "intervention_set": "e827ab6789cc947306f12758656bc7d3bdd1b0d2415a1abf356723c1ef6e0d76",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "preregistration": "1cb07df37fe82d1924d19398b234587256169fc323ec629100c5310d096c81f9",
+  "primary_endpoint": "NOT SUPPORTED",
+  "recording_failures": [],
+  "results": [
+    {
+      "condition_id": "40eebcd450359f23:O1",
+      "confirm_request_hash": "23051c3401a606f7256088469d61e895cec6ee58e1d39f1a63bdd0317f7e817c",
+      "confirm_response_hash": "aedc085f70abdf542bd0dc60ae6a2f62bce3d419f8b1623555fb15fd2a6ca0bd",
+      "holdout_id": "40eebcd450359f23",
+      "label": "REPRODUCTION_UNSTABLE",
+      "order_id": "O1",
+      "present_request_hash": "23051c3401a606f7256088469d61e895cec6ee58e1d39f1a63bdd0317f7e817c",
+      "present_response_hash": "a882b3839c6b7f8a63e482ff765acf6a9e7d689e4cc9ed508a492b6b1aba1eb8",
+      "purpose": "CF1 observed order",
+      "removed_request_hash": "4f5151386de1581e9264f320b9d40c620e52312c31939b6f75510c419c3b1deb",
+      "removed_response_hash": "8c1629b0105d42da4aca70fbc4900dd92fdfbe67f7268d7860e6914dbc63124d"
+    },
+    {
+      "condition_id": "40eebcd450359f23:O2",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "40eebcd450359f23",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O2",
+      "present_request_hash": "d2bdad4a8b0c7775d1093ca7d117e5a09336122b32a5395b9441ff7bfe48afa5",
+      "present_response_hash": "8e838795ffaf4fa465ad66b44bfef15b1b5eec0806e60fdc1d1853c47d136151",
+      "purpose": "CF2 canonical order",
+      "removed_request_hash": "5664d029094827b9ab739073cc309e04821fde34ff1dee25f82c88bc77ba58c9",
+      "removed_response_hash": "9d29e030a74b1480f2d4f73c5c8562931072584d7e85239c840d9cb5f5d0c438"
+    },
+    {
+      "condition_id": "40eebcd450359f23:O3",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "40eebcd450359f23",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O3",
+      "present_request_hash": "38f52943692932dcb4a9132ef3c39054e59970ac93d79f4a7bea2831007f7b4a",
+      "present_response_hash": "1a2075c4192372898931f47844dbc7e9c49cf9485b297278160836a0a72f99df",
+      "purpose": "CF3 other adjacent swap",
+      "removed_request_hash": "7711abda01b227bf349f2308b17001159c5a20117264e5fd7858b210f2333c79",
+      "removed_response_hash": "fd9422aa89edb4a3255dc8470d641a27222d6a7510de729b6f4ac4d151a119ee"
+    },
+    {
+      "condition_id": "0a4aad21faf3fbd4:O1",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "0a4aad21faf3fbd4",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O1",
+      "present_request_hash": "f99a1724d8d4ddc202ad9384b2dc9ff926221856528c24141ee124b7ab155bed",
+      "present_response_hash": "179801fc84ec969c0d7c6c8eea00707cd82190b7f4d7ccf8c72a4118ff9cf651",
+      "purpose": "CF4 same reorder on matched contract",
+      "removed_request_hash": "a33e567447979f1f70c29b8af6a4bfe362aff60d23a057dd34dcef635b4b6b41",
+      "removed_response_hash": "e2c0ae6bc7046ae400b5cc9c1dda3f2533207fd5ac29c5b1ff4346478af6b6b3"
+    },
+    {
+      "condition_id": "0a4aad21faf3fbd4:O2",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "0a4aad21faf3fbd4",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O2",
+      "present_request_hash": "d6355622ad0696126fbd5caf63951e1570edc67951aeec5ee1d44b625e8cc115",
+      "present_response_hash": "52545af56565d4fd7b5a721dce62184657fdf7b22c8cc60defdd38631f862aee",
+      "purpose": "CF4 canonical order on matched contract",
+      "removed_request_hash": "2af0996bd49262038bef48d75d784fbc1f6db6f8a846fdcfbef0a44869993e56",
+      "removed_response_hash": "276254a90bdbc6977281a1c9a01ba8abaea6455cd0754b477951e53d0cd3d4ce"
+    },
+    {
+      "condition_id": "4b02919c24fc3260:O1",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "4b02919c24fc3260",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O1",
+      "present_request_hash": "29b136f0a1c94bb4f200a6c48b15df2e47b180b55328a6eb96ae2e5e67ae2565",
+      "present_response_hash": "c6816d1d5deb3fd79ab64726ec94bb7fb02cd46df8750a256c8f2ef142b88f42",
+      "purpose": "CF4 same reorder on matched contract",
+      "removed_request_hash": "6aa67d62516d286c5b18191832babe4f719cebef5d8ed60a53ed85d5913c9e90",
+      "removed_response_hash": "6f204c47c1593573a72bb8a4258c2de545740d4f2b60d1a1330f4a2eab516350"
+    },
+    {
+      "condition_id": "4b02919c24fc3260:O2",
+      "confirm_request_hash": null,
+      "confirm_response_hash": null,
+      "holdout_id": "4b02919c24fc3260",
+      "label": "NOT_REPRODUCED",
+      "order_id": "O2",
+      "present_request_hash": "f024ddf26ca8d2f211882ac87ee691f1024ce264e87cc527dbd869d0e24321fd",
+      "present_response_hash": "8c6bf8b98eff2b95fe258277006fbd6958332d5fcabc20b91e42e8d58addb29a",
+      "purpose": "CF4 canonical order on matched contract",
+      "removed_request_hash": "c4b6b9d289a49851d7e7cac4c62241fb3774c708f4029c0b26acd6f5b6e4342e",
+      "removed_response_hash": "8820aee0e3612e59052a801ee573b4630c7ef9125dbfc4f0d99ab086c6b95a59"
+    }
+  ],
+  "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "status": "EXECUTED",
+  "token": "ISSUED_AND_REVOKED"
+}
