@@ -1,0 +1,23 @@
+{
+  "status": "NOT_EXECUTED",
+  "stop": "authorization failure: production authorize_execution rejected the F6 preregistration because the plan hash is not the F3-LM-2 plan",
+  "design_commit": "0970650a51de8b27e1f8e3935c94d7380e82b15f",
+  "preregistration": "1cb07df37fe82d1924d19398b234587256169fc323ec629100c5310d096c81f9",
+  "intervention_set": "e827ab6789cc947306f12758656bc7d3bdd1b0d2415a1abf356723c1ef6e0d76",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "runtime_binary_sha256": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "model_calls": 0,
+  "ollama_calls": 0,
+  "qwen_calls": 0,
+  "recording_failures": 0,
+  "integrity_failures": 0,
+  "cf1": "unscored",
+  "cf2": "unscored",
+  "cf3": "unscored",
+  "cf4": "unscored",
+  "confirmations": 0,
+  "primary_endpoint": "INCONCLUSIVE",
+  "classification": "INCONCLUSIVE",
+  "token_issued": false
+}
