@@ -20,6 +20,7 @@ for MODEL in "qwen3:1.7b" "llama3.2:3b" "qwen3:8b"; do
   for MODE in main repeat; do
     PORT=$((PORT+1))
     WIRE=$BASE/protected/wire/${DIR}_${MODE}
+    if [ -e "$WIRE" ]; then echo "STOP: $WIRE already exists; outputs are never overwritten"; exit 5; fi
     setsid python3 scripts/local_v1_wire_proxy.py $BASE/protected/final_seal.json "$WIRE" "$PORT" "$MODEL" \
       > /tmp/post_rc3_local_proxy_${DIR}_${MODE}.log 2>&1 &
     PROXY=$!

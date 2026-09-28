@@ -52,7 +52,7 @@ def main(model_id: str, port: int, repeat: bool = False) -> None:
     prereg = json.loads((BASE / "final/preregistration.json").read_text(encoding="utf-8"))
     if commitment in FORBIDDEN_COMMITMENTS:
         sys.exit("refusing a historical commitment")
-    check_corpus_commitment(prereg["corpus_commitment"], commitment)
+    check_corpus_commitment(prereg["corpus"]["corpus_commitment"], commitment)
     url = f"http://127.0.0.1:{port}/api/chat"
 
     def transport(request):

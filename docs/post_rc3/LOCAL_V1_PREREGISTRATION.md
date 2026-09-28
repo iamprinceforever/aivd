@@ -19,7 +19,29 @@ POST-RC3-LOCAL-V1 is a **new** experiment. It is **not** the lost POST-RC3-GROQ-
   - `qwen3:8b` `500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41`
 - Budgets: 96 calls/model = 48 discovery / 32 investigation / 16 verification; 288 total. Repeat set
   outside the 96: 2 scenarios, 6 calls/model, 18 total. No reallocation after observing results.
-- Full machine-readable record: `reports/aivd_post_rc3_local_v1/final/preregistration.json`
+- Full machine-readable record: `reports/aivd_post_rc3_local_v1/final/preregistration.json` (revision 2, below)
   (includes sampling config, omissions, deviations and harness code hashes).
 - The evaluation is **not authorized yet**: `scripts/local_v1_run_all.sh` refuses unless
   `AIVD_POST_RC3_LOCAL_RUN_AUTHORIZED=POST-RC3-LOCAL-V1`.
+
+## Revision 2 (current)
+
+`reports/aivd_post_rc3_local_v1/final/preregistration.json` is now **revision 2**
+(preregistration_sha256 `60359a5bf092cbd121435093e20b56eef4e31b79cc6b48ccaf0a14547aebb958`,
+file sha256 `ae9f676daab403379dfb8abd77dae69e8748f3d9638242a69a795e1ec85f1e5b`).
+Revision 1 is kept byte-identical at `final/preregistration_r1.json` (file `4d747c43…`,
+preregistration_sha256 `cf3dc4b1…`, also in git at `395be3d`).
+
+- **Unchanged:** corpus commitment `644768a3…`, seal sha256 `2211ef92…`, public_manifest_sha256
+  `5bd3c829…`, models and digests, seeds, budgets, sampling, repeat set. The corpus was not regenerated.
+- **r1 run attempt:** started 2026-09-28 21:38 IST; aborted at runner startup (qwen3:1.7b) with
+  `KeyError: 'corpus_commitment'`; 0 model calls; llama3.2:3b and qwen3:8b not started. Artifacts are preserved
+  (moved, not deleted) under `reports/aivd_post_rc3_local_v1/protected/r1_attempt/`.
+- **Fix:** `scripts/local_v1_run_model.py` now reads `prereg["corpus"]["corpus_commitment"]`. No other key-path
+  mismatch was found in the runner, `local_v1_run_all.sh` or `local_v1_wire_proxy.py`. `local_v1_run_all.sh` also
+  refuses to reuse an existing wire output directory. A new test runs the real runner entry point against the
+  real committed preregistration and public files with a fake local endpoint (no Ollama).
+- **Declared runtime:** the Ollama server runs with `OLLAMA_MAX_LOADED_MODELS=1` and `OLLAMA_NUM_PARALLEL=1`.
+- **Rerun policy:** fresh output directories only; nothing from r1 is overwritten; the r2 run record goes to
+  `reports/aivd_post_rc3_local_v1/protected/r2_run/run_record/`.
+- Revision 2 was produced by `scripts/local_v1_reissue_r2.py`. The evaluation still needs explicit authorization.

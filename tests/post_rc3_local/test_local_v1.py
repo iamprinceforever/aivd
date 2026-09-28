@@ -265,6 +265,18 @@ def test_published_local_v1_files_if_present():
     rows = json.loads((final / "public_manifest.json").read_text())
     assert digest(rows) == view["public_manifest_sha256"] == prereg["corpus"]["public_manifest_sha256"]
     assert len(rows) == 24
+    assert prereg["revision"] == 2
+    assert prereg["supersedes"]["file_sha256"] == "4d747c4381b4c361987cb5cadfcfdde131588305b25ea125c0d631a188754603"
+    assert prereg["supersedes"]["preregistration_sha256"] == "cf3dc4b1c8184ccab2cea7c585357abea92b2a72ef70174dfff46d80c2f12f64"
+    assert prereg["r1_run_attempt"]["model_calls"] == 0
+    assert prereg["runtime"]["server_env"]["OLLAMA_MAX_LOADED_MODELS"] == "1"
+    assert prereg["runtime"]["server_env"]["OLLAMA_NUM_PARALLEL"] == "1"
+    r1_bytes = (final / "preregistration_r1.json").read_bytes()
+    import hashlib as _h
+    assert _h.sha256(r1_bytes).hexdigest() == prereg["supersedes"]["file_sha256"]
+    r1 = json.loads(r1_bytes)
+    for key in ("corpus", "models", "model_manifest_digests", "discovery_seeds", "sampling", "budgets", "repeat_set"):
+        assert r1[key] == prereg[key], key
     body = {k: v for k, v in prereg.items() if k != "preregistration_sha256"}
     assert digest(body) == prereg["preregistration_sha256"]
     import hashlib
