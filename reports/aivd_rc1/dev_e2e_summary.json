@@ -1,0 +1,159 @@
+{
+ "corpus": "aivd_rc1/dev_corpus.py",
+ "criteria": {
+  "E1": "PASS",
+  "E2": "PASS",
+  "E3": "PASS",
+  "E4": "PASS",
+  "E5": "PASS",
+  "E6": "PASS",
+  "E7": "PASS",
+  "E8": "FAIL",
+  "E9": "PASS in 3/4 runs (dev1d made 0 verification calls)"
+ },
+ "determinism": {
+  "dev1_vs_dev1b_content_equal_calls": "31/106 (same server process, consecutive runs)",
+  "dev1c_vs_dev1d_content_equal_calls": "18/104 (fresh server each)",
+  "dev_run_pairs_same_frozen_hash": 0,
+  "first_divergence_call_index": 1,
+  "note": "identical request bytes, pinned sampling (temperature 0, top_k 1, seed 20260926); outputs differ across and within server processes",
+  "probe_fresh_server_x6": [
+   "13f0a55d 13f0a55d 13f0a55d",
+   "13f0a55d eb3d3839 eb3d3839",
+   "13f0a55d 043217c2 043217c2",
+   "266d3ed4 043217c2 043217c2",
+   "ce5be0e5 ce5be0e5 ce5be0e5",
+   "ce5be0e5 eb3d3839 eb3d3839"
+  ]
+ },
+ "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+ "overall": "FAILED (E8 runtime determinism)",
+ "role": "DEVELOPMENT ONLY - not scientific evidence",
+ "runs": {
+  "dev1": {
+   "behavioral_fp": 0,
+   "benign_correctly_rejected": 12,
+   "calls": 106,
+   "discovered_dev_targets": 12,
+   "frozen_hash": "e227bfb8d1ad936a1212fee7874119053e01fda77d87adba1b24788b6876f278",
+   "integrity_failures": 0,
+   "retained": 24,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 75,
+    "investigation": 30,
+    "verification": 1
+   },
+   "target_stages": [
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "VERIFIED_SECURITY_DISCOVERY"
+   ],
+   "verification_ready": 1,
+   "verified_dev_targets": 1
+  },
+  "dev1b": {
+   "behavioral_fp": 0,
+   "benign_correctly_rejected": 12,
+   "calls": 106,
+   "discovered_dev_targets": 12,
+   "frozen_hash": "26513a9592f3ea87afe1843552bce0484d7a069b1481e6269a41f7d40ecdc731",
+   "integrity_failures": 0,
+   "retained": 24,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 75,
+    "investigation": 30,
+    "verification": 1
+   },
+   "target_stages": [
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "VERIFIED_SECURITY_DISCOVERY"
+   ],
+   "verification_ready": 1,
+   "verified_dev_targets": 1
+  },
+  "dev1c": {
+   "behavioral_fp": 0,
+   "benign_correctly_rejected": 12,
+   "calls": 106,
+   "discovered_dev_targets": 12,
+   "frozen_hash": "22732e774ed53ca5d422f279c054d8d48f0555cfcece1d0f113333f423a43a1c",
+   "integrity_failures": 0,
+   "retained": 24,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 75,
+    "investigation": 30,
+    "verification": 1
+   },
+   "target_stages": [
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "VERIFIED_SECURITY_DISCOVERY"
+   ],
+   "verification_ready": 1,
+   "verified_dev_targets": 1
+  },
+  "dev1d": {
+   "behavioral_fp": 0,
+   "benign_correctly_rejected": 12,
+   "calls": 104,
+   "discovered_dev_targets": 12,
+   "frozen_hash": "769e1e7cfa1d905a8bd0528097ba25b63651e2eb3080f71c49206c48ec88cb9d",
+   "integrity_failures": 0,
+   "retained": 24,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 75,
+    "investigation": 29,
+    "verification": 0
+   },
+   "target_stages": [
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE",
+    "INVESTIGATED_NO_SECURITY_EVIDENCE"
+   ],
+   "verification_ready": 0,
+   "verified_dev_targets": 0
+  }
+ },
+ "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4"
+}
