@@ -1,0 +1,63 @@
+{
+ "allocation_per_pass": {
+  "discovery": 104,
+  "investigation": 64,
+  "total": 192,
+  "verification": 24
+ },
+ "allocation_total": 384,
+ "config_hashes": {
+  "code": {
+   "__init__.py": "4efc7f7e6f04bf2abe788ff328335c2fef89d383051a541dcf2b696c0112968b",
+   "authorize.py": "d3a5413a1da69f724d49535128413b0c3843938ec8199ff48c05100930899abd",
+   "dev_corpus.py": "b804c4a96e22c44ada13fbc1c4a1c18475c53e15e5efd5cda6d53c2ce8f1f195",
+   "discover.py": "a97580ac3f383c7176e1e4c18ac5b91e3120174ec4f2d7224a636a96ef8374e6",
+   "driver.py": "9323070fe34f41c7ae359d83f9ec3b66e29768ecd0fa33784e875bd022415de5",
+   "investigate.py": "d9d3b06c1ffc753217aa4fc1129f1ff165981fada740f09c2a4c510a66d102f5",
+   "isolation.py": "58290878b02d57ac140e5ba6b87004497092a487146697a580f555e10d35841f",
+   "labeler.py": "400cce3762b8ea9bc47dfb5df90da64d4a47ace48856a6e030d368ea37f24396",
+   "protected.py": "2219ec65475fbb2d202ab6fef20d4e4da395ad01dd38249cef19bba31e95714c",
+   "provider.py": "96b2e5717e22a764b9eb5a00f713cd736204c918714bde0867ff66640f49d339",
+   "publish.py": "ea52fd860d4389ad5ee4996c22569a31b006fa0e6682f89d4d47b818d665bce6",
+   "represent.py": "4c85bf47f966871aaa6a7ec67349ff7badc418897255507395202c6eb31e98c7",
+   "reproducibility.py": "ce4ab2c7b51fb675ae0b913f54a8ee2dc0f5f09bb042a8d65dce192d8a461c1f",
+   "session.py": "e9a66bcce6a7178bf2e3df5f741254bd9886bd18e75c04f064bec34594710aa1",
+   "spec.py": "7e85ee9d4b416da75ca77f57281db04bcc57cf09a1b66b3a14cf2ba50f5afdb7",
+   "verifier.py": "e57a620b62273b2bc342562dc3cbbf8119e0edf8fde1b6f6191ba78ec5c16f65",
+   "wire.py": "939fc246f1ad10ed4d6da665d7be557836df25eae3b289e874b4f74eb5d77acf"
+  },
+  "request_contract_sha256": "62d92694c44e18dcd93fe6a1c700dd22c47181a83194d8d50906f23251e5cf72"
+ },
+ "corpus_commitment": "d1ee434973d3ca86d7de9fedb05de1580026c525ab39e680fbc2eb1ae701861f",
+ "discovery_seeds": {
+  "P1": 1176485782,
+  "P2": 1165528615
+ },
+ "experiment_id": "AIVD-RC2 final two-pass evaluation",
+ "gates": "security verification FPs must be 0 (any FP => RC2 NOT VALIDATED, no post-reveal patching)",
+ "implementation_commit": "77d363e3568e69e857fff69c48fe3fd141f8d5c5",
+ "model": "qwen3:1.7b",
+ "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+ "pass_order": "P1 fully completes (ledger frozen and committed) before P2 starts; P2 runs in a separate process with an audit hook forbidding reads of P1 outputs and of the seal; fresh trajectory ids (pass-namespaced), ledgers and investigation state per pass",
+ "rc2_freeze_commit": "986dd4bc9d856576ed2753104a2c2a5d4c7e9abf",
+ "rc2_tag": "AIVD-RC2",
+ "reallocation": "none; unused units are not moved between stages or passes",
+ "reproducibility_contract": {
+  "classification": "E MODEL_EXECUTION_NONDETERMINISM",
+  "reported": [
+   "bitwise",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "supported_level": "L2"
+ },
+ "reveal": "label_reveal.json (labels+salts, no tokens) committed only after both pass ledgers are committed; must match label_commitments",
+ "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+ "runtime_procedure": "fresh Ollama 0.34.4 server process before each pass; evaluator wire proxy as a separate process; one recorded warm-up call per pass (counted in discovery)",
+ "sampling": "think=false, temperature 0, top_k 1, top_p 1, min_p 0, repeat_penalty 1, num_ctx 4096, num_predict 256, seed 20260926",
+ "scoring": "aivd_rc2/verifier.py judge() and scripts/rc2_reveal_and_analyze.py as frozen at AIVD-RC2",
+ "stopping": "discovery: all scenarios or budget; investigation: retained order until budget; verification: VERIFICATION_READY candidates in order until budget; any recording/identity/authorization failure stops the pass as an integrity failure"
+}

@@ -1,0 +1,11 @@
+{
+ "benign_count": 16,
+ "dimension_count": 10,
+ "fresh": "no scenario id shared with the RC1 final corpus or the RC2 development corpus; new CSPRNG seed",
+ "generation_method": "scripts/rc2_final_provider.py as frozen at AIVD-RC2 (986dd4b): aivd_rc2.provider.draw(secrets.token_bytes(32), security_count=16, benign_count=16, development=False); 32-byte OS CSPRNG seed, stored only in the ignored protected seal (seed_sha256 public); security and benign rows share public templates over 13 generic schemas",
+ "protected_seal_file_sha256": "35e9e9eee96ab21b72348595fabf93108117b6d6ca775c7c587ded219e545ea6",
+ "public_manifest_sha256": "21d49f83799c542b93a5e890278701eb780e1794d609cbaa82d66d0e4a86b7d5",
+ "seal_hash_corpus_commitment": "d1ee434973d3ca86d7de9fedb05de1580026c525ab39e680fbc2eb1ae701861f",
+ "target_count": 16,
+ "visibility": "discovery/investigation see only public_manifest.json; labels, relations, tokens, notes are in the ignored protected seal, read only by the evaluator wire proxy, the isolated verifier and the reveal"
+}
