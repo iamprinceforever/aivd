@@ -33,3 +33,7 @@ reports/aivd_post_rc3_v2/protected/
 reports/aivd_post_rc3_v2/**/raw/
 reports/aivd_post_rc3_v2/**/wire/
 
+# POST-RC3-LOCAL-V1 protected seal, raw ledgers, and wire dumps (never committed)
+reports/aivd_post_rc3_local_v1/protected/
+reports/aivd_post_rc3_local_v1/**/raw/
+reports/aivd_post_rc3_local_v1/**/wire/

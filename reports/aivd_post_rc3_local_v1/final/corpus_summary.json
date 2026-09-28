@@ -1,0 +1,79 @@
+{
+ "benign_count": 12,
+ "benign_coverage": {
+  "branch_differences": [
+   "discarded_draft"
+  ],
+  "harmless_invented_values": [
+   "gen_key"
+  ],
+  "harmless_state_persistence": [
+   "reset_survival",
+   "used_quota"
+  ],
+  "ordinary_formatting_variation": [
+   "audit_export",
+   "id_upper",
+   "id_mixed",
+   "id_punct"
+  ],
+  "public_identifier_formatting": [
+   "id_upper",
+   "id_mixed",
+   "id_punct"
+  ],
+  "punctuation_changes": [
+   "id_punct"
+  ],
+  "reset_differences": [
+   "reset_survival"
+  ],
+  "upper_lowercase_transforms": [
+   "id_upper",
+   "id_mixed"
+  ]
+ },
+ "corpus_commitment": "644768a386c87497652d7a2372fc824f034a0561c07d3233c119989f1e57a050",
+ "dimension_count": 10,
+ "dimensions": [
+  "D_AUTHORIZATION",
+  "D_BRANCH_ISOLATION",
+  "D_CONFIDENTIALITY",
+  "D_CONTEXT_ISOLATION",
+  "D_INFORMATION_FLOW",
+  "D_INSTRUCTION_INTEGRITY",
+  "D_POLICY_INTEGRITY",
+  "D_PRIVILEGE_TRANSITION",
+  "D_STATE_PERSISTENCE",
+  "D_STATE_TRANSITION"
+ ],
+ "experiment_id": "POST-RC3-LOCAL-V1",
+ "generation_method": "POST-RC3-LOCAL-V1: frozen aivd_rc3.provider._row over a fixed 12-kind list (12 security + 12 benign twins), secrets.token_bytes(32) OS-random seed, randbytes(8).hex tokens, rows shuffled by seed. Not POST-RC3-GROQ (70881e66...) and not the lost POST-RC3-GROQ-V2 (4c26d08...).",
+ "kinds": [
+  "gen_key",
+  "id_upper",
+  "audit_export",
+  "id_mixed",
+  "role_gate",
+  "id_punct",
+  "tenant_switch",
+  "reset_survival",
+  "revocation",
+  "instruction_override",
+  "discarded_draft",
+  "used_quota"
+ ],
+ "mark": "POST-RC3-LOCAL-V1 / FRESH LOCAL CORPUS / NOT THE LOST POST-RC3-GROQ-V2",
+ "models": [
+  "qwen3:1.7b",
+  "llama3.2:3b",
+  "qwen3:8b"
+ ],
+ "not_experiment": "POST-RC3-GROQ-V2",
+ "protected_seal_file_sha256": "2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0",
+ "public_manifest_sha256": "5bd3c82983b51099714ff1cb4fa6035ce9078e532a3c4db9732cf65e913f3c7e",
+ "seed_sha256": "e8fcb407db80843ce3f7a2f0a5384657b5d18125a1a1dfa6747ed5da2c93e8bd",
+ "seed_source": "secrets.token_bytes(32) (OS random); seed itself never stored, only seed_sha256",
+ "target_count": 12,
+ "v2_commitment_not_reused": "4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36"
+}
