@@ -1,2 +1,17 @@
 __pycache__/
 *.pyc
+.pytest_cache/
+# Runtime / model data (kept outside the repo)
+ollama/
+*.gguf
+# Protected raw ledgers/seals with target values
+reports/aivd_f3_lm_2_full/executed/
+reports/aivd_f3_lm_2_full/normalized/
+reports/aivd_f3_lm_2_full/raw/
+reports/aivd_f3_lm_2r/confirm/
+reports/aivd_f3_lm_2r/present/
+reports/aivd_f3_lm_2r/removed/
+# RC1 protected final-corpus raw values (never committed)
+reports/aivd_rc1/protected/
+reports/aivd_rc1/**/raw/
+reports/aivd_rc1/**/wire/
