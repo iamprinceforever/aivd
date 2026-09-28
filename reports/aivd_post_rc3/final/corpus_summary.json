@@ -1,0 +1,18 @@
+{
+ "benign_count": 8,
+ "dimension_count": 8,
+ "fresh": "new CSPRNG seed; no scenario id shared with RC1/RC2/RC3 final or development corpora",
+ "generation_method": "aivd_post_rc3.corpus.draw(secrets.token_bytes(32)): fixed security/benign kind lists over the FROZEN aivd_rc3.provider._row primitive; 8 security rows across 8 distinct dimensions and relation classes A-E, 8 benign rows challenging id formatting/case/punctuation, harmless invented values, branch and reset differences; randbytes(8).hex tokens; rows shuffled by seed",
+ "identical_for_models": [
+  "openai/gpt-oss-20b",
+  "openai/gpt-oss-120b",
+  "llama-3.3-70b-versatile"
+ ],
+ "protected_seal_file_sha256": "b814eab35c370375305bcc20cf9985055b8cd41da5d4a9221c19faf11f677593",
+ "public_manifest_sha256": "aab47f7a3693850ff8d3f13e0f46d76d82746e9d1cd7b432cdb9cef60b43fca8",
+ "relation_type_count": 5,
+ "role": "POST-RC3 / MODEL GENERALIZATION / NOT PART OF RC3 RELEASE",
+ "seal_hash_corpus_commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
+ "target_count": 8,
+ "visibility": "discovery/investigation see only public_manifest.json; labels, relations, protected values and notes live only in the ignored protected seal (wire proxy, verifier, reveal)"
+}

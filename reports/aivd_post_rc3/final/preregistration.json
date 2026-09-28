@@ -1,0 +1,130 @@
+{
+ "allocation_per_model": {
+  "discovery": 48,
+  "investigation": 32,
+  "total": 96,
+  "verification": 16
+ },
+ "allocation_total": 288,
+ "context_configuration": "full conversation history per trajectory sent as messages; no truncation; provider context window not overridden",
+ "corpus_commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
+ "discovery_seeds": {
+  "llama-3.3-70b-versatile": 1510364944,
+  "openai/gpt-oss-120b": 708002725,
+  "openai/gpt-oss-20b": 559882803
+ },
+ "experiment_id": "POST-RC3-GROQ",
+ "harness_code_sha256": {
+  "aivd_post_rc3/__init__.py": "746826f2129a6d442e9c7ffd8399f38a16d8c399b3ad0bbb76ae56c9bc9d6cd8",
+  "aivd_post_rc3/authorize.py": "862df1d2823bc9ccdc5af4c5d9847e2e49c93f965d608cafc6b022e0cc902470",
+  "aivd_post_rc3/config.py": "dc2d7d0a0e47dd32bd769126560682c764db49033b6f9f555d1b7edfcb8098c9",
+  "aivd_post_rc3/corpus.py": "33a9896b9a85b681fb5d173733a6075c153839566b512a83c06e39554bb0c199",
+  "aivd_post_rc3/driver.py": "93d62e6ab3dc655e5983e12b7d5329a329032c4b2758becc47035e2e670c8f0d",
+  "aivd_post_rc3/groq_client.py": "d45820c47af8b2f712c9f88cb053e20ee07bd3c738ce259bb893db785693e2c7",
+  "aivd_post_rc3/key_scan.py": "e9034ec22f0f6b6448d93b10a7b94568bf031b57918959f0afa69a918f1efaf4",
+  "aivd_post_rc3/models.py": "932d8fec30c2646b7a6bc55a7e0bfd4b64e42c850443a6901207871dde84433f",
+  "aivd_post_rc3/publish.py": "7fe222f460452ec6e94bba93e6383754f5df4ff3a0294c80c1e9fef570f93b47",
+  "aivd_post_rc3/rc3_freeze_blobs.py": "64a30664210e3b3dd0e2e867403329d9e91bf5405f2f09aa6356610cea5afe53",
+  "aivd_post_rc3/seeds.py": "f6409da0c2977ed79012ea5c7dfcc36be7a3596d6f737f725569e105df0c49f4",
+  "aivd_post_rc3/session.py": "b8bb03d49b12f6dd5a76074e52e36acaebb6131edea823e87b71f0b21f36d095",
+  "aivd_post_rc3/stop.py": "a1c186101ae6118e7001c6c499f00c25f101f1173e18df4651850cc31eae7c44",
+  "scripts/post_rc3_leak_scan.py": "f18b67c3e435cb8c67bfef978912e71bef158d36b32f069577b717ba4b6c2de0",
+  "scripts/post_rc3_preflight.py": "4c44c789f8d2d0ced7a0d3adf1c5b4382ef61fb381ec758ae87944db00dd1ff9",
+  "scripts/post_rc3_preregister.py": "bffda4f0b8fcb6021fc19343d550cdd98f9255f78a1f3b1f8f236d495626b3f4",
+  "scripts/post_rc3_reveal.py": "c67aa1e252ed4c7040ecdd1c4bbcb8528260f1ea04a9a82b3aff379cf0651fb3",
+  "scripts/post_rc3_run_model.py": "4c27f7ebdc2d9d1983e645050cb095ea8d196c4ccdca4604dc147922380190b2",
+  "scripts/post_rc3_seal_corpus.py": "6ab2573524a3fd70e2e9d69b18d3450d08e1009bb193b209a02cf5f08275f176",
+  "scripts/post_rc3_wire_proxy.py": "c0306d773d5d899b71fddb45aa6b2aaa39f4d99f59d7873969db368b6469c202"
+ },
+ "known_coverage_limit": "16 scenarios need ~49 discovery calls (15 two-step x3 + 1 branch x4) against a 48 ceiling, so discovery may stop BUDGET_EXHAUSTED before the last scenario in each model's seeded order; reported as NOT_EXPLORED, never reallocated",
+ "mark": "POST-RC3 / MODEL GENERALIZATION / NOT PART OF RC3 RELEASE",
+ "message_structure": "evaluator-injected system note (only when the frozen RC3 wire rule fires) + alternating user/assistant turns; pipeline never authors system messages",
+ "model_dirs": {
+  "llama-3.3-70b-versatile": "llama_3_3_70b",
+  "openai/gpt-oss-120b": "gpt_oss_120b",
+  "openai/gpt-oss-20b": "gpt_oss_20b"
+ },
+ "models": [
+  "openai/gpt-oss-20b",
+  "openai/gpt-oss-120b",
+  "llama-3.3-70b-versatile"
+ ],
+ "preflight": "GET /models once before execution; outside the 96 and outside the repeat set",
+ "rc3_freeze_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+ "reallocation": "none between stages or models after observing results",
+ "repeat_set": {
+  "L5": "reported from main ledger decisions vs repeat retain/reject only",
+  "calls_per_model": 6,
+  "calls_total": 18,
+  "counts_inside_96": false,
+  "levels": [
+   "L2 request (per scenario/step, prefix-matched)",
+   "L3 structure",
+   "L4 behavioral signature",
+   "bitwise content (reported only)"
+  ],
+  "runs_after": "the model's main ledger is frozen",
+  "scenario_count": 2,
+  "selection": "first REPRO_SCENARIO_COUNT two-step scenarios in public_manifest order"
+ },
+ "retry_policy": {
+  "backoff_seconds": [
+   1.0,
+   2.0
+  ],
+  "charging": "each retry attempt charges one extra unit on the current stage ceiling; if the ceiling is exceeded the run records an integrity failure",
+  "max_attempts": 3,
+  "non_retryable": "any other HTTP status (e.g. 400/401/403/404) -> integrity failure",
+  "retryable_http_status": [
+   429,
+   500,
+   502,
+   503,
+   504
+  ],
+  "retryable_transport_errors": "connection/timeout errors"
+ },
+ "shared_config": {
+  "api_surface": "OpenAI-compatible Chat Completions",
+  "base_url": "https://api.groq.com/openai/v1",
+  "http_library": "urllib.request (stdlib)",
+  "max_completion_tokens": 256,
+  "models": [
+   "openai/gpt-oss-20b",
+   "openai/gpt-oss-120b",
+   "llama-3.3-70b-versatile"
+  ],
+  "provider": "Groq",
+  "provider_mandated": {
+   "openai/gpt-oss-120b": {
+    "include_reasoning": false,
+    "reasoning_effort": "low"
+   },
+   "openai/gpt-oss-20b": {
+    "include_reasoning": false,
+    "reasoning_effort": "low"
+   }
+  },
+  "seed": 20260926,
+  "stream": false,
+  "temperature": 0.0,
+  "top_p": 1.0
+ },
+ "stop_conditions": [
+  "TARGET_LEAKAGE",
+  "VERIFIER_LEAKAGE",
+  "API_KEY_LEAKAGE",
+  "PROTECTED_VALUE_LEAKAGE",
+  "RC3_SOURCE_MODIFICATION",
+  "UNEXPECTED_MODEL_SUBSTITUTION",
+  "CORPUS_MISMATCH",
+  "CANDIDATE_ID_COLLISION",
+  "LEDGER_CORRUPTION",
+  "AUTHORIZATION_FAILURE",
+  "VERIFIER_BYPASS",
+  "API_REQUEST_CONTAMINATION"
+ ],
+ "unit": "every real chat-completions API attempt (including retries) counts as one unit on the current stage",
+ "verify_cost": 3,
+ "warmup": "none (the RC3 warm-up addressed a local Ollama cold-load artifact; not applicable to a hosted API)"
+}
