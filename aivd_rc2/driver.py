@@ -184,6 +184,7 @@ def run_pass(root: Path, public: list, transport, *, pass_id: str, corpus_commit
         "model": MODEL, "model_digest": identity["model_digest"], "runtime_digest": identity["runtime_digest"],
         "allocation": {"discovery": DISCOVERY_LIMIT, "investigation": INVESTIGATION_LIMIT,
                        "verification": VERIFICATION_LIMIT, "total": PASS_ALLOCATION},
+        "config_hashes": config_hashes(),
         "calls": session.calls, "stage_calls": stage_calls,
         "requests": list(session.records), "decisions": discovered["decisions"],
         "explored": discovered.get("explored", []), "rejected": discovered["rejected"],
@@ -193,6 +194,18 @@ def run_pass(root: Path, public: list, transport, *, pass_id: str, corpus_commit
     ledger["frozen_hash"] = ledger_hash(ledger)
     (root / "ledger.json").write_text(json.dumps(ledger, sort_keys=True, indent=1), encoding="utf-8")
     return ledger
+
+
+def config_hashes() -> dict:
+    """L1: hashes of the pinned request contract and the RC2 code that shapes requests/decisions."""
+    from aivd_stateful.transport import build_request
+
+    here = Path(__file__).resolve().parent
+    code = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(here.glob("*.py"))
+            if p.name not in ("frozen_manifest.py", "diagnose.py")}
+    probe = build_request([{"role": "user", "content": "x"}])
+    probe.pop("messages")
+    return {"request_contract_sha256": digest(probe), "code": code}
 
 
 def judge_pass(ledger: dict, seal: dict) -> dict:

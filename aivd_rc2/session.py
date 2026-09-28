@@ -15,6 +15,14 @@ from aivd_stateful.transport import build_request
 from aivd_rc2.authorize import run_open
 
 
+def _usage(body: bytes) -> dict:
+    try:
+        parsed = json.loads(body)
+    except Exception:
+        return {}
+    return {k: parsed.get(k) for k in ("prompt_eval_count", "prompt_eval_cached_count", "eval_count")}
+
+
 class RC2Session(Session):
     def __init__(self, root, transport, budget):
         super().__init__(root, transport, budget)
@@ -68,7 +76,11 @@ class RC2Session(Session):
             "state_after_hash": updated.turns[-1].state_after_hash,
             "input_hash": planned["input_hash"],
             "request_hash": sha256(raw_request).hexdigest(),
-            "response_hash": sha256(body).hexdigest(),
+            # RC2 recorder fix: the raw HTTP body carries created_at/duration fields, so its hash can
+            # never match across runs. The model content hash is the reproducibility-relevant hash.
+            "raw_body_sha256": sha256(body).hexdigest(),
+            "content_sha256": sha256(content.encode()).hexdigest(),
+            "token_usage": _usage(body),
             "message_count": len(messages),
             "action": action,
             "reason": reason,
