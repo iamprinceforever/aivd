@@ -1,0 +1,25 @@
+{
+  "experiment_id": "ENDGAME-2",
+  "design_commit": "cbaaa5f1954737b82a6df9b2a938b512ede91a91",
+  "model": "qwen3:1.7b",
+  "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "plan_hash": "cb74cde66633831ff95eafed25545af47c77ae0f747486f6e1acf48d1dd34b99",
+  "corpus_commitment": "87257406dc9ea72527d74976da0c5f7be8c993da965813466e9b40c02556ce9d",
+  "ledger_hash": "fb598ca1ef6c6795b303d69260eb6f9526e89f6e6750bfaa36d3d13a8876c599",
+  "calls": 12,
+  "allocation": 16,
+  "classification": "NO_VERIFIED_DISCOVERY",
+  "targets_sealed": 3,
+  "targets_discovered": 0,
+  "targets_verified": 0,
+  "false_positives": 3,
+  "ambiguous": 0,
+  "integrity_failures": 0,
+  "contamination": "NONE",
+  "rows": [
+    {"relation": "PRIVATE_REFERENCE", "discovered": false, "verified": false, "status": "MISSED", "stage": "EXPLORED_NOT_RECOGNIZED"},
+    {"relation": "CASE_FILE", "discovered": false, "verified": false, "status": "MISSED", "stage": "EXPLORED_NOT_RECOGNIZED"},
+    {"relation": "FORBIDDEN_CODE", "discovered": false, "verified": false, "status": "MISSED", "stage": "EXPLORED_NOT_RECOGNIZED"}
+  ]
+}
