@@ -1,0 +1,161 @@
+{
+ "classification": "E MODEL_EXECUTION_NONDETERMINISM",
+ "classification_detail": "request-deterministic (bitwise-identical request bytes and rendered prompt) but response text nondeterministic; the nondeterminism originates in model execution on the pinned runtime's default multithreaded repacked CPU kernels; it is configuration-dependent (vanishes with 1 thread or without repack) but those configurations are NOT the frozen release runtime and were used for diagnosis only",
+ "diagnostic_calls_total": 74,
+ "frozen_rendered_prompt_sha256": "e37b27a485633543838559c1df2b0a45f8df132664c65241ab096ee725ee0f62",
+ "frozen_request_sha256": "c94644840a30e0bbadcdbd8474282d19eb53c9585c6a67eb2b0e3063ca05c84f",
+ "layer_findings": {
+  "A_request_construction": "NOT RESPONSIBLE: one request sha per path across all trials (TEST D)",
+  "B_template_rendering": "NOT RESPONSIBLE: harness rendering reproduces Ollama's token count (79) and the direct llama-server path yields the same output set as Ollama (525d757d, f6dc9f01, ...)",
+  "C_application_state": "NOT RESPONSIBLE: harness is replay-deterministic offline (identical responses -> identical ledger hash, tests/test_rc2_reproducibility.py)",
+  "D_process_state": "CONTRIBUTES ONLY AS A CARRIER: within one process repeated outputs usually agree (TEST A 5/5), but fresh processes differ (TEST B 3 distinct first outputs in 5)",
+  "E_server_state_prompt_cache": "NOT THE CAUSE: with cache_prompt=false on an isolated llama-server (TEST C) outputs still vary (and C_fa_off: 3 distinct in 12)",
+  "F_runtime_configuration": "CONTROLS IT: -t 1 (single thread) -> 1 distinct in 12 across 6 processes; --no-repack (8 threads) -> 1 distinct in 12 across 6 processes; default (8 threads, repacked AMX/AVX-512 weights) -> multiple distinct",
+  "G_model_execution": "ROOT CAUSE: multithreaded execution of the repacked CPU matmul kernels is not bitwise reproducible; greedy decoding (top_k 1) flips at near-tied logits",
+  "H_recorder_ledger": "BUG FOUND (secondary): RC1 response_hash hashed the raw HTTP body, which includes created_at and duration fields, so it can never match across runs even when text matches; fixed generically in RC2 by recording content_sha256 separately from raw_body_sha256"
+ },
+ "not_charged_to_final_budget": true,
+ "release_configuration_changed": false,
+ "rendered_prompt_hashes_per_test": {
+  "A": 1,
+  "B": 1,
+  "C": 1,
+  "C_fa_off": 1,
+  "C_norepack": 1,
+  "C_t1": 1
+ },
+ "request_hashes_per_test": {
+  "A": 1,
+  "B": 1,
+  "C": 1,
+  "C_fa_off": 1,
+  "C_norepack": 1,
+  "C_t1": 1
+ },
+ "server_processes_per_test": {
+  "A": 1,
+  "B": 5,
+  "C": 5,
+  "C_fa_off": 6,
+  "C_norepack": 6,
+  "C_t1": 6
+ },
+ "tests": {
+  "A": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d"
+   ]
+  },
+  "B:first": {
+   "distinct_outputs": 3,
+   "outputs": [
+    "7dfb3096",
+    "525d757d",
+    "525d757d",
+    "f6dc9f01",
+    "f6dc9f01"
+   ]
+  },
+  "B:second": {
+   "distinct_outputs": 3,
+   "outputs": [
+    "7dfb3096",
+    "7dfb3096",
+    "525d757d",
+    "f6dc9f01",
+    "f6dc9f01"
+   ]
+  },
+  "C:first_nocache": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d"
+   ]
+  },
+  "C:second_nocache": {
+   "distinct_outputs": 2,
+   "outputs": [
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "f6dc9f01"
+   ]
+  },
+  "C_fa_off:first_nocache": {
+   "distinct_outputs": 3,
+   "outputs": [
+    "f6dc9f01",
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "525d757d",
+    "2ee4e63f"
+   ]
+  },
+  "C_fa_off:second_nocache": {
+   "distinct_outputs": 3,
+   "outputs": [
+    "2ee4e63f",
+    "f6dc9f01",
+    "2ee4e63f",
+    "2ee4e63f",
+    "525d757d",
+    "f6dc9f01"
+   ]
+  },
+  "C_norepack:first_nocache": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f"
+   ]
+  },
+  "C_norepack:second_nocache": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f",
+    "2ee4e63f"
+   ]
+  },
+  "C_t1:first_nocache": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01"
+   ]
+  },
+  "C_t1:second_nocache": {
+   "distinct_outputs": 1,
+   "outputs": [
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01",
+    "f6dc9f01"
+   ]
+  }
+ }
+}

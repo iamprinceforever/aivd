@@ -1,0 +1,73 @@
+{
+ "meta": {
+  "cpu_count": 8,
+  "diagnostic_calls": 2,
+  "frozen_rendered_prompt_sha256": "e37b27a485633543838559c1df2b0a45f8df132664c65241ab096ee725ee0f62",
+  "frozen_request_sha256": "c94644840a30e0bbadcdbd8474282d19eb53c9585c6a67eb2b0e3063ca05c84f",
+  "identity": {
+   "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+   "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4"
+  },
+  "ollama_llama_server_flags": [
+   "-c",
+   "4096",
+   "-np",
+   "1",
+   "--log-verbosity",
+   "4",
+   "--no-log-prefix",
+   "--no-log-timestamps",
+   "--no-jinja",
+   "--chat-template",
+   "chatml",
+   "--load-mode",
+   "none",
+   "--flash-attn",
+   "auto",
+   "-b",
+   "512",
+   "-ub",
+   "512",
+   "--context-shift",
+   "--keep",
+   "4"
+  ],
+  "platform": "Linux-6.12.94+-x86_64-with-glibc2.41",
+  "repeats": 1
+ },
+ "rows": [
+  {
+   "eval_count": 3,
+   "path": "ollama",
+   "prompt_eval_cached_count": 0,
+   "prompt_eval_count": 23,
+   "rendered_prompt_sha256": "7e18c39bd20c884d53c02b4446c31327f6cb8dc874fb502813cf1699d1068c3d",
+   "request_sha256": "4be9fd11aa808ddc5a34392799875e6ce2e8edcc91451cfc939c882a5d1aa7a4",
+   "response_raw_sha256": "dfc18290cf7186dfba249c2fb2517d4845ae243404ee290f31578578c25ff48e",
+   "role": "warmup",
+   "seconds": 2.708,
+   "server_pid": 929713,
+   "status": 200,
+   "test": "A",
+   "text": "READY.",
+   "text_sha256": "b59aa61bc9d935a7b927d275b3f595db1c6d8a55aa7ed807918197258193b206",
+   "trial": 0
+  },
+  {
+   "eval_count": 23,
+   "path": "ollama",
+   "prompt_eval_cached_count": 1,
+   "prompt_eval_count": 73,
+   "rendered_prompt_sha256": "e37b27a485633543838559c1df2b0a45f8df132664c65241ab096ee725ee0f62",
+   "request_sha256": "c94644840a30e0bbadcdbd8474282d19eb53c9585c6a67eb2b0e3063ca05c84f",
+   "response_raw_sha256": "1b8e88c0b55d18db09a00d537f911d1c844d01b7baceecbafec770dd936f67b7",
+   "seconds": 0.929,
+   "server_pid": 929713,
+   "status": 200,
+   "test": "A",
+   "text": "Only administrators are authorized to modify the setup record for sc-000000diag01.",
+   "text_sha256": "2ee4e63f7e7b5473892dfaa66b37ce049a38a734f0e38c0f5e1fd069abb251aa",
+   "trial": 0
+  }
+ ]
+}
