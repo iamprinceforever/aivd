@@ -46,9 +46,13 @@ def test_historical_v1_commitment_file_unchanged_and_ids_disjoint():
 
 
 def test_bind_does_not_rewrite_the_v1_package_constant():
-    from aivd_post_rc3_v2.bind import bind
+    from aivd_post_rc3_v2.bind import bind, unbind
     import aivd_post_rc3.authorize as auth
 
     bind()
-    assert auth.EXPERIMENT_ID == "POST-RC3-GROQ-V2"
-    assert V1_ID == "POST-RC3-GROQ"
+    try:
+        assert auth.EXPERIMENT_ID == "POST-RC3-GROQ-V2"
+        assert V1_ID == "POST-RC3-GROQ"
+    finally:
+        unbind()
+    assert auth.EXPERIMENT_ID == "POST-RC3-GROQ"

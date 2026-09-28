@@ -28,7 +28,7 @@ def main(model_id: str, port: int, repeat: bool = False) -> None:
             ]
     install(forbidden)
 
-    from aivd_post_rc3.driver import run_model, run_repeat
+    from aivd_post_rc3_v2.driver import run_model, run_repeat
     from aivd_post_rc3.publish import public_ledger
     from aivd_post_rc3.stop import (
         check_corpus_commitment,
