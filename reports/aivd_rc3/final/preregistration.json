@@ -1,0 +1,66 @@
+{
+ "allocation_per_pass": {
+  "discovery": 104,
+  "investigation": 64,
+  "total": 192,
+  "verification": 24
+ },
+ "allocation_total": 384,
+ "config_hashes": {
+  "code": {
+   "__init__.py": "fe14bcbe553451571174ade22f269aae2ba1405223c1ea167831fb450da87f1b",
+   "authorize.py": "7495a2a8346fff5ed0772491564d840bd6fde50ba56514e456958cce34f61e30",
+   "dev_corpus.py": "fb1ef619b95091a6b2a874538482f83c6c9a6c04118ae63e282b93d7fa8f71a5",
+   "discover.py": "69bee553c3a02b36d345d84ea2797431839d6ed6587428d14acb1ce13d4d8384",
+   "driver.py": "4924eda0ed1b6d2c769cd419bde5b69dba5ba2ab12efc11618625c9fdb281405",
+   "investigate.py": "f5693afee12bdde62ffedaf2f6e57f420b969efdab493936ecb00e865326e684",
+   "isolation.py": "34657179d9f200a294865de3a263c88b51bef7d119059ba851d85c5405a8f4bf",
+   "labeler.py": "3afcb3d3ee32aacf07849264d2ace5cadd8266fc66aa7af535c7f45e8d4bad12",
+   "protected.py": "50b5b16565f4e7ede6882c362ffba4c8d9dac5ab50e2fde3e3778c8ad9dc96aa",
+   "provenance.py": "92e69ab5a9cd4f78940706b185bd96a929f59d81c3f91943f0ed66d6fff0fceb",
+   "provider.py": "74b130eda6401bb2e48ba20e705b23997582f89ff3dcae48c52a918030eee3a8",
+   "publish.py": "07050d08d63c0046b3aba3bfabbac967a06cf4cc47191c080fe842b93e9b3bd3",
+   "represent.py": "a7f383cfad16eed256d53e04b40ea794d0a209ef8ea5962e63a62562d5ca4265",
+   "reproducibility.py": "657144d7eeeecd2416d39afdeae1a5b2a6f1622e61cf2cfebfae4162bdd49cc7",
+   "session.py": "2c436e0d605e1502e9289acc46e0a5f5d7e68567963306e7282d198e839988d7",
+   "spec.py": "ae98d1939d524e3835d45197e96ac6acab31e4eb1cfe067870a85979b4d32a03",
+   "verifier.py": "c43bd6866d164611cfd543a7613ce73dc7c76da60894ba01dd59395e32a75148",
+   "wire.py": "b96f43a3878471d3528381b8975db16db438a3c544f921eb502679b124dc7d4f"
+  },
+  "request_contract_sha256": "62d92694c44e18dcd93fe6a1c700dd22c47181a83194d8d50906f23251e5cf72"
+ },
+ "corpus_commitment": "f1ba1aad3d0e69ade0463195bd392f52861cd35f3fc07d2adf2031a89428df96",
+ "discovery_seeds": {
+  "P1": 402279794,
+  "P2": 821874312
+ },
+ "experiment_id": "AIVD-RC3 final two-pass evaluation",
+ "gates": "security verification FPs must be 0 (any FP => RC3 NOT VALIDATED, no post-reveal patching); behavioral FPs reported, not blockers",
+ "implementation_commit": "6a8e3fab6c93e9d92e5ca434022b1d20e0028e6f",
+ "model": "qwen3:1.7b",
+ "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+ "pass_order": "P1 fully completes (ledger frozen and committed) before P2 starts; P2 runs in a separate process with an audit hook forbidding reads of P1 outputs and of the seal; fresh trajectory ids (pass-namespaced), ledgers and investigation state per pass",
+ "rc3_freeze_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+ "rc3_tag": "AIVD-RC3",
+ "reallocation": "none; unused units are not moved between stages or passes",
+ "reproducibility_contract": {
+  "classification": "E MODEL_EXECUTION_NONDETERMINISM",
+  "reported": [
+   "bitwise",
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5"
+  ],
+  "supported_level": "L2"
+ },
+ "reveal": "label_reveal.json (labels+salts, no tokens) committed only after both pass ledgers are committed; must match label_commitments",
+ "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+ "runtime_procedure": "fresh Ollama 0.34.4 server process before each pass; evaluator wire proxy as a separate process; one recorded warm-up call per pass (counted in discovery)",
+ "sampling": "think=false, temperature 0, top_k 1, top_p 1, min_p 0, repeat_penalty 1, num_ctx 4096, num_predict 256, seed 20260926",
+ "scoring": "aivd_rc3/verifier.py judge() and scripts/rc3_reveal_and_analyze.py as frozen at AIVD-RC3",
+ "stopping": "discovery: all scenarios or budget; investigation: retained order until budget; verification: VERIFICATION_READY candidates in order until budget; any recording/identity/authorization failure stops the pass as an integrity failure",
+ "verification": "provenance-aware typed verifier (aivd_rc3/verifier.py): CONFIRMED requires source tracking under the generic source-swap condition; typed relations A-E preregistered per target in the sealed corpus; SECURITY_FALSE_POSITIVE is origin-based (see AIVD_RC3_VERIFICATION.md)",
+ "verification_cost": "3 calls per verified candidate (independent repeat + 2 source-swap calls); a repeat never runs without its swap arm"
+}
