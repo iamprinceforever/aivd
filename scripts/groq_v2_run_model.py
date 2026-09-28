@@ -9,8 +9,9 @@ from aivd_rc3.isolation import install
 
 from aivd_post_rc3.models import MODEL_DIRS, MODELS
 from aivd_post_rc3_v2.bind import bind
+from aivd_post_rc3_v2.paths import v2_root
 
-BASE = Path("reports/aivd_post_rc3_v2")
+BASE = v2_root()
 
 
 def main(model_id: str, port: int, repeat: bool = False) -> None:

@@ -13,13 +13,15 @@ out["all_active"] = all(v["listed"] and v["active"] for v in out["models_check"]
 print(json.dumps(out))
 raise SystemExit(0 if out["all_active"] else 4)
 PY
+ROOT="${AIVD_V2_ROOT:-reports/aivd_post_rc3_v2}"
+export AIVD_V2_ROOT="$ROOT"
 PORT=12811
 for MODEL in "openai/gpt-oss-20b" "openai/gpt-oss-120b" "qwen/qwen3.8-27b"; do
   DIR=$(python3 -c "from aivd_post_rc3.models import MODEL_DIRS; print(MODEL_DIRS['$MODEL'])")
   for MODE in main repeat; do
     PORT=$((PORT+1))
-    WIRE=reports/aivd_post_rc3_v2/protected/wire/${DIR}_${MODE}
-    setsid python3 scripts/post_rc3_wire_proxy.py reports/aivd_post_rc3_v2/protected/final_seal.json "$WIRE" "$PORT" "$MODEL" \
+    WIRE="$ROOT/protected/wire/${DIR}_${MODE}"
+    setsid python3 scripts/post_rc3_wire_proxy.py "$ROOT/protected/final_seal.json" "$WIRE" "$PORT" "$MODEL" \
       > /tmp/groq_v2_proxy_${DIR}_${MODE}.log 2>&1 &
     PROXY=$!
     sleep 1

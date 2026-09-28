@@ -32,4 +32,6 @@ reports/aivd_post_rc3/**/wire/
 reports/aivd_post_rc3_v2/protected/
 reports/aivd_post_rc3_v2/**/raw/
 reports/aivd_post_rc3_v2/**/wire/
+# Repaired-run outputs. The protected seal and raw ledgers stay untracked.
+reports/aivd_post_rc3_v2_repaired/protected/
 

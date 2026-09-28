@@ -16,8 +16,9 @@ from aivd_post_rc3.driver import compare_repeat
 from aivd_post_rc3.models import MODEL_DIRS, MODELS
 from aivd_post_rc3.stop import check_ledger_integrity, check_no_api_key_leakage, check_rc3_source_unmodified, halt
 from aivd_post_rc3_v2 import EXPERIMENT_ID, HISTORICAL_ABORTED_COMMITMENT, MARK
+from aivd_post_rc3_v2.paths import v2_root
 
-BASE = Path("reports/aivd_post_rc3_v2")
+BASE = v2_root()
 
 
 def main() -> None:
