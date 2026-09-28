@@ -1,4 +1,4 @@
-"""Deterministic property and metamorphic tests for RC1 (seeded; no hypothesis library)."""
+"""Deterministic property and metamorphic tests for RC2 (seeded; ported from the RC1 suite)."""
 
 import dataclasses
 import json
