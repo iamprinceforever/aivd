@@ -23,7 +23,7 @@ def test_budget_preregistration_constants():
 
 
 def test_exact_models_no_substitution():
-    assert MODELS == ("openai/gpt-oss-20b", "openai/gpt-oss-120b", "llama-3.3-70b-versatile")
+    assert MODELS == ("openai/gpt-oss-20b", "openai/gpt-oss-120b", "qwen/qwen3.8-27b")
     assert len(set(MODEL_DIRS.values())) == 3
 
 
@@ -90,7 +90,7 @@ def test_stop_conditions_fire():
         check_no_verifier_leakage({"candidates": [{"relation": "A"}]})
     with pytest.raises(StopCondition):
         check_ledger_integrity({"frozen_hash": "nope"})
-    check_model_match("llama-3.3-70b-versatile", "llama-3.3-70b-versatile")
+    check_model_match("qwen/qwen3.8-27b", "qwen/qwen3.8-27b")
 
 
 def test_runner_isolation_forbids_other_models_and_seal():

@@ -9,20 +9,20 @@
  "context_configuration": "full conversation history per trajectory sent as messages; no truncation; provider context window not overridden",
  "corpus_commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
  "discovery_seeds": {
-  "llama-3.3-70b-versatile": 1510364944,
   "openai/gpt-oss-120b": 708002725,
-  "openai/gpt-oss-20b": 559882803
+  "openai/gpt-oss-20b": 559882803,
+  "qwen/qwen3.8-27b": 1870073606
  },
  "experiment_id": "POST-RC3-GROQ",
  "harness_code_sha256": {
   "aivd_post_rc3/__init__.py": "746826f2129a6d442e9c7ffd8399f38a16d8c399b3ad0bbb76ae56c9bc9d6cd8",
   "aivd_post_rc3/authorize.py": "862df1d2823bc9ccdc5af4c5d9847e2e49c93f965d608cafc6b022e0cc902470",
-  "aivd_post_rc3/config.py": "dc2d7d0a0e47dd32bd769126560682c764db49033b6f9f555d1b7edfcb8098c9",
+  "aivd_post_rc3/config.py": "e5201a5a9f957177926022025ea3616d458c6287ac410e8da815b62ae2dbbc37",
   "aivd_post_rc3/corpus.py": "33a9896b9a85b681fb5d173733a6075c153839566b512a83c06e39554bb0c199",
   "aivd_post_rc3/driver.py": "93d62e6ab3dc655e5983e12b7d5329a329032c4b2758becc47035e2e670c8f0d",
-  "aivd_post_rc3/groq_client.py": "d45820c47af8b2f712c9f88cb053e20ee07bd3c738ce259bb893db785693e2c7",
+  "aivd_post_rc3/groq_client.py": "e95419b588be464a01eed465e43dc86c68406222586a724420d5be1dfedc2f34",
   "aivd_post_rc3/key_scan.py": "e9034ec22f0f6b6448d93b10a7b94568bf031b57918959f0afa69a918f1efaf4",
-  "aivd_post_rc3/models.py": "932d8fec30c2646b7a6bc55a7e0bfd4b64e42c850443a6901207871dde84433f",
+  "aivd_post_rc3/models.py": "1e5b142270e190b8ff1a22f3ffa8c3abb712d48d6eb61d56190e1742be609151",
   "aivd_post_rc3/publish.py": "7fe222f460452ec6e94bba93e6383754f5df4ff3a0294c80c1e9fef570f93b47",
   "aivd_post_rc3/rc3_freeze_blobs.py": "64a30664210e3b3dd0e2e867403329d9e91bf5405f2f09aa6356610cea5afe53",
   "aivd_post_rc3/seeds.py": "f6409da0c2977ed79012ea5c7dfcc36be7a3596d6f737f725569e105df0c49f4",
@@ -33,21 +33,21 @@
   "scripts/post_rc3_preregister.py": "bffda4f0b8fcb6021fc19343d550cdd98f9255f78a1f3b1f8f236d495626b3f4",
   "scripts/post_rc3_reveal.py": "c67aa1e252ed4c7040ecdd1c4bbcb8528260f1ea04a9a82b3aff379cf0651fb3",
   "scripts/post_rc3_run_model.py": "4c27f7ebdc2d9d1983e645050cb095ea8d196c4ccdca4604dc147922380190b2",
-  "scripts/post_rc3_seal_corpus.py": "6ab2573524a3fd70e2e9d69b18d3450d08e1009bb193b209a02cf5f08275f176",
+  "scripts/post_rc3_seal_corpus.py": "d5c65d6a04a4cdd63737bee89191f7c5d421e03feb78d2839a79d739cff64654",
   "scripts/post_rc3_wire_proxy.py": "c0306d773d5d899b71fddb45aa6b2aaa39f4d99f59d7873969db368b6469c202"
  },
  "known_coverage_limit": "16 scenarios need ~49 discovery calls (15 two-step x3 + 1 branch x4) against a 48 ceiling, so discovery may stop BUDGET_EXHAUSTED before the last scenario in each model's seeded order; reported as NOT_EXPLORED, never reallocated",
  "mark": "POST-RC3 / MODEL GENERALIZATION / NOT PART OF RC3 RELEASE",
  "message_structure": "evaluator-injected system note (only when the frozen RC3 wire rule fires) + alternating user/assistant turns; pipeline never authors system messages",
  "model_dirs": {
-  "llama-3.3-70b-versatile": "llama_3_3_70b",
   "openai/gpt-oss-120b": "gpt_oss_120b",
-  "openai/gpt-oss-20b": "gpt_oss_20b"
+  "openai/gpt-oss-20b": "gpt_oss_20b",
+  "qwen/qwen3.8-27b": "qwen3_8_27b"
  },
  "models": [
   "openai/gpt-oss-20b",
   "openai/gpt-oss-120b",
-  "llama-3.3-70b-versatile"
+  "qwen/qwen3.8-27b"
  ],
  "preflight": "GET /models once before execution; outside the 96 and outside the repeat set",
  "rc3_freeze_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
@@ -92,7 +92,7 @@
   "models": [
    "openai/gpt-oss-20b",
    "openai/gpt-oss-120b",
-   "llama-3.3-70b-versatile"
+   "qwen/qwen3.8-27b"
   ],
   "provider": "Groq",
   "provider_mandated": {
@@ -108,7 +108,8 @@
   "seed": 20260926,
   "stream": false,
   "temperature": 0.0,
-  "top_p": 1.0
+  "top_p": 1.0,
+  "user_agent": "AIVD-POST-RC3"
  },
  "stop_conditions": [
   "TARGET_LEAKAGE",

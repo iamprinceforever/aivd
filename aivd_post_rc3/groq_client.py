@@ -33,6 +33,7 @@ from aivd_post_rc3.config import (
     TEMPERATURE,
     TOP_P,
     TRANSPORT_TIMEOUT_SECONDS,
+    USER_AGENT,
 )
 from aivd_post_rc3.models import GPT_OSS_MODELS, MODELS
 from aivd_post_rc3.stop import StopCondition, check_model_match, halt
@@ -55,7 +56,11 @@ def _auth_header() -> dict:
         halt("AUTHORIZATION_FAILURE: GROQ_API_KEY is not set")
     # Never retain beyond this call frame except inside the Authorization header value
     # that urllib sends once; we do not log it.
-    return {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+    return {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+        "User-Agent": USER_AGENT,
+    }
 
 
 def build_chat_request(model_id: str, messages: list) -> dict:
@@ -83,6 +88,7 @@ def request_contract() -> dict:
         "base_url": BASE_URL,
         "api_surface": API_SURFACE,
         "http_library": HTTP_LIBRARY,
+        "user_agent": USER_AGENT,
         "temperature": TEMPERATURE,
         "max_completion_tokens": MAX_COMPLETION_TOKENS,
         "top_p": TOP_P,

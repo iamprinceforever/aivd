@@ -26,7 +26,7 @@ def test_corpus_commitment_consistent_and_shape():
     assert (summary["target_count"], summary["benign_count"]) == (8, 8)
     assert summary["dimension_count"] >= 8 and summary["relation_type_count"] == 5
     assert prereg["allocation_total"] == 288 and prereg["repeat_set"]["counts_inside_96"] is False
-    assert prereg["models"] == ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "llama-3.3-70b-versatile"]
+    assert prereg["models"] == ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "qwen/qwen3.8-27b"]
 
 
 def test_public_manifest_matches_commitment_and_hides_labels():

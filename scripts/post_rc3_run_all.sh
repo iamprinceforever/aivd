@@ -15,7 +15,7 @@ d = json.load(open("/tmp/post_rc3_preflight.json"))
 sys.exit(0 if d.get("all_active") else 4)
 PY
 PORT=11811
-for MODEL in "openai/gpt-oss-20b" "openai/gpt-oss-120b" "llama-3.3-70b-versatile"; do
+for MODEL in "openai/gpt-oss-20b" "openai/gpt-oss-120b" "qwen/qwen3.8-27b"; do
   DIR=$(python3 -c "from aivd_post_rc3.models import MODEL_DIRS; print(MODEL_DIRS['$MODEL'])")
   for MODE in main repeat; do
     PORT=$((PORT+1))

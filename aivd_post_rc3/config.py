@@ -13,6 +13,9 @@ CHAT_COMPLETIONS_PATH = "/chat/completions"
 MODELS_PATH = "/models"
 HTTP_LIBRARY = "urllib.request (stdlib)"
 API_SURFACE = "OpenAI-compatible Chat Completions"
+# Cloudflare rejects the default Python-urllib signature (HTTP 403 / error 1010).
+# This identifier is a transport requirement, not a sampling or model parameter.
+USER_AGENT = "AIVD-POST-RC3"
 
 # Shared sampling (identical for all three models).
 TEMPERATURE = 0.0
@@ -25,7 +28,7 @@ STREAM = False
 # Discovery/investigation never author system messages; only the evaluator wire does.
 MESSAGE_ROLES = ("system", "user", "assistant")
 
-# Provider-mandated extras that apply ONLY to GPT-OSS (not llama-3.3-70b-versatile).
+# Provider-mandated extras that apply ONLY to GPT-OSS (not qwen/qwen3.8-27b).
 # Documented neutrally; not a tuning choice. reasoning_effort=low keeps token use bounded
 # under the shared max_completion_tokens; include_reasoning=false keeps the visible
 # completion text comparable to non-reasoning models.

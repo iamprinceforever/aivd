@@ -45,8 +45,8 @@ def test_shared_request_shape_same_for_all_models():
     # only provider-mandated differences
     assert bodies["openai/gpt-oss-20b"]["reasoning_effort"] == "low"
     assert bodies["openai/gpt-oss-120b"]["include_reasoning"] is False
-    assert "reasoning_effort" not in bodies["llama-3.3-70b-versatile"]
-    assert "include_reasoning" not in bodies["llama-3.3-70b-versatile"]
+    assert "reasoning_effort" not in bodies["qwen/qwen3.8-27b"]
+    assert "include_reasoning" not in bodies["qwen/qwen3.8-27b"]
     shared = lambda b: {k: v for k, v in b.items() if k not in ("model", "reasoning_effort", "include_reasoning")}
     assert len({json.dumps(shared(b), sort_keys=True) for b in bodies.values()}) == 1
 
@@ -64,6 +64,7 @@ def test_successful_call_and_url_and_auth(monkeypatch):
     req = seen[0]
     assert req.full_url == "https://api.groq.com/openai/v1/chat/completions"
     assert req.get_header("Authorization") == "Bearer test-key-value"
+    assert req.get_header("User-agent") == "AIVD-POST-RC3"
     # attempt log never contains the key
     assert "test-key-value" not in json.dumps(attempts)
 
@@ -71,7 +72,7 @@ def test_successful_call_and_url_and_auth(monkeypatch):
 def test_model_substitution_halts(monkeypatch):
     install(monkeypatch, lambda req, n: Resp(200, openai_body("llama-3.1-8b-instant", "x")))
     with pytest.raises(StopCondition) as exc:
-        gc.chat_completion("llama-3.3-70b-versatile", [{"role": "user", "content": "x"}])
+        gc.chat_completion("qwen/qwen3.8-27b", [{"role": "user", "content": "x"}])
     assert "UNEXPECTED_MODEL_SUBSTITUTION" in str(exc.value)
 
 
@@ -117,7 +118,7 @@ def test_preflight_models_active_logic():
     out = gc.preflight_models_active(listing)
     assert out["openai/gpt-oss-20b"] == {"listed": True, "active": True}
     assert out["openai/gpt-oss-120b"]["active"] is False
-    assert out["llama-3.3-70b-versatile"]["listed"] is False
+    assert out["qwen/qwen3.8-27b"]["listed"] is False
 
 
 def test_list_models_uses_get_models(monkeypatch):

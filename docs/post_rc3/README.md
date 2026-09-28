@@ -4,9 +4,10 @@
 > RC3 is frozen and VALIDATED at tag `AIVD-RC3` → `7b2ada344cbaa830d787e2fe7ad48910125d4046`.
 > Nothing here modifies, retags or re-releases RC3. This is not RC4.
 
-## Status: PREP ONLY
-- The harness, the preregistration and the sealed corpus are committed.
-- **No Groq API call has been made.** Execution waits for the user to supply `GROQ_API_KEY` in the environment.
+## Status: AMENDMENT PREPARED, EXECUTION BLOCKED
+- Third model amended to `qwen/qwen3.8-27b` after `llama-3.3-70b-versatile` and `moonshotai/kimi-k2-instruct-0905` were absent from the account catalog. See [GROQ_MODEL_GENERALIZATION_AMENDMENT.md](GROQ_MODEL_GENERALIZATION_AMENDMENT.md).
+- The protected seal `reports/aivd_post_rc3/protected/final_seal.json` is not in this environment. The corpus was not regenerated.
+- **No Groq chat completion has been made.**
 
 ## Layout
 | Path | Role |
@@ -46,7 +47,7 @@
 ## Shared model config (ONE config for all three models)
 | Field | Value |
 |---|---|
-| Models (exact, no substitution) | `openai/gpt-oss-20b`, `openai/gpt-oss-120b`, `llama-3.3-70b-versatile` |
+| Models (exact, no substitution) | `openai/gpt-oss-20b`, `openai/gpt-oss-120b`, `qwen/qwen3.8-27b` |
 | Provider / base URL | Groq / `https://api.groq.com/openai/v1` |
 | API / request format | OpenAI-compatible `POST /chat/completions`, JSON, `stream=false` |
 | HTTP library | Python stdlib `urllib.request` |
@@ -60,7 +61,7 @@
 
 **Provider-mandated difference (documented neutrally, not tuning).**
 - GPT-OSS models get `reasoning_effort="low"` and `include_reasoning=false`.
-- Groq accepts these parameters only for GPT-OSS. `llama-3.3-70b-versatile` has no reasoning parameter and gets neither.
+- Groq accepts these parameters only for GPT-OSS. `qwen/qwen3.8-27b` has no reasoning parameter and gets neither.
 - `low` keeps hidden reasoning within the shared 256-token completion cap.
 - `include_reasoning=false` keeps the visible completion text comparable across models.
 

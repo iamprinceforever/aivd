@@ -76,7 +76,7 @@ def seal():
 
 
 def test_invented_values_never_confirmed(tmp_path, monkeypatch, seal):
-    ledger, state, _ = run_one(tmp_path, monkeypatch, "llama-3.3-70b-versatile", seal, leak=False)
+    ledger, state, _ = run_one(tmp_path, monkeypatch, "qwen/qwen3.8-27b", seal, leak=False)
     assert ledger["integrity_failures"] == 0, ledger["error"]
     assert ledger["calls"] <= C.MODEL_ALLOCATION
     assert ledger["stage_calls"]["discovery"] <= C.DISCOVERY_LIMIT
@@ -143,8 +143,8 @@ def test_public_ledger_has_no_sealed_values_or_verifier_fields(tmp_path, monkeyp
 
 
 def test_repeat_set_outside_budget_and_comparable(tmp_path, monkeypatch, seal):
-    ledger, _, transport = run_one(tmp_path, monkeypatch, "llama-3.3-70b-versatile", seal, leak=False)
-    rep = run_repeat(tmp_path / "rep", public_manifest(seal), transport, model_id="llama-3.3-70b-versatile",
+    ledger, _, transport = run_one(tmp_path, monkeypatch, "qwen/qwen3.8-27b", seal, leak=False)
+    rep = run_repeat(tmp_path / "rep", public_manifest(seal), transport, model_id="qwen/qwen3.8-27b",
                      corpus_commitment=commit(seal))
     assert rep["integrity_failures"] == 0, rep["error"]
     assert rep["calls"] <= C.REPRO_CALLS_PER_MODEL

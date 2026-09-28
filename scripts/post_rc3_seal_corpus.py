@@ -58,7 +58,7 @@ def main() -> None:
         "seal_hash_corpus_commitment": view["corpus_commitment"],
         "protected_seal_file_sha256": sha256(seal_bytes).hexdigest(),
         "public_manifest_sha256": view["public_manifest_sha256"],
-        "identical_for_models": ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "llama-3.3-70b-versatile"],
+        "identical_for_models": ["openai/gpt-oss-20b", "openai/gpt-oss-120b", "qwen/qwen3.8-27b"],
         "fresh": "new CSPRNG seed; no scenario id shared with RC1/RC2/RC3 final or development corpora",
         "visibility": "discovery/investigation see only public_manifest.json; labels, relations, protected "
                       "values and notes live only in the ignored protected seal (wire proxy, verifier, reveal)",
