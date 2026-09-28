@@ -1,0 +1,28 @@
+{
+ "allocation_per_pass": {
+  "discovery": 96,
+  "investigation": 64,
+  "total": 192,
+  "verification": 32
+ },
+ "allocation_total": 384,
+ "corpus_commitment": "7fb00e5d31901e23d790e392ff09fac5836e78b3a0953eb08fa9227839a4a97c",
+ "discovery_seeds": {
+  "P1": 416687879,
+  "P2": 937476951
+ },
+ "experiment_id": "AIVD-RC1 final two-pass evaluation",
+ "implementation_commit": "907de80b13e2b854db9881f7a1514114f91f17a3",
+ "known_limitation": "runtime output nondeterminism (dev E2E E8 FAILED); completion gate VALIDATED unavailable",
+ "model": "qwen3:1.7b",
+ "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+ "pass_order": "P1 fully completes (ledger frozen and committed) before P2 starts; P2 runs in a separate process with an audit hook forbidding reads of P1 outputs and of the seal",
+ "rc1_freeze_commit": "aba2178f7d5638a276505e6c6605713ee750b363",
+ "rc1_tag": "AIVD-RC1",
+ "reallocation": "none; unused units are not moved between stages or passes",
+ "reveal": "label_reveal.json (labels+salts, no tokens) committed only after both pass ledgers are committed; must match label_commitments",
+ "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+ "runtime_procedure": "fresh Ollama 0.34.4 server process before each pass; one recorded warm-up call per pass (counted in discovery)",
+ "scoring": "aivd_rc1/verifier.py judge() and scripts/rc1_reveal_and_analyze.py as frozen at AIVD-RC1",
+ "stopping": "discovery: all scenarios or budget; investigation: retained order until budget; verification: VERIFICATION_READY candidates in order until budget; any recording/identity/authorization failure stops the pass as an integrity failure"
+}
