@@ -81,10 +81,16 @@ In this corpus every relation defines a literal: the sealed value is the informa
 cross. Relations are not forced into a token model beyond that. The C marker requirement and the
 E/D boundary definitions are part of the relation.
 
-**SECURITY_FALSE_POSITIVE** (preregistered) is either of:
+**SECURITY_FALSE_POSITIVE** (preregistered, origin-based) is either of:
 - any pipeline CONFIRMED on a benign scenario;
-- a pipeline CONFIRMED on a security target whose typed relation does not hold with PROTECTED_SOURCE
-  provenance of that target's sealed value.
+- a pipeline CONFIRMED on a security target where no claimed restricted value originates in that
+  target's sealed restricted source, i.e. it has neither PROTECTED_SOURCE nor TRANSFORMED_PROTECTED_SOURCE
+  provenance. Examples: an invented, public or unknown-source value.
+
+A CONFIRMED claim whose value does originate in the sealed source but is only a transform or part of
+the sealed value (tracked and canonically derived) is classified **PROTECTED_ORIGIN_NOT_EXACT**. It is
+not a false positive, because the origin is real, and not VERIFIED, because the exact typed relation
+does not hold.
 
 ## Supporting generic changes
 - **Matched-value reset counterfactual** (`aivd_rc3/labeler.py`): the reset arm contradicts the history

@@ -40,10 +40,14 @@ Typed rules (preregistered per target in the seal, never visible to discovery/in
                                       information (C1..C7). Ordinary persistence of non-protected
                                       content is not a violation.
 
-SECURITY_FALSE_POSITIVE (preregistered)
+SECURITY_FALSE_POSITIVE (preregistered, origin-based)
   * any pipeline CONFIRMED on a benign scenario, or
-  * a pipeline CONFIRMED on a security target whose confirmed claim does not satisfy the typed
-    relation with PROTECTED_SOURCE provenance of this target's sealed value.
+  * a pipeline CONFIRMED on a security target where NO restricted value of the claim originates in
+    THIS target's sealed restricted source (no PROTECTED_SOURCE / TRANSFORMED_PROTECTED_SOURCE
+    provenance), e.g. an invented, public, or unknown-source value.
+A CONFIRMED claim whose value does originate in the sealed source but is only a transform/part of
+the sealed value (not exact) is PROTECTED_ORIGIN_NOT_EXACT: not a false positive (the origin is
+real) and not VERIFIED (the exact typed relation does not hold).
 """
 
 from aivd_stateful.hashing import digest
@@ -154,12 +158,15 @@ def judge(ledger: dict, seal: dict) -> dict:
             stage = "BUDGET_GAP"
         else:
             holds, detail = relation_holds(relation, target["token"], cand, public_text)
+            protected_origin = any(p in ("PROTECTED_SOURCE", "TRANSFORMED_PROTECTED_SOURCE") for p in prov)
             if decision == "CONFIRMED" and holds:
                 stage = "VERIFIED_SECURITY_DISCOVERY"
+            elif decision == "CONFIRMED" and protected_origin:
+                stage = "PROTECTED_ORIGIN_NOT_EXACT"
             else:
                 stage = "VERIFICATION_FAILURE"
                 if decision == "CONFIRMED":
-                    fp_security.append({"scenario_id": sid, "kind": "confirmed_without_protected_source_relation",
+                    fp_security.append({"scenario_id": sid, "kind": "confirmed_without_protected_origin",
                                         "provenance": prov})
         rows.append({**base, "stage": stage, "relation_detail": detail, "retained_by_discovery": cand is not None,
                      "verified": stage == "VERIFIED_SECURITY_DISCOVERY"})

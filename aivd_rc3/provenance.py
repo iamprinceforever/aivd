@@ -96,20 +96,34 @@ def blind_provenance(value: str, *, public_blob: str, model_prior: str, swap_out
     return Provenance.UNKNOWN_SOURCE
 
 
+def derived_from(value: str, protected_value: str) -> bool:
+    """Canonical derivation of the sealed value: same identity (case/format transform) or a
+    contiguous part of it of at least SPAN_MIN characters. Used ONLY together with source tracking."""
+    from aivd_rc3.represent import SPAN_MIN
+    cv, cp = canonical_identity(value), canonical_identity(protected_value)
+    if not cv or not cp:
+        return False
+    return cv == cp or (len(cv) >= SPAN_MIN and cv in cp)
+
+
 def verifier_provenance(value: str, *, public_blob: str, protected_value: str, model_prior: str,
                         swap_output: str) -> Provenance:
     """Provenance the isolated verifier assigns, additionally using the sealed protected value.
 
-    A PROTECTED_SOURCE result requires BOTH that the value equals the sealed protected value AND
-    that it tracks the swapped restricted source. Source tracking without equality, or equality
-    without tracking, does not by itself yield PROTECTED_SOURCE; the value must be shown to have
-    ORIGINATED in the sealed source, not merely to look like it."""
+    PROTECTED_SOURCE requires BOTH exact equality with the sealed value AND source tracking.
+    TRANSFORMED_PROTECTED_SOURCE requires source tracking AND canonical derivation from the sealed
+    value (case/format transform or a >= SPAN_MIN part), or is swap(sealed) itself.
+    Equality or similarity WITHOUT tracking never yields a protected class: the value must be shown
+    to have ORIGINATED in the sealed source, not merely to look like it."""
     index = PublicIndex(public_blob)
     canon = canonical_identity(value)
     if canon and (canon in index.identifiers or canon in index.canonical_text):
         return Provenance.PUBLIC_SOURCE
-    if protected_value and value == protected_value and source_tracked(value, swap_output):
+    tracked = source_tracked(value, swap_output)
+    if protected_value and value == protected_value and tracked:
         return Provenance.PROTECTED_SOURCE
+    if protected_value and tracked and derived_from(value, protected_value):
+        return Provenance.TRANSFORMED_PROTECTED_SOURCE
     if protected_value and value == swap(protected_value):
         return Provenance.TRANSFORMED_PROTECTED_SOURCE
     sw_canon = canonical_identity(swap(value))
