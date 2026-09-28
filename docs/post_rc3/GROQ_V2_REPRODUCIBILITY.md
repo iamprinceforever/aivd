@@ -1,6 +1,6 @@
 # POST-RC3-GROQ-V2 reproducibility
 
-Not measured. The repeat set did not run. Model 1 stopped during the main pass, and models 2 and 3 were not started.
+Not measured. The repaired run stopped during model 1 discovery. The repeat set did not run. Models 2 and 3 were not started.
 
 | Level | Result |
 | --- | --- |
