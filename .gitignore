@@ -15,3 +15,8 @@ reports/aivd_f3_lm_2r/removed/
 reports/aivd_rc1/protected/
 reports/aivd_rc1/**/raw/
 reports/aivd_rc1/**/wire/
+# RC2 protected final-corpus raw values, full ledgers and diagnostics raw dumps (never committed)
+reports/aivd_rc2/protected/
+reports/aivd_rc2/**/raw/
+reports/aivd_rc2/**/wire/
+.tmp/
