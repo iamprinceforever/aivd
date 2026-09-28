@@ -1,15 +1,25 @@
 # POST-RC3-GROQ-V2 evaluation
 
-Status: NOT EXECUTED.
+Status: STOPPED.
 
-`GROQ_API_KEY_PRESENT=false` in this environment. No chat completion was sent. No model was substituted. The fresh corpus was sealed and preregistered before this stop.
+The fresh corpus was sealed before any call. Corpus commitment `4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36`. All three model IDs were listed and active. Then `openai/gpt-oss-20b` started. The run stopped on a preregistered integrity failure. Models 2 and 3 were not started. The pipeline was not patched.
 
 | Model | Security Targets | Verified | Missed | Behavioral FP | Security FP | Calls |
 | --- | --- | --- | --- | --- | --- | --- |
-| `openai/gpt-oss-20b` | 12 | not run | not run | not run | not run | 0 |
+| `openai/gpt-oss-20b` | 12 | not scored | not scored | not scored | not scored | 45 |
 | `openai/gpt-oss-120b` | 12 | not run | not run | not run | not run | 0 |
 | `qwen/qwen3.8-27b` | 12 | not run | not run | not run | not run | 0 |
 
-Corpus commitment: `4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36`
+Model 1:
 
-The aborted benchmark `70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b` was not reconstructed and was not executed.
+- API attempts: 49
+- Recorded requests: 44
+- Candidates: 0
+- Error: `RecordingFailure: retry exceeded stage budget`
+- Integrity failures: 1
+- The exception happened before discovery completed. The driver's exception path then reported stage counts as discovery 0 / investigation 45 / verification 0. That attribution is an accounting defect in the failure path, not a completed investigation stage.
+- Verifier: not run
+
+Contamination: no protected value was written into a public artifact by this stop report. The raw ledger remains only in the gitignored protected directory.
+
+The aborted 8+8 commitment was not used.

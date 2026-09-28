@@ -1,6 +1,6 @@
 # POST-RC3-GROQ-V2 reproducibility
 
-Not measured. The preregistered repeat set (6 calls per model, outside the 96) was not run because no model call was made.
+Not measured. The repeat set did not run. Model 1 stopped during the main pass, and models 2 and 3 were not started.
 
 | Level | Result |
 | --- | --- |
