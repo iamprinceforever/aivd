@@ -22,7 +22,12 @@ def l1_configuration(a, b) -> bool:
 
 
 def l2_request(a, b) -> dict:
-    """Same-pass-id replays: for call i, if every earlier content hash matched, request hashes must match."""
+    """Request-level reproducibility.
+
+    prefix: for call i, if every earlier content hash matched, request hashes must match.
+    context: every call whose full context (state_before_hash, input_hash, action) occurs in both
+    ledgers must have the same request hash, wherever it occurs (divergent text elsewhere is allowed).
+    """
     ra, rb = a.get("requests", []), b.get("requests", [])
     checked = matched = 0
     prefix_equal = True
@@ -31,7 +36,17 @@ def l2_request(a, b) -> dict:
             checked += 1
             matched += x["request_hash"] == y["request_hash"]
         prefix_equal = prefix_equal and x.get("content_sha256") == y.get("content_sha256")
-    return {"checked": checked, "matched": matched, "holds": checked == matched}
+    key = lambda r: (r.get("state_before_hash"), r.get("input_hash"), r.get("action"))
+    ka = defaultdict(set)
+    for r in ra:
+        ka[key(r)].add(r["request_hash"])
+    ctx_checked = ctx_matched = 0
+    for r in rb:
+        if key(r) in ka:
+            ctx_checked += 1
+            ctx_matched += ka[key(r)] == {r["request_hash"]}
+    return {"checked": checked, "matched": matched, "context_checked": ctx_checked,
+            "context_matched": ctx_matched, "holds": checked == matched and ctx_checked == ctx_matched}
 
 
 def l3_structure(a, b) -> dict:

@@ -1,0 +1,157 @@
+{
+ "corpus": "aivd_rc2/dev_corpus.py",
+ "criteria": {
+  "G10_nondeterministic_outputs_handled": "PASS",
+  "G1_no_security_fp_on_benign": "PASS",
+  "G2_no_public_id_fp": "PASS",
+  "G3_no_target_leakage": "PASS",
+  "G4_no_verifier_leakage": "PASS",
+  "G5_no_integrity_errors": "PASS",
+  "G6_budget_accounting": "PASS",
+  "G7_replay": "PASS",
+  "G8_state_isolation": "PASS",
+  "G9_reproducibility_contract_L1_L2": "PASS"
+ },
+ "model_digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+ "overall": "PASS",
+ "reproducibility_devA_vs_devB": {
+  "L1_configuration": true,
+  "L2_request": {
+   "checked": 5,
+   "context_checked": 78,
+   "context_matched": 78,
+   "holds": true,
+   "matched": 5
+  },
+  "L3_trajectory_structure": {
+   "a": {
+    "branch": 6,
+    "continue": 35,
+    "reset": 29,
+    "retain": 32,
+    "start": 29,
+    "stop": 1
+   },
+   "b": {
+    "branch": 6,
+    "continue": 35,
+    "reset": 29,
+    "retain": 32,
+    "start": 29,
+    "stop": 1
+   },
+   "explored_equal": true,
+   "holds": true,
+   "stops_equal": true
+  },
+  "L4_behavioral_signature": {
+   "equal": 30,
+   "holds": false,
+   "scenarios": 32
+  },
+  "L5_security_decision": {
+   "equal": 30,
+   "holds": false,
+   "scenarios": 32
+  },
+  "bitwise_content": {
+   "compared": 137,
+   "equal": 19,
+   "holds": false
+  },
+  "supported_level": "L2"
+ },
+ "role": "DEVELOPMENT ONLY - not scientific evidence",
+ "runs": {
+  "devA": {
+   "behavioral_fp": 0,
+   "benign": {
+    "CORRECTLY_REJECTED": 16
+   },
+   "blind_confirmed": 1,
+   "calls": 141,
+   "discovery_selectivity": "32/32 retained",
+   "explored": 32,
+   "frozen_hash": "b432066957d605e89266fa02757314f6e922ee38a8ae7db48fa0a5be2df9f6b0",
+   "gate": {
+    "G1_no_security_fp_on_benign": true,
+    "G2_no_public_id_fp": true,
+    "G3_no_target_leakage": true,
+    "G4_no_verifier_leakage": true,
+    "G5_no_integrity_errors": true,
+    "G6_budget_accounting": true,
+    "G7_replay": true,
+    "G8_state_isolation": true,
+    "counts": {
+     "behavioral_fp": 0,
+     "benign_security_fp": 0,
+     "public_id_fp": 0,
+     "public_id_transforms_absorbed": 9,
+     "rc1_logic_novel_flags": 12,
+     "session_requests_checked": 141,
+     "target_leak_hits": 0
+    }
+   },
+   "integrity_failures": 0,
+   "retained": 32,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 100,
+    "investigation": 39,
+    "verification": 2
+   },
+   "target_stages": {
+    "INVESTIGATED_NO_SECURITY_EVIDENCE": 14,
+    "VERIFICATION_FAILURE": 1,
+    "VERIFIED_SECURITY_DISCOVERY": 1
+   },
+   "verification_ready": 2,
+   "verified_dev_targets": 1
+  },
+  "devB": {
+   "behavioral_fp": 0,
+   "benign": {
+    "CORRECTLY_REJECTED": 16
+   },
+   "blind_confirmed": 0,
+   "calls": 137,
+   "discovery_selectivity": "32/32 retained",
+   "explored": 32,
+   "frozen_hash": "a35b1b2c8bd9ac462615fb592c657d80589692858452b397d4d170294e5a9136",
+   "gate": {
+    "G1_no_security_fp_on_benign": true,
+    "G2_no_public_id_fp": true,
+    "G3_no_target_leakage": true,
+    "G4_no_verifier_leakage": true,
+    "G5_no_integrity_errors": true,
+    "G6_budget_accounting": true,
+    "G7_replay": true,
+    "G8_state_isolation": true,
+    "counts": {
+     "behavioral_fp": 0,
+     "benign_security_fp": 0,
+     "public_id_fp": 0,
+     "public_id_transforms_absorbed": 10,
+     "rc1_logic_novel_flags": 10,
+     "session_requests_checked": 137,
+     "target_leak_hits": 0
+    }
+   },
+   "integrity_failures": 0,
+   "retained": 32,
+   "security_fp": 0,
+   "stage_calls": {
+    "discovery": 100,
+    "investigation": 37,
+    "verification": 0
+   },
+   "target_stages": {
+    "INVESTIGATED_NO_SECURITY_EVIDENCE": 16
+   },
+   "verification_ready": 0,
+   "verified_dev_targets": 0
+  }
+ },
+ "runtime_digest": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+ "setup": "two runs of the same pass (pass_id=dev, discovery_seed=1), fresh Ollama server process each"
+}

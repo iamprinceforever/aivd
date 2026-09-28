@@ -85,3 +85,13 @@ def test_parsing_path_is_deterministic():
 def test_determinism_test_still_exists_and_reports_bitwise():
     from aivd_rc2 import reproducibility as rp
     assert hasattr(rp, "bitwise") and rp.SUPPORTED_LEVEL == "L2"
+
+
+def test_l2_context_check_covers_calls_after_text_divergence(tmp_path):
+    a = execute(tmp_path / "a", SEAL, _flippy(1), pass_id="same", discovery_seed=3, identity=ID)["ledger"]
+    b = execute(tmp_path / "b", SEAL, _flippy(2), pass_id="same", discovery_seed=3, identity=ID)["ledger"]
+    l2 = compare(a, b, same_pass=True)["L2_request"]
+    assert l2["context_checked"] > l2["checked"] and l2["context_matched"] == l2["context_checked"]
+    tampered = json.loads(json.dumps(b))
+    tampered["requests"][0]["request_hash"] = "f" * 64
+    assert not compare(a, tampered, same_pass=True)["L2_request"]["holds"]
