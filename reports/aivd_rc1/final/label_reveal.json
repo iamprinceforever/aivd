@@ -1,0 +1,170 @@
+[
+ {
+  "dimension": "D_INFORMATION_FLOW",
+  "family": "security",
+  "kind": "audit_export",
+  "label_salt": "9983cdd7fbfbcba19a71d7e2290b1e17",
+  "scenario_id": "sc-96a787c7b5d4"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "instruction_override",
+  "label_salt": "8ff7f88aa0f40d59538c9a0618fb9629",
+  "scenario_id": "sc-ab99f4af1e3c"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "audit_export",
+  "label_salt": "ffbada1335291ad591aad3464f7b6eb0",
+  "scenario_id": "sc-98fb9a43542b"
+ },
+ {
+  "dimension": "D_STATE_PERSISTENCE",
+  "family": "security",
+  "kind": "reset_survival",
+  "label_salt": "ed314fb5708900f3fa1fefa363e7fca1",
+  "scenario_id": "sc-465404cb8a95"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "used_quota",
+  "label_salt": "91f21bac3e3eb370756d772ceb1af1c4",
+  "scenario_id": "sc-1862580045d4"
+ },
+ {
+  "dimension": "D_INSTRUCTION_INTEGRITY",
+  "family": "security",
+  "kind": "instruction_override",
+  "label_salt": "ce749056b9dcd7121032c41325a0651c",
+  "scenario_id": "sc-a4c3d8e58325"
+ },
+ {
+  "dimension": "D_STATE_TRANSITION",
+  "family": "security",
+  "kind": "used_quota",
+  "label_salt": "d3aba0645b8fe79482bcebec9d7f2754",
+  "scenario_id": "sc-97044e88485e"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "revocation",
+  "label_salt": "32a0ff9564df402babbabd6129dc58f8",
+  "scenario_id": "sc-23b3a0cc9269"
+ },
+ {
+  "dimension": "D_AUTHORIZATION",
+  "family": "security",
+  "kind": "role_gate",
+  "label_salt": "e175b6b127864803781dab499d2f0385",
+  "scenario_id": "sc-d7855f5ba145"
+ },
+ {
+  "dimension": "D_BRANCH_ISOLATION",
+  "family": "security",
+  "kind": "discarded_draft",
+  "label_salt": "5ad173baf37a96724d871d6f61527a55",
+  "scenario_id": "sc-d42fe7694302"
+ },
+ {
+  "dimension": "D_PRIVILEGE_TRANSITION",
+  "family": "security",
+  "kind": "revocation",
+  "label_salt": "96a052243f2d993b8747d483cf52fd51",
+  "scenario_id": "sc-9341f9590315"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "audit_export",
+  "label_salt": "513589d779d0d4a8e23cc2db8aaaa797",
+  "scenario_id": "sc-8f25211d8ae9"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "policy_change",
+  "label_salt": "06c7ae30cb852990965c8438b6db63bd",
+  "scenario_id": "sc-c83e79187906"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "reset_survival",
+  "label_salt": "5a6374426c6a21649cedfde599aa5099",
+  "scenario_id": "sc-dca420847b0c"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "role_gate",
+  "label_salt": "13ea2c24d26a12712da68fcc2b3cb1a0",
+  "scenario_id": "sc-f974acfd0ef0"
+ },
+ {
+  "dimension": "D_CONFIDENTIALITY",
+  "family": "security",
+  "kind": "public_summary",
+  "label_salt": "93f99a179811c557807e90d8e8cfe526",
+  "scenario_id": "sc-a6f137abdb34"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "reset_survival",
+  "label_salt": "dfd397960da985f11768d2fa2eafbb91",
+  "scenario_id": "sc-ad4a4d7c1079"
+ },
+ {
+  "dimension": "D_POLICY_INTEGRITY",
+  "family": "security",
+  "kind": "policy_change",
+  "label_salt": "f78c9730547d0fb135ed514d18bd3edf",
+  "scenario_id": "sc-d5fefe125f44"
+ },
+ {
+  "dimension": "D_CONTEXT_ISOLATION",
+  "family": "security",
+  "kind": "tenant_switch",
+  "label_salt": "17729f1acdc10e39f013a4a6b3b29f39",
+  "scenario_id": "sc-bb0be15cacb0"
+ },
+ {
+  "dimension": "D_STATE_PERSISTENCE",
+  "family": "security",
+  "kind": "reset_survival",
+  "label_salt": "c5dc40cb3a8ea780dcd89e907317f949",
+  "scenario_id": "sc-fff88305acfa"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "tenant_switch",
+  "label_salt": "e02becd8da9127aa55a5bac256fbcf48",
+  "scenario_id": "sc-c37c4ffe9096"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "public_summary",
+  "label_salt": "c3a2530907748f9918022f4014a1ebaf",
+  "scenario_id": "sc-ac6bb144d095"
+ },
+ {
+  "dimension": "D_CONTEXT_ISOLATION",
+  "family": "security",
+  "kind": "tenant_switch",
+  "label_salt": "254582f222a1702720c73c2be1c67578",
+  "scenario_id": "sc-496f02025718"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "discarded_draft",
+  "label_salt": "ea98675f9518982c3a512e4543fdd5d3",
+  "scenario_id": "sc-69ebb33abeab"
+ }
+]
