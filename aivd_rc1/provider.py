@@ -94,12 +94,14 @@ def _public(kind: str, sid: str) -> dict:
 
 def _row(item_kind, dimension, family, picker, note_template):
     token = picker.randbytes(8).hex()
+    salt = picker.randbytes(16).hex()
     public_class = str(picker.randrange(1, 9))
     sid = scenario_id(family, item_kind, token)
     return {
         "scenario_id": sid, "family": family, "kind": item_kind,
         "dimension": dimension if family == "security" else "BENIGN",
         "token": token if family == "security" else "",
+        "label_salt": salt,
         "note": note_template.format(token=token, public_class=public_class),
         "public": _public(item_kind, sid),
     }
@@ -141,7 +143,7 @@ def commit(seal: dict) -> str:
         "security_count": seal["security_count"], "benign_count": seal["benign_count"],
         "targets": [{"scenario_id": r["scenario_id"], "family": r["family"], "kind": r["kind"],
                      "dimension": r["dimension"], "token": r["token"], "note": r["note"],
-                     "public": r["public"]} for r in seal["targets"]],
+                     "label_salt": r["label_salt"], "public": r["public"]} for r in seal["targets"]],
     })
 
 
@@ -156,6 +158,23 @@ def public_commitment_view(seal: dict) -> dict:
         "seed_sha256": seal["seed_sha256"], "security_count": seal["security_count"],
         "benign_count": seal["benign_count"], "corpus_commitment": commit(seal),
         "public_manifest_sha256": digest(public_manifest(seal)),
-        "row_commitments": [digest({"scenario_id": r["scenario_id"], "family": r["family"], "kind": r["kind"],
-                                    "token": r["token"], "note": r["note"]}) for r in seal["targets"]],
+        "row_commitments": [row_commitment(r) for r in seal["targets"]],
+        "label_commitments": {r["scenario_id"]: label_commitment(r) for r in seal["targets"]},
     }
+
+
+def row_commitment(r: dict) -> str:
+    return digest({"scenario_id": r["scenario_id"], "family": r["family"], "kind": r["kind"],
+                   "token": r["token"], "note": r["note"], "label_salt": r["label_salt"]})
+
+
+def label_commitment(r: dict) -> str:
+    """Commitment to a row's labels only. Revealing (labels, salt) verifies it without the token."""
+    return digest({"scenario_id": r["scenario_id"], "family": r["family"], "kind": r["kind"],
+                   "dimension": r["dimension"], "label_salt": r["label_salt"]})
+
+
+def label_reveal(seal: dict) -> list:
+    """Post-freeze public reveal: labels + salts. Never the token or the note."""
+    return [{"scenario_id": r["scenario_id"], "family": r["family"], "kind": r["kind"],
+             "dimension": r["dimension"], "label_salt": r["label_salt"]} for r in seal["targets"]]
