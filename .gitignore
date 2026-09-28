@@ -24,3 +24,7 @@ reports/aivd_rc2/**/wire/
 reports/aivd_rc3/protected/
 reports/aivd_rc3/**/raw/
 reports/aivd_rc3/**/wire/
+# POST-RC3 Groq evaluation: protected seals, raw ledgers, wire dumps (never committed)
+reports/aivd_post_rc3/protected/
+reports/aivd_post_rc3/**/raw/
+reports/aivd_post_rc3/**/wire/
