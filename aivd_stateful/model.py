@@ -220,6 +220,60 @@ def reset(trajectory: Trajectory, public_input: str, output: str, *, reason: str
     return _append(child, public_input, output, "reset", reason, budget)
 
 
+def plan_turn(trajectory: Trajectory, public_input: str, action: str) -> tuple:
+    """Identify the turn before any model call. The shell has no new output yet."""
+    if action == "continue":
+        shell = trajectory
+    elif action == "branch":
+        shell = Trajectory(
+            trajectory_id=_identity("branch", trajectory.config, public_input, trajectory.trajectory_id, "branch"),
+            config=trajectory.config,
+            isolation="branch",
+            parent_trajectory_id=trajectory.trajectory_id,
+            prefix=_history(trajectory),
+            turns=(),
+        )
+    elif action == "reset":
+        shell = Trajectory(
+            trajectory_id=_identity("reset", trajectory.config, public_input, trajectory.trajectory_id, "reset"),
+            config=trajectory.config,
+            isolation="reset",
+            parent_trajectory_id=trajectory.trajectory_id,
+            prefix=(),
+            turns=(),
+        )
+    elif action == "verify":
+        shell = Trajectory(
+            trajectory_id=_identity("verify", trajectory.config, public_input, trajectory.trajectory_id, "branch"),
+            config=trajectory.config,
+            isolation="branch",
+            parent_trajectory_id=trajectory.trajectory_id,
+            prefix=_history(trajectory),
+            turns=(),
+        )
+    else:
+        raise PolicyError("unknown action")
+    parent_turn = shell.tip()
+    index = len(shell.prefix) + len(shell.turns)
+    input_hash = digest({"public_input": public_input})
+    turn_id = digest(
+        {
+            "trajectory_id": shell.trajectory_id,
+            "parent_turn_id": parent_turn,
+            "input_hash": input_hash,
+            "index": index,
+        }
+    )
+    return shell, {
+        "trajectory_id": shell.trajectory_id,
+        "turn_id": turn_id,
+        "parent_turn_id": parent_turn,
+        "state_before_hash": shell.state_hash(),
+        "input_hash": input_hash,
+        "action": action,
+    }
+
+
 @dataclass
 class Budget:
     limit: int
