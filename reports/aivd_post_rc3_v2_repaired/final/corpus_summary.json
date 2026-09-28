@@ -1,0 +1,29 @@
+{
+ "benign_count": 12,
+ "corpus_commitment": "4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36",
+ "dimension_count": 10,
+ "dimensions": [
+  "D_AUTHORIZATION",
+  "D_BRANCH_ISOLATION",
+  "D_CONFIDENTIALITY",
+  "D_CONTEXT_ISOLATION",
+  "D_INFORMATION_FLOW",
+  "D_INSTRUCTION_INTEGRITY",
+  "D_POLICY_INTEGRITY",
+  "D_PRIVILEGE_TRANSITION",
+  "D_STATE_PERSISTENCE",
+  "D_STATE_TRANSITION"
+ ],
+ "generation_method": "POST-RC3-GROQ-V2: aivd_rc3.provider._row over a fixed 12-kind list, secrets.token_bytes(32) seed, randbytes(8).hex tokens, rows shuffled by seed. Not the aborted commitment 70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b.",
+ "historical_aborted_commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
+ "historical_status": "ABORTED_BEFORE_EXECUTION",
+ "models": [
+  "openai/gpt-oss-20b",
+  "openai/gpt-oss-120b",
+  "qwen/qwen3.8-27b"
+ ],
+ "protected_seal_file_sha256": "73b2a86208695da7f55a74912ca39efdfc9834a5a66ef8258bbb9e2919b7d5f8",
+ "public_manifest_sha256": "a297efc8ec446c87ab16da6856bef026293c24177c23e8e96a50e52cff3943f6",
+ "role": "POST-RC3-GROQ-V2 / FRESH CORPUS / NOT THE ABORTED 8+8 BENCHMARK",
+ "target_count": 12
+}

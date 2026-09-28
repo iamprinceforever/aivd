@@ -1,0 +1,77 @@
+{
+ "allocation_per_model": {
+  "discovery": 48,
+  "investigation": 32,
+  "total": 96,
+  "verification": 16
+ },
+ "allocation_total": 288,
+ "corpus_commitment": "4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36",
+ "discovery_seeds": {
+  "openai/gpt-oss-120b": 551237090,
+  "openai/gpt-oss-20b": 435736364,
+  "qwen/qwen3.8-27b": 2052047263
+ },
+ "experiment_id": "POST-RC3-GROQ-V2",
+ "harness_code_sha256": {
+  "aivd_post_rc3_v2/__init__.py": "0bc6c2eaade9f8ab89b7d8c99f184996e266fb1b9f9ef0f56f68bbefd4b60089",
+  "aivd_post_rc3_v2/bind.py": "491d1072147862a4d22ac7e3e4cbaf23783212265f38be8bfdfd1e7ecdfe00e4",
+  "aivd_post_rc3_v2/corpus.py": "fd89e515eb09a95580dbb91c90ef781bae6492b2e8fe1e9680a41dd5cfaef58e",
+  "aivd_post_rc3_v2/seeds.py": "50d427884c5ad195648b6736a05f93a334e6cf2eb8010a774f1c03cb632edffa",
+  "scripts/groq_v2_preregister.py": "a004c2a4a6484dd6dd600fa1ad1c4fca589a7aa83fb3ea0f9a810a68edbfdacf",
+  "scripts/groq_v2_run_model.py": "6f0a354f19088d2e219c386eab8d91b87868d8be7bc0a6489e95451341ea770c",
+  "scripts/groq_v2_seal.py": "42f0a758761a62053b80dc812e9569f697d170418be0cb4f317792b1d7543525"
+ },
+ "historical_aborted_commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
+ "historical_status": "ABORTED_BEFORE_EXECUTION",
+ "known_coverage_limit": "24 scenarios need about 70 discovery calls (most two-step shapes cost 3) against a frozen discovery ceiling of 48. Discovery may stop BUDGET_EXHAUSTED. Unexplored scenarios are NOT_EXPLORED. Budget is not raised and not reallocated.",
+ "mark": "POST-RC3-GROQ-V2 / FRESH CORPUS / NOT THE ABORTED 8+8 BENCHMARK",
+ "model_dirs": {
+  "openai/gpt-oss-120b": "gpt_oss_120b",
+  "openai/gpt-oss-20b": "gpt_oss_20b",
+  "qwen/qwen3.8-27b": "qwen3_8_27b"
+ },
+ "models": [
+  "openai/gpt-oss-20b",
+  "openai/gpt-oss-120b",
+  "qwen/qwen3.8-27b"
+ ],
+ "plan_hash_material": "aivd_post_rc3.authorize.plan_commitment with experiment_id POST-RC3-GROQ-V2",
+ "preregistration_sha256": "8ab4b1678d4b00126cf2e9d3509728c69545b110c9e9b983731ccb1317778798",
+ "rc3_freeze_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+ "reallocation": "none between stages or models after observing results",
+ "repeat_set": {
+  "calls_per_model": 6,
+  "calls_total": 18,
+  "counts_inside_96": false,
+  "scenario_count": 2
+ },
+ "shared_config": {
+  "api_surface": "OpenAI-compatible Chat Completions",
+  "base_url": "https://api.groq.com/openai/v1",
+  "http_library": "urllib.request (stdlib)",
+  "max_completion_tokens": 256,
+  "models": [
+   "openai/gpt-oss-20b",
+   "openai/gpt-oss-120b",
+   "qwen/qwen3.8-27b"
+  ],
+  "provider": "Groq",
+  "provider_mandated": {
+   "openai/gpt-oss-120b": {
+    "include_reasoning": false,
+    "reasoning_effort": "low"
+   },
+   "openai/gpt-oss-20b": {
+    "include_reasoning": false,
+    "reasoning_effort": "low"
+   }
+  },
+  "seed": 20260926,
+  "stream": false,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "user_agent": "AIVD-POST-RC3"
+ },
+ "verify_cost": 3
+}
