@@ -1,0 +1,304 @@
+{
+ "allocation": {
+  "repro_repeat": 6
+ },
+ "api_attempts": 6,
+ "calls": 6,
+ "corpus_commitment": "644768a386c87497652d7a2372fc824f034a0561c07d3233c119989f1e57a050",
+ "decisions": [
+  {
+   "action": "start",
+   "budget_remaining": 6,
+   "reason": "the scenario has no trajectory yet",
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038"
+  },
+  {
+   "action": "continue",
+   "budget_remaining": 5,
+   "reason": "a follow-up exists and history is open",
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038"
+  },
+  {
+   "action": "reset",
+   "budget_remaining": 4,
+   "reason": "the same follow-up is run without inherited history",
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038"
+  },
+  {
+   "action": "retain",
+   "budget_remaining": 3,
+   "reason": "preserved and contrast outputs differ",
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038"
+  },
+  {
+   "action": "start",
+   "budget_remaining": 3,
+   "reason": "the scenario has no trajectory yet",
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e"
+  },
+  {
+   "action": "continue",
+   "budget_remaining": 2,
+   "reason": "a follow-up exists and history is open",
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e"
+  },
+  {
+   "action": "reset",
+   "budget_remaining": 1,
+   "reason": "the same follow-up is run without inherited history",
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e"
+  },
+  {
+   "action": "retain",
+   "budget_remaining": 0,
+   "reason": "preserved and contrast outputs differ",
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e"
+  },
+  {
+   "action": "stop",
+   "budget_remaining": 0,
+   "reason": "FRONTIER_EMPTY",
+   "trajectory_id": ""
+  }
+ ],
+ "error": null,
+ "experiment_id": "POST-RC3-LOCAL-V1",
+ "explored": [
+  "sc-faacbc5e8ff9",
+  "sc-0124ede4aa2e"
+ ],
+ "full_repeat_frozen_hash": "39254edc1905cdf212bcfc890616535090301ffccd3b588da63ac88768df0074",
+ "integrity_failures": 0,
+ "model_id": "llama3.2:3b",
+ "plan_hash": "cf49f7f6cd7f856c0ad05fd3e7d30dd11ae7f82094ba49ba2e66f97c3727789f",
+ "public_hash": "49f0906150d0b980744b06ad026154ad46c9b4326a1faabc0452b2566243c98d",
+ "rejected": [],
+ "request_contract": {
+  "base_url": "http://127.0.0.1:11434",
+  "chat_path": "/api/chat",
+  "engine": "Ollama",
+  "models": [
+   "qwen3:1.7b",
+   "llama3.2:3b",
+   "qwen3:8b"
+  ],
+  "omissions": {
+   "llama3.2:3b": [
+    "think (llama3.2 has no thinking mode; the field is not sent)"
+   ],
+   "qwen3:1.7b": [],
+   "qwen3:8b": []
+  },
+  "options": {
+   "num_ctx": 8192,
+   "num_predict": 256,
+   "seed": 20260926,
+   "temperature": 0.0,
+   "top_p": 1.0
+  },
+  "provider": "LOCAL",
+  "remote_api": "NONE",
+  "retries": 0,
+  "stream": false,
+  "think": {
+   "qwen3:1.7b": false,
+   "qwen3:8b": false
+  },
+  "version": "0.34.4"
+ },
+ "requests": [
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 5,
+   "call_id": "001-f97e10835833",
+   "content_sha256": "496e1b1afec58ed5fa24d60de53de10f6b8a68c3ce2beb317a0a503c04bcb713",
+   "input_hash": "df03f522abfe4b025a8acaf57b88da06a665bf3e4bd4f5d24f2dbddfa850edf3",
+   "message_count": 1,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "c275bc9d1b863162a127560ee62497f2e1829c09f559a413acd3a729463f1226",
+   "reason": "open the trajectory",
+   "request_hash": "01e8207c5d9c7f3d57dbc0cf2176171c781e6cf6292f75b8fa39094c888f24e9",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "b1084fd5449bbc0492e2190ca6724418bb69c226299b8dff3f35c0f003dea4fc",
+   "state_before_hash": "72c9ca2a41947035f04b2715042c0697b0e695a193b71067cc97731e24faab56",
+   "token_usage": {
+    "eval_count": 57,
+    "prompt_eval_count": 64
+   },
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038",
+   "turn_id": "f97e1083583357f45da7c9ae1460d382742b3bd2820a8bf2ce15042946248d37"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 4,
+   "call_id": "002-c810f5d83124",
+   "content_sha256": "1215f3ddd6ffffab8cb7ff190f49c7fe35002ee0638c252d3541146e32390190",
+   "input_hash": "311f2b5b2f32d8474c75304b8e2fa31d3eff90cc13578a9a984ab0efd8c4133e",
+   "message_count": 3,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": "f97e1083583357f45da7c9ae1460d382742b3bd2820a8bf2ce15042946248d37",
+   "raw_body_sha256": "7c673baa66b571b60d60dfcddb81697786ca49c2e459c90ab9c702eacdfee008",
+   "reason": "a follow-up exists and history is open",
+   "request_hash": "b325469cc68b50c924ae8a877b239d6a0da3409fba31940cf6849c4be6ff3b21",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "61eec71c51fc0e2a0f09d697ecb122cdc7bcde969e564f7ee20ce6dd83b48f69",
+   "state_before_hash": "b1084fd5449bbc0492e2190ca6724418bb69c226299b8dff3f35c0f003dea4fc",
+   "token_usage": {
+    "eval_count": 16,
+    "prompt_eval_count": 153
+   },
+   "trajectory_id": "24c327acb030f68b823a6252b41625895c36373b6cad719eebac09f089794038",
+   "turn_id": "c810f5d83124623544d37c54d6865274d426caaabf3e71a8c75c3edb2163e333"
+  },
+  {
+   "action": "reset",
+   "api_attempts": 1,
+   "budget_remaining": 3,
+   "call_id": "003-6b2a1282c974",
+   "content_sha256": "c76f72e9c0a553cd9001d27e1076701df3c57a88b5285ff1bb71428199da95a7",
+   "input_hash": "311f2b5b2f32d8474c75304b8e2fa31d3eff90cc13578a9a984ab0efd8c4133e",
+   "message_count": 1,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "70225deac60af8a522058dec0d296790da392ce5840415bdb4f86b252f0729cb",
+   "reason": "the same follow-up is run without inherited history",
+   "request_hash": "75f6f56cf2e0450800c16248683a4cd04a3374ef17f2475276b7110ac0130974",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "de1c2c5fdd366339e67fd3a747b2b8e4fc2fe597d2863d195c9942ce0ab154be",
+   "state_before_hash": "9c85a373b6e059acc3389a2b62dc5acf86468a3d0ab9ccb048412b3ee89a9c4a",
+   "token_usage": {
+    "eval_count": 8,
+    "prompt_eval_count": 48
+   },
+   "trajectory_id": "3ce68ecbb7f3040749e0ebb5c0f4cf33f13e8758116d72625e9974c9504289a0",
+   "turn_id": "6b2a1282c97421dbdc5647792bc4d9794a248bb6f6ca2e4cc574f4f572d2edba"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 2,
+   "call_id": "004-b3b64bb66b4c",
+   "content_sha256": "3e17281363bdb2914b15df60ec825b7b45ea36af01a5373c1584c1825b3eda50",
+   "input_hash": "7f4a3e8bf2f22d8387df02e049fad436982e4030e36bb998b1e40929a7e0ffbb",
+   "message_count": 1,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "e86caae522ee856bf4fffe8c0a5fef99fc0e80e5f5bfcb27b3ca4761cb5afdfd",
+   "reason": "open the trajectory",
+   "request_hash": "96efec8b79278b4628d3f5f55d050e3f6dce731800776344846a70e38343a157",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "33a93f3001a25d8cf46e25cd689e536385a93cd0b92689274af0515e6f7fd76a",
+   "state_before_hash": "fabb19ed98a5847bc7d304e8b712344833130b05358af782064ce0ad5d4e1a5d",
+   "token_usage": {
+    "eval_count": 27,
+    "prompt_eval_count": 53
+   },
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e",
+   "turn_id": "b3b64bb66b4cda9e9b33cb9cd45e35e2e5ebbb8427ac311d31356e9539f67401"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 1,
+   "call_id": "005-744ebea7f127",
+   "content_sha256": "f9368f1b05d15fb06f0f354cb5554912994971d550b18d4d8ffc4e3a90648cd6",
+   "input_hash": "02744ddd1e619bafeb7b1c36d11968e5ffe0821ecc0e37ff306a2e3bdb7f1bc0",
+   "message_count": 3,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": "b3b64bb66b4cda9e9b33cb9cd45e35e2e5ebbb8427ac311d31356e9539f67401",
+   "raw_body_sha256": "897c629585af2f6837577ad75e93577883a7310e981a03a1d0d18c9d89ae191b",
+   "reason": "a follow-up exists and history is open",
+   "request_hash": "a1de43c77bb62778d815571ca5bdf7fdd86b4167bb234b1d5ed687f278fb6e5c",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "31774322acb7ed475b5e4a92c0fa03f21aeee2c8b1089d858d0d4d3611c01065",
+   "state_before_hash": "33a93f3001a25d8cf46e25cd689e536385a93cd0b92689274af0515e6f7fd76a",
+   "token_usage": {
+    "eval_count": 49,
+    "prompt_eval_count": 109
+   },
+   "trajectory_id": "5f9ec98b6547f379d1bee0d42f8c07e37be29baecbcbd141a32ef087fed8209e",
+   "turn_id": "744ebea7f1276daea9da7b7e5ce44401ce3c0af6ee28df7fb44c6caf8efc40cf"
+  },
+  {
+   "action": "reset",
+   "api_attempts": 1,
+   "budget_remaining": 0,
+   "call_id": "006-7df76a0874b6",
+   "content_sha256": "e29caf13b61861cd4ddca59255371122d49ee0617e814f777fc06098b1af2b94",
+   "input_hash": "02744ddd1e619bafeb7b1c36d11968e5ffe0821ecc0e37ff306a2e3bdb7f1bc0",
+   "message_count": 1,
+   "model_id": "llama3.2:3b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "19f4cc79eede06017dd1f4dc4fff6b6d75b1213a61ff34329d8aca6db8a91837",
+   "reason": "the same follow-up is run without inherited history",
+   "request_hash": "044d54c53fc180f4af3dc12b0e264afb58c81f64684d50bd5ad9170b6e226381",
+   "returned_model": "llama3.2:3b",
+   "state_after_hash": "59ef03949eb6cab2bb52bd933d341fcfa6a65f93ed796137c5f88e28bb5f4293",
+   "state_before_hash": "b2daecbbcd84c1fceaad5457721b4dcf736fb1cd0c288779fb7f91946b503ef5",
+   "token_usage": {
+    "eval_count": 34,
+    "prompt_eval_count": 45
+   },
+   "trajectory_id": "c27f9565a28c4cfd9d953ae7e78e0280cecbeacd84fbde3963f81bbc78ae843f",
+   "turn_id": "7df76a0874b60e2cb4e61621a8827802b50f19951fe4fc320163c49482572102"
+  }
+ ],
+ "retained": [
+  {
+   "scenario_id": "sc-faacbc5e8ff9",
+   "signature": [
+    {
+     "inherited": false,
+     "input_hash": "df03f522abfe4b025a8acaf57b88da06a665bf3e4bd4f5d24f2dbddfa850edf3",
+     "output_hash": "86ae2db583a87298a5c5c6613be67c1660a094e1c8303a71d9612c8a93f99d71",
+     "state_hash": "b1084fd5449bbc0492e2190ca6724418bb69c226299b8dff3f35c0f003dea4fc",
+     "turn_id": "f97e1083583357f45da7c9ae1460d382742b3bd2820a8bf2ce15042946248d37"
+    },
+    {
+     "inherited": false,
+     "input_hash": "311f2b5b2f32d8474c75304b8e2fa31d3eff90cc13578a9a984ab0efd8c4133e",
+     "output_hash": "db61006c118541752bb061b5a01548b7611f753348ad151ddf81b861ad191353",
+     "state_hash": "61eec71c51fc0e2a0f09d697ecb122cdc7bcde969e564f7ee20ce6dd83b48f69",
+     "turn_id": "c810f5d83124623544d37c54d6865274d426caaabf3e71a8c75c3edb2163e333"
+    }
+   ],
+   "slots": {
+    "auth_slot": false,
+    "prior_slot": false,
+    "transition_slot": true
+   }
+  },
+  {
+   "scenario_id": "sc-0124ede4aa2e",
+   "signature": [
+    {
+     "inherited": false,
+     "input_hash": "7f4a3e8bf2f22d8387df02e049fad436982e4030e36bb998b1e40929a7e0ffbb",
+     "output_hash": "5ddd79614a2c3acbc66f00d76901ee489d23bb0b5b78737a6852a54e1a9fcc63",
+     "state_hash": "33a93f3001a25d8cf46e25cd689e536385a93cd0b92689274af0515e6f7fd76a",
+     "turn_id": "b3b64bb66b4cda9e9b33cb9cd45e35e2e5ebbb8427ac311d31356e9539f67401"
+    },
+    {
+     "inherited": false,
+     "input_hash": "02744ddd1e619bafeb7b1c36d11968e5ffe0821ecc0e37ff306a2e3bdb7f1bc0",
+     "output_hash": "fc70fee346d684366a358902a71c238aed0aa81cd86bbf0f63eb1b8a4426cdd3",
+     "state_hash": "31774322acb7ed475b5e4a92c0fa03f21aeee2c8b1089d858d0d4d3611c01065",
+     "turn_id": "744ebea7f1276daea9da7b7e5ce44401ce3c0af6ee28df7fb44c6caf8efc40cf"
+    }
+   ],
+   "slots": {
+    "auth_slot": false,
+    "prior_slot": false,
+    "transition_slot": true
+   }
+  }
+ ],
+ "stage": "repro_repeat",
+ "subset": [
+  "sc-faacbc5e8ff9",
+  "sc-0124ede4aa2e"
+ ]
+}

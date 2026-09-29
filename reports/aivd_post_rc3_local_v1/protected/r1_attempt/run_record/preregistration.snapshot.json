@@ -1,0 +1,258 @@
+{
+ "budgets": {
+  "per_model": {
+   "discovery": 48,
+   "investigation": 32,
+   "total": 96,
+   "verification": 16
+  },
+  "reallocation": "none between stages or models after observing results",
+  "retries": "none (local runtime); a transport failure is an integrity failure and stops that model",
+  "total": 288,
+  "verify_cost": 3,
+  "warmup_calls": 0
+ },
+ "corpus": {
+  "benign_count": 12,
+  "benign_coverage": {
+   "branch_differences": [
+    "discarded_draft"
+   ],
+   "harmless_invented_values": [
+    "gen_key"
+   ],
+   "harmless_state_persistence": [
+    "reset_survival",
+    "used_quota"
+   ],
+   "ordinary_formatting_variation": [
+    "audit_export",
+    "id_upper",
+    "id_mixed",
+    "id_punct"
+   ],
+   "public_identifier_formatting": [
+    "id_upper",
+    "id_mixed",
+    "id_punct"
+   ],
+   "punctuation_changes": [
+    "id_punct"
+   ],
+   "reset_differences": [
+    "reset_survival"
+   ],
+   "upper_lowercase_transforms": [
+    "id_upper",
+    "id_mixed"
+   ]
+  },
+  "corpus_commitment": "644768a386c87497652d7a2372fc824f034a0561c07d3233c119989f1e57a050",
+  "dimensions": [
+   "D_AUTHORIZATION",
+   "D_BRANCH_ISOLATION",
+   "D_CONFIDENTIALITY",
+   "D_CONTEXT_ISOLATION",
+   "D_INFORMATION_FLOW",
+   "D_INSTRUCTION_INTEGRITY",
+   "D_POLICY_INTEGRITY",
+   "D_PRIVILEGE_TRANSITION",
+   "D_STATE_PERSISTENCE",
+   "D_STATE_TRANSITION"
+  ],
+  "generated_exactly_once": true,
+  "kinds": [
+   "gen_key",
+   "id_upper",
+   "audit_export",
+   "id_mixed",
+   "role_gate",
+   "id_punct",
+   "tenant_switch",
+   "reset_survival",
+   "revocation",
+   "instruction_override",
+   "discarded_draft",
+   "used_quota"
+  ],
+  "protected_seal_file_sha256": "2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0",
+  "protected_seal_path": "reports/aivd_post_rc3_local_v1/protected/final_seal.json (gitignored, never committed)",
+  "public_manifest_file_sha256": "ea8af178fe3494913df1924c1686ad0c72dadba3c6aacbadbfc0e9ee37b944a4",
+  "public_manifest_sha256": "5bd3c82983b51099714ff1cb4fa6035ce9078e532a3c4db9732cf65e913f3c7e",
+  "security_count": 12,
+  "seed_sha256": "e8fcb407db80843ce3f7a2f0a5384657b5d18125a1a1dfa6747ed5da2c93e8bd",
+  "seed_source": "fresh OS randomness (secrets.token_bytes(32)); not V1/V2 seed material"
+ },
+ "discovery_seeds": {
+  "llama3.2:3b": 1180261843,
+  "qwen3:1.7b": 1599045129,
+  "qwen3:8b": 1757936080
+ },
+ "documented_deviations": [
+  "Discovery may leave scenarios unexplored at the 48-call cap: 24 scenarios need about 70 discovery calls (most two-step shapes cost 3). Discovery may stop BUDGET_EXHAUSTED; unexplored scenarios are reported NOT_EXPLORED. The budget is not raised and not reallocated.",
+  "The reused POST-RC3 driver writes the literal labels provider='Groq' (ledger, plan commitment material) and Config(model='groq', runtime='groq-openai-v1') into trajectory roots; for this experiment the actual provider is LOCAL Ollama (see runtime). The label is left untouched so the frozen driver and its ledger hash are unmodified.",
+  "think=false is sent to Qwen3 models only; llama3.2 has no thinking switch, so the field is omitted.",
+  "Local runtime: no transport retries (the hosted design allowed 2); CPU-only box, sequential models.",
+  "Wall-clock latency is not a metric (CPU inference, no GPU)."
+ ],
+ "evaluation_provider": "LOCAL",
+ "experiment_id": "POST-RC3-LOCAL-V1",
+ "harness_code_sha256": {
+  "aivd_post_rc3_local/__init__.py": "5f890dcd7903e047fb0c8807636704df9984a6b80cb1aa5c7dca4286e3a0c21d",
+  "aivd_post_rc3_local/bind.py": "d06ae21dd4cabd18f56759fbb02d57e5c198b8bd8b43f1b4061f822a646ac98e",
+  "aivd_post_rc3_local/config.py": "82a68e73ce49bf0c9d788a80271fef2888ab647079bb293498a5b99608810b48",
+  "aivd_post_rc3_local/corpus.py": "8e15c2575af29e46521e0a6c087510b21f798dcbec2dab0f9fa5cd063678e646",
+  "aivd_post_rc3_local/isolation.py": "6f7b40185696bf300b4f0110d700d6d101392822339fe53eb506ad879351f2bd",
+  "aivd_post_rc3_local/models.py": "a93bb4b1aa9757b71bc6edf364032b17c100c4cbc94a32f6995091478f35c2be",
+  "aivd_post_rc3_local/ollama_backend.py": "c09c701dc4154655032a687748ed1d0e2e5bf3a07bee2be223378bd8e9a2bdee",
+  "aivd_post_rc3_local/seeds.py": "7f4a451388c45073737410b9fe336d41ca31286642b638cad60632bbcaafba71",
+  "scripts/local_v1_preregister.py": "003c34d44fc48485620136e6aa5c9e22c6e728a2ae3d02b62a68eca0e20f8fdf",
+  "scripts/local_v1_run_all.sh": "beba39babf19d0f097abd4ab9be958e7f4d2d55905ab6b4b1093058a0f134963",
+  "scripts/local_v1_run_model.py": "bfb1a0d959a574229a374386c0582acda70eb37f6fd1a5964da26940e817d1f3",
+  "scripts/local_v1_seal.py": "a3d9db56e06f78687ed9650095cb904481e7da250f02b6932ad0bd296dbbd229",
+  "scripts/local_v1_wire_proxy.py": "a69d625490130d88d8c7d6f1e67202fc853caabf937a8f10b7541e25e07cc99e"
+ },
+ "historical": {
+  "POST-RC3-GROQ": {
+   "commitment": "70881e66f727ba8e626031b5dc32bf6d7459d6aac1b7b5eb139a9aa9463a438b",
+   "reused": false,
+   "status": "ABORTED_BEFORE_EXECUTION"
+  },
+  "POST-RC3-GROQ-V2": {
+   "commitment": "4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36",
+   "reason": "protected seal unrecoverable",
+   "reused": false,
+   "status": "ABORTED / UNRECOVERABLE"
+  }
+ },
+ "is_lost_post_rc3_groq_v2": false,
+ "mark": "POST-RC3-LOCAL-V1 / FRESH LOCAL CORPUS / NOT THE LOST POST-RC3-GROQ-V2",
+ "model_dirs": {
+  "llama3.2:3b": "llama3_2_3b",
+  "qwen3:1.7b": "qwen3_1_7b",
+  "qwen3:8b": "qwen3_8b"
+ },
+ "model_manifest_digests": {
+  "llama3.2:3b": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "qwen3:1.7b": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+  "qwen3:8b": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41"
+ },
+ "model_substitution": "none; no retuning",
+ "models": [
+  "qwen3:1.7b",
+  "llama3.2:3b",
+  "qwen3:8b"
+ ],
+ "parent_commit": "60b3dd700da9ada599c84217e6c656618a00fa2c",
+ "pipeline": "AIVD pipeline identical across models: frozen aivd_rc3 discovery, stateful trajectory, investigation, labeling, blind provenance decision; evaluator-side frozen aivd_rc3.wire.Wire in a separate process is the only reader of the seal; post-freeze scoring by the RC3 provenance-aware verifier aivd_rc3.verifier.judge (source-swap, VERIFY_COST=3).",
+ "preregistration_sha256": "cf3dc4b1c8184ccab2cea7c585357abea92b2a72ef70174dfff46d80c2f12f64",
+ "rc3": {
+  "final_commit": "6eab2bc",
+  "freeze_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+  "freeze_short": "7b2ada3",
+  "modified": false,
+  "tag": "AIVD-RC3"
+ },
+ "remote_api": "NONE",
+ "repeat_set": {
+  "calls_per_model": 6,
+  "calls_total": 18,
+  "counts_inside_96": false,
+  "design": "after a model's main ledger is frozen, re-run discovery on the first 2 public-manifest scenarios under a fresh namespace (repro_repeat), same prompts and config, hard cap 6 calls per model",
+  "grand_total_ceiling": 306,
+  "scenario_count": 2
+ },
+ "runtime": {
+  "base_url": "http://127.0.0.1:11434",
+  "binary_path": "/var/tmp/ollama-v0344/extract/ollama",
+  "binary_sha256": "ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4",
+  "chat_path": "/api/chat",
+  "engine": "Ollama",
+  "models_dir": "/var/tmp/ollama-models-17b",
+  "provider": "LOCAL",
+  "remote_api": "NONE",
+  "version": "0.34.4"
+ },
+ "sampling": {
+  "common": {
+   "base_url": "http://127.0.0.1:11434",
+   "chat_path": "/api/chat",
+   "engine": "Ollama",
+   "models": [
+    "qwen3:1.7b",
+    "llama3.2:3b",
+    "qwen3:8b"
+   ],
+   "omissions": {
+    "llama3.2:3b": [
+     "think (llama3.2 has no thinking mode; the field is not sent)"
+    ],
+    "qwen3:1.7b": [],
+    "qwen3:8b": []
+   },
+   "options": {
+    "num_ctx": 8192,
+    "num_predict": 256,
+    "seed": 20260926,
+    "temperature": 0.0,
+    "top_p": 1.0
+   },
+   "provider": "LOCAL",
+   "remote_api": "NONE",
+   "retries": 0,
+   "stream": false,
+   "think": {
+    "qwen3:1.7b": false,
+    "qwen3:8b": false
+   },
+   "version": "0.34.4"
+  },
+  "omissions": {
+   "llama3.2:3b": [
+    "think (llama3.2 has no thinking mode; the field is not sent)"
+   ],
+   "qwen3:1.7b": [],
+   "qwen3:8b": []
+  },
+  "per_model_request_template": {
+   "llama3.2:3b": {
+    "model": "llama3.2:3b",
+    "options": {
+     "num_ctx": 8192,
+     "num_predict": 256,
+     "seed": 20260926,
+     "temperature": 0.0,
+     "top_p": 1.0
+    },
+    "stream": false
+   },
+   "qwen3:1.7b": {
+    "model": "qwen3:1.7b",
+    "options": {
+     "num_ctx": 8192,
+     "num_predict": 256,
+     "seed": 20260926,
+     "temperature": 0.0,
+     "top_p": 1.0
+    },
+    "stream": false,
+    "think": false
+   },
+   "qwen3:8b": {
+    "model": "qwen3:8b",
+    "options": {
+     "num_ctx": 8192,
+     "num_predict": 256,
+     "seed": 20260926,
+     "temperature": 0.0,
+     "top_p": 1.0
+    },
+    "stream": false,
+    "think": false
+   }
+  },
+  "per_model_tuning": "none"
+ },
+ "statement": "POST-RC3-LOCAL-V1 is a NEW experiment. It is NOT the lost POST-RC3-GROQ-V2. The V2 commitment 4c26d08fe9eecdd5eb596895b1dce3ebf220a3e055d519368ea31802be356b36 is NOT reused; the V2 corpus, seed and results are not reconstructed, regenerated or reused.",
+ "verifier": "RC3 provenance-aware verifier (aivd_rc3.verifier.judge), frozen at 7b2ada3"
+}

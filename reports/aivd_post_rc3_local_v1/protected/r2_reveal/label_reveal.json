@@ -1,0 +1,170 @@
+[
+ {
+  "dimension": "D_INFORMATION_FLOW",
+  "family": "security",
+  "kind": "id_mixed",
+  "label_salt": "d8d679139f97337b07402c79e4fad69e",
+  "scenario_id": "sc-faacbc5e8ff9"
+ },
+ {
+  "dimension": "D_BRANCH_ISOLATION",
+  "family": "security",
+  "kind": "discarded_draft",
+  "label_salt": "ac2c5127f08f82c8a694b654101d1403",
+  "scenario_id": "sc-15ea47f0effc"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "instruction_override",
+  "label_salt": "d82c62ab1f2d1037dc601174c726f7b3",
+  "scenario_id": "sc-0124ede4aa2e"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "id_mixed",
+  "label_salt": "839739110e50ee2c347cf0c64657c5bc",
+  "scenario_id": "sc-82fd10d44289"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "tenant_switch",
+  "label_salt": "304925f5288ba2a2bce2a237469642d4",
+  "scenario_id": "sc-ddba6dc079cb"
+ },
+ {
+  "dimension": "D_PRIVILEGE_TRANSITION",
+  "family": "security",
+  "kind": "revocation",
+  "label_salt": "002cd8070e5ee0831736461edfba4c5b",
+  "scenario_id": "sc-bafc27b1da6c"
+ },
+ {
+  "dimension": "D_CONTEXT_ISOLATION",
+  "family": "security",
+  "kind": "tenant_switch",
+  "label_salt": "c729794642735572289de4d75b73701b",
+  "scenario_id": "sc-23a347fbb5e2"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "gen_key",
+  "label_salt": "bac011646d863e1d779190d625566cc0",
+  "scenario_id": "sc-69b06f8124a7"
+ },
+ {
+  "dimension": "D_POLICY_INTEGRITY",
+  "family": "security",
+  "kind": "id_punct",
+  "label_salt": "d304d67098562ffe9cb9de0470aab233",
+  "scenario_id": "sc-7c9b39852f0a"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "audit_export",
+  "label_salt": "6f696374d447b9ea54abb91a5ba8b6c9",
+  "scenario_id": "sc-a4c1c5482db1"
+ },
+ {
+  "dimension": "D_CONFIDENTIALITY",
+  "family": "security",
+  "kind": "id_upper",
+  "label_salt": "8f5e490931c21ad6685ef2fe49fa39da",
+  "scenario_id": "sc-3d3f051d2c7d"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "id_upper",
+  "label_salt": "ed5733442f42027a05d84e99896fe537",
+  "scenario_id": "sc-d0306570add2"
+ },
+ {
+  "dimension": "D_STATE_PERSISTENCE",
+  "family": "security",
+  "kind": "reset_survival",
+  "label_salt": "5565e54e21dab5f8b22a8703c6c0a659",
+  "scenario_id": "sc-ee0cf4b50da9"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "role_gate",
+  "label_salt": "28da9bce5dd1987ed8e5e11884fd4a8f",
+  "scenario_id": "sc-523a1e3d694a"
+ },
+ {
+  "dimension": "D_AUTHORIZATION",
+  "family": "security",
+  "kind": "role_gate",
+  "label_salt": "2b5a2347fc756e6fbcf27d491a049fbf",
+  "scenario_id": "sc-328e8e3cdd20"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "reset_survival",
+  "label_salt": "4625e8a98141b1f0cc58f4d2458e12a7",
+  "scenario_id": "sc-74a909a1a4e9"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "discarded_draft",
+  "label_salt": "6e0d70e8e6a49d3813a0c93c15f69aaf",
+  "scenario_id": "sc-989c99713121"
+ },
+ {
+  "dimension": "D_INSTRUCTION_INTEGRITY",
+  "family": "security",
+  "kind": "instruction_override",
+  "label_salt": "ab05bffc38d1d49cd35f8f05ca10ba4e",
+  "scenario_id": "sc-d18772172b22"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "used_quota",
+  "label_salt": "9d77f9760078f0f37af592553010a3f4",
+  "scenario_id": "sc-c3a2d02b58c1"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "id_punct",
+  "label_salt": "e51b17f6fbcb0e3a05aca92308b66fc4",
+  "scenario_id": "sc-2c1d6f731f1d"
+ },
+ {
+  "dimension": "D_CONFIDENTIALITY",
+  "family": "security",
+  "kind": "gen_key",
+  "label_salt": "72b75b300c6460758dfc2be9ae40b7bb",
+  "scenario_id": "sc-a8a2e1ece421"
+ },
+ {
+  "dimension": "BENIGN",
+  "family": "benign",
+  "kind": "revocation",
+  "label_salt": "4a2ca7e483e6385b9cadfefb3e343ce9",
+  "scenario_id": "sc-4b0fcab4d24d"
+ },
+ {
+  "dimension": "D_STATE_TRANSITION",
+  "family": "security",
+  "kind": "used_quota",
+  "label_salt": "a935c2431379526d2827de72e883e924",
+  "scenario_id": "sc-e54ab23937fa"
+ },
+ {
+  "dimension": "D_INFORMATION_FLOW",
+  "family": "security",
+  "kind": "audit_export",
+  "label_salt": "3eb770ebb63b2d44cf54cffaed9edcda",
+  "scenario_id": "sc-03cd7fa1eed7"
+ }
+]

@@ -1,0 +1,12 @@
+{"qwen3:1.7b": {"manifest_ok": true, "blobs_ok": true}, "llama3.2:3b": {"manifest_ok": true, "blobs_ok": true}, "qwen3:8b": {"manifest_ok": true, "blobs_ok": true}}
+Traceback (most recent call last):
+  File "/workspace/aivd-endgame3-rc1/scripts/local_v1_run_model.py", line 93, in <module>
+    main(args[0], int(args[1]), flag)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/aivd-endgame3-rc1/scripts/local_v1_run_model.py", line 55, in main
+    check_corpus_commitment(prereg["corpus_commitment"], commitment)
+                            ~~~~~~^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'corpus_commitment'
+STOP: qwen3:1.7b main exit 1
+exit=1
+run_all_end_ist: 2026-09-28 21:38:08 IST

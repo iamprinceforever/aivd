@@ -1,0 +1,96 @@
+# One-off invocation: loads frozen r2 inputs, calls COMMITTED functions only, writes outputs.
+# No decision logic, criteria or thresholds here: every classification comes from aivd_rc3.verifier.judge.
+import hashlib, json, subprocess
+from pathlib import Path
+from aivd_rc3.verifier import judge
+from aivd_rc3.provider import commit, label_reveal
+from aivd_rc3.provenance import swap
+from aivd_rc3.protected import scan
+from aivd_post_rc3.stop import check_ledger_integrity, check_rc3_source_unmodified
+
+B = Path("reports/aivd_post_rc3_local_v1"); D = B / "protected/r2_reveal"
+MODELS = {"qwen3:1.7b": "qwen3_1_7b", "llama3.2:3b": "llama3_2_3b", "qwen3:8b": "qwen3_8b"}
+LOG = Path("/var/tmp/ollama-v0344/serve_local_v1.log")
+inputs = [B / "protected/final_seal.json", Path("/var/tmp/aivd_post_rc3_local_v1_backup/final_seal.json"),
+          B / "final/preregistration.json", B / "final/preregistration_r1.json", B / "final/corpus_commitment.json",
+          B / "final/public_manifest.json", B / "protected/r2_run/run_record/artifact_hashes.sha256"]
+for d in MODELS.values():
+    inputs += [B / "protected" / d / "ledger.json", B / "protected" / (d + "_repeat") / "repeat_ledger.json",
+               B / d / "ledger_public.json", B / d / "repeat_ledger_public.json"]
+sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+chats = lambda: LOG.read_text(errors="replace").count('"/api/chat"') + LOG.read_text(errors="replace").count('"/api/generate"')
+before = {str(p): sha(p) for p in inputs}; chat_before = chats()
+check_rc3_source_unmodified()
+seal = json.loads((B / "protected/final_seal.json").read_bytes())
+prereg = json.loads((B / "final/preregistration.json").read_bytes())
+assert commit(seal) == prereg["corpus"]["corpus_commitment"]
+
+def traj_ids(obj, arm="candidate", out=None):
+    out = {} if out is None else out
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if k.endswith("trajectory_id") and isinstance(v, str):
+                out.setdefault(v, set()).add(arm if k == "trajectory_id" else k)
+            else:
+                traj_ids(v, k if isinstance(v, (dict, list)) else arm, out)
+    elif isinstance(obj, list):
+        for v in obj:
+            traj_ids(v, arm, out)
+    return out
+
+results = {"experiment_id": "POST-RC3-LOCAL-V1", "revision": prereg["revision"],
+           "preregistration_sha256": prereg["preregistration_sha256"],
+           "corpus_commitment": prereg["corpus"]["corpus_commitment"],
+           "scoring_function": "aivd_rc3.verifier.judge (frozen at 7b2ada3)", "per_model": {}}
+cases = []
+for mid, d in MODELS.items():
+    ledger = json.loads((B / "protected" / d / "ledger.json").read_bytes())
+    check_ledger_integrity(ledger)
+    scored = judge(ledger, seal)
+    cands = {c["scenario_id"]: c for c in ledger["candidates"]}
+    results["per_model"][mid] = {
+        "blind_pipeline": {"calls": ledger["calls"], "stage_calls": ledger["stage_calls"],
+                           "integrity_failures": ledger["integrity_failures"], "error": ledger["error"],
+                           "stops": ledger.get("stops"), "explored": len(ledger.get("explored", [])),
+                           "candidates": len(ledger["candidates"]),
+                           "hypotheses": sum(len(c.get("hypotheses") or []) for c in ledger["candidates"]),
+                           "promotion": {p: sum(1 for c in ledger["candidates"] if c.get("promotion") == p)
+                                         for p in sorted({str(c.get("promotion")) for c in ledger["candidates"]})},
+                           "blind_decisions": {c["scenario_id"]: c["verification_decision"]
+                                               for c in ledger["candidates"] if "verification_decision" in c},
+                           "frozen_hash": ledger["frozen_hash"]},
+        "sealed_scoring": scored,
+    }
+    for fam, rows in (("security", scored["rows"]), ("benign", scored["benign_rows"])):
+        for r in rows:
+            c = cands.get(r["scenario_id"])
+            tids = traj_ids(c) if c else {}
+            recs = [{"call_id": q["call_id"], "arm": sorted(tids[q["trajectory_id"]]), "action": q["action"],
+                     "trajectory_id": q["trajectory_id"], "raw_body_sha256": q["raw_body_sha256"],
+                     "content_sha256": q["content_sha256"],
+                     "recorded_response_ref": f"{B}/protected/{d}/session/raw/{q['call_id']}.bin"}
+                    for q in ledger["requests"] if q["trajectory_id"] in tids]
+            cases.append({"model": mid, "family": fam, "scenario_id": r["scenario_id"], "kind": r["kind"],
+                          "relation": r.get("relation", "BENIGN"), "dimension": r.get("dimension", "BENIGN"),
+                          "blind_promotion": r["promotion"], "blind_decision": r["decision"],
+                          "blind_reason": r.get("blind_reason"),
+                          "sealed_scoring_stage_or_class": r.get("stage", r.get("classification")),
+                          "verified": r.get("verified", False), "claim_provenance": r["claim_provenance"],
+                          "relation_detail": r.get("relation_detail"), "calls": recs})
+(D / "results.json").write_text(json.dumps(results, sort_keys=True, indent=1, default=str))
+(D / "cases.json").write_text(json.dumps(cases, sort_keys=True, indent=1, default=str))
+(D / "label_reveal.json").write_text(json.dumps(label_reveal(seal), sort_keys=True, indent=1))
+values = set()
+for r in seal["targets"]:
+    if r.get("token"):
+        values |= {r["token"], swap(r["token"])}
+    if r.get("family") == "security":
+        values.add(r["note"])
+outs = [D / "results.json", D / "cases.json", D / "label_reveal.json"]
+hits = scan([str(p) for p in outs], values)
+after = {str(p): sha(p) for p in inputs}
+check = {"inputs_unchanged": before == after, "input_sha256": before, "leak_scan_hits": len(hits),
+         "ollama_chat_generate_before": chat_before, "ollama_chat_generate_after": chats(),
+         "outputs_sha256": {str(p): sha(p) for p in outs}}
+(D / "reveal_integrity.json").write_text(json.dumps(check, sort_keys=True, indent=1))
+print(json.dumps({k: v for k, v in check.items() if k != "input_sha256"}, indent=1))

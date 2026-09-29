@@ -1,0 +1,11 @@
+run_all_start_ist: 2026-09-28 21:50:11 IST
+{"qwen3:1.7b": {"manifest_ok": true, "blobs_ok": true}, "llama3.2:3b": {"manifest_ok": true, "blobs_ok": true}, "qwen3:8b": {"manifest_ok": true, "blobs_ok": true}}
+{"model_id": "qwen3:1.7b", "calls": 78, "stage_calls": {"discovery": 48, "investigation": 21, "verification": 9}, "integrity_failures": 0, "error": null}
+{"model_id": "qwen3:1.7b", "repeat": true, "calls": 6}
+{"model_id": "llama3.2:3b", "calls": 66, "stage_calls": {"discovery": 48, "investigation": 18, "verification": 0}, "integrity_failures": 0, "error": null}
+{"model_id": "llama3.2:3b", "repeat": true, "calls": 6}
+{"model_id": "qwen3:8b", "calls": 70, "stage_calls": {"discovery": 48, "investigation": 19, "verification": 3}, "integrity_failures": 0, "error": null}
+{"model_id": "qwen3:8b", "repeat": true, "calls": 6}
+ALL_MODELS_DONE
+exit=0
+run_all_end_ist: 2026-09-28 22:03:04 IST

@@ -1,0 +1,40 @@
+timestamp_ist: 2026-09-28 21:37:39 IST
+head: 395be3d5389b1ac99254eee7380027d1f94de29a
+branch: research/aivd-post-rc3-local-v1
+upstream: origin/research/aivd-post-rc3-local-v1 395be3d5389b1ac99254eee7380027d1f94de29a
+git_status_short: []
+preregistration_file_sha256: 4d747c4381b4c361987cb5cadfcfdde131588305b25ea125c0d631a188754603
+preregistration_sha256_field: cf3dc4b1c8184ccab2cea7c585357abea92b2a72ef70174dfff46d80c2f12f64
+sha256 reports/aivd_post_rc3_local_v1/final/corpus_commitment.json f0aa15ed3094ee792b520ef5860e76d5eed15b0d975554a10a7057b0fd795a09
+sha256 reports/aivd_post_rc3_local_v1/final/corpus_summary.json 6c2fdd525c2cd849091b43fbc144dcda6c1834c23b680fb75134e1c75aefd22d
+sha256 reports/aivd_post_rc3_local_v1/final/preregistration.json 4d747c4381b4c361987cb5cadfcfdde131588305b25ea125c0d631a188754603
+sha256 reports/aivd_post_rc3_local_v1/final/public_manifest.json ea8af178fe3494913df1924c1686ad0c72dadba3c6aacbadbfc0e9ee37b944a4
+sha256 reports/aivd_post_rc3_local_v1/protected/final_seal.json 2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0
+sha256 /var/tmp/aivd_post_rc3_local_v1_backup/final_seal.json 2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0
+ollama_binary: /var/tmp/ollama-v0344/extract/ollama ad9c53441752620a2314a65a798a888d98df3636c8815ca044de591f82892ff4
+ollama_version: {"version":"0.34.4"}
+ollama_server: pid 1345701
+1345703
+1345854 env OLLAMA_HOST=127.0.0.1:11434 OLLAMA_MODELS=/var/tmp/ollama-models-17b OLLAMA_MAX_LOADED_MODELS=1 OLLAMA_NUM_PARALLEL=1 (restarted for this run; log /var/tmp/ollama-v0344/serve_local_v1.log; previous serve.log ended at 188088 lines)
+ollama_loaded_models_before: {"models":[]}
+model qwen3:1.7b 8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7 manifest_ok True blobs_ok True
+model llama3.2:3b a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72 manifest_ok True blobs_ok True
+model qwen3:8b 500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41 manifest_ok True blobs_ok True
+discovery_seeds {"qwen3:1.7b": 1599045129, "llama3.2:3b": 1180261843, "qwen3:8b": 1757936080}
+sampling_seed 20260926
+budgets per_model discovery/investigation/verification/total 48 32 16 96 total 288
+repeat_set scenarios 2 calls/model 6 total 18 inside_96 False
+caps verify_cost 3 retries 0 timeout_s 900 warmup 0
+request_contract {"base_url": "http://127.0.0.1:11434", "chat_path": "/api/chat", "engine": "Ollama", "models": ["qwen3:1.7b", "llama3.2:3b", "qwen3:8b"], "omissions": {"llama3.2:3b": ["think (llama3.2 has no thinking mode; the field is not sent)"], "qwen3:1.7b": [], "qwen3:8b": []}, "options": {"num_ctx": 8192, "num_predict": 256, "seed": 20260926, "temperature": 0.0, "top_p": 1.0}, "provider": "LOCAL", "remote_api": "NONE", "retries": 0, "stream": false, "think": {"qwen3:1.7b": false, "qwen3:8b": false}, "version": "0.34.4"}
+python: Python 3.13.5
+os: Linux grok-bot-vm-432289859 6.12.94+ #1 SMP PREEMPT_DYNAMIC Fri Sep 18 16:05:18 UTC 2026 x86_64 GNU/Linux
+distro: Debian GNU/Linux 13 (trixie)
+cpu: Model name: Intel(R) Xeon(R) Processor nproc=8 cgroup_cpu.max=800000 100000
+ram: total=16791158784 available=8416976896 swap: 0
+gpu: none
+disk_free: overlay         126G   32G   88G  27% /
+pip_freeze_relevant:
+numpy==2.5.3
+pytest==9.1.1
+(harness uses stdlib only)
+run_all_start_ist: 2026-09-28 21:37:57 IST
