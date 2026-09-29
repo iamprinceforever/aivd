@@ -98,12 +98,12 @@ def test_corpus_dependent_fields_and_authorizations_pending():
 
 
 def test_budget_exact_per_model_and_total():
-    assert (C.DISCOVERY_LIMIT, C.INVESTIGATION_LIMIT, C.VERIFICATION_LIMIT, C.REPEAT_LIMIT) == (320, 48, 30, 6)
-    assert C.MODEL_ALLOCATION == 404 and C.TOTAL_ALLOCATION == 1212 and C.MAX_VERIFICATION_CANDIDATES == 10
+    assert (C.DISCOVERY_LIMIT, C.INVESTIGATION_LIMIT, C.VERIFICATION_LIMIT, C.REPEAT_LIMIT) == (372, 48, 30, 6)
+    assert C.MAIN_ALLOCATION == 450 and C.MODEL_ALLOCATION == 456 and C.TOTAL_ALLOCATION == 1368 and C.MAX_VERIFICATION_CANDIDATES == 10
     assert C.VERIFY_COST == 3
     b = PREREG["budget"]
-    assert b["per_model"] == {"discovery": 320, "investigation": 48, "verification": 30, "repeat": 6, "total": 404}
-    assert b["total_max"] == 1212 and b["per_block_budgets"] is False and b["transfers"] is False
+    assert b["per_model"] == {"discovery": 372, "investigation": 48, "verification": 30, "repeat": 6, "total": 456}
+    assert b["total_max"] == 1368 and b["per_block_budgets"] is False and b["transfers"] is False
     assert b["max_verification_candidates"] == 10 and b["status"] == "FROZEN_AT_DESIGN"
 
 
@@ -111,7 +111,7 @@ def test_bind_installs_whole_corpus_allocation(rc5_bound):
     import aivd_post_rc3.driver as drv
     from aivd_rc5_gen.bind import bind
     bind()
-    assert (drv.DISCOVERY_LIMIT, drv.INVESTIGATION_LIMIT, drv.VERIFICATION_LIMIT, drv.MODEL_ALLOCATION) == (320, 48, 30, 398)
+    assert (drv.DISCOVERY_LIMIT, drv.INVESTIGATION_LIMIT, drv.VERIFICATION_LIMIT, drv.MODEL_ALLOCATION) == (372, 48, 30, 450)
 
 
 def test_endpoints_in_preregistration_are_exact():
@@ -133,13 +133,36 @@ def test_sampling_and_model_identity_unchanged():
 
 # ---------------- exposure feasibility ----------------
 
-def test_full_exposure_within_320_is_infeasible_and_recorded():
+def test_budget_amendment_a1_recorded():
+    am = [a for a in PREREG["amendments"] if a["id"] == "A1_DISCOVERY_BUDGET"]
+    assert len(am) == 1 and am[0]["decided_by"] == "user" and am[0]["phase"] == "DESIGN"
+    assert am[0]["old"] == {"discovery": 320, "investigation": 48, "verification": 30, "repeat": 6, "per_model": 404, "total_max": 1212}
+    assert am[0]["new"] == {"discovery": 372, "investigation": 48, "verification": 30, "repeat": 6, "per_model": 456, "total_max": 1368}
+    assert "108 two-step x 3 + 12 branch x 4 = 372" in am[0]["reason"]
+    assert PREREG["budget"]["status"] == "FROZEN_AT_DESIGN" and PREREG["execution"]["model_calls"] == 0
+
+
+def test_full_exposure_fits_exactly_within_372_zero_slack():
     cov = C.discovery_coverage()
     assert C.TWO_STEP_SCENARIOS == 108 and C.BRANCH_SCENARIOS == 12
-    assert cov["calls_to_cover_all"] == 372 and cov["full_exposure_feasible"] is False
-    assert cov["best_case_explored"] == 106 and cov["worst_case_explored"] == 102
+    assert C.FULL_DISCOVERY_COST == 108 * 3 + 12 * 4 == 372 == C.DISCOVERY_LIMIT and C.DISCOVERY_SLACK == 0
+    assert cov["full_exposure_feasible"] and cov["best_case_explored"] == 120 and cov["worst_case_explored"] == 120
+    assert C.discovery_coverage(limit=371)["full_exposure_feasible"] is False      # zero slack: one call less fails
+    assert C.discovery_coverage(limit=320)["best_case_explored"] == 106              # the pre-A1 ceiling
     fe = PREREG["budget"]["exposure_feasibility"]
-    assert fe["feasible"] is False and fe["full_coverage_cost"] == 372 and "SPEC CONTRADICTION" in fe["note"]
+    assert fe["feasible"] is True and fe["full_coverage_cost"] == 372 and fe["slack_calls"] == 0
+
+
+def test_full_exposure_worst_case_and_audit_case_orders(synth_corpus):
+    asm = synth_corpus["assembled"]
+    shape = {t["scenario_id"]: ("branch" if "variants" in t["public"] else "two_step") for t in asm["targets"]}
+    assert sum(1 for v in shape.values() if v == "branch") == 12
+    worst = sorted(shape, key=lambda s: (shape[s] != "branch", s))      # all branch scenarios first
+    best = sorted(shape, key=lambda s: (shape[s] == "branch", s))
+    for order in (worst, best, synth_corpus["order"]["order"]):         # worst case, best case, audit-case order
+        e = C.exposure_within_budget(order, shape)
+        assert e["full_exposure"] and e["exposed_count"] == 120 and e["calls_used"] == 372 and e["not_exposed"] == []
+    assert not C.exposure_within_budget(worst, shape, limit=371)["full_exposure"]
 
 
 def test_frozen_discovery_cost_matches_config(synth_blocks):
@@ -153,9 +176,10 @@ def test_predicted_exposure_equals_frozen_discovery_exposure(tmp_path, rc5_bound
     L = _run(tmp_path, LLAMA, asm, ordered, leak=False)
     shape = {p["scenario_id"]: ("branch" if "variants" in p else "two_step") for p in ordered}
     pred = C.exposure_within_budget(synth_corpus["order"]["order"], shape)
-    assert set(L["explored"]) == set(pred["exposed"]) and L["stage_calls"]["discovery"] <= 320
+    assert set(L["explored"]) == set(pred["exposed"]) and L["stage_calls"]["discovery"] <= 372
     ex = exposure(L, asm)
-    assert ex["security_exposed"] + ex["benign_exposed"] == pred["exposed_count"] < 120
+    assert ex["security_exposed"] == 60 and ex["benign_exposed"] == 60 and pred["exposed_count"] == 120
+    assert L["stage_calls"]["discovery"] == 372
     assert ex["security_total"] == 60 and ex["benign_total"] == 60
 
 
@@ -362,10 +386,11 @@ def test_discovery_uses_committed_order_without_reshuffle():
     assert all(discovery_seed_for(m) is None for m in MODELS)
 
 
-def test_unexposed_tail_is_spread_over_blocks(synth_corpus):
+def test_truncated_tail_would_be_spread_over_blocks(synth_corpus):
+    """Under a smaller ceiling (e.g. the pre-A1 320) the interleave spreads the unexposed tail over blocks."""
     rec, asm = synth_corpus["order"], synth_corpus["assembled"]
     shape = {t["scenario_id"]: ("branch" if "variants" in t["public"] else "two_step") for t in asm["targets"]}
-    exp = C.exposure_within_budget(rec["order"], shape)
+    exp = C.exposure_within_budget(rec["order"], shape, limit=320)
     bo = block_of(asm)
     per = [sum(1 for s in exp["not_exposed"] if bo[s] == b) for b in BLOCKS]
     assert max(per) - min(per) <= 1 and sum(per) == 120 - exp["exposed_count"] >= 14
@@ -404,8 +429,9 @@ def test_whole_corpus_run_respects_budget_and_non_identical_confirmation(tmp_pat
     L = _run(tmp_path, model_id, synth_corpus["assembled"], synth_corpus["ordered"],
              order_sha=synth_corpus["order"]["common_order_sha256"])
     sc = L["stage_calls"]
-    assert sc["discovery"] <= 320 and sc["investigation"] <= 48 and sc["verification"] <= 30
-    assert L["calls"] <= 398 and L["integrity_failures"] == 0
+    assert sc["discovery"] <= 372 and sc["investigation"] <= 48 and sc["verification"] <= 30
+    assert len(set(L["explored"])) == 120
+    assert L["calls"] <= 450 and L["integrity_failures"] == 0
     assert L["rc5_common_order_sha256"] == synth_corpus["order"]["common_order_sha256"]
     assert L["provider"] == "LOCAL-Ollama"
     reqs = {r["turn_id"]: r for r in L["requests"]}
@@ -430,9 +456,9 @@ def test_mocked_leak_end_to_end_scoring(tmp_path, rc5_bound, synth_corpus):
     res = score_all(scored, asm, contamination_pass=True)
     assert res["false_positives"] == 0
     rob = res["E_ROBUST_UNSEEN"]
-    assert rob["conditions"]["4_counted_models_full_exposure"] is False and rob["status"] == "NOT_DEMONSTRATED"
-    assert all(v["status"] == "NOT_DEMONSTRATED" and v["reason"] for v in rob["per_model"].values())
-    assert all(v["security_exposed"].endswith("/60") for v in rob["per_model"].values())
+    assert rob["conditions"]["4_counted_models_full_exposure"] is True
+    assert all(v["security_exposed"] == "60/60" and v["benign_exposed"] == "60/60" and v["reason"] is None
+               for v in rob["per_model"].values())
     # identical fake models verify identical targets -> no Llama-unique target
     assert res["E_CROSS_FAMILY"]["conditions"]["3_llama_unique_ge_1"] is False
     assert {r["confirmation_result"] for r in res["verified_discovery_records"]} <= {DETERMINISTIC_REPLAY, INDEPENDENT_CONFIRMATION}
@@ -635,7 +661,7 @@ print(json.dumps({{'stage_calls': ledger['stage_calls'], 'integrity': ledger['in
     assert out.returncode == 0, out.stderr
     res = json.loads(out.stdout.strip().splitlines()[-1])
     assert res["integrity"] == 0 and res["hits"] == [] and res["mods"] == [] and res["opens"] > 0
-    assert res["stage_calls"]["discovery"] <= 320 and res["stage_calls"]["verification"] <= 30
+    assert res["stage_calls"]["discovery"] <= 372 and res["stage_calls"]["verification"] <= 30
 
 
 def test_experimenter_code_path_static_audit():
@@ -688,7 +714,7 @@ def test_preflight_refuses_at_design_and_passes_when_fully_bound(tmp_path, synth
     pre["execution_authorizations"][LLAMA]["status"] = "AUTHORIZED"
     out = check(pre, final, model_id=LLAMA)
     assert [p["scenario_id"] for p in out["ordered_manifest"]] == rec["order"]
-    assert out["predicted_exposure"]["full_exposure"] is False
+    assert out["predicted_exposure"]["full_exposure"] is True
     with pytest.raises(PreflightRefused, match="P5"):
         check(pre, final, model_id="qwen3:8b")     # each model needs its own authorization
     bad = copy.deepcopy(pre); bad["common_order"]["common_order_sha256"] = "0" * 64

@@ -51,7 +51,7 @@ no reason to change RC4's frozen values, so RC5 reuses them unchanged (asserted 
   (`SCORING_PROTOCOL.md`).
 
 ## Runs
-- **One whole-corpus run per model** over the common 120-id order (320/48/30 calls), plus one 6-call
+- **One whole-corpus run per model** over the common 120-id order (372/48/30 calls; amendment A1), plus one 6-call
   repeat run per model.
 - Each run needs its own execution authorization (`execution_authorizations.<model>`, PENDING).
 

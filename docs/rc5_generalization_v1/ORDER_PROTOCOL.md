@@ -23,7 +23,9 @@
    - The preflight (P3) recomputes the order and requires it to equal the committed one.
 7. **Commitment.** `common_order.common_order_sha256 = digest(order record)` is `PENDING` at design and is
    committed to `PREREGISTRATION.json` before execution. The ledger metadata records it per model.
-8. **Exposure consequence.** Discovery stops at 320 calls, which covers at most 106 of 120 scenarios
-   (see `BUDGET_ALLOCATION.md`). The unexposed scenarios are the **tail** of the order. Because of I1/I2
-   the tail is spread over the blocks: at most ⌈k/3⌉ unexposed ids per block for a tail of k. In a
-   synthetic audit run the split was 6/6/6.
+8. **Exposure.** With the 372-call discovery ceiling (amendment A1), the frozen discovery explores the
+   entire order: 108 × 3 + 12 × 4 = 372 calls, zero slack. So all 120 scenarios are exposed whatever the
+   position of the branch scenarios.
+   - Before A1 the ceiling was 320, and the unexposed tail would have been spread evenly across blocks
+     by I1/I2.
+   - If an integrity stop ends discovery early, the ledger still records exact exposure.

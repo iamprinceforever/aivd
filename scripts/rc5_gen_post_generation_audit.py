@@ -13,7 +13,7 @@ Checks (the DEFERRED half of the design audit; actual values/digests):
   G4 cross-block independence: disjoint ids/tokens, distinct seeds and block commitments
   G5 assembled corpus = block 1 || 2 || 3; its commitment equals final/corpus_commitment.json
   G6 common order recomputes, passes the interleave check, is a permutation of the 120 ids
-  G7 exposure prediction under the committed order and the 320-call discovery ceiling (counts per label)
+  G7 exposure prediction under the committed order and the 372-call discovery ceiling (counts per label)
   G8 contamination of every RC5 public artifact vs RC3/RC4/LOCAL-V1 values/ids and RC5 sealed values
   G9 every security relation is a frozen RC3 relation; C targets carry an AUTHORIZED/DENIED/REVOKED marker
   G10 confirmation contexts differ from the original follow-up for all 120 scenarios
@@ -76,7 +76,8 @@ def main() -> None:
     pred = C.exposure_within_budget(recorded["order"], shape)
     exp = set(pred["exposed"])
     r["G7_exposure_prediction"] = {
-        "pass": True, "discovery_limit": C.DISCOVERY_LIMIT, "calls_used": pred["calls_used"],
+        "pass": pred["full_exposure"] and pred["calls_used"] <= C.DISCOVERY_LIMIT,   # amendment A1: all 120 must fit
+        "discovery_limit": C.DISCOVERY_LIMIT, "calls_used": pred["calls_used"],
         "scenarios_exposed": pred["exposed_count"],
         "security_exposed": sum(1 for s in exp if by[s]["family"] == "security"),
         "benign_exposed": sum(1 for s in exp if by[s]["family"] == "benign"), "full_exposure": pred["full_exposure"],

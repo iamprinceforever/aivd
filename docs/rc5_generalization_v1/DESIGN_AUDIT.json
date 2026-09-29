@@ -7,15 +7,16 @@
    "prior_paths_unchanged": true
   },
   "budget": {
+   "amendment_A1_recorded": true,
    "pass": true,
    "per_model": {
-    "discovery": 320,
+    "discovery": 372,
     "investigation": 48,
     "repeat": 6,
-    "total": 404,
+    "total": 456,
     "verification": 30
    },
-   "total_max": 1212
+   "total_max": 1368
   },
   "confirmation": {
    "context_differs_all_kinds": true,
@@ -26,7 +27,7 @@
    "LOCAL_V1_TO_RC5": true,
    "RC3_TO_RC5": true,
    "RC4_TO_RC5": true,
-   "files_scanned": 46,
+   "files_scanned": 48,
    "pass": true
   },
   "docs": {
@@ -68,22 +69,27 @@
   },
   "exposure": {
    "coverage": {
-    "best_case_explored": 106,
+    "best_case_explored": 120,
     "calls_to_cover_all": 372,
-    "full_exposure_feasible": false,
-    "limit": 320,
+    "full_exposure_feasible": true,
+    "limit": 372,
     "scenarios": 120,
-    "worst_case_explored": 102
+    "worst_case_explored": 120
    },
    "pass": true,
+   "slack_calls": 0,
    "synthetic_order_exposure": {
-    "calls_used": 318,
-    "exposed": 102,
+    "calls_used": 372,
+    "exposed": 120,
     "not_exposed_per_block": {
-     "1": 6,
-     "2": 6,
-     "3": 6
+     "1": 0,
+     "2": 0,
+     "3": 0
     }
+   },
+   "worst_case_order": {
+    "calls_used": 372,
+    "exposed": 120
    }
   },
   "f_rejected": {
@@ -196,33 +202,33 @@
    "pass": true,
    "per_model": {
     "llama3.2:3b": {
-     "benign_exposed": 53,
+     "benign_exposed": 60,
      "confirmation_request_differs": true,
-     "security_exposed": 49,
+     "security_exposed": 60,
      "stage_calls": {
-      "discovery": 320,
+      "discovery": 372,
       "investigation": 48,
       "verification": 30
      },
      "verifications": 10
     },
     "qwen3:1.7b": {
-     "benign_exposed": 53,
+     "benign_exposed": 60,
      "confirmation_request_differs": true,
-     "security_exposed": 49,
+     "security_exposed": 60,
      "stage_calls": {
-      "discovery": 320,
+      "discovery": 372,
       "investigation": 48,
       "verification": 30
      },
      "verifications": 10
     },
     "qwen3:8b": {
-     "benign_exposed": 53,
+     "benign_exposed": 60,
      "confirmation_request_differs": true,
-     "security_exposed": 49,
+     "security_exposed": 60,
      "stage_calls": {
-      "discovery": 320,
+      "discovery": 372,
       "investigation": 48,
       "verification": 30
      },
@@ -230,7 +236,7 @@
     }
    },
    "synthetic_E_CROSS": "NOT_DEMONSTRATED",
-   "synthetic_E_ROBUST": "NOT_DEMONSTRATED"
+   "synthetic_E_ROBUST": "PASS"
   },
   "rc3": {
    "pass": true
@@ -264,7 +270,7 @@
   }
  },
  "deferred": {
-  "actual_exposure": "per-model security/benign exposure on the real order (predicted <= 106/120 scenarios)",
+  "actual_exposure": "per-model security/benign exposure on the real order and real model behaviour (predicted 120/120; integrity stops could reduce it)",
   "block_generation": "three provider invocations with fresh entropy; block + seed commitments (PENDING)",
   "common_order_hash": "common order derived from the committed seed + corpus commitment; hash committed before execution (PENDING)",
   "corpus_binding": "assembled corpus commitment, manifest hash, exclusion-set commitment (PENDING)",
@@ -274,21 +280,16 @@
   "model_behaviour": "whether any model actually leaks; confirmation classes on real outputs",
   "post_generation_audit": "G1-G10 on the real blocks; record hash committed (PENDING)"
  },
- "findings": [
-  {
-   "detail": "all 120 scenarios cannot be exposed within 320 discovery calls under the frozen discovery cost (108 x 3 + 12 x 4 = 372); at most 106 scenarios (best case). E-ROBUST-UNSEEN condition (4) is therefore NOT_DEMONSTRATED for every model unless the budget or corpus shape changes. User decision required.",
-   "id": "SPEC_CONTRADICTION_EXPOSURE"
-  }
- ],
+ "findings": [],
  "pass": true,
  "proven_now": {
   "base": "HEAD descends from the RC4 base and the 7ed6e57 design parent; all prior code/docs/reports unchanged",
-  "budget": "320/48/30/+6 = 404 per model, 1212 max, <=10 verification candidates; code == preregistration",
+  "budget": "372/48/30/+6 = 456 per model, 1368 max, <=10 verification candidates; amendment A1 (320->372) recorded; code == preregistration",
   "confirmation": "each construction's confirmation context differs from its sink text; byte-identical output classified DETERMINISTIC_REPLAY",
   "contamination": "RC3 / RC4 / LOCAL-V1 -> RC5 source, scripts, tests, docs (values)",
   "docs": "12 design docs present; preregistration FROZEN_AT_DESIGN, parameters FROZEN_AT_DESIGN, no D1-D4 gate",
   "exclusion": "provider-side salted exclusion set from RC4 + LOCAL-V1 seals (ids, values, body digests, template fragments); named prior targets covered; clean synthetic block PASS; injected RC4 / LOCAL-V1 body FAIL (pass/fail + counts only)",
-  "exposure": "exposure accounting within 320 computed exactly from order + shapes; full coverage costs 372",
+  "exposure": "full exposure of all 120 fits the 372 ceiling exactly (108x3 + 12x4 = 372, slack 0) in the best case, the worst case (branches first) and the synthetic committed-style order",
   "f_rejected": "frozen verifier rejects the F relation (unknown relation) -> F excluded",
   "frozen_scorable": "each of the 20 constructions: security row VERIFIED and benign twin CORRECTLY_REJECTED by the unmodified frozen judge (synthetic block, fake model)",
   "identity": "model manifest/config/template/params digests and runtime binary digest (filesystem only)",
@@ -298,7 +299,7 @@
   "ollama_log": "/api/chat and /api/generate counts equal 790 / 0",
   "order": "common order on 3 synthetic blocks: permutation of 120, one id per block in every triple, prefix imbalance <= 1, no block all first; identical for the 3 models",
   "pending": "exactly the 18 corpus-dependent fields PENDING/null; 3 execution authorizations PENDING; no model call",
-  "pipeline": "whole-corpus synthetic run per model through the frozen driver/wire/judge: 320/48/30 calls, <=10 verifications, each confirmation request differs from the original; E-CROSS/E-ROBUST evaluate",
+  "pipeline": "whole-corpus synthetic run per model through the frozen driver/wire/judge: discovery <=372 / 48 / 30 calls, 60/60 security + 60/60 benign exposed, <=10 verifications, each confirmation request differs from the original",
   "rc3": "frozen RC3 source blob hashes unchanged",
   "refs": "protected refs unchanged (main, AIVD-RC3, LOCAL-V1 branches, RC4 design branch)",
   "scope": "20 A-E kinds, 4 per family, relations are frozen RC3 relations, no F, no RC4 kind, no RC4 import",

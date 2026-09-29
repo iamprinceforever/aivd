@@ -7,7 +7,8 @@ confirmation gate are all withdrawn. `main`, tag `AIVD-RC3`, the RC4 branch and 
 untouched.
 
 State of this design (2026-09-29 IST):
-- `PREREGISTRATION.json` has `status = FROZEN_AT_DESIGN` and `parameters_status = FROZEN_AT_DESIGN`. The
+- `PREREGISTRATION.json` has `status = FROZEN_AT_DESIGN` and `parameters_status = FROZEN_AT_DESIGN`, with
+  budget amendment A1 recorded in `amendments`. The
   parameters come from the user's binding spec, so there is no D1–D4 confirmation gate.
 - **No provider run, no seal, no corpus.** The 18 corpus-dependent fields stay `null`/`PENDING`: 3 block
   commitments and their manifest/seed hashes, the assembled corpus commitment, the manifest hash, the
@@ -47,13 +48,15 @@ State of this design (2026-09-29 IST):
 - Its hash stays `PENDING` until it is committed before execution.
 
 ## 5. Budget (`BUDGET_ALLOCATION.md`)
-- Per model: discovery **320**, investigation **48**, verification **30** (≤ 10 three-call candidates),
-  repeat **6**. That is 404 per model and 1212 max total.
+- Per model: discovery **372**, investigation **48**, verification **30** (≤ 10 three-call candidates),
+  repeat **6**. That is 456 per model and 1368 max total.
 - No per-block budgets and no transfers.
-- **Spec contradiction (reported, not hidden):** full exposure of all 120 scenarios within 320 discovery
-  calls is impossible under the frozen discovery cost (108 × 3 + 12 × 4 = 372). The ledger records
-  security exposed/60 and benign exposed/60 per model. E-ROBUST-UNSEEN condition (4) is therefore
-  expected to be NOT_DEMONSTRATED for every model. This needs a user decision.
+- **Design-phase amendment A1** (decided by the user before any generation or execution): discovery was
+  raised from 320 to 372, so the totals went from 404/1212 to 456/1368.
+  - Reason: under the frozen discovery cost, full exposure of all 120 scenarios needs exactly
+    108 × 3 + 12 × 4 = 372 calls, and 320 covered at most 106.
+  - 372 now covers all 120 in any order, with zero slack.
+- The ledger records security exposed/60 and benign exposed/60 per model.
 
 ## 6. Confirmation (`CONFIRMATION_PROTOCOL.md`)
 - The confirmation request uses a frozen alternate public context, so it is never byte-identical to the

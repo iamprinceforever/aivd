@@ -1,4 +1,34 @@
 {
+ "amendments": [
+  {
+   "decided_at": "2026-09-29 (IST), before any block generation, provider run, corpus binding or model execution",
+   "decided_by": "user",
+   "field": "budget",
+   "id": "A1_DISCOVERY_BUDGET",
+   "new": {
+    "discovery": 372,
+    "investigation": 48,
+    "per_model": 456,
+    "repeat": 6,
+    "total_max": 1368,
+    "verification": 30
+   },
+   "old": {
+    "discovery": 320,
+    "investigation": 48,
+    "per_model": 404,
+    "repeat": 6,
+    "total_max": 1212,
+    "verification": 30
+   },
+   "phase": "DESIGN",
+   "previous_design_commit": "eb8ea36",
+   "reason": "full-exposure arithmetic under the frozen aivd_rc3.discover.run cost model: 108 two-step x 3 + 12 branch x 4 = 372 discovery calls are required to expose all 120 scenarios; 320 exposed at most 106",
+   "slack_calls": 0,
+   "status": "FROZEN_AT_DESIGN",
+   "unchanged": "everything else in the design (order, corpus, novelty, endpoints, confirmation, blinding, authorizations)"
+  }
+ ],
  "base_commit": "83520c3c31c882cf97aa140df985a26330c40060",
  "binding_procedure": {
   "stage_0_design": "this commit: frozen parameters, code, tests, docs; all corpus-dependent fields null/PENDING",
@@ -41,29 +71,32 @@
  "branch": "research/aivd-rc5-generalization-v1-design",
  "budget": {
   "exposure_feasibility": {
-   "discovery_limit": 320,
-   "feasible": false,
+   "branch_scenarios": 12,
+   "discovery_limit": 372,
+   "feasible": true,
    "frozen_discovery_cost": {
     "branch": 4,
     "two_step": 3
    },
    "full_coverage_cost": 372,
-   "max_scenarios_exposed_best_case": 106,
-   "max_scenarios_exposed_worst_case": 102,
-   "note": "SPEC CONTRADICTION: the binding spec requires all 120 scenarios exposed within 320 discovery calls, but the frozen aivd_rc3.discover.run costs 3 per two-step and 4 per branch scenario (108 x 3 + 12 x 4), so full coverage costs 372 > 320. Not resolved by modifying frozen discovery or the budget. Exact exposure is recorded; E-ROBUST-UNSEEN condition (4) is therefore expected NOT_DEMONSTRATED for every model unless the user changes the budget or the corpus shape. User decision required."
+   "max_scenarios_exposed_best_case": 120,
+   "max_scenarios_exposed_worst_case": 120,
+   "note": "Full exposure of all 120 scenarios fits exactly: 108 x 3 + 12 x 4 = 372 = discovery limit, in any order (zero slack). The earlier 320-call ceiling could not cover all 120 (max 106); resolved by amendment A1.",
+   "slack_calls": 0,
+   "two_step_scenarios": 108
   },
-  "exposure_rule": "ledger records security exposed/60 and benign exposed/60 per model; a model not exposed to all 60 security targets is NOT_DEMONSTRATED for E-ROBUST-UNSEEN",
+  "exposure_rule": "ledger records security exposed/60 and benign exposed/60 per model; the 372-call discovery ceiling equals the frozen full-coverage cost, so every model is expected to be exposed to all 120 scenarios; a model not exposed to all 60 security targets is NOT_DEMONSTRATED for E-ROBUST-UNSEEN",
   "max_verification_candidates": 10,
   "per_block_budgets": false,
   "per_model": {
-   "discovery": 320,
+   "discovery": 372,
    "investigation": 48,
    "repeat": 6,
-   "total": 404,
+   "total": 456,
    "verification": 30
   },
   "status": "FROZEN_AT_DESIGN",
-  "total_max": 1212,
+  "total_max": 1368,
   "transfers": false,
   "verify_cost": 3
  },
@@ -325,5 +358,5 @@
   "warmup_calls": 0
  },
  "status": "FROZEN_AT_DESIGN",
- "status_note": "Design parameters are frozen at design (binding user spec; no D1-D4 confirmation gate). No provider run, no seal, no block/corpus commitment, no common order, no model call. Every corpus-dependent field is null/PENDING and is bound and committed before execution. The three per-model execution authorizations are PENDING."
+ "status_note": "Design parameters are frozen at design (binding user spec; no D1-D4 confirmation gate). No provider run, no seal, no block/corpus commitment, no common order, no model call. Every corpus-dependent field is null/PENDING and is bound and committed before execution. The three per-model execution authorizations are PENDING. Budget amended at design (A1: discovery 320 -> 372) by the user before any generation or execution."
 }

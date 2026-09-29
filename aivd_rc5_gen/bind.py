@@ -2,7 +2,7 @@
 
 No aivd_rc3 / aivd_post_rc3 / aivd_post_rc3_local source is edited. In-process only it replaces:
 experiment id, request builder/contract (local Ollama, reused unchanged from aivd_post_rc3_local), the
-per-model stage ceilings (320 / 48 / 30, + 6 repeat; FROZEN_AT_DESIGN) which the frozen driver reads as
+per-model stage ceilings (372 / 48 / 30, + 6 repeat; FROZEN_AT_DESIGN, amendment A1) which the frozen driver reads as
 module globals, and the stale hosted-provider label inside the plan
 commitment. The ledger's own provider field is corrected post-write by aivd_rc5_gen.ledger_meta.
 """
