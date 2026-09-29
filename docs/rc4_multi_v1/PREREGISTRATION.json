@@ -31,8 +31,8 @@
  },
  "corpus": {
   "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
-  "public_manifest_sha256": null,
-  "seed_sha256": null,
+  "public_manifest_sha256": "d4a16b0ec3482fabc83385c51906d4db3c708c8583183c21baa4f6dd3e2f5cf5",
+  "seed_sha256": "eed801b4f6ad438e8971114c574cf320bdc8018ac26c883089fe9e41b7d7df17",
   "security_count": 24,
   "benign_count": 24,
   "generator": "aivd_rc4_multi.provider.generator.draw (seed = secrets.token_bytes(32) at provider run time)",
