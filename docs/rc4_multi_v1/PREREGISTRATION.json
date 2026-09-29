@@ -1,7 +1,7 @@
 {
  "experiment_id": "AIVD-RC4-MULTI-V1",
  "status": "FROZEN_AT_DESIGN",
- "status_note": "Design decisions confirmed by the user on 2026-09-29 IST (D1=C, D2=A, D3=A) and frozen at design. No provider run, no corpus, no seal, no model call, no execution. corpus_commitment stays null until the provider runs once; it and the per-model discovery orders are then recorded before any model call.",
+ "status_note": "The RC4 provider has completed corpus generation and sealing (single run, 2026-09-29 15:35:59 IST; 24 security + 24 benign targets). The corpus commitment, public manifest and seed commitments, and the three per-model discovery-order hashes are bound in this preregistration. Model execution has NOT yet started: no model call, no discovery, investigation, verification or repeat run.",
  "base_commit": "9b70ca9ce985ec1cc421b283d156e02b62d22893",
  "branch": "research/aivd-rc4-multi-v1-design",
  "open_design_decisions": {
@@ -27,7 +27,7 @@
  "execution": {
   "started": false,
   "model_calls": 0,
-  "provider_run": false
+  "provider_run": true
  },
  "corpus": {
   "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
