@@ -30,12 +30,13 @@ The operator *could* read the seal with a shell command. The protocol forbids it
   - provider: `AIVD_RC4_PROVIDER_AUTHORIZED=AIVD-RC4-MULTI-V1`
   - runner and wire: `AIVD_RC4_RUN_AUTHORIZED=AIVD-RC4-MULTI-V1`
   - scorer: `AIVD_RC4_SCORE_AUTHORIZED=AIVD-RC4-MULTI-V1`
-  - Provider and runner also require `PREREGISTRATION.json` status `FROZEN`; the provider additionally requires budget `confirmed_by_user`.
+  - **Provider confirmation gate** (`confirmation_gate`): `PREREGISTRATION.json` status must be `FROZEN_AT_DESIGN`; D1 = C, D2 = A and D3 = A must be recorded as `confirmed`; the budget must be exactly 152/24/24/6 = 206 per model and 618 total with status `confirmed/frozen-at-design`; and no corpus commitment may be recorded yet.
+  - **Runner:** status `FROZEN_AT_DESIGN`, a recorded corpus commitment, and a recorded, matching discovery order for its model.
 - **Gitignore.** `reports/aivd_rc4_multi_v1/protected/`, `**/raw/` and `**/wire/` are ignored, and staging is explicit per file.
 
 ## Procedural rules
-1. User confirms D1–D3, then the preregistration is frozen and committed. `corpus_commitment` stays null until step 2.
-2. The provider runs once. Only public metadata is printed, and the commitment is recorded in the preregistration by a second commit before any model call.
+1. Done: the user confirmed D1 = C, D2 = A and D3 = A, and the preregistration is `FROZEN_AT_DESIGN` and committed. `corpus_commitment` stays null until step 2.
+2. The provider runs once, and only public metadata is printed. Then the per-model discovery orders are recorded from the public manifest. The commitment and the order hashes go into a second commit before any model call.
 3. For each model: verify digests (read-only), start the wire proxy, run the blind runner, then the repeat.
 4. Once all ledgers are frozen, the scorer runs.
 5. The operator never prints, cats or greps the seal, the wire dumps or the protected ledgers during steps 2–3. The reveal happens only at step 4.

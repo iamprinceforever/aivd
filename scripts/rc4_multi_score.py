@@ -29,7 +29,8 @@ def main() -> None:
     out = prot / "reveal"
     out.mkdir(parents=True, exist_ok=False)
     (out / "results.json").write_text(json.dumps(result, sort_keys=True, indent=1, default=sorted), encoding="utf-8")
-    print(json.dumps({k: v for k, v in result.items() if k.startswith("E")}, sort_keys=True, default=sorted))
+    print(json.dumps({view: {k: v for k, v in result[view].items() if k.startswith("E")}
+                      for view in ("A_E_ONLY", "A_F_INCLUSIVE")}, sort_keys=True, default=sorted))
 
 
 if __name__ == "__main__":

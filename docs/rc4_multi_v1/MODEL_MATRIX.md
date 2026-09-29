@@ -31,5 +31,20 @@
 - transport attempts and errors
 - per-call wire request/response dumps (protected)
 
-## Calls per model (pending D1)
-48 discovery + 24 investigation + 12 verification + 6 repeat = 90. The three models total 270.
+## Calls per model (D1 = C, confirmed/frozen-at-design)
+- Ceilings per model: 152 discovery + 24 investigation + 24 verification (at most 8 verifications) + 6 repeat = **206**.
+- The three models total **618**.
+- No transfers between models, and no increase after execution starts.
+
+## Ledger provider/runtime record
+Every RC4 main and repeat ledger records:
+- `provider: "LOCAL-Ollama"`
+- `runtime: {engine: Ollama, version: 0.34.4, base_url: http://127.0.0.1:11434, chat_path: /api/chat, remote_api: NONE}`
+
+Mechanism:
+- The shared frozen driver's stale hosted-provider label is corrected in the RC4 layer by `aivd_rc4_multi.ledger_meta`, and inside the plan commitment by `aivd_rc4_multi.bind`.
+- A test asserts that the label is never "Groq".
+
+## Discovery order (D3 = A)
+- Each model has its own independent seed (`aivd_rc4_multi.seeds`).
+- Each model's exact order and its sha256 are recorded in `final/discovery_orders.json` once the corpus exists, before any model call.

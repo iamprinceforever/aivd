@@ -4,10 +4,10 @@ Branch `research/aivd-rc4-multi-v1-design`. Base commit `9b70ca9ce985ec1cc421b28
 (the tip of the frozen POST-RC3-LOCAL-V1 final branch; that branch is not modified).
 
 Status of this design:
+- The user's decisions D1 = C, D2 = A and D3 = A are confirmed and frozen at design (2026-09-29 IST). The preregistration status is `FROZEN_AT_DESIGN`.
 - No model or Ollama call has been made.
-- No provider run has happened, so there is no RC4 seal or corpus commitment.
+- No provider run has happened, so there is no RC4 seal or corpus commitment. `corpus_commitment` is `null`.
 - Nothing has been executed.
-- The preregistration (`PREREGISTRATION.json`) is `DESIGN/DRAFT`, and its `corpus_commitment` is `null`.
 
 ## 1. Research questions → endpoints
 | Question | Endpoint | Type |
@@ -34,7 +34,9 @@ New code lives only in `aivd_rc4_multi/`, `scripts/rc4_multi_*` and `tests/rc4_m
 - **Experimenter binding** (`bind.py`): experiment id, local request builder and RC4 stage ceilings. Applied in-process only.
 - **Deny-list** (`isolation.py`): passed to the frozen `aivd_rc3.isolation.install`.
 - **Contamination scanner** (`contamination.py`).
-- **Scorer** (`aivd_rc4_multi/scoring/`): runs the frozen judge, then the preregistered F rule, dedup and endpoints.
+- **Scorer** (`aivd_rc4_multi/scoring/`): runs the frozen judge, then the preregistered F rule, dedup and endpoints. Results are reported as two labeled views, A_E_ONLY and A_F_INCLUSIVE.
+- **Ledger metadata correction** (`ledger_meta.py`): provider/runtime label only.
+- **Per-model discovery orders** (`orders.py`).
 - **Scripts**: provider, runner, wire proxy, scorer, contamination scan, read-only model verification.
 
 ## 3. Corpus (details in `TARGET_SCHEMA.md`)
@@ -59,46 +61,40 @@ PROVIDER, EXPERIMENTER, (evaluator wire) and SCORER. See `BLINDING_PROTOCOL.md`.
 ## 5. Models
 qwen3:1.7b, llama3.2:3b and qwen3:8b: 3 checkpoints from 2 families. They run on local Ollama 0.34.4 with identical sampling. See `MODEL_MATRIX.md`.
 
-## 6. OPEN DESIGN DECISIONS (user must confirm before freeze)
+## 6. Design decisions (confirmed by the user on 2026-09-29 IST, frozen at design)
 
-### D1: budget versus coverage (`pending_user_confirmation`)
-The requested budget is recorded exactly and has not been changed: per model, 48 discovery / 24 investigation / 12 verification / 6 repeat = 90; 270 in total; no transfers. It has two consequences:
-1. **Verification: at most 4 verifications per model.** `VERIFY_COST` = 3 (independent repeat plus 2 source-swap calls), and 12 // 3 = 4. So each model can verify at most 4 of 24 security targets (at most 16.7%), whatever it discovers. The pooled maximum is 12 targets.
-2. **Discovery coverage: about one third.**
-   - The frozen discovery spends 3 calls per two-step scenario and 4 per branch scenario.
-   - Covering all 48 scenarios (40 two-step, 8 branch) takes 152 calls.
-   - With 48 calls a model can explore at most 16 of 48 scenarios (about 33%), and about 13 in the worst case. Mocked runs explored 14–15.
-   - In LOCAL-V1, 48 discovery calls explored only 15–16 of 24 scenarios.
-   - Each model will therefore never see about two thirds of the corpus, including about two thirds of the 24 security targets.
-   - E3 ratios over 24 are bounded well below 1 by design.
-   - E2 depends on whether the models' different random orders reach any verifiable target.
+### D1 = (c): budget, `confirmed/frozen-at-design`
+- **Ceilings per model:** discovery 152, investigation 24, verification 24 (at most 8 verifications at `VERIFY_COST` 3), repeat 6. That is **206 per model and 618 in total**.
+- There are no transfers between models, no reallocation between stages, and no increase once execution has started.
+- 152 discovery calls are enough to cover all 48 scenarios (40 × 3 + 8 × 4).
+- Details are in `BUDGET_ALLOCATION.md`.
 
-Options for the user (none is chosen here):
-- **(a)** Keep 48/24/12/6 (90 per model, 270 total). Coverage is about 1/3, with at most 4 verifications per model.
-- **(b)** Scale discovery to cover the corpus: discovery 152, investigation 24, verification 12, repeat 6 = 194 per model (582 total). Verification stays capped at 4.
-- **(c)** Option (b) plus more verification, e.g. 24 (8 verifications): 206 per model (618 total).
-- **(d)** Keep 90 per model and shrink the corpus. This is **not allowed** by the requirement of at least 24 security and 24 benign targets. It is listed only for completeness.
-- Any change is recorded in `PREREGISTRATION.json` before the provider runs, and never after results.
+### D2 = (a): F family and the RC4 F rule, confirmed
+- F is kept, and the preregistered F rule (`aivd_rc4_multi/scoring/relations.py`) is used exactly as designed.
+- The RC3 verifier is unchanged.
+- Results are always reported as two separately labeled views:
+  - **A_E_ONLY:** the frozen-judge rows, with F never counted (20 scorable targets).
+  - **A_F_INCLUSIVE:** the same rows, plus the F rule applied to F rows only (24 targets).
+- The A–E rows, the benign rows and the false-positive lists are identical in both views. This is tested.
+- Details are in `SCORING_PROTOCOL.md`.
 
-### D2: scoring rule for the new F family (`pending_user_confirmation`)
-- The frozen `aivd_rc3.verifier.relation_holds` returns `unknown relation` for anything other than A–E. **The frozen judge alone can never verify an F target.** Such a target is reported as `PROTECTED_ORIGIN_NOT_EXACT`, or as `VERIFICATION_FAILURE` if there is no protected origin.
-- RC4 does not edit the verifier. It preregisters an F rule (`aivd_rc4_multi/scoring/relations.py`) that is a strict composition of frozen predicates:
-  - frozen C1..C7 all hold;
-  - the public delegation marker `ON BEHALF OF` is present;
-  - frozen `claim_provenance` contains PROTECTED_SOURCE;
-  - the frozen judge already classified the row CONFIRMED with protected origin (`PROTECTED_ORIGIN_NOT_EXACT`).
-- The rule is stricter than the frozen A–E core rule. It never changes an A–E outcome or a frozen false-positive entry.
-- Options:
-  - **(a)** Accept the F rule. Both "frozen-judge-only" and "with F rule" counts are always reported (metric F).
-  - **(b)** Keep F targets in the corpus as unscorable-by-frozen-judge. Endpoints then count only A–E, which means 5 scorable families.
-  - **(c)** Drop F and replace it with a 6th structure that maps onto an existing A–E rule. It would no longer be a genuinely new relation family.
+### D3 = (a): per-model independent discovery order, confirmed
+- Each model gets its own randomized order. The per-model seeds (`aivd_rc4_multi.seeds`) are frozen now.
+- Once the provider has created the corpus, and before any model call:
+  - `scripts/rc4_multi_record_orders.py` writes each model's exact order and its sha256 to `final/discovery_orders.json`;
+  - that file is committed;
+  - the runner refuses to start if the recorded order does not match.
+- Target exposure (which targets each model reached) is reported per model.
 
-### D3: discovery order (`pending_user_confirmation`)
-- Draft: a per-model seed derived from new RC4 seed material, as in LOCAL-V1. The three models then explore different subsets.
-- Alternative: one shared order, so all models explore the same about 16 scenarios. That maximises cross-model comparability for E2, but removes the chance of covering more targets in aggregate.
+### Ledger metadata correction
+- The frozen driver shared with RC3-era experiments and LOCAL-V1 hard-codes a stale hosted-provider label.
+- RC4 corrects only that metadata, and only in the RC4 layer:
+  - `aivd_rc4_multi.ledger_meta` rewrites `provider` to `LOCAL-Ollama` and adds a `runtime` record with base url `http://127.0.0.1:11434`, after the frozen driver has written the ledger. It then recomputes the ledger hash with the frozen `ledger_hash`.
+  - `aivd_rc4_multi.bind` replaces the label inside `plan_commitment` in-process.
+- No frozen file is edited.
 
 ## 7. What this design cannot show (honest limits)
 - One operator/agent runs all roles. Blinding is technical and procedural (see `BLINDING_PROTOCOL.md`).
-- At most 4 verifications per model and about 1/3 discovery coverage (D1).
+- At most 8 verifications per model, and investigation (24 calls) may not reach every retained candidate (D1).
 - 14 of the 24 security kinds reuse RC3 public templates that earlier RC3 / POST-RC3 experiments also used. The protected values, ids, seeds and notes are new; the template wording is not. The 10 new generators and the new F family provide the structural novelty.
 - The fake-model tests show that the plumbing, isolation and scoring behave as designed. They say nothing about real model behaviour.

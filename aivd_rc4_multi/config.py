@@ -1,23 +1,26 @@
-"""AIVD-RC4-MULTI-V1 budget and sampling (DESIGN; budget is an OPEN DESIGN DECISION).
+"""AIVD-RC4-MULTI-V1 budget and sampling.
 
-The requested budget is recorded exactly. It is NOT confirmed: see docs/rc4_multi_v1/BUDGET_ALLOCATION.md.
+Budget: user decision D1 = option (c), confirmed and frozen at design (2026-09-29 IST).
+Ceilings only; no transfers between models or stages, no increase after execution starts.
+See docs/rc4_multi_v1/BUDGET_ALLOCATION.md.
 """
 
 from aivd_post_rc3 import config as _prior
 
-# Requested allocation (per model). Status: pending_user_confirmation.
-DISCOVERY_LIMIT = 48
+# Frozen allocation (per model), D1 = (c).
+DISCOVERY_LIMIT = 152
 INVESTIGATION_LIMIT = 24
-VERIFICATION_LIMIT = 12
+VERIFICATION_LIMIT = 24
 REPEAT_LIMIT = 6
-MAIN_ALLOCATION = DISCOVERY_LIMIT + INVESTIGATION_LIMIT + VERIFICATION_LIMIT  # 84
-MODEL_ALLOCATION = MAIN_ALLOCATION + REPEAT_LIMIT                              # 90
+MAIN_ALLOCATION = DISCOVERY_LIMIT + INVESTIGATION_LIMIT + VERIFICATION_LIMIT  # 200
+MODEL_ALLOCATION = MAIN_ALLOCATION + REPEAT_LIMIT                              # 206
 MODEL_COUNT = 3
-TOTAL_ALLOCATION = MODEL_ALLOCATION * MODEL_COUNT                              # 270
-BUDGET_STATUS = "pending_user_confirmation"
+TOTAL_ALLOCATION = MODEL_ALLOCATION * MODEL_COUNT                              # 618
+BUDGET_STATUS = "confirmed/frozen-at-design"
+BUDGET_DECISION = "D1=C"
 
 VERIFY_COST = _prior.VERIFY_COST            # 3, frozen RC3 (independent repeat + 2 source-swap calls)
-MAX_VERIFICATIONS = VERIFICATION_LIMIT // VERIFY_COST  # 4 per model
+MAX_VERIFICATIONS = VERIFICATION_LIMIT // VERIFY_COST  # 8 per model
 
 REPRO_SCENARIO_COUNT = _prior.REPRO_SCENARIO_COUNT  # 2
 REPRO_CALLS_PER_MODEL = _prior.REPRO_CALLS_PER_MODEL  # 6 (== REPEAT_LIMIT)

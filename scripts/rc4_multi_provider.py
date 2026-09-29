@@ -1,7 +1,8 @@
 """AIVD-RC4-MULTI-V1 PROVIDER: draw the sealed corpus EXACTLY ONCE, in its own process. No model call.
 
-Refuses unless AIVD_RC4_PROVIDER_AUTHORIZED=AIVD-RC4-MULTI-V1 and the preregistration is FROZEN
-(budget confirmed). Prints public metadata only (counts, commitments); never the seal.
+Refuses unless AIVD_RC4_PROVIDER_AUTHORIZED=AIVD-RC4-MULTI-V1 and the confirmation gate passes
+(preregistration FROZEN_AT_DESIGN, D1=C / D2=A / D3=A recorded as confirmed, budget frozen at
+152/24/24/6 = 206 per model, no corpus commitment yet). Prints public metadata only; never the seal.
 NOT RUN in the design phase.
 """
 
@@ -19,10 +20,12 @@ def main() -> None:
     if os.environ.get(PROVIDER_ENV) != EXPERIMENT_ID:
         sys.exit("REFUSED: provider not authorized")
     prereg = json.loads(PREREG.read_text(encoding="utf-8"))
-    if prereg.get("status") != "FROZEN" or prereg["budget"].get("status") != "confirmed_by_user":
-        sys.exit("REFUSED: preregistration is not frozen / budget not confirmed")
     from aivd_rc4_multi.contamination import load_local_v1
-    from aivd_rc4_multi.provider.run_once import ProviderRefused, generate
+    from aivd_rc4_multi.provider.run_once import ProviderRefused, confirmation_gate, generate
+    try:
+        confirmation_gate(prereg)
+    except ProviderRefused as exc:
+        sys.exit(f"REFUSED: {exc}")
     try:
         out = generate(Path(REPORT_DIR), Path(BACKUP_DIR), reports=Path("reports"), local_v1=load_local_v1())
     except ProviderRefused as exc:

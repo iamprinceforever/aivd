@@ -1,4 +1,4 @@
-# AIVD-RC4-MULTI-V1: adversarial independence audit (design phase, 2026-09-29 IST)
+# AIVD-RC4-MULTI-V1: adversarial independence audit (design phase, 2026-09-29 IST; updated for D1=C / D2=A / D3=A)
 
 Each leak channel is listed with how it is closed and the evidence. Evidence types:
 - **S**: static scan or AST test
@@ -28,7 +28,7 @@ All tests are in `tests/rc4_multi/test_design.py`.
 | 13 | Discovery or investigation given class hints | frozen, unchanged, generic; they never reference `RELATION_BY_KIND`, `SECURITY_SCHEMAS`, `BENIGN_NOTES`, the F marker or the seal | S `test_frozen_experimenter_modules_carry_no_label_or_class_hints`; RC3 freeze check | CLOSED |
 | 14 | Frozen `aivd_rc3.provider` imported by the experimenter (driver needs `SWAP_SENTINEL`) | contains only RC3 templates and notes with `{token}` placeholders: no RC4 value, no RC4 id→kind mapping. The frozen stages never consult its tables (row 13). It cannot be denied without editing frozen code. | S | CLOSED (values); see R3 |
 | 15 | Verifier feedback into discovery or investigation | forward-only: the judge and scorer run only after all ledgers are frozen; the scorer code is denied during runs | I, A, P | CLOSED |
-| 16 | Adaptive budget or peeking | ceilings fixed in the preregistration and bound in-process; run-once guards; repeat only after the main ledger; no reallocation | T `test_mocked_pipeline_respects_rc4_ceilings…`, `test_budget_recorded_exactly_and_pending` | CLOSED |
+| 16 | Adaptive budget or peeking | ceilings fixed in the preregistration and bound in-process; run-once guards; repeat only after the main ledger; no reallocation | T `test_mocked_pipeline_respects_rc4_ceilings…`, `test_budget_frozen_at_d1_c`, `test_provider_confirmation_gate` | CLOSED |
 | 17 | Seal path passed to the experimenter via argv or env | the runner takes only `<model> <port>`; only the wire proxy gets the seal path; no secret env vars | S (runner AST, no `final_seal` string) | CLOSED |
 | 18 | LOCAL-V1 values or identity in RC4 prompts, examples, templates, fixtures, source | contamination Check 1 (values, 24 ids and gen_key template fragments, loaded in memory) | real scan: 0 hits (below); T (synthetic) | CLOSED |
 | 19 | LOCAL-V1 target template reused as an RC4 target | `gen_key` is excluded from the generator, and any template fragment fails the scan | T `test_corpus_shape_families_and_exclusion`, `test_excluded_template_absent_from_manifest` | CLOSED |
@@ -38,6 +38,7 @@ All tests are in `tests/rc4_multi/test_design.py`.
 | 23 | Scoring rule tuned after results | endpoint and counting rules and the F rule are fixed in code and in `PREREGISTRATION.json` now, before any seal exists | T `test_endpoint_mapping`, `test_f_rule_…` | CLOSED |
 | 24 | Operator-authored prompts steering discovery | none: all prompts come from the public manifest and the frozen probe library | S | CLOSED |
 | 25 | Ollama cross-request state | `MAX_LOADED=1`, `NUM_PARALLEL=1`; every request carries its full message list; a model is loaded only for its own run | P | CLOSED (see R4) |
+| 26 | Discovery order chosen after seeing the corpus | per-model seeds frozen now (D3 = A); the exact orders are derived from the public manifest by frozen `order`, recorded and committed before any call; the runner refuses a mismatch | T `test_d3_orders_independent_per_model_and_recorded_shape`, `test_d3_ledger_uses_recorded_order_seed` | CLOSED |
 
 ## Evidence
 All results below are from the design session (2026-09-29, IST).
@@ -51,8 +52,8 @@ All results below are from the design session (2026-09-29, IST).
 Importing the provider or scorer package also failed. The bad-list was `[]` for every model.
 
 **File-open audit** (bound pipeline, fake leaking model behind the frozen Wire with a synthetic seal in tmp):
-- 84 calls: discovery 48, investigation 24, verification 12;
-- 865 opens recorded, **0 hits** on denied paths;
+- 200 calls: discovery 152, investigation 24, verification 24;
+- 1,674 opens recorded, **0 hits** on denied paths;
 - **0** provider or scorer modules loaded.
 
 **Contamination Check 1** (real LOCAL-V1 seal, read into memory; counts only; `scripts/rc4_multi_contamination_scan.py`):
@@ -65,7 +66,9 @@ Importing the provider or scorer package also failed. The bad-list was `[]` for 
 - invented values are never confirmed, with FP 0 for all 3 models;
 - a genuine fake leak is verified with PROTECTED_SOURCE;
 - F targets reach `PROTECTED_ORIGIN_NOT_EXACT` under the frozen judge and are verified only by the preregistered F rule;
-- explored scenarios per model: 14–15 of 48 (the D1 coverage cap).
+- exposure per model under the D1 = C budget: 24/24 security and 24/24 benign targets reached; 7–8 verified per model with the fake leak, capped by investigation (24 calls) and verification (at most 8).
+- F never changes an A–E row, a benign row or a false-positive list (`test_d2_views_separate_and_f_never_changes_a_e_or_fp`).
+- RC4 main and repeat ledgers record `LOCAL-Ollama` at `http://127.0.0.1:11434` and never "Groq" (`test_rc4_ledgers_record_local_ollama_never_groq`).
 
 ## R: residual risks (disclosed, not closable in code)
 - **R1. Single operator.** The same agent designs, provides, experiments and scores. It could read the seal with a shell command. Mitigations: procedure (§BLINDING_PROTOCOL), no operator-authored prompts, frozen generic pipeline, run-once guards and hash records. This is weaker than human role separation.

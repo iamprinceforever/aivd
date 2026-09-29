@@ -2,7 +2,9 @@
 
 Installs the frozen RC3 isolation hook with the RC4 deny-list (seal, wire, backup, provider and scorer
 source, LOCAL-V1 protected store, other models) BEFORE importing any pipeline code.
-Refuses unless AIVD_RC4_RUN_AUTHORIZED=AIVD-RC4-MULTI-V1 and the preregistration is FROZEN.
+Refuses unless AIVD_RC4_RUN_AUTHORIZED=AIVD-RC4-MULTI-V1, the preregistration is FROZEN_AT_DESIGN with
+a recorded corpus commitment, and the model's D3 discovery order is recorded and matches.
+Main and repeat ledgers get the RC4 provider/runtime metadata correction (aivd_rc4_multi.ledger_meta).
 NOT RUN in the design phase.
 usage: rc4_multi_run_model.py <model_id> <wire_port> [--repeat]
 """
@@ -30,11 +32,12 @@ def main(model_id: str, port: int, repeat: bool = False) -> None:
         sys.exit("unexpected model")
     install(forbidden_for(model_id))
     prereg = json.loads(PREREG.read_text(encoding="utf-8"))
-    if prereg.get("status") != "FROZEN" or not prereg["corpus"].get("corpus_commitment"):
-        sys.exit("REFUSED: preregistration not frozen")
+    if prereg.get("status") != "FROZEN_AT_DESIGN" or not prereg["corpus"].get("corpus_commitment"):
+        sys.exit("REFUSED: preregistration not frozen / corpus commitment not recorded")
     from aivd_rc4_multi.bind import bind
     bind()
-    from aivd_post_rc3.driver import run_model, run_repeat
+    from aivd_rc4_multi.ledger_meta import run_model, run_repeat
+    from aivd_rc4_multi.orders import order_record
     from aivd_post_rc3.publish import public_ledger
     from aivd_post_rc3.stop import (
         check_corpus_commitment, check_ledger_integrity, check_no_verifier_leakage, check_rc3_source_unmodified)
@@ -55,6 +58,9 @@ def main(model_id: str, port: int, repeat: bool = False) -> None:
     manifest = json.loads((BASE / "final/public_manifest.json").read_text(encoding="utf-8"))
     commitment = json.loads((BASE / "final/corpus_commitment.json").read_text(encoding="utf-8"))["corpus_commitment"]
     check_corpus_commitment(prereg["corpus"]["corpus_commitment"], commitment)
+    orders = json.loads((BASE / "final/discovery_orders.json").read_text(encoding="utf-8"))
+    if orders["models"][model_id] != order_record(manifest, model_id):
+        sys.exit("REFUSED: recorded discovery order does not match")
     url = f"http://127.0.0.1:{port}/api/chat"
 
     def transport(request):

@@ -22,6 +22,31 @@ class ProviderRefused(RuntimeError):
     pass
 
 
+CONFIRMED_DECISIONS = {"D1_budget_coverage": "C", "D2_f_family_scoring_rule": "A", "D3_discovery_order": "A"}
+PREREG_STATUS = "FROZEN_AT_DESIGN"
+BUDGET_STATUS = "confirmed/frozen-at-design"
+
+
+def confirmation_gate(prereg: dict) -> None:
+    """The provider may run only if the design decisions are recorded as confirmed, the budget is frozen
+    at the confirmed ceilings, and no corpus has been committed yet."""
+    from aivd_rc4_multi import config as C
+    if prereg.get("status") != PREREG_STATUS:
+        raise ProviderRefused("preregistration is not frozen at design")
+    dec = prereg.get("open_design_decisions", {})
+    for key, choice in CONFIRMED_DECISIONS.items():
+        d = dec.get(key) or {}
+        if not isinstance(d, dict) or d.get("status") != "confirmed" or d.get("choice") != choice:
+            raise ProviderRefused(f"design decision {key} not confirmed")
+    b = prereg.get("budget", {})
+    want = {"discovery": C.DISCOVERY_LIMIT, "investigation": C.INVESTIGATION_LIMIT,
+            "verification": C.VERIFICATION_LIMIT, "repeat": C.REPEAT_LIMIT, "total": C.MODEL_ALLOCATION}
+    if b.get("status") != BUDGET_STATUS or b.get("per_model") != want or b.get("total") != C.TOTAL_ALLOCATION:
+        raise ProviderRefused("budget not frozen at the confirmed ceilings")
+    if prereg.get("corpus", {}).get("corpus_commitment") is not None:
+        raise ProviderRefused("a corpus commitment is already recorded")
+
+
 def prior_public(reports: Path, exclude: str) -> tuple:
     ids, seeds, commitments = set(), set(), set()
     for m in reports.glob("aivd_*/**/public_manifest.json"):

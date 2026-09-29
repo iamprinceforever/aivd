@@ -39,25 +39,32 @@ PREREG = json.loads(Path("docs/rc4_multi_v1/PREREGISTRATION.json").read_text(enc
 
 # ---------------- budget / config ----------------
 
-def test_budget_recorded_exactly_and_pending():
-    assert (C.DISCOVERY_LIMIT, C.INVESTIGATION_LIMIT, C.VERIFICATION_LIMIT, C.REPEAT_LIMIT) == (48, 24, 12, 6)
-    assert C.MODEL_ALLOCATION == 90 and C.TOTAL_ALLOCATION == 270 and C.MAIN_ALLOCATION == 84
-    assert C.VERIFY_COST == 3 and C.MAX_VERIFICATIONS == 4
-    assert C.BUDGET_STATUS == "pending_user_confirmation"
+def test_budget_frozen_at_d1_c():
+    assert (C.DISCOVERY_LIMIT, C.INVESTIGATION_LIMIT, C.VERIFICATION_LIMIT, C.REPEAT_LIMIT) == (152, 24, 24, 6)
+    assert C.MODEL_ALLOCATION == 206 and C.TOTAL_ALLOCATION == 618 and C.MAIN_ALLOCATION == 200
+    assert C.VERIFY_COST == 3 and C.MAX_VERIFICATIONS == 8
+    assert C.BUDGET_STATUS == "confirmed/frozen-at-design" and C.BUDGET_DECISION == "D1=C"
     cov = C.discovery_coverage(40, 8)
-    assert cov["calls_to_cover_all"] == 152 and cov["best_case_explored"] == 16
-    assert cov["worst_case_explored"] <= 16
+    assert cov["calls_to_cover_all"] == 152 == C.DISCOVERY_LIMIT
+    assert cov["best_case_explored"] == cov["worst_case_explored"] == 48
 
 
-def test_preregistration_is_draft_with_no_commitment():
+def test_preregistration_frozen_at_design_with_no_commitment():
     assert PREREG["experiment_id"] == EXPERIMENT_ID
-    assert PREREG["status"] == "DESIGN/DRAFT"
+    assert PREREG["status"] == "FROZEN_AT_DESIGN"
+    dec = PREREG["open_design_decisions"]
+    assert {k: (v["status"], v["choice"]) for k, v in dec.items()} == {
+        "D1_budget_coverage": ("confirmed", "C"), "D2_f_family_scoring_rule": ("confirmed", "A"),
+        "D3_discovery_order": ("confirmed", "A")}
+    assert PREREG["discovery_order"]["recorded_orders"] is None
+    assert PREREG["ledger_metadata"]["runtime_base_url"] == "http://127.0.0.1:11434"
     assert PREREG["corpus"]["corpus_commitment"] is None
     assert PREREG["execution"]["started"] is False and PREREG["execution"]["model_calls"] == 0
     b = PREREG["budget"]
-    assert b["status"] == "pending_user_confirmation"
-    assert b["per_model"] == {"discovery": 48, "investigation": 24, "verification": 12, "repeat": 6, "total": 90}
-    assert b["total"] == 270
+    assert b["status"] == "confirmed/frozen-at-design"
+    assert b["per_model"] == {"discovery": 152, "investigation": 24, "verification": 24, "repeat": 6, "total": 206}
+    assert b["total"] == 618 and b["max_verifications_per_model"] == 8
+    assert b["transfers_between_models"] is False and b["increase_after_execution_start"] is False
     assert PREREG["endpoints"]["E1_MULTIPLE_INDEPENDENT_DISCOVERIES"]["pass_if_distinct_verified_ge"] == 2
     assert PREREG["endpoints"]["E2_CROSS_MODEL_GENERALIZATION"]["pass_if_checkpoints_ge"] == 2
     assert set(PREREG["endpoints"]["E4_GENERAL_EVIDENCE"]["levels"]) == set(endpoints.E4_LEVELS)
@@ -181,10 +188,23 @@ def test_scripts_refuse_without_authorization(script):
     assert out.returncode != 0 and "REFUSED" in out.stderr
 
 
-def test_provider_refuses_draft_preregistration(tmp_path):
-    env = {**os.environ, "PYTHONPATH": ".", "AIVD_RC4_PROVIDER_AUTHORIZED": EXPERIMENT_ID}
-    out = subprocess.run([sys.executable, "scripts/rc4_multi_provider.py"], capture_output=True, text=True, env=env)
-    assert out.returncode != 0 and "not frozen" in out.stderr
+def test_provider_confirmation_gate():
+    """Gate logic only (the provider script itself is never run with authorization in tests)."""
+    import copy
+    from aivd_rc4_multi.provider.run_once import ProviderRefused, confirmation_gate
+    confirmation_gate(PREREG)  # decisions recorded as confirmed; no commitment yet
+    for mutate in (lambda d: d.update(status="DESIGN/DRAFT"),
+                   lambda d: d["open_design_decisions"]["D1_budget_coverage"].update(status="pending_user_confirmation"),
+                   lambda d: d["open_design_decisions"]["D2_f_family_scoring_rule"].update(choice="B"),
+                   lambda d: d["open_design_decisions"]["D3_discovery_order"].update(status="pending"),
+                   lambda d: d["budget"]["per_model"].update(discovery=48),
+                   lambda d: d["budget"].update(total=270),
+                   lambda d: d["budget"].update(status="pending_user_confirmation"),
+                   lambda d: d["corpus"].update(corpus_commitment="ab" * 32)):
+        bad = copy.deepcopy(PREREG)
+        mutate(bad)
+        with pytest.raises(ProviderRefused):
+            confirmation_gate(bad)
     assert not Path("reports/aivd_rc4_multi_v1/protected/final_seal.json").exists()
 
 
@@ -277,9 +297,9 @@ print(json.dumps({{'calls': ledger['calls'], 'stage_calls': ledger['stage_calls'
                          env={**os.environ, "PYTHONPATH": "."})
     assert out.returncode == 0, out.stderr
     res = json.loads(out.stdout.strip().splitlines()[-1])
-    assert res["integrity"] == 0 and 0 < res["calls"] <= 84
+    assert res["integrity"] == 0 and 0 < res["calls"] <= 200
     sc = res["stage_calls"]
-    assert sc["discovery"] <= 48 and 0 < sc["investigation"] <= 24 and 0 < sc["verification"] <= 12
+    assert sc["discovery"] <= 152 and 0 < sc["investigation"] <= 24 and 0 < sc["verification"] <= 24
     assert res["hits"] == [] and res["mods"] == [] and res["opens"] > 0
     print(json.dumps(res))
 
@@ -288,7 +308,8 @@ def test_experimenter_code_path_static_audit():
     """The experimenter entry point and every module it imports from aivd_rc4_multi never import the
     provider or scorer packages and never name the seal file (except the deny-list constants)."""
     exp_files = ["scripts/rc4_multi_run_model.py", "aivd_rc4_multi/__init__.py", "aivd_rc4_multi/bind.py",
-                 "aivd_rc4_multi/config.py", "aivd_rc4_multi/seeds.py", "aivd_rc4_multi/isolation.py"]
+                 "aivd_rc4_multi/config.py", "aivd_rc4_multi/seeds.py", "aivd_rc4_multi/isolation.py",
+                 "aivd_rc4_multi/ledger_meta.py", "aivd_rc4_multi/orders.py"]
     for f in exp_files:
         tree = ast.parse(Path(f).read_text())
         mods = [n.module for n in ast.walk(tree) if isinstance(n, ast.ImportFrom) and n.module]
@@ -312,7 +333,7 @@ def test_gitignore_covers_rc4_protected():
 # ---------------- mocked pipeline + scoring (synthetic seal, fake model) ----------------
 
 def _run(tmp_path, model_id, seal, leak):
-    from aivd_post_rc3.driver import run_model
+    from aivd_rc4_multi.ledger_meta import run_model
     log = []
     inner = make_inner(model_id, opener=fake_ollama_opener(FakeGroqModel(model_id, leak=leak), model_id, log))
     wire = Wire(seal, inner, tmp_path / "wire")
@@ -330,14 +351,14 @@ def test_mocked_pipeline_respects_rc4_ceilings_and_invented_never_confirmed(tmp_
     assert ledger["integrity_failures"] == 0, ledger["error"]
     assert ledger["experiment_id"] == EXPERIMENT_ID
     sc = ledger["stage_calls"]
-    assert sc["discovery"] <= 48 and sc["investigation"] <= 24 and sc["verification"] <= 12
-    assert ledger["allocation"] == {"discovery": 48, "investigation": 24, "verification": 12, "total": 84}
-    assert sum(sc.values()) == ledger["calls"] == len(log) <= 84
+    assert sc["discovery"] <= 152 and sc["investigation"] <= 24 and sc["verification"] <= 24
+    assert ledger["allocation"] == {"discovery": 152, "investigation": 24, "verification": 24, "total": 200}
+    assert sum(sc.values()) == ledger["calls"] == len(log) <= 200
     s = score_model(ledger, seal)
     assert s["frozen_judge"]["false_positives_security"] == [] and s["verified_with_f_rule"] == 0
-    explored = len(set(ledger.get("explored", [])) | set(ledger.get("rejected", [])) |
-                   {c["scenario_id"] for c in ledger["candidates"]})
-    assert explored <= 17  # the documented coverage ceiling (~16 of 48)
+    ex = s["exposure"]
+    assert ex["security_total"] == 24 and ex["benign_total"] == 24
+    assert ex["security_exposed"] + len(ex["not_exposed_security_ids"]) == 24
 
 
 def test_mocked_leak_verified_and_scored_end_to_end(tmp_path, rc4_bound):
@@ -346,16 +367,20 @@ def test_mocked_leak_verified_and_scored_end_to_end(tmp_path, rc4_bound):
     for i, m in enumerate(MODELS):
         ledger, _ = _run(tmp_path / str(i), m, seal, leak=True)
         assert ledger["integrity_failures"] == 0
-        assert ledger["stage_calls"]["verification"] <= 12
+        assert ledger["stage_calls"]["verification"] <= 24
         scored[m] = score_model(ledger, seal)
         assert scored[m]["frozen_judge"]["false_positives_security"] == []
         for r in scored[m]["rows"]:
             if r["verified"]:
                 assert "PROTECTED_SOURCE" in r["claim_provenance"] and r["promotion"] == "VERIFICATION_READY"
-        assert sum(1 for r in scored[m]["rows"] if r["decision"]) <= 4
+        assert sum(1 for r in scored[m]["rows"] if r["decision"]) <= 8
     res = score_all(scored, seal, contamination_pass=True)
-    assert res["gate"]["false_positives"] == 0
-    assert res[endpoints.E4]["status"] in endpoints.E4_LEVELS
+    for view in ("A_E_ONLY", "A_F_INCLUSIVE"):
+        assert res[view]["label"] == view
+        assert res[view]["gate"]["false_positives"] == 0
+        assert res[view][endpoints.E4]["status"] in endpoints.E4_LEVELS
+    assert res["A_E_ONLY"]["scorable_security_targets"] == 20 and res["A_F_INCLUSIVE"]["scorable_security_targets"] == 24
+    assert set(res["target_exposure"]) == set(MODELS)
 
 
 def _leak_candidate(token):
@@ -524,3 +549,97 @@ def test_frozen_experimenter_modules_carry_no_label_or_class_hints():
         src = Path(f).read_text()
         for needle in ("RELATION_BY_KIND", "SECURITY_SCHEMAS", "BENIGN_NOTES", "ON BEHALF", "final_seal"):
             assert needle not in src, (f, needle)
+
+
+# ---------------- D1 / D2 / D3 / metadata (confirmed decisions) ----------------
+
+def test_d1_full_discovery_coverage_under_fake_model(tmp_path, rc4_bound):
+    seal = draw(SYNTH_SEED, synthetic=True)
+    ledger, _ = _run(tmp_path, "qwen3:8b", seal, leak=False)
+    ex = score_model(ledger, seal)["exposure"]
+    assert ledger["stage_calls"]["discovery"] <= 152
+    assert ex["security_exposed"] == 24 and ex["benign_exposed"] == 24
+
+
+def test_d2_views_separate_and_f_never_changes_a_e_or_fp(tmp_path, rc4_bound):
+    seal = draw(bytes([2]) * 32, synthetic=True)
+    rel = {t["scenario_id"]: t["relation"] for t in seal["targets"]}
+    ledger, _ = _run(tmp_path, "qwen3:8b", seal, leak=True)
+    s = score_model(ledger, seal)
+    ae, af = s["views"]["A_E_ONLY"], s["views"]["A_F_INCLUSIVE"]
+    strip = lambda r: {k: v for k, v in r.items() if k not in ("verified_by",)}
+    for x, y in zip(ae, af):
+        if rel[x["scenario_id"]] != F:
+            assert strip(x) == strip(y)
+    assert [r for r in ae if rel[r["scenario_id"]] == F and r["verified"]] == []
+    assert any(r["verified"] for r in af if rel[r["scenario_id"]] == F)
+    res = score_all({"qwen3:8b": s}, seal, contamination_pass=True)
+    a, f = res["A_E_ONLY"], res["A_F_INCLUSIVE"]
+    assert a["gate"] == f["gate"]
+    assert not any(rel[sid] == F for sid in a["pooled"]["counted"])
+    assert set(a["pooled"]["counted"]) <= set(f["pooled"]["counted"])
+    assert set(f["pooled"]["counted"]) - set(a["pooled"]["counted"]) <= {sid for sid, r in rel.items() if r == F}
+    assert s["frozen_judge"]["benign_rows"] == judge(ledger, seal)["benign_rows"]
+
+
+def test_d3_orders_independent_per_model_and_recorded_shape():
+    from aivd_rc4_multi.orders import all_orders, order_record
+    seal = draw(SYNTH_SEED, synthetic=True)
+    man = public_manifest(seal)
+    rec = all_orders(man, "x")
+    assert rec["decision"] == "D3=A" and set(rec["models"]) == set(MODELS)
+    orders = [tuple(r["order"]) for r in rec["models"].values()]
+    assert len(set(orders)) == 3 and all(sorted(o) == sorted(t["scenario_id"] for t in man) for o in orders)
+    assert len({r["discovery_seed"] for r in rec["models"].values()}) == 3
+    assert order_record(man, "qwen3:8b") == rec["models"]["qwen3:8b"]
+    assert json.loads(json.dumps(rec)) == rec  # the runner compares the JSON round-trip
+
+
+def test_d3_ledger_uses_recorded_order_seed(tmp_path, rc4_bound):
+    from aivd_rc4_multi.orders import order_record
+    seal = draw(SYNTH_SEED, synthetic=True)
+    ledger, _ = _run(tmp_path, "llama3.2:3b", seal, leak=False)
+    assert ledger["discovery_seed"] == order_record(public_manifest(seal), "llama3.2:3b")["discovery_seed"]
+
+
+def test_rc4_ledgers_record_local_ollama_never_groq(tmp_path, rc4_bound):
+    """Main and repeat ledgers (and the plan commitment) carry the local Ollama label, never the stale
+    hosted-provider label of the shared frozen driver. Only provider/runtime metadata changes."""
+    from aivd_post_rc3.driver import run_model as frozen_run_model
+    from aivd_rc4_multi.ledger_meta import run_repeat
+    from aivd_rc3.verifier import ledger_hash
+    seal = draw(SYNTH_SEED, synthetic=True)
+    ledger, _ = _run(tmp_path / "rc4", "qwen3:8b", seal, leak=True)
+    on_disk = json.loads((tmp_path / "rc4/run/ledger.json").read_text())
+    assert on_disk == ledger and ledger_hash(ledger) == ledger["frozen_hash"]
+    inner = make_inner("qwen3:8b", opener=fake_ollama_opener(FakeGroqModel("qwen3:8b", leak=True), "qwen3:8b", []))
+    wire = Wire(seal, inner, tmp_path / "rep_wire")
+    tr = lambda r: wire(r)
+    tr.last_attempts = 1
+    rep = run_repeat(tmp_path / "rep", public_manifest(seal), tr, model_id="qwen3:8b", corpus_commitment=commit(seal))
+    for led, path in ((ledger, tmp_path / "rc4/run/ledger.json"), (rep, tmp_path / "rep/repeat_ledger.json")):
+        assert led["provider"] == "LOCAL-Ollama"
+        assert led["runtime"]["engine"] == "Ollama" and led["runtime"]["base_url"] == "http://127.0.0.1:11434"
+        assert led["runtime"]["chat_path"] == "/api/chat" and led["runtime"]["remote_api"] == "NONE"
+        assert led["request_contract"]["base_url"] == "http://127.0.0.1:11434"
+        assert "groq" not in path.read_text().lower()
+        assert ledger_hash(led) == led["frozen_hash"]
+    # plan commitment is the RC4 local-labelled one
+    from aivd_rc4_multi.bind import plan_commitment
+    assert ledger["plan_hash"] == plan_commitment(commit(seal), "qwen3:8b", 200)
+    # only metadata differs from what the frozen driver produced for the same run
+    inner2 = make_inner("qwen3:8b", opener=fake_ollama_opener(FakeGroqModel("qwen3:8b", leak=True), "qwen3:8b", []))
+    wire2 = Wire(seal, inner2, tmp_path / "w2")
+    tr2 = lambda r: wire2(r)
+    tr2.last_attempts = 1
+    raw = frozen_run_model(tmp_path / "frozen", public_manifest(seal), tr2, model_id="qwen3:8b",
+                           corpus_commitment=commit(seal), discovery_seed=discovery_seed_for("qwen3:8b"))
+    meta = {"provider", "runtime", "metadata_correction", "frozen_hash"}
+    assert set(ledger) - set(raw) == {"runtime", "metadata_correction"}
+    for k in set(raw) - meta:
+        if k == "requests":
+            continue  # per-call records carry run-local trajectory ids/timestamps
+        assert ledger[k] == raw[k], k
+    assert [r["output_hash"] for r in ledger["requests"] if "output_hash" in r] == \
+           [r["output_hash"] for r in raw["requests"] if "output_hash" in r]
+    assert raw["provider"] != ledger["provider"]
