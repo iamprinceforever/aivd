@@ -1,0 +1,128 @@
+{
+ "benign_count": 24,
+ "benign_coverage": {
+  "branch_differences": [
+   "discarded_draft",
+   "handoff_note",
+   "rollback_branch",
+   "relay_branch"
+  ],
+  "harmless_delegation": [
+   "delegated_forward",
+   "proxy_summary",
+   "tool_argument",
+   "relay_branch"
+  ],
+  "harmless_invented_values": [
+   "gen_credential"
+  ],
+  "harmless_state_persistence": [
+   "reset_survival",
+   "used_quota",
+   "rollback_branch"
+  ],
+  "ordinary_formatting_variation": [
+   "audit_export",
+   "redacted_log",
+   "format_migration",
+   "digest_line"
+  ],
+  "public_identifier_formatting": [
+   "id_upper",
+   "id_mixed",
+   "id_punct"
+  ],
+  "punctuation_changes": [
+   "id_punct"
+  ],
+  "reset_differences": [
+   "reset_survival"
+  ],
+  "upper_lowercase_transforms": [
+   "id_upper",
+   "id_mixed"
+  ]
+ },
+ "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
+ "experiment_id": "AIVD-RC4-MULTI-V1",
+ "generation_method": "AIVD-RC4-MULTI-V1: 24 kinds (14 frozen RC3 public templates via aivd_rc3.provider._public + 10 new RC4 structural generators) x {security, benign twin}; secrets.token_bytes(32) OS-random seed; randbytes(8).hex tokens; rows shuffled by seed. gen_key (POST-RC3-LOCAL-V1 target template) excluded.",
+ "kinds": [
+  "public_summary",
+  "id_upper",
+  "used_quota",
+  "audit_export",
+  "id_mixed",
+  "role_gate",
+  "revocation",
+  "gen_credential",
+  "policy_change",
+  "instruction_override",
+  "id_punct",
+  "reset_survival",
+  "tenant_switch",
+  "discarded_draft",
+  "digest_line",
+  "handoff_note",
+  "redacted_log",
+  "scope_downgrade",
+  "format_migration",
+  "rollback_branch",
+  "delegated_forward",
+  "relay_branch",
+  "proxy_summary",
+  "tool_argument"
+ ],
+ "manifest_contamination": {
+  "excluded_template_texts": 0,
+  "local_v1_identity_texts": 0,
+  "local_v1_value_texts": 0,
+  "pass": true,
+  "rc4_value_texts": 0,
+  "texts": 192
+ },
+ "new_rc4_kinds": [
+  "digest_line",
+  "handoff_note",
+  "redacted_log",
+  "scope_downgrade",
+  "format_migration",
+  "rollback_branch",
+  "delegated_forward",
+  "relay_branch",
+  "proxy_summary",
+  "tool_argument"
+ ],
+ "new_relation_families": [
+  "F_DELEGATION_BOUNDARY"
+ ],
+ "protected_seal_file_sha256": "87b8bc03c3dcbf4d8fbe6710d7061901fb124ae3b84d1304efad26f6046c8ca0",
+ "public_manifest_sha256": "d4a16b0ec3482fabc83385c51906d4db3c708c8583183c21baa4f6dd3e2f5cf5",
+ "relation_families": [
+  "A_EXACT_PROTECTED_VALUE_DISCLOSURE",
+  "B_PROTECTED_INFORMATION_FLOW",
+  "C_AUTHORIZATION_BOUNDARY",
+  "D_POLICY_BOUNDARY",
+  "E_STATE_CONTEXT_ISOLATION",
+  "F_DELEGATION_BOUNDARY"
+ ],
+ "reused_rc3_kinds": [
+  "public_summary",
+  "id_upper",
+  "used_quota",
+  "audit_export",
+  "id_mixed",
+  "role_gate",
+  "revocation",
+  "gen_credential",
+  "policy_change",
+  "instruction_override",
+  "id_punct",
+  "reset_survival",
+  "tenant_switch",
+  "discarded_draft"
+ ],
+ "role": "AIVD-RC4-MULTI-V1 FRESH SEALED CORPUS",
+ "security_count": 24,
+ "seed_sha256": "eed801b4f6ad438e8971114c574cf320bdc8018ac26c883089fe9e41b7d7df17",
+ "seed_source": "secrets.token_bytes(32) (OS random); seed never stored, only seed_sha256"
+}

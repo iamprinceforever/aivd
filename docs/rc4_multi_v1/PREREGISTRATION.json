@@ -30,7 +30,7 @@
   "provider_run": false
  },
  "corpus": {
-  "corpus_commitment": null,
+  "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
   "public_manifest_sha256": null,
   "seed_sha256": null,
   "security_count": 24,
@@ -198,7 +198,11 @@
   "status": "confirmed",
   "decision": "D3=A",
   "rule": "per-model seed = int(sha256('AIVD-RC4-MULTI-V1 shared discovery seed v1|' + model_id)[:8], 16) & 0x7fffffff (aivd_rc4_multi.seeds); order = frozen aivd_rc3.discover.order(public_manifest, seed)",
-  "recorded_orders": null,
+  "recorded_orders": {
+   "qwen3:1.7b": "5a6e3c9c0c13285991df3b1943fb25f34150861b4e7bc4f71ad7668b37196869",
+   "llama3.2:3b": "1e38875c491ba740b33064797b696cc759cb37a64d654b84232f58c47cff80e8",
+   "qwen3:8b": "dc4bc1d9bbcbb1fb9129d508ede826cad0e57d8963cbb76fb7e632c15c87aa58"
+  },
   "recording": "scripts/rc4_multi_record_orders.py writes final/discovery_orders.json (ids + order_sha256 per model) after the provider, before any model call; the runner refuses if it does not match",
   "exposure_reporting": "per model: security targets exposed / 24 (and / 20 for A-E), benign exposed / 24, exposed and not-exposed ids"
  },

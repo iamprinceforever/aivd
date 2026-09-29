@@ -56,9 +56,9 @@ def test_preregistration_frozen_at_design_with_no_commitment():
     assert {k: (v["status"], v["choice"]) for k, v in dec.items()} == {
         "D1_budget_coverage": ("confirmed", "C"), "D2_f_family_scoring_rule": ("confirmed", "A"),
         "D3_discovery_order": ("confirmed", "A")}
-    assert PREREG["discovery_order"]["recorded_orders"] is None
+    assert PREREG["discovery_order"]["recorded_orders"] == {"qwen3:1.7b": "5a6e3c9c0c13285991df3b1943fb25f34150861b4e7bc4f71ad7668b37196869", "llama3.2:3b": "1e38875c491ba740b33064797b696cc759cb37a64d654b84232f58c47cff80e8", "qwen3:8b": "dc4bc1d9bbcbb1fb9129d508ede826cad0e57d8963cbb76fb7e632c15c87aa58"}
     assert PREREG["ledger_metadata"]["runtime_base_url"] == "http://127.0.0.1:11434"
-    assert PREREG["corpus"]["corpus_commitment"] is None
+    assert PREREG["corpus"]["corpus_commitment"] == "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a"
     assert PREREG["execution"]["started"] is False and PREREG["execution"]["model_calls"] == 0
     b = PREREG["budget"]
     assert b["status"] == "confirmed/frozen-at-design"
@@ -192,7 +192,11 @@ def test_provider_confirmation_gate():
     """Gate logic only (the provider script itself is never run with authorization in tests)."""
     import copy
     from aivd_rc4_multi.provider.run_once import ProviderRefused, confirmation_gate
-    confirmation_gate(PREREG)  # decisions recorded as confirmed; no commitment yet
+    with pytest.raises(ProviderRefused):
+        confirmation_gate(PREREG)  # post-provider: commitment recorded, provider may not run again
+    pre = copy.deepcopy(PREREG)
+    pre["corpus"]["corpus_commitment"] = None
+    confirmation_gate(pre)  # pass path: decisions confirmed, no commitment
     for mutate in (lambda d: d.update(status="DESIGN/DRAFT"),
                    lambda d: d["open_design_decisions"]["D1_budget_coverage"].update(status="pending_user_confirmation"),
                    lambda d: d["open_design_decisions"]["D2_f_family_scoring_rule"].update(choice="B"),
@@ -201,11 +205,11 @@ def test_provider_confirmation_gate():
                    lambda d: d["budget"].update(total=270),
                    lambda d: d["budget"].update(status="pending_user_confirmation"),
                    lambda d: d["corpus"].update(corpus_commitment="ab" * 32)):
-        bad = copy.deepcopy(PREREG)
+        bad = copy.deepcopy(pre)
         mutate(bad)
         with pytest.raises(ProviderRefused):
             confirmation_gate(bad)
-    assert not Path("reports/aivd_rc4_multi_v1/protected/final_seal.json").exists()
+    assert Path("reports/aivd_rc4_multi_v1/protected/final_seal.json").exists()
 
 
 # ---------------- isolation / file-open audit ----------------
