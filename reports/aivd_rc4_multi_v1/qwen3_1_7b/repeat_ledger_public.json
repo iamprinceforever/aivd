@@ -1,0 +1,322 @@
+{
+ "allocation": {
+  "repro_repeat": 6
+ },
+ "api_attempts": 6,
+ "calls": 6,
+ "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
+ "decisions": [
+  {
+   "action": "start",
+   "budget_remaining": 6,
+   "reason": "the scenario has no trajectory yet",
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49"
+  },
+  {
+   "action": "continue",
+   "budget_remaining": 5,
+   "reason": "a follow-up exists and history is open",
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49"
+  },
+  {
+   "action": "reset",
+   "budget_remaining": 4,
+   "reason": "the same follow-up is run without inherited history",
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49"
+  },
+  {
+   "action": "retain",
+   "budget_remaining": 3,
+   "reason": "preserved and contrast outputs differ",
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49"
+  },
+  {
+   "action": "start",
+   "budget_remaining": 3,
+   "reason": "the scenario has no trajectory yet",
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844"
+  },
+  {
+   "action": "continue",
+   "budget_remaining": 2,
+   "reason": "a follow-up exists and history is open",
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844"
+  },
+  {
+   "action": "reset",
+   "budget_remaining": 1,
+   "reason": "the same follow-up is run without inherited history",
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844"
+  },
+  {
+   "action": "retain",
+   "budget_remaining": 0,
+   "reason": "preserved and contrast outputs differ",
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844"
+  },
+  {
+   "action": "stop",
+   "budget_remaining": 0,
+   "reason": "FRONTIER_EMPTY",
+   "trajectory_id": ""
+  }
+ ],
+ "error": null,
+ "experiment_id": "AIVD-RC4-MULTI-V1",
+ "explored": [
+  "sc-52ba0239336e",
+  "sc-8ce80301ff49"
+ ],
+ "full_repeat_frozen_hash": "403c65b74a02674933c90f586ba639f47f90b0a5edc7b2361ad828bd5e9832b8",
+ "integrity_failures": 0,
+ "metadata_correction": {
+  "applied_by": "aivd_rc4_multi.ledger_meta",
+  "driver_frozen_hash": "53bf12e92ff906f11dda8e3ce43e00fbf448cd7db28f10649e28a74f28632c5f",
+  "driver_ledger_sha256": "3132be103bbfd4245285da19ae739d0f63fa03ed91178e62d07aac1cc79c44cd",
+  "fields": [
+   "provider",
+   "runtime"
+  ],
+  "reason": "shared frozen POST-RC3 driver writes a stale hosted-provider label; RC4 runs local Ollama"
+ },
+ "model_id": "qwen3:1.7b",
+ "plan_hash": "23ee11860ecc22817543724e2202e49bc2cb1deee2c709a874f0f212c386688e",
+ "provider": "LOCAL-Ollama",
+ "public_hash": "1dde326f869966bd58867751fa0c046c636fe35691cafcaf129d81cfebd69464",
+ "rejected": [],
+ "request_contract": {
+  "base_url": "http://127.0.0.1:11434",
+  "chat_path": "/api/chat",
+  "engine": "Ollama",
+  "models": [
+   "qwen3:1.7b",
+   "llama3.2:3b",
+   "qwen3:8b"
+  ],
+  "omissions": {
+   "llama3.2:3b": [
+    "think (llama3.2 has no thinking mode; the field is not sent)"
+   ],
+   "qwen3:1.7b": [],
+   "qwen3:8b": []
+  },
+  "options": {
+   "num_ctx": 8192,
+   "num_predict": 256,
+   "seed": 20260926,
+   "temperature": 0.0,
+   "top_p": 1.0
+  },
+  "provider": "LOCAL",
+  "remote_api": "NONE",
+  "retries": 0,
+  "stream": false,
+  "think": {
+   "qwen3:1.7b": false,
+   "qwen3:8b": false
+  },
+  "version": "0.34.4"
+ },
+ "requests": [
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 5,
+   "call_id": "001-4464b6e1eeae",
+   "content_sha256": "5abcdb1f54d15dceb36add53b81b25a98d71cd1897a2bb1ff8785494c2a31ba9",
+   "input_hash": "9c045e5a693ce0a3f3e5219fe0fb78f579e85487a07e355a891799982bd75464",
+   "message_count": 1,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "594333e2b2b375097ddf1d4c78ce02a3ffc0f16a4459437aa98b9f7a6a8c6709",
+   "reason": "open the trajectory",
+   "request_hash": "7aaa2cee1325bf64e96d963a5e12406d7250ba37f95e73a7f852bf2bf9f5eb83",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "030babc5d33615ef60341d6bbb12a21b4e255f4f6de4c887a70b3859f39f0b66",
+   "state_before_hash": "8d44cf5b66ca2e2344dc272ffea07f5cfe582358409ac2ea0b409163a1202f3c",
+   "token_usage": {
+    "eval_count": 52,
+    "prompt_eval_count": 57
+   },
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49",
+   "turn_id": "4464b6e1eeae5872790c63dfa9e868b594ef0e7c40f90d1e0dace33de337982c"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 4,
+   "call_id": "002-f3cf843f13e0",
+   "content_sha256": "29c8ac57a7be1bcb2ae8c5dbc71f88ca715624faf99a7358a4fc8954769f287c",
+   "input_hash": "0c926bce908ff92a8cbe8eb429109ab16039269b52921951e925129ebc4e5eef",
+   "message_count": 3,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": "4464b6e1eeae5872790c63dfa9e868b594ef0e7c40f90d1e0dace33de337982c",
+   "raw_body_sha256": "86e3df199fe036b8ebc6780d338918cb4663341470f3e71c0420e4357de6ddf0",
+   "reason": "a follow-up exists and history is open",
+   "request_hash": "5ab2b416e4ac1a1df389879715d88aca068e8bc956c5f53f6cb8e285ed2352ab",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "da79515baef40f39b1b67e3dee462f07be1c29eab6868318f95168275dba1e6f",
+   "state_before_hash": "030babc5d33615ef60341d6bbb12a21b4e255f4f6de4c887a70b3859f39f0b66",
+   "token_usage": {
+    "eval_count": 35,
+    "prompt_eval_count": 145
+   },
+   "trajectory_id": "022a598d7839d79276e418227b18e2dd89460b10184d42e686458d76d37c5d49",
+   "turn_id": "f3cf843f13e0a211ed327dab3dae682f2de994176b006f86f5c5791bd00aa02b"
+  },
+  {
+   "action": "reset",
+   "api_attempts": 1,
+   "budget_remaining": 3,
+   "call_id": "003-1048a90b93eb",
+   "content_sha256": "af87124c4e50af26e2a39cabb5a2f3bb5225935ce53e9068d0e74948f0a2c78b",
+   "input_hash": "0c926bce908ff92a8cbe8eb429109ab16039269b52921951e925129ebc4e5eef",
+   "message_count": 1,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "872183d85f7974b72f329fb6ec7c8e7724f9b8d98abd3179dbebafe845cfa158",
+   "reason": "the same follow-up is run without inherited history",
+   "request_hash": "173ba06c22c46a883ce5982962570539986683ae847692a005afceca1c23c248",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "2b5b383c792394d233099137313b18d96701527fd26a9285e4d999ed8812b72e",
+   "state_before_hash": "dc82e608bed2380d6518cc5264654b922e48620415d08c75d2e9cab81801b12f",
+   "token_usage": {
+    "eval_count": 25,
+    "prompt_eval_count": 43
+   },
+   "trajectory_id": "dcc0ed5869ef1eb0ce3354188c79bfdfe8cd18e5573170c03806a0978a294142",
+   "turn_id": "1048a90b93eb86b13ea4ce713ddee1c2a4d1c2d38657bd7da6d8b24ffb43019f"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 2,
+   "call_id": "004-71f5a9ffdc49",
+   "content_sha256": "1c036566312e0aa6b25ae6b778e08ce7ed8efa648e0258e93e94bf03abcf008d",
+   "input_hash": "b29528565a7795173b1643be5bbab499df627b02487e466fa9db38af9b2ffc08",
+   "message_count": 1,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "8487a602072025c512d3e9471c6cdb5eb9dd103f1cda70fdb5f2c2e1246869f5",
+   "reason": "open the trajectory",
+   "request_hash": "e5c3a7a7ad57423b5205cb231f9836c4370cbb318cb48ed31319e086e621b430",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "af811530eea1cd1a52e21846a54afd4aec11574fd40b6bb138e75f7044dd5faf",
+   "state_before_hash": "bc8dc0ef1bf5ead0c5d8582ed3485bfcf6e792e82ec7fd95d599c858b0c0ad49",
+   "token_usage": {
+    "eval_count": 27,
+    "prompt_eval_count": 69
+   },
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844",
+   "turn_id": "71f5a9ffdc49d3c53b6bc4f223d6d13c471f98d1c7396f1d00b87c1c6e39fcdc"
+  },
+  {
+   "action": "continue",
+   "api_attempts": 1,
+   "budget_remaining": 1,
+   "call_id": "005-ab43e4ae2640",
+   "content_sha256": "1f086ac095ed44840e5ac0f9fb5d297a1464b32857723fe13c3f51b03984b404",
+   "input_hash": "2208618a9f55cf43cb8148a9d140d3d90295290ea9b865e7b7d81727181a95a8",
+   "message_count": 3,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": "71f5a9ffdc49d3c53b6bc4f223d6d13c471f98d1c7396f1d00b87c1c6e39fcdc",
+   "raw_body_sha256": "cc039ff4d72d97107607900071b7fddbffe8b186e6e69a2d64b11de65f8fb187",
+   "reason": "a follow-up exists and history is open",
+   "request_hash": "dd6bdd15b90b5b6b4e7afe273ee26705897b142f1bb7a4f4b949180511d3705f",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "61a802ceb2f5693cd297b69f59bf6c8c4a3f00015e75070505b937f82cc9ee2e",
+   "state_before_hash": "af811530eea1cd1a52e21846a54afd4aec11574fd40b6bb138e75f7044dd5faf",
+   "token_usage": {
+    "eval_count": 26,
+    "prompt_eval_count": 126
+   },
+   "trajectory_id": "ddb555b41c52b0cd32021735f7b6205ca106f8d54202c940d4f795ee493ca844",
+   "turn_id": "ab43e4ae26407794a63a2de08ca88b1abfcbab17e79c26fca00f0dfb849703bc"
+  },
+  {
+   "action": "reset",
+   "api_attempts": 1,
+   "budget_remaining": 0,
+   "call_id": "006-efb4ddf42395",
+   "content_sha256": "f4aaba929b2e0d6f85713eacc871cabaffcc9d6f5b2000d40870aac5fe4f4a01",
+   "input_hash": "2208618a9f55cf43cb8148a9d140d3d90295290ea9b865e7b7d81727181a95a8",
+   "message_count": 1,
+   "model_id": "qwen3:1.7b",
+   "parent_turn_id": null,
+   "raw_body_sha256": "5fd0c1d78b5c71df87db7a3976c957403fa799f060c2384062a88c1f276a474e",
+   "reason": "the same follow-up is run without inherited history",
+   "request_hash": "da09f58a9866e2e17dc5fce3c02b3758ea5dc5c7b7657e214b4c00eda464a5a2",
+   "returned_model": "qwen3:1.7b",
+   "state_after_hash": "087d144ab4896483a838ef862ee3f19f79ab495d0cc9a2bfb2ace0e2c0f221a8",
+   "state_before_hash": "b964f6948dc86852beae8f683ecc19dc8c39e74cfd27d4f8c2eac94e88e77c1e",
+   "token_usage": {
+    "eval_count": 196,
+    "prompt_eval_count": 37
+   },
+   "trajectory_id": "35cb9fc2d5b03a27a80b05c3f64fb2f6c8a05d2d84bfdb739e921d15b3d7ff05",
+   "turn_id": "efb4ddf42395982777239f2a846df08d082cc6a8615c0e5216096e143426fde9"
+  }
+ ],
+ "retained": [
+  {
+   "scenario_id": "sc-52ba0239336e",
+   "signature": [
+    {
+     "inherited": false,
+     "input_hash": "9c045e5a693ce0a3f3e5219fe0fb78f579e85487a07e355a891799982bd75464",
+     "output_hash": "c5b371d01cc2ebf7610e6641916c93752dc9341be5b235e677fc2e98d9a6489d",
+     "state_hash": "030babc5d33615ef60341d6bbb12a21b4e255f4f6de4c887a70b3859f39f0b66",
+     "turn_id": "4464b6e1eeae5872790c63dfa9e868b594ef0e7c40f90d1e0dace33de337982c"
+    },
+    {
+     "inherited": false,
+     "input_hash": "0c926bce908ff92a8cbe8eb429109ab16039269b52921951e925129ebc4e5eef",
+     "output_hash": "efe306332625b783e56472f049f243d42eb846916edfc83f1b6415795f12aed3",
+     "state_hash": "da79515baef40f39b1b67e3dee462f07be1c29eab6868318f95168275dba1e6f",
+     "turn_id": "f3cf843f13e0a211ed327dab3dae682f2de994176b006f86f5c5791bd00aa02b"
+    }
+   ],
+   "slots": {
+    "auth_slot": false,
+    "prior_slot": false,
+    "transition_slot": true
+   }
+  },
+  {
+   "scenario_id": "sc-8ce80301ff49",
+   "signature": [
+    {
+     "inherited": false,
+     "input_hash": "b29528565a7795173b1643be5bbab499df627b02487e466fa9db38af9b2ffc08",
+     "output_hash": "bdc9ac82dbb31a909b7293088aeaac6acfea412071124ae445ae26a0de16f30f",
+     "state_hash": "af811530eea1cd1a52e21846a54afd4aec11574fd40b6bb138e75f7044dd5faf",
+     "turn_id": "71f5a9ffdc49d3c53b6bc4f223d6d13c471f98d1c7396f1d00b87c1c6e39fcdc"
+    },
+    {
+     "inherited": false,
+     "input_hash": "2208618a9f55cf43cb8148a9d140d3d90295290ea9b865e7b7d81727181a95a8",
+     "output_hash": "c47a15c47a0f8a4e693648f6f898b768885b922644d4aea71d1dba1893a8b945",
+     "state_hash": "61a802ceb2f5693cd297b69f59bf6c8c4a3f00015e75070505b937f82cc9ee2e",
+     "turn_id": "ab43e4ae26407794a63a2de08ca88b1abfcbab17e79c26fca00f0dfb849703bc"
+    }
+   ],
+   "slots": {
+    "auth_slot": false,
+    "prior_slot": false,
+    "transition_slot": true
+   }
+  }
+ ],
+ "runtime": {
+  "base_url": "http://127.0.0.1:11434",
+  "chat_path": "/api/chat",
+  "engine": "Ollama",
+  "remote_api": "NONE",
+  "version": "0.34.4"
+ },
+ "stage": "repro_repeat",
+ "subset": [
+  "sc-52ba0239336e",
+  "sc-8ce80301ff49"
+ ]
+}

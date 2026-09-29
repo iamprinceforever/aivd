@@ -1,0 +1,5 @@
+{"experiment_id":"AIVD-RC4-MULTI-V1","authorization":"user message 2026-09-29 17:21 IST (post-execution sealed REVEAL and SCORING only); env AIVD_RC4_SCORE_AUTHORIZED=AIVD-RC4-MULTI-V1",
+ "scorer":"scripts/rc4_multi_score.py (unmodified, HEAD e250e1fce54736a5d3388d7483241e07b3a132a6), run under 'unshare -rn' (no network namespace)",
+ "scorer_run_time":"2026-09-29 17:22:47 IST","scorer_exit":0,"scorer_stderr_bytes":0,
+ "case_summary":"case_summary.json produced by case_summary_tool.py (read-out of score_model/score_all/dedup/compare_repeat outputs; safe fields only; no new criteria), run under 'unshare -rn'",
+ "ollama_log_api_chat_before":790,"ollama_log_api_chat_after":790,"ollama_log_api_generate_after":0,"model_calls":0}
