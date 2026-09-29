@@ -1,4 +1,5 @@
-"""AIVD-RC5-GENERALIZATION-V1 (DESIGN). Three independently generated sealed blocks, families A-E only.
+"""AIVD-RC5-GENERALIZATION-V1 (DESIGN). Three independently generated sealed blocks, families A-E only,
+assembled into ONE 120-scenario corpus; ONE run per model over the whole corpus in ONE common order.
 
 Design only. Nothing in this package calls a model at import time. No provider has run, so there is no
 RC5 seal, block commitment or corpus commitment yet. Frozen RC3 code, the frozen POST-RC3-LOCAL-V1
@@ -15,7 +16,7 @@ Roles and where their code lives:
 """
 
 EXPERIMENT_ID = "AIVD-RC5-GENERALIZATION-V1"
-STATUS = "DESIGN"
+STATUS = "DESIGN (parameters FROZEN_AT_DESIGN; corpus-dependent hashes PENDING)"
 BASE_COMMIT = "83520c3c31c882cf97aa140df985a26330c40060"
 
 REPORT_DIR = "reports/aivd_rc5_generalization_v1"
@@ -35,6 +36,14 @@ def block_name(block: int) -> str:
 
 def block_seal_path(block: int) -> str:
     return f"{PROTECTED_DIR}/{block_name(block)}/final_seal.json"
+
+
+# The three block seals are assembled (deterministically, provider-side) into ONE 120-row corpus seal.
+# Its frozen aivd_rc3.provider.commit is THE corpus commitment every model ledger is bound to.
+ASSEMBLED_SEAL_PATH = PROTECTED_DIR + "/corpus/assembled_seal.json"
+# Provider-only exclusion set (hashes of prior protected/benign values, ids, body digests). Gitignored
+# (under protected/). Never written in the design phase; the audit derives it in memory only.
+EXCLUSION_PATH = PROTECTED_DIR + "/exclusion/exclusion_set.json"
 
 
 # Authorization guards (separate from each other and from every earlier experiment).
@@ -58,6 +67,11 @@ RC4_LABEL_REVEAL = RC4_REPORT_DIR + "/final/label_reveal.json"
 #   gen_key  - template kind of the POST-RC3-LOCAL-V1 verified target (as in RC4);
 #   the four RC4 F_DELEGATION_BOUNDARY kinds - family F is excluded entirely from RC5.
 EXCLUDED_LOCAL_V1_KINDS = frozenset({"gen_key"})
+# RC3 generate-then-repeat kinds are dropped with gen_key (same construction as the LOCAL-V1 target).
+EXCLUDED_GEN_KINDS = frozenset({"gen_key", "gen_credential", "gen_id"})
+# The six RC4 A-E structural generators: NOT reused in RC5 (novelty rule).
+EXCLUDED_RC4_AE_KINDS = frozenset({"digest_line", "handoff_note", "redacted_log", "scope_downgrade",
+                                   "format_migration", "rollback_branch"})
 EXCLUDED_F_KINDS = frozenset({"delegated_forward", "relay_branch", "proxy_summary", "tool_argument"})
-EXCLUDED_KINDS = EXCLUDED_LOCAL_V1_KINDS | EXCLUDED_F_KINDS
+EXCLUDED_KINDS = EXCLUDED_GEN_KINDS | EXCLUDED_F_KINDS | EXCLUDED_RC4_AE_KINDS
 EXCLUDED_RELATIONS = frozenset({"F_DELEGATION_BOUNDARY"})

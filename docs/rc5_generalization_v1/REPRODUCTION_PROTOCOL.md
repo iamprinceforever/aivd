@@ -1,43 +1,33 @@
-# AIVD-RC5-GENERALIZATION-V1: reproduction protocol (for AFTER user confirmation; nothing here has run)
+# Reproduction protocol
 
-Pre-conditions: the user has confirmed D1–D4; `PREREGISTRATION.json` is `FROZEN_AT_DESIGN` with budget
-`confirmed/frozen-at-design` and committed; the RC3 freeze check passes; LOCAL-V1 and RC4 seal hashes are
-unchanged; Ollama 0.34.4 is running with `OLLAMA_MAX_LOADED_MODELS=1`, `OLLAMA_NUM_PARALLEL=1`.
-
-```bash
-cd /workspace/aivd-endgame3-rc1
-export PYTHONPATH=.
-python -m pytest -q                                    # full suite must pass
-python scripts/rc5_gen_design_audit.py                 # design audit must PASS
-python scripts/rc5_gen_verify_models.py --blobs        # read-only identity; no Ollama request
-python scripts/rc5_gen_contamination_scan.py           # Checks 1-2 must PASS
-
-# 1. PROVIDER: three separate processes, one per block (prints public metadata only)
-for k in 1 2 3; do AIVD_RC5_PROVIDER_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_provider.py $k; done
-python scripts/rc5_gen_contamination_scan.py --rc5     # Checks 1-4 must PASS
-AIVD_RC5_PROVIDER_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_bind_corpus.py
-#    record block commitments / manifest + seed hashes / corpus commitment / order hashes and
-#    execution.provider_run=true in PREREGISTRATION.json; commit (explicit paths) BEFORE any model call
-
-# 2. EXPERIMENTER: per model m in qwen3:1.7b llama3.2:3b qwen3:8b; per block k in 1 2 3
-grep -c '/api/chat' <ollama log>; grep -c '/api/generate' <ollama log>      # record before
-AIVD_RC5_RUN_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_wire_proxy.py <m> <k> <port> &
-AIVD_RC5_RUN_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_run_model.py <m> <k> <port>
-#    stop the proxy; then, after blocks 1-3 of m:
-AIVD_RC5_RUN_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_wire_proxy.py <m> 1 <port> --repeat &
-AIVD_RC5_RUN_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_run_model.py <m> 1 <port> --repeat
-#    /api/chat delta must equal the sum of ledger calls; /api/generate delta must be 0
-
-# 3. SCORER (after all 9 + 3 ledgers are frozen)
-AIVD_RC5_SCORE_AUTHORIZED=AIVD-RC5-GENERALIZATION-V1 python scripts/rc5_gen_score.py --isolation-pass=1 --calls-reconciled=1
+**Design phase (this commit; no model call).**
+```
+python -m pytest -q -p no:cacheprovider                    # full suite (existing + RC5)
+python scripts/rc5_gen_design_audit.py [--write]            # proven-now checks, findings, deferred list
+python scripts/rc5_gen_contamination_scan.py --stage=pre_provider
+python scripts/rc5_gen_verify_models.py --blobs             # filesystem-only model identity
 ```
 
-## Stop conditions (stop and report; never retry silently)
-provider refusal/collision/contamination; RC3 source modified; a PENDING field at run time; commitment or
-order mismatch; model/template/runtime identity mismatch; integrity failure; transport failure (1
-attempt, no retry); Ollama call count ≠ ledger calls or any `/api/generate`; contamination hit; isolation
-violation; any attempt to change a frozen value after stage 1.
+**Execution order** (each step needs its own authorization; not run here).
 
-## Determinism
-Temperature 0, seed 20260926, common discovery order fixed by the common seed. Local Ollama is not
-guaranteed bit-reproducible across hardware; metric L reports the within-run repeat comparison.
+1. **Provider, one invocation per block** (fresh entropy each): `AIVD_RC5_PROVIDER_AUTHORIZED=… python
+   scripts/rc5_gen_provider.py 1`, then `… 2`, then `… 3`.
+   - This builds the exclusion set, enforces the exclusion and writes the block seal plus its public
+     manifest and commitments.
+2. **Bind:** `python scripts/rc5_gen_bind_corpus.py` assembles the corpus, writes the corpus commitment
+   and the common order.
+3. **Audit:** `python scripts/rc5_gen_post_generation_audit.py` runs G1–G10 and writes the record, then
+   `rc5_gen_contamination_scan.py --stage=post_generation`.
+4. **Commit** every bound hash into `PREREGISTRATION.json` (the 18 fields), before any model call.
+5. **Authorize** each model separately in `execution_authorizations`.
+6. **Run each model once:**
+   - start `rc5_gen_wire_proxy.py <model> <port>`, then run
+     `AIVD_RC5_RUN_AUTHORIZED=… rc5_gen_run_model.py <model> <port>`;
+   - then do the same with `--repeat`;
+   - check the Ollama `/api/chat` delta against the ledger calls.
+7. **Score:** `rc5_gen_contamination_scan.py --stage=post_execution`, then
+   `AIVD_RC5_SCORE_AUTHORIZED=… rc5_gen_score.py` (post-freeze), then `--stage=post_reveal`.
+
+**Replay caveat.** Sampling is temperature 0 with a fixed seed. Re-running the same request may be
+byte-identical, which is why confirmation uses a different request and byte-identical output is labelled
+DETERMINISTIC_REPLAY.

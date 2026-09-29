@@ -1,30 +1,37 @@
-# AIVD-RC5-GENERALIZATION-V1: budget allocation (D1, proposed)
+# Budget allocation (FROZEN_AT_DESIGN; binding user spec)
 
-Status: `proposed/pending-user-confirmation`. The provider gate requires `confirmed/frozen-at-design`.
-
-## Ceilings per (model, block)
-| Stage | Ceiling | Basis |
-|---|---|---|
-| discovery | **126** | exact full coverage of a block: 34 two-step rows × 3 + 6 branch rows × 4 (frozen RC3 discovery costs) |
-| investigation | **32** | RC4 observed ≈ 20 retained / 48 scenarios and ≈ 1.3 probe calls per candidate; 24 was exhausted in every RC4 run. For 40 scenarios (≈ 17 retained) 32 leaves margin |
-| verification | **18** | 6 verifications × `VERIFY_COST` 3; RC4's maximum was 3 verifications per model |
-| **run total** | **176** | driver `MODEL_ALLOCATION` per run |
-
-## Totals
-| | Calls |
+| stage | calls per model |
 |---|---|
-| per model: 3 blocks × 176 | 528 |
-| repeat set per model (block 1 only; frozen `run_repeat`, 2 two-step scenarios) | 6 |
-| **per model** | **534** |
-| **three models** | **1602** |
+| discovery | 320 |
+| investigation | 48 |
+| verification | 30 (≤ 10 candidates × VERIFY_COST 3) |
+| repeat | 6 |
+| **total** | **404** |
 
-For reference RC4 used 558 of 618 calls in ≈ 42 min; 1602 calls are ≈ 2.9× that.
+- The maximum total over 3 models is **1212**.
+- No per-block budgets and no transfers between stages or models. Ceilings are enforced by the frozen
+  driver after `aivd_rc5_gen.bind` installs the allocation.
+- **Exposure ledger.** `aivd_rc5_gen.scoring.score.exposure` records, per model, **security exposed/60**
+  and **benign exposed/60** (a scenario counts as exposed when the frozen discovery explored it). The
+  preflight also pre-computes exposure from the committed order and public shapes.
 
-## Rules
-- Ceilings only; every transport attempt counts one unit against its stage ceiling (frozen driver).
-- No transfers between models, between blocks or between stages; no increase after execution starts;
-  unused calls are not carried over.
-- 1 transport attempt, no retry; a transport failure stops that run (integrity failure → gate fails).
-- The mapping is applied in-process by `aivd_rc5_gen.bind` (DISCOVERY_LIMIT 126, INVESTIGATION_LIMIT 32,
-  VERIFICATION_LIMIT 18, MODEL_ALLOCATION 176, REPRO_CALLS_PER_MODEL 6); tested with a fake model.
-- Coverage: `config.discovery_coverage()` → best case = worst case = 40/40 scenarios per block.
+## Spec contradiction: full exposure within 320 is impossible
+- The binding spec asks the scheduler to expose all 120 scenarios at least once within 320 discovery
+  calls.
+- The frozen `aivd_rc3.discover.run` spends **3 calls per two-step scenario** (open, continue,
+  reset-contrast) and **4 per branch scenario** (two prefixes × branch + probe), with no retries.
+- The corpus has 108 two-step and 12 branch scenarios, so **full coverage costs 108 × 3 + 12 × 4 = 372
+  calls > 320**.
+- The most scenarios coverable within 320 is **106** (best case: branches last) and **102** (worst case).
+  `config.discovery_coverage()` computes this; the audit and tests check it.
+- This design does **not** modify the frozen discovery and does **not** change the binding budget.
+  Instead:
+  - exposure is recorded exactly;
+  - per the spec, E-ROBUST-UNSEEN is marked **NOT_DEMONSTRATED** for any model whose security exposure
+    is not 60/60;
+  - so E-ROBUST-UNSEEN condition (4) is **structurally expected to be NOT_DEMONSTRATED for every model**.
+- E-CROSS-FAMILY is not affected.
+- **User decision required.** Options that would make full exposure feasible (none is adopted here):
+  - (a) discovery ≥ 372 per model (e.g. 372/48/30/6 = 456 per model, 1368 total);
+  - (b) a corpus with fewer or cheaper scenarios;
+  - (c) accept the structural NOT_DEMONSTRATED.

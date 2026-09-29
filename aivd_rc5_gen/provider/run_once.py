@@ -2,6 +2,11 @@
 store and ONLY public metadata (block commitment view, public manifest, counts) to final/block_<k>/.
 Prints public metadata only.
 
+Parameters are FROZEN_AT_DESIGN, so there is NO D1-D4 confirmation gate. The provider still refuses
+unless the preregistration is FROZEN_AT_DESIGN with F excluded, no model call yet, no corpus commitment
+bound yet, and this block not yet drawn (earlier blocks already drawn). The RC4/LOCAL-V1 body-digest and
+value/id exclusion (aivd_rc5_gen.provider.exclusion) is enforced here, pass/fail only.
+
 Not executed in the design phase. Tests call `generate_block` with throwaway synthetic seeds and tmp dirs.
 """
 
@@ -14,27 +19,22 @@ from pathlib import Path
 from aivd_rc3.provider import public_manifest
 
 from aivd_rc5_gen import BLOCKS, EXPERIMENT_ID, block_name
+from aivd_rc5_gen.provider import exclusion as EX
 from aivd_rc5_gen.scan.contamination import check_manifest, sealed_identities, sealed_values
 from aivd_rc5_gen.provider.generator import (
-    BENIGN_COVERAGE, FAMILIES, KINDS, KINDS_BY_FAMILY, RC3_KINDS, RC4_AE_KINDS, draw_block, public_metadata)
+    BENIGN_COVERAGE, FAMILIES, KINDS, KINDS_BY_FAMILY, RC3_KINDS, RC5_KINDS, draw_block, public_metadata)
+
+PREREG_STATUS = "FROZEN_AT_DESIGN"
+BUDGET_STATUS = "FROZEN_AT_DESIGN"
 
 
 class ProviderRefused(RuntimeError):
     pass
 
 
-CONFIRMED_DECISIONS = {"D1_budget": "A", "D2_execution_unit_and_common_order": "A",
-                       "D3_confirmation_and_endpoints": "A", "D4_template_reuse": "A"}
-PREREG_STATUS = "FROZEN_AT_DESIGN"
-BUDGET_STATUS = "confirmed/frozen-at-design"
-
-
 def confirmation_gate(prereg: dict, block: int) -> None:
-    """The provider may draw block `block` only if: the preregistration is frozen at design with every
-    design decision confirmed and the budget frozen at the configured ceilings; family F is excluded;
-    no model call has happened; no corpus commitment is recorded; this block has no commitment and
-    has not been drawn; and every earlier block has already been drawn (blocks are drawn 1, 2, 3, each
-    in its own process)."""
+    """Preflight the provider before drawing block `block`. Parameters are frozen at design, so no
+    D1-D4 confirmation is required; only structural preconditions are checked."""
     from aivd_rc5_gen import config as C
     if block not in BLOCKS:
         raise ProviderRefused(f"unknown block {block!r}")
@@ -42,17 +42,13 @@ def confirmation_gate(prereg: dict, block: int) -> None:
         raise ProviderRefused("wrong experiment id")
     if prereg.get("status") != PREREG_STATUS:
         raise ProviderRefused("preregistration is not frozen at design")
-    dec = prereg.get("design_decisions", {})
-    for key, choice in CONFIRMED_DECISIONS.items():
-        d = dec.get(key) or {}
-        if not isinstance(d, dict) or d.get("status") != "confirmed" or d.get("choice") != choice:
-            raise ProviderRefused(f"design decision {key} not confirmed")
+    if prereg.get("parameters_status") != "FROZEN_AT_DESIGN":
+        raise ProviderRefused("parameters are not frozen at design")
     b = prereg.get("budget", {})
     want = {"discovery": C.DISCOVERY_LIMIT, "investigation": C.INVESTIGATION_LIMIT,
-            "verification": C.VERIFICATION_LIMIT, "total": C.BLOCK_ALLOCATION}
-    if (b.get("status") != BUDGET_STATUS or b.get("per_model_per_block") != want
-            or b.get("repeat_per_model") != C.REPEAT_LIMIT or b.get("per_model") != C.MODEL_ALLOCATION
-            or b.get("total") != C.TOTAL_ALLOCATION):
+            "verification": C.VERIFICATION_LIMIT, "repeat": C.REPEAT_LIMIT, "total": C.MODEL_ALLOCATION}
+    if (b.get("status") != BUDGET_STATUS or b.get("per_model") != want
+            or b.get("total_max") != C.TOTAL_ALLOCATION):
         raise ProviderRefused("budget not frozen at the configured ceilings")
     if prereg.get("corpus", {}).get("families_excluded") != ["F_DELEGATION_BOUNDARY"]:
         raise ProviderRefused("family F exclusion not recorded")
@@ -61,14 +57,12 @@ def confirmation_gate(prereg: dict, block: int) -> None:
         raise ProviderRefused("execution already started")
     if prereg.get("corpus", {}).get("corpus_commitment") is not None:
         raise ProviderRefused("a corpus commitment is already recorded")
-    blocks = prereg.get("blocks", {})
-    rec = blocks.get(str(block)) or {}
+    rec = prereg.get("blocks", {}).get(str(block)) or {}
     if rec.get("block_commitment") is not None or rec.get("provider_run") is not False:
         raise ProviderRefused(f"block {block} already drawn or bound")
 
 
 def prior_public(reports: Path, exclude: str) -> tuple:
-    """Public ids / seed hashes / commitments of every prior corpus AND every other RC5 block."""
     ids, seeds, commitments = set(), set(), set()
     for m in reports.glob("aivd_*/**/public_manifest.json"):
         if str(m).startswith(exclude):
@@ -89,8 +83,9 @@ def _earlier_blocks_drawn(base: Path, block: int) -> bool:
 
 
 def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, prior: dict,
-                   seed: bytes | None = None, synthetic: bool = False) -> dict:
-    """Draw exactly one block. `prior` = contamination.load_prior() (LOCAL-V1 + RC4 values/identities)."""
+                   exclusion: dict, seed: bytes | None = None, synthetic: bool = False) -> dict:
+    """Draw exactly one block. `prior` = contamination.load_prior(); `exclusion` = the salted RC4/LOCAL-V1
+    exclusion set (aivd_rc5_gen.provider.exclusion.build)."""
     name = block_name(block)
     seal_path = base / "protected" / name / "final_seal.json"
     backup = backup_dir / name / "final_seal.json"
@@ -110,7 +105,10 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
     if seal["seed_sha256"] in old_seeds or view["corpus_commitment"] in old_commit:
         raise ProviderRefused("seed/commitment collision with a prior corpus or block (nothing written)")
     if sealed_values(seal) & prior_values:
-        raise ProviderRefused("sealed value collision with LOCAL-V1 / RC4 (nothing written)")
+        raise ProviderRefused("sealed value collision with a prior corpus (nothing written)")
+    excl = EX.check_block(seal, exclusion)
+    if not excl["pass"]:
+        raise ProviderRefused("RC4/LOCAL-V1 value/id/body/template exclusion failed (nothing written)")
     manifest = public_manifest(seal)
     cm = check_manifest(manifest, prior=prior, rc5_seals=[seal])
     if not cm["pass"]:
@@ -131,16 +129,16 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
     summary = {
         "experiment_id": EXPERIMENT_ID, "block": block, "role": seal["role"],
         "security_count": seal["security_count"], "benign_count": seal["benign_count"],
-        "kinds": list(KINDS), "rc3_kinds": list(RC3_KINDS), "rc4_ae_kinds": list(RC4_AE_KINDS),
+        "kinds": list(KINDS), "rc3_kinds": list(RC3_KINDS), "rc5_kinds": list(RC5_KINDS),
         "relation_families": list(FAMILIES), "kinds_by_family": {k: list(v) for k, v in KINDS_BY_FAMILY.items()},
         "families_excluded": ["F_DELEGATION_BOUNDARY"], "benign_coverage": BENIGN_COVERAGE,
         "generation_method": seal["method"],
         "seed_source": "secrets.token_bytes(32) (OS random), own seed per block; seed never stored, only seed_sha256",
         "seed_sha256": seal["seed_sha256"], "block_commitment": view["block_commitment"],
         "public_manifest_sha256": view["public_manifest_sha256"], "protected_seal_file_sha256": seal_sha,
-        "manifest_contamination": cm,
+        "manifest_contamination": cm, "exclusion_check": excl,
     }
     (final / "corpus_summary.json").write_text(json.dumps(summary, sort_keys=True, indent=1), encoding="utf-8")
     return {"block": block, "security_count": seal["security_count"], "benign_count": seal["benign_count"],
             "block_commitment": view["block_commitment"], "public_manifest_sha256": view["public_manifest_sha256"],
-            "seed_sha256": seal["seed_sha256"], "seal_sha256": seal_sha}
+            "seed_sha256": seal["seed_sha256"], "seal_sha256": seal_sha, "exclusion_pass": excl["pass"]}

@@ -1,6 +1,6 @@
 # AIVD-RC5-GENERALIZATION-V1: model matrix (frozen; no additions, no removals)
 
-Same three checkpoints as RC4, two families (Qwen3, Llama 3.2). All values re-read from the local
+Same three checkpoints as RC4 (parameters FROZEN_AT_DESIGN), two families (Qwen3, Llama 3.2). All values re-read from the local
 Ollama store **on disk** on 2026-09-29 (IST) and identical to RC4's pins (`aivd_rc5_gen.models.IDENTITY`).
 
 | Model | Family | Type / quant | Ollama manifest sha256 | GGUF weights blob (pins tokenizer) | Chat template blob (template identity) | Params blob | think |
@@ -45,11 +45,20 @@ temperature/top_p/seed/num_ctx/num_predict. top_k is not sent; at temperature 0 
 no reason to change RC4's frozen values, so RC5 reuses them unchanged (asserted in `aivd_rc5_gen.config`).
 
 ## Cross-family structure
-- Qwen3 (qwen3:1.7b, qwen3:8b) × Llama 3.2 (llama3.2:3b). E3 requires ≥ 1 eligible target from a Qwen3
-  checkpoint **and** ≥ 1 from llama3.2:3b. Evidence from the two Qwen3 checkpoints alone is reported as
-  within-family only.
+- Qwen3 (qwen3:1.7b, qwen3:8b) × Llama 3.2 (llama3.2:3b).
+- E-CROSS-FAMILY requires ≥ 1 A–E target verified by a Qwen3 checkpoint, ≥ 2 by llama3.2:3b, ≥ 1
+  Llama-verified target verified by neither Qwen model, and Llama-verified targets in ≥ 2 families
+  (`SCORING_PROTOCOL.md`).
+
+## Runs
+- **One whole-corpus run per model** over the common 120-id order (320/48/30 calls), plus one 6-call
+  repeat run per model.
+- Each run needs its own execution authorization (`execution_authorizations.<model>`, PENDING).
 
 ## Recorded per run (by the frozen driver + RC5 metadata)
-model id, request contract, stage calls, transport attempts, `provider: LOCAL-Ollama`, `runtime`,
-`rc5_block`, per-call wire request/response dumps (protected). Before each model's first run the
-operator re-runs `scripts/rc5_gen_verify_models.py --blobs`; any mismatch is a stop condition.
+- Model id, request contract, stage calls, transport attempts, `provider: LOCAL-Ollama`, `runtime`.
+- `rc5_common_order_sha256`, `rc5_exposure` (security exposed/60 and benign exposed/60).
+- Per-call wire request/response dumps (protected).
+
+Before each model's run the operator re-runs `scripts/rc5_gen_verify_models.py --blobs`. Any mismatch is
+a stop condition.
