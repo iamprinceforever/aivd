@@ -42,3 +42,8 @@ reports/aivd_post_rc3_local_v1/**/wire/
 reports/aivd_rc4_multi_v1/protected/
 reports/aivd_rc4_multi_v1/**/raw/
 reports/aivd_rc4_multi_v1/**/wire/
+
+# AIVD-RC5-GENERALIZATION-V1 protected block seals, full ledgers, wire dumps, reveal, raw (never committed)
+reports/aivd_rc5_generalization_v1/protected/
+reports/aivd_rc5_generalization_v1/**/raw/
+reports/aivd_rc5_generalization_v1/**/wire/
