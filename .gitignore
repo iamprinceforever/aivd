@@ -37,3 +37,8 @@ reports/aivd_post_rc3_v2/**/wire/
 reports/aivd_post_rc3_local_v1/protected/
 reports/aivd_post_rc3_local_v1/**/raw/
 reports/aivd_post_rc3_local_v1/**/wire/
+
+# AIVD-RC4-MULTI-V1 protected seal, full ledgers, wire dumps, reveal, raw (never committed)
+reports/aivd_rc4_multi_v1/protected/
+reports/aivd_rc4_multi_v1/**/raw/
+reports/aivd_rc4_multi_v1/**/wire/
