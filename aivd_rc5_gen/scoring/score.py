@@ -50,6 +50,7 @@ def score_all(scored: dict, seal: dict, *, contamination_pass: bool, historical_
     targets = {t["scenario_id"]: t for t in seal["targets"]}
     block_of = {s: t["block"] for s, t in targets.items()}
     family_of = {s: t["relation"] for s, t in targets.items() if t["family"] == "security"}
+    structure_of = {s: t["canonical_structure_id"] for s, t in targets.items() if t["family"] == "security"}
     triples, fp, integrity, ready, failures = [], 0, 0, {}, {}
     records = []
     for m in MODELS:
@@ -82,7 +83,7 @@ def score_all(scored: dict, seal: dict, *, contamination_pass: bool, historical_
         endpoints.E_CROSS: endpoints.e_cross(by_model, family_of, fp=fp, ambiguous=amb),
         endpoints.E_ROBUST: endpoints.e_robust(counted, block_of, family_of, d["verified_by"], expo, fp=fp,
                                                ambiguous=amb, contamination_pass=contamination_pass,
-                                               integrity_failures=integrity),
+                                               integrity_failures=integrity, structure_of=structure_of),
         "descriptive": endpoints.descriptive(counted, block_of, family_of, d["verified_by"], expo, ready, failures),
         "dedup": d, "verified_discovery_records": records,
         "false_positives": fp, "integrity_failures": integrity, "contamination_pass": contamination_pass,

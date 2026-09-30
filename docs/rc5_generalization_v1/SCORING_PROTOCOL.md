@@ -35,6 +35,8 @@ PASS iff ALL of the following hold:
 5. FP = 0
 6. ambiguous = 0
 7. no contamination or integrity failure
+8. in each block, the counted verified targets come from at least two distinct canonical constructions
+   (structure ids). Three renamed instances of one construction do not satisfy this.
 
 Pass string: **`ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED`** (under this exact AIVD-RC5-GENERALIZATION-V1 protocol). Otherwise NOT_DEMONSTRATED.
 

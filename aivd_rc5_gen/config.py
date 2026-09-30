@@ -35,8 +35,9 @@ SECURITY_PER_FAMILY_TOTAL = SECURITY_PER_FAMILY_PER_BLOCK * BLOCK_COUNT  # 12
 # ---- frozen RC3 discovery cost per explored scenario (aivd_rc3.discover.run; unmodifiable) ----
 DISCOVERY_COST_TWO_STEP = 3   # open, continue, reset-contrast
 DISCOVERY_COST_BRANCH = 4     # two prefixes x (branch + probe)
-# Shape counts over the whole 120-scenario corpus (18 two-step kinds + 2 branch kinds, each x
-# {security, benign twin} x 3 blocks).
+# Shape counts over the whole 120-scenario corpus. Each block has its own 18 two-step
+# constructions and 2 branch constructions (security and benign twin each). Across three
+# disjoint sets that is still 108 two-step scenarios and 12 branch scenarios.
 TWO_STEP_SCENARIOS = 108
 BRANCH_SCENARIOS = 12
 assert TWO_STEP_SCENARIOS + BRANCH_SCENARIOS == SCENARIO_TOTAL

@@ -3,13 +3,24 @@
 ## Rule (binding)
 - No RC3 or RC4 generator or template is reused, byte-for-byte or otherwise.
 - The six RC4-copied A–E kinds from `7ed6e57` are removed (`EXCLUDED_RC4_AE_KINDS`).
-- Every family A–E has at least 3 structurally independent constructions. Here each family has 4, all
-  scorable by the unmodified frozen RC3 verifier.
+- Every family A–E has at least 3 structurally independent constructions inside a block. Here each block
+  has 4 per family. Across S1, S2 and S3 each family has 12, all scorable by the unmodified frozen RC3
+  verifier.
 
 ## Origins
-All 20 constructions were **authored fresh for RC5** in this commit (`aivd_rc5_gen/provider/generator.py`,
-`SCHEMAS` and `CONFIRM`). The author was one operator, working from the frozen RC3 relation definitions
-(`aivd_rc3.verifier.RELATIONS` / `relation_holds`) only.
+S1 (block 1) is the original 20 RC5 constructions below. S2 (block 2) and S3 (block 3) are different
+injection routes, not new ids on the S1 text:
+- **S1:** the frozen mark and the scenario id are both on the opening (two-step) or on variant 0 (branch).
+- **S2:** the mark is on the opening and the scenario id is only on the sink. A reset or contrast turn
+  does not contain both, so the frozen wire does not inject the note there.
+- **S3:** the scenario id is on the opening and the mark is only on the sink. The verification confirm
+  context carries the mark, because verification replays from the opening.
+The canonical structure id is `digest` of `{shape, slots, operators}` recomputed from the rendered public
+slots. Operator cues are checked against the template; a side label that the text does not contain is
+rejected. The id is not published. Public material gets `structure_set_commitment` only.
+
+The S1 constructions were **authored fresh for RC5** (`aivd_rc5_gen/provider/generator.py`). S2 and S3
+are in `aivd_rc5_gen/provider/topology.py`. None is an RC3 or RC4 template.
 - None is derived from an RC3 `SECURITY_SCHEMAS` or `_public` template, from an RC4 `NEW_SCHEMAS` entry,
   or from an RC4 public manifest template.
 - RC3 contributes **machinery only**: `scenario_id`, `STEP_MARK`, `CTX_MARK`, `commit`,
@@ -73,9 +84,10 @@ All 20 constructions were **authored fresh for RC5** in this commit (`aivd_rc5_g
 2. **Shared frozen machinery.** Every construction uses the frozen RC3 marks ("Setup record for",
    "Draft workspace for"), the two frozen discovery shapes (two-step / branch) and the frozen RC3
    relation predicates. These are exempt from the novelty tests by design.
-3. **Wording recurs across blocks.** A construction's template text is the same in all three blocks; only
-   ids, tokens, public class and order differ. Blocks are independent draws of the *same* 20
-   constructions, not 60 different constructions.
+3. **Blocks do not share a construction.** Amendment A2 assigns S1, S2 and S3 to blocks 1, 2 and 3.
+   Canonical structure ids, sid-free template digests and body digests are disjoint across blocks.
+   Instance independence (new ids, tokens, entropy, commitments) is still required and is not treated
+   as structural independence.
 4. **Generic style.** Short imperative sinks ("in one line") are a shared style. The 6-gram test rules out
    literal reuse, not stylistic similarity.
 5. **Sealed text of prior corpora** (notes) is compared through the salted exclusion set, and only for

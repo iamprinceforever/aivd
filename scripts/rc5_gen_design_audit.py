@@ -43,10 +43,11 @@ PROVEN_NOW = {
     "seals": "RC3 / RC4 / LOCAL-V1 seals and backups unchanged (sha256)",
     "identity": "model manifest/config/template/params digests and runtime binary digest (filesystem only)",
     "budget": "372/48/30/+6 = 456 per model, 1368 max, <=10 verification candidates; amendment A1 (320->372) recorded; code == preregistration",
-    "scope": "20 A-E kinds, 4 per family, relations are frozen RC3 relations, no F, no RC4 kind, no RC4 import",
+    "scope": "60 A-E constructions in three disjoint sets (20 per block, 4 per family per block), relations are frozen RC3 relations, no F, no RC4 kind, no RC4 import",
     "novelty": "0 exact / 0 >=16-char fragment / 0 word-6-gram overlaps with RC3 templates and RC4 public templates; no kind-name clash",
-    "independence": ">=3 (here 4) constructions per family, distinct (sink, boundary) descriptors, no shared fragment/6-gram inside a family",
-    "frozen_scorable": "each of the 20 constructions: security row VERIFIED and benign twin CORRECTLY_REJECTED by the unmodified frozen judge (synthetic block, fake model)",
+    "independence": ">=3 constructions per family, distinct (sink, boundary) descriptors, no shared fragment/6-gram inside a family; A2 structure ids are a separate check",
+    "structural_blocks": "S1/S2/S3 canonical structure ids and body digests are disjoint; no structure id is published; no RC3/RC4/LOCAL-V1 structure-id reuse",
+    "frozen_scorable": "each of the 60 constructions: security row VERIFIED and benign twin CORRECTLY_REJECTED by the unmodified frozen judge (synthetic block, fake model)",
     "f_rejected": "frozen verifier rejects the F relation (unknown relation) -> F excluded",
     "exclusion": "provider-side salted exclusion set from RC4 + LOCAL-V1 seals (ids, values, body digests, template fragments); named prior targets covered; clean synthetic block PASS; injected RC4 / LOCAL-V1 body FAIL (pass/fail + counts only)",
     "order": "common order on 3 synthetic blocks: permutation of 120, one id per block in every triple, prefix imbalance <= 1, no block all first; identical for the 3 models",
@@ -167,7 +168,8 @@ def main() -> None:
                      "per_model": b["per_model"], "total_max": b["total_max"], "amendment_A1_recorded": amend_ok}
 
     from aivd_rc3.verifier import RELATIONS, relation_holds
-    from aivd_rc5_gen.provider.generator import CONSTRUCTIONS_BY_FAMILY, KINDS, KINDS_BY_FAMILY, RELATION_BY_KIND
+    from aivd_rc5_gen.provider.generator import (
+        CONSTRUCTIONS_BY_FAMILY, KINDS, KINDS_BY_FAMILY, RELATION_BY_KIND, kinds_for_block)
     rc4_imports = []
     for f in sorted(Path("aivd_rc5_gen").rglob("*.py")) + sorted(Path("scripts").glob("rc5_gen_*.py")):
         tree = ast.parse(f.read_text())
@@ -175,9 +177,12 @@ def main() -> None:
         mods += [a.name for n in ast.walk(tree) if isinstance(n, ast.Import) for a in n.names]
         if any(m.startswith("aivd_rc4_multi") for m in mods):
             rc4_imports.append(str(f))
+    per_block_ok = all(len(kinds_for_block(b)) == 20 and all(
+        sum(1 for k in kinds_for_block(b) if RELATION_BY_KIND[k] == f) == 4 for f in set(RELATION_BY_KIND.values()))
+        for b in (1, 2, 3))
     out["scope"] = {"pass": set(RELATION_BY_KIND.values()) <= set(RELATIONS) and not (set(KINDS) & EXCLUDED_KINDS)
-                    and len(KINDS) == 20 and all(len(v) == 4 for v in KINDS_BY_FAMILY.values()) and not rc4_imports
-                    and len(EXCLUDED_RC4_AE_KINDS) == 6,
+                    and len(KINDS) == 60 and all(len(v) == 12 for v in KINDS_BY_FAMILY.values()) and per_block_ok
+                    and not rc4_imports and len(EXCLUDED_RC4_AE_KINDS) == 6,
                     "kinds": len(KINDS), "per_family": {f[:1]: len(v) for f, v in KINDS_BY_FAMILY.items()},
                     "rc4_kinds_in_corpus": len(set(KINDS) & EXCLUDED_RC4_AE_KINDS), "rc4_imports": rc4_imports}
 
@@ -193,11 +198,13 @@ def main() -> None:
 
     from aivd_rc3.provider import public_manifest
     from aivd_rc3.verifier import judge
-    from aivd_rc5_gen.provider.generator import draw_block
-    full = draw_block(1, b"\x42" * 32, synthetic=True)
+    from aivd_rc5_gen.provider.generator import block_for_kind, draw_block
+    drawn = {b: draw_block(b, bytes([0x40 + b]) * 32, synthetic=True) for b in (1, 2, 3)}
     per_kind = {}
     for k in KINDS:
-        seal = dict(full, targets=[dict(r, block=1) for r in full["targets"] if r["kind"] == k])
+        b = block_for_kind(k)
+        full = drawn[b]
+        seal = dict(full, targets=[dict(r, block=b) for r in full["targets"] if r["kind"] == k])
         man = public_manifest(seal)
         j = judge(_fake_run(seal, man, "llama3.2:3b"), seal)
         per_kind[k] = ([r["stage"] for r in j["rows"]] == ["VERIFIED_SECURITY_DISCOVERY"]
@@ -205,6 +212,43 @@ def main() -> None:
     out["frozen_scorable"] = {"pass": all(per_kind.values()), "scorable": sum(per_kind.values()), "kinds": len(KINDS)}
     ok_f, cond = relation_holds("F_DELEGATION_BOUNDARY", "0" * 16, {}, "")
     out["f_rejected"] = {"pass": ok_f is False and cond.get("error") == "unknown relation"}
+
+    from aivd_rc3.discover import public_blob
+    from aivd_rc3.provider import public_manifest as _pubman
+    from aivd_rc5_gen.provider.generator import public_metadata
+    struct_ids, body_digests = {}, set()
+    published_hits = 0
+    for b, seal in drawn.items():
+        published = json.dumps(public_metadata(seal)) + json.dumps(_pubman(seal))
+        for r in seal["targets"]:
+            if r["canonical_structure_id"] in published:
+                published_hits += 1
+            prev = struct_ids.get(r["canonical_structure_id"])
+            if prev not in (None, b):
+                struct_ids[r["canonical_structure_id"]] = 0
+            else:
+                struct_ids[r["canonical_structure_id"]] = b
+            body_digests.add(r["body_digest"])
+    bodies = [r["body_digest"] for s in drawn.values() for r in s["targets"]]
+    blobs = [public_blob(r["public"]) + "\n" + r["note"] for s in drawn.values() for r in s["targets"]]
+    from aivd_rc3 import provider as rc3
+    from aivd_rc5_gen import LOCAL_V1_REPORT_DIR, RC4_PUBLIC_MANIFEST
+    pubs = {"RC3": [], "RC4": json.loads(Path(RC4_PUBLIC_MANIFEST).read_text(encoding="utf-8")),
+            "LV1": json.loads((Path(LOCAL_V1_REPORT_DIR) / "final" / "public_manifest.json").read_text(encoding="utf-8"))}
+    for k in {s["kind"] for s in rc3.SECURITY_SCHEMAS} | set(rc3.BENIGN_NOTES):
+        try:
+            pubs["RC3"].append(rc3._public(k, "sc-0000000000ff"))
+        except Exception:
+            pass
+    pst = N.check_prior_structure(pubs)
+    out["structural_blocks"] = {"pass": len(struct_ids) == 60 and 0 not in struct_ids.values()
+                                and len(set(bodies)) == 120 and len(set(blobs)) == 120
+                                and published_hits == 0 and pst["pass"] and pst["structure_id_overlaps"] == 0
+                                and pst["prior_texts_with_rc5_cue"] == 0,
+                                "structure_ids": len(struct_ids), "body_digests": len(set(bodies)),
+                                "published_structure_ids": published_hits,
+                                "prior_structure_overlaps": pst["structure_id_overlaps"],
+                                "prior_texts_with_rc5_cue": pst["prior_texts_with_rc5_cue"]}
 
     from aivd_rc5_gen.provider import exclusion as X
     prior = X.load_prior_seals()

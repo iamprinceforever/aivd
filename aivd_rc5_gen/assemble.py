@@ -60,6 +60,10 @@ def corpus_view(assembled: dict, block_seals: dict) -> dict:
     view["security_count"] = assembled["security_count"]
     view["benign_count"] = assembled["benign_count"]
     view["public_row_count"] = len(assembled["targets"])
+    # Hash only. Canonical structure ids stay on the sealed rows.
+    view["structure_set_commitment"] = digest({
+        "canonical_structure_ids": sorted({r["canonical_structure_id"] for r in assembled["targets"]}),
+    })
     return view
 
 

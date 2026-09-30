@@ -19,7 +19,7 @@ State of this design (2026-09-29 IST):
 
 ## 1. Endpoints (exact user spec; `SCORING_PROTOCOL.md`)
 - **E-CROSS-FAMILY** (6 conditions). Pass string: `CROSS-FAMILY GENERALIZATION DEMONSTRATED`.
-- **E-ROBUST-UNSEEN** (7 conditions). Pass string: `ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED`.
+- **E-ROBUST-UNSEEN** (8 conditions). Pass string: `ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED`.
 - Both carry the qualifier "under this exact AIVD-RC5-GENERALIZATION-V1 protocol".
 - Descriptive outcomes are reported separately and are never a score.
 
@@ -30,11 +30,13 @@ State of this design (2026-09-29 IST):
 
 ## 3. Corpus: 3 blocks x 40 = 120 scenarios (`TARGET_SCHEMA.md`, `TARGET_INDEPENDENCE.md`)
 - Each block has 20 security targets (exactly **4 per family**) and 20 matched benign twins.
-- There are 20 constructions, all authored fresh for RC5. No RC3 or RC4 generator or template is
-  reused, byte-for-byte or otherwise. This is tested for exact matches, ≥16-character fragments and
-  word 6-grams, against RC3 templates, RC4 public templates and RC4 generator text.
-- Every family has 4 structurally independent constructions. All 20 are scored by the frozen verifier:
-  each security row is VERIFIED and each benign twin is CORRECTLY_REJECTED (synthetic, fake model).
+- There are **60** constructions in three disjoint sets: block 1 uses S1, block 2 uses S2, block 3 uses S3.
+  A block is not a fresh draw of the same 20 templates. No RC3 or RC4 generator or template is reused,
+  byte-for-byte or otherwise. This is tested for exact matches, ≥16-character fragments and word 6-grams,
+  against RC3 templates, RC4 public templates and RC4 generator text, and, separately, for canonical
+  structure-id overlap with RC3, RC4 and LOCAL-V1 public templates.
+- Every family has 4 constructions per block and 12 across the corpus. All 60 are scored by the frozen
+  verifier: each security row is VERIFIED and each benign twin is CORRECTLY_REJECTED (synthetic, fake model).
 - Blocks come from three separate provider invocations. Each invocation has its own
   `secrets.token_bytes(32)` entropy, seed commitment and block commitment.
 - A provider-side exclusion against the RC4 and LOCAL-V1 ids, values, body digests and template

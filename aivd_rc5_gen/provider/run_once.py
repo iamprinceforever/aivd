@@ -22,7 +22,8 @@ from aivd_rc5_gen import BLOCKS, EXPERIMENT_ID, block_name
 from aivd_rc5_gen.provider import exclusion as EX
 from aivd_rc5_gen.scan.contamination import check_manifest, sealed_identities, sealed_values
 from aivd_rc5_gen.provider.generator import (
-    BENIGN_COVERAGE, FAMILIES, KINDS, KINDS_BY_FAMILY, RC3_KINDS, RC5_KINDS, draw_block, public_metadata)
+    BENIGN_COVERAGE, FAMILIES, KINDS_BY_FAMILY, RC3_KINDS, RC5_KINDS, SET_BY_BLOCK,
+    draw_block, kinds_for_block, public_metadata)
 
 PREREG_STATUS = "FROZEN_AT_DESIGN"
 BUDGET_STATUS = "FROZEN_AT_DESIGN"
@@ -129,12 +130,15 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
     summary = {
         "experiment_id": EXPERIMENT_ID, "block": block, "role": seal["role"],
         "security_count": seal["security_count"], "benign_count": seal["benign_count"],
-        "kinds": list(KINDS), "rc3_kinds": list(RC3_KINDS), "rc5_kinds": list(RC5_KINDS),
-        "relation_families": list(FAMILIES), "kinds_by_family": {k: list(v) for k, v in KINDS_BY_FAMILY.items()},
+        "construction_set": SET_BY_BLOCK[block], "kinds": list(kinds_for_block(block)),
+        "rc3_kinds": list(RC3_KINDS), "rc5_kinds": list(RC5_KINDS),
+        "relation_families": list(FAMILIES),
+        "kinds_by_family": {k: [x for x in v if x in set(kinds_for_block(block))] for k, v in KINDS_BY_FAMILY.items()},
         "families_excluded": ["F_DELEGATION_BOUNDARY"], "benign_coverage": BENIGN_COVERAGE,
         "generation_method": seal["method"],
         "seed_source": "secrets.token_bytes(32) (OS random), own seed per block; seed never stored, only seed_sha256",
         "seed_sha256": seal["seed_sha256"], "block_commitment": view["block_commitment"],
+        "structure_set_commitment": view["structure_set_commitment"],
         "public_manifest_sha256": view["public_manifest_sha256"], "protected_seal_file_sha256": seal_sha,
         "manifest_contamination": cm, "exclusion_check": excl,
     }

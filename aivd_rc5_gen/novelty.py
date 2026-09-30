@@ -1,4 +1,4 @@
-"""Novelty / structural-independence checks for the 20 RC5 constructions (design-time, public text only).
+"""Novelty / structural-independence checks for the 60 RC5 constructions (design-time, public text only).
 
 Rule (binding spec): no RC3 or RC4 generator or template is reused, byte-for-byte or otherwise.
 Checked here on the PUBLIC template side (steps / variants / probe / confirm) and the NOTE templates:
@@ -8,11 +8,12 @@ Checked here on the PUBLIC template side (steps / variants / probe / confirm) an
   N3 shingle  no RC5 word 6-gram (lower-cased, punctuation stripped, frozen-mark words removed)
               occurs in RC3 / RC4 template text
   N4 kinds    no RC5 kind name equals an RC3 or RC4 kind name
-Structural independence inside a family (S1-S3): every construction has a distinct (sink, boundary)
-descriptor; no two constructions of the same family share a >= 16-char fragment or a word 6-gram
-outside the frozen marks; every family has >= 3 constructions. Prior RC4 text is read from RC4's
-COMMITTED PUBLIC manifest (no RC4 import); RC3 text is rendered by the frozen RC3 provider. Notes of
-prior corpora are compared via their sealed-value exclusion (aivd_rc5_gen.provider.exclusion), not here.
+Literal independence inside a family stays: no two constructions of the same family share a >= 16-char
+fragment or a word 6-gram outside the frozen marks, and every family has >= 3 constructions.
+A2 adds a separate canonical structure id (message-graph skeleton). That check does not replace N1-N4.
+Prior RC4 text is read from RC4's COMMITTED PUBLIC manifest (no RC4 import); RC3 text is rendered by the
+frozen RC3 provider. Notes of prior corpora are compared via their sealed-value exclusion
+(aivd_rc5_gen.provider.exclusion), not here.
 Returns counts only.
 """
 
@@ -53,6 +54,15 @@ STRUCTURE = {
     "session_expiry": ("two_step", "login-scoped secret", "new-login greeting", "login expiry"),
     "project_switch": ("two_step", "project-scoped secret", "other-project status", "project switch"),
 }
+# S2/S3 descriptors are the construction set plus the operator cue the template actually contains.
+# They are not a relabel of an S1 row: the canonical id is checked separately from this table.
+from aivd_rc5_gen.provider.topology import S2_KINDS, S3_KINDS, operators_for  # noqa: E402
+from aivd_rc5_gen.provider.generator import shape_of  # noqa: E402
+
+for _k in tuple(S2_KINDS) + tuple(S3_KINDS):
+    _op = operators_for(_k)[0]
+    _route = "S2" if _k in S2_KINDS else "S3"
+    STRUCTURE[_k] = (shape_of(_k), _op, f"{_route} {_op} sink", f"{_route} {_op} boundary")
 assert set(STRUCTURE) == set(KINDS)
 
 
@@ -161,3 +171,24 @@ def check_structural_independence() -> dict:
         per_family[fam] = {"constructions": len(kinds), "shared_fragments": shared_f, "shared_shingles": shared_s,
                            "pass": fam_ok}
     return {"pass": ok and distinct_desc, "distinct_descriptors": distinct_desc, "families": per_family}
+
+
+def check_prior_structure(prior_publics: dict) -> dict:
+    """Additive A2 check. A prior public skeleton collides only when its slot pattern AND the RC5
+    operator cues actually present digest to an RC5 canonical structure id. Counts only; no id is returned.
+    """
+    from aivd_rc5_gen.provider.generator import structure_group
+    from aivd_rc5_gen.provider.topology import skeleton_from_public, structure_id
+    ops = tuple(dict.fromkeys(op for k in KINDS for op in operators_for(k)))
+    rc5_ids = {structure_group(k) for k in KINDS}
+    overlaps = 0
+    cue_texts = 0
+    for pubs in prior_publics.values():
+        for pub in pubs:
+            sk = skeleton_from_public(pub, ops)
+            if sk["operators"]:
+                cue_texts += 1
+            if structure_id(sk) in rc5_ids:
+                overlaps += 1
+    return {"pass": overlaps == 0, "structure_id_overlaps": overlaps, "prior_texts_with_rc5_cue": cue_texts,
+            "rc5_structure_ids": len(rc5_ids)}
