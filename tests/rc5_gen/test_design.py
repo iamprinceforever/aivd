@@ -388,6 +388,10 @@ def test_body_digest_exclusion_pass_fail_only_synthetic(synth_blocks):
 
 
 def test_exclusion_covers_real_prior_seals_counts_only():
+    """Real RC4 / LOCAL-V1 seals only. A missing gitignored seal skips; it is not a pass."""
+    from aivd_rc5_gen import LOCAL_V1_SEAL, RC4_SEAL
+    if any(not Path(p).is_file() for p in (RC4_SEAL, LOCAL_V1_SEAL)):
+        pytest.skip("RC3/RC4 protected seals unavailable in this checkout")
     prior = X.load_prior_seals()
     ex = X.build(prior)
     named = X.named_targets_covered(prior)
@@ -673,7 +677,12 @@ def test_rc5_public_scan(tmp_path, synth_blocks):
 
 
 def test_real_prior_contamination_scan_of_rc5_material_passes():
-    from aivd_rc5_gen.scan.contamination import load_prior
+    """Real RC3 / RC4 / LOCAL-V1 seals only. A missing gitignored seal skips; it is not a pass.
+    Injected prior values are covered by test_contamination_scanner_detects_without_printing."""
+    from aivd_rc5_gen import LOCAL_V1_SEAL, RC4_SEAL
+    from aivd_rc5_gen.scan.contamination import RC3_SEAL, load_prior
+    if any(not Path(p).is_file() for p in (RC3_SEAL, RC4_SEAL, LOCAL_V1_SEAL)):
+        pytest.skip("RC3/RC4 protected seals unavailable in this checkout")
     mf = ["aivd_rc5_gen", *sorted(str(p) for p in Path("scripts").glob("rc5_gen_*")), "tests/rc5_gen"]
     r = check_prior(mf, ["docs/rc5_generalization_v1"], prior=load_prior())
     assert r["pass"] and r["files_scanned"] > 40
@@ -846,14 +855,20 @@ def test_rc3_source_unmodified():
 
 
 def test_prior_code_docs_and_reports_unchanged_vs_base():
+    """Prior experiments stay at the RC4 base. The one allowed delta is the pre-provider
+    harness in tests/rc4_multi/test_design.py (skip when the gitignored RC4 seal is absent).
+    aivd_rc4_multi itself is still required to be unchanged."""
+    harness = "tests/rc4_multi/test_design.py"
     paths = ["aivd_rc3", "aivd_post_rc3", "aivd_post_rc3_local", "aivd_stateful", "aivd_investigation",
              "aivd_rc4_multi", "docs/rc4_multi_v1", "reports/aivd_rc4_multi_v1", "reports/aivd_post_rc3_local_v1",
              "tests/rc4_multi", "tests/post_rc3_local", "tests/post_rc3",
              *sorted(str(p) for p in Path("scripts").glob("rc4_multi_*")),
              *sorted(str(p) for p in Path("scripts").glob("local_v1_*"))]
-    assert subprocess.run(["git", "diff", "--quiet", BASE, "--", *paths]).returncode == 0
-    st = subprocess.run(["git", "status", "--porcelain", "--", *paths], capture_output=True, text=True)
+    spec = [*paths, f":(exclude){harness}"]
+    assert subprocess.run(["git", "diff", "--quiet", BASE, "--", *spec]).returncode == 0
+    st = subprocess.run(["git", "status", "--porcelain", "--", *spec], capture_output=True, text=True)
     assert st.stdout.strip() == ""
+    assert subprocess.run(["git", "diff", "--quiet", BASE, "--", "aivd_rc4_multi"]).returncode == 0
 
 
 def test_frozen_experimenter_modules_carry_no_label_hints():

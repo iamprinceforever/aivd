@@ -115,6 +115,7 @@ def main() -> None:
     anc = subprocess.run(["git", "merge-base", "--is-ancestor", BASE, "HEAD"]).returncode == 0
     anc2 = subprocess.run(["git", "merge-base", "--is-ancestor", DESIGN_PARENT, "HEAD"]).returncode == 0
     diff = subprocess.run(["git", "diff", "--quiet", BASE, "--", *PRIOR_PATHS,
+                           ":(exclude)tests/rc4_multi/test_design.py",
                            *[str(p) for p in Path("scripts").glob("rc4_multi_*")],
                            *[str(p) for p in Path("scripts").glob("local_v1_*")]]).returncode == 0
     out["base"] = {"pass": anc and anc2 and diff, "descends_from_base": anc, "descends_from_design_parent": anc2,

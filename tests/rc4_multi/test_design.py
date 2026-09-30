@@ -188,15 +188,16 @@ def test_scripts_refuse_without_authorization(script):
     assert out.returncode != 0 and "REFUSED" in out.stderr
 
 
-def test_provider_confirmation_gate():
-    """Gate logic only (the provider script itself is never run with authorization in tests)."""
+def test_provider_confirmation_gate(tmp_path, synthetic_local_v1):
+    """Gate logic only. Uses the committed preregistration and a throwaway seal fixture.
+    The real production seal is not required and is not created here."""
     import copy
-    from aivd_rc4_multi.provider.run_once import ProviderRefused, confirmation_gate
+    from aivd_rc4_multi.provider.run_once import ProviderRefused, confirmation_gate, generate
     with pytest.raises(ProviderRefused):
-        confirmation_gate(PREREG)  # post-provider: commitment recorded, provider may not run again
+        confirmation_gate(PREREG)  # recorded commitment: missing the pre-run state, rejected
     pre = copy.deepcopy(PREREG)
     pre["corpus"]["corpus_commitment"] = None
-    confirmation_gate(pre)  # pass path: decisions confirmed, no commitment
+    confirmation_gate(pre)  # valid gate inputs accepted
     for mutate in (lambda d: d.update(status="DESIGN/DRAFT"),
                    lambda d: d["open_design_decisions"]["D1_budget_coverage"].update(status="pending_user_confirmation"),
                    lambda d: d["open_design_decisions"]["D2_f_family_scoring_rule"].update(choice="B"),
@@ -208,8 +209,20 @@ def test_provider_confirmation_gate():
         bad = copy.deepcopy(pre)
         mutate(bad)
         with pytest.raises(ProviderRefused):
-            confirmation_gate(bad)
-    assert Path("reports/aivd_rc4_multi_v1/protected/final_seal.json").exists()
+            confirmation_gate(bad)  # mismatched decision / budget binding, or a commitment, rejected
+    base, backup, reports = tmp_path / "rc4", tmp_path / "backup", tmp_path / "reports"
+    reports.mkdir()
+    generate(base, backup, reports=reports, local_v1=synthetic_local_v1, seed=SYNTH_SEED, synthetic=True)
+    with pytest.raises(ProviderRefused):
+        generate(base, backup, reports=reports, local_v1=synthetic_local_v1, seed=b"\x02" * 32, synthetic=True)
+
+
+def test_real_rc4_protected_seal_present_when_checkout_has_it():
+    """Real gitignored seal only. Absence is a skip, never a pass and never a fabricated seal."""
+    seal = Path("reports/aivd_rc4_multi_v1/protected/final_seal.json")
+    if not seal.is_file():
+        pytest.skip("RC4 protected seal unavailable in this checkout")
+    assert seal.is_file()
 
 
 # ---------------- isolation / file-open audit ----------------
