@@ -1,0 +1,106 @@
+{
+  "schema": "aivd_historical_seal_recovery/v1",
+  "purpose": "Archive verified historical seal METADATA only. Seal files are intentionally NOT committed.",
+  "recovery_timestamp_ist": "2026-10-08T19:43:38+05:30",
+  "recovery_timestamp_utc": "2026-10-08T14:13:38Z",
+  "base_commit": "365f5134486f3d91c86019e9bc6bf60d0f254cd7",
+  "verification_method": "Full-filesystem search (find / -xdev, excluding /proc and /sys; plus tar/zip archive listings) for *seal*.json / final_seal*; sha256 of every candidate compared for exact equality with the expected digest. cmp byte-identity check applies only where a primary and backup both exist (none did).",
+  "candidates_examined": 7,
+  "experiments": [
+    {
+      "experiment": "RC3",
+      "logical_artifact_path": "reports/aivd_rc3/protected/final_seal.json",
+      "expected_sha256": "d62031b229939d9060bd547ec02263aa9e55e4f614116060404d28d1e4eb7507",
+      "expected_digest_source": "scripts/rc5_gen_design_audit.py @ 365f5134486f3d91c86019e9bc6bf60d0f254cd7 (SEALS table); corroborated by reports/aivd_rc3/final/corpus_summary.json field protected_seal_file_sha256 @ 6eab2bcb6820611d0bead3e522e55cbcfcfd0307",
+      "historical_refs": {
+        "tag": "AIVD-RC3",
+        "tag_target_commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+        "branch": "research/aivd-endgame-3-autonomous-security-discovery",
+        "branch_final_rc3_commit": "6eab2bcb6820611d0bead3e522e55cbcfcfd0307"
+      },
+      "primary": {
+        "box_path": "/workspace/aivd-endgame3-rc1/reports/aivd_rc3/protected/final_seal.json",
+        "found": true,
+        "sha256": "d62031b229939d9060bd547ec02263aa9e55e4f614116060404d28d1e4eb7507",
+        "size_bytes": 18282
+      },
+      "verification_status": "VERIFIED (sha256 exact match)",
+      "authentic_backup_found": false,
+      "backup_sha256": null,
+      "backup_note": "No backup location was ever recorded for this seal; none found on the box filesystem.",
+      "matching_copies_count": 1,
+      "matching_copies_locations": [
+        "/workspace/aivd-endgame3-rc1/reports/aivd_rc3/protected/final_seal.json"
+      ],
+      "in_git": false
+    },
+    {
+      "experiment": "RC4 (aivd_rc4_multi_v1)",
+      "logical_artifact_path": "reports/aivd_rc4_multi_v1/protected/final_seal.json",
+      "expected_sha256": "87b8bc03c3dcbf4d8fbe6710d7061901fb124ae3b84d1304efad26f6046c8ca0",
+      "expected_digest_source": "user-supplied; matches scripts/rc5_gen_design_audit.py @ 365f513 and reports/aivd_rc4_multi_v1/final/FINAL_RESULT.md @ 83520c3",
+      "public_commitments": {
+        "corpus_commitment": "5c2409570f046390a428c287035a4cc2b7e7a5023bb5b885580c339e35657c4a",
+        "public_manifest_sha256": "d4a16b0ec3482fabc83385c51906d4db3c708c8583183c21baa4f6dd3e2f5cf5",
+        "seed_hash": "eed801b4f6ad438e8971114c574cf320bdc8018ac26c883089fe9e41b7d7df17"
+      },
+      "historical_refs": {
+        "branch": "research/aivd-rc4-multi-v1-design",
+        "result_commit": "83520c3c31c882cf97aa140df985a26330c40060"
+      },
+      "regenerable": false,
+      "regeneration_note": "Seed was drawn from fresh OS randomness; only its hash was stored. The seal cannot be regenerated.",
+      "primary": {
+        "box_path": "/workspace/aivd-endgame3-rc1/reports/aivd_rc4_multi_v1/protected/final_seal.json",
+        "found": true,
+        "sha256": "87b8bc03c3dcbf4d8fbe6710d7061901fb124ae3b84d1304efad26f6046c8ca0",
+        "size_bytes": 28398
+      },
+      "verification_status": "VERIFIED (sha256 exact match)",
+      "authentic_backup_found": false,
+      "backup_sha256": null,
+      "backup_note": "Previously recorded backup location /var/tmp/aivd_rc4_multi_v1_backup/final_seal.json was searched and is absent (box /var/tmp was empty at recovery time). No other exact-match copy exists on the box filesystem.",
+      "matching_copies_count": 1,
+      "matching_copies_locations": [
+        "/workspace/aivd-endgame3-rc1/reports/aivd_rc4_multi_v1/protected/final_seal.json"
+      ],
+      "in_git": false
+    },
+    {
+      "experiment": "LOCAL-V1 (aivd_post_rc3_local_v1)",
+      "logical_artifact_path": "reports/aivd_post_rc3_local_v1/protected/final_seal.json",
+      "expected_sha256": "2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0",
+      "expected_digest_source": "user-supplied; matches scripts/rc5_gen_design_audit.py @ 365f513 and reports/aivd_post_rc3_local_v1/FINAL_RESULT.md @ 9b70ca9",
+      "public_commitments": {
+        "corpus_commitment": "644768a386c87497652d7a2372fc824f034a0561c07d3233c119989f1e57a050"
+      },
+      "revision": {
+        "revision": 2,
+        "revision_hash": "60359a5bf092cbd121435093e20b56eef4e31b79cc6b48ccaf0a14547aebb958",
+        "revision_2_file_hash": "ae9f676daab403379dfb8abd77dae69e8748f3d9638242a69a795e1ec85f1e5b"
+      },
+      "historical_refs": {
+        "branch": "research/aivd-post-rc3-local-v1-final",
+        "final_commit": "9b70ca9ce985ec1cc421b283d156e02b62d22893",
+        "design_branch": "research/aivd-post-rc3-local-v1",
+        "design_commit": "245c7ef7bf0b0eed8b8b067218af6c1bab736977"
+      },
+      "primary": {
+        "box_path": "/workspace/aivd-endgame3-rc1/reports/aivd_post_rc3_local_v1/protected/final_seal.json",
+        "found": true,
+        "sha256": "2211ef92ccb4d72a957a78cb459af88d7163f4e2a8f35aaf424bddaed1e9fcf0",
+        "size_bytes": 13963
+      },
+      "verification_status": "VERIFIED (sha256 exact match)",
+      "authentic_backup_found": false,
+      "backup_sha256": null,
+      "backup_note": "Previously recorded backup location /var/tmp/aivd_post_rc3_local_v1_backup/final_seal.json was searched and is absent (box /var/tmp was empty at recovery time). No other exact-match copy exists on the box filesystem.",
+      "matching_copies_count": 1,
+      "matching_copies_locations": [
+        "/workspace/aivd-endgame3-rc1/reports/aivd_post_rc3_local_v1/protected/final_seal.json"
+      ],
+      "in_git": false
+    }
+  ],
+  "contains_seal_contents": false
+}
