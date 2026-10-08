@@ -14,7 +14,8 @@ Checks:
   3 LOCAL-V1 -> RC5 the same for POST-RC3-LOCAL-V1, plus the excluded RC3 gen-kind fingerprints
                     (gen_key/gen_credential/gen_id; gen_key is the LOCAL-V1 verified-target template).
   4 RC5 seals -> public   no RC5 sealed value in any RC5 public file (once block seals exist).
-  5 cross-block           ids/tokens/seeds/commitments pairwise disjoint across the three blocks.
+  5 cross-block           ids/tokens/seeds/commitments pairwise disjoint across the three blocks, and
+                          (amendment A2) no target body / sid-normalised template byte-identical across blocks.
 Design docs are scanned for values only (they may name a historical id to document the exclusion; docs
 are never sent to a model).
 """
@@ -55,7 +56,7 @@ def _texts(pub: dict) -> list:
 
 def _allowed_blob() -> str:
     """All RC5 public template text (marker sid). Fragments occurring here are never fingerprints."""
-    from aivd_rc5_gen.provider.generator import KINDS, public_for  # provider/scanner/scorer side only
+    from aivd_rc5_gen.provider.generator import KINDS, public_for  # provider/scanner/scorer side only (60 kinds)
     return "\n".join(t for k in KINDS for t in _texts(public_for(k, _MARK)))
 
 
@@ -189,10 +190,14 @@ def check_cross_block(seals: list) -> dict:
             if i != j:
                 texts = [public_blob(p) for p in public_manifest(seals[j])]
                 cross_value_texts += scan_texts(texts, sealed_values(seals[i]))
+    from aivd_rc5_gen.novelty import cross_block_identical_bodies   # amendment A2
+    ident = cross_block_identical_bodies({i: s for i, s in enumerate(seals)})
     res = {"blocks": len(seals), "id_overlaps": overlap_ids, "token_overlaps": overlap_toks,
+           "identical_bodies_across_blocks": ident["identical_bodies"],
+           "identical_templates_across_blocks": ident["identical_templates"],
            "distinct_seeds": len(set(seeds)) == len(seeds), "distinct_commitments": len(set(comms)) == len(comms),
            "distinct_blocks": len({s["block"] for s in seals}) == len(seals),
            "cross_block_value_texts": cross_value_texts}
-    res["pass"] = (not overlap_ids and not overlap_toks and not cross_value_texts and res["distinct_seeds"]
+    res["pass"] = (not overlap_ids and not overlap_toks and not cross_value_texts and ident["pass"] and res["distinct_seeds"]
                    and res["distinct_commitments"] and res["distinct_blocks"])
     return res

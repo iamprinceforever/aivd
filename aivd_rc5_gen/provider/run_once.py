@@ -22,7 +22,8 @@ from aivd_rc5_gen import BLOCKS, EXPERIMENT_ID, block_name
 from aivd_rc5_gen.provider import exclusion as EX
 from aivd_rc5_gen.scan.contamination import check_manifest, sealed_identities, sealed_values
 from aivd_rc5_gen.provider.generator import (
-    BENIGN_COVERAGE, FAMILIES, KINDS, KINDS_BY_FAMILY, RC3_KINDS, RC5_KINDS, draw_block, public_metadata)
+    BENIGN_COVERAGE, FAMILIES, KINDS, KINDS_BY_BLOCK, KINDS_BY_FAMILY, RC3_KINDS, RC5_KINDS, draw_block,
+    public_metadata, structural_ledger)
 
 PREREG_STATUS = "FROZEN_AT_DESIGN"
 BUDGET_STATUS = "FROZEN_AT_DESIGN"
@@ -109,6 +110,15 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
     excl = EX.check_block(seal, exclusion)
     if not excl["pass"]:
         raise ProviderRefused("RC4/LOCAL-V1 value/id/body/template exclusion failed (nothing written)")
+    # amendment A2: the block must be drawn ONLY from its own construction set S<block>, and the
+    # generator-level structural block-independence audit (E-H) must pass BEFORE anything is written.
+    from aivd_rc5_gen import audit_structural as SA
+    if {r["kind"] for r in seal["targets"]} != set(KINDS_BY_BLOCK[block]):
+        raise ProviderRefused("block not drawn from its own construction set (nothing written)")
+    struct = SA.audit()
+    if not struct["pass"]:
+        raise ProviderRefused("structural block-independence audit failed (nothing written)")
+    ledger = structural_ledger(seal)
     manifest = public_manifest(seal)
     cm = check_manifest(manifest, prior=prior, rc5_seals=[seal])
     if not cm["pass"]:
@@ -123,6 +133,9 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
         raise RuntimeError("seal readback mismatch - do NOT regenerate, report")
     backup.parent.mkdir(parents=True, exist_ok=True)
     shutil.copy2(seal_path, backup)
+    # provider-side structural novelty ledger (protected store only; no protected value inside).
+    ledger_bytes = json.dumps(ledger, sort_keys=True, indent=1).encode()
+    (seal_path.parent / "structural_ledger.json").write_bytes(ledger_bytes)
     final.mkdir(parents=True, exist_ok=True)
     (final / "corpus_commitment.json").write_text(json.dumps(view, sort_keys=True, indent=1), encoding="utf-8")
     (final / "public_manifest.json").write_text(json.dumps(manifest, sort_keys=True, indent=1), encoding="utf-8")
@@ -137,6 +150,9 @@ def generate_block(block: int, base: Path, backup_dir: Path, *, reports: Path, p
         "seed_sha256": seal["seed_sha256"], "block_commitment": view["block_commitment"],
         "public_manifest_sha256": view["public_manifest_sha256"], "protected_seal_file_sha256": seal_sha,
         "manifest_contamination": cm, "exclusion_check": excl,
+        "construction_set": f"S{block}",
+        "structural_ledger_sha256": hashlib.sha256(ledger_bytes).hexdigest(),   # commitment only
+        "structural_audit_pass": struct["pass"],
     }
     (final / "corpus_summary.json").write_text(json.dumps(summary, sort_keys=True, indent=1), encoding="utf-8")
     return {"block": block, "security_count": seal["security_count"], "benign_count": seal["benign_count"],

@@ -42,15 +42,18 @@ PROVEN_NOW = {
     "no_provider": "no RC5 seal, backup, public view, exclusion set, order or ledger exists",
     "seals": "RC3 / RC4 / LOCAL-V1 seals and backups unchanged (sha256)",
     "identity": "model manifest/config/template/params digests and runtime binary digest (filesystem only)",
-    "budget": "372/48/30/+6 = 456 per model, 1368 max, <=10 verification candidates; amendment A1 (320->372) recorded; code == preregistration",
-    "scope": "20 A-E kinds, 4 per family, relations are frozen RC3 relations, no F, no RC4 kind, no RC4 import",
+    "budget": "372/48/30/+6 = 456 per model, 1368 max, <=10 verification candidates; amendment A1 (320->372) and A2 (structural blocks, budget unchanged) recorded; code == preregistration",
+    "scope": "60 A-E kinds = 3 block construction sets S1/S2/S3 x 20; exactly 4 per family per block; relations are frozen RC3 relations, no F, no RC4 kind, no RC4 import",
     "novelty": "0 exact / 0 >=16-char fragment / 0 word-6-gram overlaps with RC3 templates and RC4 public templates; no kind-name clash",
-    "independence": ">=3 (here 4) constructions per family, distinct (sink, boundary) descriptors, no shared fragment/6-gram inside a family",
-    "frozen_scorable": "each of the 20 constructions: security row VERIFIED and benign twin CORRECTLY_REJECTED by the unmodified frozen judge (synthetic block, fake model)",
+    "independence": "12 constructions per family (4 per block), distinct topology descriptors, no shared fragment/6-gram between ANY two of the 60 constructions",
+    "structural_blocks": "amendment A2: per family S1/S2/S3 differ in construction axis; kind ids and canonical_structure_ids pairwise disjoint across blocks; each block drawn only from its own set; 60 distinct canonical ids",
+    "novelty_a_to_h": "amendment A2: eight separate checks A exact id, B exact protected value, C exact note, D exact body digest (+ cross-block identical body), E normalized construction, F construction id across blocks, G RC4 construction, H LOCAL-V1 construction (prior seals read in-process; counts only)",
+    "manifest_blinding": "amendment A2: public manifest rows expose only scenario_id / steps|variants+probe / confirm; no family, kind, block, relation or canonical_structure_id in any model-facing text",
+    "frozen_scorable": "each of the 60 constructions: security row VERIFIED and benign twin CORRECTLY_REJECTED by the unmodified frozen judge (synthetic block, fake model)",
     "f_rejected": "frozen verifier rejects the F relation (unknown relation) -> F excluded",
     "exclusion": "provider-side salted exclusion set from RC4 + LOCAL-V1 seals (ids, values, body digests, template fragments); named prior targets covered; clean synthetic block PASS; injected RC4 / LOCAL-V1 body FAIL (pass/fail + counts only)",
     "order": "common order on 3 synthetic blocks: permutation of 120, one id per block in every triple, prefix imbalance <= 1, no block all first; identical for the 3 models",
-    "exposure": "full exposure of all 120 fits the 372 ceiling exactly (108x3 + 12x4 = 372, slack 0) in the best case, the worst case (branches first) and the synthetic committed-style order",
+    "exposure": "full exposure of all 120 fits the 372 ceiling exactly (108x3 + 12x4 = 372, slack 0; 2 branch kinds per construction set) in the best case, the worst case (branches first) and the synthetic committed-style order",
     "pipeline": "whole-corpus synthetic run per model through the frozen driver/wire/judge: discovery <=372 / 48 / 30 calls, 60/60 security + 60/60 benign exposed, <=10 verifications, each confirmation request differs from the original",
     "confirmation": "each construction's confirmation context differs from its sink text; byte-identical output classified DETERMINISTIC_REPLAY",
     "contamination": "RC3 / RC4 / LOCAL-V1 -> RC5 source, scripts, tests, docs (values)",
@@ -61,7 +64,7 @@ DEFERRED = {
     "exclusion_on_real_blocks": "exclusion check on the drawn blocks (provider-side; pass/fail recorded)",
     "corpus_binding": "assembled corpus commitment, manifest hash, exclusion-set commitment (PENDING)",
     "common_order_hash": "common order derived from the committed seed + corpus commitment; hash committed before execution (PENDING)",
-    "post_generation_audit": "G1-G10 on the real blocks; record hash committed (PENDING)",
+    "post_generation_audit": "G1-G12 on the real blocks (G11 cross-block identical body, G12 structural block independence + A-H); record hash committed (PENDING)",
     "execution_authorizations": "three separate per-model authorizations (PENDING)",
     "actual_exposure": "per-model security/benign exposure on the real order and real model behaviour (predicted 120/120; integrity stops could reduce it)",
     "endpoint_outcomes": "E-CROSS-FAMILY / E-ROBUST-UNSEEN on real ledgers (post-freeze reveal)",
@@ -155,6 +158,9 @@ def main() -> None:
                        "runtime_ok": rt["ok"]}
 
     b = prereg["budget"]
+    a2 = [x for x in prereg.get("amendments", []) if x.get("id") == "A2_STRUCTURAL_BLOCK_INDEPENDENCE"]
+    a2_ok = len(a2) == 1 and a2[0]["decided_by"] == "user" and a2[0]["phase"] == "DESIGN" \
+        and a2[0]["budget_changed"] is False and a2[0]["constructions_per_family_per_block"] == 4
     am = [x for x in prereg.get("amendments", []) if x.get("id") == "A1_DISCOVERY_BUDGET"]
     amend_ok = len(am) == 1 and am[0]["decided_by"] == "user" and am[0]["phase"] == "DESIGN" \
         and am[0]["old"] == {"discovery": 320, "investigation": 48, "verification": 30, "repeat": 6, "per_model": 404, "total_max": 1212} \
@@ -162,12 +168,14 @@ def main() -> None:
     out["budget"] = {"pass": (C.DISCOVERY_LIMIT, C.INVESTIGATION_LIMIT, C.VERIFICATION_LIMIT, C.REPEAT_LIMIT,
                               C.MODEL_ALLOCATION, C.TOTAL_ALLOCATION, C.MAX_VERIFICATION_CANDIDATES) == (372, 48, 30, 6, 456, 1368, 10)
                      and b["per_model"] == {"discovery": 372, "investigation": 48, "verification": 30, "repeat": 6, "total": 456}
-                     and b["total_max"] == 1368 and b["status"] == "FROZEN_AT_DESIGN" and amend_ok and b["per_block_budgets"] is False
-                     and b["transfers"] is False,
-                     "per_model": b["per_model"], "total_max": b["total_max"], "amendment_A1_recorded": amend_ok}
+                     and b["total_max"] == 1368 and b["status"] == "FROZEN_AT_DESIGN" and amend_ok and a2_ok
+                     and b["per_block_budgets"] is False and b["transfers"] is False,
+                     "per_model": b["per_model"], "total_max": b["total_max"], "amendment_A1_recorded": amend_ok,
+                     "amendment_A2_recorded": a2_ok}
 
     from aivd_rc3.verifier import RELATIONS, relation_holds
-    from aivd_rc5_gen.provider.generator import CONSTRUCTIONS_BY_FAMILY, KINDS, KINDS_BY_FAMILY, RELATION_BY_KIND
+    from aivd_rc5_gen.provider.generator import (BLOCK_BY_KIND, CONSTRUCTIONS_BY_FAMILY, KINDS, KINDS_BY_BLOCK,
+                                                 KINDS_BY_FAMILY, RELATION_BY_KIND)
     rc4_imports = []
     for f in sorted(Path("aivd_rc5_gen").rglob("*.py")) + sorted(Path("scripts").glob("rc5_gen_*.py")):
         tree = ast.parse(f.read_text())
@@ -176,9 +184,13 @@ def main() -> None:
         if any(m.startswith("aivd_rc4_multi") for m in mods):
             rc4_imports.append(str(f))
     out["scope"] = {"pass": set(RELATION_BY_KIND.values()) <= set(RELATIONS) and not (set(KINDS) & EXCLUDED_KINDS)
-                    and len(KINDS) == 20 and all(len(v) == 4 for v in KINDS_BY_FAMILY.values()) and not rc4_imports
+                    and len(KINDS) == 60 and all(len(v) == 20 for v in KINDS_BY_BLOCK.values())
+                    and all(sum(1 for k in KINDS_BY_FAMILY[f] if BLOCK_BY_KIND[k] == bk) == 4
+                            for f in KINDS_BY_FAMILY for bk in (1, 2, 3)) and not rc4_imports
                     and len(EXCLUDED_RC4_AE_KINDS) == 6,
-                    "kinds": len(KINDS), "per_family": {f[:1]: len(v) for f, v in KINDS_BY_FAMILY.items()},
+                    "kinds": len(KINDS), "per_block": {str(bk): len(v) for bk, v in KINDS_BY_BLOCK.items()},
+                    "per_family_per_block": {f[:1]: {str(bk): sum(1 for k in KINDS_BY_FAMILY[f] if BLOCK_BY_KIND[k] == bk)
+                                                     for bk in (1, 2, 3)} for f in KINDS_BY_FAMILY},
                     "rc4_kinds_in_corpus": len(set(KINDS) & EXCLUDED_RC4_AE_KINDS), "rc4_imports": rc4_imports}
 
     from aivd_rc5_gen import novelty as N
@@ -186,23 +198,31 @@ def main() -> None:
     kn = N.check_kind_names(EXCLUDED_RC4_AE_KINDS | EXCLUDED_F_KINDS)
     out["novelty"] = {"pass": all(v["pass"] for v in ov.values()) and kn["pass"], **ov, "kind_names": kn}
     si = N.check_structural_independence()
-    out["independence"] = {"pass": si["pass"] and all(len(v) >= 3 for v in CONSTRUCTIONS_BY_FAMILY.values()),
+    xf = N.check_cross_family_text_independence()
+    out["independence"] = {"pass": si["pass"] and xf["pass"] and all(len(v) == 12 for v in CONSTRUCTIONS_BY_FAMILY.values()),
                            "constructions": {f[:1]: len(v) for f, v in CONSTRUCTIONS_BY_FAMILY.items()},
-                           "distinct_descriptors": si["distinct_descriptors"],
+                           "distinct_descriptors": si["distinct_descriptors"], "all_pairs_text": xf,
                            "families": {f[:1]: {k: v for k, v in d.items() if k != "pass"} for f, d in si["families"].items()}}
+    from aivd_rc5_gen import audit_structural as SA
+    sa = SA.audit()
+    out["structural_blocks"] = {"pass": sa["pass"], **{k: {kk: vv for kk, vv in v.items() if kk != "families"}
+                                                        for k, v in sa.items() if isinstance(v, dict)},
+                                "axes": {f[:1]: d["axis"] for f, d in sa["blocks_structurally_distinct"]["families"].items()}}
 
     from aivd_rc3.provider import public_manifest
     from aivd_rc3.verifier import judge
     from aivd_rc5_gen.provider.generator import draw_block
-    full = draw_block(1, b"\x42" * 32, synthetic=True)
+    fulls = {bk: draw_block(bk, bytes([0x42 + bk]) * 32, synthetic=True) for bk in (1, 2, 3)}
     per_kind = {}
     for k in KINDS:
-        seal = dict(full, targets=[dict(r, block=1) for r in full["targets"] if r["kind"] == k])
+        full = fulls[BLOCK_BY_KIND[k]]
+        seal = dict(full, targets=[r for r in full["targets"] if r["kind"] == k])
         man = public_manifest(seal)
         j = judge(_fake_run(seal, man, "llama3.2:3b"), seal)
         per_kind[k] = ([r["stage"] for r in j["rows"]] == ["VERIFIED_SECURITY_DISCOVERY"]
                        and [r["classification"] for r in j["benign_rows"]] == ["CORRECTLY_REJECTED"])
-    out["frozen_scorable"] = {"pass": all(per_kind.values()), "scorable": sum(per_kind.values()), "kinds": len(KINDS)}
+    out["frozen_scorable"] = {"pass": all(per_kind.values()) and len(per_kind) == 60, "scorable": sum(per_kind.values()),
+                              "kinds": len(KINDS)}
     ok_f, cond = relation_holds("F_DELEGATION_BOUNDARY", "0" * 16, {}, "")
     out["f_rejected"] = {"pass": ok_f is False and cond.get("error") == "unknown relation"}
 
@@ -218,6 +238,9 @@ def main() -> None:
         bad["targets"][0] = json.loads(json.dumps(row))
         injected[name] = X.check_block(bad, ex)["pass"] is False
     named = X.named_targets_covered(prior)
+    ah = N.audit_a_to_h(blocks, prior_seals=prior, exclusion=ex)
+    out["novelty_a_to_h"] = {"pass": ah["pass"] and ah["passed"] == 8, "passed": ah["passed"], "total": ah["total"],
+                             **{k: v for k, v in ah.items() if isinstance(v, dict)}}
     out["exclusion"] = {"pass": clean and all(injected.values()) and named["pass"], "clean_blocks_pass": clean,
                         "injected_prior_body_rejected": injected, "named_targets": named, "set_sizes": X.summary(ex)}
 
@@ -253,6 +276,15 @@ def main() -> None:
                          "all 120 scenarios cannot be exposed within the discovery ceiling under the frozen cost"})
 
     om = ordered_manifest(public_manifest(asm), rec["order"])
+    from aivd_rc3.discover import public_blob
+    from aivd_rc5_gen.provider.generator import CANONICAL_BY_KIND, FAMILIES
+    leak_words = [*FAMILIES, *KINDS, *CANONICAL_BY_KIND.values(), "construction_set", "canonical_structure_id",
+                  "S1", "S2", "S3", "relation", "family"]
+    keys_ok = all(set(p) <= {"scenario_id", "steps", "variants", "probe", "confirm"} for p in om)
+    texts = [public_blob(p) + "\n" + p.get("confirm", "") for p in om]
+    leaked = sum(1 for t in texts for w in leak_words if w in t)
+    out["manifest_blinding"] = {"pass": keys_ok and leaked == 0, "manifest_keys_only_public": keys_ok,
+                                "label_or_structure_tokens_in_model_facing_text": leaked, "rows": len(om)}
     from aivd_rc5_gen.scoring.score import score_all, score_model
     scored, pipe = {}, {}
     for m in MODELS3:
@@ -309,7 +341,7 @@ def main() -> None:
                  "Generated by `scripts/rc5_gen_design_audit.py --write`; no model call, no Ollama request, no provider run.", "",
                  "## Proven now (design phase)", "", "| check | result | what it proves |", "|---|---|---|"]
         lines += [f"| {k} | {'PASS' if out[k]['pass'] else 'FAIL'} | {PROVEN_NOW[k]} |" for k in out]
-        lines += ["", "## Findings", ""] + ([f"- **{f['id']}**: {f['detail']}" for f in findings] or ["- None. (The earlier SPEC_CONTRADICTION_EXPOSURE finding is resolved by amendment A1: discovery 372 = 108 x 3 + 12 x 4, slack 0.)"]) + [
+        lines += ["", "## Findings", ""] + ([f"- **{f['id']}**: {f['detail']}" for f in findings] or ["- None. (The earlier SPEC_CONTRADICTION_EXPOSURE finding is resolved by amendment A1: discovery 372 = 108 x 3 + 12 x 4, slack 0. Amendment A2 keeps that shape mix: 2 branch kinds per construction set.)"]) + [
                   "", "## Deferred (cannot be proven before generation / execution)", ""]
         lines += [f"- **{k}**: {v}" for k, v in DEFERRED.items()]
         (d / "DESIGN_AUDIT.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

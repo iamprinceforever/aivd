@@ -2,8 +2,9 @@
 
 The experimenter (blind runner: frozen discovery, investigation, verification) may never open:
   * the RC5 protected store (every block seal, wire dumps, full ledgers) and its backup;
-  * the RC5 provider and scorer source packages (incl. __pycache__) and scripts, and the RC5
-    contamination scanner (it loads prior seals);
+  * the RC5 provider and scorer source packages (incl. __pycache__) and scripts, the RC5
+    contamination scanner (it loads prior seals) and (amendment A2) the structural / novelty auditors
+    (they expose family, block and canonical_structure_id);
   * the whole POST-RC3-LOCAL-V1 report directory and its seal backup;
   * the whole AIVD-RC4-MULTI-V1 report directory and its seal backup, and the RC4 provider/scorer
     packages (incl. the RC4 F extension);
@@ -20,7 +21,10 @@ from aivd_rc5_gen.models import MODEL_DIRS, MODELS
 PKG = Path(__file__).resolve().parent
 PROVIDER_PATHS = [PKG / "provider", PKG / "assemble.py", Path("scripts/rc5_gen_provider.py"), Path("scripts/rc5_gen_bind_corpus.py")]
 SCORER_PATHS = [PKG / "scoring", Path("scripts/rc5_gen_score.py")]
-SCANNER_PATHS = [PKG / "scan", Path("scripts/rc5_gen_contamination_scan.py")]
+# amendment A2: the structural / novelty auditors read the generator topology (family, block,
+# canonical_structure_id) and the prior seals, so they are denied to the experimenter like the scanner.
+SCANNER_PATHS = [PKG / "scan", Path("scripts/rc5_gen_contamination_scan.py"), PKG / "audit_structural.py",
+                 PKG / "novelty.py"]
 RC4_CODE_PATHS = [Path("aivd_rc4_multi/provider"), Path("aivd_rc4_multi/scoring")]
 
 

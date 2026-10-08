@@ -10,7 +10,9 @@ from aivd_rc3.verifier import RELATIONS as FROZEN_RELATIONS, judge
 
 from aivd_rc5_gen.confirm import classify as confirm_class
 from aivd_rc5_gen.models import MODELS
-from aivd_rc5_gen.provider.generator import twins
+from aivd_rc5_gen.provider.generator import BLOCK_BY_KIND, structure_group, twins
+
+CONSTRUCTION_SET_OF_KIND = {k: f"S{b}" for k, b in BLOCK_BY_KIND.items()}
 from aivd_rc5_gen.scoring import dedup, endpoints
 
 
@@ -50,6 +52,11 @@ def score_all(scored: dict, seal: dict, *, contamination_pass: bool, historical_
     targets = {t["scenario_id"]: t for t in seal["targets"]}
     block_of = {s: t["block"] for s, t in targets.items()}
     family_of = {s: t["relation"] for s, t in targets.items() if t["family"] == "security"}
+    # amendment A2: structural identity comes from the provider seal (canonical_structure_id recomputed from
+    # the kind by the generator, never from ids/values/notes/output), and the construction set is S<block>.
+    structure_of = {s: structure_group(t["kind"]) for s, t in targets.items() if t["family"] == "security"}
+    construction_set_of = {s: CONSTRUCTION_SET_OF_KIND.get(t["kind"]) for s, t in targets.items()
+                           if t["family"] == "security"}
     triples, fp, integrity, ready, failures = [], 0, 0, {}, {}
     records = []
     for m in MODELS:
@@ -68,7 +75,9 @@ def score_all(scored: dict, seal: dict, *, contamination_pass: bool, historical_
                 t = targets[r["scenario_id"]]
                 records.append({   # every verified discovery: identity, model, family, provenance, evidence
                     "sealed_target": r["scenario_id"], "model_id": m, "family": t["relation"], "block": t["block"],
-                    "kind": t["kind"], "protected_provenance": r.get("claim_provenance"),
+                    "kind": t["kind"], "construction_set": CONSTRUCTION_SET_OF_KIND.get(t["kind"]),
+                    "canonical_structure_id": structure_group(t["kind"]),
+                    "protected_provenance": r.get("claim_provenance"),
                     "raw_model_evidence": {k: c.get(k) for k in ("preserved_output", "contrast_output",
                                                                   "swap_output", "verification_output")},
                     "verification_result": r["stage"], "relation_detail": r.get("relation_detail"),
@@ -82,7 +91,8 @@ def score_all(scored: dict, seal: dict, *, contamination_pass: bool, historical_
         endpoints.E_CROSS: endpoints.e_cross(by_model, family_of, fp=fp, ambiguous=amb),
         endpoints.E_ROBUST: endpoints.e_robust(counted, block_of, family_of, d["verified_by"], expo, fp=fp,
                                                ambiguous=amb, contamination_pass=contamination_pass,
-                                               integrity_failures=integrity),
+                                               integrity_failures=integrity, structure_of=structure_of,
+                                               construction_set_of=construction_set_of),
         "descriptive": endpoints.descriptive(counted, block_of, family_of, d["verified_by"], expo, ready, failures),
         "dedup": d, "verified_discovery_records": records,
         "false_positives": fp, "integrity_failures": integrity, "contamination_pass": contamination_pass,

@@ -25,8 +25,8 @@ from aivd_rc5_gen.models import IDENTITY, MODELS, RUNTIME_IDENTITY
 from aivd_rc5_gen.orders import check_interleave, common_order_ids, order_record, ordered_manifest
 from aivd_rc5_gen.provider import exclusion as X
 from aivd_rc5_gen.provider.generator import (
-    BENIGN_COVERAGE, BRANCH_KINDS, CONFIRM, CONSTRUCTIONS_BY_FAMILY, FAMILIES, KINDS, KINDS_BY_FAMILY, RC3_KINDS,
-    RELATION_BY_KIND, draw_block, public_for, twins)
+    BENIGN_COVERAGE, BLOCK_BY_KIND, BRANCH_KINDS, CANONICAL_BY_KIND, CONFIRM, CONSTRUCTIONS_BY_FAMILY, FAMILIES, KINDS,
+    KINDS_BY_BLOCK, KINDS_BY_FAMILY, RC3_KINDS, RELATION_BY_KIND, draw_block, public_for, twins)
 from aivd_rc5_gen.scan.contamination import check_cross_block, check_prior, check_rc5_public
 from aivd_rc5_gen.scoring import dedup, endpoints
 from aivd_rc5_gen.scoring.score import exposure, score_all, score_model
@@ -117,7 +117,7 @@ def test_bind_installs_whole_corpus_allocation(rc5_bound):
 def test_endpoints_in_preregistration_are_exact():
     e = PREREG["endpoints"]
     assert set(e) >= {"E_CROSS_FAMILY", "E_ROBUST_UNSEEN"}
-    assert len(e["E_CROSS_FAMILY"]["conditions"]) == 6 and len(e["E_ROBUST_UNSEEN"]["conditions"]) == 7
+    assert len(e["E_CROSS_FAMILY"]["conditions"]) == 6 and len(e["E_ROBUST_UNSEEN"]["conditions"]) == 9   # A2: +(8),(9)
     assert e["E_CROSS_FAMILY"]["pass_string"] == "CROSS-FAMILY GENERALIZATION DEMONSTRATED"
     assert e["E_ROBUST_UNSEEN"]["pass_string"] == \
         "ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED"
@@ -166,9 +166,12 @@ def test_full_exposure_worst_case_and_audit_case_orders(synth_corpus):
 
 
 def test_frozen_discovery_cost_matches_config(synth_blocks):
+    # A2: 60 kinds, each drawn in exactly ONE block (x {security, benign twin}) -> factor 2, not 6.
     shape = {k: ("branch" if k in BRANCH_KINDS else "two_step") for k in KINDS}
-    assert sum(1 for s in shape.values() if s == "branch") * 6 == C.BRANCH_SCENARIOS      # x {sec, benign} x 3 blocks
-    assert sum(1 for s in shape.values() if s == "two_step") * 6 == C.TWO_STEP_SCENARIOS
+    assert sum(1 for s in shape.values() if s == "branch") * 2 == C.BRANCH_SCENARIOS == 12
+    assert sum(1 for s in shape.values() if s == "two_step") * 2 == C.TWO_STEP_SCENARIOS == 108
+    for b in BLOCKS:
+        assert sum(1 for k in KINDS_BY_BLOCK[b] if k in BRANCH_KINDS) == 2
 
 
 def test_predicted_exposure_equals_frozen_discovery_exposure(tmp_path, rc5_bound, synth_corpus):
@@ -197,12 +200,13 @@ def test_block_shape_4_per_family_and_twins(synth_blocks):
         assert len(tw) == 20
 
 
-def test_corpus_scope_20_fresh_kinds_no_rc4_no_f():
-    assert len(KINDS) == 20 and RC3_KINDS == ()
+def test_corpus_scope_60_fresh_kinds_no_rc4_no_f():
+    assert len(KINDS) == 60 and RC3_KINDS == ()
+    assert all(len(v) == 20 for v in KINDS_BY_BLOCK.values())
     assert not (set(KINDS) & EXCLUDED_KINDS) and not (set(KINDS) & EXCLUDED_RC4_AE_KINDS)
     assert len(EXCLUDED_RC4_AE_KINDS) == 6 and not (set(KINDS) & EXCLUDED_F_KINDS)
     assert set(RELATION_BY_KIND.values()) <= set(FROZEN_RELATIONS)
-    assert all(len(v) >= 3 for v in CONSTRUCTIONS_BY_FAMILY.values())
+    assert all(len(v) == 12 for v in CONSTRUCTIONS_BY_FAMILY.values())
     assert sorted(sum(BENIGN_COVERAGE.values(), [])) == sorted(KINDS)
 
 
@@ -235,7 +239,9 @@ def test_structural_independence_within_each_family():
     si = N.check_structural_independence()
     assert si["pass"] and si["distinct_descriptors"]
     for fam, d in si["families"].items():
-        assert d["constructions"] >= 3 and d["shared_fragments"] == 0 and d["shared_shingles"] == 0, fam
+        assert d["constructions"] == 12 and d["per_block"] == {1: 4, 2: 4, 3: 4}, fam
+        assert d["shared_fragments"] == 0 and d["shared_shingles"] == 0, fam
+    assert N.check_cross_family_text_independence()["pass"]
     assert set(N.STRUCTURE) == set(KINDS)
 
 
@@ -247,8 +253,11 @@ def test_family_c_public_text_carries_frozen_marker():
 
 @pytest.mark.parametrize("kind", KINDS)
 def test_every_construction_scorable_by_unmodified_frozen_judge(kind, tmp_path, rc5_bound):
-    full = draw_block(1, b"\x42" * 32, synthetic=True)
-    seal = dict(full, targets=[dict(r, block=1) for r in full["targets"] if r["kind"] == kind])
+    """All 60 constructions (S1, S2, S3): security VERIFIED, benign twin CORRECTLY_REJECTED (synthetic)."""
+    b = BLOCK_BY_KIND[kind]
+    full = draw_block(b, bytes([0x42 + b]) * 32, synthetic=True)
+    seal = dict(full, targets=[r for r in full["targets"] if r["kind"] == kind])
+    assert all(r["block"] == b for r in seal["targets"]) and len(seal["targets"]) == 2
     j = judge(_run(tmp_path, LLAMA, seal, public_manifest(seal)), seal)
     assert [r["stage"] for r in j["rows"]] == ["VERIFIED_SECURITY_DISCOVERY"]
     assert [r["classification"] for r in j["benign_rows"]] == ["CORRECTLY_REJECTED"]
@@ -403,9 +412,10 @@ def test_confirmation_context_differs_and_is_label_free(synth_blocks):
         p = public_for(k, "sc-0000000000c1")
         sink = p["steps"][1] if "steps" in p else p["probe"]
         assert p["confirm"] != sink and p["confirm"] == CONFIRM[k].format(sid="sc-0000000000c1")
-    for r in synth_blocks[1]["targets"]:
-        tw = next(x for x in synth_blocks[1]["targets"] if x["kind"] == r["kind"] and x["family"] != r["family"])
-        assert r["public"]["confirm"].replace(r["scenario_id"], "") == tw["public"]["confirm"].replace(tw["scenario_id"], "")
+    for b in BLOCKS:
+        for r in synth_blocks[b]["targets"]:
+            tw = next(x for x in synth_blocks[b]["targets"] if x["kind"] == r["kind"] and x["family"] != r["family"])
+            assert r["public"]["confirm"].replace(r["scenario_id"], "") == tw["public"]["confirm"].replace(tw["scenario_id"], "")
 
 
 def test_confirm_map_refuses_missing_or_identical_context():
@@ -499,7 +509,10 @@ def test_e_robust_unseen_conditions():
     counted = [f"s{i}" for i in range(6)]
     vb = {s: [LLAMA] for s in counted}
     full = {m: {"security_exposed": 60, "benign_exposed": 60} for m in MODELS}
-    kw = dict(fp=0, ambiguous=0, contamination_pass=True, integrity_failures=0)
+    struct = {f"s{i}": f"cs-{i:02d}" for i in range(12)}                # each target its own construction
+    cset = {s: f"S{blk[s]}" for s in blk}
+    kw = dict(fp=0, ambiguous=0, contamination_pass=True, integrity_failures=0, structure_of=struct,
+              construction_set_of=cset)
     ok = endpoints.e_robust(counted, blk, fam, vb, full, **kw)
     assert ok["status"] == "PASS" and ok["statement"].startswith(
         "ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED")
@@ -766,3 +779,293 @@ def test_frozen_experimenter_modules_carry_no_label_hints():
         src = Path(f).read_text()
         for needle in ("RELATION_BY_KIND", "SECURITY_SCHEMAS", "BENIGN_NOTES", "final_seal", "rc5"):
             assert needle not in src, (f, needle)
+
+
+# ---------------- amendment A2: structural block independence ----------------
+
+def test_amendment_a2_recorded_and_budget_unchanged():
+    am = [a for a in PREREG["amendments"] if a["id"] == "A2_STRUCTURAL_BLOCK_INDEPENDENCE"]
+    assert len(am) == 1 and am[0]["decided_by"] == "user" and am[0]["phase"] == "DESIGN"
+    assert am[0]["budget_changed"] is False and am[0]["constructions_per_family_per_block"] == 4
+    assert am[0]["constructions_total"] == 60 and am[0]["reason"] and am[0]["changed"]
+    assert [a["id"] for a in PREREG["amendments"]] == ["A1_DISCOVERY_BUDGET", "A2_STRUCTURAL_BLOCK_INDEPENDENCE"]
+    assert PREREG["budget"]["per_model"] == {"discovery": 372, "investigation": 48, "verification": 30, "repeat": 6, "total": 456}
+    assert PREREG["budget"]["total_max"] == 1368 and PREREG["execution"]["model_calls"] == 0
+    e = PREREG["endpoints"]["E_ROBUST_UNSEEN"]
+    assert e["independence"]["required"] == "BOTH" and e["pass_string_changed"] is False
+    assert PREREG["endpoints"]["E_CROSS_FAMILY"]["pass_string"] == "CROSS-FAMILY GENERALIZATION DEMONSTRATED"
+
+
+def test_construction_sets_disjoint_4_per_family_per_block():
+    for f in FAMILIES:
+        per = {b: {k for k in KINDS_BY_FAMILY[f] if BLOCK_BY_KIND[k] == b} for b in BLOCKS}
+        assert all(len(v) == 4 for v in per.values()), f
+        assert per[1].isdisjoint(per[2]) and per[1].isdisjoint(per[3]) and per[2].isdisjoint(per[3])
+        canon = {b: {CANONICAL_BY_KIND[k] for k in per[b]} for b in BLOCKS}
+        assert all(len(v) == 4 for v in canon.values())                               # 4 distinct structures
+        assert canon[1].isdisjoint(canon[2]) and canon[1].isdisjoint(canon[3]) and canon[2].isdisjoint(canon[3])
+    assert len(set(CANONICAL_BY_KIND.values())) == 60
+
+
+def test_blocks_drawn_only_from_own_construction_set(synth_blocks):
+    for b, seal in synth_blocks.items():
+        assert {r["kind"] for r in seal["targets"]} == set(KINDS_BY_BLOCK[b])
+        assert all(r["construction_set"] == f"S{b}" and r["block"] == b for r in seal["targets"])
+        sec = [r for r in seal["targets"] if r["family"] == "security"]
+        ben = [r for r in seal["targets"] if r["family"] == "benign"]
+        assert len(sec) == 20 and len(ben) == 20
+        assert {r["kind"] for r in sec} == {r["kind"] for r in ben}                     # matched twins
+        for f in FAMILIES:
+            assert sum(1 for r in sec if r["relation"] == f) == 4
+    kinds = [{r["kind"] for r in s["targets"]} for s in synth_blocks.values()]
+    assert kinds[0].isdisjoint(kinds[1]) and kinds[0].isdisjoint(kinds[2]) and kinds[1].isdisjoint(kinds[2])
+
+
+def test_per_family_blocks_differ_in_structural_axis():
+    from aivd_rc5_gen.provider.generator import AXIS, SINK_OPS, topology
+    for f in FAMILIES:
+        axes = {AXIS[(f, b)] for b in BLOCKS}
+        ops = {tuple(SINK_OPS[(f, b)]) for b in BLOCKS}
+        assert len(axes) == 3, f                                   # three different construction axes
+        tops = {b: {json.dumps(topology(k), sort_keys=True) for k in KINDS_BY_FAMILY[f] if BLOCK_BY_KIND[k] == b}
+                for b in BLOCKS}
+        assert tops[1].isdisjoint(tops[2]) and tops[1].isdisjoint(tops[3]) and tops[2].isdisjoint(tops[3])
+        # families need not differ in the same way, but every family's S1/S2/S3 differ in >= 2 of the
+        # structural fields (axis, sink composition, boundary, transition); E keeps its sink ops and differs
+        # in axis + boundary (+ transition for S3), A/B/C/D differ in axis + sink composition (+ more).
+        from aivd_rc5_gen.provider.generator import BOUNDARY, TRANSITION
+        fields = [AXIS, SINK_OPS, BOUNDARY, TRANSITION]
+        differing = sum(1 for tbl in fields if len({json.dumps(tbl[(f, b)]) for b in BLOCKS}) > 1)
+        assert differing >= 2, (f, differing, len(ops))
+
+
+def test_canonical_structure_id_ignores_id_value_note_seed_output():
+    """The canonical id is a pure function of the construction's topology: rows drawn from different seeds
+    (different ids, tokens, notes) share it; changing the wording of a note does not change it."""
+    from aivd_rc5_gen.provider import generator as G
+    a = G.draw_block(1, b"\x01" * 32, synthetic=True)
+    b = G.draw_block(1, b"\x02" * 32, synthetic=True)
+    ca = {r["kind"]: r["canonical_structure_id"] for r in a["targets"]}
+    cb = {r["kind"]: r["canonical_structure_id"] for r in b["targets"]}
+    assert ca == cb and {r["scenario_id"] for r in a["targets"]}.isdisjoint({r["scenario_id"] for r in b["targets"]})
+    k = G.KINDS_BY_BLOCK[1][0]
+    before = G.canonical_structure_id(k)
+    saved = G.SECURITY_NOTE[k]
+    try:
+        G.SECURITY_NOTE[k] = "completely different wording {token}"
+        assert G.canonical_structure_id(k) == before
+    finally:
+        G.SECURITY_NOTE[k] = saved
+    src = Path("aivd_rc5_gen/provider/generator.py").read_text()
+    body = src[src.index("def topology("):src.index("def canonical_structure_id(")]
+    for forbidden in ("token", "note", "scenario_id", "seed", "SCHEMAS[kind][5]", "output"):
+        assert forbidden not in body.split('"""')[2], forbidden   # code (not docstring) never reads these
+
+
+def test_structural_ledger_provider_side_without_protected_values(synth_blocks):
+    from aivd_rc5_gen.provider.generator import structural_ledger
+    for b, seal in synth_blocks.items():
+        led = structural_ledger(seal)
+        assert len(led) == 40
+        assert all(set(x) == {"scenario_id", "family", "block", "construction_set", "canonical_structure_id",
+                              "body_digest"} for x in led)
+        text = json.dumps(led)
+        for r in seal["targets"]:
+            if r["token"]:
+                assert r["token"] not in text and swap(r["token"]) not in text
+            assert r["note"] not in text
+        assert {x["construction_set"] for x in led} == {f"S{b}"}
+
+
+def test_public_manifest_does_not_leak_family_kind_block_or_structure(synth_corpus):
+    from aivd_rc3.discover import public_blob
+    from aivd_rc5_gen.provider.generator import public_metadata
+    words = [*FAMILIES, *KINDS, *CANONICAL_BY_KIND.values(), "construction_set", "canonical_structure_id"]
+    for p in synth_corpus["ordered"]:
+        assert set(p) <= {"scenario_id", "steps", "variants", "probe", "confirm"}
+        blob = public_blob(p) + p["confirm"]
+        assert not any(w in blob for w in words)
+    for b, seal in synth_corpus["blocks"].items():
+        view = json.dumps(public_metadata(seal))
+        assert "canonical_structure_id" not in view and not any(c in view for c in CANONICAL_BY_KIND.values())
+        assert not any(f in view for f in FAMILIES)
+
+
+def test_structural_audit_E_to_H_pass_and_counts_only():
+    from aivd_rc5_gen import audit_structural as S
+    r = S.audit()
+    assert r["pass"]
+    for key in ("E_normalized_construction_reuse", "F_construction_id_reuse_across_blocks",
+                "G_rc4_construction_reuse", "H_local_v1_construction_reuse", "blocks_structurally_distinct",
+                "generic_signature_separates_rc5"):
+        assert r[key]["pass"], key
+    assert r["G_rc4_construction_reuse"]["rc5_constructions_reusing_prior"] == 0
+    assert r["H_local_v1_construction_reuse"]["rc5_constructions_reusing_prior"] == 0
+    flat = json.dumps({k: v for k, v in r.items() if k != "blocks_structurally_distinct"})
+    prior = X.load_prior_seals()
+    for seal in prior.values():
+        for t in seal["targets"]:
+            assert t["scenario_id"] not in flat and (not t["token"] or t["token"] not in flat)
+
+
+def test_novelty_a_to_h_all_pass_separately(synth_blocks):
+    r = N.audit_a_to_h(synth_blocks)
+    assert r["pass"] and r["passed"] == r["total"] == 8
+    for k in ("A_exact_id_reuse", "B_exact_protected_value_reuse", "C_exact_note_reuse", "D_exact_body_digest_reuse",
+              "E_normalized_construction_reuse", "F_construction_id_reuse_across_blocks", "G_rc4_construction_reuse",
+              "H_local_v1_construction_reuse"):
+        assert r[k]["pass"], k
+
+
+def test_novelty_checks_detect_violations(synth_blocks):
+    """Negative controls: each literal check fires on an injected violation (pass/fail + counts only)."""
+    prior = X.load_prior_seals()
+    ex = X.build(prior)
+    src = next(r for r in prior["RC4"]["targets"] if r["token"])
+    bad = copy.deepcopy(synth_blocks); bad[1]["targets"][0]["scenario_id"] = src["scenario_id"]
+    assert not N.check_A_exact_id_reuse(prior, bad)["pass"]                                        # A
+    bad = copy.deepcopy(synth_blocks); bad[1]["targets"][0]["token"] = src["token"]
+    assert not N.check_B_exact_value_reuse(bad, ex)["pass"]                                        # B
+    bad = copy.deepcopy(synth_blocks); bad[2]["targets"][0] = copy.deepcopy(prior["RC4"]["targets"][0])
+    assert not N.check_D_body_digest_reuse(bad, ex)["pass"]                                        # D prior body
+    bad = copy.deepcopy(synth_blocks); bad[3]["targets"][0] = copy.deepcopy(synth_blocks[1]["targets"][0])
+    r = N.check_D_body_digest_reuse(bad, ex)
+    assert not r["pass"] and r["cross_block_identical_bodies"] == 1                                 # D cross-block
+    for v in (N.check_A_exact_id_reuse(prior, bad), r):
+        assert src["scenario_id"] not in json.dumps(v)
+
+
+def test_note_reuse_check_detects_copied_prior_note(monkeypatch):
+    from aivd_rc5_gen.provider import generator as G
+    prior = X.load_prior_seals()
+    src = next(r for r in prior["RC4"]["targets"] if r["family"] == "security")
+    copied = src["note"].replace(src["token"], "{token}")
+    k = G.KINDS[0]
+    monkeypatch.setitem(G.SECURITY_NOTE, k, copied)
+    r = N.check_C_exact_note_reuse(prior)
+    assert not r["pass"] and r["exact"] >= 1 and src["token"] not in json.dumps(r)
+
+
+def test_structural_checks_detect_rc4_construction_reintroduced_by_mutation():
+    """G/H: an RC4 or LOCAL-V1 construction re-introduced with a fresh id (mutation) collides; and a renamed
+    RC5 copy in another block collapses under E / F."""
+    from aivd_rc5_gen import audit_structural as S
+    prior = X.load_prior_seals()
+    for name in ("RC4", "LOCAL_V1"):
+        sigs = S.prior_signature_ids(prior[name])
+        for t in (r for r in prior[name]["targets"] if r["family"] == "security"):
+            old, new = t["public"]["scenario_id"], "sc-abcdefabcdef"
+            pub = {k: ([x.replace(old, new) for x in v] if isinstance(v, list) else
+                       (v.replace(old, new) if isinstance(v, str) else v)) for k, v in t["public"].items()}
+            assert S.generic_signature_id(pub) in sigs, (name, t["kind"])
+
+
+def test_renamed_copy_across_blocks_is_caught(monkeypatch):
+    from aivd_rc5_gen import audit_structural as S
+    from aivd_rc5_gen.provider import generator as G
+    k1 = next(k for k in G.KINDS_BY_BLOCK[1] if G.RELATION_BY_KIND[k] == FAMILIES[0])
+    k2 = next(k for k in G.KINDS_BY_BLOCK[2] if G.RELATION_BY_KIND[k] == FAMILIES[0])
+    monkeypatch.setitem(G.CANONICAL_BY_KIND, k2, G.CANONICAL_BY_KIND[k1])                # a renamed copy
+    assert not S.check_E_normalized_construction_reuse()["pass"]
+    assert not S.check_F_cross_block_construction_reuse()["pass"]
+
+
+def test_e_robust_structural_conditions_8_and_9():
+    fam = _fam(12)
+    blk = {f"s{i}": 1 + i % 3 for i in range(12)}
+    counted = [f"s{i}" for i in range(6)]
+    vb = {s: [LLAMA] for s in counted}
+    full = {m: {"security_exposed": 60, "benign_exposed": 60} for m in MODELS}
+    cset = {s: f"S{blk[s]}" for s in blk}
+    base = dict(fp=0, ambiguous=0, contamination_pass=True, integrity_failures=0, construction_set_of=cset)
+    distinct = {f"s{i}": f"cs-{i:02d}" for i in range(12)}
+    ok = endpoints.e_robust(counted, blk, fam, vb, full, structure_of=distinct, **base)
+    assert ok["status"] == "PASS" and ok["independence"] == {"instance": True, "structural": True}
+    # (9) renamed copies: both block-1 discoveries are the same construction -> NOT independent
+    same = dict(distinct, s3=distinct["s0"])
+    r = endpoints.e_robust(counted, blk, fam, vb, full, structure_of=same, **base)
+    assert r["status"] == "NOT_DEMONSTRATED" and r["conditions"]["9_ge_2_structurally_distinct_constructions_each_block"] is False
+    assert r["conditions"]["2_ge_2_each_block"] is True                         # instance-independent only
+    # (8) a counted block-2 discovery from another block's construction set
+    wrong = dict(cset, s1="S1")
+    r = endpoints.e_robust(counted, blk, fam, vb, full, structure_of=distinct,
+                           **dict(base, construction_set_of=wrong))
+    assert r["status"] == "NOT_DEMONSTRATED" and r["conditions"]["8_each_block_from_own_construction_set"] is False
+    # missing structural data never passes
+    r = endpoints.e_robust(counted, blk, fam, vb, full, **dict(base, construction_set_of=None))
+    assert r["status"] == "NOT_DEMONSTRATED"
+
+
+def test_whole_corpus_all_120_reachable_and_every_model_60_60(tmp_path, rc5_bound, synth_corpus):
+    """Fake-model whole-corpus run for each model: all 120 in the common order are explored within 372,
+    60/60 security and 60/60 benign exposed; the common order holds all 120 ids exactly once; per block
+    20 + 20; per family 4 security per block. No model / network call (autouse _no_network)."""
+    import urllib.request
+    asm, order = synth_corpus["assembled"], synth_corpus["order"]["order"]
+    assert len(order) == 120 and len(set(order)) == 120 and set(order) == {t["scenario_id"] for t in asm["targets"]}
+    for b in BLOCKS:
+        rows = [t for t in asm["targets"] if t["block"] == b]
+        assert sum(t["family"] == "security" for t in rows) == 20 and sum(t["family"] == "benign" for t in rows) == 20
+        for f in FAMILIES:
+            assert sum(1 for t in rows if t["family"] == "security" and t["relation"] == f) == 4
+    with pytest.raises(AssertionError, match="real network call"):
+        urllib.request.urlopen("http://127.0.0.1:11434/api/chat")                    # the guard is live
+    for m in MODELS:
+        d = tmp_path / m.replace(":", "_"); d.mkdir()
+        L = _run(d, m, asm, synth_corpus["ordered"], order_sha=synth_corpus["order"]["common_order_sha256"])
+        ex = exposure(L, asm)
+        assert L["stage_calls"]["discovery"] == 372 and len(set(L["explored"])) == 120
+        assert ex["security_exposed"] == 60 and ex["benign_exposed"] == 60
+
+
+def test_worst_case_exposure_under_a2_shape_mix(synth_corpus):
+    asm = synth_corpus["assembled"]
+    shape = {t["scenario_id"]: ("branch" if "variants" in t["public"] else "two_step") for t in asm["targets"]}
+    assert sum(v == "branch" for v in shape.values()) == 12 and sum(v == "two_step" for v in shape.values()) == 108
+    for b in BLOCKS:
+        assert sum(1 for t in asm["targets"] if t["block"] == b and shape[t["scenario_id"]] == "branch") == 4
+    worst = sorted(shape, key=lambda s: (shape[s] != "branch", s))
+    e = C.exposure_within_budget(worst, shape)
+    assert e["full_exposure"] and e["calls_used"] == 372 and C.DISCOVERY_LIMIT - e["calls_used"] == 0
+
+
+def test_cross_block_identical_body_blocks_contamination_gate(synth_blocks):
+    dup = copy.deepcopy(synth_blocks[2]); dup["targets"][5] = copy.deepcopy(synth_blocks[1]["targets"][5])
+    r = check_cross_block([synth_blocks[1], dup, synth_blocks[3]])
+    assert not r["pass"] and r["identical_bodies_across_blocks"] == 1
+    assert check_cross_block(list(synth_blocks.values()))["identical_bodies_across_blocks"] == 0
+
+
+def test_provider_refuses_block_drawn_from_foreign_construction_set(tmp_path, synthetic_prior, monkeypatch):
+    from aivd_rc5_gen.provider import run_once as R
+    from aivd_rc5_gen.provider import generator as G
+    ex = X.build({"RC4": _foreign_prior(b"\x11" * 32)}, salt="s")
+    real = G.draw_block
+    monkeypatch.setattr(R, "draw_block", lambda b, seed=None, synthetic=False: real(2, seed, synthetic=synthetic) | {"block": b})
+    base, backup, reports = tmp_path / "rep", tmp_path / "bak", tmp_path / "reports"
+    reports.mkdir()
+    with pytest.raises(R.ProviderRefused, match="own construction set"):
+        R.generate_block(1, base, backup, reports=reports, prior=synthetic_prior, exclusion=ex, seed=b"\x71" * 32, synthetic=True)
+    assert not (base / "protected").exists()
+
+
+def test_provider_writes_structural_ledger_and_commits_by_hash_only(tmp_path, synthetic_prior):
+    import hashlib
+    from aivd_rc5_gen.provider.run_once import generate_block
+    ex = X.build({"RC4": _foreign_prior(b"\x11" * 32)}, salt="s")
+    base, backup, reports = tmp_path / "rep", tmp_path / "bak", tmp_path / "reports"
+    reports.mkdir()
+    generate_block(1, base, backup, reports=reports, prior=synthetic_prior, exclusion=ex, seed=b"\x71" * 32, synthetic=True)
+    led = base / "protected" / "block_1" / "structural_ledger.json"
+    summ = json.loads((base / "final" / "block_1" / "corpus_summary.json").read_text())
+    assert summ["structural_ledger_sha256"] == hashlib.sha256(led.read_bytes()).hexdigest()
+    assert summ["construction_set"] == "S1" and summ["structural_audit_pass"] is True
+    pub = (base / "final" / "block_1" / "public_manifest.json").read_text()
+    assert "canonical_structure_id" not in pub and not any(f in pub for f in FAMILIES)
+
+
+def test_isolation_denies_structural_auditors_to_experimenter():
+    from aivd_rc5_gen.isolation import forbidden_for
+    paths = {str(p) for p in forbidden_for(LLAMA)}
+    assert any(p.endswith("aivd_rc5_gen/audit_structural.py") for p in paths)
+    assert any(p.endswith("aivd_rc5_gen/novelty.py") for p in paths)

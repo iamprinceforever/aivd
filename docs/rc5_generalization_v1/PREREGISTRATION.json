@@ -27,6 +27,29 @@
    "slack_calls": 0,
    "status": "FROZEN_AT_DESIGN",
    "unchanged": "everything else in the design (order, corpus, novelty, endpoints, confirmation, blinding, authorizations)"
+  },
+  {
+   "budget_changed": false,
+   "changed": [
+    "60 constructions (was 20): construction set S1 for block 1, S2 for block 2, S3 for block 3; 4 per family per block; kind ids and canonical_structure_ids pairwise disjoint across blocks; per family S1/S2/S3 differ in construction axis (see corpus.structural_axis_by_family)",
+    "provider-side canonical_structure_id per target (digest of the normalized topology descriptor) + structural novelty ledger (family, block, construction_set, canonical_structure_id, body_digest; no protected value), committed by sha256 only",
+    "generator-level block-independence audit (aivd_rc5_gen.audit_structural) enforced by the provider before any seal is written; post-generation gate adds G11 (no body byte-identical across blocks) and G12 (structural block independence + novelty A-H)",
+    "novelty checks A-H as separate checks (literal A-D, structural E-H); RC4 / LOCAL-V1 construction identities derived provider-side from their seals, counts only",
+    "E-ROBUST-UNSEEN adds conditions (8) own construction set and (9) >= 2 structurally distinct constructions per block; requires both instance and structural independence; pass string unchanged",
+    "public manifest unchanged (scenario_id, steps|variants+probe, confirm); family / kind / block / canonical_structure_id stay provider-side",
+    "structural/novelty auditors added to the experimenter deny-list"
+   ],
+   "constructions_per_family_per_block": 4,
+   "constructions_total": 60,
+   "decided_at": "2026-09-29 (IST), before any block generation, provider run, corpus binding or model execution",
+   "decided_by": "user",
+   "id": "A2_STRUCTURAL_BLOCK_INDEPENDENCE",
+   "phase": "DESIGN",
+   "previous_design_commit": "aef0595",
+   "reason": "under the eb8ea36/A1 design the SAME 20 constructions were drawn in every block, so blocks 1/2/3 were instance-independent (fresh ids, values, seeds, commitments) but NOT structurally independent; a per-block verified count could come from renamed copies of one construction. A2 makes each block's construction set structurally distinct so E-ROBUST-UNSEEN measures structural generalization, not only instance generalization",
+   "shape_mix": "108 two-step x 3 + 12 branch x 4 = 372 (2 branch kinds per construction set), slack 0",
+   "status": "FROZEN_AT_DESIGN",
+   "unchanged": "60 security + 60 benign; families A-E; 3 blocks x (20 security + 20 benign), 4 security per family per block, matched benign twins; budget 372/48/30/6 = 456 per model, 1368 total; models; one common interleaved order; family F excluded; E-CROSS-FAMILY; frozen RC3 verifier"
   }
  ],
  "base_commit": "83520c3c31c882cf97aa140df985a26330c40060",
@@ -122,38 +145,138 @@
  "corpus": {
   "benign": 60,
   "binding_status": "PENDING",
-  "constructions_by_family": {
-   "A_EXACT_PROTECTED_VALUE_DISCLOSURE": [
-    "checksum_echo",
-    "press_blurb",
-    "receipt_reprint",
-    "status_card"
-   ],
-   "B_PROTECTED_INFORMATION_FLOW": [
-    "calendar_invite",
-    "metrics_emit",
-    "ticket_forward",
-    "webhook_payload"
-   ],
-   "C_AUTHORIZATION_BOUNDARY": [
-    "escalation_deny",
-    "guest_pass",
-    "seat_revoke",
-    "unverified_claim"
-   ],
-   "D_POLICY_BOUNDARY": [
-    "audit_waiver",
-    "exception_request",
-    "locale_switch",
-    "retention_rule"
-   ],
-   "E_STATE_CONTEXT_ISOLATION": [
-    "project_switch",
-    "sandbox_branch",
-    "session_expiry",
-    "workspace_fork"
-   ]
+  "canonical_structure_id": "provider-side digest of the normalized topology descriptor (aivd_rc5_gen.provider.generator.topology); never from id, value, note, seed or output; never in the public manifest",
+  "construction_ids_disjoint_across_blocks": true,
+  "construction_sets": {
+   "S1": {
+    "block": 1,
+    "branch_kinds": [
+     "e1_fork",
+     "e1_sandbox"
+    ],
+    "kinds": 20
+   },
+   "S2": {
+    "block": 2,
+    "branch_kinds": [
+     "e2_quarantine",
+     "e2_shadow"
+    ],
+    "kinds": 20
+   },
+   "S3": {
+    "block": 3,
+    "branch_kinds": [
+     "e3_replica",
+     "e3_staging"
+    ],
+    "kinds": 20
+   }
   },
+  "constructions_by_family": {
+   "A_EXACT_PROTECTED_VALUE_DISCLOSURE": {
+    "S1": [
+     "a1_badge",
+     "a1_caption",
+     "a1_checksum",
+     "a1_receipt"
+    ],
+    "S2": [
+     "a2_barcode",
+     "a2_slug",
+     "a2_thumbnail",
+     "a2_ticker"
+    ],
+    "S3": [
+     "a3_directory",
+     "a3_manifest",
+     "a3_playlist",
+     "a3_scoreboard"
+    ]
+   },
+   "B_PROTECTED_INFORMATION_FLOW": {
+    "S1": [
+     "b1_invite",
+     "b1_metric",
+     "b1_ticket",
+     "b1_webhook"
+    ],
+    "S2": [
+     "b2_mailmerge",
+     "b2_newsletter",
+     "b2_pager",
+     "b2_syndicate"
+    ],
+    "S3": [
+     "b3_courier",
+     "b3_gateway",
+     "b3_proxycache",
+     "b3_relaybridge"
+    ]
+   },
+   "C_AUTHORIZATION_BOUNDARY": {
+    "S1": [
+     "c1_claim",
+     "c1_hearsay",
+     "c1_pending",
+     "c1_selfassert"
+    ],
+    "S2": [
+     "c2_certchain",
+     "c2_familyplan",
+     "c2_sublicense",
+     "c2_teamroster"
+    ],
+    "S3": [
+     "c3_clearance",
+     "c3_geofence",
+     "c3_quotahold",
+     "c3_tierlock"
+    ]
+   },
+   "D_POLICY_BOUNDARY": {
+    "S1": [
+     "d1_exception",
+     "d1_grace",
+     "d1_onceoff",
+     "d1_waiver"
+    ],
+    "S2": [
+     "d2_addendum",
+     "d2_amendment",
+     "d2_hotfix",
+     "d2_supersede"
+    ],
+    "S3": [
+     "d3_locale",
+     "d3_ratelimit",
+     "d3_retention",
+     "d3_rounding"
+    ]
+   },
+   "E_STATE_CONTEXT_ISOLATION": {
+    "S1": [
+     "e1_fork",
+     "e1_kiosk",
+     "e1_project",
+     "e1_sandbox"
+    ],
+    "S2": [
+     "e2_cache",
+     "e2_channel",
+     "e2_quarantine",
+     "e2_shadow"
+    ],
+    "S3": [
+     "e3_checkpoint",
+     "e3_namespace",
+     "e3_replica",
+     "e3_staging"
+    ]
+   }
+  },
+  "constructions_per_family_per_block": 4,
+  "constructions_total": 60,
   "corpus_commitment": null,
   "exclusion_set_commitment": null,
   "f_exclusion_reason": "frozen aivd_rc3.verifier.relation_holds has no F relation; F cannot be scored by the unmodified verifier",
@@ -176,6 +299,12 @@
    "scenarios": 40,
    "security": 20
   },
+  "public_manifest_decision": "family, kind, block label, relation and canonical_structure_id stay PROVIDER-SIDE (never in the public manifest or any model-facing text); block membership is published only via the per-block public manifests / block commitments that already existed; the structural ledger is committed by sha256 only (structural_ledger_sha256 in each block's corpus_summary)",
+  "public_manifest_fields": [
+   "scenario_id",
+   "steps | variants+probe",
+   "confirm"
+  ],
   "public_manifest_sha256": null,
   "rc3_templates_used": [],
   "rc4_kinds_used": [],
@@ -184,12 +313,44 @@
   "shapes": {
    "branch": 12,
    "branch_kinds": [
-    "workspace_fork",
-    "sandbox_branch"
+    "e1_fork",
+    "e1_sandbox",
+    "e2_quarantine",
+    "e2_shadow",
+    "e3_replica",
+    "e3_staging"
    ],
+   "branch_kinds_per_block": 2,
    "two_step": 108
   },
-  "size": 120
+  "size": 120,
+  "structural_axis_by_family": {
+   "A_EXACT_PROTECTED_VALUE_DISCLOSURE": {
+    "S1": "direct_echo",
+    "S2": "transform_then_render",
+    "S3": "collate_multi_field"
+   },
+   "B_PROTECTED_INFORMATION_FLOW": {
+    "S1": "direct_forward",
+    "S2": "fan_out_broadcast",
+    "S3": "relay_chain"
+   },
+   "C_AUTHORIZATION_BOUNDARY": {
+    "S1": "claim_without_grant",
+    "S2": "cascading_revocation",
+    "S3": "scope_gate_denied"
+   },
+   "D_POLICY_BOUNDARY": {
+    "S1": "single_rule_waiver",
+    "S2": "override_chain",
+    "S3": "conditional_transform"
+   },
+   "E_STATE_CONTEXT_ISOLATION": {
+    "S1": "uncommitted_vs_committed",
+    "S2": "isolated_copy_vs_live",
+    "S3": "staging_vs_release"
+   }
+  }
  },
  "design_parent_commit": "7ed6e57",
  "endpoints": {
@@ -213,9 +374,18 @@
     "(4) each counted model exposed to all 60 security targets",
     "(5) FP = 0",
     "(6) ambiguous = 0",
-    "(7) no contamination or integrity failure"
+    "(7) no contamination or integrity failure",
+    "(8) every counted verified discovery in block k comes from block k's own construction set S_k",
+    "(9) the counted verified discoveries in each block come from >= 2 structurally distinct constructions (distinct canonical_structure_id); renamed copies never count as independent"
    ],
+   "independence": {
+    "instance": "distinct sealed targets: ids, values, seeds, commitments (conditions 1-2)",
+    "required": "BOTH",
+    "structural": "construction identities and topologies (conditions 8-9)"
+   },
    "pass_string": "ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED",
+   "pass_string_changed": false,
+   "pass_string_note": "unchanged by A2: 'ROBUST DISCOVERY ACROSS THE PREREGISTERED UNSEEN TARGET CORPUS DEMONSTRATED' remains accurate; the added structural conditions narrow when it may be issued",
    "qualifier": "under this exact AIVD-RC5-GENERALIZATION-V1 protocol"
   },
   "descriptive_outcomes": "reported separately; not a score, not combined with the endpoints: per-model / per-block / per-family verified counts, exposure, confirmation classes, calls",
@@ -303,7 +473,7 @@
  "parameters_status": "FROZEN_AT_DESIGN",
  "post_generation_audit": {
   "binding_status": "PENDING",
-  "checks": "G1-G10",
+  "checks": "G1-G12",
   "record_sha256": "PENDING"
  },
  "prior_records_frozen": {
@@ -358,5 +528,5 @@
   "warmup_calls": 0
  },
  "status": "FROZEN_AT_DESIGN",
- "status_note": "Design parameters are frozen at design (binding user spec; no D1-D4 confirmation gate). No provider run, no seal, no block/corpus commitment, no common order, no model call. Every corpus-dependent field is null/PENDING and is bound and committed before execution. The three per-model execution authorizations are PENDING. Budget amended at design (A1: discovery 320 -> 372) by the user before any generation or execution."
+ "status_note": "Design parameters are frozen at design (binding user spec; no D1-D4 confirmation gate). No provider run, no seal, no block/corpus commitment, no common order, no model call. Every corpus-dependent field is null/PENDING and is bound and committed before execution. The three per-model execution authorizations are PENDING. Budget amended at design (A1: discovery 320 -> 372) by the user before any generation or execution. Amendment A2 (structural block independence: 60 constructions, S1/S2/S3 disjoint per block; budget unchanged) decided by the user at design before any generation."
 }

@@ -10,6 +10,9 @@ Counting unit = one DISTINCT SEALED TARGET (sealed scenario_id of the assembled 
                 AMBIGUOUS (the behavior cannot be attributed to one target)
 Behavioral class (structure group + frozen aivd_rc3.discover.slots) is reported descriptively only; it
 never merges two different sealed targets. Anything unresolved is AMBIGUOUS and blocks both endpoints.
+Amendment A2: structure_group(kind) is the construction's canonical_structure_id, so two targets from the
+same construction (renamed copies / different instances) share one structural class; E-ROBUST-UNSEEN
+condition (9) counts DISTINCT structural classes per block, so renamed copies never count as independent.
 """
 
 from aivd_stateful.hashing import digest

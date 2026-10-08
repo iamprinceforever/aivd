@@ -17,6 +17,10 @@ Checks (the DEFERRED half of the design audit; actual values/digests):
   G8 contamination of every RC5 public artifact vs RC3/RC4/LOCAL-V1 values/ids and RC5 sealed values
   G9 every security relation is a frozen RC3 relation; C targets carry an AUTHORIZED/DENIED/REVOKED marker
   G10 confirmation contexts differ from the original follow-up for all 120 scenarios
+  G11 (amendment A2) no target body / sid-normalised template byte-identical across blocks
+  G12 (amendment A2) structural block independence on the drawn blocks: each block drawn only from its
+      own construction set S_k, S1/S2/S3 construction ids and canonical_structure_ids disjoint, novelty
+      checks A-H pass (literal A-D on the real blocks, structural E-H)
 usage: rc5_gen_post_generation_audit.py
 """
 
@@ -95,6 +99,18 @@ def main() -> None:
     conf = all(t["public"].get("confirm") and t["public"]["confirm"] != (t["public"]["steps"][1] if t["public"].get("steps") else t["public"]["probe"])
                for t in assembled["targets"])
     r["G10_confirmation_non_identity"] = {"pass": conf}
+    from aivd_rc5_gen import novelty as NV
+    from aivd_rc5_gen.provider.generator import CANONICAL_BY_KIND, KINDS_BY_BLOCK
+    ident = NV.cross_block_identical_bodies(seals)
+    r["G11_no_cross_block_identical_body"] = {"pass": ident["pass"], "identical_bodies": ident["identical_bodies"],
+                                              "identical_templates": ident["identical_templates"]}
+    own = all({t["kind"] for t in seals[b]["targets"]} == set(KINDS_BY_BLOCK[b]) for b in BLOCKS)
+    canon = {b: {CANONICAL_BY_KIND[t["kind"]] for t in seals[b]["targets"]} for b in BLOCKS}
+    disjoint = all(canon[a].isdisjoint(canon[c]) for a in BLOCKS for c in BLOCKS if a < c)
+    ah = NV.audit_a_to_h(seals, prior_seals=prior_seals, exclusion=exclusion)
+    r["G12_structural_block_independence"] = {"pass": own and disjoint and ah["pass"], "own_construction_sets": own,
+                                              "canonical_disjoint": disjoint, "novelty_A_to_H_passed": ah["passed"],
+                                              "novelty_A_to_H_total": ah["total"]}
     r["pass"] = all(v["pass"] for v in r.values() if isinstance(v, dict))
     r["experiment_id"] = EXPERIMENT_ID
     out.write_text(json.dumps(r, sort_keys=True, indent=1), encoding="utf-8")
