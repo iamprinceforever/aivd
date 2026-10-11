@@ -13,9 +13,16 @@ Eligibility rule (fail closed): a file is INCLUDED only if
   * it has zero secret-pattern hits,
   * the prior-seal value scanner (when supplied) reports pass for it.
 Local machine paths are redacted to "<local-path>" in the sanitized artifact (both hashes are recorded).
-Unpublished material (the fifth release candidate's execution record, RC6 documents, the original RC6
-prereg) is represented by
-restricted placeholders that carry no paths, hashes, or findings.
+Unpublished material (the fifth release candidate's execution record, RC6 documents that fail the scans or are
+deny-listed, the original RC6 prereg) is represented by restricted placeholders that carry no paths, hashes, or
+findings.
+
+Staged RC6 readiness/design documents (STAGED below): the RC6 research tip is local only (its ancestry carries
+unpublished commits, so the RC6 pre-push gate refuses it). A short, explicitly pinned list of (path, blob id) from
+that tip is read with `git cat-file` and goes through EVERY check above except the public-ref one, plus the RC6
+deny-list (names and blob ids, via scan_outgoing). The pinned blob id must match exactly; any edit or any hit
+drops the document (fail closed). Nothing outside the pinned list is ever read from the local tip, and documents
+that fail are counted only, never listed.
 Prints counts only.
 """
 import argparse
@@ -28,7 +35,8 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from scan_rules import SECRET_RX, LOCAL_PATH_RX, is_protected_path, outcome_hits  # noqa: E402
+from scan_rules import SECRET_RX, LOCAL_PATH_RX, SEAL_KEY_RX, is_protected_path, outcome_hits  # noqa: E402
+from scan_outgoing import DENY_BLOBS, DENY_NAME_SHA256, blob_id  # noqa: E402
 
 # Public refs considered (remote-tracking refs / public tags only), in priority order (latest first per series).
 PUBLIC_REFS = [
@@ -67,13 +75,36 @@ CLAIM_RX = {
     "generalized": re.compile(r"\bGENERALI[SZ]ED\b"),
     "not_discovered": re.compile(r"\bNOT[_ ]DISCOVERED\b"),
 }
+# Pinned publication-safe RC6 documents from the local research tip (see module docstring). stage = the step of the
+# research journey the document belongs to (site-data research_journey ids).
+STAGED_REF = "local:research/aivd-rc6-partb-readiness"
+STAGED_LABEL = "RC6 Part B readiness (local research tip; not on a public ref)"
+STAGED_COMMIT = "cb8dc31fc0c7b0644cb2d45e000892c6825a1758"
+STAGED_SERIES = "RC6 (diagnostics and Part B readiness)"
+_D = "docs/rc6_investigation_diagnostics/"
+STAGED = [
+    (_D + "RC6_BREAKTHROUGH_CRITERIA.md", "ad7e2ceed3786cacf3bd26f724ce4e2e405974af", "rc6_design"),
+    (_D + "RC6_EVIDENCE_FLOW_DESIGN.md", "559e6d4aca7177f2d18d2b43968c676048a2cfee", "rc6_part_a"),
+    (_D + "RC6_EVIDENCE_COMPONENT_STUDY_PREREG_DRAFT.md", "9ef08e88d57a0bd82e2f4d7475fc1a30046d533c", "rc6_part_a"),
+    (_D + "RC6_RUNNER_DESIGN.md", "ff3b31d007e5d5e46e0f04afaf09f55f5143f012", "rc6_partb_readiness"),
+    (_D + "RC6_V1_FIELDS_SPEC.md", "1d0b57e38478fff77040630682497d26b999b17c", "rc6_partb_readiness"),
+    (_D + "RC6_MEMORY_AND_FAILURE_PLAN.md", "f1b8bddc16f9bd9e46af9e3ed6bd80ac4e89e8fb", "rc6_partb_readiness"),
+    (_D + "RC6_EXECUTION_READINESS.md", "d914ab8e328a4ad1b49fa015c9bd3f2dfaeae980", "rc6_partb_readiness"),
+    (_D + "FROZEN_ANALYSIS_HISTORY.md", "7bbf92df625f308e8425e7808f351685583c78cf", "rc6_partb_readiness"),
+    (_D + "RUNTIME_RESTORE_RECORD.md", "18f34a98fd45e56c6ae5305f76d3348d482c119e", "rc6_partb_readiness"),
+    (_D + "REVIEWER_CHECKLIST.md", "4ff6ce04d4850518853b61df5daf04a6aac1e073", "rc6_partb_readiness"),
+    (_D + "RC6_REPLICATION_PREREG_SKELETON.md", "477ae8ae602fe36a20509b56e21a4d47aa84aeab", "rc6_partb_readiness"),
+    (_D + "RC6_REPLICATION_PREREGISTRATION.md", "02b88ccf98256af86f074bdf98250a8f07d51f27", "rc6_partb_readiness"),
+    (_D + "RC6_REPLICATION_PREREG_AMENDMENT_A1.md", "8c66518a19b28dfb7de477afa63256dca61d8194", "rc6_partb_readiness"),
+]
 RESTRICTED = [
     {"id": "restricted-rc5-execution", "title": "Fifth release candidate (RC5): execution-phase record",
      "series": "RC5-GENERALIZATION-V1", "reason": "unpublished; not on any public ref; withheld pending "
      "the researcher's publication decision"},
-    {"id": "restricted-rc6-docs", "title": "RC6 investigation diagnostics and readiness documents",
-     "series": "RC6", "reason": "unpublished; pending separate review; some documents restate unpublished earlier-study "
-     "figures"},
+    {"id": "restricted-rc6-docs", "title": "Other RC6 diagnostics and readiness documents (Part A results, decision "
+     "report, readiness report and manifest, decision log, risk registers, SAP, redacted prereg candidate)",
+     "series": "RC6", "reason": "withheld: outcome-pattern hits pending human review, deny-listed by name or blob, or "
+     "restate unpublished earlier-study figures; only the pinned documents that pass every scan are archived"},
     {"id": "restricted-rc6-prereg-original", "title": "RC6 original preregistration and redaction diff",
      "series": "RC6", "reason": "withheld by rule: contains unpublished outcome references; only a redacted "
      "candidate exists and it is pending separate review"},
@@ -114,6 +145,8 @@ def main(argv=None) -> int:
     ap.add_argument("--repo", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--seal-scanner", default=None)
+    ap.add_argument("--no-staged", dest="staged", action="store_false",
+                    help="skip the pinned RC6 staged documents")
     a = ap.parse_args(argv)
     repo, out = Path(a.repo), Path(a.out)
     remote_refs = set(git(repo, "for-each-ref", "--format=%(refname)", "refs/remotes/origin", "refs/tags").split())
@@ -128,6 +161,47 @@ def main(argv=None) -> int:
                 cand[path] = (label, ref, meta.split()[2])
     items, files_for_scan = [], []
     tmp = Path(tempfile.mkdtemp(prefix="cc-scan-"))
+    staged_dropped = 0
+    have_tip = subprocess.run(["git", "-C", str(repo), "cat-file", "-e", STAGED_COMMIT + "^{commit}"],
+                              capture_output=True).returncode == 0
+    for path, pinned, stage in (STAGED if a.staged else []):
+        reasons = []
+        raw = b""
+        if not have_tip:
+            reasons.append("staged tip not present")
+        else:
+            r = subprocess.run(["git", "-C", str(repo), "rev-parse", f"{STAGED_COMMIT}:{path}"], capture_output=True,
+                               text=True)
+            if r.returncode or r.stdout.strip() != pinned:
+                reasons.append("blob differs from the pinned id")
+            else:
+                raw = git(repo, "cat-file", "blob", pinned, binary=True)
+        if raw and (blob_id(raw) in DENY_BLOBS or sha(Path(path).name.encode()) in DENY_NAME_SHA256):
+            reasons.append("deny-listed")
+        text = raw.decode("utf-8", "replace")
+        if raw and SEAL_KEY_RX.search(text):
+            reasons.append("seal-like key")
+        if reasons:
+            staged_dropped += 1
+            continue
+        commit = git(repo, "log", "-1", "--format=%H", STAGED_COMMIT, "--", path).strip()
+        sanitized = LOCAL_PATH_RX.sub("<local-path>", text)
+        hits = sorted(outcome_hits(text))
+        if hits:
+            reasons.append("outcome")
+        if any(rx.search(text) for rx in SECRET_RX.values()):
+            reasons.append("secret")
+        if is_protected_path(path):
+            reasons.append("protected")
+        f = tmp / f"{len(files_for_scan):04d}.md"
+        f.write_text(sanitized, encoding="utf-8")
+        files_for_scan.append(f)
+        items.append({"path": path, "source_ref": STAGED_REF, "source_label": STAGED_LABEL, "commit": commit,
+                      "blob": pinned, "sha256": sha(raw), "bytes": len(raw), "series": STAGED_SERIES,
+                      "title": title_of(text, path), "historical": False, "journey_stage": stage,
+                      "claims_stated_in_report": sorted(k for k, rx in CLAIM_RX.items() if rx.search(text)),
+                      "local_paths_redacted": sanitized != text, "_reasons": reasons, "_text": sanitized,
+                      "_scan_file": str(f), "_staged": True})
     for path, (label, ref, blob) in sorted(cand.items()):
         commit = git(repo, "log", "-1", "--format=%H", ref, "--", path).strip()
         public = bool(git(repo, "branch", "-r", "--contains", commit).strip()) or bool(
@@ -174,40 +248,53 @@ def main(argv=None) -> int:
     for old in dest.glob("*.md"):
         old.unlink()
     allow, index = [], []
+    items.sort(key=lambda it: bool(it.get("_staged")))  # public historical reports first, staged RC6 after
     for n, it in enumerate(items):
         rid = re.sub(r"[^a-z0-9]+", "-", it["path"].lower()).strip("-")[:90]
         included = not it["_reasons"]
+        if it.get("_staged") and not included:   # never list a failing local-only document, count it only
+            staged_dropped += 1
+            continue
         art = None
         if included:
             body = it["_text"].encode("utf-8")
             art = {"file": f"public-data/reports/{rid}.md", "sha256": sha(body)}
             (dest / f"{rid}.md").write_bytes(body)
         entry = {k: v for k, v in it.items() if not k.startswith("_")}
-        entry.update({"id": rid, "classification": "historical-report",
+        staged = bool(it.get("_staged"))
+        entry.update({"id": rid, "classification": "staged-research-report" if staged else "historical-report",
                       "contains_unpublished_outcomes": False if included else None,
                       "contains_protected_material": is_protected_path(it["path"]),
-                      "publication_review": "eligible-automated" if included else "restricted",
+                      "publication_review": ("eligible-automated-staged" if staged else "eligible-automated")
+                      if included else "restricted",
                       "restriction_reasons": it["_reasons"], "sanitized_artifact": art})
         if not included:  # restricted entries keep provenance but carry no title text beyond the file name
             entry["title"] = Path(it["path"]).name
             entry["claims_stated_in_report"] = []
         allow.append(entry)
         if included:
-            index.append({k: entry[k] for k in ("id", "title", "series", "path", "source_ref", "source_label", "commit",
-                                                "sha256", "historical", "claims_stated_in_report",
-                                                "local_paths_redacted", "sanitized_artifact")})
+            row = {k: entry[k] for k in ("id", "title", "series", "path", "source_ref", "source_label", "commit",
+                                         "sha256", "historical", "claims_stated_in_report",
+                                         "local_paths_redacted", "sanitized_artifact")}
+            if staged:
+                row["journey_stage"] = entry["journey_stage"]
+            index.append(row)
     for r in RESTRICTED:
         allow.append({**r, "classification": "restricted-placeholder", "source_ref": None, "commit": None,
                       "path": None, "sha256": None, "contains_unpublished_outcomes": True,
                       "contains_protected_material": r["id"] == "restricted-protected",
                       "publication_review": "restricted", "sanitized_artifact": None})
-    meta = {"schema": 1, "rule": "public-ref commits only; no protected paths; 0 outcome/secret/seal hits",
-            "prior_seal_scanner": scanner_state}
+    meta = {"schema": 1, "rule": "public-ref commits only (plus pinned RC6 staged documents from the local research "
+            "tip); no protected paths; 0 outcome/secret/seal hits", "prior_seal_scanner": scanner_state,
+            "staged_source": {"ref": STAGED_REF, "commit": STAGED_COMMIT, "on_public_ref": False,
+                              "pinned": len(STAGED) if a.staged else 0,
+                              "included": sum(1 for x in allow if x["classification"] == "staged-research-report")}}
     (out / "reports-allowlist.json").write_text(json.dumps({**meta, "items": allow}, indent=1) + "\n")
     (dest.parent / "reports-index.json").write_text(json.dumps({**meta, "restricted_placeholders": RESTRICTED,
                                                                "reports": index}, indent=1) + "\n")
     inc = sum(1 for x in allow if x["publication_review"] != "restricted")
     print(json.dumps({"candidates": len(items), "included": inc, "restricted": len(allow) - inc,
+                      "staged_included": meta["staged_source"]["included"], "staged_dropped": staged_dropped,
                       "prior_seal_scanner": scanner_state}))
     return 0
 

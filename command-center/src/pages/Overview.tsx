@@ -7,6 +7,7 @@ import { NotConnected, StatusPill } from "../components/Status";
 import { useController } from "../lib/controller";
 import { useSite } from "../lib/site";
 import { RunButton } from "../components/pipeline/RunButton";
+import { JourneyTimeline } from "../components/journey/JourneyTimeline";
 
 export function Overview() {
   const { site, index } = useSite();
@@ -33,8 +34,18 @@ export function Overview() {
         </div>
         <RunButton compact />
       </section>
+      <Panel title="End-to-end research journey" sub="RC1 to the guarded RC6 Part B experiment. Unpublished results appear only as restricted or NOT_RECORDED." id="ov-journey" accent="violet">
+        {site?.research_journey ? <JourneyTimeline stages={site.research_journey} reports={reports} compact /> : <p>Loading…</p>}
+        {site?.research_tip && (
+          <p className="small">
+            Latest research tip <code>{site.research_tip.commit.slice(0, 7)}</code> ({site.research_tip.date}):{" "}
+            {site.research_tip.on_public_ref ? "on a public ref" : "local only, not pushed"}.{" "}
+            <Link to="/journey">Open the full journey and built process →</Link>
+          </p>
+        )}
+      </Panel>
       <div className="counters">
-        <Counter value={index ? reports.length : null} label="Archived reports" sub="public refs, sanitized" />
+        <Counter value={index ? reports.length : null} label="Archived reports" sub="public refs + pinned RC6 docs, sanitized" />
         <Counter value={index ? index.restricted_placeholders.length : null} label="Restricted placeholders" sub="withheld, findings not shown" />
         <Counter value={site ? site.public_refs.length : null} label="Public refs" sub={site ? `observed ${site.github_snapshot.observed_at}` : undefined} />
         <Counter value={index ? bySeries.size : null} label="Research series" sub="in the archive" />

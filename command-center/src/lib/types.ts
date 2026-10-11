@@ -13,6 +13,8 @@ export interface ReportEntry {
   claims_stated_in_report: string[];
   local_paths_redacted: boolean;
   sanitized_artifact: { file: string; sha256: string } | null;
+  /** Present only on pinned RC6 documents staged from the local research tip. */
+  journey_stage?: string;
 }
 
 export interface RestrictedPlaceholder {
@@ -28,6 +30,26 @@ export interface ReportsIndex {
   prior_seal_scanner: string;
   restricted_placeholders: RestrictedPlaceholder[];
   reports: ReportEntry[];
+  staged_source?: { ref: string; commit: string; on_public_ref: boolean; pinned: number; included: number };
+}
+
+export type JourneyOutcome = "PUBLIC_REPORTS" | "RESTRICTED" | "NOT_RECORDED" | "NOT_APPLICABLE";
+
+export interface JourneyStage {
+  id: string;
+  label: string;
+  date: string | null;
+  status: string;
+  outcome: JourneyOutcome;
+  summary: string;
+  refs: string[];
+}
+
+export interface ProcessStep {
+  id: string;
+  label: string;
+  detail: string;
+  state: "BUILT" | "ENFORCED" | "NOT_AUTHORIZED" | "NOT_RECORDED";
 }
 
 export interface SiteData {
@@ -53,6 +75,9 @@ export interface SiteData {
   preregistered_models: string[];
   memory_threshold_kb: number;
   policy: { id: string; statement: string; source: string }[];
+  research_tip?: { branch: string; commit: string; date: string; on_public_ref: boolean; note: string };
+  research_journey?: JourneyStage[];
+  process_flow?: ProcessStep[];
 }
 
 export type LifecycleId =

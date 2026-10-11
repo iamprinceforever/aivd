@@ -110,7 +110,7 @@ export function ReportsArchive() {
         {shown.map((r) => (
           <li key={r.id} className="report-card glow">
             <div className="report-head">
-              <span className="badge badge-hist">HISTORICAL</span>
+              {r.journey_stage ? <span className="badge badge-staged">RC6 READINESS · LOCAL TIP</span> : <span className="badge badge-hist">HISTORICAL</span>}
               <span className="badge">{r.series}</span>
             </div>
             <h2 className="report-title">
@@ -145,8 +145,18 @@ export function ReportDetail() {
   return (
     <>
       <PageHeader eyebrow={`C · Reports Archive · ${r.series}`} title={r.title}>
-        <span className="badge badge-hist">HISTORICAL</span> Archived exactly as published, with local paths redacted.
-        It is not a current status.
+        {r.journey_stage ? (
+          <>
+            <span className="badge badge-staged">RC6 READINESS · LOCAL TIP</span> A pinned document from the local research
+            tip (not on a public ref), archived only because it passed every scan. Local paths are redacted. It is not an
+            authorization and records no result.
+          </>
+        ) : (
+          <>
+            <span className="badge badge-hist">HISTORICAL</span> Archived exactly as published, with local paths redacted.
+            It is not a current status.
+          </>
+        )}
       </PageHeader>
       <p>
         <Link to="/reports">← Back to archive</Link>

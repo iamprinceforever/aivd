@@ -15,8 +15,17 @@ describe("bundled data and allowlist", () => {
     const eligible = new Map(allow.items.filter((x: { publication_review: string }) => x.publication_review !== "restricted").map((x: { id: string }) => [x.id, x]));
     for (const r of idx.reports) {
       expect(eligible.has(r.id)).toBe(true);
-      expect(r.historical).toBe(true);
-      expect(r.source_ref).toMatch(/^(origin\/|refs\/tags\/)/);
+      if (r.journey_stage) {
+        // pinned RC6 document from the local research tip: never historical, never claimed to be on a public ref
+        expect(r.historical).toBe(false);
+        expect(r.source_ref).toBe(idx.staged_source!.ref);
+        expect(r.commit).toMatch(/^[0-9a-f]{40}$/); // last commit touching the path, at or before the pinned tip
+        expect(idx.staged_source!.on_public_ref).toBe(false);
+        expect((eligible.get(r.id) as { publication_review: string }).publication_review).toBe("eligible-automated-staged");
+      } else {
+        expect(r.historical).toBe(true);
+        expect(r.source_ref).toMatch(/^(origin\/|refs\/tags\/)/);
+      }
       expect(r.path).not.toMatch(/(^|\/)(protected|raw|wire)\//);
       const f = join(ROOT, r.sanitized_artifact!.file);
       expect(createHash("sha256").update(readFileSync(f)).digest("hex")).toBe(r.sanitized_artifact!.sha256);

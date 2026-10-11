@@ -137,8 +137,18 @@ class ArchiveConsistencyTests(unittest.TestCase):
         idx = json.loads((CC / "public-data" / "reports-index.json").read_text())
         included = [x for x in allow["items"] if x["publication_review"] != "restricted"]
         self.assertEqual(len(included), len(idx["reports"]))
+        import build_reports_archive as BRA
+        pinned = {(p, b) for p, b, _ in BRA.STAGED}
         for x in included:
-            self.assertTrue(x["source_ref"].startswith(("origin/", "refs/tags/")))
+            if x["classification"] == "staged-research-report":
+                # only exact pinned (path, blob) pairs from the local research tip, nothing else
+                self.assertEqual(x["source_ref"], BRA.STAGED_REF)
+                self.assertIn((x["path"], x["blob"]), pinned)
+                self.assertEqual(x["publication_review"], "eligible-automated-staged")
+                self.assertNotIn(hashlib.sha256(Path(x["path"]).name.encode()).hexdigest(), SO.DENY_NAME_SHA256)
+                self.assertNotIn(x["blob"], SO.DENY_BLOBS)
+            else:
+                self.assertTrue(x["source_ref"].startswith(("origin/", "refs/tags/")))
             self.assertNotIn("rc5-a2-local-uncommitted", x["source_ref"])
             self.assertFalse(is_protected_path(x["path"]))
             self.assertFalse(x["contains_protected_material"])
@@ -152,6 +162,66 @@ class ArchiveConsistencyTests(unittest.TestCase):
                 self.assertIsNone(x["sanitized_artifact"])
         files = {p.name for p in (CC / "public-data" / "reports").glob("*.md")}
         self.assertEqual(files, {Path(x["sanitized_artifact"]["file"]).name for x in included})
+
+
+class StagedArchiveTests(unittest.TestCase):
+    """Pinned RC6 documents from a local tip: every scan applies; any mismatch or hit drops (and never lists) it."""
+
+    def git(self, repo, *a):
+        return subprocess.run(["git", "-C", str(repo), "-c", "user.name=t", "-c", "user.email=t@t", *a],
+                              capture_output=True, text=True, check=True).stdout.strip()
+
+    def test_staged_documents_fail_closed(self):
+        import build_reports_archive as BRA
+        td = Path(tempfile.mkdtemp(prefix="cc-stage-"))
+        remote, repo = td / "remote.git", td / "work"
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(remote)], check=True)
+        subprocess.run(["git", "init", "-q", "-b", "main", str(repo)], check=True)
+        (repo / "README.md").write_text("# Public\n")
+        self.git(repo, "add", "README.md")
+        self.git(repo, "commit", "-q", "-m", "public")
+        self.git(repo, "remote", "add", "origin", str(remote))
+        self.git(repo, "push", "-q", "origin", "main")
+        self.git(repo, "fetch", "-q", "origin")
+        d = repo / "docs" / "rc6"
+        d.mkdir(parents=True)
+        (d / "CLEAN.md").write_text("# Clean readiness doc\nNo figures.\n")
+        (d / "HIT.md").write_text("# Hit doc\nthe " + "fun" + "nel moved\n")
+        (d / "EDITED.md").write_text("# Edited after pinning\n")
+        self.git(repo, "add", ".")
+        self.git(repo, "commit", "-q", "-m", "local research")
+        tip = self.git(repo, "rev-parse", "HEAD")
+        blob = lambda p: self.git(repo, "rev-parse", f"HEAD:{p}")  # noqa: E731
+        scanner = td / "seal_ok.py"
+        scanner.write_text("import json\nprint(json.dumps({'pass': True}))\n")
+        saved = (BRA.STAGED, BRA.STAGED_COMMIT)
+        BRA.STAGED = [("docs/rc6/CLEAN.md", blob("docs/rc6/CLEAN.md"), "rc6_partb_readiness"),
+                      ("docs/rc6/HIT.md", blob("docs/rc6/HIT.md"), "rc6_partb_readiness"),
+                      ("docs/rc6/EDITED.md", "0" * 40, "rc6_partb_readiness")]
+        BRA.STAGED_COMMIT = tip
+        out = td / "out"
+        try:
+            self.assertEqual(BRA.main(["--repo", str(repo), "--out", str(out), "--seal-scanner", str(scanner)]), 0)
+        finally:
+            BRA.STAGED, BRA.STAGED_COMMIT = saved
+        allow = json.loads((out / "reports-allowlist.json").read_text())
+        idx = json.loads((out / "public-data" / "reports-index.json").read_text())
+        staged = [x for x in allow["items"] if x.get("source_ref") == BRA.STAGED_REF]
+        self.assertEqual([x["path"] for x in staged], ["docs/rc6/CLEAN.md"])
+        self.assertEqual(staged[0]["classification"], "staged-research-report")
+        self.assertEqual(idx["staged_source"]["included"], 1)
+        self.assertFalse(idx["staged_source"]["on_public_ref"])
+        self.assertNotIn("HIT.md", json.dumps(allow))
+        self.assertNotIn("EDITED.md", json.dumps(allow))
+        # without --staged the local tip is never read
+        out2 = td / "out2"
+        BRA.main(["--repo", str(repo), "--out", str(out2), "--seal-scanner", str(scanner), "--no-staged"])
+        self.assertEqual(json.loads((out2 / "public-data" / "reports-index.json").read_text())["staged_source"]["included"], 0)
+
+    def test_staged_pins_are_exact(self):
+        import build_reports_archive as BRA
+        self.assertTrue(all(len(b) == 40 for _, b, _ in BRA.STAGED))
+        self.assertTrue(BRA.STAGED_REF.startswith("local:"))
 
 
 class ManifestTests(unittest.TestCase):

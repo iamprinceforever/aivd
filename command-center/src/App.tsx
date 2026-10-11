@@ -14,11 +14,13 @@ import { Integrity } from "./pages/Integrity";
 import { Deployment } from "./pages/Deployment";
 import { Settings } from "./pages/Settings";
 import { PipelinePage } from "./pages/Pipeline";
+import { Journey } from "./pages/Journey";
 import { ModelsProvider } from "./lib/models";
 import { PipelineProvider } from "./lib/pipeline";
 
 export const NAV = [
   { to: "/", label: "Overview", code: "A" },
+  { to: "/journey", label: "Research Journey", code: "J" },
   { to: "/control", label: "Experiment Control", code: "B" },
   { to: "/pipeline", label: "Run Pipeline", code: "R" },
   { to: "/reports", label: "Reports Archive", code: "C" },
@@ -114,6 +116,7 @@ function Shell() {
           )}
           <Routes>
             <Route path="/" element={<Overview />} />
+            <Route path="/journey" element={<Journey />} />
             <Route path="/control" element={<ExperimentControl />} />
             <Route path="/pipeline" element={<PipelinePage />} />
             <Route path="/pipeline/:id" element={<PipelinePage />} />
