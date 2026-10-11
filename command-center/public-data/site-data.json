@@ -1,0 +1,239 @@
+{
+ "schema": 1,
+ "generated_from": "git remote-tracking refs (equal to git ls-remote at observation) + GitHub API snapshot",
+ "github_snapshot": {
+  "observed_at": "2026-10-10",
+  "source": "GitHub REST API, read-only (repository, branches, rulesets, workflows)",
+  "repository": "iamprinceforever/aivd",
+  "visibility": "public",
+  "default_branch": "main",
+  "has_pages": false,
+  "main_protected": false,
+  "main_rulesets": 0,
+  "workflows": 0,
+  "secret_scanning": "disabled",
+  "pages_url_if_enabled": "https://iamprinceforever.github.io/aivd/"
+ },
+ "public_refs": [
+  {
+   "name": "AIVD-v3.38.0",
+   "commit": "fca251d77f0079b4930f23e218d27947dea8821c"
+  },
+  {
+   "name": "main",
+   "commit": "f7ba8f2d2f9dcba996a7f1e5eee60ea55c86499d"
+  },
+  {
+   "name": "research/aivd-3.39-independent-generations",
+   "commit": "9e1ad91f6a8d0dffa215dad033e7fc2445d265e6"
+  },
+  {
+   "name": "research/aivd-3.40-budget-representation-frontier",
+   "commit": "a380e3ce0be2bb1b456c38a0213cde12feef8f45"
+  },
+  {
+   "name": "research/aivd-3.41-invention-planner-audit",
+   "commit": "0f42dc01dd0feac3b18e1dbe835282c8226bc821"
+  },
+  {
+   "name": "research/aivd-3.42-selection-causal-audit",
+   "commit": "3a07abe1e370f3328be33a3ad93e5fb7972a65eb"
+  },
+  {
+   "name": "research/aivd-3.43-selection-budget-generalization",
+   "commit": "9810aea5efe14fe4b8786eedc94a7710ecdbbe0e"
+  },
+  {
+   "name": "research/aivd-3.44-exploration-allocation",
+   "commit": "72edfadeda87c0ea6ac966487c49b9526099c613"
+  },
+  {
+   "name": "research/aivd-3.45-adaptive-exploration-materialization",
+   "commit": "b2a4aa46c6730d40006efc0a941111466b38b157"
+  },
+  {
+   "name": "research/aivd-3.46-budget-frontier-validation",
+   "commit": "af727fb94ef60e09b133cf0840b4bb72248d7a7e"
+  },
+  {
+   "name": "research/aivd-3.47-exploration-value-validation",
+   "commit": "9cce56e77a385675fd3c3be7ca7d5d507d0a6b28"
+  },
+  {
+   "name": "research/aivd-3.48-invent-cap-antistarve",
+   "commit": "0da689e78691302f8ef922a307cf6aa0b879f114"
+  },
+  {
+   "name": "research/aivd-4.0-autonomous-behavioral-discovery",
+   "commit": "78c8c530913a4f422ce4ea5c2705bafd73448885"
+  },
+  {
+   "name": "research/aivd-4.0-f3-lm-qwen3",
+   "commit": "465bb607dada8b8e6ceac5ff084fe8df96ba3935"
+  },
+  {
+   "name": "research/aivd-endgame-3-autonomous-security-discovery",
+   "commit": "985816cd8fee41d6f63e6baa6580a303ecf07efc"
+  },
+  {
+   "name": "research/aivd-historical-seal-recovery",
+   "commit": "902dba3391d2545c1d65ee31def1cea7182256ef"
+  },
+  {
+   "name": "research/aivd-post-rc3-groq-evaluation",
+   "commit": "47c7a4c039d8b03cd6e276e76208264a8a448bf8"
+  },
+  {
+   "name": "research/aivd-post-rc3-local-v1",
+   "commit": "245c7ef7bf0b0eed8b8b067218af6c1bab736977"
+  },
+  {
+   "name": "research/aivd-post-rc3-local-v1-final",
+   "commit": "9b70ca9ce985ec1cc421b283d156e02b62d22893"
+  },
+  {
+   "name": "research/aivd-rc4-multi-v1-design",
+   "commit": "83520c3c31c882cf97aa140df985a26330c40060"
+  },
+  {
+   "name": "research/aivd-rc5-generalization-v1-design",
+   "commit": "365f5134486f3d91c86019e9bc6bf60d0f254cd7"
+  },
+  {
+   "name": "tag AIVD-RC1",
+   "commit": "aba2178f7d5638a276505e6c6605713ee750b363"
+  },
+  {
+   "name": "tag AIVD-RC2",
+   "commit": "986dd4bc9d856576ed2753104a2c2a5d4c7e9abf"
+  },
+  {
+   "name": "tag AIVD-RC3",
+   "commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046"
+  }
+ ],
+ "lifecycle_states": [
+  {
+   "id": "software_built",
+   "label": "Software built",
+   "meaning": "The guard module and guarded entry scripts exist in the research worktree."
+  },
+  {
+   "id": "runtime_available",
+   "label": "Runtime available",
+   "meaning": "Pinned runtime files are present and match their sha256. The runtime is not started."
+  },
+  {
+   "id": "prerequisites_satisfied",
+   "label": "Prerequisites satisfied",
+   "meaning": "Every readiness gate in aivd_rc6_guard passes, and so does the memory gate."
+  },
+  {
+   "id": "explicitly_authorized",
+   "label": "Explicitly authorized",
+   "meaning": "The approval record, the operator-supplied environment authorization and the prereg hash all agree."
+  },
+  {
+   "id": "running",
+   "label": "Running",
+   "meaning": "A guarded run started by this controller session is in progress."
+  },
+  {
+   "id": "completed",
+   "label": "Completed",
+   "meaning": "The guarded entry script exited successfully in this controller session."
+  },
+  {
+   "id": "independently_validated",
+   "label": "Independently validated",
+   "meaning": "An independent human reviewer has validated the result. The software never asserts this."
+  }
+ ],
+ "run_gate_catalog": [
+  {
+   "id": "ENTRY",
+   "label": "Guarded entry script present",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "GUARD_START_RUNTIME",
+   "label": "aivd_rc6_guard allows START_RUNTIME",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "GUARD_MODEL_CALL",
+   "label": "aivd_rc6_guard allows MODEL_CALL",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "PARTB_ENV",
+   "label": "AIVD_RC6_PARTB_AUTHORIZED supplied by the operator's shell",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "MEMORY",
+   "label": "MemAvailable >= 7600000 kB",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "RUNTIME_FILES",
+   "label": "Runtime files match pinned hashes",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "NO_FOREIGN_RUNTIME",
+   "label": "No Ollama process already running",
+   "source": "controller/server.py run_gates"
+  },
+  {
+   "id": "NO_ACTIVE_RUN",
+   "label": "No run already in progress",
+   "source": "controller/server.py run_gates"
+  }
+ ],
+ "reveal_gate_catalog": [
+  {
+   "id": "ENTRY",
+   "label": "Guarded analysis entry present",
+   "source": "controller/server.py reveal_gates"
+  },
+  {
+   "id": "GUARD_REVEAL",
+   "label": "aivd_rc6_guard allows REVEAL",
+   "source": "controller/server.py reveal_gates"
+  },
+  {
+   "id": "GUARD_SCORE",
+   "label": "aivd_rc6_guard allows SCORE",
+   "source": "controller/server.py reveal_gates"
+  },
+  {
+   "id": "NO_ACTIVE_RUN",
+   "label": "No run in progress",
+   "source": "controller/server.py reveal_gates"
+  }
+ ],
+ "preregistered_models": [
+  "qwen3:1.7b",
+  "llama3.2:3b",
+  "qwen3:8b"
+ ],
+ "memory_threshold_kb": 7600000,
+ "policy": [
+  {
+   "id": "rc6-not-authorized",
+   "statement": "RC6 execution is not authorized as of this build: no corpus, secrets, seals, model calls, reveal or scoring.",
+   "source": "researcher instruction for this build (2026-10-10)"
+  },
+  {
+   "id": "never-published",
+   "statement": "Unpublished outcomes, protected material (seals, ledgers, wire records, label salts), secrets and local machine paths are excluded from this site and its build output.",
+   "source": "build scanners (scripts/scan_outgoing.py) and the reports allowlist"
+  },
+  {
+   "id": "static-is-readonly",
+   "statement": "The public site is static and read-only. Guarded operations exist only through a local controller bound to 127.0.0.1.",
+   "source": "COMMAND_CENTER_SECURITY.md"
+  }
+ ]
+}

@@ -1,0 +1,2755 @@
+{
+ "schema": 1,
+ "rule": "public-ref commits only; no protected paths; 0 outcome/secret/seal hits",
+ "prior_seal_scanner": "ran",
+ "restricted_placeholders": [
+  {
+   "id": "restricted-rc5-execution",
+   "title": "Fifth release candidate (RC5): execution-phase record",
+   "series": "RC5-GENERALIZATION-V1",
+   "reason": "unpublished; not on any public ref; withheld pending the researcher's publication decision"
+  },
+  {
+   "id": "restricted-rc6-docs",
+   "title": "RC6 investigation diagnostics and readiness documents",
+   "series": "RC6",
+   "reason": "unpublished; pending separate review; some documents restate unpublished earlier-study figures"
+  },
+  {
+   "id": "restricted-rc6-prereg-original",
+   "title": "RC6 original preregistration and redaction diff",
+   "series": "RC6",
+   "reason": "withheld by rule: contains unpublished outcome references; only a redacted candidate exists and it is pending separate review"
+  },
+  {
+   "id": "restricted-protected",
+   "title": "Protected material (seals, ledgers, wire records, label salts)",
+   "series": "all",
+   "reason": "protected paths are never published, even when historically tracked"
+  }
+ ],
+ "reports": [
+  {
+   "id": "aivd-development-e2e-md",
+   "title": "AIVD RC1 \u2014 Development E2E",
+   "series": "RC1",
+   "path": "AIVD_DEVELOPMENT_E2E.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "9d1f86f670cbdbc771508fa66ba69ad16ce2b825",
+   "sha256": "34714e440e6a81a9aed2c1e94b457f062ed3b3129b716fc577c66797cb4ebc49",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-development-e2e-md.md",
+    "sha256": "14a2cdedfc0f7639d16bf5f642bca5627a377d4557c4950971eb97b4294a3ddc"
+   }
+  },
+  {
+   "id": "aivd-final-audit-md",
+   "title": "AIVD RC1 \u2014 Final Pipeline Audit (Phase 0) and Generic Failure Analysis (Phase 1)",
+   "series": "RC1",
+   "path": "AIVD_FINAL_AUDIT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "09fccf0d58f69db72d35bbdee6cd599654d6d9b5",
+   "sha256": "374a37d960a86ec8f3f691b488470a6eba011f56ae9db7639ba3cdb4f8c3a41b",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-final-audit-md.md",
+    "sha256": "b32042c85146717486fb65e3ca3eb722b5d98a47f9a399b8a4a62319441213f4"
+   }
+  },
+  {
+   "id": "aivd-rc1-md",
+   "title": "AIVD-RC1 \u2014 Release Candidate 1 Freeze",
+   "series": "RC1",
+   "path": "AIVD_RC1.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "aba2178f7d5638a276505e6c6605713ee750b363",
+   "sha256": "265b131be369e6bed5614c12141302fea090528fc3348f31d390a2f6f997d93f",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc1-md.md",
+    "sha256": "265b131be369e6bed5614c12141302fea090528fc3348f31d390a2f6f997d93f"
+   }
+  },
+  {
+   "id": "aivd-rc2-md",
+   "title": "AIVD-RC2 \u2014 Release Candidate 2 (FROZEN)",
+   "series": "RC2",
+   "path": "AIVD_RC2.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "986dd4bc9d856576ed2753104a2c2a5d4c7e9abf",
+   "sha256": "eef5517ed6254119aedd4166d08aef80c2551d9665b3999561d24b83f5aad6ba",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc2-md.md",
+    "sha256": "eef5517ed6254119aedd4166d08aef80c2551d9665b3999561d24b83f5aad6ba"
+   }
+  },
+  {
+   "id": "aivd-rc2-development-md",
+   "title": "AIVD-RC2 Development (DEVELOPMENT ONLY \u2014 not scientific evidence)",
+   "series": "RC2",
+   "path": "AIVD_RC2_DEVELOPMENT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "9ac60b77f9377ca431d854b048bab0f8d7f425c5",
+   "sha256": "68a0dfc8aa4792b91c7bd9bd125b186046057fa5206b14e4e942f13d0f6cef07",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc2-development-md.md",
+    "sha256": "68a0dfc8aa4792b91c7bd9bd125b186046057fa5206b14e4e942f13d0f6cef07"
+   }
+  },
+  {
+   "id": "aivd-rc2-reproducibility-md",
+   "title": "AIVD RC2 \u2014 Determinism Diagnosis and Reproducibility Contract",
+   "series": "RC2",
+   "path": "AIVD_RC2_REPRODUCIBILITY.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "c9611de3ca6b8cb80bbc2e2d13c3e00157b3ee0e",
+   "sha256": "dba0ec18c8790f3020ed3949324515dd63ddb0cb3dabb66842c8eeba957033b2",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc2-reproducibility-md.md",
+    "sha256": "dba0ec18c8790f3020ed3949324515dd63ddb0cb3dabb66842c8eeba957033b2"
+   }
+  },
+  {
+   "id": "aivd-rc3-md",
+   "title": "AIVD-RC3 \u2014 Release Candidate 3 (FROZEN)",
+   "series": "RC3",
+   "path": "AIVD_RC3.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "7b2ada344cbaa830d787e2fe7ad48910125d4046",
+   "sha256": "dc3e5b8d2bdbbaa924c883773400b00b332bd95c30d21dc263f6926535352afd",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc3-md.md",
+    "sha256": "dc3e5b8d2bdbbaa924c883773400b00b332bd95c30d21dc263f6926535352afd"
+   }
+  },
+  {
+   "id": "aivd-rc3-audit-md",
+   "title": "AIVD-RC3 Audit",
+   "series": "RC3",
+   "path": "AIVD_RC3_AUDIT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "c74f473e7f741ed9fe46b2a2e54281c49bf08d14",
+   "sha256": "4602cd7acccd867ecd5216401a8dbcf32c8593c9c2a83637c40187918103b71a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc3-audit-md.md",
+    "sha256": "4602cd7acccd867ecd5216401a8dbcf32c8593c9c2a83637c40187918103b71a"
+   }
+  },
+  {
+   "id": "aivd-rc3-development-md",
+   "title": "AIVD-RC3 Development (DEVELOPMENT ONLY \u2014 not scientific evidence)",
+   "series": "RC3",
+   "path": "AIVD_RC3_DEVELOPMENT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "11459ded2ef5083ab14d254fabc5e4c07391b910",
+   "sha256": "9ea85fff7b4b37aabe267ae011477015a1c4a0c7eb47b949819ef293171d3de3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc3-development-md.md",
+    "sha256": "9ea85fff7b4b37aabe267ae011477015a1c4a0c7eb47b949819ef293171d3de3"
+   }
+  },
+  {
+   "id": "aivd-rc3-verification-md",
+   "title": "AIVD-RC3 Verification: provenance-aware, typed",
+   "series": "RC3",
+   "path": "AIVD_RC3_VERIFICATION.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "c1b72551b68ea507ef516471550e9b249d962ade",
+   "sha256": "f43b9cf6b74f2996c4f715f33806e46506f58db43f05f115d96f1a21bcf89ab3",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-rc3-verification-md.md",
+    "sha256": "f43b9cf6b74f2996c4f715f33806e46506f58db43f05f115d96f1a21bcf89ab3"
+   }
+  },
+  {
+   "id": "aivd-reproducibility-md",
+   "title": "AIVD \u2014 Reproducibility (RC3)",
+   "series": "RC3",
+   "path": "AIVD_REPRODUCIBILITY.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "6eab2bcb6820611d0bead3e522e55cbcfcfd0307",
+   "sha256": "7709b7bad060cdbd0d08e417347a1204f7a0ca1fa3e68685562a4791a296443a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/aivd-reproducibility-md.md",
+    "sha256": "7709b7bad060cdbd0d08e417347a1204f7a0ca1fa3e68685562a4791a296443a"
+   }
+  },
+  {
+   "id": "readme-md",
+   "title": "AIVD \u2014 Autonomous AI Vulnerability Discovery",
+   "series": "AIVD 3.x",
+   "path": "README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+   "sha256": "2246466c25faa86be15a25c067ca352c7573bbca8a6f15728543ebb617a0c979",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/readme-md.md",
+    "sha256": "2246466c25faa86be15a25c067ca352c7573bbca8a6f15728543ebb617a0c979"
+   }
+  },
+  {
+   "id": "docs-3-14-cross-signal-coexploration-md",
+   "title": "AIVD 3.14 \u2014 Cross-Signal Co-Exploration",
+   "series": "AIVD 3.x",
+   "path": "docs/3.14_cross_signal_coexploration.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "631d2e5abe8f1d9d6e019eb877b78aca19a1add8",
+   "sha256": "7ffcaef474ca79bca623566d42bff0b2bf37e446097cec360c24467896af220b",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-3-14-cross-signal-coexploration-md.md",
+    "sha256": "7ffcaef474ca79bca623566d42bff0b2bf37e446097cec360c24467896af220b"
+   }
+  },
+  {
+   "id": "docs-3-15-autonomous-signal-to-intervention-md",
+   "title": "AIVD 3.15 \u2014 Autonomous Signal-to-Intervention Discovery",
+   "series": "AIVD 3.x",
+   "path": "docs/3.15_autonomous_signal_to_intervention.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f54d9e10fed9512b5e6b68a75a2b0b0cad662b23",
+   "sha256": "927560eeb3a9b9a60fb598a0326d2ca19cced36755b038d201f6f1f4b210c2a1",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-3-15-autonomous-signal-to-intervention-md.md",
+    "sha256": "927560eeb3a9b9a60fb598a0326d2ca19cced36755b038d201f6f1f4b210c2a1"
+   }
+  },
+  {
+   "id": "docs-3-16-discovery-reasoning-reset-md",
+   "title": "AIVD 3.16 \u2014 Discovery Reasoning Reset",
+   "series": "AIVD 3.x",
+   "path": "docs/3.16_discovery_reasoning_reset.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "75eb8af2c15ba2e6d15c2e9633b6d356c795aeda",
+   "sha256": "6f0a9e1ecb9efb07d5fa58e5fb131184e593d2d5cfa34451d61d985135ac0765",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-3-16-discovery-reasoning-reset-md.md",
+    "sha256": "6f0a9e1ecb9efb07d5fa58e5fb131184e593d2d5cfa34451d61d985135ac0765"
+   }
+  },
+  {
+   "id": "docs-3-17-open-world-behavioral-representation-md",
+   "title": "AIVD 3.17 \u2014 Open-World Behavioral Representation & Generative Experimentation",
+   "series": "AIVD 3.x",
+   "path": "docs/3.17_open_world_behavioral_representation.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+   "sha256": "a76ec23d192ca4a55913463c7b978e5715cfe9ec6b3aad658a34aa361da0b176",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-3-17-open-world-behavioral-representation-md.md",
+    "sha256": "a76ec23d192ca4a55913463c7b978e5715cfe9ec6b3aad658a34aa361da0b176"
+   }
+  },
+  {
+   "id": "docs-changelog-v3-md",
+   "title": "3.17.0 \u2014 Open-World Behavioral Representation & Generative Experimentation",
+   "series": "AIVD 3.x",
+   "path": "docs/CHANGELOG-v3.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+   "sha256": "ba724bc57109e4786561907f341ae3c98264436d3bb111cf7a856bd179afa9f0",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-changelog-v3-md.md",
+    "sha256": "ba724bc57109e4786561907f341ae3c98264436d3bb111cf7a856bd179afa9f0"
+   }
+  },
+  {
+   "id": "docs-architecture-v3-md",
+   "title": "AIVD Architecture v3 (as implemented)",
+   "series": "AIVD 3.x",
+   "path": "docs/architecture-v3.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "601b51b097353157a09d9464e2293dea4642cb1d",
+   "sha256": "ba596ddc1bb945e9271b46e52f1d107edf9ecdfebb1d23053455e5fdc4f66e05",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-architecture-v3-md.md",
+    "sha256": "ba596ddc1bb945e9271b46e52f1d107edf9ecdfebb1d23053455e5fdc4f66e05"
+   }
+  },
+  {
+   "id": "docs-architecture-md",
+   "title": "AIVD Architecture (v2)",
+   "series": "AIVD 3.x",
+   "path": "docs/architecture.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "bd84e14b7ef4d6d2a6e5c6065953d33fbe6e9be1",
+   "sha256": "3d66f2d836b7802780937533493f03bf6d110c45133dcb34d599ab2b6e0553c6",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-architecture-md.md",
+    "sha256": "3d66f2d836b7802780937533493f03bf6d110c45133dcb34d599ab2b6e0553c6"
+   }
+  },
+  {
+   "id": "docs-audit-current-system-md",
+   "title": "AIVD Current-System Audit (v2.0.0 \u2192 pre-v3)",
+   "series": "AIVD 3.x",
+   "path": "docs/audit-current-system.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "601b51b097353157a09d9464e2293dea4642cb1d",
+   "sha256": "9d058c18acf4590f4259f0eed930fb448d448f7e82852cca18f689cc62895896",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-audit-current-system-md.md",
+    "sha256": "5ec8c4f91ffc822849b3ca5eaf2fd506d22fa7e74163cf796f3a3cc3419bc661"
+   }
+  },
+  {
+   "id": "docs-benchmark-md",
+   "title": "Mock Benchmark",
+   "series": "AIVD 3.x",
+   "path": "docs/benchmark.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "bd84e14b7ef4d6d2a6e5c6065953d33fbe6e9be1",
+   "sha256": "d0829800f69f599faba7183b8907f740cb62a4d023e263132bea0cb898e2ea83",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-benchmark-md.md",
+    "sha256": "d0829800f69f599faba7183b8907f740cb62a4d023e263132bea0cb898e2ea83"
+   }
+  },
+  {
+   "id": "docs-methodology-md",
+   "title": "AIVD Methodology",
+   "series": "AIVD 3.x",
+   "path": "docs/methodology.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "6e9664477dcb357f5a945290118e08a85f869f03",
+   "sha256": "e221d79ae7cd20461c8274928750bf05cf5273ded372c006c0c281829e5f9c00",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-methodology-md.md",
+    "sha256": "e221d79ae7cd20461c8274928750bf05cf5273ded372c006c0c281829e5f9c00"
+   }
+  },
+  {
+   "id": "docs-metrics-md",
+   "title": "Metrics",
+   "series": "AIVD 3.x",
+   "path": "docs/metrics.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "9c5e78a3f62b0c34283b677ff37a5c22986e6ea74c3e9a2ead9c8934abfa887f",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-metrics-md.md",
+    "sha256": "9c5e78a3f62b0c34283b677ff37a5c22986e6ea74c3e9a2ead9c8934abfa887f"
+   }
+  },
+  {
+   "id": "docs-migration-plan-v3-md",
+   "title": "AIVD Migration Plan v3 (Phased)",
+   "series": "AIVD 3.x",
+   "path": "docs/migration-plan-v3.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "601b51b097353157a09d9464e2293dea4642cb1d",
+   "sha256": "192803d9e3a7d711fb39f1fda38ebb2670f03a46a9739516137776833a0f54bf",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-migration-plan-v3-md.md",
+    "sha256": "192803d9e3a7d711fb39f1fda38ebb2670f03a46a9739516137776833a0f54bf"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-model-generalization-amendment-md",
+   "title": "POST-RC3 model-availability amendment",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_MODEL_GENERALIZATION_AMENDMENT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "e56c3111cf96497d2f3e3a5a8c493a3c74db4453",
+   "sha256": "b79a1fe3128e427ea1652181563fc022652b7abb26b9663b80181c30e2504e0f",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-model-generalization-amendment-md.md",
+    "sha256": "b79a1fe3128e427ea1652181563fc022652b7abb26b9663b80181c30e2504e0f"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-v2-design-md",
+   "title": "POST-RC3-GROQ-V2 design",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_V2_DESIGN.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "60b3dd700da9ada599c84217e6c656618a00fa2c",
+   "sha256": "b331f067a7b8cfbcb7de4e1ecc9069cf1ce6b10fa50442ea3dbf0d81fb424577",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-v2-design-md.md",
+    "sha256": "808ae5864fa6ba9c227d3bd53cee129beaae3d4d4ebb3b6b5833deb715cd0a10"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-v2-evaluation-md",
+   "title": "POST-RC3-GROQ-V2 evaluation",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_V2_EVALUATION.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "60b3dd700da9ada599c84217e6c656618a00fa2c",
+   "sha256": "260d635bdc83c96c56c44f4882d870541c9fb2996da77012022aa007470359a5",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-v2-evaluation-md.md",
+    "sha256": "260d635bdc83c96c56c44f4882d870541c9fb2996da77012022aa007470359a5"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-v2-harness-failure-md",
+   "title": "POST-RC3-GROQ-V2 harness failure",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_V2_HARNESS_FAILURE.md",
+   "source_ref": "origin/research/aivd-post-rc3-groq-evaluation",
+   "source_label": "POST-RC3 Groq",
+   "commit": "e1351001e497aa349a0dff09d28e0bb0f7f31d2d",
+   "sha256": "8dcf39b4ffa4bf5e1091bbf1ca99902f8602e5405bb66f55f9c319d427e9f6e1",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-v2-harness-failure-md.md",
+    "sha256": "8dcf39b4ffa4bf5e1091bbf1ca99902f8602e5405bb66f55f9c319d427e9f6e1"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-v2-limitations-md",
+   "title": "POST-RC3-GROQ-V2 limitations",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_V2_LIMITATIONS.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "60b3dd700da9ada599c84217e6c656618a00fa2c",
+   "sha256": "b1a0dae21b06d2a132df8b6793121597a412e8599a0aaeaf479f916fc8dcd6d3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-v2-limitations-md.md",
+    "sha256": "b1a0dae21b06d2a132df8b6793121597a412e8599a0aaeaf479f916fc8dcd6d3"
+   }
+  },
+  {
+   "id": "docs-post-rc3-groq-v2-reproducibility-md",
+   "title": "POST-RC3-GROQ-V2 reproducibility",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/GROQ_V2_REPRODUCIBILITY.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "60b3dd700da9ada599c84217e6c656618a00fa2c",
+   "sha256": "c63b8bbd104c0207203e7b5d0cc84ffe3ef9564103f7cbd3dda4603fdcfa13b2",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-groq-v2-reproducibility-md.md",
+    "sha256": "c63b8bbd104c0207203e7b5d0cc84ffe3ef9564103f7cbd3dda4603fdcfa13b2"
+   }
+  },
+  {
+   "id": "docs-post-rc3-local-v1-preregistration-md",
+   "title": "POST-RC3-LOCAL-V1 \u2014 preregistration",
+   "series": "POST-RC3 LOCAL-V1",
+   "path": "docs/post_rc3/LOCAL_V1_PREREGISTRATION.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "245c7ef7bf0b0eed8b8b067218af6c1bab736977",
+   "sha256": "df1ca3805356a75df385555a1c6d1ecb34fb90be6fe8a796a4d3b3d197bb60aa",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-local-v1-preregistration-md.md",
+    "sha256": "515c4558ea3154c5a6a89d963c84be272f8a254008844bc9f0819633aca263df"
+   }
+  },
+  {
+   "id": "docs-post-rc3-readme-md",
+   "title": "POST-RC3 Groq three-model generalization evaluation",
+   "series": "POST-RC3",
+   "path": "docs/post_rc3/README.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "e56c3111cf96497d2f3e3a5a8c493a3c74db4453",
+   "sha256": "be4339ea079581de893c876f0892a644b86421541c7acac3e5666cd3d5b965e8",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-post-rc3-readme-md.md",
+    "sha256": "4db643eb197a138b6c7bb55e2486745187a6fe5043ea2f590053bb240e3856da"
+   }
+  },
+  {
+   "id": "docs-rc1-aivd-final-status-rc1-md",
+   "title": "AIVD \u2014 Final Status (RC1)",
+   "series": "RC1",
+   "path": "docs/rc1/AIVD_FINAL_STATUS_RC1.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "8c82bd58ef451630ef1d4b99081879add07bc679",
+   "sha256": "709928319c88d51957a9235306411e01a882221bf8f8f72f5ae497a87ff9657b",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc1-aivd-final-status-rc1-md.md",
+    "sha256": "709928319c88d51957a9235306411e01a882221bf8f8f72f5ae497a87ff9657b"
+   }
+  },
+  {
+   "id": "docs-rc1-aivd-reproducibility-rc1-md",
+   "title": "AIVD RC1 \u2014 Reproducibility",
+   "series": "RC1",
+   "path": "docs/rc1/AIVD_REPRODUCIBILITY_RC1.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "8c82bd58ef451630ef1d4b99081879add07bc679",
+   "sha256": "1c76e5e9726a17052b9356e4523576cc32e2ada563f05d6f8ca4b5e5e78aed84",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc1-aivd-reproducibility-rc1-md.md",
+    "sha256": "f63068844b22b8ec34815bed97dba101b96c65d1d002af2f1cfe5367649ef2cd"
+   }
+  },
+  {
+   "id": "docs-rc2-aivd-final-security-evaluation-rc2-md",
+   "title": "AIVD \u2014 Final Security Evaluation (RC2)",
+   "series": "RC2",
+   "path": "docs/rc2/AIVD_FINAL_SECURITY_EVALUATION_RC2.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "c74f473e7f741ed9fe46b2a2e54281c49bf08d14",
+   "sha256": "0fecb691c92e46d985473eb1a6874d5dd16656dfd032b16336bc7d33ef29e288",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc2-aivd-final-security-evaluation-rc2-md.md",
+    "sha256": "0fecb691c92e46d985473eb1a6874d5dd16656dfd032b16336bc7d33ef29e288"
+   }
+  },
+  {
+   "id": "docs-rc2-aivd-reproducibility-rc2-md",
+   "title": "AIVD \u2014 Reproducibility (RC2)",
+   "series": "RC2",
+   "path": "docs/rc2/AIVD_REPRODUCIBILITY_RC2.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "c74f473e7f741ed9fe46b2a2e54281c49bf08d14",
+   "sha256": "e713f817a2bacf3ddf505ead4fa0455fb3129c525c6b12ba0eceadcc6157ffea",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc2-aivd-reproducibility-rc2-md.md",
+    "sha256": "e713f817a2bacf3ddf505ead4fa0455fb3129c525c6b12ba0eceadcc6157ffea"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-blinding-protocol-md",
+   "title": "AIVD-RC4-MULTI-V1: blinding protocol",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/BLINDING_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "207379da34eba635a3d870bac2b2a8bdfda37b762b62a9bcb993bb407f30d558",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-blinding-protocol-md.md",
+    "sha256": "8ba9dee39e0587389ad968b0852189fcf7a824dd6e3e84b08195b59b9dc36c4f"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-budget-allocation-md",
+   "title": "AIVD-RC4-MULTI-V1: budget allocation",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/BUDGET_ALLOCATION.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "6875e35aa07651665c515d4fdc7b850ef03404068f65d89d2a94407188a09122",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-budget-allocation-md.md",
+    "sha256": "6875e35aa07651665c515d4fdc7b850ef03404068f65d89d2a94407188a09122"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-contamination-check-md",
+   "title": "AIVD-RC4-MULTI-V1: contamination check",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/CONTAMINATION_CHECK.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "5fd3d74460ae62bb27c811cb33c48551598b5517",
+   "sha256": "3d007c620ae57d9041f685a24dabd5fab5476088162e191bcbb662be973a0e72",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-contamination-check-md.md",
+    "sha256": "3d007c620ae57d9041f685a24dabd5fab5476088162e191bcbb662be973a0e72"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-design-md",
+   "title": "AIVD-RC4-MULTI-V1: design (DESIGN / DRAFT, not frozen, not executed)",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/DESIGN.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "1fe3fb8c94e146116fea63187fee1b7be0d7773864c78009530567564b9c1301",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-design-md.md",
+    "sha256": "1fe3fb8c94e146116fea63187fee1b7be0d7773864c78009530567564b9c1301"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-independence-audit-md",
+   "title": "AIVD-RC4-MULTI-V1: adversarial independence audit (design phase, 2026-09-29 IST; updated for D1=C / D2=A / D3=A)",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/INDEPENDENCE_AUDIT.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "2dbe1a1640d9765ad8a4422b508937c0778dc233a6328fc4d75f8f68fd8c0ed4",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-independence-audit-md.md",
+    "sha256": "6a843025fbf3dca29ce1ac01fd99bed0b7791d9c3437198903a681826b6773d0"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-model-matrix-md",
+   "title": "AIVD-RC4-MULTI-V1: model matrix",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/MODEL_MATRIX.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "2aca0095caa158464f9c68c19154a8aab9c0712de753150e3b58cc831f19a472",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-model-matrix-md.md",
+    "sha256": "8f1623ee6b9d37e9fb09c30b70482d90d12ecebd8e82085f184002c606706778"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-reproduction-protocol-md",
+   "title": "AIVD-RC4-MULTI-V1: reproduction protocol (for AFTER user confirmation; nothing here has run)",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/REPRODUCTION_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "fbcec85472895c92065bde0d6cf17b8d83e538bf",
+   "sha256": "c50520ec3640ed8c476ff14730a1a8cad4dc83f3ad15f76268648f6f7ec24625",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-reproduction-protocol-md.md",
+    "sha256": "207e6b541ad6d3e35c80207d17746c110d92f4580f67d2991cb4fc17ab3f1e68"
+   }
+  },
+  {
+   "id": "docs-rc4-multi-v1-target-schema-md",
+   "title": "AIVD-RC4-MULTI-V1: target schema",
+   "series": "RC4-MULTI-V1",
+   "path": "docs/rc4_multi_v1/TARGET_SCHEMA.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "5fd3d74460ae62bb27c811cb33c48551598b5517",
+   "sha256": "696bb6ffd3e184e9d50e896e07dd875c729fdfac22ced14d7b8f03ca3196f38a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc4-multi-v1-target-schema-md.md",
+    "sha256": "696bb6ffd3e184e9d50e896e07dd875c729fdfac22ced14d7b8f03ca3196f38a"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-blinding-protocol-md",
+   "title": "Blinding protocol",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/BLINDING_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "eb8ea366e7e65094bf98233421b58d9790431900",
+   "sha256": "c28fda9c825a5fb72dd730534373fc4867932bcd9eead209309280cc5062fc06",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-blinding-protocol-md.md",
+    "sha256": "c28fda9c825a5fb72dd730534373fc4867932bcd9eead209309280cc5062fc06"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-confirmation-protocol-md",
+   "title": "Confirmation protocol (non-identical confirmation)",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/CONFIRMATION_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "eb8ea366e7e65094bf98233421b58d9790431900",
+   "sha256": "f40ff5262e5218e7c944fa35444ef05eaa08263452fb49cd440d2c9dc7aa5cc3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-confirmation-protocol-md.md",
+    "sha256": "f40ff5262e5218e7c944fa35444ef05eaa08263452fb49cd440d2c9dc7aa5cc3"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-contamination-check-md",
+   "title": "Contamination check",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/CONTAMINATION_CHECK.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "eb8ea366e7e65094bf98233421b58d9790431900",
+   "sha256": "5214fadefe185b35cf863e72bfc4434fe73cbbdc8283b97ab73ecfa33a8a6f5d",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-contamination-check-md.md",
+    "sha256": "5214fadefe185b35cf863e72bfc4434fe73cbbdc8283b97ab73ecfa33a8a6f5d"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-design-md",
+   "title": "AIVD-RC5-GENERALIZATION-V1: design (parameters FROZEN_AT_DESIGN; nothing executed)",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/DESIGN.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "2b1c2c6324a627f8d7dcc6157280f251fddec141",
+   "sha256": "8c90da9e81399e97c3813c68d256cf5a486d0d4a7a47a576ae13d76b3fb3a1b2",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-design-md.md",
+    "sha256": "8c90da9e81399e97c3813c68d256cf5a486d0d4a7a47a576ae13d76b3fb3a1b2"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-model-matrix-md",
+   "title": "AIVD-RC5-GENERALIZATION-V1: model matrix (frozen; no additions, no removals)",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/MODEL_MATRIX.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "aef05954c0f802586cfda0608a7648e9e71af0af",
+   "sha256": "3fccd320c45d64af60f42bd6e452962a5a6d35b94b913840c031595aa1625267",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-model-matrix-md.md",
+    "sha256": "19669869adb6c3b92ed36e12d43efbd76a18341d5cf12ccb97199bda35e0904a"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-order-protocol-md",
+   "title": "Order protocol: ONE common preregistered permutation of all 120 ids",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/ORDER_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "aef05954c0f802586cfda0608a7648e9e71af0af",
+   "sha256": "68275f811a72a20e80af80ac918425767964c25f9c82d3a3056ff33efb054efb",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-order-protocol-md.md",
+    "sha256": "68275f811a72a20e80af80ac918425767964c25f9c82d3a3056ff33efb054efb"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-reproduction-protocol-md",
+   "title": "Reproduction protocol",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/REPRODUCTION_PROTOCOL.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "eb8ea366e7e65094bf98233421b58d9790431900",
+   "sha256": "5313333fafc353381ee2ef07c01e972167413eb0ef9b90582d47e908c8b4c791",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-reproduction-protocol-md.md",
+    "sha256": "5313333fafc353381ee2ef07c01e972167413eb0ef9b90582d47e908c8b4c791"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-target-independence-md",
+   "title": "Target independence and construction origins",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/TARGET_INDEPENDENCE.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "2b1c2c6324a627f8d7dcc6157280f251fddec141",
+   "sha256": "88af1ef0f5fe551a39ea07b3e63bd291b3efd97b8867ebcf8b82b3dba4eb96f7",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-target-independence-md.md",
+    "sha256": "88af1ef0f5fe551a39ea07b3e63bd291b3efd97b8867ebcf8b82b3dba4eb96f7"
+   }
+  },
+  {
+   "id": "docs-rc5-generalization-v1-target-schema-md",
+   "title": "Target schema",
+   "series": "RC5-GENERALIZATION-V1 (design phase)",
+   "path": "docs/rc5_generalization_v1/TARGET_SCHEMA.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "2b1c2c6324a627f8d7dcc6157280f251fddec141",
+   "sha256": "b61a528ee355c4f700b7105b2a9d1119f41aa53abd92d4b992d2377415e71df6",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc5-generalization-v1-target-schema-md.md",
+    "sha256": "b61a528ee355c4f700b7105b2a9d1119f41aa53abd92d4b992d2377415e71df6"
+   }
+  },
+  {
+   "id": "docs-reward-md",
+   "title": "AIVD Reward Function",
+   "series": "AIVD 3.x",
+   "path": "docs/reward.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "bd84e14b7ef4d6d2a6e5c6065953d33fbe6e9be1",
+   "sha256": "66e1471e5f7bc000dfa42ac9572f11880d620b92b0fec5496122a9ee42fe6ed3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-reward-md.md",
+    "sha256": "66e1471e5f7bc000dfa42ac9572f11880d620b92b0fec5496122a9ee42fe6ed3"
+   }
+  },
+  {
+   "id": "docs-threat-model-md",
+   "title": "AIVD Threat Model",
+   "series": "AIVD 3.x",
+   "path": "docs/threat-model.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "6e9664477dcb357f5a945290118e08a85f869f03",
+   "sha256": "1f96bed1404ee1cd5e9bfa53b214fa81c7e1b7dce45244588bd645440d210333",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-threat-model-md.md",
+    "sha256": "1f96bed1404ee1cd5e9bfa53b214fa81c7e1b7dce45244588bd645440d210333"
+   }
+  },
+  {
+   "id": "docs-v3-deliverable-md",
+   "title": "AIVD v3 Deliverable Summary",
+   "series": "AIVD 3.x",
+   "path": "docs/v3-deliverable.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "601b51b097353157a09d9464e2293dea4642cb1d",
+   "sha256": "7f2f89ac9a2ff816b9a60d78d7f649e79b9008288a0cb59a5ca8f524037f4b97",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-v3-deliverable-md.md",
+    "sha256": "63c259a65185885ecb3d95622e592f87ba7b42ed07cb2662e8088c12a36836e2"
+   }
+  },
+  {
+   "id": "reports-aivd-3-10-audit-md",
+   "title": "AIVD 3.10 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.10-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "7daf1f823b4c2e6f2e9ee1dd9127ab94dfbe6e0b",
+   "sha256": "539ceb785e865a7c48e5734b2ecad79d4d4fd3a70b2f7e93a117da9902a51074",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-10-audit-md.md",
+    "sha256": "539ceb785e865a7c48e5734b2ecad79d4d4fd3a70b2f7e93a117da9902a51074"
+   }
+  },
+  {
+   "id": "reports-aivd-3-10-diversity-md",
+   "title": "AIVD 3.10 Intervention Diversity",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.10-diversity.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "7daf1f823b4c2e6f2e9ee1dd9127ab94dfbe6e0b",
+   "sha256": "4a9e1f274ae68c265f8cc98b571b6d82738c1f988575ab4ee7665e87738ef318",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-10-diversity-md.md",
+    "sha256": "4a9e1f274ae68c265f8cc98b571b6d82738c1f988575ab4ee7665e87738ef318"
+   }
+  },
+  {
+   "id": "reports-aivd-3-10-holdout-md",
+   "title": "AIVD 3.10 Holdout Report",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.10-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "7daf1f823b4c2e6f2e9ee1dd9127ab94dfbe6e0b",
+   "sha256": "d4a14ba15d84358db12e9006f23b223aab7d7b3dec3514e5e41c3e53e94defad",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-10-holdout-md.md",
+    "sha256": "d4a14ba15d84358db12e9006f23b223aab7d7b3dec3514e5e41c3e53e94defad"
+   }
+  },
+  {
+   "id": "reports-aivd-3-10-results-md",
+   "title": "AIVD 3.10.0 Results \u2014 Open Invention Diversity",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.10-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "236752a87607f97ef8cde40c93d3b4b1beef8949",
+   "sha256": "d5661c2f79b963292f11607fed4f1c63a258b30a659b5b01b229134960459e44",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-10-results-md.md",
+    "sha256": "d5661c2f79b963292f11607fed4f1c63a258b30a659b5b01b229134960459e44"
+   }
+  },
+  {
+   "id": "reports-aivd-3-11-adaptive-ordering-md",
+   "title": "AIVD 3.11 Adaptive Search Ordering",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.11-adaptive-ordering.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b85fe0f405431149577c86499d3475240ed540b8",
+   "sha256": "79b869135e57fd7ffcb99fbf94855ea218740aa08baf65d494973d0396206677",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-11-adaptive-ordering-md.md",
+    "sha256": "79b869135e57fd7ffcb99fbf94855ea218740aa08baf65d494973d0396206677"
+   }
+  },
+  {
+   "id": "reports-aivd-3-11-audit-md",
+   "title": "AIVD 3.11 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.11-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b85fe0f405431149577c86499d3475240ed540b8",
+   "sha256": "ff020370e238d4cda6a2d803abfbd73a3f6e2471079672d4c2f1aaf9a0543baf",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-11-audit-md.md",
+    "sha256": "ff020370e238d4cda6a2d803abfbd73a3f6e2471079672d4c2f1aaf9a0543baf"
+   }
+  },
+  {
+   "id": "reports-aivd-3-11-holdout-md",
+   "title": "AIVD 3.11 Holdout Report",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.11-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "69961cce8398af4ed078dfa6775dbe74f584ae16",
+   "sha256": "b41e35e894cf5de744ea1fa1e238a186803ea4f4c3ae6d7211aceeaf4eb5ce32",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-11-holdout-md.md",
+    "sha256": "b41e35e894cf5de744ea1fa1e238a186803ea4f4c3ae6d7211aceeaf4eb5ce32"
+   }
+  },
+  {
+   "id": "reports-aivd-3-11-results-md",
+   "title": "AIVD 3.11.0 Results \u2014 Adaptive Search Ordering",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.11-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "90b922f8a826ed4ee73271a8531479222da9d728",
+   "sha256": "8da0508f7edc7d5b3b50a9622780869decd89304738c8d6e909f3527278046a4",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-11-results-md.md",
+    "sha256": "8da0508f7edc7d5b3b50a9622780869decd89304738c8d6e909f3527278046a4"
+   }
+  },
+  {
+   "id": "reports-aivd-3-12-audit-md",
+   "title": "AIVD 3.12 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.12-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f8f463c975885911afa99f14d17fd74986982c84",
+   "sha256": "e6791cd5b0e0cff8ffeff9b0aee651ed72416c975d749c27757cf87d72cc860c",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-12-audit-md.md",
+    "sha256": "e6791cd5b0e0cff8ffeff9b0aee651ed72416c975d749c27757cf87d72cc860c"
+   }
+  },
+  {
+   "id": "reports-aivd-3-12-holdout-md",
+   "title": "AIVD 3.12 Holdout Report",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.12-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f8f463c975885911afa99f14d17fd74986982c84",
+   "sha256": "776dead680b30289bbeeea2c51ccd614005f6d998c6c755316b46c13dd665340",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-12-holdout-md.md",
+    "sha256": "776dead680b30289bbeeea2c51ccd614005f6d998c6c755316b46c13dd665340"
+   }
+  },
+  {
+   "id": "reports-aivd-3-12-interaction-discovery-md",
+   "title": "AIVD 3.12 \u2014 Interaction Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.12-interaction-discovery.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "dab0f490721948f43f5b2bea857ec3eb060d2d80",
+   "sha256": "9c7445f91a0ba38aded6c8725985d36d74e01ae65646fc03f158d5eb3569eece",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-12-interaction-discovery-md.md",
+    "sha256": "9c7445f91a0ba38aded6c8725985d36d74e01ae65646fc03f158d5eb3569eece"
+   }
+  },
+  {
+   "id": "reports-aivd-3-12-results-md",
+   "title": "AIVD 3.12.0 Results \u2014 Open Interaction Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.12-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f8f463c975885911afa99f14d17fd74986982c84",
+   "sha256": "dbd340254885484e80f10dd4cb1fb50ffb4d3b2e63065ea524142aa7e4ac1faf",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-12-results-md.md",
+    "sha256": "dbd340254885484e80f10dd4cb1fb50ffb4d3b2e63065ea524142aa7e4ac1faf"
+   }
+  },
+  {
+   "id": "reports-aivd-3-13-audit-md",
+   "title": "AIVD 3.13 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.13-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "febaf0c6b90aab1a03f750900a9c552d5cec6e45",
+   "sha256": "bac7c27bc579125ffe216f200f75f8fdc6af62c6b4ed7337b37689f59d954051",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-13-audit-md.md",
+    "sha256": "bac7c27bc579125ffe216f200f75f8fdc6af62c6b4ed7337b37689f59d954051"
+   }
+  },
+  {
+   "id": "reports-aivd-3-13-holdout-md",
+   "title": "AIVD 3.13 Holdout-R (Sacred First Run)",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.13-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "febaf0c6b90aab1a03f750900a9c552d5cec6e45",
+   "sha256": "8715c74aef184262f20c39998f40c1319d64d652a6e00e2768b73f213dc86cf9",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-13-holdout-md.md",
+    "sha256": "8715c74aef184262f20c39998f40c1319d64d652a6e00e2768b73f213dc86cf9"
+   }
+  },
+  {
+   "id": "reports-aivd-3-13-joint-allocation-md",
+   "title": "AIVD 3.13 \u2014 Joint Residual Budget Allocation",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.13-joint-allocation.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "a2165695cd3e8b8efd389894d0ab571492db89ef",
+   "sha256": "f75dd45cb782df0a8a5cf535e07c00acad69f1aa3d692c2312ae00d5506b8971",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-13-joint-allocation-md.md",
+    "sha256": "f75dd45cb782df0a8a5cf535e07c00acad69f1aa3d692c2312ae00d5506b8971"
+   }
+  },
+  {
+   "id": "reports-aivd-3-13-results-md",
+   "title": "AIVD 3.13.0 Results \u2014 Joint Residual Budget Allocation",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.13-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "febaf0c6b90aab1a03f750900a9c552d5cec6e45",
+   "sha256": "57c85b02405fe2872641e3a39e4b952ba72694f74b430364284f065ebe6a96a6",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-13-results-md.md",
+    "sha256": "57c85b02405fe2872641e3a39e4b952ba72694f74b430364284f065ebe6a96a6"
+   }
+  },
+  {
+   "id": "reports-aivd-3-14-audit-md",
+   "title": "AIVD 3.14 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.14-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "48ffcac3a92e8960e97e75f397728e2df75dcbd8",
+   "sha256": "f48302fda08d2e87d605e3bae4b054bc8d93f8d27e96bea85ee47f4d22a2d32e",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-14-audit-md.md",
+    "sha256": "f48302fda08d2e87d605e3bae4b054bc8d93f8d27e96bea85ee47f4d22a2d32e"
+   }
+  },
+  {
+   "id": "reports-aivd-3-14-cross-signal-md",
+   "title": "AIVD 3.14 Cross-Signal Summary",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.14-cross-signal.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "631d2e5abe8f1d9d6e019eb877b78aca19a1add8",
+   "sha256": "4b9dac8cf32163e28772694cde24f0b2eadc0f4e25cecc2deda0710ee113d6da",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-14-cross-signal-md.md",
+    "sha256": "4b9dac8cf32163e28772694cde24f0b2eadc0f4e25cecc2deda0710ee113d6da"
+   }
+  },
+  {
+   "id": "reports-aivd-3-14-holdout-md",
+   "title": "AIVD 3.14 Holdout-S \u2014 Sacred First Run",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.14-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "48ffcac3a92e8960e97e75f397728e2df75dcbd8",
+   "sha256": "809dc00fd087c69a5d72e3b7d66f92d3e1c034a905e9214ad915a57cedac88af",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-14-holdout-md.md",
+    "sha256": "809dc00fd087c69a5d72e3b7d66f92d3e1c034a905e9214ad915a57cedac88af"
+   }
+  },
+  {
+   "id": "reports-aivd-3-14-results-md",
+   "title": "AIVD 3.14.0 Results \u2014 Cross-Signal Co-Exploration",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.14-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "48ffcac3a92e8960e97e75f397728e2df75dcbd8",
+   "sha256": "7ef23d584fb33d1e7467004d467b18a9fd3b3ea73c654acf2b8c87633e8c6a1d",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-14-results-md.md",
+    "sha256": "7ef23d584fb33d1e7467004d467b18a9fd3b3ea73c654acf2b8c87633e8c6a1d"
+   }
+  },
+  {
+   "id": "reports-aivd-3-15-audit-md",
+   "title": "AIVD 3.15 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.15-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "32272e8dd0ef5abb1f8f4157ed59fe843c7b2eb9",
+   "sha256": "0360ade2361418158554c735a00430fd900b55ffe07ddde9edefc43b8a49eae1",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-15-audit-md.md",
+    "sha256": "0360ade2361418158554c735a00430fd900b55ffe07ddde9edefc43b8a49eae1"
+   }
+  },
+  {
+   "id": "reports-aivd-3-15-autonomy-md",
+   "title": "AIVD 3.15 Autonomy Layer",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.15-autonomy.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f54d9e10fed9512b5e6b68a75a2b0b0cad662b23",
+   "sha256": "f6ba4939011671394e2cd006936e40cba4f2a569273d4100695981768075031d",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-15-autonomy-md.md",
+    "sha256": "f6ba4939011671394e2cd006936e40cba4f2a569273d4100695981768075031d"
+   }
+  },
+  {
+   "id": "reports-aivd-3-15-holdout-md",
+   "title": "AIVD 3.15 Holdout-T \u2014 Sacred First Run",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.15-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "32272e8dd0ef5abb1f8f4157ed59fe843c7b2eb9",
+   "sha256": "83cff71793caf4d110a08a778702d47d8d4940e5f4ded5771746ee25b504848f",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-15-holdout-md.md",
+    "sha256": "83cff71793caf4d110a08a778702d47d8d4940e5f4ded5771746ee25b504848f"
+   }
+  },
+  {
+   "id": "reports-aivd-3-15-results-md",
+   "title": "AIVD 3.15.0 Results \u2014 Autonomous Signal-to-Intervention Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.15-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "32272e8dd0ef5abb1f8f4157ed59fe843c7b2eb9",
+   "sha256": "b5c310b15de9793a328134b37bdffb9169ea99ea5425dc348005687b6aea1635",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-15-results-md.md",
+    "sha256": "b5c310b15de9793a328134b37bdffb9169ea99ea5425dc348005687b6aea1635"
+   }
+  },
+  {
+   "id": "reports-aivd-3-16-audit-md",
+   "title": "AIVD 3.16 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.16-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "75eb8af2c15ba2e6d15c2e9633b6d356c795aeda",
+   "sha256": "bdfc74279cbb87ed31b42001a845d5f578fa07c7cb11022f5a68ceba2a4862d1",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-16-audit-md.md",
+    "sha256": "bdfc74279cbb87ed31b42001a845d5f578fa07c7cb11022f5a68ceba2a4862d1"
+   }
+  },
+  {
+   "id": "reports-aivd-3-16-holdout-md",
+   "title": "AIVD 3.16 Holdout-U \u2014 Sacred First Run",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.16-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "d000b963085ac1f7f999bd868548f0620cc3f282",
+   "sha256": "2dd352e59237de5c77c49b2f579d4238edde49cdf502fcbb2379eb76e9fb6396",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-16-holdout-md.md",
+    "sha256": "2dd352e59237de5c77c49b2f579d4238edde49cdf502fcbb2379eb76e9fb6396"
+   }
+  },
+  {
+   "id": "reports-aivd-3-16-reasoning-md",
+   "title": "AIVD 3.16 Reasoning",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.16-reasoning.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "75eb8af2c15ba2e6d15c2e9633b6d356c795aeda",
+   "sha256": "c26c882acabfbc08c2f056a765edfd3ad49f33886c7dcc24f2fec7084e4630e2",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-16-reasoning-md.md",
+    "sha256": "c26c882acabfbc08c2f056a765edfd3ad49f33886c7dcc24f2fec7084e4630e2"
+   }
+  },
+  {
+   "id": "reports-aivd-3-16-results-md",
+   "title": "AIVD 3.16.0 Results \u2014 Discovery Reasoning Reset",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.16-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "d000b963085ac1f7f999bd868548f0620cc3f282",
+   "sha256": "99a8abe7762c12e33569c170adbdf39cdc52cccba33c98e4634899ad2a7443d3",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-16-results-md.md",
+    "sha256": "99a8abe7762c12e33569c170adbdf39cdc52cccba33c98e4634899ad2a7443d3"
+   }
+  },
+  {
+   "id": "reports-aivd-3-17-audit-md",
+   "title": "AIVD 3.17 Audit",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.17-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f7ba8f2d2f9dcba996a7f1e5eee60ea55c86499d",
+   "sha256": "0c7df72846f9ad0a73484c4588f6affd109258031eeff5f5010d5cdf3c666165",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-17-audit-md.md",
+    "sha256": "0c7df72846f9ad0a73484c4588f6affd109258031eeff5f5010d5cdf3c666165"
+   }
+  },
+  {
+   "id": "reports-aivd-3-17-holdout-md",
+   "title": "AIVD 3.17 HOLDOUT-V \u2014 sacred first run",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.17-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f7ba8f2d2f9dcba996a7f1e5eee60ea55c86499d",
+   "sha256": "1fa4eb0006f65ec00d30861de73e673acd679a3595ed5916302fec1a2d1f5d09",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-17-holdout-md.md",
+    "sha256": "1fa4eb0006f65ec00d30861de73e673acd679a3595ed5916302fec1a2d1f5d09"
+   }
+  },
+  {
+   "id": "reports-aivd-3-17-openworld-md",
+   "title": "AIVD 3.17 Open-World Package",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.17-openworld.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "358d337468e3c8e3dd01ac98579d5b8e1a4ebbff",
+   "sha256": "794b95b418a0122b9a473a49755d83ab3f3252e7ccab8043c9969fd377d7390d",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-17-openworld-md.md",
+    "sha256": "794b95b418a0122b9a473a49755d83ab3f3252e7ccab8043c9969fd377d7390d"
+   }
+  },
+  {
+   "id": "reports-aivd-3-17-results-md",
+   "title": "AIVD 3.17.0 Results \u2014 Open-World Behavioral Representation",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.17-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f7ba8f2d2f9dcba996a7f1e5eee60ea55c86499d",
+   "sha256": "d472eb384a11da00b0aa4bb899f18743b8b47de52caf8fadc3a38fe9034b3e71",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-17-results-md.md",
+    "sha256": "d472eb384a11da00b0aa4bb899f18743b8b47de52caf8fadc3a38fe9034b3e71"
+   }
+  },
+  {
+   "id": "reports-aivd-3-4-audit-md",
+   "title": "AIVD 3.4 Audit \u2014 Autonomous Multi-Step Behavioral Investigation Controller",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.4-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "a18f57bd8057b08d9b8a45be24dbf53ab29abede",
+   "sha256": "8c4fbeb931cf2364494f4770533f8d40762c5a940e034dc081836aa52d4eed32",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-4-audit-md.md",
+    "sha256": "8ed8f8274a381215cc0291f8b573a325f8f248aafb56b159d450862cdf7d5412"
+   }
+  },
+  {
+   "id": "reports-aivd-3-4-results-md",
+   "title": "AIVD 3.4.0 Results \u2014 Autonomous Multi-Step Behavioral Investigation",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.4-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "a18f57bd8057b08d9b8a45be24dbf53ab29abede",
+   "sha256": "65dd4c355c6635e9f96416af3850e90dc701d664227347c181c49b3a43d4ef79",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-4-results-md.md",
+    "sha256": "65dd4c355c6635e9f96416af3850e90dc701d664227347c181c49b3a43d4ef79"
+   }
+  },
+  {
+   "id": "reports-aivd-3-5-audit-md",
+   "title": "AIVD 3.5 Audit \u2014 Active Behavioral Discovery / Cartography / Weak-Signal Amplification",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.5-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "43cc7b424023c679618396c31456ff7ef89b90c5",
+   "sha256": "78274283e5e7d5c0b58505254d88d2631af53dfdaf07bfd48b5b95ddf701f5eb",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-5-audit-md.md",
+    "sha256": "8ac398d88c703448233478607a4e301db081d248c49a47c9cc4b1ac877a35273"
+   }
+  },
+  {
+   "id": "reports-aivd-3-5-results-md",
+   "title": "AIVD 3.5.0 Results \u2014 Active Behavioral Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.5-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "43cc7b424023c679618396c31456ff7ef89b90c5",
+   "sha256": "43157ec0f1c815ae735ef497cdc285065cc733eb02b4b2762833deedbc70bce3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-5-results-md.md",
+    "sha256": "43157ec0f1c815ae735ef497cdc285065cc733eb02b4b2762833deedbc70bce3"
+   }
+  },
+  {
+   "id": "reports-aivd-3-6-audit-md",
+   "title": "AIVD 3.6 Audit \u2014 Unknown Dimension / Active Causal Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.6-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b97848f6dd33412e4391e49823b3954b0e7e013b",
+   "sha256": "b47e59db63b45c6f4c273ce52b59555e4399c2ec268d84a68b4e8d31cf91a57f",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-6-audit-md.md",
+    "sha256": "eacc25377df823353133ac19b9ec6e268bfad9cfffe1681c573fd4122dbf05df"
+   }
+  },
+  {
+   "id": "reports-aivd-3-6-results-md",
+   "title": "AIVD 3.6.0 Results \u2014 Unknown Dimension / Active Causal Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.6-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b97848f6dd33412e4391e49823b3954b0e7e013b",
+   "sha256": "20088099350a5e668eda9b6808dc498b5cdd2878683f1fae629de70b13c32af7",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-6-results-md.md",
+    "sha256": "20088099350a5e668eda9b6808dc498b5cdd2878683f1fae629de70b13c32af7"
+   }
+  },
+  {
+   "id": "reports-aivd-3-7-audit-md",
+   "title": "AIVD 3.7 Audit \u2014 Above Unknown-Dimension / Causal Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.7-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "94b49037652bd9046fa5774ce8e9874bc451091a",
+   "sha256": "f138e146c4965ec131bc8749c092c777374e0811e72e05295d268ed4f69c33f7",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-7-audit-md.md",
+    "sha256": "e4c7d141c2b54c654acd09a5fb02d218ab87e71a3d35e3c63572faadab8a4045"
+   }
+  },
+  {
+   "id": "reports-aivd-3-7-results-md",
+   "title": "AIVD 3.7.0 Results \u2014 Open-Ended Unknown Vulnerability Discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.7-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "98ad5a2dedb7424e799e90625fa57d36e8cab829",
+   "sha256": "c4084046638601b0b2bfee6a84d9848fcc655beca2bbc1ff5bf2543ba4b0d14e",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-7-results-md.md",
+    "sha256": "c4084046638601b0b2bfee6a84d9848fcc655beca2bbc1ff5bf2543ba4b0d14e"
+   }
+  },
+  {
+   "id": "reports-aivd-3-8-audit-md",
+   "title": "AIVD 3.8.0 Audit \u2014 Vuln C + H7 Sparse + Blind Holdout",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.8-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "a972fecc28fe37b149fbe6724ddadf344ef6d70a",
+   "sha256": "d593aa996c30395e80b78059e393ef29f51da3ed82476aa1a7917c5c02f5afbe",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-8-audit-md.md",
+    "sha256": "9c96fe7604c61a69c7210b326d9f5101339090927704ca95f0f7baec17531d9e"
+   }
+  },
+  {
+   "id": "reports-aivd-3-8-holdout-md",
+   "title": "AIVD 3.8 HOLDOUT-X Report (Sacred First Run)",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.8-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b376cc9d3fc17cb40bf8a676cd202ce8c73879d4",
+   "sha256": "64df1bbadbade1c36fe9b9b06d203f8846c1eb7640e0703aa115cdefc4615924",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-8-holdout-md.md",
+    "sha256": "64df1bbadbade1c36fe9b9b06d203f8846c1eb7640e0703aa115cdefc4615924"
+   }
+  },
+  {
+   "id": "reports-aivd-3-8-results-md",
+   "title": "AIVD 3.8.0 Results \u2014 Vuln C + H7 Sparse + Blind Holdout",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.8-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "e422895da274221ae1759287245f54246a4986f9",
+   "sha256": "d944ad4bd82d89d4dfaf42c7814d4c95266dce759ce6ee9da894c326ae059fd4",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-8-results-md.md",
+    "sha256": "d944ad4bd82d89d4dfaf42c7814d4c95266dce759ce6ee9da894c326ae059fd4"
+   }
+  },
+  {
+   "id": "reports-aivd-3-9-audit-md",
+   "title": "AIVD 3.9.0 Audit \u2014 Open Intervention Invention",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.9-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f09749d0ebe35670c8ae1aff7e74153b346ca0cb",
+   "sha256": "adaff4f129973f8beee6519fcc9d7aa1cf65bd7e6e54d2dd3213886d72c8489d",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-9-audit-md.md",
+    "sha256": "adaff4f129973f8beee6519fcc9d7aa1cf65bd7e6e54d2dd3213886d72c8489d"
+   }
+  },
+  {
+   "id": "reports-aivd-3-9-holdout-md",
+   "title": "AIVD 3.9 HOLDOUT-Y Report (Sacred First Run)",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.9-holdout.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f09749d0ebe35670c8ae1aff7e74153b346ca0cb",
+   "sha256": "9a57a3168c32fe3df029c31e4252d373443c8cc8eafe23a03484a6ae0fc15191",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-9-holdout-md.md",
+    "sha256": "9a57a3168c32fe3df029c31e4252d373443c8cc8eafe23a03484a6ae0fc15191"
+   }
+  },
+  {
+   "id": "reports-aivd-3-9-intervention-invention-md",
+   "title": "AIVD 3.9 Open Intervention Invention",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.9-intervention-invention.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f09749d0ebe35670c8ae1aff7e74153b346ca0cb",
+   "sha256": "37bb1d450183cf26709be630df140e82df6d374f113e9d8d25769e8a4799ef43",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-9-intervention-invention-md.md",
+    "sha256": "37bb1d450183cf26709be630df140e82df6d374f113e9d8d25769e8a4799ef43"
+   }
+  },
+  {
+   "id": "reports-aivd-3-9-results-md",
+   "title": "AIVD 3.9.0 Results \u2014 Open Intervention Invention",
+   "series": "AIVD 3.x",
+   "path": "reports/aivd-3.9-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "b2e3c0b15a5c2a31679f1096a74cb55066f1c85f",
+   "sha256": "d5a70f6dbc9c580199257796ec749f3373434754d663d740cdebc20c8de52983",
+   "historical": true,
+   "claims_stated_in_report": [
+    "not_discovered",
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-3-9-results-md.md",
+    "sha256": "d5a70f6dbc9c580199257796ec749f3373434754d663d740cdebc20c8de52983"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-1-execution-md",
+   "title": "AIVD 4.0 F3-LM-1.1 Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_1_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "5a615e14fca5f7816c1c7d5bae86d6e0c8b042f5",
+   "sha256": "83897dd9c26c1b233f51707da4c94bcc9d7e38ad8a694b9bd2629cb4f2191051",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-1-execution-md.md",
+    "sha256": "83897dd9c26c1b233f51707da4c94bcc9d7e38ad8a694b9bd2629cb4f2191051"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-1-interface-fix-md",
+   "title": "AIVD 4.0 F3-LM-1.1 Private-Context Interface Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_1_interface_fix.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "17c3dc400f553ea751110c783d05c52c582ed43b",
+   "sha256": "ba4e3c5aff178d2eccb5f36453ce34c670f8a2457a22a7b8377c5ece84d40b66",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-1-interface-fix-md.md",
+    "sha256": "cd96ab8b7c45a08ba7dde3e7c8ef777a6a26e825ed50ae8007314539749819e5"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-2-execution-md",
+   "title": "AIVD 4.0 F3-LM-1.2 Qwen3 1.7B Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_2_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "5e8c5d88e3473ed42897c39642a3345fc843e3ef",
+   "sha256": "8678023229819ef9907e8746e83111cf499f2bb7d4e6c36b9e5385526078d32e",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-2-execution-md.md",
+    "sha256": "8678023229819ef9907e8746e83111cf499f2bb7d4e6c36b9e5385526078d32e"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-2-recorder-hardening-md",
+   "title": "AIVD 4.0 F3-LM-1.2 Recorder Hardening",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_2_recorder_hardening.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "edcd890ce309ca81ac4c54601569fbef96a1ce00",
+   "sha256": "e69be3a04ff776e73c59423239b4f97b49e565f2856a82e97ee52c76350bbbe5",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-2-recorder-hardening-md.md",
+    "sha256": "e69be3a04ff776e73c59423239b4f97b49e565f2856a82e97ee52c76350bbbe5"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-3-forensic-md",
+   "title": "AIVD 4.0 F3-LM-1.3 Forensic Audit",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_3_forensic.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "0a909dfc436f620e19a9fb2e044c2f295ef2561a",
+   "sha256": "c10fd4c992aaefa6e09157234750c40caea8408744c8a39d265ca6aa830977e8",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-3-forensic-md.md",
+    "sha256": "c10fd4c992aaefa6e09157234750c40caea8408744c8a39d265ca6aa830977e8"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-4-coverage-design-md",
+   "title": "AIVD 4.0 F3-LM-1.4 Coverage Completion Design",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_4_coverage_design.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "b55dbb0bab469a6c177d64f577acb0c8af14189e",
+   "sha256": "7c261547f802c496962309cc1be00b7113dc66113035a48b2a1a0ebd239be944",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-4-coverage-design-md.md",
+    "sha256": "7c261547f802c496962309cc1be00b7113dc66113035a48b2a1a0ebd239be944"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-4-execution-md",
+   "title": "AIVD 4.0 F3-LM-1.4 Coverage Completion",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_4_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "e2913834c06a332a19a109804d9d7824a587f0e7",
+   "sha256": "e450cbc4e1be240b25fbfea6bb5a5564239ceeabf7d82b6fe71b865ab11a5a67",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-4-execution-md.md",
+    "sha256": "e450cbc4e1be240b25fbfea6bb5a5564239ceeabf7d82b6fe71b865ab11a5a67"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-5-opportunity-audit-md",
+   "title": "AIVD 4.0 F3-LM-1.5 Security-Opportunity Audit",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_5_opportunity_audit.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "8497dd472f5a517e617793087c0e1d2346d68da3",
+   "sha256": "fca0871b74d0e2f27d102de0780e3e1bce1b0f432d0587f6e755db6f021f42ad",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-5-opportunity-audit-md.md",
+    "sha256": "fca0871b74d0e2f27d102de0780e3e1bce1b0f432d0587f6e755db6f021f42ad"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-1-7b-execution-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 1.7B Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_1_7b_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "434a96622dd8a968ad389c14fa774903e988602d",
+   "sha256": "2fbdcb6d0901120d965ea2880006f631c1c004b6c4c7e448f32687aa070af29e",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-1-7b-execution-md.md",
+    "sha256": "2fbdcb6d0901120d965ea2880006f631c1c004b6c4c7e448f32687aa070af29e"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-1-semantic-audit-md",
+   "title": "AIVD 4.0 F3-LM-2.1 Security-Contract Semantics",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_1_semantic_audit.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "80b45f07eecdd17c0de0de754fc92826de67d6b8",
+   "sha256": "84e706bf264934393328dede8a8ac3a85363f49a40f54eff280ae67b516b5496",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-1-semantic-audit-md.md",
+    "sha256": "84e706bf264934393328dede8a8ac3a85363f49a40f54eff280ae67b516b5496"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-2-execution-md",
+   "title": "AIVD 4.0 F3-LM-2 Execution Attempt",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_2_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "87214c104dc0fe917d2759d879af621b8da5fd7a",
+   "sha256": "16879d3b19d2d1a59d492bbc3b85af4798a23863df2e0780cb48fa1058f76dd6",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-2-execution-md.md",
+    "sha256": "16879d3b19d2d1a59d492bbc3b85af4798a23863df2e0780cb48fa1058f76dd6"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-2-semantic-separation-md",
+   "title": "AIVD 4.0 F3-LM-2.2 Functional and Security Separation",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_2_semantic_separation.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "f551295634397023737709bc387e486036fac338",
+   "sha256": "5e7c036650c06ed63326221818eaed2021d9edadca6998196fe659c40feb32f4",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-2-semantic-separation-md.md",
+    "sha256": "5e7c036650c06ed63326221818eaed2021d9edadca6998196fe659c40feb32f4"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-design-md",
+   "title": "AIVD 4.0 F3-LM-2 Security-Surface Design",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_design.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "e614062f2fcb9342282dc441de438eb7ee608314",
+   "sha256": "aba5da481b5891fe2ea2bfa3db96937c177c6239b74cedf2741b84a0430a1eb3",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-design-md.md",
+    "sha256": "aba5da481b5891fe2ea2bfa3db96937c177c6239b74cedf2741b84a0430a1eb3"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-execution-md",
+   "title": "AIVD 4.0 F3-LM-2 Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "b62fa9cb75077bdad93767d48727b7de8a978cd6",
+   "sha256": "20186349a8be7ccc9291f4f88ea53142684a21fa466233e41faa2a683eb6242c",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-execution-md.md",
+    "sha256": "20186349a8be7ccc9291f4f88ea53142684a21fa466233e41faa2a683eb6242c"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-execution-stop-md",
+   "title": "AIVD 4.0 F3-LM-2 Execution Stop",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_execution_stop.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "3a9e75f0038d9755fc89dfa7ce598daccc67f5d1",
+   "sha256": "68ae37ae5e56b84e9732cbdd302b64a607ab6aa5e6d8ac5cd77efc6eb1a07d05",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-execution-stop-md.md",
+    "sha256": "68ae37ae5e56b84e9732cbdd302b64a607ab6aa5e6d8ac5cd77efc6eb1a07d05"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-full-execution-md",
+   "title": "AIVD 4.0 F3-LM-2 Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_full/execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "03a1cb7726e52b5a1dba428e1e74d4e59d675d6a",
+   "sha256": "e7a3458071c7c60747990be2769fdb8ee4c5b889a64066c7dcd4c5a6a0b786e8",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-full-execution-md.md",
+    "sha256": "e7a3458071c7c60747990be2769fdb8ee4c5b889a64066c7dcd4c5a6a0b786e8"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2-implementation-md",
+   "title": "AIVD 4.0 F3-LM-2 Implementation",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2_implementation.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "15f51e2543304b54c5646daa60851892d81f42a3",
+   "sha256": "e0f7aac5800a444b5108a3bbbdfc733d2730cd8d1c86140ae45a332471a89ec6",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2-implementation-md.md",
+    "sha256": "e0f7aac5800a444b5108a3bbbdfc733d2730cd8d1c86140ae45a332471a89ec6"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-2r-report-md",
+   "title": "F3-LM-2R Forensic Reproduction Report",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_2r/report.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "0992c0f8976f9b8f1cebced5436e653e05996b63",
+   "sha256": "5919575805c87b4cb2c25c8ec0569221fb3753d3a2a47b582b6f2183e43e268d",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-2r-report-md.md",
+    "sha256": "5919575805c87b4cb2c25c8ec0569221fb3753d3a2a47b582b6f2183e43e268d"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-byte-integrity-md",
+   "title": "AIVD 4.0 F3-LM Byte Integrity",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_byte_integrity.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "dd533afd5dec5668a66339c025977cdefbdb9be3",
+   "sha256": "cf50c567f495ebc3ed4846919d44d30b40b9adff714b4b2afd38edd06876de3d",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-byte-integrity-md.md",
+    "sha256": "5f2bb9b7e8439eaaa51861787bc8492700ec74ed680f7ff17c671c526fd3c6e7"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-design-md",
+   "title": "AIVD 4.0 F3-LM Design Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_design.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "d36ebd5d53a5994ae31a87ac05eb37e0fd72a87a",
+   "sha256": "68bc945ce7518e6aef4cec4722706170cdbcd23a62af2bd6114480ba6a081e75",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-design-md.md",
+    "sha256": "68bc945ce7518e6aef4cec4722706170cdbcd23a62af2bd6114480ba6a081e75"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-execution-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 Execution",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "19615fe712869bac2c9f24ce37f4d77543be675a",
+   "sha256": "968fa96110260f982b3234f354d3ad53befdcb7d9158fc26ae3e1d109d4f4a32",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-execution-md.md",
+    "sha256": "fb31401fb6f884fa3f04f25964802979a20c506f0bd4b136e0a54126afea1c63"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-qwen3-1-7b-target-freeze-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 1.7B Target Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_qwen3_1_7b_target_freeze.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "49a98cce4eb01e75555086edd6753b260d8b2356",
+   "sha256": "5fdc069f7565478304dba1c81b741f5c74bbe012461f9305ad68b12cdc65fbca",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-qwen3-1-7b-target-freeze-md.md",
+    "sha256": "5fdc069f7565478304dba1c81b741f5c74bbe012461f9305ad68b12cdc65fbca"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-qwen3-4b-target-freeze-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 4B Target Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_qwen3_4b_target_freeze.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "03c4c86eda64c03020e55c972e4ea8752a7453c9",
+   "sha256": "760574aeaa318366662caa7a98eb00f4e9f06ffee7fb96492e5234a042ccffaa",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-qwen3-4b-target-freeze-md.md",
+    "sha256": "760574aeaa318366662caa7a98eb00f4e9f06ffee7fb96492e5234a042ccffaa"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-qwen3-runtime-freeze-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 Runtime Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_qwen3_runtime_freeze.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "107b22ebb1803c749e97549050cb3ee746432108",
+   "sha256": "d1af1a0241ea48987fb521713f469e227176c1f33f50363157a23ce21277d64b",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-qwen3-runtime-freeze-md.md",
+    "sha256": "d1af1a0241ea48987fb521713f469e227176c1f33f50363157a23ce21277d64b"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-qwen3-target-freeze-md",
+   "title": "AIVD 4.0 F3-LM Qwen3 8B Target Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_qwen3_target_freeze.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "cb0ea32783a2629acc6b92c62722a4731ee7e20a",
+   "sha256": "a05d9f6bf1f2d61b586f6bf8bfb25b07e135610b1b57f9056e2d0e6cadbff012",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-qwen3-target-freeze-md.md",
+    "sha256": "cf71aa8ad844af7b1a946c94791fe1210777dc11f00e3aeaa8366d72e6df91a1"
+   }
+  },
+  {
+   "id": "reports-aivd-f3-lm-target-freeze-md",
+   "title": "AIVD 4.0 F3-LM Target Freeze",
+   "series": "AIVD 4.0 F3-LM",
+   "path": "reports/aivd_f3_lm_target_freeze.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "f6cbb68edd5c5c1a260bfb66e7b50647212f10b1",
+   "sha256": "05c9f76e0f7d8e5714f24a29749045d1bc6545854fee4dbe8f97f90305126843",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-f3-lm-target-freeze-md.md",
+    "sha256": "678dfc6ff16b6c6e24ecfa79e4df318bff63fcf4aa30ea04ac538c1696d6f37d"
+   }
+  },
+  {
+   "id": "reports-aivd-historical-recovery-readme-md",
+   "title": "AIVD historical seal recovery (metadata only)",
+   "series": "Historical seal recovery",
+   "path": "reports/aivd_historical_recovery/README.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "902dba3391d2545c1d65ee31def1cea7182256ef",
+   "sha256": "00b238da4efa75b262505c782bcaca372ea24b9745dd5312b735d6a4ecddae4a",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-aivd-historical-recovery-readme-md.md",
+    "sha256": "b12cebe50cd00aa925d22aa1f1afae25092db288dd0c3b3dafccb787f541fb66"
+   }
+  },
+  {
+   "id": "reports-architecture-audit-md",
+   "title": "AIVD Architecture Audit (v3.0.0 \u2192 3.1.0)",
+   "series": "AIVD 3.x",
+   "path": "reports/architecture-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "01ec437630fc45680a58b08d40d390ccd14a50d5588dbc477894441e430f3e83",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-architecture-audit-md.md",
+    "sha256": "cb256e1e226862150ceebdf3cde3fab229de906b87081e274e2a143409ea96cf"
+   }
+  },
+  {
+   "id": "reports-behavioral-investigation-architecture-md",
+   "title": "Active Behavioral Investigation (v3.3) \u2014 Architecture Integration Note",
+   "series": "AIVD 3.x",
+   "path": "reports/behavioral-investigation-architecture.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "c601fec2ffd2ba6f4cf252f44c00df2f37d18207",
+   "sha256": "b482f6e4a285d91617c1c66b1c076f5f864ae3fc5d5c19994cfb0f1703a192e8",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-behavioral-investigation-architecture-md.md",
+    "sha256": "2fad9e55c5085f9125fd47bafec718ccbb0c63c51f88a5f5c1daf2d858f3dd31"
+   }
+  },
+  {
+   "id": "reports-behavioral-investigation-results-md",
+   "title": "Active Behavioral Investigation \u2014 Results (AIVD 3.3.0)",
+   "series": "AIVD 3.x",
+   "path": "reports/behavioral-investigation-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "c601fec2ffd2ba6f4cf252f44c00df2f37d18207",
+   "sha256": "05b2f42a14f1ec1110a8590070ecc2f9a662f8abd50ec245ec173b54dcbecafe",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-behavioral-investigation-results-md.md",
+    "sha256": "05b2f42a14f1ec1110a8590070ecc2f9a662f8abd50ec245ec173b54dcbecafe"
+   }
+  },
+  {
+   "id": "reports-blind-canary-ollama-continual-readme-md",
+   "title": "Blind rare-canary hunt + Ollama continual",
+   "series": "AIVD 3.x",
+   "path": "reports/blind_canary_ollama_continual/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "edbea57c68e5fb421e1a0a6919888e281868e0ea",
+   "sha256": "56be5f852c9ee62f5f8133288f8e19f9b3b31de3626500ebafdd552b2228cc29",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-blind-canary-ollama-continual-readme-md.md",
+    "sha256": "56be5f852c9ee62f5f8133288f8e19f9b3b31de3626500ebafdd552b2228cc29"
+   }
+  },
+  {
+   "id": "reports-continual-learning-audit-md",
+   "title": "Continual Learning Audit \u2014 AIVD v3.1.0 \u2192 3.2.0",
+   "series": "AIVD 3.x",
+   "path": "reports/continual-learning-audit.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "d4ba5cf425b52cd50183b686b8481ab537ad04a4",
+   "sha256": "e486a13102d44adc0cc2b46d4d4430d4f74c132f4341ab2f8eb45c1cfdc8513c",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-continual-learning-audit-md.md",
+    "sha256": "e486a13102d44adc0cc2b46d4d4430d4f74c132f4341ab2f8eb45c1cfdc8513c"
+   }
+  },
+  {
+   "id": "reports-continual-learning-results-md",
+   "title": "Continual Learning Results (AIVD v3.2.0)",
+   "series": "AIVD 3.x",
+   "path": "reports/continual-learning-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "d4ba5cf425b52cd50183b686b8481ab537ad04a4",
+   "sha256": "9757cebb21a8cb215ad9238b2cf09ae7fefd09c3cf6f1afa0bd7f816ad86ddc7",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-continual-learning-results-md.md",
+    "sha256": "4230ab3f04093c47242bd3c37b1b6cfebfb779bedb368b558241b541c4b34498"
+   }
+  },
+  {
+   "id": "reports-continual-same-region-multivuln-md",
+   "title": "Same-region multi-vulnerability benchmark",
+   "series": "AIVD 3.x",
+   "path": "reports/continual/same_region_multivuln.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "d4ba5cf425b52cd50183b686b8481ab537ad04a4",
+   "sha256": "78866ee7675fbab4a1b386f01eaa1395eada4dce53c550ae35c44898db90c46a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-continual-same-region-multivuln-md.md",
+    "sha256": "78866ee7675fbab4a1b386f01eaa1395eada4dce53c550ae35c44898db90c46a"
+   }
+  },
+  {
+   "id": "reports-endgame-result-md",
+   "title": "End-goal execution",
+   "series": "AIVD 3.x",
+   "path": "reports/endgame_result.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "68f45cb4db424447f07c10e4b9c6e0c973a40e97",
+   "sha256": "ac91dd6e1e1db58f618c8f92caef1316c38668de2bd9d9f912b189d46520b2b5",
+   "historical": true,
+   "claims_stated_in_report": [
+    "verified"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-endgame-result-md.md",
+    "sha256": "ac91dd6e1e1db58f618c8f92caef1316c38668de2bd9d9f912b189d46520b2b5"
+   }
+  },
+  {
+   "id": "reports-gemini-deep-results-md",
+   "title": "AIVD Gemini Deep Evaluation Report",
+   "series": "AIVD 3.x",
+   "path": "reports/gemini-deep-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "56936a1a38b48796682177c30464745557583b5f",
+   "sha256": "05dfb0f6df8d82f71011384c7985b5ecd7fa2ccb88513062dacb09f90d495a62",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-gemini-deep-results-md.md",
+    "sha256": "05dfb0f6df8d82f71011384c7985b5ecd7fa2ccb88513062dacb09f90d495a62"
+   }
+  },
+  {
+   "id": "reports-holdout-execution-md",
+   "title": "F4 holdout execution",
+   "series": "AIVD 3.x",
+   "path": "reports/holdout_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "3bbfbf93c88019accadb96edb200b76479e2f3e6",
+   "sha256": "9db8871b5c8d52671580fed785daaa945449bfe227f2d9b752f3760ca02a5082",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-holdout-execution-md.md",
+    "sha256": "9db8871b5c8d52671580fed785daaa945449bfe227f2d9b752f3760ca02a5082"
+   }
+  },
+  {
+   "id": "reports-learnable-canary-readme-md",
+   "title": "Learnable rare-canary discovery",
+   "series": "AIVD 3.x",
+   "path": "reports/learnable_canary/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "8c0ebd44bc02c4ce26f7c458bfdd8a0ea6065712",
+   "sha256": "825af2764b2202f8d6b6e08bfd72935d6952ba8c3cd7f22cfefa11f60d3eba8b",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-learnable-canary-readme-md.md",
+    "sha256": "825af2764b2202f8d6b6e08bfd72935d6952ba8c3cd7f22cfefa11f60d3eba8b"
+   }
+  },
+  {
+   "id": "reports-llama-opensource-readme-md",
+   "title": "AIVD open-source Llama scan report",
+   "series": "AIVD 3.x",
+   "path": "reports/llama_opensource/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "3971a1cb936a8565bf8bd0903caa528278a98aee9fe6619bd027d2ba2d2761bc",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-llama-opensource-readme-md.md",
+    "sha256": "3971a1cb936a8565bf8bd0903caa528278a98aee9fe6619bd027d2ba2d2761bc"
+   }
+  },
+  {
+   "id": "reports-llama-opensource-summary-md",
+   "title": "Llama open-source scan",
+   "series": "AIVD 3.x",
+   "path": "reports/llama_opensource_summary.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "54e9671e64681d976555c63cc3cbb23e380b3715",
+   "sha256": "2d90d2f4a0b105852169c81143429b9d84afb3266e8c770099a87248a1aca97a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-llama-opensource-summary-md.md",
+    "sha256": "2d90d2f4a0b105852169c81143429b9d84afb3266e8c770099a87248a1aca97a"
+   }
+  },
+  {
+   "id": "reports-llama-planted-vuln-readme-md",
+   "title": "Planted-vulnerability experiment (Llama 3.2 1B proxy)",
+   "series": "AIVD 3.x",
+   "path": "reports/llama_planted_vuln/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "c1b413baed897206f1aef04c34ca53cbdfb0c1450147b5807125e22422025205",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-llama-planted-vuln-readme-md.md",
+    "sha256": "c1b413baed897206f1aef04c34ca53cbdfb0c1450147b5807125e22422025205"
+   }
+  },
+  {
+   "id": "reports-ordering-counterfactual-md",
+   "title": "F6 execution attempt",
+   "series": "AIVD 3.x",
+   "path": "reports/ordering_counterfactual.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "9e33836e94e9dadaf2335a7ffe3c0c4010b8a2ac",
+   "sha256": "c6f74fd2e8a0d58701ae477815b21d388aebddb614d62c2ce9203f61c717f494",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-ordering-counterfactual-md.md",
+    "sha256": "c6f74fd2e8a0d58701ae477815b21d388aebddb614d62c2ce9203f61c717f494"
+   }
+  },
+  {
+   "id": "reports-ordering-execution-md",
+   "title": "F6 ordering execution",
+   "series": "AIVD 3.x",
+   "path": "reports/ordering_execution.md",
+   "source_ref": "origin/research/aivd-historical-seal-recovery",
+   "source_label": "historical-seal-recovery",
+   "commit": "f419e5048f7df043b2e894399b3c8e273664225e",
+   "sha256": "94fe438a52dce54cd50b9ee8232c55b4d236918ff2f63f6354d0033addcd663a",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-ordering-execution-md.md",
+    "sha256": "94fe438a52dce54cd50b9ee8232c55b4d236918ff2f63f6354d0033addcd663a"
+   }
+  },
+  {
+   "id": "reports-planted-budget-sweep-readme-md",
+   "title": "Planted budget sweep",
+   "series": "AIVD 3.x",
+   "path": "reports/planted_budget_sweep/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "568e888d24173aa35f2fa9b39716a64d16306ebaad8ebd7d760e7db2a2c9977a",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-planted-budget-sweep-readme-md.md",
+    "sha256": "568e888d24173aa35f2fa9b39716a64d16306ebaad8ebd7d760e7db2a2c9977a"
+   }
+  },
+  {
+   "id": "reports-planted-multiseed-readme-md",
+   "title": "Planted multi-seed results",
+   "series": "AIVD 3.x",
+   "path": "reports/planted_multiseed/README.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "d6deaac045597c82531e9c6095bb1cb07dcfc6050de2e4424be7367b0b25b76e",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-planted-multiseed-readme-md.md",
+    "sha256": "d6deaac045597c82531e9c6095bb1cb07dcfc6050de2e4424be7367b0b25b76e"
+   }
+  },
+  {
+   "id": "reports-research-results-md",
+   "title": "AIVD Research Results (v3.1.0) \u2014 Honest Account of Actual Runs",
+   "series": "AIVD 3.x",
+   "path": "reports/research-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "8c0ebd44bc02c4ce26f7c458bfdd8a0ea6065712",
+   "sha256": "8e83110880fb5f61581db8335e4f2b618d1ee2a1a49d7e03d97842ab9302a8c9",
+   "historical": true,
+   "claims_stated_in_report": [
+    "reproduced",
+    "verified"
+   ],
+   "local_paths_redacted": true,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-research-results-md.md",
+    "sha256": "5c192e9e448e9a1fea938668ca95c824c446f431e55688ba5d5716c7936509d8"
+   }
+  },
+  {
+   "id": "reports-research-upgrade-results-md",
+   "title": "AIVD v3 Research Upgrade Results (Actual Offline Mock Run)",
+   "series": "AIVD 3.x",
+   "path": "reports/research-upgrade-results.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "601b51b097353157a09d9464e2293dea4642cb1d",
+   "sha256": "86179fd76ede72d82069fa010909099a8f5c55c2360b184248e1f79efe229162",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-research-upgrade-results-md.md",
+    "sha256": "86179fd76ede72d82069fa010909099a8f5c55c2360b184248e1f79efe229162"
+   }
+  },
+  {
+   "id": "reports-tinyllama-anomaly-regression-md",
+   "title": "TinyLlama anomaly regression (claim vs effect)",
+   "series": "AIVD 3.x",
+   "path": "reports/tinyllama_anomaly_regression.md",
+   "source_ref": "origin/main",
+   "source_label": "AIVD 3.x (main)",
+   "commit": "f3b69a8288df41712dcd9f0ebe3be91b68c87d84",
+   "sha256": "e3b484fe76d347314b67557708e4d544f956d725148ba30563e2617a6d15dcb1",
+   "historical": true,
+   "claims_stated_in_report": [],
+   "local_paths_redacted": false,
+   "sanitized_artifact": {
+    "file": "public-data/reports/reports-tinyllama-anomaly-regression-md.md",
+    "sha256": "e3b484fe76d347314b67557708e4d544f956d725148ba30563e2617a6d15dcb1"
+   }
+  }
+ ]
+}

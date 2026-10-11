@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+# operator-local controller config / state never belong in git
+controller/config.json
+controller/*.local.json

@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "note": "AIVD model catalog. RC6 entries carry the digests pinned in the frozen model identity table aivd_rc5_gen/models.py IDENTITY (on a public research branch). Extras are NOT in the RC6 preregistration allowlist, carry NO pinned digest and approximate sizes only; they can never be used for Part B.",
+  "estimate": {
+    "num_ctx": 8192,
+    "kv_bytes_per_element": 2,
+    "compute_overhead_mib": 300,
+    "runtime_overhead_mib": 100,
+    "headroom_mib": 1024,
+    "method": "estimate_mib = weights blob size + f16 KV cache (2 x layers x kv_heads x head_dim x 2 bytes x num_ctx) + compute overhead + runtime processes; recommended = estimate + 1 GiB headroom (the same margin as the RC6 memory gate design)"
+  },
+  "models": [
+    {
+      "name": "qwen3:1.7b", "family": "qwen3", "params": "2.0B", "quant": "Q4_K_M", "rc6_allowlisted": true,
+      "size_bytes": 1359279776, "size_is_exact": true,
+      "arch": {"layers": 28, "kv_heads": 8, "head_dim": 128},
+      "pins": {"manifest_sha256": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+               "model_blob_sha256": "3d0b790534fe4b79525fc3692950408dca41171676ed7e21db57af5c65ef6ab6"}
+    },
+    {
+      "name": "llama3.2:3b", "family": "llama3.2", "params": "3.2B", "quant": "Q4_K_M", "rc6_allowlisted": true,
+      "size_bytes": 2019377376, "size_is_exact": true,
+      "arch": {"layers": 28, "kv_heads": 8, "head_dim": 128},
+      "pins": {"manifest_sha256": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+               "model_blob_sha256": "dde5aa3fc5ffc17176b5e8bdc82f587b24b2678c6c66101bf7da77af9f7ccdff"}
+    },
+    {
+      "name": "qwen3:8b", "family": "qwen3", "params": "8.2B", "quant": "Q4_K_M", "rc6_allowlisted": true,
+      "size_bytes": 5225374496, "size_is_exact": true,
+      "arch": {"layers": 36, "kv_heads": 8, "head_dim": 128},
+      "pins": {"manifest_sha256": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+               "model_blob_sha256": "a3de86cd1c132c822487ededd47a324c50491393e6565cd14bafa40d0b8e686f"}
+    },
+    {
+      "name": "qwen3:0.6b", "family": "qwen3", "params": "0.6B", "quant": "Q4_K_M", "rc6_allowlisted": false,
+      "size_bytes": 523000000, "size_is_exact": false,
+      "arch": {"layers": 28, "kv_heads": 8, "head_dim": 128},
+      "pins": null
+    },
+    {
+      "name": "llama3.2:1b", "family": "llama3.2", "params": "1.2B", "quant": "Q8_0", "rc6_allowlisted": false,
+      "size_bytes": 1300000000, "size_is_exact": false,
+      "arch": {"layers": 16, "kv_heads": 8, "head_dim": 64},
+      "pins": null
+    },
+    {
+      "name": "qwen3:4b", "family": "qwen3", "params": "4.0B", "quant": "Q4_K_M", "rc6_allowlisted": false,
+      "size_bytes": 2500000000, "size_is_exact": false,
+      "arch": {"layers": 36, "kv_heads": 8, "head_dim": 128},
+      "pins": null
+    }
+  ]
+}
