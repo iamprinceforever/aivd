@@ -1,0 +1,694 @@
+{
+  "schema": 1,
+  "id": "r20261011T152311-e8a0f6",
+  "started_at": "2026-10-11T15:23:11+00:00",
+  "finished_at": "2026-10-11T15:25:26+00:00",
+  "state": "completed",
+  "options": {
+    "full_suite": true,
+    "partb_handoff_requested": false,
+    "model_id": "qwen3:1.7b",
+    "auto_pull": false
+  },
+  "limits": {
+    "step_timeout_s": 1200,
+    "total_timeout_s": 3600
+  },
+  "excluded_tests": [
+    {
+      "id": "tests/post_rc3_local/test_runner_entrypoint.py",
+      "reason": "sets the LOCAL-V1 run-authorization variable in a subprocess (runs the real runner against a fake server)"
+    },
+    {
+      "id": "tests/rc6_diag/test_containment_isolation.py::test_no_socket_to_ollama_port",
+      "reason": "attempts a socket connection to 127.0.0.1:11434 (expected to be intercepted, but the pipeline never opens one)"
+    },
+    {
+      "id": "tests/rc6_diag/test_containment_isolation.py::test_real_transport_construction_fails",
+      "reason": "attempts an HTTP request to 127.0.0.1:11434 (expected to be intercepted, but the pipeline never opens one)"
+    }
+  ],
+  "steps": [
+    {
+      "id": "preflight",
+      "label": "Environment preflight",
+      "status": "FAIL",
+      "reason": "memory gate: MemAvailable 4099380 kB < 7600000 kB",
+      "started_at": "2026-10-11T15:23:11+00:00",
+      "ended_at": "2026-10-11T15:23:23+00:00",
+      "duration_s": 11.39,
+      "details": {
+        "memory": {
+          "state": "FAIL",
+          "mem_available_kb": 4099380,
+          "threshold_kb": 7600000,
+          "reason": "MemAvailable 4099380 kB < 7600000 kB"
+        },
+        "runtime": {
+          "state": "PASS",
+          "reason": "all configured runtime files match their pinned sha256 (runtime NOT started)",
+          "files": [
+            {
+              "name": "ollama-binary",
+              "expected_sha256_prefix": "ad9c53441752",
+              "state": "MATCH"
+            },
+            {
+              "name": "qwen3:1.7b",
+              "expected_sha256_prefix": "8f68893c685c",
+              "state": "MATCH"
+            },
+            {
+              "name": "llama3.2:3b",
+              "expected_sha256_prefix": "a80c4f17acd5",
+              "state": "MATCH"
+            },
+            {
+              "name": "qwen3:8b",
+              "expected_sha256_prefix": "500a1f067a9f",
+              "state": "MATCH"
+            },
+            {
+              "name": "qwen3:1.7b-blob",
+              "expected_sha256_prefix": "3d0b790534fe",
+              "state": "MATCH"
+            },
+            {
+              "name": "llama3.2:3b-blob",
+              "expected_sha256_prefix": "dde5aa3fc5ff",
+              "state": "MATCH"
+            },
+            {
+              "name": "qwen3:8b-blob",
+              "expected_sha256_prefix": "a3de86cd1c13",
+              "state": "MATCH"
+            }
+          ],
+          "ollama_process_running": false,
+          "started_by_controller": false
+        },
+        "ollama_started_by_controller": false
+      }
+    },
+    {
+      "id": "guard",
+      "label": "Authorization / guard status",
+      "status": "BLOCKED",
+      "reason": "aivd_rc6_guard refuses START_RUNTIME, MODEL_CALL: APPROVALS; G_AUDIT; G_AUTHOR; G_CORPUS; G_VALIDITY; OPERATOR_ENV open",
+      "started_at": "2026-10-11T15:23:23+00:00",
+      "ended_at": "2026-10-11T15:23:23+00:00",
+      "duration_s": 0.05,
+      "details": {
+        "actions": {
+          "GENERATE_CORPUS": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_GENERATE_CORPUS absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set"
+          ],
+          "CREATE_SECRET": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_CREATE_SECRET absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set"
+          ],
+          "SEAL": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_SEAL absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set"
+          ],
+          "COMMIT_CORPUS": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_COMMIT_CORPUS absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set"
+          ],
+          "START_RUNTIME": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_START_RUNTIME absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set",
+            "G_CORPUS: no committed RC6 corpus"
+          ],
+          "MODEL_CALL": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_MODEL_CALL absent or wrong",
+            "G_AUDIT: historical protected-path audit is not resolved",
+            "G_AUTHOR: no accepted independently authored construction set",
+            "G_CORPUS: no committed RC6 corpus"
+          ],
+          "REVEAL": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_REVEAL absent or wrong",
+            "G_CORPUS: no committed RC6 corpus",
+            "G_VALIDITY: validity gates not built"
+          ],
+          "SCORE": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_SCORE absent or wrong",
+            "G_CORPUS: no committed RC6 corpus",
+            "G_VALIDITY: validity gates not built"
+          ],
+          "PUSH": [
+            "no APPROVED RC6_APPROVALS.json",
+            "environment authorization AIVD_RC6_AUTHORIZE_PUSH absent or wrong"
+          ]
+        },
+        "gates": {
+          "APPROVALS": [
+            "no APPROVED RC6_APPROVALS.json"
+          ],
+          "G_AUDIT": [
+            "G_AUDIT: historical protected-path audit is not resolved"
+          ],
+          "G_AUTHOR": [
+            "G_AUTHOR: no accepted independently authored construction set"
+          ],
+          "G_CORPUS": [
+            "G_CORPUS: no committed RC6 corpus"
+          ],
+          "G_VALIDITY": [
+            "G_VALIDITY: validity gates not built"
+          ],
+          "OPERATOR_ENV": [
+            "environment authorization AIVD_RC6_AUTHORIZE_MODEL_CALL absent or wrong",
+            "environment authorization AIVD_RC6_AUTHORIZE_REVEAL absent or wrong",
+            "environment authorization AIVD_RC6_AUTHORIZE_SCORE absent or wrong",
+            "environment authorization AIVD_RC6_AUTHORIZE_START_RUNTIME absent or wrong"
+          ]
+        }
+      }
+    },
+    {
+      "id": "rc6_tests",
+      "label": "RC6 research test suites",
+      "status": "PASS",
+      "reason": "297 passed, 2 deselected, 2 xfailed",
+      "started_at": "2026-10-11T15:23:23+00:00",
+      "ended_at": "2026-10-11T15:23:34+00:00",
+      "duration_s": 11.74,
+      "details": {
+        "counts": {
+          "passed": 297,
+          "deselected": 2,
+          "xfailed": 2
+        },
+        "failing_new": [],
+        "failing_historical": [],
+        "excluded": [
+          "tests/post_rc3_local/test_runner_entrypoint.py",
+          "tests/rc6_diag/test_containment_isolation.py::test_no_socket_to_ollama_port",
+          "tests/rc6_diag/test_containment_isolation.py::test_real_transport_construction_fails"
+        ],
+        "suites": [
+          "tests/rc6_diag",
+          "tests/rc6_gen",
+          "tests/rc6_run",
+          "tests/rc6_provider",
+          "tests/rc6_analysis",
+          "tests/rc6_evidence",
+          "tests/rc6_hygiene"
+        ],
+        "worktrees_unchanged": true,
+        "worktrees_changed": [],
+        "exit_code": 0
+      }
+    },
+    {
+      "id": "full_suite",
+      "label": "Full research test suite",
+      "status": "PASS",
+      "reason": "4 failed, 1110 passed, 4 skipped, 2 deselected, 2 xfailed; the 4 failure(s) are pre-existing/historical (rc5_gen design-phase assertions superseded by later research commits)",
+      "started_at": "2026-10-11T15:23:34+00:00",
+      "ended_at": "2026-10-11T15:24:09+00:00",
+      "duration_s": 34.13,
+      "details": {
+        "counts": {
+          "failed": 4,
+          "passed": 1110,
+          "skipped": 4,
+          "deselected": 2,
+          "xfailed": 2
+        },
+        "failing_new": [],
+        "failing_historical": [
+          "tests/rc5_gen/test_design.py::test_preregistration_frozen_at_design_without_d1_d4_gate",
+          "tests/rc5_gen/test_design.py::test_corpus_dependent_fields_and_authorizations_pending",
+          "tests/rc5_gen/test_design.py::test_provider_gate_requires_frozen_design_and_nothing_drawn",
+          "tests/rc5_gen/test_design.py::test_preflight_refuses_at_design_and_passes_when_fully_bound"
+        ],
+        "excluded": [
+          "tests/post_rc3_local/test_runner_entrypoint.py",
+          "tests/rc6_diag/test_containment_isolation.py::test_no_socket_to_ollama_port",
+          "tests/rc6_diag/test_containment_isolation.py::test_real_transport_construction_fails"
+        ],
+        "suites": [
+          "tests"
+        ],
+        "worktrees_unchanged": true,
+        "worktrees_changed": [],
+        "exit_code": 1
+      }
+    },
+    {
+      "id": "cc_tests",
+      "label": "Command Center tests",
+      "status": "PASS",
+      "reason": "vitest 77 passed; python 141/141 passed",
+      "started_at": "2026-10-11T15:24:09+00:00",
+      "ended_at": "2026-10-11T15:25:21+00:00",
+      "duration_s": 72.44,
+      "details": {
+        "vitest": {
+          "counts": {
+            "passed": 77
+          },
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "python": {
+          "counts": {
+            "passed": 141,
+            "failed": 0
+          },
+          "ok": true
+        }
+      }
+    },
+    {
+      "id": "scans",
+      "label": "Publication & contamination scans",
+      "status": "PASS",
+      "reason": "content scan: 443 files, 0 with hits; manifest vs origin/main: 23 commits, 0 deny-listed, branch safety PASS",
+      "started_at": "2026-10-11T15:25:21+00:00",
+      "ended_at": "2026-10-11T15:25:24+00:00",
+      "duration_s": 2.69,
+      "details": {
+        "content_scan": {
+          "files_scanned": 443,
+          "files_with_hits": 0,
+          "hit_counts": {},
+          "prior_seal_scan": {
+            "state": "ran",
+            "pass": true,
+            "files": 443,
+            "prior_value_hits": 0,
+            "prior_identity_hits": 0,
+            "prior_template_hits": 0,
+            "rc5_value_hits": 0,
+            "rc5_case_insensitive_hits": 0
+          },
+          "pass": true
+        },
+        "manifest": {
+          "outgoing_commits": 23,
+          "outgoing_file_changes": 345,
+          "deny_listed": 0,
+          "unpublished_non_ui": 0,
+          "branch_safety": {
+            "pass": true,
+            "reasons": []
+          }
+        }
+      }
+    },
+    {
+      "id": "model",
+      "label": "Model readiness (selected model)",
+      "status": "PASS",
+      "reason": "qwen3:1.7b installed and verified (manifest and weights match the pinned digests; every blob re-hashed OK); RAM FITS (~2,654,525 kB of 4,044,988 kB available).",
+      "started_at": "2026-10-11T15:25:24+00:00",
+      "ended_at": "2026-10-11T15:25:26+00:00",
+      "duration_s": 1.94,
+      "details": {
+        "model_id": "qwen3:1.7b",
+        "family": "qwen3",
+        "rc6_allowlisted": true,
+        "part_b_note": "in the RC6 preregistration allowlist (Part B still needs every gate)",
+        "selection": "matches the controller's recommendation: best installed model that fits MemAvailable (RC6-allowlisted first, then largest that fits)",
+        "fit": {
+          "required_kb": 2654525,
+          "recommended_kb": 3703101,
+          "available_kb": 4044988,
+          "total_kb": 16397616,
+          "verdict": "FITS",
+          "reason": "needs ~2,654,525 kB (+1 GiB headroom = 3,703,101 kB); MemAvailable is 4,044,988 kB"
+        },
+        "ram": {
+          "weights_mib": 1296,
+          "kv_cache_mib": 896,
+          "compute_mib": 300,
+          "runtime_mib": 100,
+          "headroom_mib": 1024,
+          "estimate_kb": 2654525,
+          "recommended_kb": 3703101,
+          "num_ctx": 8192,
+          "approximate": false
+        },
+        "install_before": "installed",
+        "install_after": "installed",
+        "pins": {
+          "manifest_sha256": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+          "model_blob_sha256": "3d0b790534fe4b79525fc3692950408dca41171676ed7e21db57af5c65ef6ab6"
+        },
+        "pull": null,
+        "verify": {
+          "ok": true,
+          "reason": "manifest and weights match the pinned digests; every blob re-hashed OK",
+          "checks": [
+            {
+              "what": "manifest sha256",
+              "expected": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+              "observed": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+              "match": true
+            },
+            {
+              "what": "weights blob sha256 (re-hashed)",
+              "expected": "3d0b790534fe4b79525fc3692950408dca41171676ed7e21db57af5c65ef6ab6",
+              "observed": "3d0b790534fe4b79525fc3692950408dca41171676ed7e21db57af5c65ef6ab6",
+              "match": true
+            },
+            {
+              "what": "all 5 blobs re-hashed equal their manifest digests",
+              "expected": null,
+              "observed": "5/5",
+              "match": true
+            }
+          ],
+          "pinned": true
+        },
+        "ollama_started": false,
+        "size_bytes": 1359279776
+      }
+    },
+    {
+      "id": "partb",
+      "label": "RC6 Part B experiment (guarded)",
+      "status": "BLOCKED",
+      "reason": "Part B not started (Ollama not started): Redacted preregistration approved (RC6_APPROVALS.json): no APPROVED RC6_APPROVALS.json; OSF registration of the approved preregistration: not recorded: no APPROVED RC6_APPROVALS.json (the readiness report lists OSF registration as not done); Independent outcome-blind author + separate human reviewer: G_AUTHOR: no accepted independently authored construction set; Historical protected-path audit resolved: G_AUDIT: historical protected-path audit is not resolved; Committed RC6 corpus: G_CORPUS: no committed RC6 corpus; Operator authorization env (START_RUNTIME, MODEL_CALL): environment authorization AIVD_RC6_AUTHORIZE_MODEL_CALL absent or wrong; environment authorization AIVD_RC6_AUTHORIZE_START_RUNTIME absent or wrong; AIVD_RC6_PARTB_AUTHORIZED supplied by the operator's shell: AIVD_RC6_PARTB_AUTHORIZED not present in the controller's inherited environment; MemAvailable >= 7600000 kB: MemAvailable 3992164 kB < 7600000 kB; Model is preregistered: invalid or missing attempt id; Exact confirmation phrase typed: confirmation phrase not typed",
+      "started_at": "2026-10-11T15:25:26+00:00",
+      "ended_at": "2026-10-11T15:25:26+00:00",
+      "duration_s": 0.05,
+      "details": {
+        "checklist": [
+          {
+            "id": "PREREG_APPROVAL",
+            "label": "Redacted preregistration approved (RC6_APPROVALS.json)",
+            "state": "FAIL",
+            "reasons": [
+              "no APPROVED RC6_APPROVALS.json"
+            ],
+            "fix": "Complete the separate review of the redacted preregistration and commit an APPROVED RC6_APPROVALS.json naming its current sha256 and listing START_RUNTIME and MODEL_CALL.",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "OSF_REGISTRATION",
+            "label": "OSF registration of the approved preregistration",
+            "state": "FAIL",
+            "reasons": [
+              "not recorded: no APPROVED RC6_APPROVALS.json (the readiness report lists OSF registration as not done)"
+            ],
+            "fix": "Register the approved preregistration on OSF before the approval is recorded; the controller can only see it through the APPROVED RC6_APPROVALS.json.",
+            "source": "readiness report; verifiable only via the approval record"
+          },
+          {
+            "id": "G_AUTHOR",
+            "label": "Independent outcome-blind author + separate human reviewer",
+            "state": "FAIL",
+            "reasons": [
+              "G_AUTHOR: no accepted independently authored construction set"
+            ],
+            "fix": "Have an independent, outcome-blind author produce the construction set and a different human reviewer accept and pin it (G_AUTHOR).",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "G_AUDIT",
+            "label": "Historical protected-path audit resolved",
+            "state": "FAIL",
+            "reasons": [
+              "G_AUDIT: historical protected-path audit is not resolved"
+            ],
+            "fix": "Resolve the historical protected-path audit and record a resolution naming the audit file's current sha256 (G_AUDIT).",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "G_FROZEN",
+            "label": "Frozen analysis manifest intact",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "G_CORPUS",
+            "label": "Committed RC6 corpus",
+            "state": "FAIL",
+            "reasons": [
+              "G_CORPUS: no committed RC6 corpus"
+            ],
+            "fix": "A committed RC6 corpus is required; it can only be created after authorization (G_CORPUS).",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "OPERATOR_ENV",
+            "label": "Operator authorization env (START_RUNTIME, MODEL_CALL)",
+            "state": "FAIL",
+            "reasons": [
+              "environment authorization AIVD_RC6_AUTHORIZE_MODEL_CALL absent or wrong",
+              "environment authorization AIVD_RC6_AUTHORIZE_START_RUNTIME absent or wrong"
+            ],
+            "fix": "The authorized operator exports AIVD_RC6_AUTHORIZE_START_RUNTIME / _MODEL_CALL (\"<ACTION>:<approved prereg sha256>\") in their OWN shell before starting the controller.",
+            "source": "aivd_rc6_guard"
+          },
+          {
+            "id": "ENTRY",
+            "label": "Guarded entry script present",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller"
+          },
+          {
+            "id": "PARTB_ENV",
+            "label": "AIVD_RC6_PARTB_AUTHORIZED supplied by the operator's shell",
+            "state": "FAIL",
+            "reasons": [
+              "AIVD_RC6_PARTB_AUTHORIZED not present in the controller's inherited environment"
+            ],
+            "fix": "The authorized operator exports AIVD_RC6_PARTB_AUTHORIZED in their own shell before starting the controller; the controller never sets it.",
+            "source": "controller"
+          },
+          {
+            "id": "MEMORY",
+            "label": "MemAvailable >= 7600000 kB",
+            "state": "FAIL",
+            "reasons": [
+              "MemAvailable 3992164 kB < 7600000 kB"
+            ],
+            "fix": "Free memory until MemAvailable is at least 7,600,000 kB (close other workloads).",
+            "source": "controller"
+          },
+          {
+            "id": "RUNTIME_FILES",
+            "label": "Runtime files match pinned hashes",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller"
+          },
+          {
+            "id": "NO_FOREIGN_RUNTIME",
+            "label": "No Ollama process already running",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller"
+          },
+          {
+            "id": "NO_ACTIVE_RUN",
+            "label": "No run already in progress",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller"
+          },
+          {
+            "id": "MODEL_ATTEMPT",
+            "label": "Model is preregistered",
+            "state": "FAIL",
+            "reasons": [
+              "invalid or missing attempt id"
+            ],
+            "fix": "Choose a preregistered model and a valid attempt id (lowercase letters, digits, - and _).",
+            "source": "controller"
+          },
+          {
+            "id": "RESEARCH_BRANCH",
+            "label": "Research worktree on expected branch",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller"
+          },
+          {
+            "id": "MODEL_READY",
+            "label": "Selected model installed, digest-verified and fits RAM",
+            "state": "PASS",
+            "reasons": [],
+            "fix": "",
+            "source": "controller (model readiness)"
+          },
+          {
+            "id": "CONFIRM_PHRASE",
+            "label": "Exact confirmation phrase typed",
+            "state": "FAIL",
+            "reasons": [
+              "confirmation phrase not typed"
+            ],
+            "fix": "Type the exact confirmation phrase in the run dialog (only once every other gate passes).",
+            "source": "operator"
+          }
+        ],
+        "ollama_started": false,
+        "handoff": false
+      }
+    },
+    {
+      "id": "summary",
+      "label": "Summary (7-state lifecycle)",
+      "status": "FAIL",
+      "reason": "Software built: PASS; Runtime available: PASS; Prerequisites: FAIL; Authorized: NO; Experiment: NOT RUN",
+      "started_at": "2026-10-11T15:25:26+00:00",
+      "ended_at": "2026-10-11T15:25:26+00:00",
+      "duration_s": 0.0,
+      "details": {
+        "lifecycle": [
+          {
+            "id": "software_built",
+            "label": "Software built",
+            "value": "PASS"
+          },
+          {
+            "id": "runtime_available",
+            "label": "Runtime available",
+            "value": "PASS"
+          },
+          {
+            "id": "prerequisites_satisfied",
+            "label": "Prerequisites",
+            "value": "FAIL",
+            "open": [
+              "G_AUTHOR",
+              "G_AUDIT",
+              "G_CORPUS",
+              "MEMORY"
+            ]
+          },
+          {
+            "id": "explicitly_authorized",
+            "label": "Authorized",
+            "value": "NO",
+            "open": [
+              "PREREG_APPROVAL",
+              "OSF_REGISTRATION",
+              "OPERATOR_ENV",
+              "PARTB_ENV",
+              "MODEL_ATTEMPT",
+              "CONFIRM_PHRASE"
+            ]
+          },
+          {
+            "id": "running",
+            "label": "Experiment",
+            "value": "NOT RUN"
+          },
+          {
+            "id": "completed",
+            "label": "Completed",
+            "value": "NO"
+          },
+          {
+            "id": "independently_validated",
+            "label": "Independently validated",
+            "value": "NOT VERIFIED"
+          }
+        ]
+      }
+    }
+  ],
+  "verdict": {
+    "overall": "FAIL",
+    "headline": "Software built: PASS; Runtime available: PASS; Prerequisites: FAIL; Authorized: NO; Experiment: NOT RUN",
+    "lifecycle": [
+      {
+        "id": "software_built",
+        "label": "Software built",
+        "value": "PASS"
+      },
+      {
+        "id": "runtime_available",
+        "label": "Runtime available",
+        "value": "PASS"
+      },
+      {
+        "id": "prerequisites_satisfied",
+        "label": "Prerequisites",
+        "value": "FAIL",
+        "open": [
+          "G_AUTHOR",
+          "G_AUDIT",
+          "G_CORPUS",
+          "MEMORY"
+        ]
+      },
+      {
+        "id": "explicitly_authorized",
+        "label": "Authorized",
+        "value": "NO",
+        "open": [
+          "PREREG_APPROVAL",
+          "OSF_REGISTRATION",
+          "OPERATOR_ENV",
+          "PARTB_ENV",
+          "MODEL_ATTEMPT",
+          "CONFIRM_PHRASE"
+        ]
+      },
+      {
+        "id": "running",
+        "label": "Experiment",
+        "value": "NOT RUN"
+      },
+      {
+        "id": "completed",
+        "label": "Completed",
+        "value": "NO"
+      },
+      {
+        "id": "independently_validated",
+        "label": "Independently validated",
+        "value": "NOT VERIFIED"
+      }
+    ],
+    "model": {
+      "status": "PASS",
+      "reason": "qwen3:1.7b installed and verified (manifest and weights match the pinned digests; every blob re-hashed OK); RAM FITS (~2,654,525 kB of 4,044,988 kB available).",
+      "model_id": "qwen3:1.7b",
+      "rc6_allowlisted": true,
+      "selection": "matches the controller's recommendation: best installed model that fits MemAvailable (RC6-allowlisted first, then largest that fits)",
+      "install_before": "installed",
+      "install_after": "installed"
+    },
+    "experiment_ran": false,
+    "note": "The experiment did not run. Nothing here means 'experiment ready'."
+  },
+  "total_duration_s": 134.45,
+  "log": [],
+  "published": {
+    "source": "research computer",
+    "sanitized": true,
+    "log": "omitted (the raw log stays on the research computer)",
+    "removed": "process ids, host names, local paths, state/log locations, commands, environment"
+  }
+}

@@ -1,6 +1,63 @@
 {
-  "latest": "r20261011T144715-c8b1d0",
+  "latest": "r20261011T152311-e8a0f6",
   "runs": [
+    {
+      "id": "r20261011T152311-e8a0f6",
+      "started_at": "2026-10-11T15:23:11+00:00",
+      "finished_at": "2026-10-11T15:25:26+00:00",
+      "total_duration_s": 134.45,
+      "overall": "FAIL",
+      "headline": "Software built: PASS; Runtime available: PASS; Prerequisites: FAIL; Authorized: NO; Experiment: NOT RUN",
+      "source": "research computer",
+      "file": "runs/r20261011T152311-e8a0f6.json",
+      "steps": [
+        {
+          "id": "preflight",
+          "label": "Environment preflight",
+          "status": "FAIL"
+        },
+        {
+          "id": "guard",
+          "label": "Authorization / guard status",
+          "status": "BLOCKED"
+        },
+        {
+          "id": "rc6_tests",
+          "label": "RC6 research test suites",
+          "status": "PASS"
+        },
+        {
+          "id": "full_suite",
+          "label": "Full research test suite",
+          "status": "PASS"
+        },
+        {
+          "id": "cc_tests",
+          "label": "Command Center tests",
+          "status": "PASS"
+        },
+        {
+          "id": "scans",
+          "label": "Publication & contamination scans",
+          "status": "PASS"
+        },
+        {
+          "id": "model",
+          "label": "Model readiness (selected model)",
+          "status": "PASS"
+        },
+        {
+          "id": "partb",
+          "label": "RC6 Part B experiment (guarded)",
+          "status": "BLOCKED"
+        },
+        {
+          "id": "summary",
+          "label": "Summary (7-state lifecycle)",
+          "status": "FAIL"
+        }
+      ]
+    },
     {
       "id": "r20261011T144715-c8b1d0",
       "started_at": "2026-10-11T14:47:15+00:00",

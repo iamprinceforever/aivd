@@ -426,6 +426,90 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("tip is the main branch itself", m["branch_safety"]["reasons"])
 
 
+class PagesBuildAllowanceTests(ManifestTests):
+    """--allow-pages-build accepts exactly the Pages build output under docs/ and nothing else."""
+
+    def setUp(self):
+        super().setUp()
+        self.commit("docs/methodology.md", "research doc\n", "research doc on main")
+        self.git(self.repo, "push", "-q", "origin", "main")
+        self.git(self.repo, "fetch", "-q", "origin")
+        self.git(self.repo, "checkout", "-q", "-b", "ui/publish")
+
+    def write(self, files):
+        for path, text in files.items():
+            p = self.repo / path
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(text)
+            self.git(self.repo, "add", path)
+        self.git(self.repo, "commit", "-q", "-m", "publish")
+
+    def site(self, **extra):
+        files = {"command-center/public-data/runs/latest.json": "{}\n",
+                 "command-center/public-data/site-data.json": "{\"a\": 1}\n",
+                 "command-center/public-data/reports/r-one.md": "# r\n",
+                 "docs/index.html": "<html></html>\n", "docs/404.html": "<html></html>\n", "docs/.nojekyll": "",
+                 "docs/assets/index-AbC123_x.js": "x", "docs/assets/index-AbC123_x.css": "y",
+                 "docs/runs/latest.json": "{}\n", "docs/site-data.json": "{\"a\": 1}\n", "docs/reports/r-one.md": "# r\n"}
+        files.update(extra)
+        self.write(files)
+
+    def build(self, allow=True):
+        return OM.build(self.repo, "ui/publish", "origin/main", allow_pages_build=allow)
+
+    def test_pages_build_output_passes_only_when_opted_in(self):
+        self.site()
+        m = self.build()
+        self.assertTrue(m["branch_safety"]["pass"], m["branch_safety"])
+        self.assertEqual(len(m["pages_build_changes"]), 8)
+        self.assertEqual(m["out_of_scope_changes"], [])
+        off = self.build(allow=False)                       # default unchanged: docs/ is out of scope
+        self.assertFalse(off["branch_safety"]["pass"])
+        self.assertEqual(len(off["out_of_scope_changes"]), 8)
+        self.assertEqual(off["pages_build_changes"], [])
+
+    def test_anything_else_under_docs_stays_out_of_scope(self):
+        for extra in ({"docs/methodology.md": "changed research doc\n"},     # on main: never covered
+                      {"docs/notes.md": "new doc\n"},                         # not a build path
+                      {"docs/assets/evil.js": "x"},                            # not a hashed build asset
+                      {"docs/assets/index-AbC123_x.js.map": "x"},
+                      {"docs/runs/notes.json": "{}"},
+                      {"docs/examples/github-ci.yml": "x"},
+                      {".github/workflows/pages.yml": "x"},
+                      {"README.md": "changed\n"}):
+            with self.subTest(extra=list(extra)):
+                self.setUp()
+                self.site(**extra)
+                m = self.build()
+                self.assertFalse(m["branch_safety"]["pass"])
+                self.assertEqual([c["path"] for c in m["out_of_scope_changes"]], list(extra))
+
+    def test_content_bindings(self):
+        cases = {"docs/runs/latest.json": "{\"other\": 1}\n",       # differs from public-data copy
+                 "docs/reports/r-one.md": "# tampered\n",
+                 "docs/404.html": "<html>different</html>\n",          # SPA fallback must equal index.html
+                 "docs/.nojekyll": "not empty"}
+        for path, text in cases.items():
+            with self.subTest(path=path):
+                self.setUp()
+                self.site(**{path: text})
+                m = self.build()
+                self.assertFalse(m["branch_safety"]["pass"])
+                self.assertEqual([c["path"] for c in m["out_of_scope_changes"]], [path])
+
+    def test_deletions_and_renames_are_not_covered(self):
+        self.site()
+        self.git(self.repo, "push", "-q", "origin", "ui/publish")
+        self.git(self.repo, "fetch", "-q", "origin")
+        self.git(self.repo, "rm", "-q", "docs/assets/index-AbC123_x.css")
+        self.git(self.repo, "mv", "docs/assets/index-AbC123_x.js", "docs/assets/index-ZZZ999_y.js")
+        self.git(self.repo, "commit", "-q", "-m", "delete + rename")
+        m = self.build()
+        self.assertFalse(m["branch_safety"]["pass"])
+        self.assertEqual(sorted(c["path"] for c in m["out_of_scope_changes"]),
+                         ["docs/assets/index-AbC123_x.css", "docs/assets/index-ZZZ999_y.js"])
+
+
 class WorkflowTests(unittest.TestCase):
     def test_workflow_security_properties(self):
         wf = (CC.parent / ".github" / "workflows" / "command-center.yml")

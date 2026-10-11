@@ -100,6 +100,11 @@ paths, host names, process ids, state/log locations, commands or environment; re
 `public-data/runs/<id>.json`, `runs/latest.json` and `runs/index.json`. Scan it with
 `scripts/scan_outgoing.py --tree . --seal-scanner <scanner> --require-seal-scan`, rebuild, and the view is at
 `#/runs/latest` (also linked from Overview and Run Pipeline), labelled with the run's time in IST and its run id.
+For the Pages publish commit, check it with
+`scripts/outgoing_manifest.py --repo <repo> --tip <publish> --base origin/main --allow-pages-build --out <file>`:
+the opt-in flag accepts only the build output under docs/ (index.html, 404.html identical to it, an empty .nojekyll,
+hashed assets, and data files byte-identical to command-center/public-data), added or modified, never a path already
+on main. Without the flag docs/ stays out of scope.
 
 **Part B.** With any gate open, the Part B step is **BLOCKED** and lists every reason. Ollama is not started. Only when
 every server-side gate passes, the operator's own shell exported the authorization variables before starting the
