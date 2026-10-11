@@ -124,6 +124,27 @@ describe("one-click pipeline", () => {
     expect(bodies).toEqual([{ url: `${BASE}/api/ops/run_pipeline`, body: { full_suite: true, partb_confirm: "", model_id: "llama3.2:3b", attempt_id: "", auto_pull: false } }]);
   });
 
+  it("renders the Run dialog in a portal under document.body, above the page, with Start enabled and Part B closed", async () => {
+    const { user } = await paired("Experiment Control");
+    const btn = await screen.findByRole("button", { name: /Run full check/ });
+    await waitFor(() => expect(btn).toBeEnabled());
+    await user.click(btn);
+    const dlg = screen.getByRole("dialog", { name: "Run full check" });
+    const backdrop = dlg.parentElement!;
+    expect(backdrop).toHaveClass("modal-backdrop");
+    expect(backdrop.parentElement).toBe(document.body);          // portalled: no panel ancestor can trap its z-index
+    expect(document.getElementById("main")!.contains(dlg)).toBe(false);
+    expect(dlg).toHaveAttribute("aria-modal", "true");
+    expect(within(dlg).getByRole("button", { name: "Start pipeline" })).toBeEnabled();
+    expect(dlg.querySelector("details.partb-box")).not.toHaveAttribute("open");
+    expect(within(dlg).getByLabelText(/Include the full research suite/)).not.toBeChecked();
+    await user.tab({ shift: true });                                // focus trap still keeps focus inside the dialog
+    expect(dlg.contains(document.activeElement)).toBe(true);
+    await user.keyboard("{Escape}");
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(btn).toHaveFocus();
+  });
+
   it("Part B section requires the exact typed phrase before Start is enabled", async () => {
     const { user } = await paired("Experiment Control");
     const btn = await screen.findByRole("button", { name: /Run full check/ });

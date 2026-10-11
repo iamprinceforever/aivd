@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 import { useController } from "../../lib/controller";
 import { PIPELINE_STEPS, usePipeline } from "../../lib/pipeline";
@@ -111,7 +112,8 @@ function RunDialog({ model, busy, onClose, onStart, error }: { model: ModelEntry
     if (busy || partbIncomplete) return;
     onStart({ full_suite: full, partb_confirm: partb ? phrase : "", model_id: model?.name ?? "", attempt_id: partb ? attempt : "", auto_pull: missing && !exceeds && autoPull });
   }
-  return (
+  // Portalled to document.body so no ancestor's transform/filter/animation can trap the modal's stacking context.
+  return createPortal(
     <div className="modal-backdrop" onMouseDown={(e) => e.target === e.currentTarget && onClose()}>
       <div className="modal" role="dialog" aria-modal="true" aria-labelledby={tid} aria-describedby={did} ref={ref} onKeyDown={onKey}>
         <h2 id={tid} className="panel-title">
@@ -187,6 +189,7 @@ function RunDialog({ model, busy, onClose, onStart, error }: { model: ModelEntry
           {partbIncomplete && <p className="small muted">The phrase must match exactly, or close the Part B section to run without it.</p>}
         </form>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
