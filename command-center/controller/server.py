@@ -35,6 +35,7 @@ from pathlib import Path
 
 from controller import models as MD
 from controller import pipeline as PL
+from controller import procs as PR
 
 VERSION = "0.3.0"
 MAX_BODY = 4096
@@ -64,7 +65,9 @@ CONFIG_KEYS = {"research_worktree": str, "worktrees": dict, "runtime_files": lis
                "pipeline_step_timeout_s": int, "pipeline_total_timeout_s": int,
                # model picker / downloads (all optional, operator-local)
                "model_store": str, "ollama_binary": str, "pull_enabled": bool, "pull_port": int,
-               "pull_timeout_s": int, "model_catalog": str}
+               "pull_timeout_s": int, "model_catalog": str,
+               # child stop escalation: SIGINT, wait, SIGTERM, wait, SIGKILL (seconds per wait; default 5)
+               "stop_grace_s": int}
 APPROVAL_REASON_RX = re.compile(r"RC6_APPROVALS|environment authorization|approved preregistration|not listed")
 
 
@@ -122,6 +125,8 @@ def validate_config(raw) -> dict:
         raise ConfigError("pipeline_step_timeout_s out of range (30-7200)")
     if not 60 <= cfg.get("pipeline_total_timeout_s", 3600) <= 14400:
         raise ConfigError("pipeline_total_timeout_s out of range (60-14400)")
+    if not 1 <= cfg.get("stop_grace_s", PR.DEFAULT_GRACE_S) <= 120:
+        raise ConfigError("stop_grace_s out of range (1-120)")
     if "model_store" in cfg and not (Path(cfg["model_store"]).is_absolute() and Path(cfg["model_store"]).is_dir()):
         raise ConfigError("model_store must be an existing absolute directory")
     for k in ("ollama_binary", "model_catalog"):
@@ -482,24 +487,23 @@ class Controller:
     # ---------- guarded operations ----------
     def _spawn(self, op, argv):
         p = subprocess.Popen([self.python, *argv], cwd=self.root, env=dict(self.env), stdout=subprocess.PIPE,
-                             stderr=subprocess.DEVNULL, start_new_session=True)
+                             stderr=subprocess.DEVNULL, **PR.spawn_kwargs())
         with self.lock:
             self.proc = p
             self.run = {"state": "running", "op": op, "started": time.time()}
         threading.Thread(target=self._wait, args=(op, p), daemon=True).start()
 
     def _wait(self, op, p):
+        stopped_by = None
         try:
             out, _ = p.communicate(timeout=self.cfg["max_run_seconds"])
             timed_out = False
         except subprocess.TimeoutExpired:
+            # SIGINT first (lets the entry script's finally stop its own children), then SIGTERM, then SIGKILL.
+            stopped_by = PR.stop(p, self.cfg.get("stop_grace_s", PR.DEFAULT_GRACE_S))
             try:
-                os.killpg(p.pid, signal.SIGINT)   # lets the entry script's finally stop its own children
-            except OSError:
-                pass
-            try:
-                out, _ = p.communicate(timeout=60)
-            except subprocess.TimeoutExpired:
+                out, _ = p.communicate(timeout=5)
+            except (subprocess.TimeoutExpired, ValueError, OSError):
                 out = b""
             timed_out = True
         summary = {}
@@ -513,8 +517,10 @@ class Controller:
         with self.lock:
             self.run = {"state": state, "op": op, "exit_code": rc, "finished": time.time(),
                         "summary": json.loads(redact(json.dumps(summary)))}
+            if stopped_by:
+                self.run["stopped_by"] = stopped_by
             self.proc = None
-        self.audit(op, state, [f"exit {rc}"])
+        self.audit(op, state, [f"exit {rc}"] + ([f"stopped by {stopped_by}"] if stopped_by else []))
 
     def op_run(self, body):
         model, attempt = body["model_id"], body["attempt_id"]

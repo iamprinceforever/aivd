@@ -15,6 +15,7 @@ import { Deployment } from "./pages/Deployment";
 import { Settings } from "./pages/Settings";
 import { PipelinePage } from "./pages/Pipeline";
 import { Journey } from "./pages/Journey";
+import { PublishedRunsPage } from "./pages/PublishedRuns";
 import { ModelsProvider } from "./lib/models";
 import { PipelineProvider } from "./lib/pipeline";
 
@@ -66,7 +67,7 @@ function Shell() {
     if (first.current) first.current = false;
     else mainRef.current?.focus({ preventScroll: true });
     const item = NAV.find((n) => (n.to === "/" ? loc.pathname === "/" : loc.pathname.startsWith(n.to)));
-    document.title = `${item?.label ?? "AIVD"} · AIVD Command Center`;
+    document.title = `${item?.label ?? (loc.pathname.startsWith("/runs") ? "Published run" : "AIVD")} · AIVD Command Center`;
   }, [loc.pathname]);
   return (
     <>
@@ -120,6 +121,8 @@ function Shell() {
             <Route path="/control" element={<ExperimentControl />} />
             <Route path="/pipeline" element={<PipelinePage />} />
             <Route path="/pipeline/:id" element={<PipelinePage />} />
+            <Route path="/runs" element={<PublishedRunsPage />} />
+            <Route path="/runs/:id" element={<PublishedRunsPage />} />
             <Route path="/reports" element={<ReportsArchive />} />
             <Route path="/reports/:id" element={<ReportDetail />} />
             <Route path="/runtime" element={<ModelsRuntime />} />

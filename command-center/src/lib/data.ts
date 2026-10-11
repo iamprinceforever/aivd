@@ -5,7 +5,7 @@ export function assetUrl(rel: string): string {
   return `${base}${rel.replace(/^\/+/, "")}`;
 }
 
-async function getJson<T>(rel: string): Promise<T> {
+export async function getJson<T>(rel: string): Promise<T> {
   const r = await fetch(assetUrl(rel), { credentials: "omit" });
   if (!r.ok) throw new Error(`could not load ${rel} (${r.status})`);
   return (await r.json()) as T;

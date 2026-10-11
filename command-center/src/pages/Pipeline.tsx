@@ -6,6 +6,7 @@ import { PipelineResults } from "../components/pipeline/PipelineResults";
 import { RunButton } from "../components/pipeline/RunButton";
 import { ModelPicker } from "../components/models/ModelPicker";
 import { RunHistory } from "../components/pipeline/RunHistory";
+import { PublishedRunCard } from "../components/pipeline/PublishedRun";
 import { NotConnected } from "../components/Status";
 import { useController } from "../lib/controller";
 import { PIPELINE_STEPS, usePipeline } from "../lib/pipeline";
@@ -46,6 +47,7 @@ export function PipelinePage() {
       )}
       {shown && shown.state !== "running" && <PipelineResults run={shown} />}
       {shown && <PipelineLive run={shown} />}
+      {!shown && !id && <PublishedRunCard />}
       {conn === "paired" && <RunHistory runs={history} />}
     </>
   );

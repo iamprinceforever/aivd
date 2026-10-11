@@ -29,7 +29,8 @@ export function Overview() {
           </h2>
           <p className="panel-sub">
             Preflight, guard status, research and Command Center tests, scans and the guarded RC6 Part B step, with live
-            progress and a results report. <Link to="/pipeline">Open Run Pipeline →</Link>
+            progress and a results report. <Link to="/pipeline">Open Run Pipeline →</Link>{" "}
+            <Link to="/runs/latest">Latest results from the research computer →</Link>
           </p>
         </div>
         <RunButton compact />

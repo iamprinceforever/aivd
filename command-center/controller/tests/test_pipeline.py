@@ -195,7 +195,8 @@ class TimeoutConcurrencyTests(PipelineBase):
                                             str(self.td), {"PATH": os.environ.get("PATH", "")}, 1, lambda ln: None)
         self.assertTrue(to)
         self.assertLess(time.time() - t0, 20)
-        self.assertEqual(lines, ["hi\n"])
+        self.assertEqual(lines[0], "hi\n")              # SIGINT reaches the child (KeyboardInterrupt traceback follows)
+        self.assertEqual(c.pipeline.last_stop_signal, "SIGINT")
 
     def test_one_pipeline_at_a_time_and_not_during_rc6_run(self):
         c = self.pctl(fake=FakeCmd(sleep=1.0))

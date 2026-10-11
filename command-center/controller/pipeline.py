@@ -31,6 +31,8 @@ import threading
 import time
 from pathlib import Path
 
+from controller import procs as PR
+
 try:  # shared scan rules (outcome / secret patterns); optional so the controller still starts without them
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
     import scan_rules as _rules  # noqa: E402
@@ -128,6 +130,8 @@ class Pipeline:
         self.state_dir.mkdir(parents=True, exist_ok=True, mode=0o700)
         self.step_timeout = cfg.get("pipeline_step_timeout_s") or DEFAULT_STEP_TIMEOUT
         self.total_timeout = cfg.get("pipeline_total_timeout_s") or DEFAULT_TOTAL_TIMEOUT
+        self.stop_grace = cfg.get("stop_grace_s") or PR.DEFAULT_GRACE_S
+        self.last_stop_signal = None
         self.run_cmd = run_cmd or self._run_cmd
         self.partb_handoff = partb_handoff or self._default_handoff
         self.clock = clock
@@ -209,9 +213,11 @@ class Pipeline:
 
     # ---------- process execution ----------
     def _run_cmd(self, argv, cwd, env, timeout, on_line):
-        """Run a FIXED argv (never shell); stream lines; kill the process group on timeout."""
+        """Run a FIXED argv (never shell); stream lines; on timeout stop the process group (SIGINT, SIGTERM, SIGKILL
+        with a grace period between each; see controller/procs.py) and record which signal ended it."""
+        self.last_stop_signal = None
         p = subprocess.Popen(argv, cwd=cwd, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                             stdin=subprocess.DEVNULL, start_new_session=True)
+                             stdin=subprocess.DEVNULL, **PR.spawn_kwargs())
         lines = []
 
         def pump():
@@ -228,16 +234,8 @@ class Pipeline:
             p.wait(timeout=max(1, timeout))
         except subprocess.TimeoutExpired:
             timed_out = True
-            for sig in (signal.SIGTERM, signal.SIGKILL):
-                try:
-                    os.killpg(p.pid, sig)
-                except OSError:
-                    pass
-                try:
-                    p.wait(timeout=10)
-                    break
-                except subprocess.TimeoutExpired:
-                    continue
+            self.last_stop_signal = PR.stop(p, self.stop_grace)
+            on_line(f"<step timeout: process group stopped by {self.last_stop_signal}>")
         t.join(timeout=5)
         try:
             p.stdout.close()
@@ -408,7 +406,9 @@ class Pipeline:
                    "suites": paths, "worktrees_unchanged": not changed, "worktrees_changed": changed,
                    "exit_code": rc}
         if timed_out:
-            return "ERROR", f"pytest exceeded the step timeout and was terminated", details
+            details["stopped_by"] = self.last_stop_signal
+            return "ERROR", f"pytest exceeded the step timeout and was stopped ({self.last_stop_signal or 'signal'})", \
+                details
         if changed:
             return "FAIL", f"research worktree state changed during tests: {', '.join(changed)}", details
         if not counts:
@@ -495,6 +495,8 @@ class Pipeline:
                 if m:
                     v = {k: int(n) for n, k in re.findall(r"(\d+) (passed|failed|skipped|todo)", m.group(1))}
             details["vitest"] = {"counts": v, "exit_code": rc, "timed_out": to}
+            if to:
+                details["vitest"]["stopped_by"] = self.last_stop_signal
             if to or rc != 0 or not v:
                 ok = False
                 reasons.append("vitest " + ("timed out" if to else f"failed (exit {rc})"))

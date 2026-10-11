@@ -87,6 +87,20 @@ optional full suite, then the Command Center tests (Vitest and Python), then the
 then **Model readiness** for the model you picked, then the RC6 Part B gate check, then the summary. Default timeouts are 1200 s per step and 3600 s in total (configurable;
 bounded by the controller).
 
+**Stopping children.** Every child the controller starts (test runners, scans, the guarded runner, a download's
+`ollama serve`) runs in its own session with SIGINT and SIGTERM reset to their defaults, so a controller started in the
+background (`cmd &`, nohup, a service manager, where SIGINT is ignored and that would be inherited) can still stop
+them. On a timeout or cancel the controller sends SIGINT to the child's process group, waits `stop_grace_s` (default
+5 s, 1-120), then SIGTERM, waits again, then SIGKILL, and records which signal ended it (`stopped_by`). Without
+process groups (Windows) it falls back to terminate() then kill().
+
+**Publishing a run for the hosted dashboard.** The hosted site has no controller. To show a finished run there,
+export its JSON and run `python3 scripts/publish_run.py --run <run>.json`: it writes a sanitized copy (no log, no local
+paths, host names, process ids, state/log locations, commands or environment; re-checked fail-closed) to
+`public-data/runs/<id>.json`, `runs/latest.json` and `runs/index.json`. Scan it with
+`scripts/scan_outgoing.py --tree . --seal-scanner <scanner> --require-seal-scan`, rebuild, and the view is at
+`#/runs/latest` (also linked from Overview and Run Pipeline), labelled with the run's time in IST and its run id.
+
 **Part B.** With any gate open, the Part B step is **BLOCKED** and lists every reason. Ollama is not started. Only when
 every server-side gate passes, the operator's own shell exported the authorization variables before starting the
 controller, and the exact phrase was typed in the dialog does the controller hand off to `scripts/rc6_partb_run.py`

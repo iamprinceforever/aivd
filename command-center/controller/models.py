@@ -27,6 +27,8 @@ import threading
 import time
 from pathlib import Path
 
+from controller import procs as PR
+
 CATALOG_PATH = Path(__file__).with_name("models_catalog.json")
 NAME_RX = re.compile(r"^[a-z0-9][a-z0-9._-]{0,30}:[a-z0-9][a-z0-9._-]{0,20}$")
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
@@ -412,7 +414,7 @@ class Puller:
         fd = os.open(logf, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
         with os.fdopen(fd, "wb") as fh:
             self._proc = self.popen([cfg["ollama_binary"], "serve"], env=env, stdout=fh, stderr=subprocess.STDOUT,
-                                    stdin=subprocess.DEVNULL, start_new_session=True, cwd=str(home))
+                                    stdin=subprocess.DEVNULL, cwd=str(home), **PR.spawn_kwargs())
         res["serve"].update(started=True, bind=f"127.0.0.1:{port}")
         self._log(f"started ollama serve on 127.0.0.1:{port} (OLLAMA_NOPRUNE=1; model store from config)")
         ready_by = min(deadline, self.clock() + 30)
@@ -509,16 +511,8 @@ class Puller:
         p = self._proc
         if p is None:
             return True
-        for sig in (signal.SIGTERM, signal.SIGKILL):
-            try:
-                os.killpg(p.pid, sig)
-            except OSError:
-                pass
-            try:
-                p.wait(timeout=15)
-                break
-            except subprocess.TimeoutExpired:
-                continue
+        # only ever the `ollama serve` this puller started itself (own process group); SIGINT, SIGTERM, SIGKILL
+        self.stopped_by = PR.stop(p, self.mgr.cfg.get("stop_grace_s", PR.DEFAULT_GRACE_S))
         return p.poll() is not None
 
 
