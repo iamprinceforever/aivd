@@ -50,6 +50,23 @@ are both recorded.
   the report text itself states them. The detection is automated, and a term's presence is not an endorsement.
 
 ## Human review
-A restricted file can be released only after a human reviews it. Its exact `(path, sha256, pattern id)` then
-goes into `scripts/scan_allowlist.json`, and the archive builder is extended to honour that review. Seal-scan
-failures are never allowlisted.
+A restricted file can be released only after a human reviews it. Seal-scan failures, secrets, protected paths,
+deny-listed names or blobs and seal-like keys are never waivable; only outcome-pattern hits (O1–O8) can be.
+
+For the pinned RC6 review candidates (`REVIEW_CANDIDATES` in `scripts/build_reports_archive.py`: the readiness
+report, the Part B readiness manifest and the redacted prereg candidate), the builder reads signed records from
+`command-center/publication-review.json` (rules in `scripts/review_rules.py`). A record names the document by
+path, git blob id and sha256, and lists **every** flagged span by line, character offsets, pattern code and the
+sha256 of the matched text (never the text). The document is released only if:
+- the record's `reviewer` is non-empty, `review_date` is `YYYY-MM-DD`, `rationale` is non-empty and `decision`
+  is `approve`;
+- blob, sha256 and the complete span list match the pinned document exactly (one missing, extra or shifted span
+  fails);
+- no other record for that document says `reject` or `redact`;
+- every non-waivable check passes.
+
+Released entries are `publication_review: approved-human-review` with a `human_review` block (reviewer, date,
+decision). The outgoing scanner accepts their exact sanitized artifact for exactly the approved pattern codes, and
+only while the signed record still matches. The committed file has **no records**, so the archive is
+byte-identical to a build without the mechanism. The review packet that quotes the flagged text is kept local
+and is never committed.

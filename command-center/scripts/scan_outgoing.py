@@ -11,7 +11,8 @@ usage:
 Rules (any hit fails):
   P  protected path (*/protected/*, raw/, wire/, seal/ledger/salt files)
   D  deny-listed RC6 document name or blob id (mirrors tools/rc6_outgoing_check.py)
-  O  outcome patterns O1-O8 (reviewed allowlist: scan_allowlist.json, path + sha256 + pattern id)
+  O  outcome patterns O1-O8 (reviewed allowlist: scan_allowlist.json, path + sha256 + pattern id; plus archive
+     artifacts released by a signed human approve record in publication-review.json, exact sha256 + pattern id)
   L  local machine path (the workspace, var-tmp and home-box roots; see scan_rules.LOCAL_ROOTS)
   S  secret pattern (GitHub tokens, private keys, cloud keys, credentials in URLs)
   K  seal-like JSON keys (label_salt, seal_secret, ...)
@@ -29,6 +30,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scan_rules import (LOCAL_PATH_RX, SEAL_KEY_RX, SECRET_RX, is_protected_path,  # noqa: E402
                         outcome_hits)
+import review_rules  # noqa: E402
 
 DENY_NAME_SHA256 = {  # sha256 of deny-listed document basenames (names kept out of this public file)
     "44df2a2f17b442e9927ed05ac3994cd0c9a219d2e6923ce2c4001b885f8e0638",
@@ -71,6 +73,9 @@ def load_allow():
     return {(e["path"], e["sha256"], p) for e in d.get("entries", []) for p in e["patterns"]}
 
 
+REVIEWED = review_rules.approved_artifacts()
+
+
 def blob_id(data: bytes) -> str:
     return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
 
@@ -93,10 +98,15 @@ def scan_item(rel: str, data: bytes, allow, self_exempt=False) -> list:
     if self_exempt:          # rule files carry the outcome patterns / seal key names they enforce
         return hits
     sha = hashlib.sha256(data).hexdigest()
+    name = Path(rel).name
+    reviewed_ok = rel.endswith("reports/" + name)
     for pid in sorted(outcome_hits(text)):
         code = pid.split("_")[0]
-        if (rel, sha, code) not in allow:
-            hits.append(code)
+        if (rel, sha, code) in allow:
+            continue
+        if reviewed_ok and (name, sha, code) in REVIEWED:
+            continue
+        hits.append(code)
     if SEAL_KEY_RX.search(text):
         hits.append("K")
     return hits

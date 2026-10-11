@@ -112,6 +112,7 @@ export function ReportsArchive() {
             <div className="report-head">
               {r.journey_stage ? <span className="badge badge-staged">RC6 READINESS · LOCAL TIP</span> : <span className="badge badge-hist">HISTORICAL</span>}
               <span className="badge">{r.series}</span>
+              {r.human_review && <span className="badge">HUMAN-REVIEWED {r.human_review.review_date}</span>}
             </div>
             <h2 className="report-title">
               <Link to={`/reports/${r.id}`}>{r.title}</Link>

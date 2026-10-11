@@ -15,6 +15,8 @@ export interface ReportEntry {
   sanitized_artifact: { file: string; sha256: string } | null;
   /** Present only on pinned RC6 documents staged from the local research tip. */
   journey_stage?: string;
+  /** Present only when a signed human review record released the document. */
+  human_review?: { reviewer: string; review_date: string; decision: "approve" };
 }
 
 export interface RestrictedPlaceholder {

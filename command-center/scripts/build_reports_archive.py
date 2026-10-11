@@ -37,6 +37,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from scan_rules import SECRET_RX, LOCAL_PATH_RX, SEAL_KEY_RX, is_protected_path, outcome_hits  # noqa: E402
 from scan_outgoing import DENY_BLOBS, DENY_NAME_SHA256, blob_id  # noqa: E402
+from scan_rules import outcome_spans  # noqa: E402
+import review_rules  # noqa: E402
 
 # Public refs considered (remote-tracking refs / public tags only), in priority order (latest first per series).
 PUBLIC_REFS = [
@@ -97,6 +99,15 @@ STAGED = [
     (_D + "RC6_REPLICATION_PREREGISTRATION.md", "02b88ccf98256af86f074bdf98250a8f07d51f27", "rc6_partb_readiness"),
     (_D + "RC6_REPLICATION_PREREG_AMENDMENT_A1.md", "8c66518a19b28dfb7de477afa63256dca61d8194", "rc6_partb_readiness"),
 ]
+# Pinned RC6 documents that have outcome-pattern hits. They are released ONLY through a signed human review record
+# in publication-review.json (see review_rules.py). With no valid approve record they are not read into the
+# output at all and remain covered by the restricted-rc6-docs placeholder.
+REVIEW_CANDIDATES = [
+    (_D + "RC6_READINESS_REPORT.md", "473bb65d0116fd613434cf6ae0ab5d31dcebe8a5", "rc6_partb_readiness"),
+    (_D + "PARTB_READINESS_MANIFEST.md", "aaf1b6b61f0204fdd928695255dab20ed04cee72", "rc6_partb_readiness"),
+    (_D + "RC6_PREREGISTRATION_REDACTED_CANDIDATE.md", "c2f30f9f667edd87d77942efa9c338553bd8ef3b",
+     "rc6_partb_readiness"),
+]
 RESTRICTED = [
     {"id": "restricted-rc5-execution", "title": "Fifth release candidate (RC5): execution-phase record",
      "series": "RC5-GENERALIZATION-V1", "reason": "unpublished; not on any public ref; withheld pending "
@@ -147,6 +158,8 @@ def main(argv=None) -> int:
     ap.add_argument("--seal-scanner", default=None)
     ap.add_argument("--no-staged", dest="staged", action="store_false",
                     help="skip the pinned RC6 staged documents")
+    ap.add_argument("--review-file", default=str(review_rules.REVIEW_FILE),
+                    help="signed human publication-review records (default: command-center/publication-review.json)")
     a = ap.parse_args(argv)
     repo, out = Path(a.repo), Path(a.out)
     remote_refs = set(git(repo, "for-each-ref", "--format=%(refname)", "refs/remotes/origin", "refs/tags").split())
@@ -202,6 +215,47 @@ def main(argv=None) -> int:
                       "claims_stated_in_report": sorted(k for k, rx in CLAIM_RX.items() if rx.search(text)),
                       "local_paths_redacted": sanitized != text, "_reasons": reasons, "_text": sanitized,
                       "_scan_file": str(f), "_staged": True})
+    records = review_rules.load_records(Path(a.review_file))
+    review_released, review_withheld = 0, 0
+    for path, pinned, stage in (REVIEW_CANDIDATES if a.staged and have_tip else []):
+        if not any(r.get("path") == path for r in records):
+            review_withheld += 1
+            continue
+        r = subprocess.run(["git", "-C", str(repo), "rev-parse", f"{STAGED_COMMIT}:{path}"], capture_output=True,
+                           text=True)
+        if r.returncode or r.stdout.strip() != pinned:
+            review_withheld += 1
+            continue
+        raw = git(repo, "cat-file", "blob", pinned, binary=True)
+        text = raw.decode("utf-8", "replace")
+        ok, _why, rec = review_rules.decide(path, pinned, sha(raw), outcome_spans(text), records)
+        if not ok:
+            review_withheld += 1
+            continue
+        reasons = []   # outcome hits are covered by the signed record; nothing else is waivable
+        if blob_id(raw) in DENY_BLOBS or sha(Path(path).name.encode()) in DENY_NAME_SHA256:
+            reasons.append("deny-listed")
+        if SEAL_KEY_RX.search(text):
+            reasons.append("seal-like key")
+        if any(rx.search(text) for rx in SECRET_RX.values()):
+            reasons.append("secret")
+        if is_protected_path(path):
+            reasons.append("protected")
+        sanitized = LOCAL_PATH_RX.sub("<local-path>", text)
+        f = tmp / f"{len(files_for_scan):04d}.md"
+        f.write_text(sanitized, encoding="utf-8")
+        files_for_scan.append(f)
+        items.append({"path": path, "source_ref": STAGED_REF, "source_label": STAGED_LABEL,
+                      "commit": git(repo, "log", "-1", "--format=%H", STAGED_COMMIT, "--", path).strip(),
+                      "blob": pinned, "sha256": sha(raw), "bytes": len(raw), "series": STAGED_SERIES,
+                      "title": title_of(text, path), "historical": False, "journey_stage": stage,
+                      "claims_stated_in_report": sorted(k for k, rx in CLAIM_RX.items() if rx.search(text)),
+                      "local_paths_redacted": sanitized != text, "_reasons": reasons, "_text": sanitized,
+                      "_scan_file": str(f), "_staged": True,
+                      "_review": {"reviewer": rec["reviewer"].strip(), "review_date": rec["review_date"],
+                                  "decision": "approve",
+                                  "patterns": sorted({h[3] for h in outcome_spans(text)}),
+                                  "approved_spans": len(rec["hits"])}})
     for path, (label, ref, blob) in sorted(cand.items()):
         commit = git(repo, "log", "-1", "--format=%H", ref, "--", path).strip()
         public = bool(git(repo, "branch", "-r", "--contains", commit).strip()) or bool(
@@ -262,15 +316,18 @@ def main(argv=None) -> int:
             (dest / f"{rid}.md").write_bytes(body)
         entry = {k: v for k, v in it.items() if not k.startswith("_")}
         staged = bool(it.get("_staged"))
+        reviewed = it.get("_review")
         entry.update({"id": rid, "classification": "staged-research-report" if staged else "historical-report",
                       "contains_unpublished_outcomes": False if included else None,
                       "contains_protected_material": is_protected_path(it["path"]),
-                      "publication_review": ("eligible-automated-staged" if staged else "eligible-automated")
-                      if included else "restricted",
+                      "publication_review": ("approved-human-review" if reviewed else "eligible-automated-staged"
+                                             if staged else "eligible-automated") if included else "restricted",
                       "restriction_reasons": it["_reasons"], "sanitized_artifact": art})
         if not included:  # restricted entries keep provenance but carry no title text beyond the file name
             entry["title"] = Path(it["path"]).name
             entry["claims_stated_in_report"] = []
+        if reviewed:
+            entry["human_review"] = reviewed
         allow.append(entry)
         if included:
             row = {k: entry[k] for k in ("id", "title", "series", "path", "source_ref", "source_label", "commit",
@@ -278,6 +335,8 @@ def main(argv=None) -> int:
                                          "local_paths_redacted", "sanitized_artifact")}
             if staged:
                 row["journey_stage"] = entry["journey_stage"]
+            if reviewed:
+                row["human_review"] = {k: reviewed[k] for k in ("reviewer", "review_date", "decision")}
             index.append(row)
     for r in RESTRICTED:
         allow.append({**r, "classification": "restricted-placeholder", "source_ref": None, "commit": None,
@@ -295,6 +354,8 @@ def main(argv=None) -> int:
     inc = sum(1 for x in allow if x["publication_review"] != "restricted")
     print(json.dumps({"candidates": len(items), "included": inc, "restricted": len(allow) - inc,
                       "staged_included": meta["staged_source"]["included"], "staged_dropped": staged_dropped,
+                      "review_released": sum(1 for x in allow if x.get("human_review")),
+                      "review_withheld": review_withheld,
                       "prior_seal_scanner": scanner_state}))
     return 0
 

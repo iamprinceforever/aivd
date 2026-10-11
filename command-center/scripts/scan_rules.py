@@ -65,3 +65,17 @@ def is_protected_path(path: str) -> bool:
     if any(p in PROTECTED_DIR_PARTS for p in parts[:-1]):
         return True
     return bool(PROTECTED_NAME_RX.search(path))
+
+
+def outcome_spans(text: str) -> list:
+    """Every outcome-pattern match as (line 1-based, start, end, code, sha256 of matched text). Never returns text.
+    Used for blob-exact human review records: a record names a span by position + hash, not by content."""
+    out = []
+    for n, line in enumerate(text.splitlines(), 1):
+        for pid, rx in OUTCOME_RX.items():
+            for m in rx.finditer(line):
+                out.append((n, m.start(), m.end(), pid.split("_")[0], _h(m.group(0))))
+        for m in _TOKEN_RX.finditer(line):
+            if _h(m.group(0).lower()) in O6_TOKEN_SHA256:
+                out.append((n, m.start(), m.end(), "O6", _h(m.group(0))))
+    return sorted(out)

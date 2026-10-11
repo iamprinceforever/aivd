@@ -224,6 +224,134 @@ class StagedArchiveTests(unittest.TestCase):
         self.assertTrue(BRA.STAGED_REF.startswith("local:"))
 
 
+class HumanReviewTests(unittest.TestCase):
+    """Signed, blob-exact human review records: only a valid approve covering every flagged span releases."""
+
+    @classmethod
+    def setUpClass(cls):
+        import build_reports_archive as BRA
+        cls.BRA = BRA
+        td = Path(tempfile.mkdtemp(prefix="cc-review-"))
+        remote, repo = td / "remote.git", td / "work"
+        g = lambda *a: subprocess.run(["git", "-C", str(repo), "-c", "user.name=t", "-c", "user.email=t@t", *a],  # noqa: E731
+                                      capture_output=True, text=True, check=True).stdout.strip()
+        subprocess.run(["git", "init", "-q", "--bare", "-b", "main", str(remote)], check=True)
+        subprocess.run(["git", "init", "-q", "-b", "main", str(repo)], check=True)
+        (repo / "README.md").write_text("# Public\n")
+        g("add", "README.md")
+        g("commit", "-q", "-m", "public")
+        g("remote", "add", "origin", str(remote))
+        g("push", "-q", "origin", "main")
+        g("fetch", "-q", "origin")
+        d = repo / "docs" / "rc6"
+        d.mkdir(parents=True)
+        (d / "FLAGGED.md").write_text("# Flagged readiness doc\nThe " + "fun" + "nel term appears here.\nclean line\n")
+        (d / "SECRETY.md").write_text("# Secret doc\nThe " + "fun" + "nel again\nkey " + "gh" + "p_" + "A" * 36 + "\n")
+        g("add", ".")
+        g("commit", "-q", "-m", "local research")
+        cls.tip = g("rev-parse", "HEAD")
+        cls.blob = {n: g("rev-parse", f"HEAD:docs/rc6/{n}") for n in ("FLAGGED.md", "SECRETY.md")}
+        cls.raw = {n: (d / n).read_bytes() for n in ("FLAGGED.md", "SECRETY.md")}
+        cls.repo, cls.td = repo, td
+        cls.scanner = td / "seal_ok.py"
+        cls.scanner.write_text("import json\nprint(json.dumps({'pass': True}))\n")
+
+    def record(self, name="FLAGGED.md", **over):
+        from scan_rules import outcome_spans
+        raw = self.raw[name]
+        hits = [{"line": n, "start": a, "end": b, "pattern": c, "span_sha256": h}
+                for n, a, b, c, h in outcome_spans(raw.decode())]
+        rec = {"path": f"docs/rc6/{name}", "blob": self.blob[name], "sha256": hashlib.sha256(raw).hexdigest(),
+               "hits": hits, "reviewer": "A. Human", "review_date": "2026-10-11", "decision": "approve",
+               "rationale": "term used as a section label; no figures"}
+        rec.update(over)
+        return rec
+
+    def build(self, records, names=("FLAGGED.md",)):
+        BRA = self.BRA
+        rf = Path(tempfile.mkdtemp(dir=self.td)) / "publication-review.json"
+        rf.write_text(json.dumps({"schema": 1, "records": records}))
+        saved = (BRA.STAGED, BRA.REVIEW_CANDIDATES, BRA.STAGED_COMMIT)
+        BRA.STAGED = []
+        BRA.REVIEW_CANDIDATES = [(f"docs/rc6/{n}", self.blob[n], "rc6_partb_readiness") for n in names]
+        BRA.STAGED_COMMIT = self.tip
+        out = rf.parent / "out"
+        try:
+            BRA.main(["--repo", str(self.repo), "--out", str(out), "--seal-scanner", str(self.scanner),
+                      "--review-file", str(rf)])
+        finally:
+            BRA.STAGED, BRA.REVIEW_CANDIDATES, BRA.STAGED_COMMIT = saved
+        allow = json.loads((out / "reports-allowlist.json").read_text())
+        released = [x for x in allow["items"] if x.get("publication_review") == "approved-human-review"]
+        listed = json.dumps(allow)
+        return released, listed, out
+
+    def assertRestricted(self, records, names=("FLAGGED.md",)):
+        released, listed, _ = self.build(records, names)
+        self.assertEqual(released, [])
+        for n in names:
+            self.assertNotIn(n, listed)   # withheld documents are never listed
+
+    def test_no_record_stays_restricted(self):
+        self.assertRestricted([])
+
+    def test_wrong_sha_or_blob_stays_restricted(self):
+        self.assertRestricted([self.record(sha256="0" * 64)])
+        self.assertRestricted([self.record(blob="0" * 40)])
+
+    def test_wrong_or_incomplete_span_stays_restricted(self):
+        r = self.record()
+        shifted = [dict(h, start=h["start"] + 1) for h in r["hits"]]
+        self.assertRestricted([self.record(hits=shifted)])
+        self.assertRestricted([self.record(hits=[dict(h, span_sha256="0" * 64) for h in r["hits"]])])
+        self.assertRestricted([self.record(hits=[dict(h, pattern="O1") for h in r["hits"]])])
+        self.assertRestricted([self.record(hits=[])])
+        self.assertRestricted([self.record(hits=r["hits"] + [dict(r["hits"][0], line=3)])])
+
+    def test_unsigned_record_stays_restricted(self):
+        self.assertRestricted([self.record(reviewer="")])
+        self.assertRestricted([self.record(reviewer="   ")])
+        self.assertRestricted([self.record(decision="")])
+        self.assertRestricted([self.record(review_date="")])
+        self.assertRestricted([self.record(rationale="")])
+
+    def test_reject_and_redact_stay_restricted(self):
+        self.assertRestricted([self.record(decision="reject")])
+        self.assertRestricted([self.record(decision="redact")])
+        self.assertRestricted([self.record(), self.record(decision="reject", reviewer="B. Second")])
+
+    def test_valid_approve_is_included_and_scanner_honours_it(self):
+        import review_rules
+        released, _, out = self.build([self.record()])
+        self.assertEqual(len(released), 1)
+        x = released[0]
+        self.assertEqual(x["classification"], "staged-research-report")
+        self.assertEqual(x["human_review"]["reviewer"], "A. Human")
+        self.assertEqual(x["restriction_reasons"], [])
+        idx = json.loads((out / "public-data" / "reports-index.json").read_text())
+        self.assertEqual(idx["reports"][-1]["human_review"]["decision"], "approve")
+        art = out / x["sanitized_artifact"]["file"]
+        self.assertTrue(art.exists())
+        # the outgoing scanner accepts exactly that artifact for exactly the approved pattern codes
+        (out / "publication-review.json").write_text(json.dumps({"records": [self.record()]}))
+        triples = review_rules.approved_artifacts(out)
+        self.assertEqual({t[2] for t in triples}, {"O5"})
+        self.assertTrue(all(t[0] == art.name and t[1] == x["sanitized_artifact"]["sha256"] for t in triples))
+        (out / "publication-review.json").write_text(json.dumps({"records": [self.record(reviewer="")]}))
+        self.assertEqual(review_rules.approved_artifacts(out), set())
+
+    def test_approve_never_waives_secret(self):
+        self.assertRestricted([self.record("SECRETY.md")], names=("SECRETY.md",))
+
+    def test_committed_review_file_has_no_approvals_and_default_is_unchanged(self):
+        import review_rules
+        recs = review_rules.load_records()
+        self.assertFalse(any(review_rules.signed(r) and r.get("decision") == "approve" for r in recs))
+        allow = json.loads((CC / "reports-allowlist.json").read_text())
+        self.assertFalse(any(x.get("human_review") for x in allow["items"]))
+        self.assertEqual(review_rules.approved_artifacts(), set())
+
+
 class ManifestTests(unittest.TestCase):
     def git(self, repo, *a):
         return subprocess.run(["git", "-C", str(repo), "-c", "user.name=t", "-c", "user.email=t@t", *a],
