@@ -68,6 +68,14 @@ describe("reports archive", () => {
     expect(screen.queryByText("HISTORICAL")).toBeNull();
   });
 
+  it("shows the HUMAN-REVIEWED badge on every human-reviewed document", async () => {
+    const reviewed = idx.reports.filter((x) => x.human_review);
+    await renderApp("/reports");
+    const list = await screen.findByRole("list", { name: "Reports" });
+    const badges = within(list).getAllByText(/^HUMAN-REVIEWED /);
+    expect(badges).toHaveLength(reviewed.length);
+  });
+
   it("markdown renderer never injects HTML", () => {
     const { container } = render(<Markdown text={'# T\n<script>alert(1)</script>\n<img src=x onerror=alert(1)>\n[x](javascript:alert(1))'} />);
     expect(container.querySelector("script")).toBeNull();

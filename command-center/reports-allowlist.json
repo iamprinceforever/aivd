@@ -7,7 +7,7 @@
   "commit": "cb8dc31fc0c7b0644cb2d45e000892c6825a1758",
   "on_public_ref": false,
   "pinned": 13,
-  "included": 13
+  "included": 16
  },
  "items": [
   {
@@ -4392,6 +4392,115 @@
    }
   },
   {
+   "path": "docs/rc6_investigation_diagnostics/RC6_READINESS_REPORT.md",
+   "source_ref": "local:research/aivd-rc6-partb-readiness",
+   "source_label": "RC6 Part B readiness (local research tip; not on a public ref)",
+   "commit": "cb8dc31fc0c7b0644cb2d45e000892c6825a1758",
+   "blob": "473bb65d0116fd613434cf6ae0ab5d31dcebe8a5",
+   "sha256": "c6d0dbecc3baef2c5dfd256a0e9b717b88ac899de8783d68007b5d4ea8b76b8c",
+   "bytes": 10756,
+   "series": "RC6 (diagnostics and Part B readiness)",
+   "title": "RC6 Readiness Report \u2014 t112u Publication-Safe Readiness Closure",
+   "historical": false,
+   "journey_stage": "rc6_partb_readiness",
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "id": "docs-rc6-investigation-diagnostics-rc6-readiness-report-md",
+   "classification": "staged-research-report",
+   "contains_unpublished_outcomes": false,
+   "contains_protected_material": false,
+   "publication_review": "approved-human-review",
+   "restriction_reasons": [],
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc6-investigation-diagnostics-rc6-readiness-report-md.md",
+    "sha256": "d59b8a55ae59e26abd158ba02edee2a6422badc6b692b3c1c7274dc5a1481eed"
+   },
+   "human_review": {
+    "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+    "review_date": "2026-10-11",
+    "decision": "approve",
+    "patterns": [
+     "O3",
+     "O4"
+    ],
+    "approved_spans": 4
+   }
+  },
+  {
+   "path": "docs/rc6_investigation_diagnostics/PARTB_READINESS_MANIFEST.md",
+   "source_ref": "local:research/aivd-rc6-partb-readiness",
+   "source_label": "RC6 Part B readiness (local research tip; not on a public ref)",
+   "commit": "6d68f1971fb25f46bf8da3119c834d2ee396fb16",
+   "blob": "aaf1b6b61f0204fdd928695255dab20ed04cee72",
+   "sha256": "60c2af952ae47d57d032edc4aaa97b7d3e5606c6f1d06e80615f82cb37e8a755",
+   "bytes": 15743,
+   "series": "RC6 (diagnostics and Part B readiness)",
+   "title": "AIVD RC6: Part B readiness manifest (t111u decision 19)",
+   "historical": false,
+   "journey_stage": "rc6_partb_readiness",
+   "claims_stated_in_report": [
+    "reproduced"
+   ],
+   "local_paths_redacted": true,
+   "id": "docs-rc6-investigation-diagnostics-partb-readiness-manifest-md",
+   "classification": "staged-research-report",
+   "contains_unpublished_outcomes": false,
+   "contains_protected_material": false,
+   "publication_review": "approved-human-review",
+   "restriction_reasons": [],
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc6-investigation-diagnostics-partb-readiness-manifest-md.md",
+    "sha256": "9ff8e03e348848724462a09ef4652d07672588ce8465b5acb9a5c7f31a59650f"
+   },
+   "human_review": {
+    "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+    "review_date": "2026-10-11",
+    "decision": "approve",
+    "patterns": [
+     "O3"
+    ],
+    "approved_spans": 8
+   }
+  },
+  {
+   "path": "docs/rc6_investigation_diagnostics/RC6_PREREGISTRATION_REDACTED_CANDIDATE.md",
+   "source_ref": "local:research/aivd-rc6-partb-readiness",
+   "source_label": "RC6 Part B readiness (local research tip; not on a public ref)",
+   "commit": "04336430b0422700ba88cdb7fe0b46c23bea969a",
+   "blob": "c2f30f9f667edd87d77942efa9c338553bd8ef3b",
+   "sha256": "8dfe830c0daa116e0bcd03c26b27fef897b10f501594e4113d409eff78fd4fd1",
+   "bytes": 13228,
+   "series": "RC6 (diagnostics and Part B readiness)",
+   "title": "AIVD-RC6-INVESTIGATION-DIAGNOSTICS \u2014 preregistration DRAFT",
+   "historical": false,
+   "journey_stage": "rc6_partb_readiness",
+   "claims_stated_in_report": [],
+   "local_paths_redacted": true,
+   "id": "docs-rc6-investigation-diagnostics-rc6-preregistration-redacted-candidate-md",
+   "classification": "staged-research-report",
+   "contains_unpublished_outcomes": false,
+   "contains_protected_material": false,
+   "publication_review": "approved-human-review",
+   "restriction_reasons": [],
+   "sanitized_artifact": {
+    "file": "public-data/reports/docs-rc6-investigation-diagnostics-rc6-preregistration-redacted-candidate-md.md",
+    "sha256": "37d7514cdc120a050b1f5710fd727ddd82261e61f3d95ccd47f9c6d6c81cc6f8"
+   },
+   "human_review": {
+    "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+    "review_date": "2026-10-11",
+    "decision": "approve",
+    "patterns": [
+     "O1",
+     "O2",
+     "O3",
+     "O4",
+     "O6"
+    ],
+    "approved_spans": 15
+   }
+  },
+  {
    "id": "restricted-rc5-execution",
    "title": "Fifth release candidate (RC5): execution-phase record",
    "series": "RC5-GENERALIZATION-V1",
@@ -4408,7 +4517,7 @@
   },
   {
    "id": "restricted-rc6-docs",
-   "title": "Other RC6 diagnostics and readiness documents (Part A results, decision report, readiness report and manifest, decision log, risk registers, SAP, redacted prereg candidate)",
+   "title": "Other RC6 diagnostics and readiness documents (Part A results, decision report, decision log, risk registers, SAP)",
    "series": "RC6",
    "reason": "withheld: outcome-pattern hits pending human review, deny-listed by name or blob, or restate unpublished earlier-study figures; only the pinned documents that pass every scan are archived",
    "classification": "restricted-placeholder",

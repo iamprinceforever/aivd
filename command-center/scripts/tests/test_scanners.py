@@ -143,8 +143,14 @@ class ArchiveConsistencyTests(unittest.TestCase):
             if x["classification"] == "staged-research-report":
                 # only exact pinned (path, blob) pairs from the local research tip, nothing else
                 self.assertEqual(x["source_ref"], BRA.STAGED_REF)
-                self.assertIn((x["path"], x["blob"]), pinned)
-                self.assertEqual(x["publication_review"], "eligible-automated-staged")
+                if x.get("human_review"):   # released only by a signed approve record (see HumanReviewTests)
+                    self.assertIn((x["path"], x["blob"]), {(p, b) for p, b, _ in BRA.REVIEW_CANDIDATES})
+                    self.assertEqual(x["publication_review"], "approved-human-review")
+                    self.assertEqual(x["human_review"]["decision"], "approve")
+                    self.assertTrue(x["human_review"]["reviewer"].strip())
+                else:
+                    self.assertIn((x["path"], x["blob"]), pinned)
+                    self.assertEqual(x["publication_review"], "eligible-automated-staged")
                 self.assertNotIn(hashlib.sha256(Path(x["path"]).name.encode()).hexdigest(), SO.DENY_NAME_SHA256)
                 self.assertNotIn(x["blob"], SO.DENY_BLOBS)
             else:
@@ -343,13 +349,22 @@ class HumanReviewTests(unittest.TestCase):
     def test_approve_never_waives_secret(self):
         self.assertRestricted([self.record("SECRETY.md")], names=("SECRETY.md",))
 
-    def test_committed_review_file_has_no_approvals_and_default_is_unchanged(self):
+    def test_committed_review_records_are_signed_and_match_released_entries(self):
         import review_rules
+        BRA = self.BRA
         recs = review_rules.load_records()
-        self.assertFalse(any(review_rules.signed(r) and r.get("decision") == "approve" for r in recs))
+        cands = {(p, b) for p, b, _ in BRA.REVIEW_CANDIDATES}
         allow = json.loads((CC / "reports-allowlist.json").read_text())
-        self.assertFalse(any(x.get("human_review") for x in allow["items"]))
-        self.assertEqual(review_rules.approved_artifacts(), set())
+        released = {(x["path"], x["blob"], x["sha256"]) for x in allow["items"] if x.get("human_review")}
+        for r in recs:
+            self.assertTrue(review_rules.signed(r), r.get("path"))
+            self.assertIn((r["path"], r["blob"]), cands)
+            if r["decision"] == "approve":
+                self.assertIn((r["path"], r["blob"], r["sha256"]), released)
+        self.assertEqual(len(released), sum(1 for r in recs if r["decision"] == "approve"))
+        # every released artifact is accepted by the scanner only for its approved codes
+        names = {Path(x["sanitized_artifact"]["file"]).name for x in allow["items"] if x.get("human_review")}
+        self.assertEqual({t[0] for t in review_rules.approved_artifacts()}, names)
 
 
 class ManifestTests(unittest.TestCase):

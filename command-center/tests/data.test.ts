@@ -21,7 +21,10 @@ describe("bundled data and allowlist", () => {
         expect(r.source_ref).toBe(idx.staged_source!.ref);
         expect(r.commit).toMatch(/^[0-9a-f]{40}$/); // last commit touching the path, at or before the pinned tip
         expect(idx.staged_source!.on_public_ref).toBe(false);
-        expect((eligible.get(r.id) as { publication_review: string }).publication_review).toBe("eligible-automated-staged");
+        expect((eligible.get(r.id) as { publication_review: string }).publication_review).toBe(
+          r.human_review ? "approved-human-review" : "eligible-automated-staged",
+        );
+        if (r.human_review) expect(r.human_review.decision).toBe("approve");
       } else {
         expect(r.historical).toBe(true);
         expect(r.source_ref).toMatch(/^(origin\/|refs\/tags\/)/);

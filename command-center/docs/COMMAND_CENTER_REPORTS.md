@@ -36,7 +36,9 @@ are both recorded.
   evidence-component study prereg draft, runner design, V1 decision-trace fields, memory and failure plan,
   execution readiness, frozen-analysis history, runtime restore record, reviewer checklist, and the
   independent-replication prereg skeleton, preregistration and amendment A1.
-- **164 archived reports in total.**
+- 3 human-reviewed RC6 documents (readiness report, Part B readiness manifest, redacted prereg candidate),
+  released by signed owner approvals in `publication-review.json`.
+- **167 archived reports in total.**
 - 4 restricted placeholders, which carry no paths, hashes or findings:
   - the RC5 execution-phase record (unpublished);
   - the other RC6 diagnostics and readiness documents (outcome-pattern hits pending human review, deny-listed,
@@ -67,6 +69,7 @@ sha256 of the matched text (never the text). The document is released only if:
 
 Released entries are `publication_review: approved-human-review` with a `human_review` block (reviewer, date,
 decision). The outgoing scanner accepts their exact sanitized artifact for exactly the approved pattern codes, and
-only while the signed record still matches. The committed file has **no records**, so the archive is
-byte-identical to a build without the mechanism. The review packet that quotes the flagged text is kept local
+only while the signed record still matches. With no records the archive is byte-identical to a build without
+the mechanism. On 2026-10-11 the repository owner signed approve records for all three candidates, and they are
+now archived with a HUMAN-REVIEWED badge. The review packet that quotes the flagged text is kept local
 and is never committed.

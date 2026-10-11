@@ -1,1 +1,255 @@
-{"schema": 1, "note": "Signed human publication-review records. Empty by default: nothing is released without a human reviewer. See scripts/review_rules.py for the exact rules.", "records": []}
+{
+ "schema": 1,
+ "note": "Signed human publication-review records. Empty by default: nothing is released without a human reviewer. See scripts/review_rules.py for the exact rules.",
+ "records": [
+  {
+   "path": "docs/rc6_investigation_diagnostics/RC6_READINESS_REPORT.md",
+   "blob": "473bb65d0116fd613434cf6ae0ab5d31dcebe8a5",
+   "sha256": "c6d0dbecc3baef2c5dfd256a0e9b717b88ac899de8783d68007b5d4ea8b76b8c",
+   "hits": [
+    {
+     "line": 11,
+     "start": 71,
+     "end": 82,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 30,
+     "start": 69,
+     "end": 139,
+     "pattern": "O3",
+     "span_sha256": "6e5188cd08409f265f6491448bd5cabc2ff728c8fe22f55a726b02e863f231c5",
+     "suggested": "false positive"
+    },
+    {
+     "line": 30,
+     "start": 73,
+     "end": 131,
+     "pattern": "O4",
+     "span_sha256": "cb4da55e450a52ede5c4867d71b6460b57249e54d2b2417e7edf69cf707f7bc5",
+     "suggested": "false positive"
+    },
+    {
+     "line": 63,
+     "start": 56,
+     "end": 80,
+     "pattern": "O3",
+     "span_sha256": "3d83ac44a276cc1d1725be7309975788b93f0fe26887e930f09cb49c83b8ae1b",
+     "suggested": "false positive"
+    }
+   ],
+   "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+   "review_date": "2026-10-11",
+   "decision": "approve",
+   "rationale": "Owner reviewed in chat on 2026-10-11 (msg t124u) and approved release of all flagged spans, including the 5 ambiguous spans in the redacted prereg"
+  },
+  {
+   "path": "docs/rc6_investigation_diagnostics/PARTB_READINESS_MANIFEST.md",
+   "blob": "aaf1b6b61f0204fdd928695255dab20ed04cee72",
+   "sha256": "60c2af952ae47d57d032edc4aaa97b7d3e5606c6f1d06e80615f82cb37e8a755",
+   "hits": [
+    {
+     "line": 9,
+     "start": 95,
+     "end": 106,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 32,
+     "start": 235,
+     "end": 246,
+     "pattern": "O3",
+     "span_sha256": "7389d607770e9f2776a7cbd884261404679eaff4f5316d1c55607f3f412b06c9",
+     "suggested": "false positive"
+    },
+    {
+     "line": 40,
+     "start": 285,
+     "end": 296,
+     "pattern": "O3",
+     "span_sha256": "7389d607770e9f2776a7cbd884261404679eaff4f5316d1c55607f3f412b06c9",
+     "suggested": "false positive"
+    },
+    {
+     "line": 43,
+     "start": 20,
+     "end": 31,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 48,
+     "start": 35,
+     "end": 105,
+     "pattern": "O3",
+     "span_sha256": "e04f4b98ade1f75e7a0bf68bb0d4264ce1d2d85d5bf139865e4aa5ba87b3b3ac",
+     "suggested": "false positive"
+    },
+    {
+     "line": 76,
+     "start": 111,
+     "end": 167,
+     "pattern": "O3",
+     "span_sha256": "0a77af539e94e8240c945339b4e868aeedfe2a2b655a65f3512f9b53bac54c7b",
+     "suggested": "false positive"
+    },
+    {
+     "line": 79,
+     "start": 197,
+     "end": 208,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 80,
+     "start": 85,
+     "end": 96,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    }
+   ],
+   "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+   "review_date": "2026-10-11",
+   "decision": "approve",
+   "rationale": "Owner reviewed in chat on 2026-10-11 (msg t124u) and approved release of all flagged spans, including the 5 ambiguous spans in the redacted prereg"
+  },
+  {
+   "path": "docs/rc6_investigation_diagnostics/RC6_PREREGISTRATION_REDACTED_CANDIDATE.md",
+   "blob": "c2f30f9f667edd87d77942efa9c338553bd8ef3b",
+   "sha256": "8dfe830c0daa116e0bcd03c26b27fef897b10f501594e4113d409eff78fd4fd1",
+   "hits": [
+    {
+     "line": 2,
+     "start": 159,
+     "end": 170,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 28,
+     "start": 9,
+     "end": 39,
+     "pattern": "O6",
+     "span_sha256": "3f0550490c791aadd06e93cfd168a642ca6733272367f5d3a42931ff352ef02f",
+     "suggested": "ambiguous"
+    },
+    {
+     "line": 39,
+     "start": 1,
+     "end": 12,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "false positive"
+    },
+    {
+     "line": 40,
+     "start": 51,
+     "end": 92,
+     "pattern": "O4",
+     "span_sha256": "1971afb1c56c9b3b58105e54ac63eeb38a96fb0616e1de39adef1c8251f1a049",
+     "suggested": "ambiguous"
+    },
+    {
+     "line": 40,
+     "start": 89,
+     "end": 100,
+     "pattern": "O3",
+     "span_sha256": "aa7de1e45f6e531fc65bd7c3b2abdca1f616be4922b3c0ad18ffa434b5c03914",
+     "suggested": "ambiguous"
+    },
+    {
+     "line": 67,
+     "start": 66,
+     "end": 82,
+     "pattern": "O3",
+     "span_sha256": "dbb8a98aeecf0b62348b68eea65a77938bd01c0422049d3cd1cab7ca1cda239d",
+     "suggested": "false positive"
+    },
+    {
+     "line": 85,
+     "start": 99,
+     "end": 134,
+     "pattern": "O3",
+     "span_sha256": "4e0d3593e35415167183095313c1c310b6c6e4c88b998bef3e0f4e035b1d32fc",
+     "suggested": "false positive"
+    },
+    {
+     "line": 103,
+     "start": 3,
+     "end": 14,
+     "pattern": "O2",
+     "span_sha256": "4e1668e7b3680ae341b288ac4ac775a898a6551df2ead77ec6a3f28e54aafabf",
+     "suggested": "false positive"
+    },
+    {
+     "line": 120,
+     "start": 75,
+     "end": 86,
+     "pattern": "O2",
+     "span_sha256": "8854e2af24b084c9c9d4abaf422f15d8fdca1b883d17885c434962b42ea79775",
+     "suggested": "ambiguous"
+    },
+    {
+     "line": 120,
+     "start": 87,
+     "end": 115,
+     "pattern": "O3",
+     "span_sha256": "35a4fc59997ef06b6ff5cd8125925551dccd02f5d7a0120fe9787b726dade66e",
+     "suggested": "ambiguous"
+    },
+    {
+     "line": 142,
+     "start": 16,
+     "end": 28,
+     "pattern": "O3",
+     "span_sha256": "535398fc71a790f4c591b4f383330aebd721483b64760b772ab357d1fd7870cc",
+     "suggested": "false positive"
+    },
+    {
+     "line": 144,
+     "start": 31,
+     "end": 43,
+     "pattern": "O3",
+     "span_sha256": "535398fc71a790f4c591b4f383330aebd721483b64760b772ab357d1fd7870cc",
+     "suggested": "false positive"
+    },
+    {
+     "line": 146,
+     "start": 5,
+     "end": 40,
+     "pattern": "O3",
+     "span_sha256": "5ef0c5528c01ff091898f15869f3a6305526e7af6fd1b4db595b75ba805c39d4",
+     "suggested": "false positive"
+    },
+    {
+     "line": 170,
+     "start": 6,
+     "end": 96,
+     "pattern": "O3",
+     "span_sha256": "28081cf209c9ee62e5e98486c9bab7e158368c2b52a76e8874133458e675b4e4",
+     "suggested": "false positive"
+    },
+    {
+     "line": 178,
+     "start": 118,
+     "end": 125,
+     "pattern": "O1",
+     "span_sha256": "48c797f703a71983916aa493248733208d417551565e33a1f682ad6835e5445e",
+     "suggested": "false positive"
+    }
+   ],
+   "reviewer": "Prince Nikhilesh (Goluguri Kumara Sai Nikhilesh Reddy), repo owner",
+   "review_date": "2026-10-11",
+   "decision": "approve",
+   "rationale": "Owner reviewed in chat on 2026-10-11 (msg t124u) and approved release of all flagged spans, including the 5 ambiguous spans in the redacted prereg"
+  }
+ ]
+}

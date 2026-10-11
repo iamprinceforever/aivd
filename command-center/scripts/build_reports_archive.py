@@ -113,7 +113,7 @@ RESTRICTED = [
      "series": "RC5-GENERALIZATION-V1", "reason": "unpublished; not on any public ref; withheld pending "
      "the researcher's publication decision"},
     {"id": "restricted-rc6-docs", "title": "Other RC6 diagnostics and readiness documents (Part A results, decision "
-     "report, readiness report and manifest, decision log, risk registers, SAP, redacted prereg candidate)",
+     "report, decision log, risk registers, SAP)",
      "series": "RC6", "reason": "withheld: outcome-pattern hits pending human review, deny-listed by name or blob, or "
      "restate unpublished earlier-study figures; only the pinned documents that pass every scan are archived"},
     {"id": "restricted-rc6-prereg-original", "title": "RC6 original preregistration and redaction diff",
