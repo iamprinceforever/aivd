@@ -1,0 +1,6 @@
+# FROZEN_ANALYSIS re-freeze history
+
+| date (IST) | reason | aggregate old → new | manifest file sha256 old → new |
+|---|---|---|---|
+| 2026-10-10 | t112u D3: add the validity-gates builder `aivd_rc6_analysis/validity_gates.py` and its tests. `analyze_files` now consumes the gates only via `load_verified` (freshness and reveal preconditions). Primary endpoint, thresholds, minimum valid N, FP boundary and the five GATES are unchanged | `7ab821e30be2f9f8c0693b58964528f0897a0e2c1c2430623d4107232ae82862` → `9859c167453aea182b044c4600ae8f575e9dd6712bd3e93cd154a5b9667894a1` | `08c4d8ec367cc76546a94463a495fd4dad9cd2d81e8395281bd141a8c648b8ea` → `f00613b15ea971fb608f77a9ebd733b4ece79c9b4e4f0e241abdf419676d7195` |
+| 2026-10-10 | t112u: test-only fix in `tests/rc6_analysis/test_validity_gates.py` (`test_real_repository_is_not_ready_and_guard_refuses_reveal` assumed the replication registration absent). No analysis code, definition or output changed | `9859c167453aea182b044c4600ae8f575e9dd6712bd3e93cd154a5b9667894a1` → `519d01519a462761bfd5cd2bbea13a67993f9f10b7b8922bb5692354e1f7c4fa` | `f00613b15ea971fb608f77a9ebd733b4ece79c9b4e4f0e241abdf419676d7195` → `a247b052d449614e0ac778fee2d2dd410c14be21bfca2caed05057c2af921cf0` |
