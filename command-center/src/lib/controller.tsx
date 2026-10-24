@@ -32,8 +32,8 @@ interface Ctx {
   /** Authenticated GET of a fixed API path (/api/models, /api/runs, /api/runs/<id>?since=n). */
   get: (path: string) => Promise<{ code: number; body: unknown }>;
 }
-export type Op = "rc6_run" | "rc6_reveal" | "cancel" | "run_pipeline" | "pull_model" | "cancel_pull";
-const GET_RX = /^\/api\/(models|runs(\/r\d{8}T\d{6}-[0-9a-f]{6}(\?since=\d{1,6})?)?)$/;
+export type Op = "rc6_run" | "rc6_reveal" | "cancel" | "run_pipeline" | "pull_model" | "cancel_pull" | "run_demo";
+const GET_RX = /^\/api\/(models|demo\/latest|runs(\/r\d{8}T\d{6}-[0-9a-f]{6}(\?since=\d{1,6})?)?)$/;
 const ControllerCtx = createContext<Ctx | null>(null);
 
 export function ControllerProvider({ children, initialBase }: { children: ReactNode; initialBase?: string | null }) {

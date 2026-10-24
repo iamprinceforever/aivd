@@ -115,10 +115,12 @@ export interface ControllerStatus {
     rc6_run: { available: boolean; gates: Gate[] };
     rc6_reveal: { available: boolean; gates: Gate[] };
     cancel: { available: boolean; reason: string };
+    run_demo?: { available: boolean; label: string };
   };
   run: { state: string; op?: string; elapsed_s?: number; progress?: string; exit_code?: number; summary?: Record<string, unknown> };
   allowed_models: string[];
   pipeline?: { available: boolean; running_run_id: string | null; steps: { id: string; label: string }[] };
+  demo?: { state: string; op?: string; label?: string; summary?: Record<string, unknown>; exit_code?: number };
 }
 
 // ---------- one-click pipeline ----------

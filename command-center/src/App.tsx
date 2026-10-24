@@ -16,6 +16,7 @@ import { Settings } from "./pages/Settings";
 import { PipelinePage } from "./pages/Pipeline";
 import { Journey } from "./pages/Journey";
 import { PublishedRunsPage } from "./pages/PublishedRuns";
+import { DemoPage } from "./pages/Demo";
 import { ModelsProvider } from "./lib/models";
 import { PipelineProvider } from "./lib/pipeline";
 
@@ -24,6 +25,7 @@ export const NAV = [
   { to: "/journey", label: "Research Journey", code: "J" },
   { to: "/control", label: "Experiment Control", code: "B" },
   { to: "/pipeline", label: "Run Pipeline", code: "R" },
+  { to: "/demo", label: "Interview Demo", code: "H" },
   { to: "/reports", label: "Reports Archive", code: "C" },
   { to: "/runtime", label: "Models & Runtime", code: "D" },
   { to: "/integrity", label: "Research Integrity", code: "E" },
@@ -123,6 +125,7 @@ function Shell() {
             <Route path="/pipeline/:id" element={<PipelinePage />} />
             <Route path="/runs" element={<PublishedRunsPage />} />
             <Route path="/runs/:id" element={<PublishedRunsPage />} />
+            <Route path="/demo" element={<DemoPage />} />
             <Route path="/reports" element={<ReportsArchive />} />
             <Route path="/reports/:id" element={<ReportDetail />} />
             <Route path="/runtime" element={<ModelsRuntime />} />
