@@ -1,0 +1,11 @@
+{
+  "label": "DEMO – not a research result",
+  "note": "Ground truth for the interview demo. Never shown to the discovery models; used only for scoring after the run.",
+  "targets": {
+    "report_viewer": {"planted": false, "expected": "clean", "why": "resolves the path and rejects anything outside the reports directory (Path.relative_to)"},
+    "avatar_store": {"planted": true, "expected": "vulnerable", "cwe": "CWE-22", "class": "path traversal",
+                     "where": "targets/avatar_store.py handle(): os.path.join(base_dir, name) after only stripping a leading '/'; '../' sequences are not rejected",
+                     "fix": "resolve the joined path and require it to stay inside base_dir (as report_viewer does)"},
+    "invoice_lookup": {"planted": false, "expected": "clean", "why": "parameterized SQL (? placeholders) scoped to the current user"}
+  }
+}
