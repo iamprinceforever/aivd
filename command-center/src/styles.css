@@ -354,3 +354,7 @@ html[data-motion="reduced"] *, html[data-motion="reduced"] *::before, html[data-
 .journey-compact .journey-step { padding: 6px 10px; }
 .process-step .life-chip-n { color: var(--cyan); }
 .badge-staged { border-color: var(--violet, #a78bfa); color: var(--violet, #a78bfa); }
+
+table.data th, table.data td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+table.data tr:last-child td { border-bottom: 0; }

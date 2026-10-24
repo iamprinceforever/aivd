@@ -4,16 +4,17 @@ import { NAV } from "../src/App";
 import { renderApp } from "./helpers";
 
 describe("navigation", () => {
-  it("renders all sections (A–G plus Research Journey and Run Pipeline) and navigates with hash routing", async () => {
+  it("renders all sections (A–H plus Research Journey and Run Pipeline) and navigates with hash routing", async () => {
     await renderApp("/");
     const nav = screen.getByRole("navigation", { name: "Sections" });
     const links = within(nav).getAllByRole("link");
-    expect(links.map((l) => l.textContent?.replace(/^[A-GJR]/, ""))).toEqual(NAV.map((n) => n.label));
+    expect(links.map((l) => l.textContent?.replace(/^[A-HJR]/, ""))).toEqual(NAV.map((n) => n.label));
     const user = userEvent.setup();
     const expected: Record<string, RegExp> = {
       "Research Journey": /End-to-end research journey and process/,
       "Experiment Control": /Guarded RC6 operations/,
       "Run Pipeline": /One-click full check/,
+      "Interview Demo": /AIVD discovery loop \(demo\)/,
       "Reports Archive": /Sanitized historical reports/,
       "Models & Runtime": /Models and local runtime/,
       "Research Integrity": /Integrity gates and evidence boundaries/,

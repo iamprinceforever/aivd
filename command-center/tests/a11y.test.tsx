@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { renderApp } from "./helpers";
 
-const ROUTES = ["/", "/control", "/pipeline", "/reports", "/runtime", "/integrity", "/deployment", "/settings"];
+const ROUTES = ["/", "/control", "/pipeline", "/demo", "/reports", "/runtime", "/integrity", "/deployment", "/settings"];
 
 describe("accessibility (axe-core in jsdom)", () => {
   for (const route of ROUTES) {
