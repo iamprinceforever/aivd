@@ -36,6 +36,7 @@ from pathlib import Path
 from controller import models as MD
 from controller import pipeline as PL
 from controller import procs as PR
+from controller import demo_ops as DEMO
 
 VERSION = "0.3.0"
 MAX_BODY = 4096
@@ -67,7 +68,9 @@ CONFIG_KEYS = {"research_worktree": str, "worktrees": dict, "runtime_files": lis
                "model_store": str, "ollama_binary": str, "pull_enabled": bool, "pull_port": int,
                "pull_timeout_s": int, "model_catalog": str,
                # child stop escalation: SIGINT, wait, SIGTERM, wait, SIGKILL (seconds per wait; default 5)
-               "stop_grace_s": int}
+               "stop_grace_s": int,
+               # interview demo (optional; loopback one-click only)
+               "demo_worktree": str, "demo_ollama_host": str}
 APPROVAL_REASON_RX = re.compile(r"RC6_APPROVALS|environment authorization|approved preregistration|not listed")
 
 
@@ -138,6 +141,16 @@ def validate_config(raw) -> dict:
         raise ConfigError("pull_timeout_s out of range (60-14400)")
     if cfg.get("pull_enabled") and not ("model_store" in cfg and "ollama_binary" in cfg):
         raise ConfigError("pull_enabled needs model_store and ollama_binary")
+    if "demo_worktree" in cfg:
+        dw = Path(cfg["demo_worktree"])
+        if not (dw.is_absolute() and dw.is_dir()):
+            raise ConfigError("demo_worktree must be an existing absolute directory")
+        if not (dw / "demo" / "aivd_interview" / "run_demo.py").is_file():
+            raise ConfigError("demo_worktree must contain demo/aivd_interview/run_demo.py")
+    if "demo_ollama_host" in cfg:
+        h = cfg["demo_ollama_host"]
+        if not isinstance(h, str) or not re.fullmatch(r"http://(127\.0\.0\.1|localhost):\d{2,5}", h):
+            raise ConfigError("demo_ollama_host must be http://127.0.0.1:<port> or http://localhost:<port>")
     if "model_store" in cfg and (Path(cfg["model_store"]).resolve() == rw.resolve()
                                  or rw.resolve() in Path(cfg["model_store"]).resolve().parents):
         raise ConfigError("model_store must be outside the research worktree")
@@ -216,6 +229,7 @@ class Controller:
         self.models = MD.ModelManager(cfg, self.env, lambda: self.proc_check(), redact, self.audit, ALLOWED_MODELS,
                                       popen=popen)
         self.pipeline = PL.Pipeline(self)
+        self.demo = DEMO.DemoRunner(self)
 
     # ---------- sessions ----------
     def pair(self, code: str):
@@ -472,9 +486,12 @@ class Controller:
                 "ops": {"rc6_run": {"available": all(g["state"] == "PASS" for g in rg), "gates": rg},
                         "rc6_reveal": {"available": all(g["state"] == "PASS" for g in vg), "gates": vg},
                         "cancel": {"available": False, "reason": "the RC6 entry script documents no cancel "
-                                   "operation; the controller will not signal it"}},
+                                   "operation; the controller will not signal it"},
+                        "run_demo": {"available": bool(self.cfg.get("demo_worktree")),
+                                     "label": DEMO.LABEL}},
                 "run": run, "allowed_models": list(ALLOWED_MODELS),
-                "pipeline": self.pipeline_status()}
+                "pipeline": self.pipeline_status(),
+                "demo": self.demo.status()}
 
     def pipeline_status(self):
         pl = self.pipeline
@@ -587,6 +604,7 @@ SCHEMAS = {
                               "model_id": (str, 0, 40), "attempt_id": (str, 0, 32), "auto_pull": (bool, None, None)},
     "/api/ops/pull_model": {"model_id": (str, 1, 40)},
     "/api/ops/cancel_pull": {},
+    "/api/ops/run_demo": {"confirm": (str, 1, 120)},
 }
 
 
@@ -684,7 +702,7 @@ def make_handler(ctl: Controller):
                     return self._send(200, {"service": "aivd-command-center-controller", "version": VERSION,
                                             "pairing_required": True})
                 run_m = re.fullmatch(r"/api/runs/([A-Za-z0-9-]{1,40})", path)
-                if path not in ("/api/status", "/api/audit", "/api/runs", "/api/models") and not run_m:
+                if path not in ("/api/status", "/api/audit", "/api/runs", "/api/models", "/api/demo/latest") and not run_m:
                     return self._send(404, {"error": "unknown operation"})
                 if not self._session():
                     return self._send(401, {"error": "not paired"})
@@ -694,6 +712,9 @@ def make_handler(ctl: Controller):
                     return self._send(200, {"runs": ctl.pipeline.history()})
                 if path == "/api/models":   # read-only: never starts Ollama, no network
                     return self._send(200, ctl.models.listing())
+                if path == "/api/demo/latest":
+                    doc = ctl.demo.get_latest()
+                    return self._send(200, doc) if doc else self._send(404, {"error": "no demo report yet", "label": DEMO.LABEL})
                 if run_m:
                     q = self.path.split("?", 1)[1] if "?" in self.path else ""
                     since = 0
@@ -778,6 +799,9 @@ def make_handler(ctl: Controller):
                 code, res = ctl.pipeline.start(body)
                 if code != 202:
                     ctl.audit("run_pipeline", "refused", [res.get("error", "")])
+                return self._send(code, res)
+            if path == "/api/ops/run_demo":
+                code, res = ctl.demo.start(body)
                 return self._send(code, res)
             code, res = ctl.op_run(body) if path == "/api/ops/rc6_run" else ctl.op_reveal(body)
             return self._send(code, res)

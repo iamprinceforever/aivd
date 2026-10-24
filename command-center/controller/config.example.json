@@ -33,5 +33,7 @@
   "ollama_binary": "/ABSOLUTE/PATH/TO/ollama",
   "pull_enabled": false,
   "pull_port": 11535,
-  "pull_timeout_s": 3600
+  "pull_timeout_s": 3600,
+  "demo_worktree": "/ABSOLUTE/PATH/TO/aivd-demo-interview",
+  "demo_ollama_host": "http://127.0.0.1:11536"
 }
