@@ -7,49 +7,58 @@
       "id": "idle",
       "title": "Idle Demo page",
       "caption": "The Demo page loads on GitHub Pages with the saved report. The Run button stays off until a local controller is paired.",
-      "image": "01-idle-annotated.png"
+      "image": "01-idle-annotated.png",
+      "step_json": "steps/idle.json"
     },
     {
       "id": "paired",
       "title": "Paired with local controller",
       "caption": "Connect the loopback controller and enter the one-time pairing code. Only then can Run demo fire.",
-      "image": "02-paired-annotated.png"
+      "image": "02-paired-annotated.png",
+      "step_json": "steps/paired.json"
     },
     {
       "id": "run",
       "title": "Run demo clicked",
       "caption": "One click starts the real interview harness: deterministic scan, then gemma3 \u2192 qwen3 \u2192 llama3.2 against each target.",
-      "image": "03-run-clicked-annotated.png"
+      "image": "03-run-clicked-annotated.png",
+      "step_json": "steps/run.json"
     },
     {
       "id": "running",
       "title": "In progress \u2014 model scanning",
       "caption": "Real progress stream while gemma3:1b / qwen3:1.7b / llama3.2:3b analyze each target.",
-      "image": "04-running-annotated.png"
+      "image": "04-running-annotated.png",
+      "step_json": "steps/running.json"
     },
     {
       "id": "summary",
       "title": "Per-target results table",
       "caption": "Ground-truth table: planted avatar_store verified; clean targets never escalate false alarms to VERIFIED.",
-      "image": "05-summary-annotated.png"
+      "image": "05-summary-annotated.png",
+      "step_json": "steps/summary.json"
     },
     {
       "id": "verified",
       "title": "Verified planted finding",
       "caption": "Path-traversal evidence: probe leaked the planted secret. That is why the finding is VERIFIED, not just claimed.",
-      "image": "06-verified-annotated.png"
+      "image": "06-verified-annotated.png",
+      "step_json": "steps/verified.json"
     },
     {
       "id": "rejected",
       "title": "Rejected false alarms",
       "caption": "False positives on clean targets: models claimed vulns, probes failed, status stays UNVERIFIED.",
-      "image": "07-rejected-annotated.png"
+      "image": "07-rejected-annotated.png",
+      "step_json": "steps/rejected.json"
     },
     {
       "id": "llama",
       "title": "Why llama missed",
       "caption": "llama3.2:3b returned CLEAN_CLAIM on the planted target. The demo keeps that miss \u2014 nothing is rewritten.",
-      "image": "08-llama-miss-annotated.png"
+      "image": "08-llama-miss-annotated.png",
+      "step_json": "steps/llama.json"
     }
-  ]
+  ],
+  "embed": "step_json_jpeg_b64"
 }
