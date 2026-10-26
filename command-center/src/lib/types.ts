@@ -120,7 +120,14 @@ export interface ControllerStatus {
   run: { state: string; op?: string; elapsed_s?: number; progress?: string; exit_code?: number; summary?: Record<string, unknown> };
   allowed_models: string[];
   pipeline?: { available: boolean; running_run_id: string | null; steps: { id: string; label: string }[] };
-  demo?: { state: string; op?: string; label?: string; summary?: Record<string, unknown>; exit_code?: number };
+  demo?: {
+    state: string;
+    op?: string;
+    label?: string;
+    summary?: Record<string, unknown>;
+    exit_code?: number;
+    progress?: { stage?: string; model?: string; target?: string; detail?: string; label?: string };
+  };
 }
 
 // ---------- one-click pipeline ----------
