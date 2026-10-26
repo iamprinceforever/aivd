@@ -358,3 +358,144 @@ html[data-motion="reduced"] *, html[data-motion="reduced"] *::before, html[data-
 table.data th, table.data td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
 table.data th { color: var(--muted); font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
 table.data tr:last-child td { border-bottom: 0; }
+
+/* —— Sample run walkthrough (static Pages carousel) —— */
+.walkthrough-carousel {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(12, 18, 36, 0.95), rgba(8, 12, 28, 0.98));
+  border: 1px solid rgba(120, 160, 220, 0.22);
+  box-shadow: 0 0 40px rgba(94, 231, 255, 0.08);
+}
+.walkthrough-stage {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #070b16;
+}
+.walkthrough-stage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 62vh;
+  object-fit: contain;
+  background: #05080f;
+}
+.walkthrough-caption {
+  padding: 14px 18px 16px;
+  border-top: 1px solid rgba(120, 160, 220, 0.18);
+  background: rgba(10, 16, 32, 0.92);
+}
+.walkthrough-caption .wt-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-right: 10px;
+  color: #041018;
+  background: linear-gradient(135deg, var(--cyan), var(--violet, #a78bfa));
+  box-shadow: 0 0 16px rgba(94, 231, 255, 0.45);
+}
+.walkthrough-caption h3 {
+  display: inline;
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--text);
+}
+.walkthrough-caption p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.walkthrough-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 12px;
+  border-top: 1px solid rgba(120, 160, 220, 0.14);
+}
+.walkthrough-nav .wt-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1;
+}
+.walkthrough-nav .wt-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(120, 160, 220, 0.35);
+}
+.walkthrough-nav .wt-dot[aria-current="true"] {
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(94, 231, 255, 0.7);
+  width: 22px;
+}
+.walkthrough-nav button.wt-btn {
+  min-width: 84px;
+}
+.walkthrough-carousel:fullscreen,
+.walkthrough-carousel:-webkit-full-screen {
+  background: #05080f;
+  border-radius: 0;
+}
+.walkthrough-carousel:fullscreen .walkthrough-stage img,
+.walkthrough-carousel:-webkit-full-screen .walkthrough-stage img {
+  max-height: calc(100vh - 160px);
+}
+.evidence-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 12px;
+}
+.evidence-card {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(120, 160, 220, 0.22);
+  background: rgba(8, 14, 28, 0.75);
+}
+.evidence-card.verified {
+  border-color: rgba(91, 228, 155, 0.45);
+  box-shadow: 0 0 18px rgba(91, 228, 155, 0.12);
+}
+.evidence-card.rejected {
+  border-color: rgba(255, 160, 90, 0.4);
+}
+.evidence-card h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+}
+.evidence-card pre {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.35);
+  font-size: 0.78rem;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.progress-live {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px dashed rgba(94, 231, 255, 0.45);
+  background: rgba(94, 231, 255, 0.06);
+  font-size: 0.92rem;
+}
+.progress-live strong { color: var(--cyan); }

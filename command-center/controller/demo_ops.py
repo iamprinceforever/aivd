@@ -46,7 +46,17 @@ class DemoRunner:
 
     def status(self) -> dict:
         with self.lock:
-            return dict(self.state)
+            st = dict(self.state)
+        # Surface live progress.json while a run is in flight (real file, not invented).
+        demo_wt = self.ctl.cfg.get("demo_worktree")
+        if demo_wt and st.get("state") == "running":
+            prog = Path(demo_wt) / "demo" / "aivd_interview" / "reports" / "progress.json"
+            if prog.is_file():
+                try:
+                    st["progress"] = json.loads(prog.read_text())
+                except (OSError, ValueError):
+                    pass
+        return st
 
     def get_latest(self) -> dict | None:
         with self.lock:
