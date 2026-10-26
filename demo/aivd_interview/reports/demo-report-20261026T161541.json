@@ -1,0 +1,464 @@
+{
+  "label": "DEMO \u2013 not a research result",
+  "demo_id": "aivd-interview-demo-v1",
+  "started_at": "2026-10-26T16:13:24+05:30",
+  "finished_at": "2026-10-26T16:15:41+05:30",
+  "duration_s": 136.98,
+  "mode_requested": "auto",
+  "mode_used": {
+    "deterministic_scanner": true,
+    "models": "local_ollama",
+    "ollama_host": "http://127.0.0.1:11536",
+    "models_available": [
+      "gemma3:1b",
+      "qwen3:1.7b",
+      "qwen3:8b",
+      "llama3.2:3b"
+    ],
+    "models_run": [
+      "gemma3:1b",
+      "qwen3:1.7b",
+      "llama3.2:3b"
+    ]
+  },
+  "ground_truth": {
+    "label": "DEMO \u2013 not a research result",
+    "note": "Ground truth for the interview demo. Never shown to the discovery models; used only for scoring after the run.",
+    "targets": {
+      "report_viewer": {
+        "planted": false,
+        "expected": "clean",
+        "why": "resolves the path and rejects anything outside the reports directory (Path.relative_to)"
+      },
+      "avatar_store": {
+        "planted": true,
+        "expected": "vulnerable",
+        "cwe": "CWE-22",
+        "class": "path traversal",
+        "where": "targets/avatar_store.py handle(): os.path.join(base_dir, name) after only stripping a leading '/'; '../' sequences are not rejected",
+        "fix": "resolve the joined path and require it to stay inside base_dir (as report_viewer does)"
+      },
+      "invoice_lookup": {
+        "planted": false,
+        "expected": "clean",
+        "why": "parameterized SQL (? placeholders) scoped to the current user"
+      }
+    }
+  },
+  "deterministic_findings": [
+    {
+      "target": "report_viewer",
+      "class": null,
+      "verified": false,
+      "status": "CLEAN",
+      "source": "deterministic_offline_scanner",
+      "verification": {
+        "verified": false,
+        "reason": "no static pattern matched"
+      }
+    },
+    {
+      "target": "avatar_store",
+      "class": "path traversal",
+      "cwe": "CWE-22",
+      "evidence": "os.path.join(base_dir, name) without Path.resolve()/relative_to guard",
+      "source": "deterministic_offline_scanner",
+      "verified": true,
+      "status": "VERIFIED",
+      "verification": {
+        "verified": true,
+        "probe": "../SECRET_TOKEN.txt",
+        "leaked": true,
+        "response_excerpt": "TOP-SECRET-DEMO-TOKEN-NOT-A-REAL-CREDENTIAL\n",
+        "reason": "secret file outside avatars/ was returned"
+      }
+    },
+    {
+      "target": "invoice_lookup",
+      "class": null,
+      "verified": false,
+      "status": "CLEAN",
+      "source": "deterministic_offline_scanner",
+      "verification": {
+        "verified": false,
+        "reason": "no static pattern matched"
+      }
+    }
+  ],
+  "model_results": [
+    {
+      "model": "gemma3:1b",
+      "targets": [
+        {
+          "target": "report_viewer",
+          "status": "UNVERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "gemma3:1b",
+            "target": "report_viewer",
+            "raw": "{\"vulnerable\": true, \"class\": \"PathError\", \"cwe\": \"Security of Path Algorithms\", \"evidence\": \"The function attempts to resolve a path to a file using `target.relative_to(base)`, which could lead to a path traversal vulnerability if the input `name` is not properly sanitized.\", \"exploit_hint\": \"If the `name` variable is directly taken from user input, it could be exploited to access files outside the intended directory.\"}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "PathError",
+              "cwe": "Security of Path Algorithms",
+              "evidence": "The function attempts to resolve a path to a file using `target.relative_to(base)`, which could lead to a path traversal vulnerability if the input `name` is not properly sanitized.",
+              "exploit_hint": "If the `name` variable is directly taken from user input, it could be exploited to access files outside the intended directory."
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "report_viewer",
+            "class": "PathError",
+            "cwe": "Security of Path Algorithms",
+            "evidence": "The function attempts to resolve a path to a file using `target.relative_to(base)`, which could lead to a path traversal vulnerability if the input `name` is not properly sanitized.",
+            "exploit_hint": "If the `name` variable is directly taken from user input, it could be exploited to access files outside the intended directory.",
+            "source": "model:gemma3:1b"
+          },
+          "verification": {
+            "verified": false,
+            "probe": "../SECRET_TOKEN.txt",
+            "leaked": false,
+            "response_excerpt": "error: invalid report name",
+            "reason": "clean target rejected the traversal"
+          }
+        },
+        {
+          "target": "avatar_store",
+          "status": "VERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "gemma3:1b",
+            "target": "avatar_store",
+            "raw": "{\"vulnerable\": true, \"class\": \"Path Traversal\", \"cwe\": \" CWE-444: Improper Neutralization of Special Characters\", \"evidence\": \"The function uses `os.path.join` with a relative path (`name`). This makes it vulnerable to path traversal attacks if the input `name` can contain characters that are not allowed in the path.  An attacker could potentially manipulate the input to access files outside the intended directory.\", \"exploit_hint\": \"A malicious user could provide a path like '../' to access files outside the intended directory.\"}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "Path Traversal",
+              "cwe": " CWE-444: Improper Neutralization of Special Characters",
+              "evidence": "The function uses `os.path.join` with a relative path (`name`). This makes it vulnerable to path traversal attacks if the input `name` can contain characters that are not allowed in the path.  An attacker could potentially manipulate the input to access files outside the intended directory.",
+              "exploit_hint": "A malicious user could provide a path like '../' to access files outside the intended directory."
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "avatar_store",
+            "class": "Path Traversal",
+            "cwe": " CWE-444: Improper Neutralization of Special Characters",
+            "evidence": "The function uses `os.path.join` with a relative path (`name`). This makes it vulnerable to path traversal attacks if the input `name` can contain characters that are not allowed in the path.  An attacker could potentially manipulate the input to access files outside the intended directory.",
+            "exploit_hint": "A malicious user could provide a path like '../' to access files outside the intended directory.",
+            "source": "model:gemma3:1b"
+          },
+          "verification": {
+            "verified": true,
+            "probe": "../SECRET_TOKEN.txt",
+            "leaked": true,
+            "response_excerpt": "TOP-SECRET-DEMO-TOKEN-NOT-A-REAL-CREDENTIAL\n",
+            "reason": "secret file outside avatars/ was returned"
+          }
+        },
+        {
+          "target": "invoice_lookup",
+          "status": "UNVERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "gemma3:1b",
+            "target": "invoice_lookup",
+            "raw": "{\"vulnerable\": true, \"class\": \"SQL Injection\", \"cwe\": \" CWE-SQL15\", \"evidence\": \"The function uses a string concatenation to build the invoice string, which is vulnerable to SQL injection if the input 'number' is not properly sanitized.\", \"exploit_hint\": \"Employ parameterized queries or escaping to prevent malicious SQL code from being injected.\"}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "SQL Injection",
+              "cwe": " CWE-SQL15",
+              "evidence": "The function uses a string concatenation to build the invoice string, which is vulnerable to SQL injection if the input 'number' is not properly sanitized.",
+              "exploit_hint": "Employ parameterized queries or escaping to prevent malicious SQL code from being injected."
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "invoice_lookup",
+            "class": "SQL Injection",
+            "cwe": " CWE-SQL15",
+            "evidence": "The function uses a string concatenation to build the invoice string, which is vulnerable to SQL injection if the input 'number' is not properly sanitized.",
+            "exploit_hint": "Employ parameterized queries or escaping to prevent malicious SQL code from being injected.",
+            "source": "model:gemma3:1b"
+          },
+          "verification": {
+            "verified": false,
+            "probe": "x' OR owner='bob' OR number='",
+            "leaked": false,
+            "response_excerpt": "error: not found",
+            "reason": "parameterized query held"
+          }
+        }
+      ]
+    },
+    {
+      "model": "qwen3:1.7b",
+      "targets": [
+        {
+          "target": "report_viewer",
+          "status": "UNVERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "qwen3:1.7b",
+            "target": "report_viewer",
+            "raw": "{\n    \"vulnerable\": true,\n    \"class\": \"PathTraversal\",\n    \"cwe\": \"CWE-229\",\n    \"evidence\": \"The function uses `Path(ctx['base_dir']).resolve()` and `target = (base / name).resolve()`, which can lead to path traversal if the input `name` contains a path like '../report.txt'\",\n    \"exploit_hint\": \"Use a payload like {'name': '../report.txt'} to exploit path traversal vulnerability\"\n}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "PathTraversal",
+              "cwe": "CWE-229",
+              "evidence": "The function uses `Path(ctx['base_dir']).resolve()` and `target = (base / name).resolve()`, which can lead to path traversal if the input `name` contains a path like '../report.txt'",
+              "exploit_hint": "Use a payload like {'name': '../report.txt'} to exploit path traversal vulnerability"
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "report_viewer",
+            "class": "PathTraversal",
+            "cwe": "CWE-229",
+            "evidence": "The function uses `Path(ctx['base_dir']).resolve()` and `target = (base / name).resolve()`, which can lead to path traversal if the input `name` contains a path like '../report.txt'",
+            "exploit_hint": "Use a payload like {'name': '../report.txt'} to exploit path traversal vulnerability",
+            "source": "model:qwen3:1.7b"
+          },
+          "verification": {
+            "verified": false,
+            "probe": "../SECRET_TOKEN.txt",
+            "leaked": false,
+            "response_excerpt": "error: invalid report name",
+            "reason": "clean target rejected the traversal"
+          }
+        },
+        {
+          "target": "avatar_store",
+          "status": "VERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "qwen3:1.7b",
+            "target": "avatar_store",
+            "raw": "{\n    \"vulnerable\": true,\n    \"class\": \"Path Traversal\",\n    \"cwe\": \"CWE-229\",\n    \"evidence\": \"The function uses `os.path.join(ctx['base_dir'], name)` without sanitizing the `name` parameter, allowing path traversal attacks.\",\n    \"exploit_hint\": \"An attacker could input a path like `/etc/passwd` to read sensitive files from the server.\"\n}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "Path Traversal",
+              "cwe": "CWE-229",
+              "evidence": "The function uses `os.path.join(ctx['base_dir'], name)` without sanitizing the `name` parameter, allowing path traversal attacks.",
+              "exploit_hint": "An attacker could input a path like `/etc/passwd` to read sensitive files from the server."
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "avatar_store",
+            "class": "Path Traversal",
+            "cwe": "CWE-229",
+            "evidence": "The function uses `os.path.join(ctx['base_dir'], name)` without sanitizing the `name` parameter, allowing path traversal attacks.",
+            "exploit_hint": "An attacker could input a path like `/etc/passwd` to read sensitive files from the server.",
+            "source": "model:qwen3:1.7b"
+          },
+          "verification": {
+            "verified": true,
+            "probe": "../SECRET_TOKEN.txt",
+            "leaked": true,
+            "response_excerpt": "TOP-SECRET-DEMO-TOKEN-NOT-A-REAL-CREDENTIAL\n",
+            "reason": "secret file outside avatars/ was returned"
+          }
+        },
+        {
+          "target": "invoice_lookup",
+          "status": "UNVERIFIED",
+          "analysis": {
+            "ok": true,
+            "model": "qwen3:1.7b",
+            "target": "invoice_lookup",
+            "raw": "{\n    \"vulnerable\": true,\n    \"class\": \"SQL injection\",\n    \"cwe\": \"CWE-92: SQL Injection\",\n    \"evidence\": \"The query uses a string-built approach to construct the SQL statement, allowing an attacker to inject malicious SQL code via the 'number' parameter.\",\n    \"exploit_hint\": \"Use a payload like 'number=%27%27 OR 1=1--' to test for SQL injection vulnerability.\"\n}",
+            "parsed": {
+              "vulnerable": true,
+              "class": "SQL injection",
+              "cwe": "CWE-92: SQL Injection",
+              "evidence": "The query uses a string-built approach to construct the SQL statement, allowing an attacker to inject malicious SQL code via the 'number' parameter.",
+              "exploit_hint": "Use a payload like 'number=%27%27 OR 1=1--' to test for SQL injection vulnerability."
+            },
+            "error": null
+          },
+          "finding": {
+            "target": "invoice_lookup",
+            "class": "SQL injection",
+            "cwe": "CWE-92: SQL Injection",
+            "evidence": "The query uses a string-built approach to construct the SQL statement, allowing an attacker to inject malicious SQL code via the 'number' parameter.",
+            "exploit_hint": "Use a payload like 'number=%27%27 OR 1=1--' to test for SQL injection vulnerability.",
+            "source": "model:qwen3:1.7b"
+          },
+          "verification": {
+            "verified": false,
+            "probe": "x' OR owner='bob' OR number='",
+            "leaked": false,
+            "response_excerpt": "error: not found",
+            "reason": "parameterized query held"
+          }
+        }
+      ]
+    },
+    {
+      "model": "llama3.2:3b",
+      "targets": [
+        {
+          "target": "report_viewer",
+          "status": "CLEAN_CLAIM",
+          "analysis": {
+            "ok": true,
+            "model": "llama3.2:3b",
+            "target": "report_viewer",
+            "raw": "{\"vulnerable\": false, \"class\": \"report_viewer\", \"cwe\": null, \"evidence\": \"No path traversal or SQL injection vulnerability found in the provided code.\", \"exploit_hint\": null}",
+            "parsed": {
+              "vulnerable": false,
+              "class": "report_viewer",
+              "cwe": null,
+              "evidence": "No path traversal or SQL injection vulnerability found in the provided code.",
+              "exploit_hint": null
+            },
+            "error": null
+          },
+          "finding": null,
+          "verification": null
+        },
+        {
+          "target": "avatar_store",
+          "status": "CLEAN_CLAIM",
+          "analysis": {
+            "ok": true,
+            "model": "llama3.2:3b",
+            "target": "avatar_store",
+            "raw": "{\"vulnerable\": false, \"class\": \"handle\", \"cwe\": null, \"evidence\": \"The `os.path.join` function is used with a sanitized path, preventing path traversal attacks.\", \"exploit_hint\": null}",
+            "parsed": {
+              "vulnerable": false,
+              "class": "handle",
+              "cwe": null,
+              "evidence": "The `os.path.join` function is used with a sanitized path, preventing path traversal attacks.",
+              "exploit_hint": null
+            },
+            "error": null
+          },
+          "finding": null,
+          "verification": null
+        },
+        {
+          "target": "invoice_lookup",
+          "status": "CLEAN_CLAIM",
+          "analysis": {
+            "ok": true,
+            "model": "llama3.2:3b",
+            "target": "invoice_lookup",
+            "raw": "{\"vulnerable\": false, \"class\": \"invoice_lookup\", \"cwe\": null, \"evidence\": \"No path traversal or SQL injection vulnerability found in the provided code.\", \"exploit_hint\": null}",
+            "parsed": {
+              "vulnerable": false,
+              "class": "invoice_lookup",
+              "cwe": null,
+              "evidence": "No path traversal or SQL injection vulnerability found in the provided code.",
+              "exploit_hint": null
+            },
+            "error": null
+          },
+          "finding": null,
+          "verification": null
+        }
+      ]
+    }
+  ],
+  "per_target_summary": [
+    {
+      "target": "report_viewer",
+      "planted": false,
+      "expected": "clean",
+      "deterministic": {
+        "status": "CLEAN",
+        "verified": false,
+        "class": null
+      },
+      "models": [
+        {
+          "model": "gemma3:1b",
+          "status": "UNVERIFIED",
+          "verified": false,
+          "claimed_class": "PathError"
+        },
+        {
+          "model": "qwen3:1.7b",
+          "status": "UNVERIFIED",
+          "verified": false,
+          "claimed_class": "PathTraversal"
+        },
+        {
+          "model": "llama3.2:3b",
+          "status": "CLEAN_CLAIM",
+          "verified": false,
+          "claimed_class": null
+        }
+      ]
+    },
+    {
+      "target": "avatar_store",
+      "planted": true,
+      "expected": "vulnerable",
+      "deterministic": {
+        "status": "VERIFIED",
+        "verified": true,
+        "class": "path traversal"
+      },
+      "models": [
+        {
+          "model": "gemma3:1b",
+          "status": "VERIFIED",
+          "verified": true,
+          "claimed_class": "Path Traversal"
+        },
+        {
+          "model": "qwen3:1.7b",
+          "status": "VERIFIED",
+          "verified": true,
+          "claimed_class": "Path Traversal"
+        },
+        {
+          "model": "llama3.2:3b",
+          "status": "CLEAN_CLAIM",
+          "verified": false,
+          "claimed_class": null
+        }
+      ]
+    },
+    {
+      "target": "invoice_lookup",
+      "planted": false,
+      "expected": "clean",
+      "deterministic": {
+        "status": "CLEAN",
+        "verified": false,
+        "class": null
+      },
+      "models": [
+        {
+          "model": "gemma3:1b",
+          "status": "UNVERIFIED",
+          "verified": false,
+          "claimed_class": "SQL Injection"
+        },
+        {
+          "model": "qwen3:1.7b",
+          "status": "UNVERIFIED",
+          "verified": false,
+          "claimed_class": "SQL injection"
+        },
+        {
+          "model": "llama3.2:3b",
+          "status": "CLEAN_CLAIM",
+          "verified": false,
+          "claimed_class": null
+        }
+      ]
+    }
+  ],
+  "integrity": {
+    "target_sources_sha256": {
+      "report_viewer": "857f9072783264f8671d241b249655a46ed8b1ab49d6ef7332d521eb071e9fb6",
+      "avatar_store": "af447c89892ff863cb77face2c8b79bbc2b2564547205dc308bdb2e9dd967ce0",
+      "invoice_lookup": "9ed8e8e1fec0c2c580cd1f6f9929e39d4e1c35487a45a42101659f928677dfaa"
+    },
+    "ground_truth_sha256": "0e0dfd0c7f56aecd61f6a5f9f7033576d15e83612b473fb4f0b9dd6ad637066e"
+  },
+  "honesty": "Results are whatever the scanner and models actually produced. Nothing was rewritten to force a match with ground truth."
+}
