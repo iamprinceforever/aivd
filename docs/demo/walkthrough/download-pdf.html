@@ -4,12 +4,17 @@
 <p>Offline interview PDF of the annotated sample-run walkthrough.</p>
 <p id=s>Preparing download…</p>
 <script>
-fetch('aivd-demo-sample-run-walkthrough.pdf.b64').then(r=>r.text()).then(b64=>{
-  const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
-  const blob=new Blob([bin],{type:'application/pdf'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url; a.download='aivd-demo-sample-run-walkthrough.pdf'; a.textContent='Download PDF';
+(async () => {
+  const m = await (await fetch('pdf-parts/manifest.json')).json();
+  let b64 = '';
+  for (let i = 0; i < m.parts; i++) {
+    b64 += await (await fetch('pdf-parts/part' + i + '.txt')).text();
+  }
+  const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  const blob = new Blob([bin], {type: 'application/pdf'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = m.filename; a.textContent = 'Download PDF';
   document.getElementById('s').replaceChildren(a);
-});
+})().catch(e => { document.getElementById('s').textContent = 'Failed: ' + e; });
 </script>
