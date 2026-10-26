@@ -1,0 +1,15 @@
+<!doctype html><meta charset=utf-8><title>DEMO walkthrough PDF</title>
+<style>body{font-family:system-ui;background:#070b16;color:#e8f0ff;padding:2rem}a{color:#5ee7ff}</style>
+<p><span style="color:#ffcf66">DEMO – not a research result</span></p>
+<p>Offline interview PDF of the annotated sample-run walkthrough.</p>
+<p id=s>Preparing download…</p>
+<script>
+fetch('aivd-demo-sample-run-walkthrough.pdf.b64').then(r=>r.text()).then(b64=>{
+  const bin=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+  const blob=new Blob([bin],{type:'application/pdf'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url; a.download='aivd-demo-sample-run-walkthrough.pdf'; a.textContent='Download PDF';
+  document.getElementById('s').replaceChildren(a);
+});
+</script>
