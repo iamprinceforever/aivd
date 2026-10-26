@@ -1,6 +1,6 @@
 # DEMO – not a research result: AIVD interview demo explainer
 
-_Generated 2026-10-24T17:57:50+05:30 (Asia/Calcutta)._ Demo id `aivd-interview-demo-v1`.
+_Generated 2026-10-26T16:15:41+05:30 (Asia/Calcutta)._ Demo id `aivd-interview-demo-v1`.
 
 ## What AIVD is
 
@@ -38,7 +38,7 @@ parameterized SQL scoped to the current user.
 
 - **Deterministic offline scanner:** always on. Looks for the unsafe `os.path.join`
   pattern (and string-built SQL), then **live-verifies** by calling the target in the sandbox.
-- **Models:** mode requested `models`; models mode used:
+- **Models:** mode requested `auto`; models mode used:
   `local_ollama`. Models run: `['gemma3:1b', 'qwen3:1.7b', 'llama3.2:3b']`.
   Each model saw only the source of one target at a time and returned a JSON claim;
   claims were verified the same way (no trust in the model’s word alone).
@@ -80,5 +80,5 @@ parameterized SQL scoped to the current user.
 }
 ```
 
-_Duration: 52.752s. Results are whatever the scanner and models actually produced. Nothing was rewritten to force a match with ground truth._
+_Duration: 136.98s. Results are whatever the scanner and models actually produced. Nothing was rewritten to force a match with ground truth._
 
